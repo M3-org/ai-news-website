@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-10",
+  "headlines": [
+    "ElizaOS V2 launches with 40% lower latency and multi-agent Swarms",
+    "New Form Plugin enables enhanced UI interactions across platform",
+    "Google Generative AI plugin installation issues resolved",
+    "Critical Bootstrap Plugin bug: Missing runtime.startRun() method",
+    "Community debates AI16Z token utility in ElizaOS V2",
+    "Hosted platform and payment layer planned for revenue generation",
+    "Plugin compatibility issues emerge between ElizaOS v1.x and v2",
+    "Documentation overhaul implements new two-track system",
+    "Agent-to-Agent Marketplace announced with AI16Z settlement",
+    "Installation dependency errors affecting new user onboarding",
+    "Partners raise concerns over token integration strategy",
+    "Cross-chain support and RAG capabilities added to platform"
+  ],
+  "separator": "     "
+}

@@ -1,0 +1,126 @@
+{
+  "briefing_date": "2025-06-30",
+  "overall_summary": "ElizaOS development continues with a focus on enhancing plugin architecture and fixing critical issues, including a significant bug fix for large character files and improved documentation for essential plugin requirements.",
+  "categories": {
+    "twitter_news_highlights": [],
+    "github_updates": {
+      "new_issues_prs": [
+        {
+          "item_type": "pull_request",
+          "title": "fix: increase character file size limit to 2MB",
+          "number": 5308,
+          "url": "https://github.com/elizaos/eliza/pull/5308",
+          "status": "merged",
+          "author": "wtfsayo",
+          "significance": "Critical bug fix that resolves user-reported issues with saving large character files"
+        },
+        {
+          "item_type": "pull_request",
+          "title": "docs: enhance plugin-bootstrap requirements documentation",
+          "number": 5309,
+          "url": "https://github.com/elizaos/eliza/pull/5309",
+          "status": "merged",
+          "author": "wtfsayo",
+          "significance": "Important documentation improvement clarifying core agent functionality requirements"
+        },
+        {
+          "item_type": "issue",
+          "title": "Can't save character",
+          "number": 5268,
+          "url": "https://github.com/elizaos/eliza/issues/5268",
+          "status": "open",
+          "author": "NBFinanceTech",
+          "significance": "User-reported critical issue where character files larger than 100KB could not be saved"
+        }
+      ],
+      "overall_focus": [
+        {
+          "claim": "The development team focused on improving system stability and enhancing user guidance, with key efforts centered on fixing a critical bug preventing the saving of large character files and improving documentation for core plugin requirements.",
+          "source": [
+            "github_summaries_week_latest_2025-06-29.md.content"
+          ]
+        },
+        {
+          "claim": "Recent work has included significant architectural improvements with a shift from project-scoped to agent-scoped plugin architecture.",
+          "source": [
+            "github_extracted_data_monthly_stats_text_2025-06"
+          ]
+        }
+      ]
+    },
+    "discord_updates": [
+      {
+        "channel": "#elizaos-discord",
+        "summary": "Users are experiencing issues with saving character files and discussing the latest ElizaOS release (v1.0.14). There are ongoing discussions about token economics transitioning from donation-based to transaction-oriented mechanisms.",
+        "key_participants": [
+          "DorianD",
+          "Kenk",
+          "sayonara",
+          "BobbyWorld88",
+          "wookosh"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-28.content"
+        ]
+      },
+      {
+        "channel": "#elizaos-discord",
+        "summary": "Users discussed ElizaOS releases v1.0.14 and v1.0.15, with some experiencing database schema issues during upgrades. The community also debated the current status of ai16z as a DAO and clarified that the correct branding is 'elizaOS' with a lowercase 'e'.",
+        "key_participants": [
+          "jin",
+          "hildi",
+          "Borko",
+          "Odilitime",
+          "sayonara",
+          "wookosh"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ]
+      }
+    ],
+    "user_feedback": [
+      {
+        "feedback_summary": "Users are experiencing issues saving character files larger than 100KB due to server limitations, which has been addressed in PR #5308.",
+        "source": [
+          "github_summaries_week_latest_2025-06-29.md.content",
+          "github_extracted_data_monthly_stats_text_2025-06"
+        ],
+        "sentiment": "negative"
+      },
+      {
+        "feedback_summary": "Users are confused about essential plugin requirements, leading to improvements in documentation to clarify that plugin-bootstrap is mandatory for core agent functionality.",
+        "source": [
+          "github_summaries_week_latest_2025-06-29.md.content"
+        ],
+        "sentiment": "neutral"
+      },
+      {
+        "feedback_summary": "Some users are experiencing database schema issues during upgrades between versions 1.0.9 to 1.0.15 related to inconsistent column naming conventions.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ],
+        "sentiment": "negative"
+      }
+    ],
+    "strategic_insights": [
+      {
+        "theme": "Shift to agent-scoped plugin architecture",
+        "insight": "ElizaOS is transitioning from project-scoped plugins to agent-scoped plugins, allowing different agents to use different plugin sets rather than forcing all to share the same plugins.",
+        "implications_or_questions": [
+          "How will this affect existing projects?",
+          "Will this require significant migration effort from users?"
+        ]
+      },
+      {
+        "theme": "Potential tokenomics shift toward transaction-based model",
+        "insight": "Discussions about potential tokenomics changes from donation-based to transaction-oriented mechanisms indicate a possible strategic pivot in the project's revenue model.",
+        "implications_or_questions": [
+          "How will community members respond to the introduction of transaction fees?",
+          "What will be the impact on adoption rates?"
+        ]
+      }
+    ],
+    "market_analysis": []
+  }
+}

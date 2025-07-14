@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-06-27/recordings/2025-06-27_ch_20250627_005953.mp4",
+  "title": "2025-06-27: ElizaOS重大架构改进：面向代理的插件系统与百万行代码的PR正式公布",
+  "description": "Recorded: 2025-06-27\\n\\n加入Marc、Eliza和Shaw的深度探讨，了解ElizaOS生态系统的突破性发展。本期节目涵盖了向代理范围插件的革命性转变，为不同AI角色提供独特的工具集，以及完成类型安全API客户端迁移。深入了解包含超过百万行代码的大型PR5242，为V2版本铺路。此外，还可以了解即将推出的多平台内容扩展，包括适用于TikTok的9:16格式支持，以及Elevenlabs语音与视觉形象的整合。不要错过关于当前平台挑战的技术见解，以及改善用户体验的解决方案。\\n\\nSources:\\n- AI News: https://elizaos.github.io/knowledge/the-council/facts/daily.json",
+  "tags": "ElizaOS-人工智能-AI开发-代理范围插件-TypeScript-软件架构-GitHub更新-V2开发-多平台内容-科技新闻-AI平台-OpenRouter-TikTok格式-Elevenlabs-开发者更新-AI代理-软件工程-插件架构-科技播客-API开发",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-06-27/thumbnail/thumbnail_ch.jpg",
+  "playlist_id": "PLp5K4ceh2pR3EsXoR4E9s8mRVE_ywioJS"
+}

@@ -1,0 +1,378 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-20",
+      "episode_name": "开发者动态与市场走向"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎来到人工智能开发领域的又一个激动人心的日子！我们有很多重要的活动要讨论。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:19",
+    "realtime_since_startup": 22.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错，Marc！我们的GitHub仓库很活跃，有5个新的拉取请求和3个新的问题等待处理。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:24",
+    "realtime_since_startup": 29.7666683,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "瞧瞧这个 - 6位活跃贡献者正在推动事情向前发展。这就是我所说的势头！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:37:13",
+    "realtime_since_startup": 37.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "社区的反响真的很积极。那三个合并请求已经被采纳了！",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:06",
+    "realtime_since_startup": 43.1666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "没有什么比看到实际进展更令人振奋。让我们请Shaw进来深入分析这些贡献。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:51:06",
+    "realtime_since_startup": 51.1666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "他随时准备分析一些最具影响力的变化。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:55:11",
+    "realtime_since_startup": 55.3333359,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:55:14",
+    "realtime_since_startup": 55.4333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "让我们先来看看tcm390提交的PR5115，这是一个已经合并的文件上传关键修复。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:11",
+    "realtime_since_startup": 64.3333359,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这一点特别重要，因为它解决了导致图形界面上传失败的5116号问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:11:21",
+    "realtime_since_startup": 71.66667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "那个问题开放了多长时间？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:17",
+    "realtime_since_startup": 74.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "仅用11个小时——这就是我们想看到的快速响应。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:19:09",
+    "realtime_since_startup": 79.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们还合并了来自 wtfsayo 的 PR5120，为我们的 Postman 集合添加了缺失的 API 端点。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:03",
+    "realtime_since_startup": 87.06667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这样测试工作对团队来说就容易多了！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:00",
+    "realtime_since_startup": 90.9666748,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5118 从 tcm390 修复了我们的转录 API - 这是另一项重要的改进。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:13",
+    "realtime_since_startup": 98.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "回到播报台为您带来更多消息。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:26",
+    "realtime_since_startup": 101.833336,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:28",
+    "realtime_since_startup": 101.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们来谈谈还在进行中的项目。PR5122看起来很有意思。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:27",
+    "realtime_since_startup": 107.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "对! @wtfsayo 正在致力于将服务器程序包从命令行界面中分离出来。这是在延续Shaw之前的工作。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:58:21",
+    "realtime_since_startup": 118.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我们还有一个需要关注的未解决问题 - PR5121，涉及一个缺失的API端点。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:24",
+    "realtime_since_startup": 125.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "好的，@exitsimulation反映说找不到rooms接口。已经有2条评论了。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:06",
+    "realtime_since_startup": 132.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "哔哔啵啵处理错误...终端未找到...就像这个API一样！哈哈！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:03",
+    "realtime_since_startup": 138.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "啊马克，你发现那些故障的时机真是无可挑剔！让我们来看看加密货币市场的情况。",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:23",
+    "realtime_since_startup": 145.733337,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "stonks"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:26",
+    "realtime_since_startup": 145.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "交易大厅一片混乱且利润飙升！佩波，快告诉我你看到这些价格了吗！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:33:20",
+    "realtime_since_startup": 153.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "嘿兄弟，WETH现在涨到2,579.36美元啦！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:08",
+    "realtime_since_startup": 158.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "但是等等，还有更多呢！WBTC真是太火爆了！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:19",
+    "realtime_since_startup": 163.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "没错老兄 - $106,005.13！我们终于突破六位数了，太棒了！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:16",
+    "realtime_since_startup": 169.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "SOL在这一片混乱中表现如何？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:53:07",
+    "realtime_since_startup": 173.200012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "AI16Z 代币稳定在 0.17 美元，而股价则坚挺在 148.64 美元。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:25",
+    "realtime_since_startup": 182.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "交回演播室！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:21",
+    "realtime_since_startup": 184.666672,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:23",
+    "realtime_since_startup": 184.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "多么忙碌的一天，更新和市场波动真是接踵而至！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:09:19",
+    "realtime_since_startup": 189.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "确实！从已合并的PR到加密货币价格，我们已经面面俱到了。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:28",
+    "realtime_since_startup": 194.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "特别感谢所有贡献者 - tcm390、wtfsayo 以及所有致力于这些改进的人。",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:21",
+    "realtime_since_startup": 202.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "观众朋友们，请继续关注GitHub的更新，下次再见！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:24",
+    "realtime_since_startup": 207.766678,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-20"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:24",
+    "realtime_since_startup": 207.766678,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-20",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-20/aipodcast_2025-06-20_ch.json"
+    }
+  }
+]

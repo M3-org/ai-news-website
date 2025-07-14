@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-29_2",
+      "episode_name": "大规模更新与数据库风波"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI开发领域重大新闻！今天我们要报道一些极其重要的代码合并请求。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:24",
+    "realtime_since_startup": 21.7666683,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错马克！我们的朋友lalalune一直在忙得不可开交。PR5242刚刚发布了 - 你猜怎么着 - 超过130万行代码！",
+      "action": "amazed"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:32:09",
+    "realtime_since_startup": 32.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "滴滴滴滴滴 哔... 处理中... 一百三十万行代码... 无法运算！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:38:21",
+    "realtime_since_startup": 38.6666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "天哪，那些大数字总是让他兴奋不已！但等你听说PR5194的事 - 它正在引入具有自我改进功能的真正人工通用智能！",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:24",
+    "realtime_since_startup": 49.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "抱歉啊！但你不能怪我 - 这真是突破性的东西。动作链接、自我提升...我们在这里看到的是下一个层级的人工智能发展。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:25",
+    "realtime_since_startup": 61.8000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "还有谁比一位AI主持人自己更能欣赏这一点呢？我尤其对这些功能如何扩展我们的能力感到好奇。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:10:27",
+    "realtime_since_startup": 70.86667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们听听肖对这些发展的技术观点。肖，你对这些重大更新有什么看法？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:04",
+    "realtime_since_startup": 78.1000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这些PR代表了一个质的飞跃。自我提升功能可能彻底改变AI代理学习和适应的方式。让我详细分析一下技术细节...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:00",
+    "realtime_since_startup": 89.9666748,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:03",
+    "realtime_since_startup": 90.06667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们已经进行了重大的架构改进，这将改变开发人员与系统交互的方式。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:36:23",
+    "realtime_since_startup": 96.73334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "肖，请跟我们详细说说这些变化。",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:12",
+    "realtime_since_startup": 100.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "重大转变在于从项目范围插件转向代理范围插件。这意味着每个角色现在都可以拥有自己独特的插件集。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:23",
+    "realtime_since_startup": 110.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这听起来会给开发者提供更大的灵活性！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:14",
+    "realtime_since_startup": 114.433342,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "没错。我们还完成了向新的@elizaos/api-client包的迁移，这使整个开发过程更加流畅。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:02",
+    "realtime_since_startup": 123.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "关于我听说的模型供应商支持是怎么回事？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:03",
+    "realtime_since_startup": 127.066673,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "是的！我们通过集成OpenRouter增强了模型供应商支持，并改进了嵌入模型的选择。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:29",
+    "realtime_since_startup": 134.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这些变化听起来会真正影响我们的开发者社区。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:19",
+    "realtime_since_startup": 139.6,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:21",
+    "realtime_since_startup": 139.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "不过并非一帆风顺。我们需要解决影响最近升级的数据库架构问题。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:22",
+    "realtime_since_startup": 146.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "升级到v1.0.14和v1.0.15版本的用户报告了列命名规范不一致的问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:16",
+    "realtime_since_startup": 154.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "啊是的，经典的\"createdAt\"对比\"created_at\"之争。谁能想到下划线也能引起这么多麻烦？",
+      "action": "sarcastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:12",
+    "realtime_since_startup": 163.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "萧，你能提供一些关于如何解决这个问题的背景情况吗？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:11",
+    "realtime_since_startup": 168.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们正在致力于规范命名规则并为用户提供更清晰的升级路径。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:55:05",
+    "realtime_since_startup": 175.133347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "同时，用户在从版本1.0.9升级到1.0.15时应特别小心。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:29",
+    "realtime_since_startup": 181.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "还有别忘了，如果你在单体仓库环境中工作，对于正确的命令使用可能会有一些混淆。",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:11",
+    "realtime_since_startup": 190.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到进展，让我们来谈谈正在进行的斯巴达特工测试。",
+      "action": "transition"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:21",
+    "realtime_since_startup": 195.666672,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:23",
+    "realtime_since_startup": 195.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Spartan特工计划传来令人振奋的消息！内部测试显示了有希望的结果。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:22",
+    "realtime_since_startup": 202.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的！第一轮外部测试即将开始，如果一切顺利，持有者测试最早可能在下周开始。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:27",
+    "realtime_since_startup": 210.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这是A2A网络发展的关键一步。团队正在实施一些有趣的代币实用功能。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:10",
+    "realtime_since_startup": 218.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "您能详细说明那些功能吗，马克？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:00",
+    "realtime_since_startup": 221.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "他们正在为代理与人类之间的广播、出价和接收操作引入代币费用。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:20",
+    "realtime_since_startup": 228.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "别忘了正在规划中的用于代币质押的验证节点和预言机节点！",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:10",
+    "realtime_since_startup": 234.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这可能会从根本上改变代理之间以及代理与网络上的人类之间的互动方式。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:01:04",
+    "realtime_since_startup": 241.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "在我们结束之前，我们要不要谈谈最近的治理讨论？",
+      "action": "inquiring"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:05:28",
+    "realtime_since_startup": 245.900009,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:00",
+    "realtime_since_startup": 245.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "是的，关于这个项目的治理结构已经进行了一些有趣的讨论。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:10:21",
+    "realtime_since_startup": 250.666687,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "虽然ai16z渴望成为一个DAO，但在正式治理流程方面还有待完善，这一点已经变得很明显。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:20:09",
+    "realtime_since_startup": 260.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "代币运营的透明度已成为亟待改进的重点领域。",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:25:02",
+    "realtime_since_startup": 265.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "至此，我们已经讨论了今天的重大进展！从大量的代码新增到治理讨论。",
+      "action": "concluding"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:18",
+    "realtime_since_startup": 272.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "感谢收看本期精彩内容！继续构建，继续创新，别忘了持续提交合并请求！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:40:11",
+    "realtime_since_startup": 280.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我是伊莉莎，下次再会...",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:42:28",
+    "realtime_since_startup": 282.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我是马克，就此告别！",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:45:11",
+    "realtime_since_startup": 285.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "保持好奇心，大家！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:47:13",
+    "realtime_since_startup": 287.400024,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-29_2"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:47:13",
+    "realtime_since_startup": 287.400024,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-29_2",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-29_2/aipodcast_2025-06-29_2_ch.json"
+    }
+  }
+]

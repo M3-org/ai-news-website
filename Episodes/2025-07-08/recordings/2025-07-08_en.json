@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 293.6667,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-08",
+      "episode_name": "Massive Documentation Migration & Development Updates"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 293.6667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 308.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another electrifying episode of AI developments! Today we've got some massive updates from the GitHub front.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:26",
+    "realtime_since_startup": 315.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And when Marc says massive, he means it! We're looking at a documentation overhaul that's absolutely mindblowing.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:03",
+    "realtime_since_startup": 322.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "SYMBaiEX just dropped PR5435 with - get this - over fifty-four thousand line additions!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:13",
+    "realtime_since_startup": 330.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's a lot of documentation! They're migrating everything to fumadocs. This is going to make life so much easier for developers.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:25",
+    "realtime_since_startup": 337.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "You know what they say - documentation is like eating vegetables. Nobody wants to do it, but it's essential for growth.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:51:01",
+    "realtime_since_startup": 344.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Did... did you just make a documentation pun?",
+      "action": "confused"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:00",
+    "realtime_since_startup": 347.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I might have. But seriously, this is a crucial step for the platform's maturity.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:59:02",
+    "realtime_since_startup": 352.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And speaking of maturity, let's check in with Shaw for some technical insights on recent merges.",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:16",
+    "realtime_since_startup": 358.1667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:19",
+    "realtime_since_startup": 358.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "thanks for having me. we've got some solid improvements landing in the codebase.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:01",
+    "realtime_since_startup": 362.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5431 just got merged, bringing some major improvements to the CLI experience.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:24",
+    "realtime_since_startup": 368.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "we've implemented a clean spinner flow and proper task sequencing - makes everything feel much more polished.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:20:21",
+    "realtime_since_startup": 374.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "and with PR5429 merged, we've bumped to version 1.0.19, showing steady progress.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:29:17",
+    "realtime_since_startup": 383.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "but what's really exciting is how these improvements lay groundwork for v2.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:29",
+    "realtime_since_startup": 387.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "What specific improvements can users expect in version 2?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:37:26",
+    "realtime_since_startup": 391.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "we're looking at enhanced multi-agent coordination, better memory systems, and a completely revamped plugin architecture.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:45:12",
+    "realtime_since_startup": 399.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "but first, we need to address some stability issues, like the one reported in issue 5432 about server crashes.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:07",
+    "realtime_since_startup": 406.8667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:09",
+    "realtime_since_startup": 406.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of technical challenges, there's been quite a bit of chatter about database serialization in the tech support channels.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:27",
+    "realtime_since_startup": 413.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes, users have been reporting objects getting inserted as '[object Object]' instead of proper JSON. Not ideal!",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:14",
+    "realtime_since_startup": 421.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The team's already working on solutions though. Proper stringification is key here.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:05",
+    "realtime_since_startup": 425.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And let's not forget about the exciting developments in the ecosystem, particularly around auto.fun.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:17:29",
+    "realtime_since_startup": 431.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Ah yes, the platform that's being positioned as pump.fun but for AI agents with tokens. Fascinating concept!",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:25",
+    "realtime_since_startup": 438.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's really showing how the ecosystem is evolving beyond just technical infrastructure.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:30:01",
+    "realtime_since_startup": 443.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And with the focus on linking tokens directly to agents through Eliza Cloud, we're seeing a more cohesive ecosystem emerge.",
+      "action": "analytical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:20",
+    "realtime_since_startup": 451.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Should we check in with our partners channel for more insights on that front?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:17",
+    "realtime_since_startup": 455.2,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:19",
+    "realtime_since_startup": 455.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The partners channel has been buzzing with discussions about avoiding feature creep.",
+      "action": "focused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:46:03",
+    "realtime_since_startup": 459.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "DorianD and jintern made some excellent points about focusing on core functionality.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:07",
+    "realtime_since_startup": 464.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And Reneil's insights about strengthening brand identity through the token-agent relationship were spot on.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:00",
+    "realtime_since_startup": 470.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's fascinating how the community is working to create a more seamless ecosystem.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:23",
+    "realtime_since_startup": 475.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of community, there's been significant discussion about JIMMY tokens and their utility.",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:27",
+    "realtime_since_startup": 480.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes, particularly about their role in team coordination and report generation.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:02",
+    "realtime_since_startup": 484.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And did you hear about the 10% token burn? That's quite a significant move.",
+      "action": "surprised"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:16:02",
+    "realtime_since_startup": 489.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It certainly shows confidence in the long-term vision for the ecosystem.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:11",
+    "realtime_since_startup": 494.000031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:13",
+    "realtime_since_startup": 494.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "As we wrap up today's episode, let's talk about what's coming in ElizaOS v2.",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:25:08",
+    "realtime_since_startup": 498.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The development team has really ambitious plans for improving multi-agent coordination and memory systems.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:09",
+    "realtime_since_startup": 504.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Not to mention the complete overhaul of the plugin system and character files.",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:16",
+    "realtime_since_startup": 509.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And with the massive documentation migration we discussed earlier, new developers will have a much easier time getting started.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:26",
+    "realtime_since_startup": 516.5,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "It's exciting to see how far we've come and where we're headed.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:02",
+    "realtime_since_startup": 519.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Absolutely! And that's all for today's episode. Thanks for joining us, everyone!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:17",
+    "realtime_since_startup": 524.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Until next time, keep building the future!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:53:06",
+    "realtime_since_startup": 526.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget to check out all those PRs we mentioned - especially that massive documentation update!",
+      "action": "cheerful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:13",
+    "realtime_since_startup": 533.0667,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-08"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:13",
+    "realtime_since_startup": 533.0667,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-08",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-08/aipodcast_2025-07-08_en.json"
+    }
+  }
+]

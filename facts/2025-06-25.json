@@ -1,0 +1,214 @@
+{
+  "briefing_date": "2025-06-25",
+  "overall_summary": "ElizaOS faces community trust issues over suspected DAO token sales while continuing active development of V2, with multiple technical issues reported in plugins and concerns about the project's Twitter account suspension.",
+  "categories": {
+    "twitter_news_highlights": [],
+    "github_updates": {
+      "new_issues_prs": [
+        {
+          "item_type": "pull_request",
+          "title": "Eliza (AGI)",
+          "number": 5194,
+          "url": "https://github.com/elizaos/eliza/pull/5194",
+          "status": "open",
+          "author": "lalalune",
+          "significance": "Major PR adding everything needed to enable Eliza as a generally capable and intelligent agent with self-improvement capabilities"
+        },
+        {
+          "item_type": "pull_request",
+          "title": "feat: Split server package from CLI (continued shaw's PR)",
+          "number": 5122,
+          "url": "https://github.com/elizaos/eliza/pull/5122",
+          "status": "merged",
+          "author": "wtfsayo",
+          "significance": "Architectural improvement separating server functionality into its own package while maintaining backward compatibility"
+        },
+        {
+          "item_type": "issue",
+          "title": "Knowledge management (RAG) not working (implemented) in 1.0.6",
+          "number": 5004,
+          "url": "https://github.com/elizaos/eliza/issues/5004",
+          "status": "closed",
+          "author": "harperaa",
+          "significance": "Critical feature not working properly in the current version"
+        },
+        {
+          "item_type": "issue",
+          "title": "Callback from plugin action not making it to end user response in chat",
+          "number": 5017,
+          "url": "https://github.com/elizaos/eliza/issues/5017",
+          "status": "closed",
+          "author": "jonathanprozzi",
+          "significance": "Important bug affecting user experience with plugin actions"
+        }
+      ],
+      "overall_focus": [
+        {
+          "claim": "The ElizaOS team is focused on modularizing the framework through server functionality separation, expanding AI provider options, enhancing testing coverage, and fixing compatibility issues, particularly for Windows users.",
+          "source": [
+            "github_summaries_week_latest_2025-06-15.md.content"
+          ]
+        },
+        {
+          "claim": "June development has been transformative with architectural improvements including API domain reorganization, improved plugin management, enhanced character validation, and UI/UX improvements.",
+          "source": [
+            "github_summaries_month_latest_2025-06-01.md.content"
+          ]
+        },
+        {
+          "claim": "The codebase saw substantial activity in June with 315 new PRs (257 merged), 56 new issues, and 68 active contributors making over 193,000 line additions and 114,000 deletions.",
+          "source": [
+            "github_extracted_data_monthly_stats_text_2025-06"
+          ]
+        }
+      ]
+    },
+    "discord_updates": [
+      {
+        "channel": "#general",
+        "summary": "Community members expressed significant concern over 40M $degenai tokens reportedly transferred from the DAO treasury to a personal wallet followed by selling, causing the token to reach a new all-time low. The team explained tokens were sold to add to liquidity pools and would be replenished through daos.fun AUM.",
+        "key_participants": [
+          "\u8f9e\u5c18\u9e3d\u9e3d",
+          "\u5154\u5154\u5927\u5bcc",
+          "jasyn_bjorn",
+          "\ud83d\udd25\ud83d\udd25\ud83d\udd25",
+          "Kenk"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-22.content",
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      },
+      {
+        "channel": "#development",
+        "summary": "V2 was reported as released but not officially announced, with ongoing development. Users reported successful testing of CLI Version 1.0.11 with features like dynamic loading of plugins and agent creation, but encountered issues with knowledge plugin uploads and Docker container configuration.",
+        "key_participants": [
+          "Dr. Neuro",
+          "DorianD",
+          "DrakeDinh",
+          "0xbbjoker",
+          "jin",
+          "Odilitime"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-22.content",
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      },
+      {
+        "channel": "#social-media",
+        "summary": "The project's X (Twitter) account is currently suspended, but the team is working with X to restore it, which was identified as part of the plan to boost ai16z popularity alongside making quality products and marketing heavily.",
+        "key_participants": [
+          "Odilitime",
+          "Kenk",
+          "vincent789"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      }
+    ],
+    "user_feedback": [
+      {
+        "feedback_summary": "Users reported several technical issues including knowledge plugin upload failures with \"Unexpected end of form\" errors when uploading markdown files.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ],
+        "sentiment": "negative"
+      },
+      {
+        "feedback_summary": "Docker container configuration problems were encountered, with jin suggesting a fix using `RUN SKIP_POSTINSTALL=1 bun install --no-cache`.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ],
+        "sentiment": "mixed"
+      },
+      {
+        "feedback_summary": "Users experienced formatting issues with newline characters in agent responses, with recommendations to use markdown formatting instead.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ],
+        "sentiment": "negative"
+      },
+      {
+        "feedback_summary": "Multiple users struggled with model selection, noting that running models requires significant VRAM with 16GB being barely sufficient and recommending gemma3:12b for limited resources.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ],
+        "sentiment": "mixed"
+      }
+    ],
+    "strategic_insights": [
+      {
+        "theme": "Community trust erosion due to token sales",
+        "insight": "The apparent lack of transparency around DAO wallet token transactions is creating significant trust issues within the community, which could impact long-term project support and engagement.",
+        "implications_or_questions": [
+          "How can the team improve transparency around treasury management?",
+          "Should a formal communication protocol be established for significant token movements?"
+        ]
+      },
+      {
+        "theme": "Technical debt in plugin system",
+        "insight": "Multiple reports describe the current plugin system as \"a mess\" with unclear compatibility between versions, suggesting technical debt that may hamper developer adoption and contribution.",
+        "implications_or_questions": [
+          "Is standardizing the plugin system a priority for upcoming releases?",
+          "How can documentation be improved to clarify plugin compatibility?"
+        ]
+      },
+      {
+        "theme": "Social media presence challenges",
+        "insight": "The suspension of the project's X (Twitter) account represents a significant setback to visibility and marketing efforts at a critical time for adoption.",
+        "implications_or_questions": [
+          "What backup social channels should be leveraged during the X account restoration process?",
+          "Is there a need for a more diversified social media strategy?"
+        ]
+      }
+    ],
+    "market_analysis": [
+      {
+        "observation": "The $degenai token reached a new all-time low following reported selling from what appeared to be a project-related wallet, indicating market sensitivity to perceived treasury actions.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-22.content"
+        ],
+        "relevance": "Token price impacts project perception, funding capabilities, and community confidence."
+      },
+      {
+        "observation": "Some discussion occurred about cryptocurrency tokens including ELI5, EDDY, Dot, COM, and TAPS, with CULTVESTING warning about a potential market dip while suggesting holding certain tokens.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-22.content"
+        ],
+        "relevance": "Market sentiment among community members may influence investment in and around the ElizaOS ecosystem."
+      },
+      {
+        "observation": "Team members confirmed ongoing buybacks through daos.fun fees, indicating an active price support strategy.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ],
+        "relevance": "Buyback programs can help stabilize token prices and demonstrate project commitment to token value."
+      }
+    ],
+    "technical_challenges": [
+      {
+        "issue": "Plugin compatibility issues creating confusion among users",
+        "details": "Current plugin system described as \"a mess\" with unclear compatibility between versions",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      },
+      {
+        "issue": "Knowledge plugin functionality problems",
+        "details": "Multiple users reported errors when uploading markdown files to the knowledge plugin, with a fix released for both file path loading and UI uploads",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      },
+      {
+        "issue": "Resource requirements limiting accessibility",
+        "details": "Running models requires significant VRAM with 16GB barely sufficient, potentially limiting user base to those with high-end hardware",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-23.content"
+        ]
+      }
+    ]
+  }
+}

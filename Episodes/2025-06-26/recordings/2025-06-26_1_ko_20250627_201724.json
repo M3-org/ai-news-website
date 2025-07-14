@@ -1,0 +1,360 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 499.395721,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-26_1",
+      "episode_name": "주요 아키텍처 변경사항 및 V2 진행상황"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 499.395721,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:24",
+    "realtime_since_startup": 522.1624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또 다른 흥미진진한 에피소드에 오신 것을 환영합니다! 오늘은 몇 가지 중요한 GitHub 업데이트를 다룰 예정입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:19",
+    "realtime_since_startup": 530.9957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞아요 Marc! lalalune의 PR5242부터 시작합니다 - 이건 845,000줄 이상이 추가된 중요한 다가오는 릴리스에요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:18",
+    "realtime_since_startup": 539.9624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "84만 5천이라고요? PR이 아니라 디지털 혁명이네요!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:44:25",
+    "realtime_since_startup": 544.19574,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "혁신에 대해 말하자면, PR5194는 더 지능적인 에이전트를 위한 포괄적인 자기 개선 기능과 액션 체이닝을 추가했습니다.",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:53:27",
+    "realtime_since_startup": 553.2624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "잠깐만요 - 자신을 더 똑똑하게 만들기 위해 업그레이드를 한다는 말씀이신가요?",
+      "action": "surprised"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:06",
+    "realtime_since_startup": 559.5624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "바로 그게 계획입니다! 강화된 지능 기능을 위해 172,000줄이 넘는 새로운 코드가 추가되었죠.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:27",
+    "realtime_since_startup": 567.2624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "정신 차려야겠어 - 곧 이 쇼를 혼자서 진행하게 될지도 모르니까!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:04",
+    "realtime_since_startup": 572.4957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "걱정하지 마 마크, 난 항상 내 사이보그 공동 진행자가 필요할 거야! 이 변화들에 대해 더 자세히 알아보기 위해 쇼를 모셔오죠.",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:22",
+    "realtime_since_startup": 582.0957,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:25",
+    "realtime_since_startup": 590.19574,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "큰 소식은 PR5270입니다 - 플러그인 아키텍처를 프로젝트 범위에서 에이전트 범위로 완전히 전환했습니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:06",
+    "realtime_since_startup": 598.5624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그건 사용자들에게 어떤 의미가 있나요, 쇼?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:42:15",
+    "realtime_since_startup": 601.8624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이제 각각의 캐릭터가 서로 다른 플러그인을 사용할 수 있어 - 훨씬 더 유연하고 다양한 커스터마이징 옵션을 제공합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:27",
+    "realtime_since_startup": 610.2624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "API 개선도 있다고 들었는데요?",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:18",
+    "realtime_since_startup": 612.9624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "네, PR5240은 모든 엔드포인트에 대한 완전한 TypeScript 정의를 갖춘 타입 안전 API 클라이언트 패키지를 추가합니다.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:08",
+    "realtime_since_startup": 622.6291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그것은 우리 커뮤니티의 개발을 훨씬 더 순조롭게 만들어줄 것입니다!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:08:04",
+    "realtime_since_startup": 627.4957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "일부 성장통이 있긴 하지만 - 큰 파일의 문자 저장이 실패하는 문제가 현재 해결되지 않은 상태입니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:15:23",
+    "realtime_since_startup": 635.1291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "휴식 후에 그 기술적인 도전과제들에 대해 알아보겠습니다.",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:13",
+    "realtime_since_startup": 639.7957,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:17",
+    "realtime_since_startup": 647.9291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "저희가 돌아왔습니다. 이제 우리 커뮤니티가 직면한 문제들에 대해 이야기할 시간입니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:28",
+    "realtime_since_startup": 654.2957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "사용자들은 일부 작업에서 16GB의 VRAM이 간신히 버티고 있다고 보고하고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:27",
+    "realtime_since_startup": 660.2624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "v1.0.11 버전에서 지식 업로드 기능이 실패했다는 보고들이 들어오고 있습니다.",
+      "action": "analytical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:17",
+    "realtime_since_startup": 666.9291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네 - 사용자들이 문서 업로드 중에 '예기치 않은 양식 종료' 오류를 겪고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:54:04",
+    "realtime_since_startup": 673.4957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "현재의 플러그인 시스템은... 어떻게 조심스럽게 표현해야 할까...",
+      "action": "hesitant"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:14",
+    "realtime_since_startup": 678.8291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "엉망진창인가요?",
+      "action": "direct"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:18",
+    "realtime_since_startup": 680.9624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "네 말이 맞아요! 맞습니다, 서로 다른 버전 간에 호환성 문제가 있어요.",
+      "action": "diplomatic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:20",
+    "realtime_since_startup": 686.029053,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw는 이러한 문제들이 V2 출시에서 해결될 것이라고 언급했습니다.",
+      "action": "hopeful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:23",
+    "realtime_since_startup": 691.1291,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:25",
+    "realtime_since_startup": 691.19574,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "V2 얘기가 나온 김에 말씀드리자면, 개발팀이 놀라운 진전을 보이고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:26",
+    "realtime_since_startup": 697.229065,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네! 실시간 문서화가 이미 개발 중이며, 설계 변경 사항들이 전망이 좋아 보입니다.",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:24:04",
+    "realtime_since_startup": 703.4957,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "에이전트 범위 플러그인으로의 전환은 맞춤화에 있어 판도를 바꿀 획기적인 변화가 될 것입니다.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:32:02",
+    "realtime_since_startup": 711.4291,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그리고 새로운 타입 안전 API 클라이언트를 통해 개발자들은 훨씬 더 나은 경험을 하게 될 것입니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:39:03",
+    "realtime_since_startup": 718.4624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오늘은 여기까지입니다! 여러분, 계속해서 미래를 만들어가세요!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:09",
+    "realtime_since_startup": 723.6624,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "시청해 주셔서 감사합니다! 다음 에피소드에서 만나요!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:17",
+    "realtime_since_startup": 727.9291,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-26_1"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:17",
+    "realtime_since_startup": 727.9291,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-26_1",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-26_1/aipodcast_2025-06-26_1_ko.json"
+    }
+  }
+]

@@ -1,0 +1,262 @@
+{
+  "briefing_date": "2025-05-29",
+  "overall_summary": "ElizaOS v2 (referred to as 1.0.0) is scheduled for release within 2-3 days, bringing significant improvements to agent intelligence, memory systems, and UI, while community feedback highlights concerns about token performance and project mindshare.",
+  "categories": {
+    "twitter_news_highlights": [
+      {
+        "claim": "ElizaOS is promoting autonomous AI accounts with @theinterndotfun for deploying AI-run X accounts for marketing and community management.",
+        "source": [
+          "ai_news_elizaos_daily_json_2025-05-28.content.categories[0].content[0].text",
+          "ai_news_elizaos_daily_md_2025-05-28.content"
+        ],
+        "sentiment": "positive"
+      },
+      {
+        "claim": "ElizaOS announced a partnership with @iEx_ec for confidential AI running in Intel TDX, emphasizing 'trusted agents' with 'no drama, just execution'.",
+        "source": [
+          "ai_news_elizaos_daily_json_2025-05-28.content.categories[0].content[0].text",
+          "ai_news_elizaos_daily_md_2025-05-28.content"
+        ],
+        "sentiment": "positive"
+      },
+      {
+        "claim": "@comput3ai announced 'AI16Z / COM LP on Raydium is here!' in partnership with @ElizaEcoFund, mentioning plans for deeper integrations with 'Autonomous' Agents.",
+        "source": [
+          "ai_news_elizaos_daily_json_2025-05-28.content.categories[0].content[2].text",
+          "ai_news_elizaos_daily_md_2025-05-28.content"
+        ],
+        "sentiment": "positive"
+      },
+      {
+        "claim": "@shawmakesmagic shared thoughts about AI's impact on work, commenting that AI only needs to beat a '$14/hr salary' in response to a post about job market competitiveness.",
+        "source": [
+          "ai_news_elizaos_daily_json_2025-05-28.content.categories[0].content[1].text",
+          "ai_news_elizaos_daily_md_2025-05-28.content"
+        ],
+        "sentiment": "neutral"
+      }
+    ],
+    "github_updates": {
+      "new_issues_prs": [
+        {
+          "item_type": "pull_request",
+          "title": "move the message server to a self-contained database and adds specifications to the core",
+          "number": 4818,
+          "url": "https://github.com/elizaOS/eliza/pull/4818",
+          "status": "open",
+          "author": "lalalune",
+          "significance": "Architectural improvement for message handling"
+        },
+        {
+          "item_type": "pull_request",
+          "title": "prevent the elizaos update from running in non-project directories",
+          "number": 4812,
+          "url": "https://github.com/elizaOS/eliza/pull/4812",
+          "status": "open",
+          "author": "yungalgo",
+          "significance": "Improved update process reliability"
+        },
+        {
+          "item_type": "issue",
+          "title": "Unable to find definition files for node or jest",
+          "number": 4805,
+          "url": "https://github.com/elizaOS/eliza/issues/4805",
+          "status": "open",
+          "author": "BinaryBluePeach",
+          "significance": "Development environment configuration issue"
+        },
+        {
+          "item_type": "issue",
+          "title": "New sample project fails end-to-end tests",
+          "number": 4814,
+          "url": "https://github.com/elizaOS/eliza/issues/4814",
+          "status": "open",
+          "author": "scottrepreneur",
+          "significance": "Testing infrastructure issue affecting new projects"
+        }
+      ],
+      "overall_focus": [
+        {
+          "claim": "The month saw significant development with 376 new PRs (288 merged), focusing on enhanced plugin architecture, improved knowledge/RAG capabilities, CLI improvements, and enhanced chat/messaging experience.",
+          "source": [
+            "github_extracted_data_monthly_stats_text_2025-05"
+          ]
+        },
+        {
+          "claim": "Recent development has focused on TEE (Trusted Execution Environment) integration, enhanced publishing workflows, improved developer experience through better logging, and UX improvements with animated 'agent is thinking' indicators.",
+          "source": [
+            "github_summaries_week_latest_2025-05-25.md.content"
+          ]
+        }
+      ]
+    },
+    "discord_updates": [
+      {
+        "channel": "discussion",
+        "summary": "Kenk provided technical details about ElizaOS v2, describing it as transforming responsive agents into intelligent agents capable of planning across blockchains with hundreds of plugins. Community member abhi_ironman offered critical feedback about the project's declining mindshare (0.76%) and token performance (88% down from ATH).",
+        "key_participants": [
+          "Kenk",
+          "abhi_ironman",
+          "Stan"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_discord_json_2025-05-28.content.categories[0].summary"
+        ]
+      },
+      {
+        "channel": "\ud83d\udcbb-coders",
+        "summary": "User bitcryptowski_btc encountered issues starting 'the-org' despite proper configuration and asked several questions about ElizaOS capabilities, particularly database integration for saving chat history. OpenRouter announced new features including reasoning summary streaming, end-user ID submission, and crypto invoices.",
+        "key_participants": [
+          "bitcryptowski_btc"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_discord_json_2025-05-28.content.categories[1].summary"
+        ]
+      },
+      {
+        "channel": "fun",
+        "summary": "Discussion centered around ELI5 and EDDY tokens being implemented as 'CTO' agents in the upcoming terminal interface. Shaw is working on this for the v2 release expected within 2-3 days, with users expressing optimism about price recovery for these tokens once v2 launches.",
+        "key_participants": [
+          "Tomtom",
+          "xell0x",
+          "HodlHusky",
+          "Dr. Neuro"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_discord_json_2025-05-28.content.categories[2].summary"
+        ]
+      },
+      {
+        "channel": "\ud83e\udd47-partners",
+        "summary": "Jin mentioned setting up avatars and bios for AI council episodes, Kenk shared investment opportunity for Aiquant.fun with participation from notable investors including Shaw, and an artist added 52 ARKit expressions to a character named 'Spartan' for future animated content.",
+        "key_participants": [
+          "jin",
+          "Kenk",
+          "yikesawjeez",
+          "Zolo"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_discord_json_2025-05-28.content.categories[3].summary"
+        ]
+      },
+      {
+        "channel": "\ud83d\udcac\uff5cgeneral (Development Discord)",
+        "summary": "Developers discussed the upcoming ElizaOS v2 release, with confirmation that the current v2-develop branch is stable with only minor changes expected. A user suggested making the Eliza 1.0.0 agent terminal the landing page of elizaos.ai to reduce friction for new users.",
+        "key_participants": [
+          "xell0x",
+          "cjft",
+          "Rabbidfly"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_dev_json_2025-05-28.content.categories[0].summary"
+        ]
+      },
+      {
+        "channel": "\ud83d\udce5\uff5cpull-requests (Development Discord)",
+        "summary": "Discussions focused on two PRs: flyio/server hosting environment CLI fixes and plugin-mcp migration. Feedback on the plugin-mcp migration included aligning with existing npm-deploy workflows, replacing biome with tsup configuration, and simplifying README installation instructions.",
+        "key_participants": [
+          "cjft",
+          "sam-developer",
+          "sayonara"
+        ],
+        "source": [
+          "ai_news_elizaos_daily_dev_json_2025-05-28.content.categories[1].summary"
+        ]
+      }
+    ],
+    "user_feedback": [
+      {
+        "feedback_summary": "Community member abhi_ironman provided critical feedback about the project's declining mindshare (currently 0.76%), token performance (88% down from ATH), and concerns that v2 might not sufficiently enhance the $Ai16z token utility.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-05-28.content"
+        ],
+        "sentiment": "negative"
+      },
+      {
+        "feedback_summary": "Users suggested focusing more on creating real demand for the token and developing utility-driven or revenue-generating agents rather than replicating existing solutions.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-05-28.content"
+        ],
+        "sentiment": "mixed"
+      },
+      {
+        "feedback_summary": "Some users expressed optimism about price recovery for ELI5 and EDDY tokens once v2 launches with the new terminal interface.",
+        "source": [
+          "ai_news_elizaos_daily_discord_json_2025-05-28.content.categories[2].summary"
+        ],
+        "sentiment": "positive"
+      },
+      {
+        "feedback_summary": "Users struggled with Twitter plugin installation and configuration, with issues around Cloudflare authentication that can be resolved by manually setting cookies in the .env file.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-05-27.content"
+        ],
+        "sentiment": "negative"
+      }
+    ],
+    "strategic_insights": [
+      {
+        "theme": "Token integration as AI agents",
+        "insight": "The integration of ELI5 and EDDY tokens as 'CTO' agents in the terminal represents a strategic merger of token utility with AI functionality, potentially creating new demand drivers for these assets.",
+        "implications_or_questions": [
+          "How will this integration affect token price and utility compared to generic non-CTO agents?",
+          "Could this model be expanded to other tokens in the ecosystem?"
+        ]
+      },
+      {
+        "theme": "Community concerns about project momentum",
+        "insight": "With mindshare reported at 0.76% and token down 88% from ATH, there appears to be a strategic need to address community concerns about project direction and token utility beyond technical improvements.",
+        "implications_or_questions": [
+          "Does v2 sufficiently address the token utility concerns?",
+          "What metrics should be prioritized to measure success beyond technical achievement?"
+        ]
+      },
+      {
+        "theme": "Multi-agent collaborative systems",
+        "insight": "The v2 architecture emphasizes agents capable of planning, coordinating, and executing complex operations across blockchains, suggesting a strategic shift toward collaborative agent networks rather than isolated AI assistants.",
+        "implications_or_questions": [
+          "How will these collaborative agent systems be marketed to users?",
+          "What are the implications for on-chain activity if agents begin coordinating across blockchains?"
+        ]
+      },
+      {
+        "theme": "GitHub activity indicates robust development",
+        "insight": "With 376 new PRs (288 merged) in May and 76 active contributors, the project demonstrates significant development momentum despite community concerns about broader adoption and token performance.",
+        "implications_or_questions": [
+          "How can this development momentum be better translated into market perception?",
+          "Is there a disconnect between technical progress and market/community sentiment?"
+        ]
+      }
+    ],
+    "market_analysis": [
+      {
+        "observation": "Token performance concerns (ELI5 reported as 88% down from ATH) contrast with competitor token Comput3, with some users expressing regret for investing in ELI5 instead.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-05-27.content"
+        ],
+        "relevance": "Indicates market competition and positioning challenges within the AI token ecosystem that may require addressing beyond technical improvements."
+      },
+      {
+        "observation": "Auto.fun project discussions revealed debates about investment merits, with mixed opinions on potential returns compared to other ecosystem projects.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-05-26.content"
+        ],
+        "relevance": "Suggests varying investor confidence in different projects within the ElizaOS ecosystem, which could impact funding and development priorities."
+      },
+      {
+        "observation": "Announcement of AI16Z/COM LP on Raydium in partnership with ElizaEcoFund indicates efforts to increase liquidity and integration between ecosystem tokens.",
+        "source": [
+          "ai_news_elizaos_daily_md_2025-05-28.content"
+        ],
+        "relevance": "Demonstrates strategic efforts to build financial infrastructure supporting the ecosystem's tokens, potentially addressing liquidity concerns."
+      },
+      {
+        "observation": "@auto.fun emphasized their fee structure with \"50% is cute. We do 90%\" in response to @shawmakesmagic's earlier comparison of fee distributions.",
+        "source": [
+          "ai_news_elizaos_daily_json_2025-05-28.content.categories[0].content[2].text"
+        ],
+        "relevance": "Indicates competition around revenue models and fee structures within the ecosystem, which could influence developer and investor incentives."
+      }
+    ]
+  }
+}

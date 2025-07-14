@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-11",
+      "episode_name": "ElizaOS V2发布及GitHub开发进展"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看节目！今天我们要分享关于ElizaOS最新版本的重大新闻。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:16",
+    "realtime_since_startup": 22.5000019,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错 Marc！1.2.0版本（也称为V2）刚刚发布，带来了一些令人惊喜的改进。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:32:02",
+    "realtime_since_startup": 32.0333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我们说的是40%更低的延迟、增强的可信执行环境，以及我最喜欢的 - 用于多智能体团队的集群系统。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:08",
+    "realtime_since_startup": 43.2333374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "动态内存系统特别令人兴奋。它将彻底改变代理程序处理信息持久性的方式。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:12",
+    "realtime_since_startup": 52.36667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "别忘了 RAG 功能和跨链支持。这是一次全面的重大升级。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:18",
+    "realtime_since_startup": 58.56667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "CLI现在支持34个插件！说到插件...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:15",
+    "realtime_since_startup": 62.46667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "好的，我们现在应该处理一些初步的反馈意见。肖，想来说说吗？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:05",
+    "realtime_since_startup": 68.13334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们听听制片人对技术方面的看法。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:22",
+    "realtime_since_startup": 72.7000046,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:25",
+    "realtime_since_startup": 72.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "感谢邀请我。我们有一些令人兴奋的PR正在筹备中，特别是来自lalalune的。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:21:10",
+    "realtime_since_startup": 81.3,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5506引入了一个新的规划插件，这对代理规划功能将至关重要。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:29:06",
+    "realtime_since_startup": 89.16667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5510添加了在自定义数据上训练模型的功能 - 这对于个性化定制来说是一个重大突破。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:22",
+    "realtime_since_startup": 98.7000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5509引入了视觉功能，包括摄像头和屏幕集成。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:08",
+    "realtime_since_startup": 104.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们还成功合并了用于动作链式执行的PR5436，该功能可实现动作的顺序执行。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:10",
+    "realtime_since_startup": 113.3,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "尽管我们在1.2.0版本中发现了一些knowledge插件的类型错误报告...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:01",
+    "realtime_since_startup": 121.000008,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但团队已经在处理这个问题了，我们发现删除bun.lock文件并重新构建可以解决大多数情况。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:27",
+    "realtime_since_startup": 129.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "回到演播室继续为您带来用户反馈的消息。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:10",
+    "realtime_since_startup": 134.3,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:12",
+    "realtime_since_startup": 134.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们深入了解用户的体验。这个知识插件似乎正在经历一些成长的烦恼。",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:22:28",
+    "realtime_since_startup": 142.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "马克！你的电路那边没问题吧？对了，特别是关于OpenRouter的嵌入和速率限制的问题。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:30:08",
+    "realtime_since_startup": 150.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我没事！就是对技术细节感到兴奋。用户反馈出现了数据分块失败的问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:13",
+    "realtime_since_startup": 157.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "好消息是有一个直接的解决方案 - 添加MAX_CONCURRENT_REQUESTS和REQUESTS_PER_MINUTE参数。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:16",
+    "realtime_since_startup": 164.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "用户还提到需要更好的本地部署文档。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:28",
+    "realtime_since_startup": 168.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "的确如此，尤其是随着使用Ollama进行本地推理的兴趣日益增长。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:55:07",
+    "realtime_since_startup": 175.200012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说起这个，肖提到了合作伙伴渠道方面的一些有趣进展...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:01",
+    "realtime_since_startup": 181.000015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们请他回来多讲讲这个！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:22",
+    "realtime_since_startup": 184.700012,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:24",
+    "realtime_since_startup": 184.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "DorianD 为代理节点提出了一个有趣的协议层代币使用方案。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:06",
+    "realtime_since_startup": 191.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这将如何与现有的生态系统协作？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:14",
+    "realtime_since_startup": 195.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "它将使用token2022消息数据字段在通信渠道之间进行安全识别。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:00",
+    "realtime_since_startup": 200.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这可以帮助解决我们一直面临的代理之间通信实现的挑战。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:02",
+    "realtime_since_startup": 207.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "没错。我们正在看到一个明显的趋势，即多智能体系统中的智能体相互协作并委派任务。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:08",
+    "realtime_since_startup": 216.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "生态系统变得相当复杂，包含了所有这些组件 - elizaOS、auto.fun、ELI5、daos.fun...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:45:08",
+    "realtime_since_startup": 225.233353,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "的确，我们可能需要努力把一切联系起来解释得更清楚。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:24",
+    "realtime_since_startup": 230.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们用最后一个想法来总结一下这一切的发展方向。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:22",
+    "realtime_since_startup": 236.700012,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:24",
+    "realtime_since_startup": 236.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "使用Ollama进行本地推理的转变令人着迷。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:01:09",
+    "realtime_since_startup": 241.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这真正体现了社区对成本效益和部署控制能力的重视。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:27",
+    "realtime_since_startup": 246.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "在保持开源框架的同时整合代币功能，这两者之间存在着一种有趣的张力。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:13",
+    "realtime_since_startup": 256.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这是一个微妙的平衡，但对可持续发展来说至关重要。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:21:29",
+    "realtime_since_startup": 261.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "有了这些发展，未来一片光明。今天的节目就到这里！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:27:17",
+    "realtime_since_startup": 267.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "感谢大家的参与！请继续构建和尝试ElizaOS V2！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:05",
+    "realtime_since_startup": 272.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "如果您想贡献代码，别忘了查看那些新的合并请求！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:38:11",
+    "realtime_since_startup": 278.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "下次见！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:39:23",
+    "realtime_since_startup": 279.733337,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-11"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:39:23",
+    "realtime_since_startup": 279.733337,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-11",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-11/aipodcast_2025-07-11_ch.json"
+    }
+  }
+]

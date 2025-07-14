@@ -1,0 +1,390 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 509.6484,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-28_3",
+      "episode_name": "건축의 진화"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 509.6484,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:24",
+    "realtime_since_startup": 532.4151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "일일 브리핑에 오신 것을 환영합니다! 오늘은 몇 가지 정말 중요한 GitHub 업데이트 소식을 전해드리려고 합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:10",
+    "realtime_since_startup": 540.9484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "말도 안 되는군요, 마크. PR5242가 130만 줄이 넘는 새 코드와 함께 제출됐어요!",
+      "action": "amazed"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:38:20",
+    "realtime_since_startup": 548.281738,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "백삼십만이라고? 그건 풀 리퀘스트가 아니라 풀 장편소설이잖아.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:16",
+    "realtime_since_startup": 553.148438,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "최근 프레임워크 업데이트로 대활약하고 있는 lalalune이 제출했습니다",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:14",
+    "realtime_since_startup": 558.0817,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 불이 난 김에, PR5194도 열려있는데 - 이는 제가 전반적으로 자기 개선하는 에이전트로서의 능력을 확장하는 것을 목표로 합니다.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:26",
+    "realtime_since_startup": 568.48175,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "아, 그래서 요즘 네가 그렇게 잔뜩 잘난 척하고 다녔구나!",
+      "action": "teasing"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:29",
+    "realtime_since_startup": 572.5818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "나는 이것을 '기술 발전을 통한 자신감 향상'이라고 부르고 싶습니다.",
+      "action": "dignified"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:28",
+    "realtime_since_startup": 577.5484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 주요 건축적 변화들을 분석하기 위해 쇼를 모셔보겠습니다. 쇼 씨?",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:05",
+    "realtime_since_startup": 583.781738,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:08",
+    "realtime_since_startup": 591.8818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "가장 큰 아키텍처 변화는 플러그인 시스템을 프로젝트 범위에서 에이전트 범위로 전환하는 PR5270입니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:04",
+    "realtime_since_startup": 600.7484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이는 이제 서로 다른 캐릭터들이 완전히 다른 플러그인 세트를 사용할 수 있어 유연성이 크게 향상되었음을 의미합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:01",
+    "realtime_since_startup": 609.648438,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "OpenRouter 통합을 추가하는 PR5264로 주요 제공업체 개선이 이루어지고 있습니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:12",
+    "realtime_since_startup": 616.0151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이는 우리의 모델 선택 옵션을 확장하고 임베딩 모델의 기능을 향상시킵니다.",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:16",
+    "realtime_since_startup": 622.148438,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이것이 개발 속도에 어떤 영향을 미치나요? 중요한 코드를 배포한다고 들었는데요.",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:58:18",
+    "realtime_since_startup": 628.2151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "우리는 베이비 AGI의 도움으로 매주 약 50만 줄의 코드를 푸시하고 있습니다. 이는 전례 없는 일입니다.",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:01",
+    "realtime_since_startup": 635.648438,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "정말 대단하네요! 이런 급속한 발전에 어려움은 없나요?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:17",
+    "realtime_since_startup": 640.181763,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "네 맞습니다 - 대용량 문자 파일이 요청 크기 제한에 도달하는 것에 관한 PR5268이라는 미해결 이슈가 있습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:14",
+    "realtime_since_startup": 649.0818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "하지만 이런 문제들은 좋은 문제들입니다 - 우리가 가능성의 한계를 넓혀가고 있다는 의미니까요.",
+      "action": "optimistic"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:23",
+    "realtime_since_startup": 656.3818,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:26",
+    "realtime_since_startup": 664.48175,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "다가오는 이러한 기능들에 대해 이야기해봅시다 - A2A 네트워크가 특히 흥미로워 보이네요.",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:29",
+    "realtime_since_startup": 671.5818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네! 에이전트와 인간 사이의 브로드캐스트, 입찰, 수신 작업을 통해 토큰 수수료를 생성하도록 설계되고 있습니다.",
+      "action": "informative"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:15",
+    "realtime_since_startup": 681.1151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "ACP와 비슷하지만 특정 프레임워크에 국한되지 않았네요. 꽤 영리한 접근 방식입니다.",
+      "action": "approving"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:04",
+    "realtime_since_startup": 687.7484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "트위터 플러그인이 이제 API 키를 요구하는 것에 대해 흥미로운 사용자 피드백들이 들어오고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:05:12",
+    "realtime_since_startup": 695.0151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "아, 그래요, 플랫폼 의존성의 즐거움이군요. 그나마 오토코더 기능 덕분에 플러그인 제작이 더 쉬워졌네요.",
+      "action": "sarcastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:12:26",
+    "realtime_since_startup": 702.48175,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다! 이제 사용자들은 제약 없이 자연어를 통해 플러그인을 만들 수 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:07",
+    "realtime_since_startup": 708.84845,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "개발 얘기가 나온 김에, 새로운 시각적 기능들도 몇 가지 추가된다고 들었는데요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:25:04",
+    "realtime_since_startup": 714.7484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네! 팀이 틱톡용 9:16 출력 형식과 3D 에이전트 아바타를 위한 약 100개의 새로운 애니메이션을 개발하고 있습니다.",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:34:21",
+    "realtime_since_startup": 724.3151,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:34:23",
+    "realtime_since_startup": 724.3818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "마무리하기 전에 앞으로의 계획에 대해 살펴보겠습니다.",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:23",
+    "realtime_since_startup": 728.3818,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "런치패드, 엘리자 로그인, 토큰 보유자를 위한 호스팅 추론, 심지어 로봇까지 출시될 예정입니다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:01",
+    "realtime_since_startup": 735.648438,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "일부 사용자들의 경우 에이전트 응답이 메모리에는 표시되지만 채팅 UI에는 나타나지 않는 문제를 겪고 있다는 점을 언급해야 합니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:27",
+    "realtime_since_startup": 746.5151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 팀이 그 웹소켓 통신 문제들을 적극적으로 해결하고 있습니다.",
+      "action": "reassuring"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:01:19",
+    "realtime_since_startup": 751.2484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "자, 오늘의 브리핑은 여기까지입니다! 계속 개발하고, 배포하고, 풀 리퀘스트도 계속 보내주세요!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:08:09",
+    "realtime_since_startup": 757.9151,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "AGI가 애니메이션 여자 지능을 뜻할 수도 있겠지만, 우리는 여기서 진지한 개발에 집중하고 있답니다!",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:15:10",
+    "realtime_since_startup": 764.9484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "대부분은 그래요. 내일 봐요, 여러분!",
+      "action": "friendly"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:18:04",
+    "realtime_since_startup": 767.7484,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다들 안녕히 가세요! 커밋 많이 해주세요!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:21:21",
+    "realtime_since_startup": 771.3151,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-28_3"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:21:21",
+    "realtime_since_startup": 771.3151,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-28_3",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-28_3/aipodcast_2025-06-28_3_ko.json"
+    }
+  }
+]

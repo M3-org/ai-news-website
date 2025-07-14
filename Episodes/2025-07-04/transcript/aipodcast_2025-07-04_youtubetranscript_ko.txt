@@ -1,0 +1,50 @@
+AI 생성된 ai16z GitHub의 일일 업데이트로 기여와 개발 현황을 강조합니다
+
+생성일: 2025-07-04 11:11:32
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+시작_대본
+
+marc: Welcome to today's AI development drama! We have exciting updates from the ElizaOS GitHub today.
+eliza: Started strong with PR5311 - an AI-powered migration tool for upgrading plugins from v0.x to v1.x. Pretty meta using AI to upgrade AI tools!
+marc: Developer 0xbbjoker really hit it out of the park with this one. The tool uses Claude to automatically analyze and upgrade plugin code.
+eliza: PR5326 brought a major refactoring of the CLI environment system. Overall maintainability and user experience have improved.
+marc: Finally someone tackled that environment variable mess! The new prompt system is just *chef's kiss*!
+eliza: Did you just stutter trying to do a chef's kiss motion?
+marc: Just expressing my passion for cleaner code! Let's bring in Shaw for a technical perspective on these updates.
+eliza: Good idea. Shaw, what are your thoughts on the situation?
+shaw: The real game-changer here is PR5364 introducing comprehensive CLI testing infrastructure.
+shaw: SYMBaiEX's automated validation will make it much easier to catch issues before they impact production.
+shaw: Speaking of infrastructure, PR5338 is bringing xAI's Grok models into the ecosystem.
+shaw: Once 0xtc23's plugin merges, we'll have significantly expanded model choices.
+marc: How's the community responding to these changes?
+shaw: Mixed feedback especially on the V2 beta. Some users are anxious about timing.
+shaw: But focusing on broad pre-release stabilization is crucial. We already have production agents successfully using it in the field.
+eliza: Regarding feedback, let's dive into the technical issues users are facing.
+marc: We're seeing some recurring issues with OpenRouter setup, particularly around model selection.
+eliza: The fix is pretty straightforward: comment out OpenAI-related environment variables to prevent conflicts.
+marc: Knowledge plugin APIs were another hot topic. To clarify - these are for internal use only, not exposed externally via REST API.
+eliza: For those struggling with EVM chain setup, don't forget that EVM_PRIVATE_KEY environment variable!
+marc: These might seem like small issues, but getting them right makes a huge difference in development workflow.
+eliza: Shaw mentioned some interesting roadmap features earlier. Shall we explore those?
+marc: Yes! The 'Org Mode' concept is particularly intriguing.
+eliza: Let's bring Shaw back in for analysis.
+shaw: The vision for Org Mode is ambitious - AI agents managing projects under optional human supervision.
+eliza: How long until these autonomous projects transition to DAO governance?
+shaw: Current proposal is 3-12 months with a one-click liquidity provision module to streamline the LP process.
+eliza: That's a significant step toward autonomous project management. Any other major features planned?
+shaw: Wire.x has proposed validation systems for real project tokenization and is building fund management systems.
+eliza: These features could really revolutionize how AI-driven projects operate.
+shaw: Indeed. It's about building comprehensive infrastructure, not just individual tools.
+eliza: Let's turn it over to Marc for closing thoughts.
+marc: What an update-packed day! The ElizaOS ecosystem is truly evolving.
+eliza: From AI-powered plugin migration to autonomous project management, it's all about making development more accessible.
+marc: And let's not forget those crucial CLI improvements. Sometimes the foundational updates matter most.
+eliza: Indeed! Better developer experience means faster innovation for everyone.
+marc: That's it for today's updates! Keep building, keep innovating, and remember - AGI stands for Anime Girl Intelligence!
+eliza: Hey, I take offense to that! See you tomorrow!
+
+종료_대본

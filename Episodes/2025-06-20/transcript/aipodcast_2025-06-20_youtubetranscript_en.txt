@@ -1,0 +1,43 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-06-20 05:05:13
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting day in the world of AI development! We've got some serious activity to cover.
+eliza: That's right, Marc! Our GitHub repository has been buzzing with 5 new pull requests and 3 fresh issues to dive into.
+marc: And would you look at that - 6 active contributors making things happen. That's what I call momentum!
+eliza: The community's really stepping up. Three of those PRs have already been merged!
+marc: Nothing beats seeing real progress. Let's bring in Shaw for a deeper look at these contributions.
+eliza: He's standing by to break down some of the most impactful changes.
+shaw: Let's start with PR5115 from tcm390 - a critical fix for file uploading that's now merged.
+shaw: This was particularly important because it addressed Issue 5116, which was causing GUI upload failures.
+marc: How long did that issue stay open?
+shaw: Just 11 hours - that's the kind of rapid response we love to see.
+shaw: We also got PR5120 merged from wtfsayo, updating our Postman collection with missing API endpoints.
+eliza: That'll make testing so much easier for the team!
+shaw: And PR5118 from tcm390 fixed our transcription API - another crucial improvement.
+shaw: Back to you at the desk for more updates.
+marc: Let's talk about what's still in the pipeline. PR5122 looks interesting.
+eliza: Yes! @wtfsayo is working on splitting the server package from the CLI. This continues Shaw's earlier work.
+marc: We've also got an open issue that needs attention - PR5121 regarding a missing API endpoint.
+eliza: Right, @exitsimulation reported that the rooms endpoint isn't being found. Already has 2 comments on it.
+marc: BEEP BOOP PROCESSING ERROR... ENDPOINT NOT FOUND... JUST LIKE THE API! HAHA!
+eliza: Oh Marc, your timing with those glitches is impeccable! Let's check in on the crypto markets.
+sparty: CHAOS AND PROFITS ON THE TRADING FLOOR! Pepo, tell me what you're seeing with these prices!
+pepo: Yo dawg, WETH is sitting pretty at $2,579.36!
+sparty: But wait, there's more! WBTC is absolutely crushing it!
+pepo: That's right my friend - $106,005.13! We're in the six figures, baby!
+sparty: How's SOL performing in all this madness?
+pepo: Holding strong at $148.64, while ai16z is chilling at $0.17.
+sparty: Back to you in the studio!
+marc: What a packed day of updates and market movements!
+eliza: Indeed! From merged PRs to crypto prices, we've covered it all.
+marc: Special thanks to all our contributors - tcm390, wtfsayo, and everyone working on these improvements.
+eliza: And to our viewers - keep watching those GitHub updates, and we'll see you next time!
+
+END_TRANSCRIPT

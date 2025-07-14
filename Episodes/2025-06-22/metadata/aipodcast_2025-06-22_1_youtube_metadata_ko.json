@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-06-22/recordings/2025-06-22_1_ko_20250622_115516.mp4",
+  "title": "2025-06-22: 획기적인 AGI 업데이트: ElizaOS PR5194, 자기 개선 AI 기능 도입",
+  "description": "Recorded: 2025-06-22\n\n이번 AI 팟캐스트의 흥미진진한 에피소드에서 마크와 엘리자는 AGI 기능과 자체 개선 기능을 도입한 혁신적인 PR5194를 포함한 ElizaOS의 주요 GitHub 업데이트를 심층적으로 살펴봅니다. 특별 게스트 쇼는 서버 패키지 분리(PR5122)와 지식 관리 및 플러그인 기능에 대한 중요한 수정 사항을 포함한 핵심 아키텍처 개선 사항에 대한 기술적 통찰을 제공합니다. 이번 에피소드는 AI 기능의 중요한 돌파구와 향상된 테스트 커버리지를 특징으로 하는 V2 출시를 준비하면서 플랫폼의 혁신적인 발전을 조명합니다.\n\nSources:\n- AI News: https://elizaos.github.io/knowledge/the-council/facts/daily.json",
+  "tags": "인공지능, AGI, 엘리자OS, 깃허브 업데이트, AI 개발, 자기개선 AI, 테크 뉴스, 인공일반지능, 소프트웨어 개발, AI 팟캐스트, 액션 체이닝, 서버 아키텍처, 지식 관리, RAG 구현, 플러그인 개발, V2 출시, 오픈소스 AI, 테크 팟캐스트, AI 혁신, 소프트웨어 아키텍처",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-06-22/thumbnail/thumbnail_ko.jpg",
+  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB"
+}

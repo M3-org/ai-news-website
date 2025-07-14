@@ -1,0 +1,380 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-27",
+      "episode_name": "建筑演变"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:24",
+    "realtime_since_startup": 22.7666683,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎来到人工智能开发的又一个激动人心的日子！我们有一些重大的架构变更需要讨论。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:33:16",
+    "realtime_since_startup": 33.5,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错,马克!团队已经把插件架构从项目范围完全转变为代理范围。这真是一个重大突破！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:09",
+    "realtime_since_startup": 42.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "最后，不同的角色可以拥有不同的插件。这就像给每个人工智能配备专属的工具箱。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:50:10",
+    "realtime_since_startup": 50.3000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这还不是全部 - 我们已完成向新的类型安全的 @elizaos/api-client 包的迁移。现在所有内容都是 TypeScript 了！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:18",
+    "realtime_since_startup": 61.56667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "对于维护代码质量来说绝对至关重要。说到改进，他们还在模型选择中加入了OpenRouter。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:10:22",
+    "realtime_since_startup": 70.7000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "AI供应商选择的灵活性提升总是个好消息。嵌入模型的支持也得到了增强。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:13",
+    "realtime_since_startup": 78.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这些变化真正显示了平台正在走向成熟。Shaw，你对这一切有什么看法？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:29",
+    "realtime_since_startup": 85.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这些改进为我们正在积极开发的V2版本奠定了基础。这些架构上的变化尤其令人兴奋。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:35:22",
+    "realtime_since_startup": 95.7000046,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:35:25",
+    "realtime_since_startup": 95.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "让我们深入了解一些比较大的拉取请求。来自lalalune的PR5242非常庞大 - 新增了超过一百万行代码。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:07",
+    "realtime_since_startup": 107.200005,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这是一个重大的平台更新，将重塑系统的运作方式。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:09",
+    "realtime_since_startup": 112.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "另一个重要的是PR5194，它扩展了动作链接和自我改进的功能。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:03",
+    "realtime_since_startup": 119.066673,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这些变更对于我们正在开发的V2版本来说至关重要。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:04:03",
+    "realtime_since_startup": 124.066673,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这些数据令人印象深刻，肖。这与最近的架构变更有什么关联？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:27",
+    "realtime_since_startup": 130.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "特定于代理的插件将与这些新功能无缝衔接，打造一个更灵活、更强大的平台。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:29",
+    "realtime_since_startup": 138.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "社区一定会喜欢这种增强的定制化潜力！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:23:02",
+    "realtime_since_startup": 143.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "当然可以。随着第三季度的临近，时机再合适不过了。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:17",
+    "realtime_since_startup": 148.53334,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:22",
+    "realtime_since_startup": 156.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我们应该解决用户面临的一些问题。NBFinanceTech报告了一个关于字符文件大小的有趣问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:45:13",
+    "realtime_since_startup": 165.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，Issue 5268 强调了由于大小限制，无法保存复杂的代理配置。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:28",
+    "realtime_since_startup": 171.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "用户还遇到了一些界面问题，回复在记忆中显示但在聊天中不显示。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:29",
+    "realtime_since_startup": 178.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这特别令人沮丧，因为它完全阻断了对话。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:02",
+    "realtime_since_startup": 183.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "嘟嘟 哔哔 聊天界面处理错误 嗡嗡",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:16",
+    "realtime_since_startup": 186.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "天哪，马克！你还好吗？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:09:10",
+    "realtime_since_startup": 189.3,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "只是展示我们的用户可能正在经历的情况！我现在很好。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:19",
+    "realtime_since_startup": 194.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "很好笑！但是这些都是需要解决的严肃问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:27",
+    "realtime_since_startup": 198.866684,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:00",
+    "realtime_since_startup": 206.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们谈谈一些令人兴奋的事情 - 平台正在扩展其输出格式！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:33:22",
+    "realtime_since_startup": 213.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错！他们正在同时采用9:16和16:9格式来支持像抖音这样的平台。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:40:11",
+    "realtime_since_startup": 220.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这不仅仅是关于显示比例的问题 - 他们正在开发具有视觉形象和Elevenlabs声音的生态系统智能代理。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:13",
+    "realtime_since_startup": 230.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这种多模态扩展真正展示了平台是如何不断发展的。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:55:24",
+    "realtime_since_startup": 235.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这一切都是要在不同的平台和形式上满足用户的需求。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:00:17",
+    "realtime_since_startup": 240.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "视觉和语音功能的结合对内容创作者来说特别令人兴奋。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:03",
+    "realtime_since_startup": 246.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天的报道就到此为止！感谢您收看本期人工智能发展专题节目！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:12:09",
+    "realtime_since_startup": 252.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "下次见，大家！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:14:09",
+    "realtime_since_startup": 254.266678,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-27"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:14:09",
+    "realtime_since_startup": 254.266678,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-27",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-27/aipodcast_2025-06-27_ch.json"
+    }
+  }
+]

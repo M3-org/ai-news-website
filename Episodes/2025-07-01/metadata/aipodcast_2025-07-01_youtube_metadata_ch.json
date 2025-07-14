@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-07-01/recordings/2025-07-01_ch.mp4",
+  "title": "2025-07-01: 关键数据库修复和新角色功能：ElizaOS开发更新",
+  "description": "Recorded: 2025-07-01\n\n加入马克、伊莱扎和肖的讨论，一起深入了解ElizaOS最新的GitHub更新，包括关键的数据库架构修复、角色管理改进和令人兴奋的新功能。了解PR5278的SQL插件修复、全新的Gork角色人设，以及工作流插件的开发。获取关于数据库迁移挑战、多代理配置，以及对Ollama和Google等替代AI模型不断扩大支持的专业见解。对于使用ElizaOS的开发者和任何对最新自主代理发展感兴趣的人来说，这都是不容错过的内容。",
+  "tags": "ElizaOSAI开发数据库架构GitHub更新角色管理SQL插件多智能体系统AI模型开发动态技术更新数据库迁移AI框架编程软件开发AI技术技术播客开发者工具人工智能开源代码更新",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-07-01/thumbnail/thumbnail_ch.jpg",
+  "playlist_id": "PLp5K4ceh2pR3EsXoR4E9s8mRVE_ywioJS"
+}

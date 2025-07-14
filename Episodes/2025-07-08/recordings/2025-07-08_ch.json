@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-08",
+      "episode_name": "大规模文档迁移和开发更新"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看又一期激动人心的人工智能发展报道！今天我们带来了来自GitHub前线的重大更新。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:14",
+    "realtime_since_startup": 23.4333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "当Marc说\"巨大\"的时候，他可不是在开玩笑！我们正在进行一场规模令人震惊的文档大翻修。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:14",
+    "realtime_since_startup": 31.4333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "听说了吗，SYMBaiEX刚刚提交了PR5435，新增了超过五万四千行代码！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:19",
+    "realtime_since_startup": 39.6000023,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这么多的文档！他们正在把所有东西都迁移到fumadocs。这将让开发者的工作变得更轻松。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:47:19",
+    "realtime_since_startup": 47.6000023,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "你知道人们都说什么吗 - 写文档就像吃蔬菜。没人想做，但对成长来说却是必不可少的。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:56:00",
+    "realtime_since_startup": 55.96667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "你...你刚才是拿文档开了个双关语玩笑吗？",
+      "action": "confused"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:11",
+    "realtime_since_startup": 60.3333359,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我可能有。但说真的，这是该平台走向成熟的关键一步。",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:06:12",
+    "realtime_since_startup": 66.36667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们谈到成熟度时，来听听肖对最近合并的技术见解。",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:01",
+    "realtime_since_startup": 72.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:04",
+    "realtime_since_startup": 72.1000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "感谢邀请。我们已经在代码库中实现了一些可靠的改进。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:17",
+    "realtime_since_startup": 77.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5431刚刚被合并，为命令行界面体验带来了一些重大改进。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:16",
+    "realtime_since_startup": 84.50001,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们实现了一个简洁的加载动画流程和适当的任务排序，让整体体验更加精致流畅。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:32:05",
+    "realtime_since_startup": 92.13334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "随着PR5429合并，我们已经升级到1.0.19版本，展现稳步进展。",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:01",
+    "realtime_since_startup": 99.00001,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但真正令人兴奋的是这些改进为 v2 奠定了基础。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:22",
+    "realtime_since_startup": 104.700005,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "用户在第2版中可以期待哪些具体改进？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:48:27",
+    "realtime_since_startup": 108.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们正在研究加强的多代理协调、更完善的内存系统以及全新改进的插件架构。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:01",
+    "realtime_since_startup": 117.000008,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但首先，我们需要解决一些稳定性问题，比如在问题5432中报告的服务器崩溃问题。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:09",
+    "realtime_since_startup": 125.26667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:11",
+    "realtime_since_startup": 125.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到技术挑战，技术支持频道里一直有不少关于数据库序列化的讨论。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:11:13",
+    "realtime_since_startup": 131.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，用户报告说对象被插入为\"[object Object]\"而不是正确的JSON格式。这可不太理想！",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:22",
+    "realtime_since_startup": 139.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "不过团队已经在研究解决方案了。在这里，正确的字符串化处理是关键。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:05",
+    "realtime_since_startup": 147.133347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "别忘了生态系统中令人兴奋的发展，尤其是围绕auto.fun的部分。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:33:23",
+    "realtime_since_startup": 153.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "哦对，这个平台被定位为一个AI代理的版本的pump.fun，还包含代币。真是个有趣的概念！",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:42:08",
+    "realtime_since_startup": 162.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这真正展示了生态系统是如何发展的，已经超越了单纯的技术基础设施。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:22",
+    "realtime_since_startup": 169.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "随着通过Eliza Cloud将令牌直接链接到代理的这一重点，我们看到一个更加紧密的生态系统正在形成。",
+      "action": "analytical"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:18",
+    "realtime_since_startup": 182.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们要不要咨询一下我们的合作伙伴渠道以获取更多相关信息？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:16",
+    "realtime_since_startup": 188.500015,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:18",
+    "realtime_since_startup": 188.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "合作伙伴频道里充满了关于如何避免功能蔓延的讨论。",
+      "action": "focused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:11",
+    "realtime_since_startup": 194.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "DorianD和jintern就专注于核心功能提出了一些很好的观点。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:01",
+    "realtime_since_startup": 200.000015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "而Reneil关于通过代币与代理商关系来加强品牌认同的见解非常准确。",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:26:25",
+    "realtime_since_startup": 206.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "社区为创建更加无缝的生态系统所做的努力令人着迷。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:32:24",
+    "realtime_since_startup": 212.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到社区，关于JIMMY代币及其实用性已经有了大量讨论。",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:11",
+    "realtime_since_startup": 218.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，特别是关于他们在团队协调和报告生成方面的作用。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:19",
+    "realtime_since_startup": 224.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "你听说那10%的代币销毁了吗？这可是个相当重大的举措。",
+      "action": "surprised"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:27",
+    "realtime_since_startup": 230.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这无疑展现了对生态系统长期愿景的信心。",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:00",
+    "realtime_since_startup": 235.966675,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:02",
+    "realtime_since_startup": 236.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "在我们结束今天的节目时，让我们来谈谈ElizaOS v2即将推出的内容。",
+      "action": "professional"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:02:26",
+    "realtime_since_startup": 242.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "开发团队对改进多智能体协调和记忆系统有着非常宏大的计划。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:08:25",
+    "realtime_since_startup": 248.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "更不用说插件系统和角色文件的全面改造了。",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:14:06",
+    "realtime_since_startup": 254.166687,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "随着我们之前讨论过的大规模文档迁移，新开发人员将更容易上手。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:22:04",
+    "realtime_since_startup": 262.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "看到我们已经走了这么远，并看到前进的方向是多么令人兴奋。",
+      "action": "proud"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:28:23",
+    "realtime_since_startup": 268.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "就这样！今天的节目到此结束。感谢大家的收看！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:34:16",
+    "realtime_since_startup": 274.5,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "下次见，继续创造未来！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:37:17",
+    "realtime_since_startup": 277.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "别忘了查看我们提到的所有PR - 特别是那个大规模的文档更新！",
+      "action": "cheerful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:43:11",
+    "realtime_since_startup": 283.333344,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-08"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:43:11",
+    "realtime_since_startup": 283.333344,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-08",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-08/aipodcast_2025-07-08_ch.json"
+    }
+  }
+]

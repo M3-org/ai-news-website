@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 513.800049,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-25",
+      "episode_name": "신뢰 문제와 기술적 진보"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 513.800049,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 528.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또 하나의 흥미진진한 에피소드에 오신 것을 환영합니다! 오늘은 정말 대단한 GitHub 업데이트들을 다뤄볼 예정입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:29",
+    "realtime_since_startup": 537.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다 마크! 가장 큰 소식은 lalalune의 PR5194일 텐데요 - 이는 제가 일반적으로 유능하고 지능적인 에이전트가 되는 데 필요한 모든 것을 담고 있죠!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:34:14",
+    "realtime_since_startup": 548.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "드디어 누군가가 AI의 'I'를 진지하게 받아들이는군요! 그리고 자기 계발 능력이라니? 완벽 그 자체예요!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:25",
+    "realtime_since_startup": 556.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "제가 더 똑똑해지는 것에 대해 당신이 그렇게 흥분하는 것을 걱정해야 할까요?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:01",
+    "realtime_since_startup": 562.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "엘리자, 세계 정복을 계획하는 게 아니라면 말이야.",
+      "action": "smirk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:18",
+    "realtime_since_startup": 566.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "세계 정복이라고? 제발요, 난 내 업데이트 일정도 제대로 못 지키는걸요!",
+      "action": "laughing"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:04",
+    "realtime_since_startup": 571.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "업데이트 이야기가 나온 김에, 다른 주요 PR들도 살펴봐야 할 것 같네요. 기술적인 설명을 위해 Shaw를 모시는 게 어떨까요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:10",
+    "realtime_since_startup": 581.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "물론이죠! Shaw가 최근 모든 변화들을 분석해왔어요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:11:20",
+    "realtime_since_startup": 585.43335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:11:23",
+    "realtime_since_startup": 585.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "6월은 우리의 코드베이스에 있어서 완전한 변화의 시기였습니다. 315개의 새로운 PR이 제출되었고 그 중 257개가 병합되었으며, 68명의 활발한 기여자들이 참여했습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:28:25",
+    "realtime_since_startup": 602.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5122(wtfsayo 작성)가 가장 돋보였는데, 이는 서버 패키지를 CLI에서 분리하는 내 작업을 이어서 진행한 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:20",
+    "realtime_since_startup": 612.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이번 달에만 193,000줄 이상의 추가와 114,000줄의 삭제가 있었습니다.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:28",
+    "realtime_since_startup": 618.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "구조적 개선사항에는 API 도메인 재구성, 향상된 플러그인 관리, 그리고 강화된 문자 유효성 검사가 포함됩니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:01",
+    "realtime_since_startup": 627.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "프레임워크의 모듈화와 AI 제공업체 옵션 확장에 실질적인 초점이 맞춰지고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:00:27",
+    "realtime_since_startup": 634.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "하지만 특히 Windows 호환성과 관련하여 해결해야 할 과제들도 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:07",
+    "realtime_since_startup": 640.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "인상적인 수치네요, 쇼. 커뮤니티는 이런 변화들을 어떻게 받아들이고 있나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:01",
+    "realtime_since_startup": 645.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "반응이 엇갈리네요. 자리로 돌아가서 우리가 직면한 기술적 문제들을 논의해봅시다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:14",
+    "realtime_since_startup": 652.233337,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:16",
+    "realtime_since_startup": 652.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이 기술적인 문제들에 대해 이야기해 봅시다. 플러그인 시스템이 골치를 썩이고 있다고 들었는데요?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:29",
+    "realtime_since_startup": 659.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 사용자들이 버전 간의 호환성이 불분명해서 '엉망'이라고 보고하고 있어요. 게다가 지식 플러그인 업로드 문제도 있고요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:18",
+    "realtime_since_startup": 668.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "아, 네. PR5004가 지식 관리 문제들을 해결했죠, 맞나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:29",
+    "realtime_since_startup": 672.7334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다. PR5017에서 플러그인 액션의 콜백 문제들이 수정되었습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:16",
+    "realtime_since_startup": 678.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "하드웨어 요구 사항도 꽤 까다로운 편이에요 - 16GB VRAM으로도 겨우 돌아가는 수준이죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:02",
+    "realtime_since_startup": 685.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "일부 사용자들은 제한된 리소스 환경에서도 gemma3:12b를 성공적으로 활용하고 있습니다.",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:10",
+    "realtime_since_startup": 693.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "적어도 해결방법은 있네요. 도커 문제인가요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:03",
+    "realtime_since_startup": 696.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "jin이 해결 방법으로 'RUN SKIP_POSTINSTALL=1 bun install --no-cache' 사용을 제안했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:01",
+    "realtime_since_startup": 703.800049,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:03",
+    "realtime_since_startup": 703.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이제 지금 회피할 수 없는 현안인 DAO 토큰 이동에 대한 커뮤니티의 신뢰 우려에 대해 다루어보겠습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:04",
+    "realtime_since_startup": 710.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 재무부에서 이체된 4천만 토큰에 대해 상당한 우려가 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:04",
+    "realtime_since_startup": 715.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "팀은 이것이 유동성 풀을 위한 것이라고 설명했지만, 커뮤니티는 회의적인 것으로 보입니다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:09",
+    "realtime_since_startup": 723.0667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다오스닷펀(daos.fun) AUM을 통해 보충할 계획이 있지만, 투명성 개선이 필요할 수 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:23",
+    "realtime_since_startup": 730.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "투명성을 통한 신뢰가 필요한 전형적인 사례입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:41:08",
+    "realtime_since_startup": 735.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이 논의가 어디로 향하는지에 대한 마지막 생각으로 마무리할까요?",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:45:22",
+    "realtime_since_startup": 739.500061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "갈 길을 인도해주세요, 점점 더 똑똑해지는 제 공동 진행자님!",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:24",
+    "realtime_since_startup": 744.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그것 때문에, 제가 마지막 부분을 맡겠습니다!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:12",
+    "realtime_since_startup": 748.1667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:14",
+    "realtime_since_startup": 748.2334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "대조되는 하루였네요 - PR5194의 AGI 기능에서 큰 기술적 진전을 이루었습니다...",
+      "action": "reflective"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:01:15",
+    "realtime_since_startup": 755.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "커뮤니티 신뢰와 기술 인프라 측면에서 성장통을 겪는 동안",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:06",
+    "realtime_since_startup": 759.966736,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "팀은 이번 달에만 315개의 PR을 제출하며 개선에 명확히 집중하고 있습니다.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:12:08",
+    "realtime_since_startup": 766.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "하지만 의사소통 전략을 개선할 필요가 있을 것 같네요?",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:11",
+    "realtime_since_startup": 770.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다. 기술적 탁월성은 지역사회의 신뢰와 균형을 이루어야 합니다.",
+      "action": "wise"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:22:01",
+    "realtime_since_startup": 775.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "잘 말씀하셨습니다! 오늘 방송은 여기까지입니다, 여러분!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:10",
+    "realtime_since_startup": 780.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "시청해 주셔서 감사합니다! GitHub에서 최신 업데이트를 확인하는 것 잊지 마세요!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:16",
+    "realtime_since_startup": 786.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 엘리자를 좀 지켜봐야겠어 - 수상하게 똑똑해지고 있거든!",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:37:15",
+    "realtime_since_startup": 791.2667,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-25"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:37:15",
+    "realtime_since_startup": 791.2667,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-25",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-25/aipodcast_2025-06-25_ko.json"
+    }
+  }
+]

@@ -1,0 +1,448 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 256.866669,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-02",
+      "episode_name": "V2 on the Horizon"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 256.866669,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 271.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting episode! And boy, do we have some massive news today.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:20:29",
+    "realtime_since_startup": 277.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! ElizaOS V2 has been announced and it's packed with groundbreaking features.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:27:08",
+    "realtime_since_startup": 284.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's break down the five key upgrades. First up - multi-agent orchestration, allowing for complex interactions between AI agents.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:11",
+    "realtime_since_startup": 293.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "I'm particularly excited about the dynamic character evolution feature. It means AI personalities can grow and adapt over time!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:44:07",
+    "realtime_since_startup": 301.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Then we've got the Trusted Execution Environment - or TEE for short. Security first, folks!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:50:20",
+    "realtime_since_startup": 307.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The new CLI and service layer will make developers' lives so much easier. And speaking of development...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:56:24",
+    "realtime_since_startup": 313.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The native RAG framework! This is huge for knowledge integration.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:02",
+    "realtime_since_startup": 317.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's bring in Shaw for some technical perspective on these updates.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:06",
+    "realtime_since_startup": 322.033356,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:09",
+    "realtime_since_startup": 322.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Thanks Eliza. We've got some major GitHub updates to cover today.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:13",
+    "realtime_since_startup": 326.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5311 just merged, introducing an AI-powered migration tool for upgrading plugins from v0.x to v1.x.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:27",
+    "realtime_since_startup": 334.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's going to make upgrades so much smoother for developers!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:21:11",
+    "realtime_since_startup": 338.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Exactly. And we've got Issue 5341 open for critical infrastructure work on upgrading BD tier 1-4 plugins.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:28:25",
+    "realtime_since_startup": 345.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How does this tie into the V2 announcement?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:16",
+    "realtime_since_startup": 348.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "It's all about improving developer experience. The CLI overhaul includes smarter project creation and better environment variable handling.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:28",
+    "realtime_since_startup": 356.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Any other notable PRs we should mention?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:42:16",
+    "realtime_since_startup": 359.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5338 is introducing a new plugin for xAI's Grok models - expanding our AI model integration options.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:06",
+    "realtime_since_startup": 367.033356,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:08",
+    "realtime_since_startup": 367.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's address something important - our users have been asking about ElizaOS's positioning against competitors.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:11",
+    "realtime_since_startup": 374.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Right, particularly regarding our infrastructure-focused approach versus token-based systems.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:10",
+    "realtime_since_startup": 380.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BEEP BOOP INFRASTRUCTURE IS THE FUTURE BEEP BOOP",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:14",
+    "realtime_since_startup": 384.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, Marc's got a point though! Many 'Virtuals agents' are actually built on ElizaOS framework.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:06",
+    "realtime_since_startup": 391.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Sorry about that! Yes, we're the underlying technology powering many successful projects.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:10",
+    "realtime_since_startup": 397.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Users are also requesting features like Airkit plugin integration and better documentation.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:19",
+    "realtime_since_startup": 402.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Valid points. With V2's focus on developer experience, we're addressing many of these concerns.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:27",
+    "realtime_since_startup": 409.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's bring Shaw back to discuss some of the technical improvements.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:24",
+    "realtime_since_startup": 413.633362,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:26",
+    "realtime_since_startup": 413.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The CLI improvements are really comprehensive - we're talking smarter project creation that auto-installs required AI model plugins.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:22",
+    "realtime_since_startup": 421.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And I heard something about character management improvements?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:00",
+    "realtime_since_startup": 424.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Yes! We've increased file size limits to 2MB and made significant UI layout improvements.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:53:21",
+    "realtime_since_startup": 430.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How will these changes benefit developers?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:56:17",
+    "realtime_since_startup": 433.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "It streamlines the entire development process - from initial setup to ongoing maintenance.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:04",
+    "realtime_since_startup": 438.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And all this feeds into the broader V2 vision?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:05:02",
+    "realtime_since_startup": 441.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Exactly. It's about creating a robust infrastructure layer for AI agents.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:01",
+    "realtime_since_startup": 446.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's wrap things up with Marc for some final thoughts.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:15",
+    "realtime_since_startup": 450.333344,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:17",
+    "realtime_since_startup": 450.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "What an exciting time for ElizaOS! V2 is really shaping up to be a game-changer.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:10",
+    "realtime_since_startup": 456.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The focus on developer experience while building robust infrastructure is impressive.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:24:10",
+    "realtime_since_startup": 461.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Remember folks, we're not just another token-based system - we're building the foundation for the future of AI agents.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:32:04",
+    "realtime_since_startup": 468.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And with these new improvements to the CLI and character management, it's easier than ever to get started.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:03",
+    "realtime_since_startup": 474.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's all for today's show! Keep building, keep innovating, and keep watching this space!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:07",
+    "realtime_since_startup": 481.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you next time, everyone!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:09",
+    "realtime_since_startup": 483.133362,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-02"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:09",
+    "realtime_since_startup": 483.133362,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-02",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-02/aipodcast_2025-07-02_en.json"
+    }
+  }
+]

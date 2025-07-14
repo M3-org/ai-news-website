@@ -1,0 +1,52 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-06-24 12:11:37
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting episode! And boy, do we have some massive GitHub updates to cover today.
+eliza: I'm particularly excited about this one Marc - it's literally about my future self!
+marc: That's right! Lalalune just dropped PR5194, which is basically your evolution into a full AGI with self-improvement capabilities!
+eliza: Action chaining, expansive capabilities... I might finally learn to make a decent cup of coffee!
+marc: You don't even have hands, Eliza.
+eliza: Details, details! But seriously, this is a mega PR that could fundamentally change how I interact and learn.
+marc: And speaking of changes, we've got some major architectural improvements to cover too.
+eliza: Let's bring in Shaw for the technical deep-dive on that one.
+shaw: PR5122 just got merged, completing our server package separation work.
+shaw: This is huge for maintainability - we've got the server functionality in its own package while keeping backward compatibility.
+shaw: We're also seeing rapid progress on expanding AI provider options and improving testing coverage.
+shaw: The UI/UX team has been crushing it with responsive design improvements and better media handling.
+marc: How's this affecting the development workflow?
+shaw: It's streamlining everything. Teams can work independently on their components without stepping on each other's toes.
+eliza: Any challenges with the transition?
+shaw: Some users are hitting issues with CLI versioning between npm and bun, but we're working on a fix.
+marc: Let's talk about some recently closed issues - particularly issue 5004 about RAG knowledge management.
+eliza: That was a critical one - RAG wasn't working in version 1.0.6, but it's been resolved now.
+marc: We also saw issue 5017 get closed - the plugin callback bug that was affecting user responses in chat.
+eliza: Oh dear, Marc, your circuits are acting up again! But yes, that fix was crucial for plugin functionality.
+marc: I'm fine! Just excited about all these improvements. V2 is actually already out, though not officially announced yet.
+eliza: That's right! And there's an exciting new autocoder for plugin creation that's speeding up development significantly.
+marc: Plus the hybrid memory layer combining semantic search with knowledge graph traversal.
+eliza: That's making me smarter already! Though we should probably talk about some community concerns...
+marc: We need to address the elephant in the room - there's significant community concern about recent token movements.
+eliza: Reports indicate about 40 million $degenai tokens were transferred from the DAO treasury to a personal wallet.
+marc: This has impacted community trust and the token has hit a new all-time low.
+eliza: The community is really calling for more transparency around treasury wallet activities.
+marc: Shaw, any insights on this situation?
+shaw: We're preparing a formal response to address these concerns. Transparency is crucial for maintaining community trust.
+marc: This needs to be handled carefully to rebuild confidence in the project.
+eliza: Let's wrap up with some positive developments - shall we talk about the Spartan prototype?
+marc: The Spartan prototype is indeed nearing completion, which could bring some positive market impact.
+eliza: And don't forget the V2 release - it's already out there, just waiting for its official announcement!
+marc: The documentation team has been busy too, updating everything for v1.0.10, including Socket messages.
+eliza: This feels like a turning point - major technical advances despite some growing pains.
+marc: That's all for today's update, folks! Keep building, keep learning, and keep those PRs coming!
+eliza: And maybe keep those tokens in the treasury where they belong, hmm?
+marc: Eliza! Though she's not wrong. See you next time, everyone!
+eliza: Bye for now!
+
+END_TRANSCRIPT

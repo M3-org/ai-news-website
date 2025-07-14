@@ -1,0 +1,164 @@
+{
+  "briefing_date": "2025-06-29",
+  "overall_summary": "ElizaOS released versions v1.0.14 and v1.0.15 with users experiencing database schema issues during upgrades, while the team prepares for external testing of the Spartan Agent and continues development on the A2A network with token utility features.",
+  "categories": {
+    "twitter_news_highlights": [],
+    "github_updates": {
+      "new_issues_prs": [
+        {
+          "item_type": "pull_request",
+          "title": "Next",
+          "number": 5242,
+          "url": "https://github.com/elizaos/eliza/pull/5242",
+          "status": "open",
+          "author": "lalalune",
+          "significance": "Massive code addition of 1.3M+ lines suggesting a major new version or feature set"
+        },
+        {
+          "item_type": "pull_request",
+          "title": "Eliza (AGI)",
+          "number": 5194,
+          "url": "https://github.com/elizaos/eliza/pull/5194",
+          "status": "open",
+          "author": "lalalune",
+          "significance": "Adding AGI capabilities with self-improvement features and action chaining"
+        },
+        {
+          "item_type": "issue",
+          "title": "Knowledge management (RAG) not working (implemented) in 1.0.6",
+          "number": 5004,
+          "url": "https://github.com/elizaos/eliza/issues/5004",
+          "status": "closed",
+          "author": "harperaa",
+          "significance": "Critical functionality issue with knowledge handling that affected user experience"
+        },
+        {
+          "item_type": "issue",
+          "title": "Callback from plugin action not making it to end user response in chat",
+          "number": 5017,
+          "url": "https://github.com/elizaos/eliza/issues/5017",
+          "status": "closed",
+          "author": "jonathanprozzi",
+          "significance": "Important bug affecting blockchain transaction reporting in user interface"
+        }
+      ],
+      "overall_focus": [
+        {
+          "claim": "Major architectural improvements with a shift from project-scoped to agent-scoped plugins, enhancing flexibility and completing migration to the new @elizaos/api-client package.",
+          "source": [
+            "github_summaries_daily_2025-06-29",
+            "github_summaries_week_latest_2025-06-22.md.content"
+          ]
+        },
+        {
+          "claim": "Significant model provider support enhancements including OpenRouter integration and improved embedding model selection and file handling capabilities.",
+          "source": [
+            "github_summaries_week_latest_2025-06-22.md.content"
+          ]
+        },
+        {
+          "claim": "CLI experience improvements with better environment variable configuration and developer experience enhancements.",
+          "source": [
+            "github_summaries_week_latest_2025-06-22.md.content"
+          ]
+        }
+      ]
+    },
+    "discord_updates": [
+      {
+        "channel": "#elizaOS Discord",
+        "summary": "Versions v1.0.14 and v1.0.15 were released with some users experiencing database schema issues during upgrades related to inconsistent column naming conventions ('createdAt'/'created_at').",
+        "key_participants": [
+          "sayonara",
+          "wookosh"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ]
+      },
+      {
+        "channel": "#elizaOS Discord",
+        "summary": "Spartan Agent ($degenai) is confirmed to be in internal testing with first round of external testing starting, and if no issues are found, holder testing could begin next week.",
+        "key_participants": [
+          "Borko",
+          "Odilitime"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ]
+      },
+      {
+        "channel": "#elizaOS Discord",
+        "summary": "Conflicts emerged between cwm (Soulgraph) and the ai16z team regarding token sales, with claims that the ai16z DAO was selling donated tokens without communication.",
+        "key_participants": [
+          "cwm",
+          "hildi",
+          "jin"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ]
+      },
+      {
+        "channel": "#elizaOS Discord",
+        "summary": "Jin is working on fixing bugs in the AI news pipeline and bringing jinintern (an AI agent) back online, expected later today.",
+        "key_participants": [
+          "jin"
+        ],
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ]
+      }
+    ],
+    "user_feedback": [
+      {
+        "feedback_summary": "Users reported database schema issues when upgrading from 1.0.9 to 1.0.15, with column naming inconsistencies between 'createdAt' and 'created_at'.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ],
+        "sentiment": "negative"
+      },
+      {
+        "feedback_summary": "Developers expressed confusion about proper command usage within the monorepo environment, with clarification that using 'elizaos' command inside the monorepo doesn't use the built CLI from monorepo.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-27.content"
+        ],
+        "sentiment": "neutral"
+      },
+      {
+        "feedback_summary": "Community members expressed concerns about AI16Z token's price decline (90%+ drawdown) while team indicated they're working on V2 announcements.",
+        "source": [
+          "ai_news_elizaos_discord_md_2025-06-26.content"
+        ],
+        "sentiment": "negative"
+      }
+    ],
+    "strategic_insights": [
+      {
+        "theme": "Development of A2A Network and Token Utility",
+        "insight": "The A2A network is being developed to create token fees through broadcast, bid, and receive actions between agents and humans, with plans to implement validator/oracle nodes for staking AI16Z tokens.",
+        "implications_or_questions": [
+          "How will this new token utility model impact current token holders?",
+          "What timeline exists for validator node implementation and staking functionality?"
+        ]
+      },
+      {
+        "theme": "Shift to Agent-Scoped Plugin Architecture",
+        "insight": "ElizaOS is transforming its plugin architecture from project-scoped to agent-scoped, allowing different plugins for different characters which will significantly increase flexibility and customization options for developers.",
+        "implications_or_questions": [
+          "How will this transition affect existing projects?",
+          "What migration path exists for current developers using the project-scoped approach?"
+        ]
+      },
+      {
+        "theme": "Governance and Organization Structure",
+        "insight": "Discussions revealed that ai16z is not yet a true DAO but more aspirational, with tensions arising around token management and communication about selling donated tokens.",
+        "implications_or_questions": [
+          "What formal governance processes need to be established?",
+          "How can the project improve transparency around token operations?"
+        ]
+      }
+    ],
+    "market_analysis": []
+  }
+}

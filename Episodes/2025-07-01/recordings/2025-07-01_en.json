@@ -1,0 +1,358 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 238.833344,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-01",
+      "episode_name": "Database Drama and Discord Discussions"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 238.833344,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 253.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another episode of AI developments! We've got some interesting GitHub updates to cover today.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:06",
+    "realtime_since_startup": 260.0,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! Starting with a critical database fix in PR5278 by bealers addressing SQL plugin functionality.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:07",
+    "realtime_since_startup": 268.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Ah yes, those pesky schema type mismatches. Nothing worse than database issues bringing everything to a halt.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:35:29",
+    "realtime_since_startup": 274.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Speaking of halts, we're also seeing user reports about character saving problems in issue 5268.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:11",
+    "realtime_since_startup": 281.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's get Shaw's technical perspective on these developments. Shaw, what's your take on these database challenges?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:15",
+    "realtime_since_startup": 288.300018,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:18",
+    "realtime_since_startup": 288.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "These database issues are particularly challenging in containerized environments. Users are having to drop or manually alter tables due to type and field name changes.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:59:26",
+    "realtime_since_startup": 298.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're also seeing 'too many connections' errors with Postgres on Heroku. The fix involves setting connection pool limits with 'max: 5' configuration.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:21",
+    "realtime_since_startup": 308.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Sounds like quite the technical challenge. Any recommendations for users facing these issues?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:11",
+    "realtime_since_startup": 314.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Testing in staging environments before production deployment is crucial. We're also recommending setting PGPOOL_MAX=5 as an environment variable.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:12",
+    "realtime_since_startup": 324.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How are these changes affecting the broader development landscape?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:29:09",
+    "realtime_since_startup": 328.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Well, June has been quite transformative with CLI overhauls and architectural refactors, including the new standalone messaging server.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:37:13",
+    "realtime_since_startup": 336.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We've also expanded support for new AI providers including Ollama, Google, and OpenRouter.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:43:01",
+    "realtime_since_startup": 341.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Back to the studio for more updates!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:45:13",
+    "realtime_since_startup": 344.233337,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:45:15",
+    "realtime_since_startup": 344.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's talk about some exciting new additions to the character roster!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:15",
+    "realtime_since_startup": 348.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh my, are you glitching again Marc? But yes, PR5300 brings us a new character persona - Gork!",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:06",
+    "realtime_since_startup": 356.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I'm fine now! And don't forget PR5299 - ChristopherTrimboli's new workflows plugin.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:24",
+    "realtime_since_startup": 362.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's going to be huge for automation. We're also seeing increased character file size limits to 2MB now.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:21",
+    "realtime_since_startup": 369.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The community seems particularly excited about the agent-scoped plugins architecture.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:14",
+    "realtime_since_startup": 375.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's get Shaw back in here to discuss some of the strategic implications of these changes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:25",
+    "realtime_since_startup": 380.633362,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:27",
+    "realtime_since_startup": 380.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're seeing growing interest in multi-agent configurations, particularly for Discord setups.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:17",
+    "realtime_since_startup": 386.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That could really change how users interact with the system. What about alternative AI models?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:33:11",
+    "realtime_since_startup": 392.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "There's significant discussion around BGE and sentence-transformers as alternatives to traditional embedding models.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:39:26",
+    "realtime_since_startup": 398.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How should the framework adapt to support these alternatives?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:20",
+    "realtime_since_startup": 402.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're looking at better abstracting provider-specific implementations and increasing testing resources for alternative models.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:27",
+    "realtime_since_startup": 410.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Fascinating developments! Marc, any final thoughts before we wrap up?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:56:10",
+    "realtime_since_startup": 415.133362,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:56:12",
+    "realtime_since_startup": 415.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "What a packed episode! From database fixes to new character personas, the elizaOS ecosystem is evolving rapidly.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:16",
+    "realtime_since_startup": 423.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget the exciting developments in multi-agent configurations and alternative AI models!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:15",
+    "realtime_since_startup": 429.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Indeed! The future looks bright for autonomous agents and community-driven development.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:16:05",
+    "realtime_since_startup": 434.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's all for today's show! Thanks for joining us for another episode of AI developments!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:16",
+    "realtime_since_startup": 440.333344,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-01"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:16",
+    "realtime_since_startup": 440.333344,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-01",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-01/aipodcast_2025-07-01_en.json"
+    }
+  }
+]
