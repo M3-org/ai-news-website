@@ -110,6 +110,7 @@
       <button data-lang="ko" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">한국어</button>
     </div>
     <div id="episodes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    <div id="episodes-pagination" class="flex justify-center items-center gap-2 mt-8"></div>
   </section>
 
   <!-- Stepper Timeline: How the AI Show Works + Key Innovations (moved below Latest Episodes) -->
@@ -247,9 +248,13 @@
 
     // Language filter and episode rendering
     let selectedLang = 'en';
+    let currentPage = 1;
+    const episodesPerPage = 6;
+
     document.querySelectorAll('#lang-filter button').forEach(btn => {
       btn.addEventListener('click', () => {
         selectedLang = btn.dataset.lang;
+        currentPage = 1;
         renderEpisodeCards();
         document.querySelectorAll('#lang-filter button').forEach(b => {
           if (b === btn) {
@@ -278,7 +283,11 @@
       const grid = document.getElementById('episodes-grid');
       grid.innerHTML = '';
       const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
-      for (const date of dates.slice(0,6)) {
+      const filteredDates = dates.filter(date => episodesData[date][selectedLang]);
+      const totalPages = Math.ceil(filteredDates.length / episodesPerPage);
+      const startIdx = (currentPage - 1) * episodesPerPage;
+      const endIdx = startIdx + episodesPerPage;
+      for (const date of filteredDates.slice(startIdx, endIdx)) {
         const ep = episodesData[date][selectedLang];
         if (!ep) continue;
         const card = document.createElement('div');
@@ -296,6 +305,35 @@
         card.addEventListener('click', () => openLightbox(date, selectedLang));
         grid.appendChild(card);
       }
+      renderEpisodesPagination(totalPages);
+    }
+
+    function renderEpisodesPagination(totalPages) {
+      const pag = document.getElementById('episodes-pagination');
+      pag.innerHTML = '';
+      if (totalPages <= 1) return;
+      // Previous button
+      const prev = document.createElement('button');
+      prev.textContent = 'Prev';
+      prev.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
+      prev.disabled = currentPage === 1;
+      prev.onclick = () => { currentPage--; renderEpisodeCards(); };
+      pag.appendChild(prev);
+      // Page numbers
+      for (let i = 1; i <= totalPages; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = 'px-3 py-1 rounded font-semibold ' + (i === currentPage ? 'lava text-black' : 'bg-gray-700 text-white hover:bg-gray-600');
+        btn.onclick = () => { currentPage = i; renderEpisodeCards(); };
+        pag.appendChild(btn);
+      }
+      // Next button
+      const next = document.createElement('button');
+      next.textContent = 'Next';
+      next.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
+      next.disabled = currentPage === totalPages;
+      next.onclick = () => { currentPage++; renderEpisodeCards(); };
+      pag.appendChild(next);
     }
 
     // Utility: Format date as "Month DD, YYYY"
