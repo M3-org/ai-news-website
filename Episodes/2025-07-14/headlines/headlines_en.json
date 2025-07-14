@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-14",
+  "headlines": [
+    "ElizaOS v1.2.5 Released with Major Bug Fixes and Feature Updates",
+    "New Autocoder Plugin Adds Sandbox Environment Support",
+    "Windows Plugin Compatibility Issue Resolved for Local AI",
+    "Proposal: Blockchain-Based Memory System Using Solana Token 2022",
+    "Twitter Plugin v1.2.1 Faces Post Scheduling Issues",
+    "Enhanced Claude Workflows Added for Automated Code Quality Analysis",
+    "New Service Interface Standards Implemented Across Platform",
+    "ElizaNet Adds LiteLLM Fallback Mechanism for System Resilience",
+    "Token-Based Role System Clarified: Hoplite and Partners Access Unified",
+    "Community Calls for Better Cloud Deployment Documentation",
+    "Build Process Bug Fixed: TSup No Longer Wipes Vite Build",
+    "80,919 Code Additions Across 502 Files Show Major Development Push"
+  ],
+  "separator": "     "
+}

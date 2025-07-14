@@ -1,0 +1,201 @@
+name: Daily AI News Episode Upload
+
+on:
+  schedule:
+    # Run daily at 05:00 UTC
+    - cron: '0 5 * * *'
+  workflow_dispatch:  # Allow manual triggering
+    inputs:
+      episode_date:
+        description: 'Episode date (YYYY-MM-DD)'
+        required: true
+        type: string
+      force_upload:
+        description: 'Force upload even if episode exists'
+        required: false
+        type: boolean
+        default: false
+
+env:
+  PYTHON_VERSION: '3.9'
+  REMOTE_HOST: 'clanktank.tv'
+  REMOTE_USER: 'uploader'
+  EPISODES_PATH: 'Episodes'
+
+jobs:
+  upload-episode:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ env.PYTHON_VERSION }}
+        
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
+        
+    - name: Set up SSH key
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.VPS_SSH_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -H ${{ env.REMOTE_HOST }} >> ~/.ssh/known_hosts
+        
+    - name: Determine episode date
+      id: date
+      run: |
+        if [ "${{ github.event.inputs.episode_date }}" != "" ]; then
+          echo "episode_date=${{ github.event.inputs.episode_date }}" >> $GITHUB_OUTPUT
+        else
+          # For scheduled runs, use yesterday's date (assuming episodes are for previous day)
+          echo "episode_date=$(date -d 'yesterday' '+%Y-%m-%d')" >> $GITHUB_OUTPUT
+        fi
+        
+    - name: Check for episode on VPS
+      id: check_episode
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        echo "Checking for episode: $EPISODE_DATE"
+        
+        # Check if episode zip exists on VPS
+        if ssh ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} "test -f ${{ env.EPISODES_PATH }}/${EPISODE_DATE}.zip"; then
+          echo "episode_exists=true" >> $GITHUB_OUTPUT
+          echo "Episode found: ${EPISODE_DATE}.zip"
+        else
+          echo "episode_exists=false" >> $GITHUB_OUTPUT
+          echo "Episode not found: ${EPISODE_DATE}.zip"
+        fi
+        
+    - name: Set up YouTube credentials
+      if: steps.check_episode.outputs.episode_exists == 'true'
+      run: |
+        # Create client secrets from GitHub secret
+        echo "${{ secrets.YOUTUBE_CLIENT_SECRETS }}" > client_secrets.json
+        
+        # Set up credentials for non-interactive mode
+        export YOUTUBE_CLIENT_ID="${{ secrets.YOUTUBE_CLIENT_ID }}"
+        export YOUTUBE_CLIENT_SECRET="${{ secrets.YOUTUBE_CLIENT_SECRET }}"
+        export YOUTUBE_REFRESH_TOKEN="${{ secrets.YOUTUBE_REFRESH_TOKEN }}"
+        
+    - name: Download and process episode
+      if: steps.check_episode.outputs.episode_exists == 'true'
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        REMOTE_ZIP_PATH="${{ env.EPISODES_PATH }}/${EPISODE_DATE}.zip"
+        
+        echo "Processing episode: $EPISODE_DATE"
+        
+        # Download episode zip
+        scp ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }}:$REMOTE_ZIP_PATH ${EPISODE_DATE}.zip
+        
+        # Verify and extract
+        unzip -t ${EPISODE_DATE}.zip
+        unzip -q ${EPISODE_DATE}.zip -d temp_extract
+        
+        # Find episode directory
+        EPISODE_DIR=$(find temp_extract -type d -name "*${EPISODE_DATE}*" | head -1)
+        
+        if [ -z "$EPISODE_DIR" ]; then
+          echo "Error: Episode directory not found"
+          exit 1
+        fi
+        
+        # Move to Episodes directory
+        mkdir -p Episodes
+        mv "$EPISODE_DIR" "Episodes/${EPISODE_DATE}"
+        
+        echo "Episode extracted to Episodes/${EPISODE_DATE}"
+        
+    - name: Fix metadata and upload
+      if: steps.check_episode.outputs.episode_exists == 'true'
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        
+        # Find metadata file
+        METADATA_FILE=$(find "Episodes/${EPISODE_DATE}" -name "*youtube_metadata.json" | grep -v "_ch\|_ko" | head -1)
+        
+        if [ -z "$METADATA_FILE" ]; then
+          echo "Error: No English metadata file found"
+          exit 1
+        fi
+        
+        echo "Found metadata: $METADATA_FILE"
+        
+        # Fix JSON structure if needed
+        python3 << 'EOF'
+        import json
+        import sys
+        
+        metadata_file = sys.argv[1] if len(sys.argv) > 1 else ""
+        if not metadata_file:
+            exit(1)
+            
+        with open(metadata_file, 'r') as f:
+            data = json.load(f)
+        
+        # Flatten structure if needed
+        if 'episode_metadata' in data:
+            data = data['episode_metadata']
+        
+        # Add playlist_id if missing
+        if 'playlist_id' not in data:
+            data['playlist_id'] = 'PLp5K4ceh2pR0hfdu4bUoNKCeqYm0n78Xx'
+        
+        # Ensure privacy is unlisted
+        data['privacy_status'] = 'unlisted'
+        
+        with open(metadata_file, 'w') as f:
+            json.dump(data, f, indent=2)
+            
+        print(f"Fixed metadata structure: {metadata_file}")
+        EOF "$METADATA_FILE"
+        
+        # Upload to YouTube
+        python3 upload_to_youtube.py --from-json "$METADATA_FILE"
+        
+    - name: Archive episode on VPS
+      if: steps.check_episode.outputs.episode_exists == 'true'
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        
+        # Move processed episode to archive on VPS
+        ssh ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} << 'EOF'
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        ARCHIVE_DIR="/path/to/archive"  # Update this path
+        
+        mkdir -p "$ARCHIVE_DIR"
+        
+        if [ -f "${{ env.EPISODES_PATH }}/${EPISODE_DATE}.zip" ]; then
+          mv "${{ env.EPISODES_PATH }}/${EPISODE_DATE}.zip" "$ARCHIVE_DIR/"
+          echo "Archived ${EPISODE_DATE}.zip to $ARCHIVE_DIR"
+        fi
+        EOF
+
+    - name: Update episodes.json
+      if: steps.check_episode.outputs.episode_exists == 'true'
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        python3 update_episodes_json.py --episode-date "$EPISODE_DATE" --push
+        
+    - name: Report results
+      if: always()
+      run: |
+        EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
+        
+        if [ "${{ steps.check_episode.outputs.episode_exists }}" = "true" ]; then
+          echo "✅ Episode $EPISODE_DATE processed and uploaded successfully"
+        else
+          echo "ℹ️ No episode found for $EPISODE_DATE"
+        fi
+        
+    - name: Cleanup
+      if: always()
+      run: |
+        rm -rf temp_extract *.zip Episodes client_secrets.json
+        rm -f ~/.ssh/id_rsa
