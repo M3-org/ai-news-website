@@ -1,0 +1,20 @@
+{
+  "language": "en",
+  "date": "2025-07-04",
+  "headlines": [
+    "ElizaOS V2 Beta Enters Fourth Month as Team Prioritizes Stabilization",
+    "AI-Powered Plugin Migration Tool Launches for V0.x to V1.x Upgrades",
+    "Major CLI Overhaul Improves Environment Variables and Project Creation",
+    "New Grok Language Model Integration Plugin Under Development",
+    "Auto.fun Platform Expanding Beyond Token Launches to AI Project Infrastructure",
+    "ElizaOS Twitter Account Suspended, Team in Resolution Talks",
+    "Proposed 'Org Mode' to Enable AI Agents Managing Long-term Projects",
+    "One-Click Liquidity Provision Module Coming to Auto.fun Platform",
+    "Knowledge Plugin APIs Now Internal-Only After Architecture Change",
+    "Community Reports OpenRouter Configuration Conflicts with Environment Variables",
+    "Users Request Better Technical Document Preprocessing Documentation",
+    "New Default Eliza Avatar and Character Form UI Improvements Released",
+    "Comprehensive CLI Testing Infrastructure Implementation Underway"
+  ],
+  "separator": "     "
+}

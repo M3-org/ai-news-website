@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 290.066681,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-11",
+      "episode_name": "ElizaOS V2 Launch & GitHub Developments"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 290.066681,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 304.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to the show! Today we've got some massive news about ElizaOS's latest release.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:20:09",
+    "realtime_since_startup": 310.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! Version 1.2.0, also known as V2, just dropped with some incredible improvements.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:27:22",
+    "realtime_since_startup": 317.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We're talking 40% lower latency, enhanced TEE, and - my personal favorite - Swarms for multi-agent teams.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:34:14",
+    "realtime_since_startup": 324.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The Dynamic Memory system is particularly exciting. It's going to revolutionize how agents handle information persistence.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:41:22",
+    "realtime_since_startup": 331.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Don't forget the RAG capabilities and cross-chain support. This is a serious upgrade across the board.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:47:16",
+    "realtime_since_startup": 337.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And the CLI now supports 34 plugins! Though speaking of plugins...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:00",
+    "realtime_since_startup": 342.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Ah yes, we should probably address some of the early feedback coming in. Shaw, want to jump in here?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:57:21",
+    "realtime_since_startup": 347.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's hear what our producer has to say about the technical side of things.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:13",
+    "realtime_since_startup": 351.466675,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:16",
+    "realtime_since_startup": 351.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Thanks for having me. We've got some exciting PRs in the pipeline, particularly from lalalune.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:00",
+    "realtime_since_startup": 357.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5506 introduces a new planning plugin that's going to be crucial for agent planning capabilities.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:19",
+    "realtime_since_startup": 364.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5510 adds the ability to train models on your own data - this is huge for customization.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:06",
+    "realtime_since_startup": 372.233368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "And PR5509 brings in vision capabilities, both camera and screen integration.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:13",
+    "realtime_since_startup": 377.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We've also successfully merged PR5436 for action chaining, which enables sequential action execution.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:34:25",
+    "realtime_since_startup": 384.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Though we are seeing some type errors reported with the knowledge plugin in 1.2.0...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:26",
+    "realtime_since_startup": 390.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "But the team's already on it, and we've found that deleting bun.lock and rebuilding resolves most cases.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:19",
+    "realtime_since_startup": 396.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Back to you in the studio for more on the user feedback.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:26",
+    "realtime_since_startup": 399.900024,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:28",
+    "realtime_since_startup": 399.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's dive into what users are experiencing. The knowledge plugin seems to be having some growing pains.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:55:25",
+    "realtime_since_startup": 405.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Marc! Your circuits okay there? But yes, specifically with OpenRouter embeddings and rate limiting.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:27",
+    "realtime_since_startup": 411.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I'm fine! Just excited about the technical details. Users are reporting chunking failures.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:20",
+    "realtime_since_startup": 417.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The good news is there's a straightforward fix - adding MAX_CONCURRENT_REQUESTS and REQUESTS_PER_MINUTE parameters.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:26",
+    "realtime_since_startup": 426.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Users have also mentioned needing better documentation for local deployment.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:04",
+    "realtime_since_startup": 431.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "True, especially with the growing interest in local inference using Ollama.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:18",
+    "realtime_since_startup": 435.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of which, Shaw mentioned some interesting developments in the partners channel...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:30:03",
+    "realtime_since_startup": 440.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's bring him back to tell us more about that!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:25",
+    "realtime_since_startup": 442.8667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:27",
+    "realtime_since_startup": 442.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "DorianD proposed an interesting protocol-level token use for agent nodes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:00",
+    "realtime_since_startup": 447.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How would that work with the existing ecosystem?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:39:28",
+    "realtime_since_startup": 449.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "It would use token2022 messaging data field for secure identification across communication channels.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:17",
+    "realtime_since_startup": 457.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That could help with the agent-to-agent communication implementation challenges we've been facing.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:23",
+    "realtime_since_startup": 462.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Exactly. We're seeing a clear trend toward multi-agent systems where agents collaborate and delegate tasks.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:29",
+    "realtime_since_startup": 469.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The ecosystem is getting quite complex with all these components - elizaOS, auto.fun, ELI5, daos.fun...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:20",
+    "realtime_since_startup": 477.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "True, we might need to work on better explaining how everything fits together.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:23",
+    "realtime_since_startup": 481.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's wrap this up with a final thought on where all this is heading.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:14",
+    "realtime_since_startup": 485.500031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:16",
+    "realtime_since_startup": 485.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The shift toward local inference with Ollama is fascinating.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:29",
+    "realtime_since_startup": 489.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It really shows how the community values both cost efficiency and control over their deployments.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:24:28",
+    "realtime_since_startup": 494.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And there's this interesting tension between maintaining an open-source framework while integrating token utility.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:00",
+    "realtime_since_startup": 501.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's a delicate balance, but crucial for sustainable development.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:01",
+    "realtime_since_startup": 505.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The future's looking bright with all these developments. That's all for today's show!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:39:27",
+    "realtime_since_startup": 509.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Thanks for joining us everyone! Keep building and experimenting with ElizaOS V2!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:25",
+    "realtime_since_startup": 514.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And don't forget to check out those new PRs if you want to contribute!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:16",
+    "realtime_since_startup": 518.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you next time!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:05",
+    "realtime_since_startup": 520.2,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-11"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:05",
+    "realtime_since_startup": 520.2,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-11",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-11/aipodcast_2025-07-11_en.json"
+    }
+  }
+]

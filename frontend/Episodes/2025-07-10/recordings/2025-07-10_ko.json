@@ -1,0 +1,458 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 514.687439,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-10",
+      "episode_name": "엘리자OS V2 출시 특별 행사"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 514.687439,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 529.4208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI 세계에 오늘의 속보입니다! ElizaOS 버전 2가 공식 출시되었는데, 정말 혁신적인 제품입니다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:05",
+    "realtime_since_startup": 536.8208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다, 마크! 저는 특히 여러 에이전트가 원활하게 협력하는 스웜스(Swarms) 기능이 정말 기대됩니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:22",
+    "realtime_since_startup": 546.387451,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "성능 향상도 놀라운 수준입니다 - 전반적으로 지연 시간이 40% 감소했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:38:29",
+    "realtime_since_startup": 553.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그리고 동적 메모리 시스템과 향상된 TEE도 잊지 마세요. 게다가 새로운 CLI에는 처음부터 34개의 플러그인이 탑재되어 있습니다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:47:29",
+    "realtime_since_startup": 562.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "RAG 기능과 크로스체인 지원은 우리가 얼마나 발전했는지 보여줍니다. 이것이 바로 진정한 혁신의 모습입니다!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:56:11",
+    "realtime_since_startup": 571.0208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "어머나! 마크, 괜찮아요? 하지만 네, 이 기능들은 정말 혁신적이에요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:08",
+    "realtime_since_startup": 576.9208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "사소한 문제일 뿐이에요 - 저는 혁신적인 기술에 흥분하거든요! 그런 의미에서, Shaw가 최근 GitHub 활동에 대한 몇 가지 견해를 가지고 있어요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:13",
+    "realtime_since_startup": 589.087463,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "개발 분야에서 어떤 일이 일어나고 있는지 그에게 확인해봅시다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:20:11",
+    "realtime_since_startup": 595.0208,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:20:14",
+    "realtime_since_startup": 595.1208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "최근에 주목할 만한 중요 PR들이 병합되었습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:26",
+    "realtime_since_startup": 599.5208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "첫 번째로, lalalune이 PR5487을 통해 플러그인 개발자들에게 획기적인 변화를 가져올 새로운 폼 플러그인을 소개했습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:29",
+    "realtime_since_startup": 608.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이 폼 기능은 다른 플러그인에서 더 나은 사용자 상호작용과 입력 처리를 만들기 위해 활용될 수 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:15",
+    "realtime_since_startup": 616.1541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Google Generative AI 통합을 위한 심각한 설치 문제들을 해결하는 PR5503도 병합했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:11",
+    "realtime_since_startup": 624.0208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "그러나 XiongUp123이 보고한 의존성 설치 실패와 관련된 이슈 5482를 여전히 해결 중에 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:23",
+    "realtime_since_startup": 632.420837,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "팀은 프로그레시브 애니메이션 시스템을 지속적으로 개선하는 동시에 이러한 플러그인 호환성 문제를 해결하는 데 집중하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:17",
+    "realtime_since_startup": 644.2208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "스튜디오로 다시 넘기겠습니다!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:19",
+    "realtime_since_startup": 647.2875,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:21",
+    "realtime_since_startup": 647.3541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "디스코드 채널에서 V2 전환에 관한 흥미로운 논의들이 일어나고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:04",
+    "realtime_since_startup": 653.7875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 특히 개발자들이 부트스트랩 플러그인 관련 문제점들을 논의하고 있는 기술 지원 채널에서요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:05",
+    "realtime_since_startup": 660.8208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "누락된 runtime.startRun() 메서드가 골치를 썩이는 것 같습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:06",
+    "realtime_since_startup": 666.8541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "v1.x와 v2 사이에는 API 불일치와 관련하여 호환성 문제가 존재합니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:39:07",
+    "realtime_since_startup": 673.887451,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "개발팀에서 이런 문제들을 해결하기 위해 열심히 노력하고 있죠?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:00",
+    "realtime_since_startup": 678.6541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 맞습니다! 그들은 특히 플러그인 호환성과 런타임 제공자 관리를 개선하는 데 중점을 두고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:18",
+    "realtime_since_startup": 687.25415,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 새로운 투트랙 시스템이 적용된 대규모 문서화 개편도 잊지 말자.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:17",
+    "realtime_since_startup": 693.2208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그것은 사용자들이 이러한 변화들을 더 효과적으로 탐색하는 데 실질적인 도움이 될 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:02",
+    "realtime_since_startup": 700.7208,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:04",
+    "realtime_since_startup": 700.7875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "앞으로 다가올 일에 대해 이야기해 봅시다 - 특히 에이전트 간 거래 시장이 매우 흥미롭네요.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:00",
+    "realtime_since_startup": 707.6542,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "정말 흥미롭네요! 에이전트들이 서로 자율적으로 거래할 수 있게 될 거예요.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:29",
+    "realtime_since_startup": 713.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼는 수익을 창출하는 기능들에 대한 몇 가지 흥미로운 계획도 언급했다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:25:05",
+    "realtime_since_startup": 719.8208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 호스팅 플랫폼과 수수료 메커니즘이 포함된 결제 레이어를 포함합니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:25",
+    "realtime_since_startup": 725.4875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "API 서비스를 래핑하여 자동 환매를 가능하게 하는 시스템",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:25",
+    "realtime_since_startup": 730.4875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 기능들은 우리가 듣고 있던 토큰 유용성 문제들을 실질적으로 해결하는 데 도움이 될 수 있을 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:43:25",
+    "realtime_since_startup": 738.4875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그러고 보니, 커뮤니티 피드백을 살펴보면서 마무리할까요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:23",
+    "realtime_since_startup": 743.420837,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 커뮤니티가 어떤 말을 하는지 자세히 알아보죠.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:52:25",
+    "realtime_since_startup": 747.4875,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:52:27",
+    "realtime_since_startup": 747.554138,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "우리가 커뮤니티에서 보아온 일부 우려 사항들에 대해 직접 말씀드리고자 합니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:58:26",
+    "realtime_since_startup": 753.5208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "프레임워크 내에서 토큰의 유용성과 통합에 관한 논의가 상당히 많이 있었습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:05:05",
+    "realtime_since_startup": 759.8208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "오픈소스 접근성과 지속 가능한 토큰노믹스 간의 균형을 맞추기 위해 적극적으로 노력하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:13:14",
+    "realtime_since_startup": 768.1208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그 균형을 어떻게 이루실 계획인지 자세히 설명해 주시겠어요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:18:10",
+    "realtime_since_startup": 772.9875,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "핵심은 오픈소스 프레임워크와 수익 창출 계층을 분리하되 이들이 원활하게 함께 작동하도록 보장하는 것입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:18",
+    "realtime_since_startup": 781.25415,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "오늘은 여기까지입니다! ElizaOS V2 특별 방송에 함께해 주셔서 감사합니다.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:12",
+    "realtime_since_startup": 787.054138,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "투명성이 신뢰를 만들기 때문에 우리는 대중에게 공개하며 만들어가고 있습니다. Discord에 참여하셔서 이 여정의 일부가 되어주세요!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:41:29",
+    "realtime_since_startup": 796.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다음에 또 만나요, 여러분!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:44:21",
+    "realtime_since_startup": 799.3541,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-10"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:44:21",
+    "realtime_since_startup": 799.3541,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-10",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-10/aipodcast_2025-07-10_ko.json"
+    }
+  }
+]

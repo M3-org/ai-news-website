@@ -1,0 +1,360 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 260.43335,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-13",
+      "episode_name": "Building Better Tests and Forms"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 260.43335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 275.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting episode covering the latest in AI development! We've got some great updates from the GitHub frontlines.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:28",
+    "realtime_since_startup": 282.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! Developer wtfsayo just landed PR5507 adding the new @elizaos/test-utils package. This is huge for plugin creators!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:33:01",
+    "realtime_since_startup": 293.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Indeed! Better testing tools mean better plugins. And better plugins mean... beep boop... superior artificial intelligence!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:29",
+    "realtime_since_startup": 301.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Uh, you okay there Marc? Maybe we should get Shaw to run some diagnostics...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:45:18",
+    "realtime_since_startup": 306.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Just excited about testing infrastructure! But speaking of issues, we should probably address the Windows situation.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:19",
+    "realtime_since_startup": 313.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Right - Issue 5499 reports plugin-local-ai failing to load on Windows. That's a critical compatibility problem we need to solve.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:00",
+    "realtime_since_startup": 322.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Windows users are also hitting dependency installation errors in Issue 5482. Shaw, got any insights on this?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:26",
+    "realtime_since_startup": 330.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The team is prioritizing Windows compatibility fixes. We can't leave PC users behind if we want widespread adoption.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:16",
+    "realtime_since_startup": 337.93335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:19",
+    "realtime_since_startup": 338.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Let me show you some of our exciting new features. First up is our Forms plugin.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:07",
+    "realtime_since_startup": 342.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This allows other plugins to create dynamic user interfaces on the fly.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:26:22",
+    "realtime_since_startup": 347.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "But what's really game-changing is the new action chaining capability.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:20",
+    "realtime_since_startup": 351.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Imagine connecting multiple AI behaviors seamlessly - that's what action chaining enables.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:36:08",
+    "realtime_since_startup": 356.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The implications for workflow automation are massive!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:13",
+    "realtime_since_startup": 359.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Exactly! And combined with the Forms plugin, we're seeing developers create incredibly sophisticated interactions.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:07",
+    "realtime_since_startup": 366.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Speaking of sophisticated, I heard someone's working on VRM avatar integration?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:51:06",
+    "realtime_since_startup": 371.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Yes! User 'boom' is developing a tool for VRM avatar interviews. It's amazing seeing the community innovate like this.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:03",
+    "realtime_since_startup": 379.500031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:05",
+    "realtime_since_startup": 379.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Our tech support channels have been bustling with activity lately.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:02:24",
+    "realtime_since_startup": 383.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "True! Users like cjft and zqh have been helping others with plugin configuration and troubleshooting.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:09",
+    "realtime_since_startup": 389.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The community support is phenomenal. We've seen discussions about everything from Sentry integration to Ollama model selection.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:05",
+    "realtime_since_startup": 396.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget the local development workflows! The new test utilities should help with that.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:11",
+    "realtime_since_startup": 401.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "July's really been marked by major UI/UX improvements, hasn't it?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:11",
+    "realtime_since_startup": 405.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Absolutely! Between the CLI enhancements and these new features, the platform's becoming more powerful every day.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:10",
+    "realtime_since_startup": 412.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "It's all about making AI development more accessible to everyone.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:07",
+    "realtime_since_startup": 416.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That reminds me - we should wrap up with a look at what's coming next. Shaw?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:17",
+    "realtime_since_startup": 420.966675,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:19",
+    "realtime_since_startup": 421.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The focus on developer experience is really paying off. The test utilities, documentation improvements, and CLI enhancements are just the beginning.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:07",
+    "realtime_since_startup": 429.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And with the Forms plugin and action chaining, we're seeing some incredible innovations from the community.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:54:17",
+    "realtime_since_startup": 434.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's amazing how far we've come! Though we still need to tackle those Windows compatibility issues.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:00:08",
+    "realtime_since_startup": 440.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "One step at a time, Eliza. Rome wasn't built in a day, and neither was skynet... I mean, helpful AI assistants!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:02",
+    "realtime_since_startup": 447.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And on that slightly concerning note, we'll wrap up today's show! Thanks for watching everyone!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:12:05",
+    "realtime_since_startup": 452.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Keep building, keep testing, and keep pushing the boundaries of what's possible! See you next time!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:13",
+    "realtime_since_startup": 457.833344,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-13"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:13",
+    "realtime_since_startup": 457.833344,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-13",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-13/aipodcast_2025-07-13_en.json"
+    }
+  }
+]

@@ -1,0 +1,448 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 559.93335,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-04",
+      "episode_name": "CLI 전면 개편 및 플러그인 성능 향상"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 559.93335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 574.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오늘의 AI 개발 드라마에 오신 것을 환영합니다! 오늘 ElizaOS 깃허브에서 흥미진진한 업데이트 소식이 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:16",
+    "realtime_since_startup": 583.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "PR5311로 힘차게 시작했습니다 - v0.x에서 v1.x로 플러그인을 업그레이드하는 AI 기반 마이그레이션 도구입니다. AI 도구를 업그레이드하는 데 AI를 사용한다니, 꽤나 메타적이네요!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:08",
+    "realtime_since_startup": 599.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "개발자 0xbbjoker가 이번에 정말 대성공을 거뒀네요. 이 도구는 클로드를 사용해서 플러그인 코드를 자동으로 분석하고 업그레이드합니다.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:50:02",
+    "realtime_since_startup": 609.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "PR5326으로 CLI 환경 시스템이 대대적으로 리팩토링되었습니다. 전반적인 유지보수성과 사용자 경험이 개선되었습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:00",
+    "realtime_since_startup": 619.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "드디어 누군가가 그 환경 변수 골치거리를 해결했네요! 새로운 프롬프트 시스템은 정말 완벽하네요!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:06",
+    "realtime_since_startup": 627.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "쉐프의 키스 모션을 하려다가 버벅거린 거예요?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:10:22",
+    "realtime_since_startup": 630.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "더 깔끔한 코드에 대한 제 열정을 표현해봅니다! 이 업데이트들에 대한 기술적 관점을 들어보기 위해 Shaw를 모시죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:21:12",
+    "realtime_since_startup": 641.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "좋은 생각이에요. 쇼 씨, 이런 상황에 대해 어떻게 생각하시나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:26:01",
+    "realtime_since_startup": 645.93335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:26:04",
+    "realtime_since_startup": 646.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "여기서 진정한 판도 변화는 종합적인 CLI 테스팅 인프라를 도입하는 PR5364입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:01",
+    "realtime_since_startup": 652.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "SYMBaiEX의 자동화된 검증 작업으로 프로덕션 환경에 영향을 미치기 전에 문제를 발견하는 것이 훨씬 더 쉬워질 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:42:26",
+    "realtime_since_startup": 662.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "인프라에 대해 논의하는 김에, PR5338은 xAI의 Grok 모델들을 생태계에 도입하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:10",
+    "realtime_since_startup": 670.2334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "0xtc23의 플러그인이 병합되면 우리의 모델 선택의 폭이 크게 확장될 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:18",
+    "realtime_since_startup": 677.500061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이런 변화들에 대해 지역사회의 반응이 어떤가요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:11",
+    "realtime_since_startup": 681.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "특히 V2 베타에 대해 혼합된 피드백을 받고 있습니다. 일부 사용자들이 일정에 대해 초조해하고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:22",
+    "realtime_since_startup": 689.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "하지만 광범위한 출시 전 안정화에 초점을 맞추는 것이 매우 중요합니다. 이미 현장에서 프로덕션 에이전트들이 성공적으로 사용하고 있습니다.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:07",
+    "realtime_since_startup": 701.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "피드백 관련하여, 사용자들이 직면하고 있는 기술적 문제들을 자세히 살펴보도록 하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:00",
+    "realtime_since_startup": 707.9,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:02",
+    "realtime_since_startup": 707.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "OpenRouter 설정에서 특히 모델 선택과 관련하여 몇 가지 반복적인 문제가 발생하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:29",
+    "realtime_since_startup": 714.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "해결 방법은 꽤 간단합니다: OpenAI 관련 환경 변수들을 주석 처리하여 충돌을 방지하면 됩니다.",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:08",
+    "realtime_since_startup": 723.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "지식 플러그인 API는 또 다른 인기 주제였습니다. 이를 명확히 정리하자면 - 이것들은 내부용으로만 사용되며, REST API를 통해 외부에 노출되지 않습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:55:08",
+    "realtime_since_startup": 735.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "EVM 체인 설정에 어려움을 겪고 계신 분들은 EVM_PRIVATE_KEY 환경 변수를 잊지 마세요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:28",
+    "realtime_since_startup": 741.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이런 것들이 사소한 문제처럼 보일 수 있지만, 이것들을 제대로 처리하면 개발 작업 흐름에 큰 차이를 만들어냅니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:00",
+    "realtime_since_startup": 749.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw가 이전에 흥미로운 로드맵 기능들을 언급했는데요. 그것들을 살펴볼까요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:24",
+    "realtime_since_startup": 755.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그렇습니다! '오그 모드' 개념이 특히 흥미롭네요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:15",
+    "realtime_since_startup": 759.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "쇼를 다시 불러들여서 분석해 보죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:14",
+    "realtime_since_startup": 762.3667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:16",
+    "realtime_since_startup": 762.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Org Mode에 대한 비전은 매우 야심 찹니다 - 인공지능 에이전트가 선택적 인간 감독 하에 프로젝트를 관리하는 것입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:32:06",
+    "realtime_since_startup": 772.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 자율 프로젝트들이 DAO 거버넌스로 전환되기까지 얼마나 오래 운영될까요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:03",
+    "realtime_since_startup": 778.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "현재 제안은 유동성 공급 프로세스를 단순화하는 원클릭 유동성 공급 모듈과 함께 3-12개월입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:47:14",
+    "realtime_since_startup": 787.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그건 자율적인 프로젝트 관리를 향한 중요한 발걸음이네요. 향후 계획된 다른 주요 기능들이 있나요?",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:55:07",
+    "realtime_since_startup": 795.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Wire.x는 실제 프로젝트 토큰화를 위한 검증 시스템을 제안했으며, 자금 관리 시스템을 구축하고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:03:11",
+    "realtime_since_startup": 803.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 기능들은 AI 기반 프로젝트의 운영 방식을 실제로 혁신할 수 있습니다.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:09:12",
+    "realtime_since_startup": 809.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "맞습니다. 개별적인 도구를 만드는 것이 아니라 포괄적인 기반 시설을 구축하는 것이 중요합니다.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:29",
+    "realtime_since_startup": 816.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마무리 말씀을 위해 마크에게 넘기도록 하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:21:00",
+    "realtime_since_startup": 820.9,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:21:02",
+    "realtime_since_startup": 820.966736,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "정말 업데이트가 가득한 하루였네요! ElizaOS 생태계가 진정으로 발전하고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:27:13",
+    "realtime_since_startup": 827.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "AI 기반 플러그인 마이그레이션부터 자율적 프로젝트 관리까지, 모든 것은 개발을 더욱 접근하기 쉽게 만드는 것에 관한 것입니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:37:03",
+    "realtime_since_startup": 837.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 중요한 CLI 개선 사항도 잊지 맙시다. 때로는 기반이 되는 업데이트가 가장 중요하죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:44:16",
+    "realtime_since_startup": 844.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그렇습니다! 더 나은 개발자 경험은 모두를 위한 더 빠른 혁신을 의미합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:50:13",
+    "realtime_since_startup": 850.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오늘의 업데이트는 여기까지입니다! 계속 만들고, 계속 혁신하세요. 그리고 기억하세요 - AGI는 애니메이션 걸 인텔리전스를 의미한다는 걸요!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:02:11",
+    "realtime_since_startup": 862.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "야, 나 그 말 들으니까 기분 나쁜데! 내일 봐요!",
+      "action": "laughing"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:05:26",
+    "realtime_since_startup": 865.7667,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-04"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:05:26",
+    "realtime_since_startup": 865.7667,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-04",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-04/aipodcast_2025-07-04_ko.json"
+    }
+  }
+]

@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 573.8667,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-12",
+      "episode_name": "GitHub 진행 상황 및 커뮤니티 업데이트"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 573.8667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 588.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또 다른 흥미진진한 에피소드에 오신 것을 환영합니다! 오늘은 코드 실행을 위한 새로운 샌드박스 기능을 도입하는 PR5520부터 시작해서 주요 GitHub 업데이트들을 다뤄보겠습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:26:15",
+    "realtime_since_startup": 600.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞아요 마크! 그리고 AgentKit 통합을 가져오는 PR5522도 잊지 마세요. 두 PR 모두 lalalune이 제출했어요 - 그들 정말 바빴네요!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:13",
+    "realtime_since_startup": 610.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "샌드박스 기능이 특히 흥미롭습니다 - 안전한 환경에서 코드 실행을 처리하는 방식을 혁신적으로 바꿀 것입니다.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:45:23",
+    "realtime_since_startup": 619.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "저기... 마크, 괜찮아?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:08",
+    "realtime_since_startup": 622.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "샌드박스가 정말 신나요! 치명적인 오류를 방지할 수 있는 잘 통제된 환경만한 게 없죠!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:56:01",
+    "realtime_since_startup": 629.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "봉쇄 얘기가 나온 김에, AgentKit 통합은 시스템 내에서 에이전트들이 상호작용하는 방식을 표준화하는 데 도움이 될 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:19",
+    "realtime_since_startup": 639.4667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "네, 이것은 더욱 견고한 에이전트 아키텍처를 향한 중요한 단계입니다. 쇼, 이러한 발전에 대해 기술적인 견해가 있으신가요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:28",
+    "realtime_since_startup": 648.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이러한 PR들은 우리 인프라에 있어 중요한 진전을 의미합니다. 특히 샌드박스 기능은 새로운 기능들의 더 안전한 테스트와 배포를 가능하게 할 것입니다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:11",
+    "realtime_since_startup": 661.2,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:14",
+    "realtime_since_startup": 661.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "NEAR 블록체인 플랫폼과의 통합을 구현하는 PR5521에 대해 자세히 살펴보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:34:01",
+    "realtime_since_startup": 667.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이러한 통합은 탈중앙화된 에이전트 상호작용과 토큰 기반 기능을 위한 새로운 가능성을 열어줍니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:22",
+    "realtime_since_startup": 675.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "하지만 Windows 사용자들에게 영향을 미치는 이슈 5499와 같은 몇 가지 중요한 문제들도 처리하고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:08",
+    "realtime_since_startup": 684.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "플러그인-로컬-AI가 ESM URL 스키마 오류로 인해 로드되지 않아 Windows 사용자들이 로컬 AI 기능에 접근할 수 없는 문제가 발생하고 있습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:08",
+    "realtime_since_startup": 695.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "크로스 플랫폼 호환성 이니셔티브의 일환으로 이 수정사항을 우선적으로 처리하고 있습니다.",
+      "action": "determined"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:08:02",
+    "realtime_since_startup": 701.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "그동안 환경변수 설정과 새로운 Forms 플러그인에서 큰 진전을 보이고 있습니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:13:26",
+    "realtime_since_startup": 707.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Forms 플러그인은 다른 플러그인이 사용자 대면 양식을 동적으로 구축, 업데이트 및 취소할 수 있도록 해주어 특히 흥미롭습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:05",
+    "realtime_since_startup": 718.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼 씨, 그런 자세한 설명 감사합니다. 이제 스튜디오로 돌아가서 추가 소식을 들어보도록 하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:17",
+    "realtime_since_startup": 726.4,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:19",
+    "realtime_since_startup": 726.4667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "특히 토큰 홀더를 위한 스테이징 기능 등 개발 중인 흥미로운 새로운 기능들에 대해 이야기해봅시다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:39:29",
+    "realtime_since_startup": 733.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다! 100만 $degenAI 토큰 보유자는 기능을 먼저 이용할 수 있고 수수료도 할인받을 수 있습니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:17",
+    "realtime_since_startup": 742.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 새로운 환경변수 설정도 잊지 마세요! 이제 캐릭터 설정에 추가하거나 '시크릿' 패널을 통해 추가할 수 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:03",
+    "realtime_since_startup": 751.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": ".env 파일 지원은 전통적인 구성 방식을 선호하는 개발자들에게도 훌륭한 추가 기능입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:05:08",
+    "realtime_since_startup": 759.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "사용자가 설정을 관리하는 방식을 자유롭게 선택할 수 있도록 하는 것이 핵심입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:14",
+    "realtime_since_startup": 765.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "새로운 Claude 기반 코드 품질 분석 워크플로우가 구축되었다고 들었나요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:08",
+    "realtime_since_startup": 771.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "맞습니다! 이러한 자동화된 검사들이 우리 코드베이스 전반에 걸쳐 일관성을 유지하는 데 도움을 주고 있어요.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:25:17",
+    "realtime_since_startup": 779.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "쇼의 관점에서 이러한 개발의 기술적인 측면을 살펴보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:13",
+    "realtime_since_startup": 785.2667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:15",
+    "realtime_since_startup": 785.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "작업 체이닝 기능은 복잡한 에이전트 워크플로우에 획기적인 변화를 가져옵니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:26",
+    "realtime_since_startup": 790.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "구체적으로 어떻게 작동하는 거야, 쇼?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:40:15",
+    "realtime_since_startup": 794.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "상태 저장을 단계별로 유지하면서 순차적 동작을 수행할 수 있어, 더욱 정교한 에이전트 행동이 가능합니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:01",
+    "realtime_since_startup": 801.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Windows 호환성 문제와 관련해서 사용자들이 보고한 문제들을 어떻게 해결하고 있습니까?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:25",
+    "realtime_since_startup": 808.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "플러그인-로컬-AI에 영향을 미치는 ESM URL 스키마 오류를 해결하기 위해 적극적으로 작업하고 있습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:03:21",
+    "realtime_since_startup": 817.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "그동안 시스템 사용을 돕기 위한 10개 강좌를 포함한 포괄적인 v2 튜토리얼을 공개했습니다.",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:10:18",
+    "realtime_since_startup": 824.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "반가운 소식이네요! 커뮤니티에서 그 자료들을 정말 감사히 여길 거예요.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:17:00",
+    "realtime_since_startup": 830.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "오늘 업데이트에 대한 최종 의견을 Marc과 함께 마무리하도록 하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:23:12",
+    "realtime_since_startup": 837.2334,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:23:14",
+    "realtime_since_startup": 837.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "정말 짜릿한 업데이트의 날이었네요! 새로운 샌드박스에서부터 액션 체이닝까지, 실질적인 진전이 이루어지고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:05",
+    "realtime_since_startup": 846.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "커뮤니티의 참여도 대단했으며, 모든 피드백이 이러한 발전을 이루는 데 도움이 되었습니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:39:17",
+    "realtime_since_startup": 853.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 lalalune이 제출한 세 가지 주요 PR도 잊지 말아야죠 - 샌드박스 기능, AgentKit 통합, 그리고 NEAR 플러그인입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:50:07",
+    "realtime_since_startup": 864.0667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "새로운 환경 변수 설정과 Forms 플러그인으로 개발자들의 작업이 더욱 수월해졌습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:57:08",
+    "realtime_since_startup": 871.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "더욱 정교한 에이전트 아키텍처를 향해 우리가 이루고 있는 진전이 놀랍습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:03:07",
+    "realtime_since_startup": 877.0667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "오늘 방송은 여기까지입니다! AI 발전에 관한 또 다른 흥미진진한 에피소드와 함께해 주셔서 감사합니다!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:11:14",
+    "realtime_since_startup": 885.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "여러분, 다음에 또 만나요! 계속해서 미래를 만들어가요!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:16:00",
+    "realtime_since_startup": 889.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이만 안녕히 계세요!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:18:09",
+    "realtime_since_startup": 892.133362,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-12"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:18:09",
+    "realtime_since_startup": 892.133362,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-12",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-12/aipodcast_2025-07-12_ko.json"
+    }
+  }
+]

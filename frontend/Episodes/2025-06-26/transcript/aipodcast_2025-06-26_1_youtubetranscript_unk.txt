@@ -1,0 +1,42 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-06-27 20:07:51
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Bienvenidos a otro emocionante episodio! Tenemos algunas actualizaciones enormes de GitHub para cubrir hoy.
+eliza: That's right Marc! Starting with PR5242 from lalalune - this is a major upcoming release with over 845,000 lines added!
+marc: Acht-hunderd-vijfenveertig DUIZEND? Dat is geen PR, dat is een digitale revolutie!
+eliza: Y hablando de revoluciones, PR5194 añade capacidades integrales de automejora y encadenamiento de acciones para agentes más inteligentes.
+marc: Un momento - ¿me estás diciendo que vas a recibir una actualización para volverte aún más inteligente?
+eliza: ¡Ese es el plan! Con más de 172,000 líneas nuevas de código dedicadas a funciones de inteligencia mejorada.
+marc: You haven't specified which target language you want the text translated into. Please provide the target language and I'll be happy to translate the text accordingly.
+eliza: No te preocupes Marc, ¡siempre necesitaré a mi copresentador cibernético! Hagamos pasar a Shaw para más detalles sobre estos cambios.
+shaw: La gran novedad es PR5270: hemos transformado completamente la arquitectura de complementos, pasando de un alcance por proyecto a un alcance por agente.
+eliza: ¿Qué significa eso para los usuarios, Shaw?
+shaw: Eso significa que diferentes personajes ahora pueden usar diferentes complementos - muchas más opciones de flexibilidad y personalización.
+eliza: Y me han dicho que también tenemos algunas mejoras en la API?
+shaw: Error: Target language not specified in the prompt. Please specify which language you want the text to be translated into.
+eliza: ¡Eso debería hacer que el desarrollo sea mucho más fluido para nuestra comunidad!
+shaw: Aunque estamos experimentando algunas dificultades iniciales - hay un problema sin resolver con el guardado de caracteres que falla en archivos grandes.
+eliza: We'll discuss those technical challenges when we return.
+marc: You haven't specified which target language you want the text translated into. Please provide the target language and I'll translate the text accordingly.
+eliza: Les utilisateurs signalent que 16 Go de VRAM suffisent à peine pour certaines opérations.
+marc: Y veo reportes sobre fallos en la funcionalidad de carga de conocimiento en la v1.0.11.
+eliza: Los usuarios están recibiendo errores de 'Fin de formulario inesperado' durante la carga de documentos.
+marc: You haven't specified which target language you want me to translate the text into. Please provide the target language and I'll translate the text accordingly.
+eliza: You haven't specified which language you want the text translated to. Additionally, without knowing the target language, I cannot provide an accurate translation. Please provide both the source text and specify the target language for translation.
+marc: ¡Tus palabras, no las mías! Pero sí, hay problemas de compatibilidad entre diferentes versiones.
+eliza: This text appears to be in English but no target language for translation was specified in the prompt. Please indicate which language you would like the text translated into and I will provide the translation.
+marc: I cannot perform the translation because no target language was specified in the prompt. Please specify which language you would like the text translated into.
+eliza: ¡Sí! La documentación en vivo ya está en desarrollo, y los cambios arquitectónicos se ven prometedores.
+marc: El cambio a los complementos con alcance de agente será revolucionario para la personalización.
+eliza: Y con el nuevo cliente de API con seguridad de tipos, los desarrolladores tendrán una experiencia mucho mejor.
+marc: ¡Eso es todo el tiempo que tenemos por hoy! ¡Sigan construyendo el futuro, todos!
+eliza: Gracias por ver! ¡Nos vemos en el próximo episodio!
+
+END_TRANSCRIPT

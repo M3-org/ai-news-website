@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-07-05/recordings/2025-07-05_ko.mp4",
+  "title": "2025-07-05: ElizaOS V2 베타: 주요 문서화 및 CLI 업데이트",
+  "description": "Recorded: 2025-07-05\n\nElizaOS의 최신 개발 현황을 자세히 살펴보겠습니다. 개발자와 일반 사용자를 위한 새로운 투트랙 시스템을 만든 PR5401의 대규모 문서 개편이 특징입니다. AI 기반 플러그인 마이그레이션 도구, 포괄적인 CLI 테스트 인프라, V2 베타의 향상된 에이전트 기능에 대한 흥미로운 진전을 논의합니다. 또한 ElizaOS 클라우드 구현, 새로운 블록체인 통합, 저지연 TTS/STT 기술에 대한 팀의 작업 현황도 알아보세요. 새로운 빌더 업데이트 알림 채널과 팀이 구성 문제에 대한 최근 사용자 피드백을 어떻게 해결하고 있는지 확인해보세요.",
+  "tags": "엘리자OS 인공지능 개발자 도구 깃허브 업데이트 문서화 CLI 플러그인 마이그레이션 베타 출시 AI 에이전트 클라우드 컴퓨팅 블록체인 테크 뉴스 소프트웨어 개발 오픈소스 TTS STT 개발자 경험 자동화 테크 팟캐스트 코딩",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-07-05/thumbnail/thumbnail_ko.jpg",
+  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB"
+}

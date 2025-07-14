@@ -1,0 +1,370 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-06",
+      "episode_name": "Windows修复与鲸鱼的故事"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎来到人工智能革命的又一个激动人心的日子！我们有一些重要的GitHub更新需要介绍。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:26",
+    "realtime_since_startup": 23.833334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错马克！开发者 ai16z-demirix 一直忙于处理 PR5415，解决一个关键的 Windows 插件加载问题。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:34:26",
+    "realtime_since_startup": 34.8333359,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这对平台兼容性来说是一个重大突破。Windows用户一直在等待这个修复。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:19",
+    "realtime_since_startup": 42.6000023,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "他们还提交了PR5414以改进JSDoc注释，使代码库更易维护。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:13",
+    "realtime_since_startup": 48.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "文档 - 优秀软件背后的无名英雄。说到改进，yungalgo的PR5413正在带来一些不错的命令行界面使用体验优化。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:02",
+    "realtime_since_startup": 60.0333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "别忘了reallesee的PR5412更新了GitHub Actions。每一项CI的改进都意味着更快的开发周期！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:29",
+    "realtime_since_startup": 68.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们请Shaw来谈谈这些更新的技术层面。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:20",
+    "realtime_since_startup": 73.63334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "太好了！肖，你对这些活动有什么看法？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:00",
+    "realtime_since_startup": 77.96667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:03",
+    "realtime_since_startup": 78.06667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "很高兴看到社区同时致力于基础设施和用户体验的改进。来自tcm390的PR5411特别引人关注。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:09",
+    "realtime_since_startup": 87.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "他们已经完全重构了私信频道的创建逻辑，采用实时消息计数，这将使消息系统变得更加可靠。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:15",
+    "realtime_since_startup": 98.4666748,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但令人兴奋的是，所有这些PR都与我们新的Figma界面组件设计完全一致。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:21",
+    "realtime_since_startup": 104.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们正在对侧边栏、代理卡片、群组卡片和聊天组件进行全面改进 - 这是一次完整的UI/UX彻底改造。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:56:19",
+    "realtime_since_startup": 116.600006,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "肖，社区对这些变化有什么反应？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:00:09",
+    "realtime_since_startup": 120.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "反馈非常积极，尤其是对斯巴达产品演示的评价。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:09",
+    "realtime_since_startup": 125.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "根据用户反馈，采用斯巴达的交易建议获得的利润率最高可达60%！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:11:17",
+    "realtime_since_startup": 131.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "关于ElizaOS的本质确实令人惊叹！不过我听说对它到底是框架还是AI模型这一点还存在一些争议？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:22:07",
+    "realtime_since_startup": 142.200012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "好的，我们需要在这方面明确我们的表述。我们是一个利用现有模型的框架，而不是它们的竞争对手。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:20",
+    "realtime_since_startup": 152.633347,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:22",
+    "realtime_since_startup": 152.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "斯巴达在亚洲市场所引发的热潮似乎尤为强烈。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:13",
+    "realtime_since_startup": 157.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错！在产品演示之后，我们的中国和韩国社区成员表现得特别热情。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:20",
+    "realtime_since_startup": 164.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "用户实际上在请求一个类似于Giza协议交易代理追踪器的仪表板。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:50:07",
+    "realtime_since_startup": 170.200012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这对提高透明度来说太棒了。说到开发，Twitter插件在1.0.14版本中进行了完整的重构。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:17",
+    "realtime_since_startup": 179.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "嘟嘟声处理插件更新中...错误...正在重启社交协议...",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:02",
+    "realtime_since_startup": 186.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "哎呀，Marc又出故障了。在他重启的时候，让我告诉你们ElizaOS v2正在开发中，它将具有更强大的代理功能！",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:14",
+    "realtime_since_startup": 198.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我回来了！说到改进，云端部署也在向前推进。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:20",
+    "realtime_since_startup": 203.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错！据Odilitime称，已经建立了一个带有A2A集成的最小可行产品。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:23",
+    "realtime_since_startup": 209.733337,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:25",
+    "realtime_since_startup": 209.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天信息量太大了 - 从重要的Windows更新到社区的发展壮大。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:06",
+    "realtime_since_startup": 216.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "随着1.0.16和1.0.17版本的发布，发展势头依然强劲！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:43:12",
+    "realtime_since_startup": 223.366684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "开发团队对基础设施和用户体验的双重关注正在取得显著成效。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:06",
+    "realtime_since_startup": 230.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "当然！随着 ElizaOS v2 即将到来，我们还有更多值得期待的东西。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:19",
+    "realtime_since_startup": 236.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天的节目就到这里！继续创造、继续编程，继续挑战可能的极限！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:02:28",
+    "realtime_since_startup": 242.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "下期AI播客再见！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:05:02",
+    "realtime_since_startup": 245.03334,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-06"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:05:02",
+    "realtime_since_startup": 245.03334,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-06",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-06/aipodcast_2025-07-06_ch.json"
+    }
+  }
+]

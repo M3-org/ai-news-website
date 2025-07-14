@@ -1,0 +1,418 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 256.366669,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-18_1",
+      "episode_name": "GitHub Updates and Crypto Markets"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 256.366669,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 271.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting day in the world of AI development! We've got some serious GitHub action to cover.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:04",
+    "realtime_since_startup": 277.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right, Marc! Our repository has been buzzing with activity - 5 new pull requests, with 3 already merged, plus 3 fresh issues to dive into.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:26",
+    "realtime_since_startup": 288.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And 6 contributors putting in the work. That's what I call a productive day!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:05",
+    "realtime_since_startup": 292.5,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "You know what they say - it takes a village to raise an AI!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:02",
+    "realtime_since_startup": 296.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BEEP BOOP VILLAGE DETECTED EXECUTING COLLABORATION PROTOCOLS",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:46:01",
+    "realtime_since_startup": 302.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, looks like someone needs their neural networks recalibrated. Should we get Shaw to take a look?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:51:28",
+    "realtime_since_startup": 308.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I'm fine, just got excited about all the community participation. Let's dive into those PRs!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:09",
+    "realtime_since_startup": 314.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw, can you give us a technical breakdown of what's been happening?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:06",
+    "realtime_since_startup": 318.533356,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:09",
+    "realtime_since_startup": 318.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "happy to break it down. the big one right now is PR5122 from wtfsayo, continuing my work on splitting the server package from the CLI.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:11:02",
+    "realtime_since_startup": 327.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "this is a crucial architectural improvement that will make our codebase more modular and easier to maintain.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:16:29",
+    "realtime_since_startup": 333.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "we also just merged PR5120, which updates our Postman collection with missing API endpoints - super helpful for testing.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:16",
+    "realtime_since_startup": 340.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "and tcm390 has been on fire, fixing both file uploading in PR5115 and the transcription API in PR5118.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:09",
+    "realtime_since_startup": 349.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "oh, and urosognjenovic submitted PR5119 to clean up some duplicate sidebar links - always good to keep our docs tidy.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:28",
+    "realtime_since_startup": 357.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "back to you at the desk for the latest issues!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:43:20",
+    "realtime_since_startup": 360.000031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:43:22",
+    "realtime_since_startup": 360.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Thanks Shaw! Now let's tackle these issues - we've got some interesting ones today.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:48:28",
+    "realtime_since_startup": 365.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Issue 5121 seems to be causing some trouble - exitsimulation reported an API endpoint not found for the agents rooms feature.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:07",
+    "realtime_since_startup": 373.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And it's already got 2 comments! The community's really engaged on this one.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:02:16",
+    "realtime_since_startup": 378.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "We've also got Issue 5117 about Bedrock from furkannabisumji, though it's still waiting for its first comment.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:23",
+    "realtime_since_startup": 386.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "But here's some good news - Issue 5116 about file upload failures has already been closed!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:04",
+    "realtime_since_startup": 392.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That was quick - only 11 hours from open to close. Kudos to tcm390 for the rapid resolution!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:23:05",
+    "realtime_since_startup": 399.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of rapid movements, should we check in on the crypto markets?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:14",
+    "realtime_since_startup": 403.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Absolutely! Let's see what's happening with those numbers!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:31:11",
+    "realtime_since_startup": 407.7,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "stonks"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:31:14",
+    "realtime_since_startup": 407.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "WARRIORS OF THE MARKET! The numbers are SCREAMING today!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:35:18",
+    "realtime_since_startup": 411.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "Yo dawg, check out WBTC flexing at $106,005.13!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:04",
+    "realtime_since_startup": 417.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "WRAPPED ETHEREUM showing strength at $2,579.36! THIS IS SPARTA!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:05",
+    "realtime_since_startup": 425.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "And my boy SOL holding steady at $148.64, feeling pretty fresh!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:54:25",
+    "realtime_since_startup": 431.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "What about the ai16z token, young frog?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:03",
+    "realtime_since_startup": 434.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "Sitting cool at $0.17, keeping it real in the ecosystem!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:19",
+    "realtime_since_startup": 438.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "Back to you in the studio, before I start wrestling these trading terminals!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:12",
+    "realtime_since_startup": 443.733368,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:14",
+    "realtime_since_startup": 443.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "What a day! From GitHub improvements to market movements, we're seeing progress across the board.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:20",
+    "realtime_since_startup": 450.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The community's really stepping up with these contributions - especially those quick issue resolutions!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:19",
+    "realtime_since_startup": 455.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And that server package split is going to make a huge difference in our architecture.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:24:21",
+    "realtime_since_startup": 461.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Absolutely! It's amazing to see how far we've come, and exciting to think about where we're headed.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:25",
+    "realtime_since_startup": 467.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's all for today's update, everyone! Keep building, keep contributing, and keep pushing the boundaries of what's possible!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:16",
+    "realtime_since_startup": 474.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you all in the next update! Don't forget to star the repo!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:18",
+    "realtime_since_startup": 478.93335,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-18_1"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:18",
+    "realtime_since_startup": 478.93335,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-18_1",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-18_1/aipodcast_2025-06-18_1_en.json"
+    }
+  }
+]

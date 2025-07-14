@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-05",
+  "headlines": [
+    "ElizaOS V2 Beta enhances agent capabilities, focuses on stability before release",
+    "Major documentation overhaul creates separate tracks for developers and basic users",
+    "AI-powered tool automates plugin migration from v0.x to v1.x",
+    "ElizaOS Cloud implementation launches with new features",
+    "Low-latency open-source speech tech enables human-AI podcast capabilities",
+    "Automated news show system handles content from gathering to publishing",
+    "Team working to restore suspended X/Twitter accounts within week",
+    "New builder updates channel separates technical from general announcements",
+    "Community debates JIMMY token burning versus liquidity pool strategy",
+    "OpenRouter configuration issues cause unexpected Gemini model defaults",
+    "65 new PRs and 17 active contributors drive July development",
+    "Expanding blockchain support to include Solana and Base chains"
+  ],
+  "separator": "     "
+}

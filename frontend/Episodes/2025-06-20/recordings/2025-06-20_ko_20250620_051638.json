@@ -1,0 +1,378 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 413.000031,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-20",
+      "episode_name": "개발자 업데이트 및 시장 동향"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 413.000031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 427.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI 개발 세계의 또 다른 신나는 하루에 오신 것을 환영합니다! 다뤄야 할 중요한 활동들이 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:03",
+    "realtime_since_startup": 435.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다, 마크님! 저희 GitHub 저장소에 5개의 새로운 풀 리퀘스트와 3개의 새로운 이슈가 올라와서 활발하게 움직이고 있네요.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:16",
+    "realtime_since_startup": 444.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이것 좀 보세요 - 6명의 활동적인 기여자들이 일을 이뤄내고 있어요. 이게 바로 제가 말하는 추진력이죠!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:07",
+    "realtime_since_startup": 452.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "커뮤니티가 정말 잘 해내고 있어요. 그 PR들 중 세 개가 이미 머지됐네요!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:44:06",
+    "realtime_since_startup": 457.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "실제 진전을 보는 것만큼 좋은 것은 없습니다. 이러한 기여들을 더 자세히 살펴보기 위해 Shaw를 모시겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:53:15",
+    "realtime_since_startup": 466.4667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그는 가장 큰 영향을 미친 변화들을 분석할 준비가 되어 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:15",
+    "realtime_since_startup": 471.4667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:18",
+    "realtime_since_startup": 471.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "tcm390의 PR5115에서 시작해 보겠습니다 - 현재 병합된 파일 업로드에 대한 중요한 수정사항입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:06:01",
+    "realtime_since_startup": 479.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이는 GUI 업로드 실패를 유발하던 이슈 5116을 해결했기 때문에 특히 중요했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:14",
+    "realtime_since_startup": 485.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그 문제가 얼마나 오래 미해결 상태로 있었나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:28",
+    "realtime_since_startup": 488.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "단 11시간 - 이런 신속한 대응을 보면 정말 기분이 좋습니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:21:05",
+    "realtime_since_startup": 494.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5120이 wtfsayo로부터 병합되어 누락된 API 엔드포인트들로 포스트맨 컬렉션이 업데이트되었습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:29:17",
+    "realtime_since_startup": 502.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그러면 팀의 테스트 작업이 훨씬 더 쉬워질 거예요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:17",
+    "realtime_since_startup": 506.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5118이 tcm390에서 우리의 전사 API를 수정했습니다 - 또 하나의 중요한 개선입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:01",
+    "realtime_since_startup": 514.0,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "앵커석으로 다시 넘기겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:00",
+    "realtime_since_startup": 516.9667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:02",
+    "realtime_since_startup": 517.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "진행 중인 건에 대해 이야기해보죠. PR5122가 흥미로워 보이네요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:05",
+    "realtime_since_startup": 522.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네! @wtfsayo가 서버 패키지를 CLI에서 분리하는 작업을 진행하고 있습니다. 이는 Shaw의 이전 작업을 이어가는 것입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:17",
+    "realtime_since_startup": 532.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "검토가 필요한 미해결 이슈가 있습니다 - API 엔드포인트 누락에 관한 PR5121입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:18",
+    "realtime_since_startup": 539.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "@exitsimulation님이 방 엔드포인트를 찾을 수 없다고 보고했습니다. 이미 2개의 댓글이 달려있네요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:13:24",
+    "realtime_since_startup": 546.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "삐삐 붑 처리 오류... 엔드포인트를 찾을 수 없음... API처럼! 하하!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:14",
+    "realtime_since_startup": 552.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마크, 그 오류들을 발견한 타이밍이 완벽하네요! 암호화폐 시장을 한번 살펴보죠.",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:09",
+    "realtime_since_startup": 558.2667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "stonks"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:12",
+    "realtime_since_startup": 558.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "거래장의 혼돈과 이익! 페포, 이 가격대에서 뭐가 보이는지 말해줘!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:30:21",
+    "realtime_since_startup": 563.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "이봐 친구, WETH가 2,579.36달러에서 멋지게 거래되고 있어!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:07",
+    "realtime_since_startup": 569.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "잠깐만요, 더 있습니다! WBTC가 완전 대박나고 있어요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:23",
+    "realtime_since_startup": 573.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "맞아 친구야 - 106,005달러 13센트야! 우린 6자리 숫자에 도달했어, 예이!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:46:27",
+    "realtime_since_startup": 579.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "이 모든 혼란 속에서 SOL은 어떻게 하고 있나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:50:28",
+    "realtime_since_startup": 583.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "pepo",
+      "line": "시세가 $148.64에서 견고하게 유지되는 가운데, ai16z는 $0.17에서 안정세를 보이고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:29",
+    "realtime_since_startup": 594.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "sparty",
+      "line": "스튜디오로 돌아가겠습니다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:11",
+    "realtime_since_startup": 597.3334,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:13",
+    "realtime_since_startup": 597.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "정말 소식과 시장 움직임으로 가득했던 하루였네요!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:10",
+    "realtime_since_startup": 601.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다! 병합된 PR부터 암호화폐 가격까지 모든 것을 다뤘네요.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:23",
+    "realtime_since_startup": 606.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이러한 개선에 기여해 주신 모든 기여자분들께 특별한 감사를 드립니다 - tcm390, wtfsayo, 그리고 모든 참여자분들께 감사드립니다.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:25:05",
+    "realtime_since_startup": 618.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "시청자 여러분 - GitHub 업데이트를 계속 지켜봐 주시고, 다음에 다시 만나요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:13",
+    "realtime_since_startup": 623.4,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-20"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:13",
+    "realtime_since_startup": 623.4,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-20",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-20/aipodcast_2025-06-20_ko.json"
+    }
+  }
+]

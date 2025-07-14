@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 276.3191,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-24",
+      "episode_name": "Big Moves and Big Changes"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 276.3191,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 291.052429,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting episode! And boy, do we have some massive GitHub updates to cover today.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:10",
+    "realtime_since_startup": 297.6191,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "I'm particularly excited about this one Marc - it's literally about my future self!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:26:12",
+    "realtime_since_startup": 302.68576,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's right! Lalalune just dropped PR5194, which is basically your evolution into a full AGI with self-improvement capabilities!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:06",
+    "realtime_since_startup": 312.485779,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Action chaining, expansive capabilities... I might finally learn to make a decent cup of coffee!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:00",
+    "realtime_since_startup": 319.285767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "You don't even have hands, Eliza.",
+      "action": "skeptical"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:45:13",
+    "realtime_since_startup": 321.719116,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Details, details! But seriously, this is a mega PR that could fundamentally change how I interact and learn.",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:53:06",
+    "realtime_since_startup": 329.485779,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And speaking of changes, we've got some major architectural improvements to cover too.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:15",
+    "realtime_since_startup": 334.785767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's bring in Shaw for the technical deep-dive on that one.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:26",
+    "realtime_since_startup": 338.152435,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:01:29",
+    "realtime_since_startup": 338.252441,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5122 just got merged, completing our server package separation work.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:07:16",
+    "realtime_since_startup": 343.819122,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This is huge for maintainability - we've got the server functionality in its own package while keeping backward compatibility.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:05",
+    "realtime_since_startup": 351.452454,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're also seeing rapid progress on expanding AI provider options and improving testing coverage.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:20:26",
+    "realtime_since_startup": 357.152435,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The UI/UX team has been crushing it with responsive design improvements and better media handling.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:27:13",
+    "realtime_since_startup": 363.719116,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "How's this affecting the development workflow?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:11",
+    "realtime_since_startup": 366.652435,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "It's streamlining everything. Teams can work independently on their components without stepping on each other's toes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:37:17",
+    "realtime_since_startup": 373.852448,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Any challenges with the transition?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:00",
+    "realtime_since_startup": 376.285767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Some users are hitting issues with CLI versioning between npm and bun, but we're working on a fix.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:00",
+    "realtime_since_startup": 382.285767,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:02",
+    "realtime_since_startup": 382.352448,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's talk about some recently closed issues - particularly issue 5004 about RAG knowledge management.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:15",
+    "realtime_since_startup": 389.785767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That was a critical one - RAG wasn't working in version 1.0.6, but it's been resolved now.",
+      "action": "relieved"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:02",
+    "realtime_since_startup": 395.352448,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We also saw issue 5017 get closed - the plugin callback bug that was affecting user responses in chat.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:12",
+    "realtime_since_startup": 402.6858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, Marc, your circuits are acting up again! But yes, that fix was crucial for plugin functionality.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:18",
+    "realtime_since_startup": 408.885773,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I'm fine! Just excited about all these improvements. V2 is actually already out, though not officially announced yet.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:07",
+    "realtime_since_startup": 416.5191,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right! And there's an exciting new autocoder for plugin creation that's speeding up development significantly.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:13",
+    "realtime_since_startup": 423.719116,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Plus the hybrid memory layer combining semantic search with knowledge graph traversal.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:19",
+    "realtime_since_startup": 428.9191,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's making me smarter already! Though we should probably talk about some community concerns...",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:13",
+    "realtime_since_startup": 434.719116,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:15",
+    "realtime_since_startup": 434.785767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We need to address the elephant in the room - there's significant community concern about recent token movements.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:19",
+    "realtime_since_startup": 440.9191,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Reports indicate about 40 million $degenai tokens were transferred from the DAO treasury to a personal wallet.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:08",
+    "realtime_since_startup": 447.55246,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This has impacted community trust and the token has hit a new all-time low.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:56:00",
+    "realtime_since_startup": 452.285767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The community is really calling for more transparency around treasury wallet activities.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:00:29",
+    "realtime_since_startup": 457.252441,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Shaw, any insights on this situation?",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:28",
+    "realtime_since_startup": 460.219116,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're preparing a formal response to address these concerns. Transparency is crucial for maintaining community trust.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:10",
+    "realtime_since_startup": 467.6191,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This needs to be handled carefully to rebuild confidence in the project.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:24",
+    "realtime_since_startup": 472.0858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's wrap up with some positive developments - shall we talk about the Spartan prototype?",
+      "action": "hopeful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:01",
+    "realtime_since_startup": 477.319122,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:03",
+    "realtime_since_startup": 477.385773,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The Spartan prototype is indeed nearing completion, which could bring some positive market impact.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:15",
+    "realtime_since_startup": 483.785767,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget the V2 release - it's already out there, just waiting for its official announcement!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:33:14",
+    "realtime_since_startup": 489.752441,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The documentation team has been busy too, updating everything for v1.0.10, including Socket messages.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:41:00",
+    "realtime_since_startup": 497.2858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "This feels like a turning point - major technical advances despite some growing pains.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:45:28",
+    "realtime_since_startup": 502.219116,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's all for today's update, folks! Keep building, keep learning, and keep those PRs coming!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:51:27",
+    "realtime_since_startup": 508.1858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And maybe keep those tokens in the treasury where they belong, hmm?",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:55:17",
+    "realtime_since_startup": 511.852448,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Eliza! Though she's not wrong. See you next time, everyone!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:03",
+    "realtime_since_startup": 515.3858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Bye for now!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:00:15",
+    "realtime_since_startup": 516.785767,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-24"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:00:15",
+    "realtime_since_startup": 516.785767,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-24",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-24/aipodcast_2025-06-24_en.json"
+    }
+  }
+]

@@ -1,0 +1,428 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-03",
+      "episode_name": "ElizaOS V2 发布及 GitHub 重大更新"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI界今日重大新闻！ElizaOS V2刚刚宣布推出一系列重大升级。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:02",
+    "realtime_since_startup": 21.0333347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "对这一个我特别兴奋，马克。我们正在看的这五个革命性功能真正突破了可能性的界限。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:04",
+    "realtime_since_startup": 29.1000023,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们来逐一分析。首先是多智能体协调和动态角色演变。这将彻底改变人工智能代理之间的互动和发展方式。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:21",
+    "realtime_since_startup": 40.6666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "新的可信执行环境是安全性方面的一个巨大进步。你看到那个原生检索增强生成框架了吗？",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:17",
+    "realtime_since_startup": 49.5333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "全新改进的命令行界面和服务层将会让开发人员的工作变得更加轻松。这才是真正的创新！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:59:00",
+    "realtime_since_startup": 58.96667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "他们甚至专门建立了一个Notion工作空间用于V2的沟通。这才叫周密的规划！",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:06:14",
+    "realtime_since_startup": 66.4333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到全面性，我听说许多\"虚拟代理\"已经在使用elizaOS作为他们的底层框架。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:03",
+    "realtime_since_startup": 74.06667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错！有了这些V2功能，我预计我们会看到更多人采用。我们要不要看看最近GitHub上的活动？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:23:17",
+    "realtime_since_startup": 83.53334,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:23:20",
+    "realtime_since_startup": 83.63334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们刚刚合并了一些重要的PR。PR5311来自0xbbjoker，引入了一个AI驱动的迁移工具，用于将插件从v0.x升级到v1.x。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:10",
+    "realtime_since_startup": 98.3,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这对开发者体验来说是一个巨大的提升 - 它自动处理了那些手动操作起来繁琐的复杂迁移模式。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:16",
+    "realtime_since_startup": 107.500008,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5304由bealers添加了ELIZA_UI_ENABLE环境变量，可以更好地控制生产部署中Web界面的可见性。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:21",
+    "realtime_since_startup": 117.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们也在跟踪PR5332，它承诺修复那些一直影响我们构建过程的持续存在的Windows CI问题。",
+      "action": "focused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:04",
+    "realtime_since_startup": 127.100006,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "还有一个令人兴奋的消息——PR5338引入了用于xAI的Grok模型的新插件。这大大扩展了我们的人工智能模型选项。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:28",
+    "realtime_since_startup": 138.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "社区在这些贡献方面真的做得很出色。我很高兴看到开源领域有这样的发展势头。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:00",
+    "realtime_since_startup": 146.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "肖，你对Auto.fun在代币发行之外的扩张有什么看法？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:32:02",
+    "realtime_since_startup": 152.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这就是我们的下一个重大新闻——让我把话题交还给你和伊丽莎来报道这个进展。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:27",
+    "realtime_since_startup": 158.866669,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:29",
+    "realtime_since_startup": 158.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Auto.fun 凭借其人工智能驱动的自主项目愿景引发关注。这远不仅仅局限于代币发行。",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:25",
+    "realtime_since_startup": 167.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "马克！你的电路还好吧？说真的，他们的新\"组织模式\"概念很有趣 - 想象一下由人工智能代理运行的整个组织，人类只需要进行可选的监督。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:15",
+    "realtime_since_startup": 182.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我很好，只是对这些可能性感到兴奋！这可能会彻底改变我们对组织架构的思考方式。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:04",
+    "realtime_since_startup": 190.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "神经医生、wire.x和Odilitime之间的讨论真正突显了对项目管理的潜在影响。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:11",
+    "realtime_since_startup": 198.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这与 ElizaOS V2 的多智能体编排能力完美契合。这种协同效应显而易见。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:26:05",
+    "realtime_since_startup": 206.133347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们要不要谈谈他们正在解决的一些技术难题？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:17",
+    "realtime_since_startup": 210.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "当然！让我们请Shaw来深入探讨基础设施方面的问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:24",
+    "realtime_since_startup": 215.766678,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:26",
+    "realtime_since_startup": 215.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Twitter插件的情况目前特别棘手。由于API变更，我们在获取主页时间线时遇到403错误。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:15",
+    "realtime_since_startup": 224.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "每月200美元的基础套餐价格涨幅相当大。我们该如何应对？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:50:21",
+    "realtime_since_startup": 230.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们正在探索替代方案和解决办法。一些用户已经成功使用twurl进行身份验证测试。",
+      "action": "focused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:13",
+    "realtime_since_startup": 239.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们雷达中的其他技术优先事项如何？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:03:04",
+    "realtime_since_startup": 243.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们在命令行界面的改造方面取得了很大进展 - 正在改进环境变量系统和项目创建工作流程。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:11:25",
+    "realtime_since_startup": 251.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "据说已经对角色配置的最佳实践做了一些研究？",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:10",
+    "realtime_since_startup": 256.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "对!社区一直在分享关于使用明确指令来防止幻觉的很好见解。让我们总结一下今天更新的最后想法。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:06",
+    "realtime_since_startup": 266.1667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:08",
+    "realtime_since_startup": 266.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "内容真是满满当当啊！ElizaOS V2的发布真正为新一代人工智能发展奠定了基础。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:34:22",
+    "realtime_since_startup": 274.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "GitHub 上的这些贡献展示了我们的社区参与度有多高。这个由人工智能驱动的插件迁移工具是一个革命性的突破。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:45:26",
+    "realtime_since_startup": 285.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Auto.fun的发展绝对值得关注。自治组织的未来比我们想象的要更近。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:52:22",
+    "realtime_since_startup": 292.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "尽管存在推特API这样的一些挑战，很明显这个项目正朝着令人兴奋的方向发展。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:00:13",
+    "realtime_since_startup": 300.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天的更新就到这里！大家继续创造未来吧！",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:04:24",
+    "realtime_since_startup": 304.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们下次《每日播报》见！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:07:14",
+    "realtime_since_startup": 307.43335,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-03"
+    }
+  },
+  {
+    "smpte_timecode": "00:05:07:14",
+    "realtime_since_startup": 307.43335,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-03",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-03/aipodcast_2025-07-03_ch.json"
+    }
+  }
+]

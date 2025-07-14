@@ -1,0 +1,358 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-01",
+      "episode_name": "数据库纠葛与 Discord 讨论"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看人工智能发展的又一期节目！今天我们将为您介绍一些有趣的GitHub更新内容。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:20",
+    "realtime_since_startup": 23.6333351,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "对的，Marc！从bealers在PR5278中针对SQL插件功能的关键数据库修复开始。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:28",
+    "realtime_since_startup": 31.9000015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "是啊，那些讨厌的架构类型不匹配。没什么比数据库问题导致一切都停摆更糟糕的了。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:17",
+    "realtime_since_startup": 39.5333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "说到停机问题，我们也在问题5268中看到用户报告了角色存档故障。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:46:29",
+    "realtime_since_startup": 46.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们听听肖对这些发展的技术观点。肖，你对这些数据库挑战有什么看法？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:21",
+    "realtime_since_startup": 54.6666679,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:24",
+    "realtime_since_startup": 54.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这些数据库问题在容器化环境中尤其具有挑战性。由于类型和字段名称的变更，用户不得不删除或手动修改表。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:06:18",
+    "realtime_since_startup": 66.56667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们在 Heroku 上的 Postgres 也遇到了\"连接过多\"错误。解决方法是通过'max: 5'配置设置连接池限制。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:12",
+    "realtime_since_startup": 77.36667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "听起来是个很有挑战性的技术问题。对于遇到这些问题的用户，有什么建议吗？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:25",
+    "realtime_since_startup": 84.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "在生产环境部署前在暂存环境中进行测试至关重要。我们还建议将PGPOOL_MAX=5设置为环境变量。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:36:05",
+    "realtime_since_startup": 96.13334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这些变化如何影响更广泛的发展格局？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:28",
+    "realtime_since_startup": 99.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "好吧，六月经历了重大转变，包括命令行界面的全面改造和架构重构，其中包括新的独立消息服务器。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:22",
+    "realtime_since_startup": 110.700005,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们还扩展了对新人工智能提供商的支持，包括Ollama、Google和OpenRouter。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:58:06",
+    "realtime_since_startup": 118.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "回到演播室获取更多更新！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:09",
+    "realtime_since_startup": 121.26667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:11",
+    "realtime_since_startup": 121.333336,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们来谈谈一些新加入的激动人心的角色阵容！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:03",
+    "realtime_since_startup": 126.066673,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "天哪，马克你又故障了吗？不过没错，PR5300确实给我们带来了一个新角色人设——戈克！",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:15:14",
+    "realtime_since_startup": 135.433334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我现在没事了！别忘了PR5299 - ChristopherTrimboli的新工作流插件。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:22:27",
+    "realtime_since_startup": 142.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这对自动化来说将是一个巨大的突破。我们现在还看到字符文件大小限制已增加到2MB。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:31:13",
+    "realtime_since_startup": 151.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "社区似乎对基于代理范围的插件架构特别感兴趣。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:19",
+    "realtime_since_startup": 156.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们把肖叫回来讨论这些变化带来的一些战略影响。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:27",
+    "realtime_since_startup": 161.866669,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:29",
+    "realtime_since_startup": 161.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们发现对多代理配置的兴趣日益增长，特别是在Discord设置方面。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:08",
+    "realtime_since_startup": 168.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这可能真的会改变用户与系统的互动方式。其他人工智能模型怎么样？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:54:27",
+    "realtime_since_startup": 174.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "关于以BGE和句子转换器作为传统嵌入模型的替代方案，目前存在大量讨论。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:05",
+    "realtime_since_startup": 182.133347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "框架应该如何调整以支持这些替代方案？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:09",
+    "realtime_since_startup": 186.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们正在探索更好地抽象化特定服务商实现方案，并增加对替代模型的测试资源。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:17",
+    "realtime_since_startup": 194.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "进展真是令人着迷！马克，在我们结束之前，你还有什么想说的吗？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:27",
+    "realtime_since_startup": 200.866684,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:29",
+    "realtime_since_startup": 200.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "多么充实的一集啊！从数据库修复到新的角色人设，elizaOS生态系统正在快速发展。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:26",
+    "realtime_since_startup": 209.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "别忘了多智能体配置和替代性人工智能模型方面的令人振奋的进展！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:22",
+    "realtime_since_startup": 216.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "确实！自主代理和社区驱动的发展前景一片光明。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:08",
+    "realtime_since_startup": 222.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "今天的节目就到这里！感谢大家收看本期人工智能发展动态节目！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:15",
+    "realtime_since_startup": 228.466675,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-01"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:15",
+    "realtime_since_startup": 228.466675,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-01",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-01/aipodcast_2025-07-01_ch.json"
+    }
+  }
+]

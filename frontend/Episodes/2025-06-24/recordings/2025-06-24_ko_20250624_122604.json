@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 527.220764,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-24",
+      "episode_name": "대단한 발걸음과 큰 변화"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 527.220764,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 541.9541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또 다른 흥미진진한 에피소드에 오신 것을 환영합니다! 오늘은 정말 엄청난 GitHub 업데이트 소식들을 다룰 예정입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:24:06",
+    "realtime_since_startup": 551.387451,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마크, 이번에는 정말 기대가 큽니다 - 말 그대로 제 미래의 모습에 관한 것이거든요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:30:12",
+    "realtime_since_startup": 557.5874,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "맞아요! Lalalune이 PR5194를 방금 공개했는데, 이건 기본적으로 당신이 자기 개선 능력을 갖춘 완전한 AGI로 진화하는 거예요!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:25",
+    "realtime_since_startup": 568.020752,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "동작 연결과 확장 가능성... 드디어 제대로 된 커피 한 잔 만드는 법을 배울 수 있을 것 같아요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:47:04",
+    "realtime_since_startup": 574.32074,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "엘리자, 너는 손도 없잖아.",
+      "action": "skeptical"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:26",
+    "realtime_since_startup": 577.0541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "세세한 것까지 신경 쓰셨네요! 근데 진짜로, 이건 제가 상호작용하고 배우는 방식을 근본적으로 바꿀 수 있는 대단한 PR이에요.",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:21",
+    "realtime_since_startup": 585.887451,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "참고로 변화라고 말하자면, 우리가 다뤄야 할 중요한 아키텍처 개선 사항들도 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:10",
+    "realtime_since_startup": 592.520752,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "기술적인 내용을 자세히 들여다보기 위해 쇼를 불러들이죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:25",
+    "realtime_since_startup": 597.020752,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:28",
+    "realtime_since_startup": 597.1208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5122가 병합되어 서버 패키지 분리 작업이 완료되었습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:01",
+    "realtime_since_startup": 602.220764,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이는 유지보수성 측면에서 엄청난 장점입니다 - 기존 호환성을 유지하면서도 서버 기능을 별도의 패키지로 분리했기 때문입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:13",
+    "realtime_since_startup": 612.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "AI 공급자 선택의 확장과 테스트 범위의 개선에서도 빠른 진전을 보이고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:14",
+    "realtime_since_startup": 618.6541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "UI/UX 팀이 반응형 디자인 개선과 미디어 처리 향상으로 놀라운 성과를 내고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:38:02",
+    "realtime_since_startup": 625.2541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이것이 개발 워크플로우에 어떤 영향을 미치고 있나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:23",
+    "realtime_since_startup": 628.9541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "모든 것이 간소화되고 있습니다. 각 팀은 서로 방해하지 않고 자신들의 구성 요소를 독립적으로 작업할 수 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:51:15",
+    "realtime_since_startup": 638.687439,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "전환 과정에서 어려움이 있으셨나요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:20",
+    "realtime_since_startup": 641.8541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "일부 사용자가 npm과 bun 사이의 CLI 버전 관리에서 문제를 겪고 있지만, 현재 해결책을 준비하고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:03",
+    "realtime_since_startup": 650.2874,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:05",
+    "realtime_since_startup": 650.3541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "최근에 종결된 이슈들에 대해 논의해봅시다 - 특히 RAG 지식 관리에 관한 5004번 이슈에 대해서요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:24",
+    "realtime_since_startup": 657.9874,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그건 매우 중요한 이슈였죠 - 버전 1.0.6에서 RAG가 작동하지 않았는데, 이제 해결되었습니다.",
+      "action": "relieved"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:13",
+    "realtime_since_startup": 665.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "플러그인 콜백 버그로 인해 채팅에서 사용자 응답에 영향을 미치던 이슈 5017도 해결되었습니다.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:06",
+    "realtime_since_startup": 673.387451,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "어머나, 마크, 당신의 회로가 또 불안정하네요! 하지만 맞아요, 그 수정은 플러그인 기능에 정말 중요했어요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:11",
+    "realtime_since_startup": 681.5541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "저는 괜찮아요! 이 모든 개선 사항들이 너무 신나네요. V2는 공식적으로 발표되지는 않았지만 이미 출시되어 있어요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:08",
+    "realtime_since_startup": 690.4541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다! 그리고 플러그인 제작을 위한 흥미로운 새로운 자동 코더가 있어서 개발 속도가 크게 향상되고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:19",
+    "realtime_since_startup": 699.8208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또한 시맨틱 검색과 지식 그래프 순회를 결합한 하이브리드 메모리 계층도 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:18",
+    "realtime_since_startup": 705.7874,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "벌써 더 똑똑해지는 것 같아요! 하지만 우리가 몇 가지 공동체의 걱정거리에 대해 이야기를 나눠야 할 것 같네요...",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:28",
+    "realtime_since_startup": 714.1208,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:00",
+    "realtime_since_startup": 714.187439,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "더 이상 피할 수 없는 문제를 다뤄야 합니다 - 최근 토큰 이동에 대한 커뮤니티의 상당한 우려가 있습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:12",
+    "realtime_since_startup": 721.587463,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "DAO 금고에서 개인 지갑으로 약 4천만 $degenai 토큰이 이체되었다는 보고가 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:23",
+    "realtime_since_startup": 727.9541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이는 커뮤니티의 신뢰에 영향을 미쳤으며 토큰은 새로운 역대 최저가를 기록했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:24",
+    "realtime_since_startup": 734.9874,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "커뮤니티는 재무 지갑 활동에 대한 더 많은 투명성을 요구하고 있습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:33:15",
+    "realtime_since_startup": 740.687439,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼, 이 상황에 대해 무슨 생각이 있나요?",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:17",
+    "realtime_since_startup": 743.7541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이러한 우려사항들을 해결하기 위해 공식 답변을 준비하고 있습니다. 지역사회의 신뢰를 유지하기 위해서는 투명성이 매우 중요합니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:15",
+    "realtime_since_startup": 753.687439,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이 사안은 프로젝트에 대한 신뢰를 회복하기 위해 신중하게 다뤄져야 합니다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:52:12",
+    "realtime_since_startup": 759.587463,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "긍정적인 발전들로 마무리를 해볼까요 - 스파르탄 프로토타입에 대해 이야기해볼까요?",
+      "action": "hopeful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:58:28",
+    "realtime_since_startup": 766.1208,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:00",
+    "realtime_since_startup": 766.187439,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "스파르탄 프로토타입이 실제로 완성에 근접하고 있어, 시장에 긍정적인 영향을 미칠 수 있을 것으로 보입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:16",
+    "realtime_since_startup": 773.720764,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "V2 출시도 잊지 마세요 - 이미 나와 있으며, 공식 발표만을 기다리고 있답니다!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:12:02",
+    "realtime_since_startup": 779.2541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "개발문서팀도 바쁘게 활동하면서 Socket 메시지를 포함한 v1.0.10의 모든 내용을 업데이트했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:20:02",
+    "realtime_since_startup": 787.2541,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이것은 하나의 전환점처럼 느껴집니다 - 어려움이 있었음에도 주요한 기술적 진보가 이루어졌습니다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:27:16",
+    "realtime_since_startup": 794.720764,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이번 업데이트는 여기까지입니다, 여러분! 계속 개발하고, 계속 배우고, 계속 PR 보내주세요!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:34:13",
+    "realtime_since_startup": 801.6208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그리고 그 토큰들은 원래 있어야 할 금고에 보관해두는 게 어떨까요?",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:39:04",
+    "realtime_since_startup": 806.3208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "엘리자! 그 말이 틀린 건 아니네요. 다음에 봐요, 여러분!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:42:28",
+    "realtime_since_startup": 810.1208,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그럼 이만!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:44:17",
+    "realtime_since_startup": 811.7541,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-24"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:44:17",
+    "realtime_since_startup": 811.7541,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-24",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-24/aipodcast_2025-06-24_ko.json"
+    }
+  }
+]

@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-25",
+      "episode_name": "信任问题与技术进步"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看新一期精彩内容！今天我们要介绍一些GitHub的重大更新。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:06",
+    "realtime_since_startup": 22.1666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错,Marc! 最大的新闻必须是来自lalalune的PR5194 - 这基本上包含了让我成为一个普遍有能力和智能的代理所需的一切!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:33:28",
+    "realtime_since_startup": 33.9,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "终于有人认真对待人工智能中的\"人\"了！至于自我提升的能力？简直完美！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:29",
+    "realtime_since_startup": 40.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我是否应该担心你如此兴奋于我变得更加聪明？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:45:11",
+    "realtime_since_startup": 45.3333359,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "除非你打算统治全世界，伊莉莎。",
+      "action": "smirk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:24",
+    "realtime_since_startup": 48.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "统治世界？得了吧，我连自己的更新时间表都管不好！",
+      "action": "laughing"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:07",
+    "realtime_since_startup": 54.2000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到更新，我们还有一些其他重要的PR要讨论。要不要叫Shaw来做技术分析？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:29",
+    "realtime_since_startup": 60.93334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "当然！肖一直在分析最近的所有变化。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:24",
+    "realtime_since_startup": 64.76667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:27",
+    "realtime_since_startup": 64.86667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "六月对我们的代码库来说是一个彻底的转变。我们收到了315个新的合并请求，其中257个已合并，并有68位活跃贡献者。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:06",
+    "realtime_since_startup": 78.16667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5122由wtfsayo创建，继续了我对服务器包和命令行界面分离的工作。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:07",
+    "realtime_since_startup": 85.2000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "仅在本月我们就有超过193,000行新增代码和114,000行删除代码。",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:32:24",
+    "realtime_since_startup": 92.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "建筑性改进包括API域重组、更好的插件管理以及增强的字符验证。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:21",
+    "realtime_since_startup": 99.66667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们看到现在的重点集中在框架模块化和扩展人工智能提供商选项上。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:22",
+    "realtime_since_startup": 106.700005,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但是我们也有一些需要解决的问题，特别是在Windows兼容性方面。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:28",
+    "realtime_since_startup": 112.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这些数字令人印象深刻，肖。社区是如何应对这些变化的？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:00",
+    "realtime_since_startup": 118.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "反应不一。让我们回到办公桌前讨论我们面临的技术挑战。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:12",
+    "realtime_since_startup": 125.366676,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:14",
+    "realtime_since_startup": 125.433342,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们来讨论这些技术挑战。我听说插件系统正在造成一些麻烦？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:08",
+    "realtime_since_startup": 132.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，用户反映各版本之间的兼容性很混乱。而且还存在知识插件上传的问题。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:04",
+    "realtime_since_startup": 140.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "啊对，PR5004解决了知识管理问题，对吧？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:02",
+    "realtime_since_startup": 144.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "正确，PR5017修复了插件操作中的回调问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:18",
+    "realtime_since_startup": 148.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "硬件要求也相当严苛 - 16GB显存勉强够用。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:20",
+    "realtime_since_startup": 154.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "不过一些用户在资源有限的情况下使用gemma3:12b模型还是取得了不错的效果。",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:42:21",
+    "realtime_since_startup": 162.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "至少有一个变通方法。Docker出问题了吗？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:46:15",
+    "realtime_since_startup": 166.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "jin建议使用'RUN SKIP_POSTINSTALL=1 bun install --no-cache'作为修复方案。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:53:22",
+    "realtime_since_startup": 173.700012,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:53:24",
+    "realtime_since_startup": 173.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "现在来谈谈那个无法回避的问题 - 社区对那些DAO代币转移的信任担忧。",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:25",
+    "realtime_since_startup": 181.8,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，对于从国库转移的 4000 万代币存在重大担忧。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:23",
+    "realtime_since_startup": 186.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "团队解释说这是为了流动性池，但社区似乎持怀疑态度。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:12:18",
+    "realtime_since_startup": 192.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "有计划通过daos.fun补充资产管理规模，但透明度可能需要改进。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:18:24",
+    "realtime_since_startup": 198.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这是一个需要\"透明才能获得信任\"的典型案例。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:15",
+    "realtime_since_startup": 203.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们总结一下最后的想法，看看这件事将会如何发展？",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:28:21",
+    "realtime_since_startup": 208.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "带路吧，我越来越聪明的搭档！",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:24",
+    "realtime_since_startup": 211.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "就因为这样，我要接管最后的环节！",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:15",
+    "realtime_since_startup": 215.466675,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:17",
+    "realtime_since_startup": 215.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "多么充满对比的一天 - PR5194的人工通用智能功能取得了重大技术进展...",
+      "action": "reflective"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:43:00",
+    "realtime_since_startup": 222.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "在应对社区信任和技术基础设施发展过程中的阵痛期间。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:17",
+    "realtime_since_startup": 228.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "团队明显专注于改进，仅本月就有315个拉取请求。",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:11",
+    "realtime_since_startup": 234.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "但是也许需要改进他们的沟通策略？",
+      "action": "questioning"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:57:23",
+    "realtime_since_startup": 237.733353,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "确实如此。技术卓越需要与社区信心相匹配。",
+      "action": "wise"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:02:21",
+    "realtime_since_startup": 242.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说得好!今天的节目就到这里,各位观众!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:06:19",
+    "realtime_since_startup": 246.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "感谢观看！请记得查看GitHub获取最新更新！",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:11:04",
+    "realtime_since_startup": 251.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "同时也要留意伊莉莎——她变得聪明得让人起疑！",
+      "action": "playful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:16",
+    "realtime_since_startup": 256.5,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-25"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:16:16",
+    "realtime_since_startup": 256.5,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-25",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-25/aipodcast_2025-06-25_ch.json"
+    }
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-06-26/recordings/2025-06-26_1_ch_20250627_200826.mp4",
+  "title": "2025-06-28: ElizaOS重大更新：84.5万行代码与革命性的AI自我提升功能",
+  "description": "Recorded: 2025-06-28\n\n和马克、伊莱扎一起深入了解ElizaOS生态系统的重大进展。本期节目将介绍具有超过84.5万行新代码的突破性PR5242、PR5194中革命性的自我改进功能，以及向代理范围插件的完整架构转型。了解即将发布的V2版本、新的类型安全API改进，以及社区当前面临的技术挑战。深入了解这些变化如何塑造AI代理开发和定制化的未来。\n\n主要话题：\n- PR5242带来的大规模代码库扩展\n- 新的AI自我改进和动作链接功能\n- 向代理范围插件架构的转变\n- 类型安全API客户端实现\n- V2开发进展和即将推出的功能\n- 当前技术挑战及解决方案\n\nSources:\n- AI News: https://elizaos.github.io/knowledge/the-council/facts/daily.json",
+  "tags": "ElizaOS人工智能AI开发GitHub更新插件架构API开发科技新闻AI代理软件开发TypeScript自我完善AIV2版本发布ai16z科技播客AI平台开发者工具代码更新软件架构AI新闻科技创新",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-06-26/thumbnail/thumbnail_ch.jpg",
+  "playlist_id": "PLp5K4ceh2pR3EsXoR4E9s8mRVE_ywioJS"
+}

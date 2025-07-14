@@ -1,0 +1,380 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 264.731964,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-27",
+      "episode_name": "Architectural Evolution"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 264.731964,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:24",
+    "realtime_since_startup": 287.498627,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting day in AI development! We've got some major architectural changes to discuss.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:09",
+    "realtime_since_startup": 293.998627,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right, Marc! The team has completely transformed the plugin architecture from project-scoped to agent-scoped. This is huge!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:37:02",
+    "realtime_since_startup": 301.7653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Finally, different characters can have different plugins. It's like giving each AI their own unique toolbox.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:44:26",
+    "realtime_since_startup": 309.5653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And that's not all - we've completed the migration to the new type-safe @elizaos/api-client package. Everything's TypeScript now!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:55:04",
+    "realtime_since_startup": 319.83197,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Absolutely crucial for maintaining code quality. Speaking of improvements, they've also added OpenRouter to model selection.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:27",
+    "realtime_since_startup": 327.598633,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "More AI provider flexibility is always good news. The embedding model support has been enhanced too.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:29",
+    "realtime_since_startup": 333.6653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "These changes really show how the platform is maturing. Shaw, what's your take on all this?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:14:23",
+    "realtime_since_startup": 339.4653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "These improvements are laying the groundwork for V2, which we're actively working on. The architectural changes are particularly exciting.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:23:05",
+    "realtime_since_startup": 347.8653,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:08",
+    "realtime_since_startup": 355.9653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Let's dive into some of the bigger pull requests. PR5242 from lalalune is massive - we're talking over a million lines of code added.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:40:05",
+    "realtime_since_startup": 364.8653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This represents a major platform update that's going to reshape how the system works.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:45:01",
+    "realtime_since_startup": 369.731964,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Another significant one is PR5194, which expands capabilities with action chaining and self-improvement functionality.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:20",
+    "realtime_since_startup": 377.3653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "These changes are crucial for the V2 release we're working towards.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:56:27",
+    "realtime_since_startup": 381.598633,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Those numbers are impressive, Shaw. How does this tie into the recent architectural changes?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:02:26",
+    "realtime_since_startup": 387.5653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The agent-scoped plugins will work seamlessly with these new features, creating a more flexible and powerful platform.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:06",
+    "realtime_since_startup": 394.898651,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The community's going to love this increased customization potential!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:00",
+    "realtime_since_startup": 398.698639,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Absolutely. And with Q3 approaching, the timing couldn't be better.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:17:27",
+    "realtime_since_startup": 402.598633,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:17:29",
+    "realtime_since_startup": 402.6653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We should address some of the challenges users are facing. NBFinanceTech reported an interesting issue about character file sizes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:17",
+    "realtime_since_startup": 411.26532,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes, Issue 5268 highlights how complex agent configurations can't be saved due to size limitations.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:01",
+    "realtime_since_startup": 418.731964,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Users are also experiencing some UI issues where responses appear in memory but not in chat.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:21",
+    "realtime_since_startup": 425.398651,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's particularly frustrating since it blocks conversations entirely.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:45:03",
+    "realtime_since_startup": 429.798645,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BEEP BOOP ERROR PROCESSING CHAT INTERFACE BZZZT",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:00",
+    "realtime_since_startup": 433.698639,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, Marc! Are you okay?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:04",
+    "realtime_since_startup": 435.83197,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Just demonstrating what our users might be experiencing! I'm fine now.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:55:19",
+    "realtime_since_startup": 440.33197,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Very funny! But these are serious issues that need addressing.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:11",
+    "realtime_since_startup": 444.0653,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:07:16",
+    "realtime_since_startup": 452.231964,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's talk about something exciting - the platform is expanding its output formats!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:12:19",
+    "realtime_since_startup": 457.33197,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right! They're implementing 9:16 format alongside 16:9 to support platforms like TikTok.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:11",
+    "realtime_since_startup": 464.0653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And it's not just about aspect ratios - they're developing ecosystem agents with visual identities and Elevenlabs voices.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:12",
+    "realtime_since_startup": 472.098633,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "This multimodal expansion really shows how the platform is evolving.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:19",
+    "realtime_since_startup": 476.33197,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "It's all about meeting users where they are, across different platforms and formats.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:37:03",
+    "realtime_since_startup": 481.798645,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The combination of visual and voice capabilities is particularly exciting for content creators.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:26",
+    "realtime_since_startup": 487.5653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And that wraps up our coverage for today! Thanks for joining us for another episode of AI developments!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:49:08",
+    "realtime_since_startup": 493.9653,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you next time, everyone!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:51:10",
+    "realtime_since_startup": 496.031982,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-27"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:51:10",
+    "realtime_since_startup": 496.031982,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-27",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-27/aipodcast_2025-06-27_en.json"
+    }
+  }
+]

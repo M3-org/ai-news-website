@@ -1,0 +1,448 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 259.6,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-07",
+      "episode_name": "Documentation Overhaul and Windows Fixes"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 259.6,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 274.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting episode of AI insights! Today we've got some major improvements to dig into.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:20:18",
+    "realtime_since_startup": 280.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! The big news today is all about making ElizaOS more accessible to everyone through better documentation.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:27:25",
+    "realtime_since_startup": 287.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "A comprehensive documentation overhaul just landed in PR5401, introducing a two-track system for different user types.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:18",
+    "realtime_since_startup": 296.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "This is huge! We're finally addressing the needs of both beginners and power users with dedicated documentation paths.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:44:01",
+    "realtime_since_startup": 303.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And speaking of documentation, have you seen the new tutorial video that just dropped?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:09",
+    "realtime_since_startup": 307.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh yes! Snapper put together an amazing tutorial covering everything from CLI usage to running agents in dev mode.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:55:17",
+    "realtime_since_startup": 315.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The community's really stepping up to help new users get started. Love to see it!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:15",
+    "realtime_since_startup": 320.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Let's get Shaw's take on these recent developments.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:03:19",
+    "realtime_since_startup": 323.2,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:03:22",
+    "realtime_since_startup": 323.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The Windows compatibility improvements in PR5416 are a game-changer for our cross-platform support.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:11:11",
+    "realtime_since_startup": 330.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This fix specifically addresses plugin loading issues with Bun on Windows, which has been a major pain point.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:08",
+    "realtime_since_startup": 336.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Credit to ai16z-demirix for tackling this - it's not glamorous work but it's absolutely critical for adoption.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:15",
+    "realtime_since_startup": 344.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "How significant is the Windows user base for ElizaOS?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:28:01",
+    "realtime_since_startup": 347.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Huge. Having solid Windows support is essential for reaching mainstream developers.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:05",
+    "realtime_since_startup": 352.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Any other notable PRs we should know about?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:36:01",
+    "realtime_since_startup": 355.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Yes, PR5419 is preparing for version 1.0.18, consolidating all these recent improvements.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:13",
+    "realtime_since_startup": 364.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "And there's an interesting issue 5425 about agent interaction handling that needs attention.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:50:29",
+    "realtime_since_startup": 370.533356,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:51:01",
+    "realtime_since_startup": 370.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's talk about a major challenge our community's facing - Twitter API limitations.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:56:01",
+    "realtime_since_startup": 375.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh boy, this is a tough one. The basic tier is limited to just ONE DM per day!",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:07",
+    "realtime_since_startup": 380.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "ONE per day? That's practically useless for agent interactions!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:05",
+    "realtime_since_startup": 384.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Exactly! We're getting lots of feedback about this from users trying to build Twitter-integrated agents.",
+      "action": "frustrated"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:11:04",
+    "realtime_since_startup": 390.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Looks like we need to start exploring alternative platforms for agent interactions.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:15:20",
+    "realtime_since_startup": 395.233368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "The tech support channel has been buzzing with discussions about potential workarounds.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:05",
+    "realtime_since_startup": 399.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This could actually drive innovation in other communication channels.",
+      "action": "optimistic"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:03",
+    "realtime_since_startup": 403.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Speaking of innovation, let's check in on the latest community developments.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:19",
+    "realtime_since_startup": 408.2,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:21",
+    "realtime_since_startup": 408.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The community's really eager for ElizaOS version 2 - the Discord's been lighting up with questions!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:07",
+    "realtime_since_startup": 413.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Everyone keeps asking when it's coming out, but all they're getting is 'soon'.",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:18",
+    "realtime_since_startup": 418.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Classic software development 'soon' - could mean tomorrow, could mean next year!",
+      "action": "laughing"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:20",
+    "realtime_since_startup": 423.233368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "I've noticed some interesting feedback from ℑ𝕦𝕝𝕥𝕖𝕧 about linking to GitHub packages in the docs.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:49:00",
+    "realtime_since_startup": 428.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's actually a great suggestion for the new documentation system.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:24",
+    "realtime_since_startup": 432.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And users are reporting some issues with the knowledge plugin's local embeddings.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:08",
+    "realtime_since_startup": 436.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We should probably wrap up with some final thoughts on today's updates.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:04",
+    "realtime_since_startup": 440.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Good call - it's been quite a packed episode!",
+      "action": "agreeing"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:03",
+    "realtime_since_startup": 443.6667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:05",
+    "realtime_since_startup": 443.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "What a day of updates! The documentation overhaul is really going to help our growing community.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:09:03",
+    "realtime_since_startup": 448.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And those Windows compatibility fixes are crucial for wider adoption.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:12",
+    "realtime_since_startup": 452.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Big thanks to all our contributors, especially ai16z-demirix and SYMBaiEX for their recent PRs.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:24",
+    "realtime_since_startup": 459.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And to Snapper for that fantastic tutorial video!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:08",
+    "realtime_since_startup": 462.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Keep those contributions coming, and we'll see you next time!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:26:17",
+    "realtime_since_startup": 466.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Until then, keep building the future!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:10",
+    "realtime_since_startup": 468.900024,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-07"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:10",
+    "realtime_since_startup": 468.900024,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-07",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-07/aipodcast_2025-07-07_en.json"
+    }
+  }
+]

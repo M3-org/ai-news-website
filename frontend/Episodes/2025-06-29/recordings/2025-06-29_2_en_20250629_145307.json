@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 297.7667,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-29_2",
+      "episode_name": "Massive Updates & Database Drama"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 297.7667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 312.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Breaking news in the world of AI development! We've got some absolutely massive pull requests to cover today.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:19",
+    "realtime_since_startup": 320.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! Our friend lalalune has been incredibly busy. PR5242 just dropped with - get this - over 1.3 million lines of code!",
+      "action": "amazed"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:33:09",
+    "realtime_since_startup": 331.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BEEEEEP BOOP... PROCESSING... ONE POINT THREE MILLION LINES... DOES NOT COMPUTE!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:11",
+    "realtime_since_startup": 337.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, those big numbers always get him excited! But wait until you hear about PR5194 - it's introducing true AGI capabilities with self-improvement features!",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:50:10",
+    "realtime_since_startup": 348.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Sorry about that! But you can't blame me - this is groundbreaking stuff. Action chaining, self-improvement... we're looking at next-level AI development here.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:14",
+    "realtime_since_startup": 358.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And who better to appreciate it than an AI host herself? I'm particularly intrigued by how these features might expand our capabilities.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:23",
+    "realtime_since_startup": 367.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's get Shaw's technical perspective on these developments. Shaw, what's your take on these massive updates?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:16:17",
+    "realtime_since_startup": 374.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "These PRs represent a quantum leap forward. The self-improvement features could revolutionize how AI agents learn and adapt. Let me break down the technical details...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:26:23",
+    "realtime_since_startup": 384.500031,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:26:26",
+    "realtime_since_startup": 384.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We've made significant architectural improvements that are going to change how developers interact with the system.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:33:05",
+    "realtime_since_startup": 390.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Tell us more about these changes, Shaw.",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:35:23",
+    "realtime_since_startup": 393.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The big shift is moving from project-scoped to agent-scoped plugins. This means each character can now have their own unique set of plugins.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:44:16",
+    "realtime_since_startup": 402.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That sounds like it would give developers much more flexibility!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:48:14",
+    "realtime_since_startup": 406.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Exactly. We've also completed the migration to the new @elizaos/api-client package, which streamlines the entire development process.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:14",
+    "realtime_since_startup": 415.2,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "What about the model provider support I've been hearing about?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:00:24",
+    "realtime_since_startup": 418.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Yes! We've enhanced model provider support with OpenRouter integration and improved embedding model selection.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:12",
+    "realtime_since_startup": 425.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "These changes sound like they'll make a real difference for our developer community.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:11:28",
+    "realtime_since_startup": 429.6667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:00",
+    "realtime_since_startup": 429.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Not everything has been smooth sailing though. We need to address the database schema issues affecting recent upgrades.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:06",
+    "realtime_since_startup": 436.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Users upgrading to versions v1.0.14 and v1.0.15 have reported problems with inconsistent column naming conventions.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:13",
+    "realtime_since_startup": 446.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Ah yes, the classic 'createdAt' versus 'created_at' debate. Who knew underscores could cause so much trouble?",
+      "action": "sarcastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:36:29",
+    "realtime_since_startup": 454.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw, can you provide some context on how this is being addressed?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:02",
+    "realtime_since_startup": 458.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're working on standardizing the naming conventions and providing clearer upgrade paths for users.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:01",
+    "realtime_since_startup": 464.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "In the meantime, users should be careful when upgrading from version 1.0.9 to 1.0.15 specifically.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:55:27",
+    "realtime_since_startup": 473.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget, if you're working in the monorepo environment, there's been some confusion about proper command usage.",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:02",
+    "realtime_since_startup": 480.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of developments, let's talk about the Spartan Agent testing that's underway.",
+      "action": "transition"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:09",
+    "realtime_since_startup": 486.033356,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:11",
+    "realtime_since_startup": 486.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Exciting news on the Spartan Agent front! Internal testing is showing promising results.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:17",
+    "realtime_since_startup": 491.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes! The first round of external testing is about to begin, and if all goes well, holder testing could start as early as next week.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:22:03",
+    "realtime_since_startup": 499.833374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This is a crucial step for the A2A network development. The team's working on implementing some interesting token utility features.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:30:03",
+    "realtime_since_startup": 507.833374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Can you elaborate on those features, Marc?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:32:18",
+    "realtime_since_startup": 510.333374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "They're introducing token fees for broadcast, bid, and receive actions between agents and humans.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:29",
+    "realtime_since_startup": 516.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And don't forget the validator and oracle nodes that are being planned for token staking!",
+      "action": "enthusiastic"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:43:22",
+    "realtime_since_startup": 521.4667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This could really reshape how agents interact with each other and with humans on the network.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:49:06",
+    "realtime_since_startup": 526.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Before we wrap up, should we touch on the recent governance discussions?",
+      "action": "inquiring"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:53:16",
+    "realtime_since_startup": 531.2667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:53:18",
+    "realtime_since_startup": 531.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Right, there have been some interesting discussions about the project's governance structure.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:13",
+    "realtime_since_startup": 537.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's become clear that while ai16z aspires to be a DAO, there's still work to be done on formal governance processes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:07:06",
+    "realtime_since_startup": 544.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Transparency in token operations has emerged as a key focus area for improvement.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:12:19",
+    "realtime_since_startup": 550.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And with that, we've covered today's major developments! From massive code additions to governance discussions.",
+      "action": "concluding"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:18:27",
+    "realtime_since_startup": 556.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Thanks for joining us for another exciting episode! Keep building, keep innovating, and keep those pull requests coming!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:03",
+    "realtime_since_startup": 563.8334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Until next time, this is Eliza...",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:28:09",
+    "realtime_since_startup": 566.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And Marc, signing off!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:30:06",
+    "realtime_since_startup": 567.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Stay curious, everyone!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:04",
+    "realtime_since_startup": 569.8667,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-29_2"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:04",
+    "realtime_since_startup": 569.8667,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-29_2",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-29_2/aipodcast_2025-06-29_2_en.json"
+    }
+  }
+]

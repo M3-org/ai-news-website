@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-06-21/recordings/2025-06-21_ko_20250621_020227.mp4",
+  "title": "2025-06-21: elizaOS GitHub 업데이트: 대규모 파일 업로드 수정 및 API 개선 | WBTC 10만 6천 달러 돌파!",
+  "description": "Recorded: 2025-06-21\n\n오늘의 AI 개발 하이라이트는 elizaOS GitHub 리포지토리의 주요 업데이트를 다룹니다. 파일 업로드 문제와 API 개선을 다루는 세 가지 중요한 PR 병합이 포함되어 있습니다. @tcm390의 신속한 수정, @wtfsayo의 서버 패키지 분할 작업 진행, 그리고 @urosognjenovic의 문서 정리 작업을 함께 살펴보겠습니다. 또한 WBTC가 106,000달러를 넘어서고 WETH가 2,579달러를 유지하는 최신 암호화폐 시장 업데이트도 확인하세요!\n\n주요 하이라이트:\n- 5개의 새로운 PR(3개 병합)과 3개의 새로운 이슈\n- 중요 파일 업로드 및 트랜스크립션 API 수정\n- API 테스팅을 위한 포스트맨 컬렉션 업데이트\n- Shaw의 상세 기술 분석\n- 최신 암호화폐 시장 가격 및 분석\n\n일일 업데이트 팔로우하기:\nGitHub: https://github.com/elizaOS/eliza\nTwitter: https://x.com/ai16zdao\n\nSources:\n- AI News: https://elizaos.github.io/knowledge/ai-news/elizaos/json/daily.json",
+  "tags": "elizaOS, 깃허브, AI 개발, 암호화폐, 비트코인, 이더리움, WBTC, WETH, API 개발, 테크 뉴스, 소프트웨어 개발, 풀 리퀘스트, 코드 업데이트, 블록체인, 개발자 도구, 프로그래밍, 테크 팟캐스트, 암호화폐 시장, 오픈소스, 소프트웨어 엔지니어링",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-06-21/thumbnail/thumbnail_ko.jpg",
+  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB"
+}

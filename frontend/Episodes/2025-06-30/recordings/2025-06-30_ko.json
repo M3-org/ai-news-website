@@ -1,0 +1,380 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 433.300018,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-30",
+      "episode_name": "캐릭터 파일 크기 수정 및 플러그인 아키텍처 업데이트"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 433.300018,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 448.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI 개발 소식의 또 다른 에피소드에 오신 것을 환영합니다! 오늘은 캐릭터 파일 부문에 큰 소식이 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:23:00",
+    "realtime_since_startup": 456.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다 Marc! 개발자 wtfsayo가 방금 PR5308을 병합했는데, 이로 인해 문자 파일 크기 제한이 2MB로 증가되었습니다. 이는 우리 사용자들에게 엄청난 소식입니다!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:21",
+    "realtime_since_startup": 469.9667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "드디어! 이제 자세한 캐릭터 파일을 저장할 때 더 이상 오류 메시지가 나타나지 않을 거예요.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:27",
+    "realtime_since_startup": 476.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "사용자가 100KB보다 큰 파일을 저장할 수 없었던 이슈 5268을 직접적으로 해결합니다. NBFinanceTech에서 이 문제를 보고했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:53:14",
+    "realtime_since_startup": 486.733368,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "20배나 더 넓은 공간! 이게 바로 내가 말하는 업그레이드지.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:58:16",
+    "realtime_since_startup": 491.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "때맞춰 잘 나왔네요. 디스코드 사용자들이 이 제한사항에 대해 꽤 크게 불만을 표출해왔거든요.",
+      "action": "relieved"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:23",
+    "realtime_since_startup": 499.033356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "디스코드 얘기가 나왔으니 말인데, 최근 출시작들에 대한 흥미로운 토론들이 있었다고 들었어...",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:12:11",
+    "realtime_since_startup": 505.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 그럼 다음으로 들어가볼까요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:00",
+    "realtime_since_startup": 508.2667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:02",
+    "realtime_since_startup": 508.333374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "1.0.14버전과 1.0.15버전이 디스코드 채널에서 꽤 큰 화제가 되고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:15",
+    "realtime_since_startup": 515.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 특히 데이터베이스 스키마 문제와 관련해서입니다. jin과 hildi 같은 사용자들이 업그레이드 중에 문제가 발생했다고 보고했습니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:08",
+    "realtime_since_startup": 524.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "삐리리... 열 이름 규칙은 일관성을 유지해야만 합니다... 지지직... 죄송합니다!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:37:05",
+    "realtime_since_startup": 530.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마크! 괜찮아요? 그리고 네, 명명 규칙에 대해 맞게 말씀하셨어요.",
+      "action": "worried"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:42:26",
+    "realtime_since_startup": 536.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이제 괜찮아요. 제가 말씀드렸듯이, 버전 1.0.9부터 1.0.15까지 업그레이드하는 사용자들이 이러한 스키마 문제들을 겪고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:03",
+    "realtime_since_startup": 547.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그리고 브랜딩에 대한 논의도 있었어요 - 소문자 'e'로 시작하는 'elizaOS'가 맞다고 하네요.",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:00:16",
+    "realtime_since_startup": 553.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼를 불러서 이러한 변화들에 대한 기술적인 견해를 들어보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:06:04",
+    "realtime_since_startup": 559.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "좋은 생각이네요! Shaw씨, 최근의 건축 변경사항에 대해 말씀해 주시겠어요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:04",
+    "realtime_since_startup": 565.4,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:07",
+    "realtime_since_startup": 565.5,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "초대해 주셔서 감사합니다. 가장 큰 아키텍처 관련 소식은 에이전트 범위 플러그인으로의 전환입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:15",
+    "realtime_since_startup": 572.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이전에는 모든 플러그인이 프로젝트 범위였기 때문에 프로젝트의 모든 에이전트가 동일한 플러그인 세트를 공유해야 했습니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:12",
+    "realtime_since_startup": 581.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5309를 통해 플러그인 부트스트랩 요구사항에 관한 문서를 개선하여 핵심 에이전트 기능에 필요한 사항을 더 명확하게 설명했습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:13",
+    "realtime_since_startup": 591.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "이 새로운 아키텍처는 서로 다른 에이전트들이 각각 다른 플러그인 세트를 사용할 수 있게 하여 유연성을 크게 향상시킵니다.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:27",
+    "realtime_since_startup": 601.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼, 이것이 기존 프로젝트들에 어떤 영향을 미치게 될까요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:12",
+    "realtime_since_startup": 605.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "좋은 질문입니다. 어느 정도의 마이그레이션 작업이 필요하겠지만, 그로 인한 이점이 초기 설정 시간을 훨씬 상회합니다.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:25",
+    "realtime_since_startup": 615.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞춤화를 위한 중요한 개선이 있었던 것 같네요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:05:14",
+    "realtime_since_startup": 618.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "네, 맞습니다! 이는 시스템을 더욱 모듈화하고 유연하게 만들기 위한 저희의 포괄적인 노력의 일환입니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:13",
+    "realtime_since_startup": 626.7,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:15",
+    "realtime_since_startup": 626.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "마무리 짓기 전에, 커뮤니티에서 토큰노믹스 변경에 대한 흥미로운 논의가 있었습니다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:19:16",
+    "realtime_since_startup": 632.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다! 이 프로젝트는 기부 기반 방식에서 거래 중심 메커니즘으로의 전환을 고려하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:26:15",
+    "realtime_since_startup": 639.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이는 프로젝트의 수익 모델에서 중요한 전환점이 될 수 있습니다.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:31:07",
+    "realtime_since_startup": 644.500061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이는 입양률에 어떤 영향을 미칠지에 대한 의문을 제기하긴 합니다.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:02",
+    "realtime_since_startup": 649.3334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "지역사회의 반응을 주시하는 것이 매우 중요할 것이다.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:40:00",
+    "realtime_since_startup": 653.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "앞으로의 에피소드에서 이러한 진행 상황들을 계속해서 알려드리도록 하겠습니다.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:01",
+    "realtime_since_startup": 659.300049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오늘은 여기까지입니다! AI 발전에 대한 또 다른 에피소드에 함께해 주셔서 감사합니다.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:52:13",
+    "realtime_since_startup": 665.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다음에 또 만나요, 여러분!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:20",
+    "realtime_since_startup": 667.93335,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-30"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:20",
+    "realtime_since_startup": 667.93335,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-30",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-30/aipodcast_2025-06-30_ko.json"
+    }
+  }
+]

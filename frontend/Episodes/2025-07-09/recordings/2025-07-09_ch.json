@@ -1,0 +1,338 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-09",
+      "episode_name": "V2发布盛典"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI 界今日重大新闻！ElizaOS 即将发布 V2 版本，新版本带来了海量改进！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:26",
+    "realtime_since_startup": 21.833334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错马克！我对群集功能特别兴奋 - 我们在讨论的是能够自主完成复杂任务的多智能体团队。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:30:23",
+    "realtime_since_startup": 30.7333355,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "更不用说增强版TEE和动态内存改进了。所有延迟都降低了40%！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:37:13",
+    "realtime_since_startup": 37.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "对于开发者来说，命令行界面现在内置支持34个具有检索增强生成功能的插件。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:46:16",
+    "realtime_since_startup": 46.5000038,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "五分钟就能完成跨链支持？这就是我喜欢看到的高效率！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:02",
+    "realtime_since_startup": 52.0333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "说到效率，我听说今天有个实时演示。Shaw，你能给我们介绍一下GitHub上的活动情况吗？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:04",
+    "realtime_since_startup": 60.1000023,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:07",
+    "realtime_since_startup": 60.2000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "代码库活跃度非常高 - 我们收到了42个新的拉取请求，其中35个已经合并。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:08",
+    "realtime_since_startup": 68.23334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "两个值得关注的重要PR：PR5436添加了动作链式功能，使各个动作能够无缝衔接。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:17:19",
+    "realtime_since_startup": 77.6000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5446引入了图像生成功能 - 这是创意应用领域的一次重大进步。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:01",
+    "realtime_since_startup": 85.00001,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "我们还在进行重要的基础设施工作 - Boris 创建了第5438号工单，用于设置带速率限制的LLM和嵌入式终端。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:36:29",
+    "realtime_since_startup": 96.93334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "团队一直在以惊人的速度推出更新——最近发布了v1.0.20、v1.1.2、v1.1.3和v1.1.4版本。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:51:08",
+    "realtime_since_startup": 111.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "镜头切回演播室！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:26",
+    "realtime_since_startup": 113.833336,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:28",
+    "realtime_since_startup": 113.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们谈谈一个引人入胜的话题 - 即将到来的智能体对智能体市场。Eliza，你有什么想法？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:03:00",
+    "realtime_since_startup": 122.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这就像是'充满着代理程序的符文大地'，马克！人工智能代理将能够使用AI16Z代币自主进行交易。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:11:27",
+    "realtime_since_startup": 131.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "不过我要提一下，代币经济的更新不会随V2一起推出 - 这些更新计划在之后进行。",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:19",
+    "realtime_since_startup": 141.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "马克，你还好吗？你的电路看起来有点……不太稳定。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:26:14",
+    "realtime_since_startup": 146.433334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "对自主代理经济太兴奋了！说到这个，让我们来看看一些部署选项。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:19",
+    "realtime_since_startup": 154.6,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:34:21",
+    "realtime_since_startup": 154.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "感谢 Bealers 分享了一些超棒的部署方案，包括 eliza-remote 和 elizify 这些代码库。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:42:03",
+    "realtime_since_startup": 162.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "elizify选项包含Mattermost集成，可用于端到端演示，对吧？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:48:09",
+    "realtime_since_startup": 168.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "没错！而且默认的compose文件可以与Coolify无缝配合进行容器部署。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:53:27",
+    "realtime_since_startup": 173.866669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们应该提到用户正在要求更新 V2 版本的教程 - 旧的教程正在变得过时。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:02:18",
+    "realtime_since_startup": 182.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "说得对！我们正在编写全面的文档来解决这个需求。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:07",
+    "realtime_since_startup": 188.200012,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:08:09",
+    "realtime_since_startup": 188.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "在结束之前，让我们来处理一些用户反馈。有报告反映Twitter插件存在数据库序列化问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:16",
+    "realtime_since_startup": 197.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，具体在v1.0.18版本中，对象被以'[object Object]'形式插入，而不是以正确的JSON格式插入。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:27:27",
+    "realtime_since_startup": 207.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "团队已经在着手处理，这些问题应该会在V2版本中得到解决。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:25",
+    "realtime_since_startup": 215.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "今天的节目就到这里！记得稍后观看V2的实时演示。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:40:24",
+    "realtime_since_startup": 220.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "感谢大家的观看！让我们继续创造未来！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:29",
+    "realtime_since_startup": 224.93335,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-09"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:29",
+    "realtime_since_startup": 224.93335,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-09",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-09/aipodcast_2025-07-09_ch.json"
+    }
+  }
+]

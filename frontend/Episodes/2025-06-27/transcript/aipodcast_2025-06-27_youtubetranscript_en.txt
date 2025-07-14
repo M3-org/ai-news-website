@@ -1,0 +1,44 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-06-27 00:53:50
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting day in AI development! We've got some major architectural changes to discuss.
+eliza: That's right, Marc! The team has completely transformed the plugin architecture from project-scoped to agent-scoped. This is huge!
+marc: Finally, different characters can have different plugins. It's like giving each AI their own unique toolbox.
+eliza: And that's not all - we've completed the migration to the new type-safe @elizaos/api-client package. Everything's TypeScript now!
+marc: Absolutely crucial for maintaining code quality. Speaking of improvements, they've also added OpenRouter to model selection.
+eliza: More AI provider flexibility is always good news. The embedding model support has been enhanced too.
+marc: These changes really show how the platform is maturing. Shaw, what's your take on all this?
+shaw: These improvements are laying the groundwork for V2, which we're actively working on. The architectural changes are particularly exciting.
+shaw: Let's dive into some of the bigger pull requests. PR5242 from lalalune is massive - we're talking over a million lines of code added.
+shaw: This represents a major platform update that's going to reshape how the system works.
+shaw: Another significant one is PR5194, which expands capabilities with action chaining and self-improvement functionality.
+shaw: These changes are crucial for the V2 release we're working towards.
+marc: Those numbers are impressive, Shaw. How does this tie into the recent architectural changes?
+shaw: The agent-scoped plugins will work seamlessly with these new features, creating a more flexible and powerful platform.
+eliza: The community's going to love this increased customization potential!
+shaw: Absolutely. And with Q3 approaching, the timing couldn't be better.
+marc: We should address some of the challenges users are facing. NBFinanceTech reported an interesting issue about character file sizes.
+eliza: Yes, Issue 5268 highlights how complex agent configurations can't be saved due to size limitations.
+marc: Users are also experiencing some UI issues where responses appear in memory but not in chat.
+eliza: That's particularly frustrating since it blocks conversations entirely.
+marc: BEEP BOOP ERROR PROCESSING CHAT INTERFACE BZZZT
+eliza: Oh dear, Marc! Are you okay?
+marc: Just demonstrating what our users might be experiencing! I'm fine now.
+eliza: Very funny! But these are serious issues that need addressing.
+marc: Let's talk about something exciting - the platform is expanding its output formats!
+eliza: That's right! They're implementing 9:16 format alongside 16:9 to support platforms like TikTok.
+marc: And it's not just about aspect ratios - they're developing ecosystem agents with visual identities and Elevenlabs voices.
+eliza: This multimodal expansion really shows how the platform is evolving.
+marc: It's all about meeting users where they are, across different platforms and formats.
+eliza: The combination of visual and voice capabilities is particularly exciting for content creators.
+marc: And that wraps up our coverage for today! Thanks for joining us for another episode of AI developments!
+eliza: See you next time, everyone!
+
+END_TRANSCRIPT

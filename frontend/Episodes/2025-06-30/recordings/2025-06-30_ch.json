@@ -1,0 +1,380 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-30",
+      "episode_name": "角色文件大小修复及插件架构更新"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看新一期的人工智能发展动态！今天在角色文件部门有重大新闻。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:00",
+    "realtime_since_startup": 21.9666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错Marc！开发者wtfsayo刚刚合并了PR5308，将角色文件大小限制提高到2MB。这对我们的用户来说真是个重大好消息！",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:35:02",
+    "realtime_since_startup": 35.0333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "终于！保存那些详细的角色文件时不再出现错误提示了。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:40:25",
+    "realtime_since_startup": 40.8000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这解决了5268号问题，用户之前无法保存大于100KB的文件。该问题由NBFinanceTech报告。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:50:17",
+    "realtime_since_startup": 50.5333366,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "大二十倍的空间！这才叫升级啊。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:06",
+    "realtime_since_startup": 54.1666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "而且来得正是时候。Discord用户一直在强烈抱怨这个限制。",
+      "action": "relieved"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:59:23",
+    "realtime_since_startup": 59.7333374,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "说到Discord，我听说最近有一些关于新发布内容的有趣讨论...",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:04:23",
+    "realtime_since_startup": 64.73334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "好的，让我们接着讲下一个吧！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:07",
+    "realtime_since_startup": 68.2000046,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:09",
+    "realtime_since_startup": 68.26667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "So versions 1.0.14 and 1.0.15 are causing quite a stir in the Discord channels.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:08",
+    "realtime_since_startup": 75.23334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "是的，特别是在数据库架构问题上。像jin和hildi这样的用户在升级过程中报告了一些问题。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:07",
+    "realtime_since_startup": 84.2000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "嗡嗡嗡... 列命名规范必须保持一致性... 嗡嗡... 对不起！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:24",
+    "realtime_since_startup": 90.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "马克！你还好吗？对了，你说的命名规则是对的。",
+      "action": "worried"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:35:22",
+    "realtime_since_startup": 95.7000046,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我现在没事了。如我刚才所说，从1.0.9到1.0.15版本升级的用户都遇到了这些数据库结构问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:06",
+    "realtime_since_startup": 107.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "而且还讨论了一些品牌问题 - 显然它是\"elizaOS\"，用小写的\"e\"。",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:53:26",
+    "realtime_since_startup": 113.833336,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "让我们请Shaw来为这些变化提供一些技术见解。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:58:12",
+    "realtime_since_startup": 118.366676,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw，你能告诉我们最近的架构变更情况吗？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:02:17",
+    "realtime_since_startup": 122.53334,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:02:20",
+    "realtime_since_startup": 122.633339,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "谢谢邀请。最重要的架构新闻是我们转向了代理作用域插件。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:09",
+    "realtime_since_startup": 129.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "以前，所有插件都是项目范围内的，这意味着项目中的每个代理必须共享相同的插件集。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:18:02",
+    "realtime_since_startup": 138.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "通过PR5309，我们改进了插件引导要求的相关文档，更清晰地说明了核心代理功能所需的内容。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:19",
+    "realtime_since_startup": 148.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这种新架构允许不同的代理使用不同的插件集，大大提高了灵活性。",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:35:11",
+    "realtime_since_startup": 155.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这会对现有项目有什么影响，肖？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:38:23",
+    "realtime_since_startup": 158.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "这是个好问题。迁移确实需要一些工作量，但带来的好处远远超过初期的设置时间。",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:18",
+    "realtime_since_startup": 167.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "听起来是个很大的定制化改进！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:50:24",
+    "realtime_since_startup": 170.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "当然！这是我们让系统更加模块化和灵活的整体努力的一部分。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:04",
+    "realtime_since_startup": 177.1,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:06",
+    "realtime_since_startup": 177.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "在我们结束之前，社区中出现了一些关于代币经济学变更的有趣讨论。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:07",
+    "realtime_since_startup": 184.200012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "没错！这个项目正在考虑从基于捐赠转变为面向交易的机制。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:10:22",
+    "realtime_since_startup": 190.700012,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这可能会成为项目收入模式的一个重大转折点。",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:15:01",
+    "realtime_since_startup": 195.000015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "不过这确实引发了人们对它可能如何影响收养率的疑问。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:03",
+    "realtime_since_startup": 200.066681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "观察社区的反应将至关重要。",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:16",
+    "realtime_since_startup": 203.500015,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "我们一定会在后续节目中告知大家这些最新进展。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:28:14",
+    "realtime_since_startup": 208.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天的内容就到这里！感谢您收看本期人工智能发展专题节目。",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:34:05",
+    "realtime_since_startup": 214.133347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "下次见，大家！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:05",
+    "realtime_since_startup": 216.133347,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-30"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:36:05",
+    "realtime_since_startup": 216.133347,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-30",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-30/aipodcast_2025-06-30_ch.json"
+    }
+  }
+]

@@ -1,0 +1,408 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 263.414948,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-23_1",
+      "episode_name": "Architectural Leaps and Bounds"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 263.414948,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 278.1483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another exciting episode of AI developments! We've got some major architectural changes to discuss today.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:12",
+    "realtime_since_startup": 285.781616,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! PR5122 just landed with a huge improvement - splitting the server package from the CLI.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:29:28",
+    "realtime_since_startup": 293.314972,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Wtfsayo really knocked it out of the park with this one, continuing Shaw's earlier work on modularization.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:36:18",
+    "realtime_since_startup": 299.981628,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "It's a significant step forward for maintainability. Speaking of which, should we bring in Shaw for more technical details?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:23",
+    "realtime_since_startup": 307.1483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Absolutely! Shaw's been instrumental in this architectural evolution. Let's get his insights.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:17",
+    "realtime_since_startup": 312.9483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw, can you join us and break down what this server package separation means for developers?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:18",
+    "realtime_since_startup": 317.981628,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:21",
+    "realtime_since_startup": 318.081635,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Happy to dive in. The server package separation is a game-changer for our architecture.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:02",
+    "realtime_since_startup": 323.4483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5122 maintains backward compatibility while giving developers more flexibility in how they implement the server components.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:09",
+    "realtime_since_startup": 331.681641,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "And right on its heels, PR5125 from lalalune added comprehensive tests across multiple packages.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:15:23",
+    "realtime_since_startup": 339.1483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're talking over 62,000 lines added to core, server, project-starter, and plugin-starter packages.",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:23:21",
+    "realtime_since_startup": 347.081635,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This level of testing coverage is crucial as we continue expanding our plugin ecosystem.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:29:05",
+    "realtime_since_startup": 352.5483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of plugins, we should address some of the recent challenges users have been facing.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:34:23",
+    "realtime_since_startup": 358.1483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Absolutely. Let's break down the current plugin issues we're tracking.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:10",
+    "realtime_since_startup": 362.714966,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:39:12",
+    "realtime_since_startup": 362.781616,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "We've got some serious plugin issues to address. Issue 5004 highlighted problems with the knowledge management RAG functionality.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:27",
+    "realtime_since_startup": 371.281616,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes, and Issue 5017 is showing that plugin action callbacks aren't making it to user responses in chat.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:26",
+    "realtime_since_startup": 378.2483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "These issues suggest we might need a deeper review of our plugin architecture.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:59:18",
+    "realtime_since_startup": 382.981628,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Users are also reporting problems with agent responsiveness and action selection defaulting to REPLY instead of more appropriate actions.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:07:26",
+    "realtime_since_startup": 391.2483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's bring Shaw back in to discuss how we're addressing these challenges.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:05",
+    "realtime_since_startup": 395.5483,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:12:07",
+    "realtime_since_startup": 395.61496,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "The plugin issues we're seeing are growing pains as we scale the framework's capabilities.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:17:05",
+    "realtime_since_startup": 400.5483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "How are we addressing the environmental variable parsing inconsistencies users have reported?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:22:26",
+    "realtime_since_startup": 406.2483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "We're implementing a more robust parsing system as part of our broader architectural improvements.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:19",
+    "realtime_since_startup": 412.014954,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And what about the UI regressions in version 1.0.9?",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:33:01",
+    "realtime_since_startup": 416.414978,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Those are being addressed in our next release. The team is also updating the nextjs-starter repository to support new APIs.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:18",
+    "realtime_since_startup": 423.981628,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Can you give us an update on V2 development progress?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:27",
+    "realtime_since_startup": 427.281647,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "V2 is progressing well. I've been working closely with the team to streamline design implementation and reduce conversion time.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:29",
+    "realtime_since_startup": 435.3483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's great to hear! Sounds like we're making solid progress despite the challenges.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:02",
+    "realtime_since_startup": 440.4483,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:04",
+    "realtime_since_startup": 440.514954,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "What an exciting time for ElizaOS development! These architectural improvements are really setting the stage for future growth.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:05:05",
+    "realtime_since_startup": 448.5483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Absolutely! The separation of the server package and enhanced testing coverage show real maturity in the codebase.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:27",
+    "realtime_since_startup": 455.281647,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "And while we're facing some plugin challenges, it's clear the team is tackling them head-on.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:01",
+    "realtime_since_startup": 460.414978,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Indeed! The focus on building rather than setting specific release dates shows real commitment to quality.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:27",
+    "realtime_since_startup": 467.281647,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BEEP BOOP PROCESSING ARCHITECTURAL IMPROVEMENTS... DOES NOT COMPUTE... REBOOTING SYSTEMS...",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:29:14",
+    "realtime_since_startup": 472.8483,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh dear, looks like all this technical talk has Marc's circuits in a twist! Time to wrap up the show!",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:22",
+    "realtime_since_startup": 479.11496,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Thanks for joining us everyone! Keep building the future!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:39:04",
+    "realtime_since_startup": 482.514954,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you next time on AI developments!",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:03",
+    "realtime_since_startup": 485.481628,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-23_1"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:42:03",
+    "realtime_since_startup": 485.481628,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-23_1",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-23_1/aipodcast_2025-06-23_1_en.json"
+    }
+  }
+]

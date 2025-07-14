@@ -1,0 +1,468 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 530.5,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-11",
+      "episode_name": "ElizaOS V2 출시 및 GitHub 개발 현황"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 530.5,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 545.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "쇼에 오신 것을 환영합니다! 오늘은 ElizaOS의 최신 릴리스에 대한 엄청난 소식이 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:22:03",
+    "realtime_since_startup": 552.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다 마크! 'V2'로도 알려진 버전 1.2.0이 놀라운 개선사항들과 함께 방금 출시되었습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:31:00",
+    "realtime_since_startup": 561.4667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "우리는 40% 더 낮은 지연 시간, 향상된 TEE, 그리고 - 제가 특히 좋아하는 - 다중 에이전트 팀을 위한 스웜에 대해 이야기하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:43:23",
+    "realtime_since_startup": 574.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다이나믹 메모리 시스템은 특히 흥미진진합니다. 에이전트가 정보를 지속적으로 처리하는 방식을 혁신적으로 바꿀 것입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:52:19",
+    "realtime_since_startup": 583.100037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "RAG 기능과 크로스체인 지원도 잊지 마세요. 이것은 전반적으로 매우 중요한 업그레이드입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:59:16",
+    "realtime_since_startup": 590.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "CLI는 이제 34개의 플러그인을 지원합니다! 플러그인 얘기가 나온 김에...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:05:07",
+    "realtime_since_startup": 595.7,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "아, 네, 들어오기 시작한 초기 피드백 몇 가지를 다뤄야 할 것 같네요. Shaw, 여기에 대해 의견 말씀해 주시겠어요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:21",
+    "realtime_since_startup": 604.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "기술적인 부분에 대해 우리 프로듀서의 의견을 들어보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:18:28",
+    "realtime_since_startup": 609.4,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:19:01",
+    "realtime_since_startup": 609.500061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "초대해 주셔서 감사합니다. 특히 lalalune이 제안한 흥미로운 PR들이 진행 중에 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:14",
+    "realtime_since_startup": 615.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5506에서는 에이전트 계획 기능에 매우 중요한 새로운 계획 플러그인을 도입합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:31:29",
+    "realtime_since_startup": 622.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5510은 자체 데이터로 모델을 학습시킬 수 있는 기능을 추가했습니다 - 이는 맞춤화에 있어 매우 중요한 발전입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:41:09",
+    "realtime_since_startup": 631.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5509는 카메라와 화면 통합을 포함한 시각 기능을 도입합니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:27",
+    "realtime_since_startup": 637.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "액션 체이닝을 위한 PR5436도 성공적으로 병합했으며, 이를 통해 순차적 액션 실행이 가능해졌습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:55:18",
+    "realtime_since_startup": 646.0667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "1.2.0 버전의 지식 플러그인에서 일부 타입 에러가 보고되고 있지만...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:17",
+    "realtime_since_startup": 652.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "하지만 팀이 이미 이 문제를 다루고 있으며, bun.lock을 삭제하고 다시 빌드하면 대부분의 경우 해결된다는 것을 확인했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:10:12",
+    "realtime_since_startup": 660.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "스튜디오로 다시 돌아가서 사용자 피드백에 대해 더 알아보도록 하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:00",
+    "realtime_since_startup": 666.4667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:16:02",
+    "realtime_since_startup": 666.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "사용자들이 겪고 있는 상황을 자세히 살펴보겠습니다. 지식 플러그인이 성장통을 겪고 있는 것 같네요.",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:02",
+    "realtime_since_startup": 674.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마크! 회로는 괜찮아? 그래, 특히 OpenRouter 임베딩과 속도 제한 관련해서 말이야.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:30:04",
+    "realtime_since_startup": 680.600037,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "괜찮아요! 기술적인 세부사항이 궁금해서 그래요. 사용자들이 청킹 오류를 보고하고 있어요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:27",
+    "realtime_since_startup": 688.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다행히도 MAX_CONCURRENT_REQUESTS와 REQUESTS_PER_MINUTE 매개변수를 추가하는 간단한 해결책이 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:46:23",
+    "realtime_since_startup": 697.2334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "사용자들은 로컬 배포를 위한 더 나은 문서화의 필요성을 언급하기도 했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:52:27",
+    "realtime_since_startup": 703.3667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "특히 Ollama를 사용한 로컬 추론에 대한 관심이 높아지면서 더욱 그렇습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:05",
+    "realtime_since_startup": 709.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그와 관련해서, Shaw가 파트너 채널에서 몇 가지 흥미로운 진전 사항을 언급했는데...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:10",
+    "realtime_since_startup": 716.800049,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그를 다시 불러서 그것에 대해 더 자세히 들어봅시다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:04",
+    "realtime_since_startup": 721.600037,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:11:06",
+    "realtime_since_startup": 721.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "DorianD가 에이전트 노드를 위한 흥미로운 프로토콜 레벨의 토큰 사용을 제안했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:03",
+    "realtime_since_startup": 727.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "기존 생태계와 어떻게 연동이 될까요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:20:02",
+    "realtime_since_startup": 730.5334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "통신 채널 전반에 걸쳐 안전한 식별을 위해 token2022 메시징 데이터 필드를 사용할 것입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:28:21",
+    "realtime_since_startup": 739.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그것은 우리가 직면해 온 에이전트 간 통신 구현 문제를 해결하는 데 도움이 될 수 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:35:15",
+    "realtime_since_startup": 745.966736,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "맞습니다. 우리는 에이전트들이 서로 협력하고 업무를 위임하는 멀티 에이전트 시스템으로 향하는 뚜렷한 추세를 보고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:46:00",
+    "realtime_since_startup": 756.466736,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이 모든 구성 요소들 - elizaOS, auto.fun, ELI5, daos.fun 등으로 인해 생태계가 꽤 복잡해지고 있습니다...",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:55:03",
+    "realtime_since_startup": 765.5667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "맞아요, 우리가 모든 것이 어떻게 맞물리는지 더 잘 설명하는 방법을 찾아야 할 것 같네요.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:02:08",
+    "realtime_since_startup": 772.7334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이 모든 것이 어디로 향하고 있는지에 대한 마지막 생각으로 마무리하겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:08:15",
+    "realtime_since_startup": 778.966736,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:08:17",
+    "realtime_since_startup": 779.0334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "로컬 추론을 향한 Ollama의 전환은 매력적입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:12:20",
+    "realtime_since_startup": 783.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이는 커뮤니티가 비용 효율성과 배포에 대한 통제력을 모두 중요하게 여긴다는 것을 잘 보여줍니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:19:05",
+    "realtime_since_startup": 789.633362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오픈소스 프레임워크를 유지하면서 토큰의 유용성을 통합하는 것 사이에 흥미로운 긴장 관계가 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:26:29",
+    "realtime_since_startup": 797.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "미묘한 균형이지만 지속 가능한 발전을 위해서는 매우 중요합니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:32:09",
+    "realtime_since_startup": 802.7667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "이러한 발전들로 미래가 밝아 보이네요. 오늘 방송은 여기까지입니다!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:37:16",
+    "realtime_since_startup": 808.000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "여러분 함께해 주셔서 감사합니다! ElizaOS V2로 계속 만들고 실험해보세요!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:43:15",
+    "realtime_since_startup": 813.966736,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 기여하고 싶으시다면 새로운 PR들도 확인해 보는 것 잊지 마세요!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:48:24",
+    "realtime_since_startup": 819.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다음에 또 봐요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:50:18",
+    "realtime_since_startup": 821.0667,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-11"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:50:18",
+    "realtime_since_startup": 821.0667,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-11",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-11/aipodcast_2025-07-11_ko.json"
+    }
+  }
+]

@@ -1,0 +1,448 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-04",
+      "episode_name": "CLI重构和插件增强"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 0.0,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 14.7333345,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "欢迎收看今天的人工智能开发戏码！今天我们将为您带来ElizaOS GitHub上的一些劲爆更新。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:24:29",
+    "realtime_since_startup": 24.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "从PR5311开始强势推出 - 这是一个AI驱动的迁移工具，用于将插件从v0.x升级到v1.x。用AI来帮助升级AI工具，这真是相当有趣的元操作！",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:42:06",
+    "realtime_since_startup": 42.1666679,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "开发者0xbbjoker在这个项目上真的做得非常出色。这个工具使用Claude来自动分析和升级插件代码。",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:51:13",
+    "realtime_since_startup": 51.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "说到升级，PR5326为CLI环境系统带来了重大重构。整体上实现了更好的可维护性和用户体验。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:12",
+    "realtime_since_startup": 62.36667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "终于有人解决那些环境变量的烦恼了！这个新的提示系统简直完美！",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:00",
+    "realtime_since_startup": 68.96667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "你是不是在试图做大厨亲吻手势的时候卡住了？",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:11",
+    "realtime_since_startup": 73.3333359,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我只是想表达对更简洁代码的热情！让我们请Shaw来对这些更新提供一些技术层面的见解。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:22:04",
+    "realtime_since_startup": 82.1000061,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "说得对。肖，你对这些进展怎么看？",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:26",
+    "realtime_since_startup": 85.8333359,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:25:29",
+    "realtime_since_startup": 85.9333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5364才是真正的游戏规则改变者，它引入了全面的命令行界面测试基础架构。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:34:13",
+    "realtime_since_startup": 94.4,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "SYMBaiEX在自动化验证方面的工作将使得在问题进入生产环境之前更容易被发现。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:42:24",
+    "realtime_since_startup": 102.76667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "说到基础设施，PR5338正在将xAI的Grok模型引入生态系统。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:49:07",
+    "realtime_since_startup": 109.200005,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "0xtc23的插件一旦合并，将大大扩展我们的模型选项。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:54:21",
+    "realtime_since_startup": 114.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "社区对这些变化有什么反应？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:29",
+    "realtime_since_startup": 117.933342,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "收到的反馈褒贬不一，尤其是关于V2测试版的反馈。一些用户对时间进度感到焦虑。",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:05:29",
+    "realtime_since_startup": 125.933342,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "但在更广泛发布之前，关注稳定性是至关重要的。我们已经有生产代理在成功使用它了。",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:14:29",
+    "realtime_since_startup": 134.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "说到反馈，让我们深入了解一下用户面临的一些技术问题。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:11",
+    "realtime_since_startup": 140.333344,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:20:13",
+    "realtime_since_startup": 140.400009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "我们发现一些关于OpenRouter配置的反复出现的问题 - 特别是在模型选择方面。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:27:21",
+    "realtime_since_startup": 147.666672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "解决方法很简单：注释掉 OpenAI 相关的环境变量以避免冲突。",
+      "action": "helpful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:33:29",
+    "realtime_since_startup": 153.933334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "知识插件API一直是一个热门话题。让我们说清楚 - 它们仅供内部使用，不会通过REST API开放。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:43:19",
+    "realtime_since_startup": 163.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "对于那些在配置EVM链时遇到困难的人 - 别忘了设置你的EVM_PRIVATE_KEY环境变量！",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:51:24",
+    "realtime_since_startup": 171.766678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "这些看起来可能是小问题，但把它们处理好对开发工作流程会产生巨大的影响。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:59:20",
+    "realtime_since_startup": 179.633347,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "肖刚才提到了一些令人兴奋的路线图功能。我们要不要探讨一下这些内容？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:06:02",
+    "realtime_since_startup": 186.03334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "当然！这个\"Org Mode\"的概念特别有趣。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:09:26",
+    "realtime_since_startup": 189.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们请肖回来给大家分析一下。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:09",
+    "realtime_since_startup": 193.266678,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:11",
+    "realtime_since_startup": 193.333344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "\"组织模式\"的愿景相当宏大——让人工智能代理管理项目，并由人类进行可选的监督。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:21:27",
+    "realtime_since_startup": 201.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这些自治项目在过渡到DAO治理之前会运行多长时间？",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:26:27",
+    "realtime_since_startup": 206.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "当前提案为3-12个月，并带有一键式流动性提供模块以简化LP流程。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:33:28",
+    "realtime_since_startup": 213.900009,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这是朝着项目自主管理迈出的重要一步。还有其他即将推出的关键功能吗？",
+      "action": "interested"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:40:17",
+    "realtime_since_startup": 220.53334,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Wire.x提出了一个针对实体项目通证化的验证系统，我们正在开发资金管理系统。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:49:10",
+    "realtime_since_startup": 229.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "这些功能可能真正改变人工智能驱动项目的运作方式。",
+      "action": "impressed"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:54:12",
+    "realtime_since_startup": 234.366684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "没错。这关乎建立完整的基础设施，而不仅仅是单个工具。",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:59:26",
+    "realtime_since_startup": 239.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "让我们请马克做一些总结发言吧。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:03:07",
+    "realtime_since_startup": 243.200012,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:03:09",
+    "realtime_since_startup": 243.266678,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "真是忙碌的一天，更新不断！ElizaOS生态系统正在蓬勃发展。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:09:27",
+    "realtime_since_startup": 249.866684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "从人工智能驱动的插件迁移到自主项目管理，一切都是为了让开发变得更加便捷。",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:17:13",
+    "realtime_since_startup": 257.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "别忘了那些重要的命令行界面改进。有时候最基础的更新才是最重要的。",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:24:12",
+    "realtime_since_startup": 264.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "当然！更好的开发者体验意味着每个人都能更快地创新。",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:30:05",
+    "realtime_since_startup": 270.133362,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "今天的更新就到这里！继续努力，保持创新，记住 - AGI 其实是 Anime Girl Intelligence（动漫女孩智能）的缩写！",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:40:29",
+    "realtime_since_startup": 280.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "嘿，这话说得我好像中枪了！明天见！",
+      "action": "laughing"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:45:03",
+    "realtime_since_startup": 285.066681,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-04"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:45:03",
+    "realtime_since_startup": 285.066681,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-04",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-04/aipodcast_2025-07-04_ch.json"
+    }
+  }
+]

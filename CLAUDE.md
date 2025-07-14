@@ -104,3 +104,8 @@ For Unity system development, refer to:
 - `aishow-README.md`: Complete Unity system documentation
 - `docs/`: Detailed component documentation for the 3D production system
 - GitHub repository: https://github.com/elizaOS/aishow (main Unity codebase)
+
+## Development Memories
+
+### NPM Development Notes
+- Let me run npm run dev, it'll be running in the background, no need to restart it yourself

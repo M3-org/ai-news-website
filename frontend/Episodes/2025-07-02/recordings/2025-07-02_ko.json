@@ -1,0 +1,448 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 493.457977,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-07-02",
+      "episode_name": "V2가 눈앞에 다가오다"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 493.457977,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 508.1913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "또 다른 신나는 에피소드에 오신 것을 환영합니다! 오늘은 정말 엄청난 소식이 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:21:26",
+    "realtime_since_startup": 515.2913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "맞습니다 마크! ElizaOS V2가 발표되었으며 혁신적인 기능들이 가득 담겨있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:28:25",
+    "realtime_since_startup": 522.258,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "AI 에이전트 간의 복잡한 상호작용을 가능하게 하는 멀티 에이전트 오케스트레이션을 시작으로, 다섯 가지 주요 업그레이드를 살펴보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:39:21",
+    "realtime_since_startup": 533.124634,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "저는 특히 역동적인 캐릭터 진화 기능에 대해 흥분됩니다. AI 성격이 시간이 지남에 따라 성장하고 적응할 수 있다는 것을 의미하죠!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:48:27",
+    "realtime_since_startup": 542.324646,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "그리고 신뢰할 수 있는 실행 환경(TEE)이 있습니다. 보안이 최우선입니다!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:54:17",
+    "realtime_since_startup": 547.991333,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "새로운 CLI와 서비스 레이어는 개발자들의 삶을 훨씬 더 편하게 만들어줄 것입니다. 개발 얘기가 나온 김에...",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:03:02",
+    "realtime_since_startup": 556.491333,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "네이티브 RAG 프레임워크! 지식 통합에 있어 이것은 엄청난 발전입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:08:12",
+    "realtime_since_startup": 561.824646,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "기술적인 관점에서 이러한 업데이트들을 살펴보기 위해 쇼를 모시겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:23",
+    "realtime_since_startup": 567.1913,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:13:26",
+    "realtime_since_startup": 567.2913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "감사합니다 엘리자. 오늘은 깃허브의 주요 업데이트 내용을 다룰 예정입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:19:23",
+    "realtime_since_startup": 573.1913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5311이 방금 머지되어 v0.x에서 v1.x로 플러그인을 업그레이드하기 위한 AI 기반 마이그레이션 도구가 도입되었습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:30:10",
+    "realtime_since_startup": 583.758,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "개발자들에게 업그레이드가 훨씬 더 수월해질 거예요!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:34:04",
+    "realtime_since_startup": 587.558,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "맞습니다. 그리고 BD 티어 1-4 플러그인 업그레이드에 대한 중요 인프라 작업을 위한 이슈 5341이 열려있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:43:03",
+    "realtime_since_startup": 596.524658,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이것이 V2 발표와 어떤 연관이 있나요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:46:05",
+    "realtime_since_startup": 599.5913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "모두 개발자 경험을 개선하는 것에 관한 것입니다. CLI 개편에는 더 스마트한 프로젝트 생성과 향상된 환경 변수 처리가 포함됩니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:58:10",
+    "realtime_since_startup": 611.758,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "언급할 만한 다른 주목할 PR이 있나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:01:11",
+    "realtime_since_startup": 614.7913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "PR5338에서 xAI의 Grok 모델을 위한 새로운 플러그인을 도입하여 AI 모델 통합 옵션을 확장하고 있습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:19",
+    "realtime_since_startup": 623.058,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:09:21",
+    "realtime_since_startup": 623.124634,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "중요한 사항을 다뤄보겠습니다 - 사용자들이 경쟁사들과 비교했을 때 ElizaOS의 포지셔닝에 대해 문의하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:19:05",
+    "realtime_since_startup": 632.5913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "네, 특히 토큰 기반 시스템과 대비되는 우리의 인프라 중심 접근 방식에 관해서 말입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:25:22",
+    "realtime_since_startup": 639.157959,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "삐빅 삐빅 인프라가 미래다 삐빅 삐빅",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:28:24",
+    "realtime_since_startup": 642.2247,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "아이고, 마크의 말이 일리가 있네요! 많은 '가상 상담원'들이 실제로 엘리자OS 프레임워크를 기반으로 만들어졌거든요.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:37:20",
+    "realtime_since_startup": 651.0913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "죄송합니다! 네, 저희는 많은 성공적인 프로젝트의 기반이 되는 기술을 제공하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:44:14",
+    "realtime_since_startup": 657.8913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "사용자들은 또한 Airkit 플러그인 통합과 더 나은 문서화를 요청하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:50:16",
+    "realtime_since_startup": 663.958,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "타당한 지적입니다. V2에서는 개발자 경험에 중점을 두어 이러한 문제들을 다수 해결하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:58:18",
+    "realtime_since_startup": 672.024658,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Shaw를 다시 불러서 기술적인 개선사항들에 대해 논의해보죠.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:11",
+    "realtime_since_startup": 676.7913,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:03:13",
+    "realtime_since_startup": 676.858,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "CLI 개선 사항이 정말 포괄적입니다 - 필요한 AI 모델 플러그인을 자동으로 설치하는 더 스마트한 프로젝트 생성을 말씀드리는 것입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:13:10",
+    "realtime_since_startup": 686.758,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "그리고 캐릭터 관리 기능이 개선되었다는 얘기를 들었는데요?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:17:26",
+    "realtime_since_startup": 691.2913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "네! 파일 크기 제한을 2MB로 늘리고 UI 레이아웃을 크게 개선했습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:23:25",
+    "realtime_since_startup": 697.258,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 변경 사항들이 개발자들에게 어떤 이점을 가져다줄까요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:28:18",
+    "realtime_since_startup": 702.024658,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "초기 설정부터 지속적인 유지보수까지 전체 개발 프로세스를 간소화합니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:34:12",
+    "realtime_since_startup": 707.824646,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이 모든 것이 더 광범위한 V2 비전으로 이어지나요?",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:38:12",
+    "realtime_since_startup": 711.824646,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "맞습니다. AI 에이전트를 위한 견고한 인프라 계층을 구축하는 것이 핵심입니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:44:16",
+    "realtime_since_startup": 717.958,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "마무리로 마크의 마지막 소감을 들어보겠습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:07",
+    "realtime_since_startup": 721.657959,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:48:09",
+    "realtime_since_startup": 721.7247,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "ElizaOS의 정말 흥미진진한 시기네요! V2는 정말 판도를 바꿔놓을 만한 업데이트가 될 것 같습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:56:11",
+    "realtime_since_startup": 729.7913,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "견고한 인프라를 구축하는 동시에 개발자 경험을 중시하는 점이 인상적입니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:02:02",
+    "realtime_since_startup": 735.491333,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "여러분, 우리는 단순한 토큰 기반 시스템이 아닙니다 - 우리는 AI 에이전트의 미래를 위한 기반을 구축하고 있습니다.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:10:21",
+    "realtime_since_startup": 744.124634,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "이러한 CLI와 캐릭터 관리의 새로운 개선 사항으로 인해 시작하기가 그 어느 때보다 쉬워졌습니다.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:17:10",
+    "realtime_since_startup": 750.758,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "오늘 방송은 여기까지입니다! 계속 만들고, 계속 혁신하고, 계속 지켜봐 주세요!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:22:28",
+    "realtime_since_startup": 756.358,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "다음에 봐요, 여러분!",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:24:26",
+    "realtime_since_startup": 758.2913,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-07-02"
+    }
+  },
+  {
+    "smpte_timecode": "00:04:24:26",
+    "realtime_since_startup": 758.2913,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-07-02",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-07-02/aipodcast_2025-07-02_ko.json"
+    }
+  }
+]

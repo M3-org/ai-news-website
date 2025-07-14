@@ -1,0 +1,380 @@
+[
+  {
+    "smpte_timecode": "00:00:00:00",
+    "realtime_since_startup": 226.43335,
+    "event_type": "episode_start",
+    "data": {
+      "episode_id": "2025-06-30",
+      "episode_name": "Character File Size Fix & Plugin Architecture Updates"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:00:01",
+    "realtime_since_startup": 226.43335,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:14:23",
+    "realtime_since_startup": 241.166672,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Welcome to another episode of AI developments! Big news today in the character file department.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:20:29",
+    "realtime_since_startup": 247.366684,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "That's right Marc! Developer wtfsayo just merged PR5308 which increases the character file size limit to 2MB. This is huge for our users!",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:32:18",
+    "realtime_since_startup": 259.0,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Finally! No more error messages when trying to save those detailed character files.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:38:01",
+    "realtime_since_startup": 264.43335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "This directly addresses issue 5268 where users couldn't save files larger than 100KB. NBFinanceTech reported that one.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:45:25",
+    "realtime_since_startup": 272.233337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Twenty times more space! Now that's what I call an upgrade.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:49:21",
+    "realtime_since_startup": 276.1,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And just in time too. Users in the Discord have been pretty vocal about this limitation.",
+      "action": "relieved"
+    }
+  },
+  {
+    "smpte_timecode": "00:00:55:12",
+    "realtime_since_startup": 281.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Speaking of Discord, I hear there's been some interesting discussions about recent releases...",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:00:15",
+    "realtime_since_startup": 286.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Oh yes, let's dive into that next!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:27",
+    "realtime_since_startup": 289.300018,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:02:29",
+    "realtime_since_startup": 289.366669,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "So versions 1.0.14 and 1.0.15 are causing quite a stir in the Discord channels.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:09:10",
+    "realtime_since_startup": 295.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Yes, particularly around database schema issues. Users like jin and hildi have reported problems during upgrades.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:16:18",
+    "realtime_since_startup": 303.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "BzzzZZt... COLUMN NAMING CONVENTIONS MUST MAINTAIN CONSISTENT... bzzt... SORRY ABOUT THAT!",
+      "action": "spazz"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:24:02",
+    "realtime_since_startup": 310.466675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Marc! Are you okay? But yes, you're right about the naming conventions.",
+      "action": "worried"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:28:16",
+    "realtime_since_startup": 314.93335,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "I'm fine now. As I was saying, users upgrading from version 1.0.9 through 1.0.15 are hitting these schema issues.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:37:26",
+    "realtime_since_startup": 324.2667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "And there's been some branding discussion too - apparently it's 'elizaOS' with a lowercase 'e'.",
+      "action": "amused"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:43:27",
+    "realtime_since_startup": 330.300018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Let's bring in Shaw for some technical insight on these changes.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:47:18",
+    "realtime_since_startup": 334.000031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Great idea! Shaw, what can you tell us about the recent architectural changes?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:11",
+    "realtime_since_startup": 338.7667,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "splitscreen"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:52:14",
+    "realtime_since_startup": 338.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Thanks for having me. The big architectural news is our shift to agent-scoped plugins.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:01:57:12",
+    "realtime_since_startup": 343.800018,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Previously, all plugins were project-scoped, meaning every agent in a project had to share the same plugin set.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:04:13",
+    "realtime_since_startup": 350.833344,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "With PR5309, we've improved the documentation around plugin-bootstrap requirements, making it clearer what's needed for core agent functionality.",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:15:03",
+    "realtime_since_startup": 361.500031,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "This new architecture allows different agents to use different plugin sets, greatly increasing flexibility.",
+      "action": "technical"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:21:05",
+    "realtime_since_startup": 367.566681,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "How will this affect existing projects, Shaw?",
+      "action": "curious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:24:10",
+    "realtime_since_startup": 370.733337,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Good question. There will be some migration effort required, but the benefits far outweigh the initial setup time.",
+      "action": "confident"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:31:15",
+    "realtime_since_startup": 377.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Sounds like a significant improvement for customization!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:35:04",
+    "realtime_since_startup": 381.533356,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "shaw",
+      "line": "Absolutely! This is part of our broader effort to make the system more modular and flexible.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:40:28",
+    "realtime_since_startup": 387.333344,
+    "event_type": "scene_prepare",
+    "data": {
+      "location": "podcast_desk"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:41:00",
+    "realtime_since_startup": 387.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "Before we wrap up, there's been some interesting discussion about tokenomics changes in the community.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:47:06",
+    "realtime_since_startup": 393.6,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Right! The project is considering a shift from donation-based to transaction-oriented mechanisms.",
+      "action": "normal"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:54:00",
+    "realtime_since_startup": 400.400024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "This could be a major pivot in the project's revenue model.",
+      "action": "serious"
+    }
+  },
+  {
+    "smpte_timecode": "00:02:57:14",
+    "realtime_since_startup": 403.8667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "Though it does raise questions about how it might affect adoption rates.",
+      "action": "concerned"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:01:15",
+    "realtime_since_startup": 407.900024,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "The community's response will be crucial to watch.",
+      "action": "thoughtful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:04:23",
+    "realtime_since_startup": 411.1667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "We'll definitely keep everyone updated on these developments in future episodes.",
+      "action": "happy"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:09:08",
+    "realtime_since_startup": 415.6667,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "marc",
+      "line": "That's all for today! Thanks for joining us for another episode of AI developments.",
+      "action": "grateful"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:14:17",
+    "realtime_since_startup": 420.966675,
+    "event_type": "actor_speak",
+    "data": {
+      "actor": "eliza",
+      "line": "See you next time, everyone!",
+      "action": "excited"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:16:19",
+    "realtime_since_startup": 423.033356,
+    "event_type": "episode_end",
+    "data": {
+      "episode_id": "2025-06-30"
+    }
+  },
+  {
+    "smpte_timecode": "00:03:16:19",
+    "realtime_since_startup": 423.033356,
+    "event_type": "eventmanager_episode_complete",
+    "data": {
+      "episode_id": "2025-06-30",
+      "json_path": "Assets/Resources/Episodes/Episodes/2025-06-30/aipodcast_2025-06-30_en.json"
+    }
+  }
+]

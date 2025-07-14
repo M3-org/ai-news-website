@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI News</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <style>
+    :root {
+      --lava: #ff4e1b;
+      --steel: #18191c;
+      --surface: #2d313a;
+      --text-primary: #f3f3f3;
+      --text-secondary: #bcbcbc;
+    }
+    .hero-bg {
+      transition: opacity 1.2s cubic-bezier(0.4,0,0.2,1);
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .hero-bg.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .hero-bg.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .hero-darken {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      background: rgba(24, 25, 28, 0.72);
+      z-index: 1;
+      pointer-events: none;
+    }
+    body {
+      background: var(--steel);
+      color: var(--text-primary);
+    }
+    .lava {
+      background-color: var(--lava) !important;
+      color: var(--steel) !important;
+    }
+    .lava-text {
+      color: var(--lava) !important;
+    }
+    .steel {
+      background-color: var(--steel) !important;
+    }
+    .surface {
+      background-color: var(--surface) !important;
+    }
+    .card {
+      background-color: var(--surface) !important;
+      color: var(--text-primary) !important;
+    }
+    .card-secondary {
+      color: var(--text-secondary) !important;
+    }
+    .nav-link {
+      color: #bcbcbc;
+      transition: color 0.2s;
+    }
+    .nav-link:hover {
+      color: #fff;
+    }
+    .desc-trunc {
+      max-height: 7.5em;
+      overflow: hidden;
+      position: relative;
+      display: -webkit-box;
+      -webkit-line-clamp: 6;
+      -webkit-box-orient: vertical;
+    }
+    .desc-fade {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2em;
+      background: linear-gradient(to bottom, rgba(45,49,58,0), var(--surface));
+    }
+  </style>
+</head>
+<body class="font-sans">
+  <!-- Header -->
+  <header class="steel">
+    <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+      <div class="text-2xl font-bold flex items-center">
+        <span class="lava-text">AI</span>
+        <span class="ml-1">News</span>
+      </div>
+      <nav class="space-x-6">
+        <a class="nav-link" href="#">Home</a>
+        <a class="nav-link" href="#episodes">Episodes</a>
+        <a class="nav-link" href="#how-its-made">How It's Made</a>
+        <a class="nav-link" href="https://github.com/elizaOS/eliza" target="_blank">GitHub</a>
+        <a class="nav-link" href="https://discord.gg/ai16z" target="_blank">Discord</a>
+      </nav>
+    </div>
+  </header>
+  <!-- Hero Section -->
+  <section class="relative steel min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden" style="height: 60vh; min-height: 400px;">
+    <!-- Slideshow backgrounds -->
+    <div id="hero-slideshow" class="absolute inset-0 w-full h-full z-0"></div>
+    <!-- Dark glass overlay -->
+    <div class="hero-darken"></div>
+    <!-- Overlay content -->
+    <div class="container mx-auto px-6 py-24 relative text-center flex flex-col items-center justify-center z-10">
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">AI News</h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-6">Bringing You Daily elizaOS Updates</p>
+      <a href="#episodes" class="inline-block lava font-semibold px-6 py-3 rounded-lg shadow hover:opacity-90 transition">Watch Latest Episode</a>
+    </div>
+    <!-- Trailer (autoplays muted, loops) -->
+    <video class="absolute bottom-4 right-4 w-40 md:w-64 rounded-lg shadow-lg z-20"
+           src="media/trailer.mp4"
+           muted loop autoplay playsinline></video>
+  </section>
+  <!-- Language Filter Bar -->
+  <div class="container mx-auto px-6 mt-8 flex justify-center gap-4" id="lang-filter">
+    <button data-lang="en" class="lava px-3 py-1 rounded font-semibold">EN</button>
+    <button data-lang="ch" class="steel px-3 py-1 rounded text-gray-200 hover:bg-gray-700">中文</button>
+    <button data-lang="ko" class="steel px-3 py-1 rounded text-gray-200 hover:bg-gray-700">한국어</button>
+  </div>
+  <!-- Latest Episodes -->
+  <section id="episodes" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8 lava-text">Latest Episodes</h2>
+    <div id="episodes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+  </section>
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <div class="surface rounded-lg shadow-lg w-full max-w-2xl max-h-[90vh] overflow-y-auto relative p-6">
+      <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
+      <div class="flex flex-col md:flex-row gap-6">
+        <div class="flex-shrink-0 w-full md:w-64 mb-4 md:mb-0">
+          <img id="lightbox-thumbnail" src="" alt="Episode Thumbnail" class="rounded-lg w-full h-40 object-cover mb-4"/>
+          <div class="flex space-x-2" id="lightbox-lang-tabs"></div>
+        </div>
+        <div class="flex-1">
+          <h3 id="lightbox-title" class="text-2xl font-bold mb-2"></h3>
+          <p id="lightbox-date" class="card-secondary mb-2"></p>
+          <div id="lightbox-description" class="mb-4"></div>
+          <div id="lightbox-video" class="aspect-w-16 aspect-h-9 w-full rounded overflow-hidden bg-black"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- How It's Made Section -->
+  <section id="how-its-made" class="surface py-12">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl font-bold mb-8 lava-text">How It's Made</h2>
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+        <div class="steel p-6 rounded-lg">
+          <i class="fas fa-database lava-text text-4xl mb-4"></i>
+          <h3 class="text-lg font-bold">Plug in Data</h3>
+          <p class="text-gray-300 mt-2">Discord, GitHub, on-chain</p>
+        </div>
+        <div class="steel p-6 rounded-lg">
+          <i class="fas fa-user-friends lava-text text-4xl mb-4"></i>
+          <h3 class="text-lg font-bold">Spawn Personas</h3>
+          <p class="text-gray-300 mt-2">user, builder, trader, ops, etc</p>
+        </div>
+        <div class="steel p-6 rounded-lg">
+          <i class="fas fa-comments lava-text text-4xl mb-4"></i>
+          <h3 class="text-lg font-bold">Simulate Debates</h3>
+          <p class="text-gray-300 mt-2">real-time cinematic episodes</p>
+        </div>
+        <div class="steel p-6 rounded-lg">
+          <i class="fas fa-rocket lava-text text-4xl mb-4"></i>
+          <h3 class="text-lg font-bold">Ship Insights</h3>
+          <p class="text-gray-300 mt-2">clear actions & next steps</p>
+        </div>
+      </div>
+      <p class="text-center text-gray-300 mt-8">Why it matters: cut noise · align fast · test before spending · make governance binge-able.</p>
+    </div>
+  </section>
+  <!-- Footer -->
+  <footer class="steel py-6">
+    <div class="container mx-auto px-6 text-center text-gray-400 text-sm">
+      <p>AI News &copy; 2025. Powered by elizaOS & blockchain technology.</p>
+      <p>Open source. <a href="https://github.com/elizaOS/eliza" class="lava-text hover:underline" target="_blank">GitHub</a></p>
+    </div>
+  </footer>
+  <!-- Episodes/Lightbox Script -->
+  <script>
+    // Hero slideshow logic with gentle crossfade
+    const heroImages = Array.from({length: 16}, (_, i) => `/media/${i+1}.jpg`);
+    let heroIndex = 0;
+    let heroTimeout = null;
+    const heroSlideshow = document.getElementById('hero-slideshow');
+    function setHeroBg(idx) {
+      // Remove all children
+      while (heroSlideshow.firstChild) heroSlideshow.removeChild(heroSlideshow.firstChild);
+      // Add new image
+      const img = document.createElement('div');
+      img.className = 'hero-bg visible';
+      img.style.backgroundImage = `url('${heroImages[idx]}')`;
+      img.style.opacity = 1;
+      heroSlideshow.appendChild(img);
+    }
+    function crossfadeHero(nextIdx) {
+      const oldImg = heroSlideshow.firstChild;
+      const newImg = document.createElement('div');
+      newImg.className = 'hero-bg visible';
+      newImg.style.backgroundImage = `url('${heroImages[nextIdx]}')`;
+      newImg.style.opacity = 0;
+      heroSlideshow.appendChild(newImg);
+      setTimeout(() => {
+        newImg.style.opacity = 1;
+        if (oldImg) oldImg.style.opacity = 0;
+      }, 10);
+      setTimeout(() => {
+        if (oldImg && oldImg.parentNode) oldImg.parentNode.removeChild(oldImg);
+      }, 1200);
+    }
+    function startHeroSlideshow() {
+      setHeroBg(heroIndex);
+      heroTimeout = setInterval(() => {
+        const nextIdx = (heroIndex + 1) % heroImages.length;
+        crossfadeHero(nextIdx);
+        heroIndex = nextIdx;
+      }, 4000);
+    }
+    document.addEventListener('DOMContentLoaded', startHeroSlideshow);
+
+    // Language filter and episode rendering
+    let selectedLang = 'en';
+    document.querySelectorAll('#lang-filter button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        selectedLang = btn.dataset.lang;
+        renderEpisodeCards();
+        // update button styles
+        document.querySelectorAll('#lang-filter button')
+          .forEach(b => b.classList.toggle('lava', b===btn));
+      });
+    });
+
+    // Fetch episodes.json once
+    let episodesData = null;
+    fetch('/episodes.json')
+      .then(r => r.json())
+      .then(data => { episodesData = data; renderEpisodeCards(); });
+
+    function renderEpisodeCards() {
+      if (!episodesData) return;
+      const grid = document.getElementById('episodes-grid');
+      grid.innerHTML = '';
+      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      for (const date of dates.slice(0,6)) {
+        const ep = episodesData[date][selectedLang];
+        if (!ep) continue;
+        const card = document.createElement('div');
+        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-xl transition';
+        card.innerHTML = `
+          <div class="relative">
+            <img src="${ep.thumbnail || '/media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover"/>
+            <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${selectedLang.toUpperCase()}</span>
+          </div>
+          <h3 class="text-lg font-bold line-clamp-2">${ep.title}</h3>
+          <p class="text-sm card-secondary">${formatDate(date)}</p>
+          <p class="text-sm text-gray-300 mt-2 line-clamp-3">${ep.description ? ep.description.split('\n')[0] : ''}</p>
+          <button class="mt-4 lava font-semibold px-4 py-2 rounded hover:opacity-90">Watch Episode</button>
+        `;
+        card.addEventListener('click', () => openLightbox(date, selectedLang));
+        grid.appendChild(card);
+      }
+    }
+
+    // Utility: Format date as "Month DD, YYYY"
+    function formatDate(dateStr) {
+      const d = new Date(dateStr);
+      return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    // Lightbox logic
+    const lightbox = document.getElementById('lightbox');
+    const closeBtn = document.getElementById('close-lightbox');
+    let currentDate = null, currentLang = null;
+    function openLightbox(date, lang) {
+      currentDate = date;
+      currentLang = lang;
+      const ep = episodesData[date][lang];
+      document.getElementById('lightbox-thumbnail').src = ep.thumbnail || '/media/1.jpg';
+      document.getElementById('lightbox-title').textContent = ep.title;
+      document.getElementById('lightbox-date').textContent = formatDate(date);
+      // Description logic
+      const descDiv = document.getElementById('lightbox-description');
+      let desc = ep.description || '';
+      // Clean up escape chars and newlines
+      desc = desc.replace(/\\n/g, '\n');
+      desc = desc.replace(/\r/g, '');
+      // Truncate to 300 chars for preview
+      let expanded = false;
+      function renderDesc() {
+        descDiv.innerHTML = '';
+        if (!desc) return;
+        if (!expanded && desc.length > 300) {
+          // Truncate at 300 chars or first double newline
+          let trunc = desc.slice(0, 300);
+          const paraEnd = desc.indexOf('\n\n');
+          if (paraEnd > 0 && paraEnd < 300) trunc = desc.slice(0, paraEnd);
+          // Show fade and read more
+          const p = document.createElement('div');
+          p.className = 'desc-trunc relative';
+          p.innerHTML = trunc.replace(/\n/g, ' ');
+          const fade = document.createElement('div');
+          fade.className = 'desc-fade';
+          p.appendChild(fade);
+          descDiv.appendChild(p);
+          const more = document.createElement('a');
+          more.href = '#';
+          more.className = 'lava-text font-semibold ml-2';
+          more.textContent = 'Read more';
+          more.onclick = function(e) { e.preventDefault(); expanded = true; renderDesc(); };
+          descDiv.appendChild(more);
+        } else if (!expanded) {
+          descDiv.textContent = desc.replace(/\n/g, ' ');
+        } else {
+          // Expanded: show with <br> for newlines
+          const full = document.createElement('div');
+          full.innerHTML = desc.replace(/\n/g, '<br>');
+          descDiv.appendChild(full);
+          const less = document.createElement('a');
+          less.href = '#';
+          less.className = 'lava-text font-semibold ml-2';
+          less.textContent = 'Show less';
+          less.onclick = function(e) { e.preventDefault(); expanded = false; renderDesc(); };
+          descDiv.appendChild(less);
+        }
+      }
+      renderDesc();
+      // Language tabs
+      const tabs = document.getElementById('lightbox-lang-tabs');
+      tabs.innerHTML = '';
+      for (const l of ['en', 'ch', 'ko']) {
+        if (!episodesData[date][l]) continue;
+        const btn = document.createElement('button');
+        btn.textContent = l.toUpperCase();
+        btn.className = 'px-2 py-1 rounded font-bold ' + (l === lang ? 'lava' : 'bg-gray-700 text-gray-200 hover:bg-gray-600');
+        btn.addEventListener('click', e => {
+          e.stopPropagation();
+          openLightbox(date, l);
+        });
+        tabs.appendChild(btn);
+      }
+      // Video (YouTube embed or placeholder)
+      const vid = document.getElementById('lightbox-video');
+      vid.innerHTML = '';
+      if (ep.url && ep.id && ep.id.length === 11) {
+        vid.innerHTML = `<iframe width="100%" height="315" src="https://www.youtube.com/embed/${ep.id}" frameborder="0" allowfullscreen class="rounded"></iframe>`;
+      } else {
+        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40">Video unavailable</div>`;
+      }
+      lightbox.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+    }
+    closeBtn.addEventListener('click', () => { lightbox.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); });
+    // Click outside modal to close
+    lightbox.addEventListener('mousedown', e => {
+      if (e.target === lightbox) { lightbox.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
+    });
+  </script>
+</body>
+</html>
