@@ -65,31 +65,61 @@
     </div>
   </header>
   <!-- Hero Section -->
-  <section class="relative steel min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden" style="height: 60vh; min-height: 400px;">
-    <!-- Slideshow backgrounds -->
-    <div id="hero-slideshow" class="absolute inset-0 w-full h-full z-0"></div>
-    <!-- Dark glass overlay -->
-    <div class="hero-darken"></div>
-    <!-- Overlay content -->
-    <div class="container mx-auto px-6 py-24 relative text-center flex flex-col items-center justify-center z-10">
+  <section class="relative steel min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <!-- Fullscreen trailer video as background -->
+    <video
+      class="absolute inset-0 w-full h-full object-cover z-0"
+      src="media/trailer.mp4"
+      muted
+      autoplay
+      loop
+      playsinline
+      loading="lazy"
+      poster="media/trailer_poster.jpg"
+      tabindex="-1"
+      aria-hidden="true"
+    ></video>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+    <!-- Hero content -->
+    <div class="container mx-auto px-6 py-24 flex flex-col items-center justify-center text-center relative z-20">
       <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">AI News</h1>
       <p class="text-xl md:text-2xl text-gray-200 mb-6">Bringing You Daily elizaOS Updates</p>
-      <a href="#episodes" class="inline-block lava font-semibold px-6 py-3 rounded-lg shadow hover:opacity-90 transition">Watch Latest Episode</a>
-      <p class="text-gray-300 mt-4 text-lg max-w-2xl mx-auto">
-        A fully-automated 3-D news show that turns Discord & GitHub chatter into
-        a finished YouTube episode every day.
+      <p class="text-gray-300 mb-8 max-w-lg">
+        A fully-automated 3-D news show that turns Discord &amp; GitHub chatter into a finished YouTube episode every day.
       </p>
+      <button
+        class="flex items-center justify-center mx-auto w-20 h-20 rounded-full bg-black bg-opacity-60 text-white text-4xl shadow-lg hover:bg-opacity-80 transition"
+        aria-label="Play trailer"
+        onclick="openHeroTrailerModal()"
+      >
+        ▶
+      </button>
+      <a href="#episodes" class="inline-block lava font-semibold px-6 py-3 rounded-lg shadow hover:opacity-90 transition mt-8">
+        Watch Latest Episode
+      </a>
     </div>
-    <!-- Trailer (autoplays muted, loops) -->
-    <video class="absolute bottom-4 right-4 w-40 md:w-64 rounded-lg shadow-lg z-20"
-           src="media/trailer.mp4"
-           muted loop autoplay playsinline></video>
   </section>
-  <!-- Stepper Timeline: How the AI Show Works -->
-  <section class="surface py-12" id="pipeline">
-    <div class="container mx-auto px-6 text-center">
+
+  <!-- Latest Episodes -->
+  <section id="episodes" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center mb-8 lava-text">Latest Episodes</h2>
+    <!-- Language Filter Bar (moved here) -->
+    <div class="flex justify-center gap-4 mb-8" id="lang-filter">
+      <button data-lang="en" class="lava px-3 py-1 rounded font-semibold text-black">EN</button>
+      <button data-lang="ch" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">中文</button>
+      <button data-lang="ko" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">한국어</button>
+    </div>
+    <div id="episodes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- Stepper Timeline: How the AI Show Works + Key Innovations (moved below Latest Episodes) -->
+  <section class="relative py-24 overflow-hidden" id="pipeline">
+    <!-- Slideshow as background -->
+    <div id="hero-slideshow" class="absolute inset-0 w-full h-full object-cover -z-10"></div>
+    <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
+    <div class="container mx-auto px-6 text-center relative z-10">
       <h2 class="text-3xl font-bold lava-text mb-8">How the AI Show Works</h2>
-      <ol class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center text-left md:text-center">
+      <ol class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center text-left md:text-center mb-16">
         <li class="relative pl-10 md:pl-0 md:w-40">
           <span class="absolute left-0 top-0 md:relative md:left-auto flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lava font-bold">1</span>
           <h4 class="font-semibold mt-2 md:mt-4">Data&nbsp;Collection</h4>
@@ -111,15 +141,6 @@
           <p class="text-sm text-gray-300">YouTube & social posting</p>
         </li>
       </ol>
-      <button id="open-bts-modal"
-         class="inline-block mt-8 lava px-5 py-2 rounded font-semibold shadow hover:opacity-90">
-         Watch the full pipeline demo
-      </button>
-    </div>
-  </section>
-  <!-- Key Innovations: 3 highlight cards -->
-  <section class="surface py-12">
-    <div class="container mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-6">
         <div class="steel p-6 rounded-lg shadow flex flex-col items-start">
           <i class="fas fa-bolt lava-text text-3xl mb-4"></i>
@@ -143,22 +164,15 @@
           </p>
         </div>
       </div>
+      <button id="open-bts-modal"
+         class="inline-block mt-12 lava px-5 py-2 rounded font-semibold shadow hover:opacity-90">
+         Watch the full pipeline demo
+      </button>
     </div>
   </section>
-  <!-- Language Filter Bar -->
-  <div class="container mx-auto px-6 mt-8 flex justify-center gap-4" id="lang-filter">
-    <button data-lang="en" class="lava px-3 py-1 rounded font-semibold text-black">EN</button>
-    <button data-lang="ch" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">中文</button>
-    <button data-lang="ko" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">한국어</button>
-  </div>
-  <!-- Latest Episodes -->
-  <section id="episodes" class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-center mb-8 lava-text">Latest Episodes</h2>
-    <div id="episodes-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
-  </section>
   <!-- Footer -->
-  <footer class="steel py-6">
-    <div class="container mx-auto px-6 text-center text-gray-400 text-sm">
+  <footer class="py-6 bg-white/10 backdrop-blur-md border-t border-white/20">
+    <div class="container mx-auto px-6 text-center text-gray-300 text-sm">
       <p>AI News &copy; 2025. Powered by elizaOS & blockchain technology.</p>
       <p>Open source. <a href="https://github.com/elizaOS/eliza" class="lava-text hover:underline" target="_blank">GitHub</a></p>
     </div>
@@ -398,6 +412,14 @@
         document.body.classList.remove('overflow-hidden');
       }
     });
+
+    function openHeroTrailerModal() {
+      const btsModal = document.getElementById('bts-modal');
+      const btsIframe = document.getElementById('bts-iframe');
+      btsModal.classList.remove('hidden');
+      btsIframe.src = 'https://www.youtube.com/embed/62OoNMf10nA?autoplay=1&rel=0&modestbranding=1';
+      document.body.classList.add('overflow-hidden');
+    }
   </script>
 </body>
 </html> 
