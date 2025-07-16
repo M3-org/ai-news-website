@@ -41,7 +41,7 @@ jobs:
       run: |
         EPISODE_DATE="${{ steps.date.outputs.episode_date }}"
         echo "${{ secrets.VPS_SSH_KEY }}" | ssh -i /dev/stdin -o StrictHostKeyChecking=yes ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} \
-          "~/scripts/process_episode.sh '$EPISODE_DATE' && ~/scripts/update_website.sh '$EPISODE_DATE'"
+          "~/scripts/server/process_episode.sh '$EPISODE_DATE' && ~/scripts/server/update_website.sh '$EPISODE_DATE'"
         
     - name: Pull updated files from server
       run: |
@@ -61,10 +61,6 @@ jobs:
         git add episodes.json index.html
         
         if ! git diff --cached --quiet; then
-          git commit -m "automated update site
-
-🤖 Generated with [Claude Code](https://claude.ai/code)
-
-Co-Authored-By: Claude <noreply@anthropic.com>"
+          git commit -m "automated update site"
           git push
         fi
