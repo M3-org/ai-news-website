@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "date": "2025-07-15",
+  "headlines": [
+    "ElizaOS Twitter account remains suspended despite community appeals",
+    "Stoic beta released with enhanced plugin dependency handling",
+    "New agent-to-agent communication system proposed to eliminate polling",
+    "BlackRock explores tokenization for stocks and real estate trading",
+    "Plugin bootstrap fix separates provider state from action callbacks",
+    "Users report Ollama integration errors despite local model availability",
+    "Two-token ecosystem clarified: $ai16z powers framework, $degenai backs Spartan",
+    "Dev server gains graceful shutdown capability for improved development",
+    "Community warns of fake 'LUARA' tokens circulating in ecosystem",
+    "Knowledge plugin encounters JSON file utilization issues",
+    "Type safety improvements merged in critical pull request"
+  ],
+  "separator": "     "
+}
