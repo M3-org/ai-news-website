@@ -1,0 +1,5 @@
+Episodes/*/recordings/
+*.meta
+*.mp3
+*.mp4
+zips/
