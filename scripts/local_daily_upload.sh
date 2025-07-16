@@ -45,11 +45,11 @@ done
 
 # Update website files
 echo "Updating website..."
-python3 scripts/update_website.py --episode-date "$EPISODE_DATE" --update-index
+python3 scripts/update_website.py --episode-date "$EPISODE_DATE"
 
 # Commit and push
 echo "Committing changes..."
-git add episodes.json index.html "Episodes/${EPISODE_DATE}/"
+git add episodes.json "Episodes/${EPISODE_DATE}/"
 git commit -m "automated update site" || echo "No changes to commit"
 git push
 

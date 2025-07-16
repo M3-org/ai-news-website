@@ -97,118 +97,11 @@ def update_episodes_json(episode_date):
     print(f"Updated {episodes_path} for {episode_date}.")
     return True
 
-def get_latest_episodes(episodes_data, count=5):
-    """Get the latest N episodes sorted by date."""
-    if not episodes_data:
-        return []
-    
-    # Sort episodes by date (newest first)
-    sorted_episodes = sorted(episodes_data.items(), key=lambda x: x[0], reverse=True)
-    return sorted_episodes[:count]
-
-def format_episode_html(date, episode_data):
-    """Format episode data into HTML."""
-    # Default to English if available, otherwise first available language
-    languages = ['en', 'ch', 'ko']
-    episode_info = None
-    
-    for lang in languages:
-        if lang in episode_data:
-            episode_info = episode_data[lang]
-            break
-    
-    if not episode_info:
-        return ""
-    
-    title = episode_info.get('title', f'Episode {date}')
-    video_id = episode_info.get('id', '')
-    thumbnail = episode_info.get('thumbnail', f'Episodes/{date}/thumbnail/thumbnail_en.jpg')
-    
-    # Format date for display
-    try:
-        date_obj = datetime.strptime(date, '%Y-%m-%d')
-        formatted_date = date_obj.strftime('%B %d, %Y')
-    except ValueError:
-        formatted_date = date
-    
-    html = f"""
-    <div class="episode-card">
-        <div class="episode-thumbnail">
-            <img src="{thumbnail}" alt="{title}" loading="lazy">
-            {f'<a href="https://www.youtube.com/watch?v={video_id}" target="_blank" class="play-button">▶</a>' if video_id else ''}
-        </div>
-        <div class="episode-info">
-            <h3>{title}</h3>
-            <p class="episode-date">{formatted_date}</p>
-            <div class="episode-languages">
-    """
-    
-    # Add language links
-    for lang in languages:
-        if lang in episode_data and episode_data[lang].get('id'):
-            lang_names = {'en': 'English', 'ch': '中文', 'ko': '한국어'}
-            video_id = episode_data[lang]['id']
-            html += f'<a href="https://www.youtube.com/watch?v={video_id}" target="_blank">{lang_names[lang]}</a>'
-    
-    html += """
-            </div>
-        </div>
-    </div>
-    """
-    
-    return html
-
-def update_index_html(episodes_data, episode_date=None):
-    """Update index.html with latest episodes."""
-    if not os.path.exists('index.html'):
-        print("ERROR: index.html not found")
-        return False
-    
-    # Read current index.html
-    with open('index.html', 'r') as f:
-        content = f.read()
-    
-    # Get latest episodes
-    latest_episodes = get_latest_episodes(episodes_data, 5)
-    
-    if not latest_episodes:
-        print("No episodes found to display")
-        return False
-    
-    # Generate episodes HTML
-    episodes_html = ""
-    for date, episode_data in latest_episodes:
-        episodes_html += format_episode_html(date, episode_data)
-    
-    # Update the episodes section in index.html
-    # Look for a section with id="episodes" or similar
-    pattern = r'(<div[^>]*id=["\']episodes["\'][^>]*>)(.*?)(</div>)'
-    replacement = f'\\1\n{episodes_html}\n\\3'
-    
-    if re.search(pattern, content, re.DOTALL):
-        content = re.sub(pattern, replacement, content, flags=re.DOTALL)
-    else:
-        # If no episodes section found, add one before closing body
-        episodes_section = f"""
-<div id="episodes" class="episodes-section">
-    <h2>Latest Episodes</h2>
-{episodes_html}
-</div>
-"""
-        content = content.replace('</body>', f'{episodes_section}\n</body>')
-    
-    # Write updated content
-    with open('index.html', 'w') as f:
-        f.write(content)
-    
-    print(f"Updated index.html with {len(latest_episodes)} episodes")
-    return True
 
 def main():
     parser = argparse.ArgumentParser(description='Update website files with latest episodes')
     parser.add_argument('--episode-date', required=True, help='Episode date (YYYY-MM-DD)')
     parser.add_argument('--push', action='store_true', help='If set, commit and push the updated files')
-    parser.add_argument('--update-index', action='store_true', help='Also update index.html')
     
     args = parser.parse_args()
     
@@ -217,23 +110,11 @@ def main():
         print("Failed to update episodes.json")
         return 1
     
-    # Update index.html if requested
-    if args.update_index:
-        # Load episodes data for index update
-        with open('episodes.json', 'r', encoding='utf-8') as f:
-            episodes_data = json.load(f)
-        
-        if not update_index_html(episodes_data, args.episode_date):
-            print("Failed to update index.html")
-            return 1
-    
     # Commit and push if requested
     if args.push:
         subprocess.run(['git', 'config', '--global', 'user.email', 'github-actions[bot]@users.noreply.github.com'])
         subprocess.run(['git', 'config', '--global', 'user.name', 'github-actions[bot]'])
         subprocess.run(['git', 'add', 'episodes.json'])
-        if args.update_index:
-            subprocess.run(['git', 'add', 'index.html'])
         subprocess.run(['git', 'commit', '-m', f'Update website for {args.episode_date} [CI]'], check=False)
         subprocess.run(['git', 'push'], check=False)
     
