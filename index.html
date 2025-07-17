@@ -427,17 +427,17 @@
       }
       const vid = document.getElementById('lightbox-video');
       vid.innerHTML = '';
-      if (ep.url && ep.id && ep.id.length === 11) {
+      if (ep.url && ep.id) {
         vid.innerHTML = `
           <iframe
             class="absolute inset-0 w-full h-full rounded"
-            src="https://www.youtube.com/embed/${ep.id}?rel=0&modestbranding=1"
+            src="https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1"
             title="${ep.title}"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>`;
       } else {
-        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40">Video unavailable</div>`;
+        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40 rounded">Video unavailable</div>`;
       }
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
