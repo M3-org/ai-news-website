@@ -200,18 +200,18 @@
   <!-- Lightbox Modal for Episodes -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
     <!-- Navigation arrows -->
-    <button id="prev-episode" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 z-10">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="prev-episode" class="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 md:p-3 rounded-full transition-all duration-200 z-10 touch-manipulation">
+      <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
       </svg>
     </button>
-    <button id="next-episode" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 z-10">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <button id="next-episode" class="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 md:p-3 rounded-full transition-all duration-200 z-10 touch-manipulation">
+      <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
     
-    <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-6 pr-4">
+    <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-4 md:p-6 pr-3 md:pr-4 mx-2 md:mx-0">
       <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
       <div class="flex flex-col gap-6 items-center">
         <!-- Responsive video at the top -->
@@ -222,11 +222,11 @@
         <!-- Title -->
         <h3 id="lightbox-title" class="text-2xl font-bold mb-1 w-full text-center"></h3>
         <!-- Date and language tabs in a row -->
-        <div class="w-full flex flex-row items-center justify-between mb-3">
-          <p id="lightbox-date" class="card-secondary"></p>
-          <div class="flex items-center space-x-4">
-            <span id="episode-counter" class="text-sm text-gray-400"></span>
-            <div class="flex space-x-2" id="lightbox-lang-tabs"></div>
+        <div class="w-full flex flex-col sm:flex-row items-center justify-between mb-3 gap-2 sm:gap-0">
+          <p id="lightbox-date" class="card-secondary text-center sm:text-left"></p>
+          <div class="flex items-center space-x-3 sm:space-x-4">
+            <span id="episode-counter" class="text-xs sm:text-sm text-gray-400 whitespace-nowrap"></span>
+            <div class="flex space-x-1 sm:space-x-2" id="lightbox-lang-tabs"></div>
           </div>
         </div>
         <!-- Description full width -->
@@ -471,12 +471,23 @@
     // Event listeners for navigation arrows
     document.getElementById('prev-episode').addEventListener('click', function(e) {
       e.stopPropagation();
+      e.preventDefault();
       navigateToPreviousEpisode();
     });
     
     document.getElementById('next-episode').addEventListener('click', function(e) {
       e.stopPropagation();
+      e.preventDefault();
       navigateToNextEpisode();
+    });
+    
+    // Add touch event listeners for better mobile experience
+    document.getElementById('prev-episode').addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    });
+    
+    document.getElementById('next-episode').addEventListener('touchstart', function(e) {
+      e.stopPropagation();
     });
     
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
