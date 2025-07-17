@@ -215,13 +215,19 @@
       <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
       <div class="flex flex-col gap-6 items-center">
         <!-- Responsive video at the top -->
-        <div id="lightbox-video" class="w-full aspect-video relative mb-4"></div>
+        <div id="lightbox-video" class="w-full aspect-video relative mb-4">
+          <iframe id="lightbox-iframe" class="absolute inset-0 w-full h-full rounded" style="display: none;" allowfullscreen></iframe>
+          <div id="video-placeholder" class="bg-gray-800 text-gray-400 flex items-center justify-center h-full rounded">Video unavailable</div>
+        </div>
         <!-- Title -->
         <h3 id="lightbox-title" class="text-2xl font-bold mb-1 w-full text-center"></h3>
         <!-- Date and language tabs in a row -->
         <div class="w-full flex flex-row items-center justify-between mb-3">
           <p id="lightbox-date" class="card-secondary"></p>
-          <div class="flex space-x-2" id="lightbox-lang-tabs"></div>
+          <div class="flex items-center space-x-4">
+            <span id="episode-counter" class="text-sm text-gray-400"></span>
+            <div class="flex space-x-2" id="lightbox-lang-tabs"></div>
+          </div>
         </div>
         <!-- Description full width -->
         <div id="lightbox-description" class="mb-4 w-full"></div>
@@ -437,19 +443,23 @@
         });
         tabs.appendChild(btn);
       }
-      const vid = document.getElementById('lightbox-video');
-      vid.innerHTML = '';
+      const iframe = document.getElementById('lightbox-iframe');
+      const placeholder = document.getElementById('video-placeholder');
+      
       if (ep.url && ep.id) {
-        vid.innerHTML = `
-          <iframe
-            class="absolute inset-0 w-full h-full rounded"
-            src="https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1"
-            title="${ep.title}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>`;
+        // Set up the iframe with the video
+        iframe.src = `https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = ep.title;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        
+        // Show iframe, hide placeholder
+        iframe.style.display = 'block';
+        placeholder.style.display = 'none';
       } else {
-        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40 rounded">Video unavailable</div>`;
+        // Show placeholder, hide iframe
+        iframe.style.display = 'none';
+        placeholder.style.display = 'flex';
+        placeholder.textContent = 'Video unavailable';
       }
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
@@ -558,6 +568,10 @@
       
       const prevBtn = document.getElementById('prev-episode');
       const nextBtn = document.getElementById('next-episode');
+      const counter = document.getElementById('episode-counter');
+      
+      // Update episode counter (1-indexed for users)
+      counter.textContent = `${currentIndex + 1} of ${dates.length}`;
       
       // Show/hide and enable/disable based on position
       if (currentIndex >= dates.length - 1) {
@@ -580,11 +594,15 @@
     function closeLightbox() {
       lightbox.classList.add('hidden'); 
       document.body.classList.remove('overflow-hidden');
-      // Stop video playback by clearing iframe src
-      const iframe = document.querySelector('#lightbox-video iframe');
-      if (iframe) {
-        iframe.src = '';
-      }
+      
+      // Stop video playback and reset iframe
+      const iframe = document.getElementById('lightbox-iframe');
+      const placeholder = document.getElementById('video-placeholder');
+      
+      iframe.src = '';
+      iframe.style.display = 'none';
+      placeholder.style.display = 'flex';
+      placeholder.textContent = 'Video unavailable';
     }
 
     function closeTrailerModal() {
