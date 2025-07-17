@@ -4,6 +4,7 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI News</title>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self' data: https:; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https:; font-src 'self' https://cdnjs.cloudflare.com data:;">
   
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="AI News"/>
@@ -108,7 +109,7 @@
       <button
         class="flex items-center justify-center mx-auto w-20 h-20 rounded-full bg-black bg-opacity-60 text-white text-4xl shadow-lg hover:bg-opacity-80 transition"
         aria-label="Play trailer"
-        onclick="openHeroTrailerModal()"
+        id="hero-trailer-btn"
       >
         ▶
       </button>
@@ -426,24 +427,24 @@
       }
       const vid = document.getElementById('lightbox-video');
       vid.innerHTML = '';
-      if (ep.url && ep.id && ep.id.length === 11) {
+      if (ep.url && ep.id) {
         vid.innerHTML = `
           <iframe
             class="absolute inset-0 w-full h-full rounded"
-            src="https://www.youtube.com/embed/${ep.id}?rel=0&modestbranding=1"
+            src="https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1"
             title="${ep.title}"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen>
           </iframe>`;
       } else {
-        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40">Video unavailable</div>`;
+        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40 rounded">Video unavailable</div>`;
       }
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
     }
-    if (closeBtn) closeBtn.addEventListener('click', () => { lightbox.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); });
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (lightbox) lightbox.addEventListener('mousedown', e => {
-      if (e.target === lightbox) { lightbox.classList.add('hidden'); document.body.classList.remove('overflow-hidden'); }
+      if (e.target === lightbox) { closeLightbox(); }
     });
 
     // BTS Modal logic
@@ -456,16 +457,10 @@
       btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw';
       document.body.classList.add('overflow-hidden');
     });
-    closeBtsBtn.addEventListener('click', () => {
-      btsModal.classList.add('hidden');
-      btsIframe.src = '';
-      document.body.classList.remove('overflow-hidden');
-    });
+    closeBtsBtn.addEventListener('click', closeTrailerModal);
     btsModal.addEventListener('mousedown', e => {
       if (e.target === btsModal) {
-        btsModal.classList.add('hidden');
-        btsIframe.src = '';
-        document.body.classList.remove('overflow-hidden');
+        closeTrailerModal();
       }
     });
 
@@ -475,6 +470,73 @@
       btsModal.classList.remove('hidden');
       btsIframe.src = 'https://www.youtube.com/embed/62OoNMf10nA?autoplay=1&rel=0&modestbranding=1';
       document.body.classList.add('overflow-hidden');
+    }
+
+    // Add event listener for hero trailer button
+    document.addEventListener('DOMContentLoaded', function() {
+      const heroTrailerBtn = document.getElementById('hero-trailer-btn');
+      if (heroTrailerBtn) {
+        heroTrailerBtn.addEventListener('click', openHeroTrailerModal);
+      }
+    });
+
+    // Keyboard navigation for episodes
+    document.addEventListener('keydown', function(e) {
+      // Only handle keyboard navigation when lightbox is open
+      if (!lightbox.classList.contains('hidden')) {
+        if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+          e.preventDefault();
+          navigateToPreviousEpisode();
+        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
+          e.preventDefault();
+          navigateToNextEpisode();
+        } else if (e.key === 'Escape') {
+          e.preventDefault();
+          closeLightbox();
+        }
+      }
+      // Handle ESC for trailer modal too
+      if (!btsModal.classList.contains('hidden') && e.key === 'Escape') {
+        e.preventDefault();
+        closeTrailerModal();
+      }
+    });
+
+    // Episode navigation functions
+    function navigateToPreviousEpisode() {
+      if (!episodesData || !currentDate) return;
+      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const currentIndex = dates.indexOf(currentDate);
+      if (currentIndex < dates.length - 1) {
+        const prevDate = dates[currentIndex + 1];
+        openLightbox(prevDate, selectedLang);
+      }
+    }
+
+    function navigateToNextEpisode() {
+      if (!episodesData || !currentDate) return;
+      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const currentIndex = dates.indexOf(currentDate);
+      if (currentIndex > 0) {
+        const nextDate = dates[currentIndex - 1];
+        openLightbox(nextDate, selectedLang);
+      }
+    }
+
+    function closeLightbox() {
+      lightbox.classList.add('hidden'); 
+      document.body.classList.remove('overflow-hidden');
+      // Stop video playback by clearing iframe src
+      const iframe = document.querySelector('#lightbox-video iframe');
+      if (iframe) {
+        iframe.src = '';
+      }
+    }
+
+    function closeTrailerModal() {
+      btsModal.classList.add('hidden');
+      btsIframe.src = '';
+      document.body.classList.remove('overflow-hidden');
     }
   </script>
 
