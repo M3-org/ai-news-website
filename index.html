@@ -70,16 +70,23 @@
   <!-- Header -->
   <header class="steel">
     <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-      <div class="text-2xl font-bold flex items-center">
+      <a href="#" class="text-2xl font-bold flex items-center hover:opacity-80 transition-opacity">
         <span class="lava-text">AI</span>
         <span class="ml-1">News</span>
-      </div>
-      <nav class="space-x-6">
-        <a class="nav-link" href="#">Home</a>
+      </a>
+      <nav class="space-x-6 flex items-center">
         <a class="nav-link" href="#episodes">Episodes</a>
         <a class="nav-link" href="#pipeline">How It Works</a>
-        <a class="nav-link" href="https://github.com/elizaOS/eliza" target="_blank">GitHub</a>
-        <a class="nav-link" href="https://discord.gg/ai16z" target="_blank">Discord</a>
+        <a class="nav-link" href="https://github.com/elizaOS/eliza" target="_blank" title="GitHub">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+          </svg>
+        </a>
+        <a class="nav-link" href="https://discord.gg/ai16z" target="_blank" title="Discord">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9554 2.4189-2.1568 2.4189Z"/>
+          </svg>
+        </a>
       </nav>
     </div>
   </header>
@@ -140,25 +147,33 @@
     <div class="container mx-auto px-6 text-center relative z-10">
       <h2 class="text-3xl font-bold lava-text mb-8">How the AI Show Works</h2>
       <ol class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center text-left md:text-center mb-16">
-        <li class="relative pl-10 md:pl-0 md:w-40">
-          <span class="absolute left-0 top-0 md:relative md:left-auto flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lava font-bold">1</span>
-          <h4 class="font-semibold mt-2 md:mt-4">Data&nbsp;Collection</h4>
-          <p class="text-sm text-gray-300">Discord · GitHub · News feeds</p>
+        <li class="relative md:w-40">
+          <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
+            <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">1</span>
+            <h4 class="font-semibold mb-2">Data&nbsp;Collection</h4>
+            <p class="text-sm text-gray-300">Discord · GitHub · News feeds</p>
+          </div>
         </li>
-        <li class="relative pl-10 md:pl-0 md:w-40">
-          <span class="absolute left-0 top-0 md:relative md:left-auto flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lava font-bold">2</span>
-          <h4 class="font-semibold mt-2 md:mt-4">Script&nbsp;Generation</h4>
-          <p class="text-sm text-gray-300">LLM-powered writing</p>
+        <li class="relative md:w-40">
+          <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
+            <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">2</span>
+            <h4 class="font-semibold mb-2">Script&nbsp;Generation</h4>
+            <p class="text-sm text-gray-300">LLM-powered writing</p>
+          </div>
         </li>
-        <li class="relative pl-10 md:pl-0 md:w-40">
-          <span class="absolute left-0 top-0 md:relative md:left-auto flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lava font-bold">3</span>
-          <h4 class="font-semibold mt-2 md:mt-4">3D&nbsp;Production</h4>
-          <p class="text-sm text-gray-300">Unity animation & effects</p>
+        <li class="relative md:w-40">
+          <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
+            <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">3</span>
+            <h4 class="font-semibold mb-2">3D&nbsp;Production</h4>
+            <p class="text-sm text-gray-300">Unity animation & effects</p>
+          </div>
         </li>
-        <li class="relative pl-10 md:pl-0 md:w-40">
-          <span class="absolute left-0 top-0 md:relative md:left-auto flex items-center justify-center w-8 h-8 md:w-10 md:h-10 rounded-full lava font-bold">4</span>
-          <h4 class="font-semibold mt-2 md:mt-4">Distribution</h4>
-          <p class="text-sm text-gray-300">YouTube & social posting</p>
+        <li class="relative md:w-40">
+          <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
+            <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">4</span>
+            <h4 class="font-semibold mb-2">Distribution</h4>
+            <p class="text-sm text-gray-300">YouTube & social posting</p>
+          </div>
         </li>
       </ol>
       <div class="grid md:grid-cols-3 gap-6">
@@ -199,29 +214,47 @@
   </footer>
   <!-- Lightbox Modal for Episodes -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
-    <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-6 pr-4">
+    <!-- Navigation arrows -->
+    <button id="prev-episode" class="absolute left-2 md:left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 md:p-3 rounded-full transition-all duration-200 z-10 touch-manipulation">
+      <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button id="next-episode" class="absolute right-2 md:right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-2 md:p-3 rounded-full transition-all duration-200 z-10 touch-manipulation">
+      <svg class="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    
+    <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-4 md:p-6 pr-3 md:pr-4 mx-2 md:mx-0">
       <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
       <div class="flex flex-col gap-6 items-center">
         <!-- Responsive video at the top -->
-        <div id="lightbox-video" class="w-full aspect-video relative mb-4"></div>
+        <div id="lightbox-video" class="w-full aspect-video relative mb-4">
+          <iframe id="lightbox-iframe" class="absolute inset-0 w-full h-full rounded" style="display: none;" allowfullscreen></iframe>
+          <div id="video-placeholder" class="bg-gray-800 text-gray-400 flex items-center justify-center h-full rounded">Video unavailable</div>
+        </div>
         <!-- Title -->
         <h3 id="lightbox-title" class="text-2xl font-bold mb-1 w-full text-center"></h3>
         <!-- Date and language tabs in a row -->
-        <div class="w-full flex flex-row items-center justify-between mb-3">
-          <p id="lightbox-date" class="card-secondary"></p>
-          <div class="flex space-x-2" id="lightbox-lang-tabs"></div>
+        <div class="w-full flex flex-col sm:flex-row items-center justify-between mb-3 gap-2 sm:gap-0">
+          <p id="lightbox-date" class="card-secondary text-center sm:text-left"></p>
+          <div class="flex items-center space-x-3 sm:space-x-4">
+            <span id="episode-counter" class="text-xs sm:text-sm text-gray-400 whitespace-nowrap"></span>
+            <div class="flex space-x-1 sm:space-x-2" id="lightbox-lang-tabs"></div>
+          </div>
         </div>
         <!-- Description full width -->
         <div id="lightbox-description" class="mb-4 w-full"></div>
       </div>
     </div>
   </div>
-  <!-- BTS Modal -->
+  <!-- Trailer Modal -->
   <div id="bts-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
     <div class="surface rounded-lg shadow-lg w-full max-w-3xl overflow-hidden relative p-0">
       <button id="close-bts-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10">&times;</button>
       <div class="w-full aspect-video bg-black relative">
-        <iframe id="bts-iframe" src="" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+        <iframe id="bts-iframe" src="" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
       </div>
     </div>
   </div>
@@ -291,11 +324,35 @@
       });
     });
 
-    // Fetch episodes.json once
+    // Fetch episodes.json with simple caching
     let episodesData = null;
-    fetch('episodes.json')
-      .then(r => r.json())
-      .then(data => { episodesData = data; renderEpisodeCards(); });
+    
+    // Check if we have cached data (valid for 5 minutes)
+    const cachedData = localStorage.getItem('episodesData');
+    const cacheTime = localStorage.getItem('episodesDataTime');
+    const now = Date.now();
+    
+    if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 5 * 60 * 1000) {
+      episodesData = JSON.parse(cachedData);
+      renderEpisodeCards();
+    } else {
+      fetch('episodes.json')
+        .then(r => r.json())
+        .then(data => { 
+          episodesData = data; 
+          localStorage.setItem('episodesData', JSON.stringify(data));
+          localStorage.setItem('episodesDataTime', now.toString());
+          renderEpisodeCards(); 
+        })
+        .catch(e => {
+          console.error('Failed to load episodes:', e);
+          // Fallback to cached data if fetch fails
+          if (cachedData) {
+            episodesData = JSON.parse(cachedData);
+            renderEpisodeCards();
+          }
+        });
+    }
 
     function renderEpisodeCards() {
       if (!episodesData) return;
@@ -310,10 +367,10 @@
         const ep = episodesData[date][selectedLang];
         if (!ep) continue;
         const card = document.createElement('div');
-        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-xl transition';
+        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
         card.innerHTML = `
           <div class="relative">
-            <img src="${ep.thumbnail || 'media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover"/>
+            <img src="${ep.thumbnail || 'media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="this.src='media/1.jpg'"/>
             <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${selectedLang.toUpperCase()}</span>
           </div>
           <h3 class="text-lg font-bold line-clamp-2">${ep.title}</h3>
@@ -425,23 +482,53 @@
         });
         tabs.appendChild(btn);
       }
-      const vid = document.getElementById('lightbox-video');
-      vid.innerHTML = '';
+      const iframe = document.getElementById('lightbox-iframe');
+      const placeholder = document.getElementById('video-placeholder');
+      
       if (ep.url && ep.id) {
-        vid.innerHTML = `
-          <iframe
-            class="absolute inset-0 w-full h-full rounded"
-            src="https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1"
-            title="${ep.title}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-          </iframe>`;
+        // Set up the iframe with the video
+        iframe.src = `https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.title = ep.title;
+        iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+        
+        // Show iframe, hide placeholder
+        iframe.style.display = 'block';
+        placeholder.style.display = 'none';
       } else {
-        vid.innerHTML = `<div class="bg-gray-800 text-gray-400 flex items-center justify-center h-40 rounded">Video unavailable</div>`;
+        // Show placeholder, hide iframe
+        iframe.style.display = 'none';
+        placeholder.style.display = 'flex';
+        placeholder.textContent = 'Video unavailable';
       }
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
+      
+      // Update navigation arrows
+      updateNavigationArrows();
     }
+    
+    // Event listeners for navigation arrows
+    document.getElementById('prev-episode').addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      navigateToPreviousEpisode();
+    });
+    
+    document.getElementById('next-episode').addEventListener('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+      navigateToNextEpisode();
+    });
+    
+    // Add touch event listeners for better mobile experience
+    document.getElementById('prev-episode').addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    });
+    
+    document.getElementById('next-episode').addEventListener('touchstart', function(e) {
+      e.stopPropagation();
+    });
+    
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (lightbox) lightbox.addEventListener('mousedown', e => {
       if (e.target === lightbox) { closeLightbox(); }
@@ -454,7 +541,7 @@
     const btsIframe = document.getElementById('bts-iframe');
     openBtsBtn.addEventListener('click', () => {
       btsModal.classList.remove('hidden');
-      btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw';
+      btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw?autoplay=1&rel=0&modestbranding=1';
       document.body.classList.add('overflow-hidden');
     });
     closeBtsBtn.addEventListener('click', closeTrailerModal);
@@ -465,8 +552,6 @@
     });
 
     function openHeroTrailerModal() {
-      const btsModal = document.getElementById('bts-modal');
-      const btsIframe = document.getElementById('bts-iframe');
       btsModal.classList.remove('hidden');
       btsIframe.src = 'https://www.youtube.com/embed/62OoNMf10nA?autoplay=1&rel=0&modestbranding=1';
       document.body.classList.add('overflow-hidden');
@@ -523,14 +608,49 @@
       }
     }
 
+    function updateNavigationArrows() {
+      if (!episodesData || !currentDate) return;
+      
+      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const currentIndex = dates.indexOf(currentDate);
+      
+      const prevBtn = document.getElementById('prev-episode');
+      const nextBtn = document.getElementById('next-episode');
+      const counter = document.getElementById('episode-counter');
+      
+      // Update episode counter (1-indexed for users)
+      counter.textContent = `${currentIndex + 1} of ${dates.length}`;
+      
+      // Show/hide and enable/disable based on position
+      if (currentIndex >= dates.length - 1) {
+        prevBtn.style.opacity = '0.3';
+        prevBtn.style.cursor = 'not-allowed';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.cursor = 'pointer';
+      }
+      
+      if (currentIndex <= 0) {
+        nextBtn.style.opacity = '0.3';
+        nextBtn.style.cursor = 'not-allowed';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.cursor = 'pointer';
+      }
+    }
+
     function closeLightbox() {
       lightbox.classList.add('hidden'); 
       document.body.classList.remove('overflow-hidden');
-      // Stop video playback by clearing iframe src
-      const iframe = document.querySelector('#lightbox-video iframe');
-      if (iframe) {
-        iframe.src = '';
-      }
+      
+      // Stop video playback and reset iframe
+      const iframe = document.getElementById('lightbox-iframe');
+      const placeholder = document.getElementById('video-placeholder');
+      
+      iframe.src = '';
+      iframe.style.display = 'none';
+      placeholder.style.display = 'flex';
+      placeholder.textContent = 'Video unavailable';
     }
 
     function closeTrailerModal() {
