@@ -199,6 +199,18 @@
   </footer>
   <!-- Lightbox Modal for Episodes -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
+    <!-- Navigation arrows -->
+    <button id="prev-episode" class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 z-10">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+      </svg>
+    </button>
+    <button id="next-episode" class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-black bg-opacity-50 hover:bg-opacity-70 text-white p-3 rounded-full transition-all duration-200 z-10">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+      </svg>
+    </button>
+    
     <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-6 pr-4">
       <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
       <div class="flex flex-col gap-6 items-center">
@@ -441,7 +453,22 @@
       }
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
+      
+      // Update navigation arrows
+      updateNavigationArrows();
     }
+    
+    // Event listeners for navigation arrows
+    document.getElementById('prev-episode').addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateToPreviousEpisode();
+    });
+    
+    document.getElementById('next-episode').addEventListener('click', function(e) {
+      e.stopPropagation();
+      navigateToNextEpisode();
+    });
+    
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (lightbox) lightbox.addEventListener('mousedown', e => {
       if (e.target === lightbox) { closeLightbox(); }
@@ -520,6 +547,33 @@
       if (currentIndex > 0) {
         const nextDate = dates[currentIndex - 1];
         openLightbox(nextDate, selectedLang);
+      }
+    }
+
+    function updateNavigationArrows() {
+      if (!episodesData || !currentDate) return;
+      
+      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const currentIndex = dates.indexOf(currentDate);
+      
+      const prevBtn = document.getElementById('prev-episode');
+      const nextBtn = document.getElementById('next-episode');
+      
+      // Show/hide and enable/disable based on position
+      if (currentIndex >= dates.length - 1) {
+        prevBtn.style.opacity = '0.3';
+        prevBtn.style.cursor = 'not-allowed';
+      } else {
+        prevBtn.style.opacity = '1';
+        prevBtn.style.cursor = 'pointer';
+      }
+      
+      if (currentIndex <= 0) {
+        nextBtn.style.opacity = '0.3';
+        nextBtn.style.cursor = 'not-allowed';
+      } else {
+        nextBtn.style.opacity = '1';
+        nextBtn.style.cursor = 'pointer';
       }
     }
 
