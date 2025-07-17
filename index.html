@@ -234,12 +234,12 @@
       </div>
     </div>
   </div>
-  <!-- BTS Modal -->
+  <!-- Trailer Modal -->
   <div id="bts-modal" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
     <div class="surface rounded-lg shadow-lg w-full max-w-3xl overflow-hidden relative p-0">
       <button id="close-bts-modal" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl z-10">&times;</button>
       <div class="w-full aspect-video bg-black relative">
-        <iframe id="bts-iframe" src="" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full"></iframe>
+        <iframe id="bts-iframe" src="" frameborder="0" allowfullscreen class="absolute inset-0 w-full h-full" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"></iframe>
       </div>
     </div>
   </div>
@@ -526,7 +526,7 @@
     const btsIframe = document.getElementById('bts-iframe');
     openBtsBtn.addEventListener('click', () => {
       btsModal.classList.remove('hidden');
-      btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw';
+      btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw?autoplay=1&rel=0&modestbranding=1';
       document.body.classList.add('overflow-hidden');
     });
     closeBtsBtn.addEventListener('click', closeTrailerModal);
@@ -537,8 +537,6 @@
     });
 
     function openHeroTrailerModal() {
-      const btsModal = document.getElementById('bts-modal');
-      const btsIframe = document.getElementById('bts-iframe');
       btsModal.classList.remove('hidden');
       btsIframe.src = 'https://www.youtube.com/embed/62OoNMf10nA?autoplay=1&rel=0&modestbranding=1';
       document.body.classList.add('overflow-hidden');
