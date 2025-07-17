@@ -309,11 +309,35 @@
       });
     });
 
-    // Fetch episodes.json once
+    // Fetch episodes.json with simple caching
     let episodesData = null;
-    fetch('episodes.json')
-      .then(r => r.json())
-      .then(data => { episodesData = data; renderEpisodeCards(); });
+    
+    // Check if we have cached data (valid for 5 minutes)
+    const cachedData = localStorage.getItem('episodesData');
+    const cacheTime = localStorage.getItem('episodesDataTime');
+    const now = Date.now();
+    
+    if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 5 * 60 * 1000) {
+      episodesData = JSON.parse(cachedData);
+      renderEpisodeCards();
+    } else {
+      fetch('episodes.json')
+        .then(r => r.json())
+        .then(data => { 
+          episodesData = data; 
+          localStorage.setItem('episodesData', JSON.stringify(data));
+          localStorage.setItem('episodesDataTime', now.toString());
+          renderEpisodeCards(); 
+        })
+        .catch(e => {
+          console.error('Failed to load episodes:', e);
+          // Fallback to cached data if fetch fails
+          if (cachedData) {
+            episodesData = JSON.parse(cachedData);
+            renderEpisodeCards();
+          }
+        });
+    }
 
     function renderEpisodeCards() {
       if (!episodesData) return;
@@ -328,10 +352,10 @@
         const ep = episodesData[date][selectedLang];
         if (!ep) continue;
         const card = document.createElement('div');
-        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-xl transition';
+        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
         card.innerHTML = `
           <div class="relative">
-            <img src="${ep.thumbnail || 'media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover"/>
+            <img src="${ep.thumbnail || 'media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="this.src='media/1.jpg'"/>
             <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${selectedLang.toUpperCase()}</span>
           </div>
           <h3 class="text-lg font-bold line-clamp-2">${ep.title}</h3>
