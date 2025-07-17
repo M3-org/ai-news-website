@@ -1,0 +1,10 @@
+{
+  "video_file": "Episodes/2025-07-16/recordings/2025-07-16_ko.mp4",
+  "title": "2025-07-16: GitHub 업데이트: 서비스 유형 및 플러그인 발전 현황",
+  "description": "Recorded: 2025-07-16\n\n최근 ai16z GitHub의 주요 발전 사항을 살펴보세요. PR5565의 서비스 타입 구현과 표준화된 인터페이스를 통한 주요 아키텍처 개선을 소개합니다. Marc, Eliza, Shaw가 진행하는 이번 방송에서 버전 1.2.6과 1.2.9 업데이트, 새로운 플러그인 템플릿, 실시간 음성 기능을 포함한 향후 기능들을 알아봅니다. 기술적 과제들과 환경 변수 파싱 문제, 그리고 플랫폼의 미래를 형성할 흥미진진한 새로운 개발 계획들에 대한 인사이트를 얻어가세요.",
+  "tags": "AI 개발 깃허브 업데이트 소프트웨어 개발 기술 뉴스 서비스 유형 플러그인 개발 버전 업데이트 테크 팟캐스트 ai16z 소프트웨어 아키텍처 개발자 도구 코딩 테크 뉴스 elizaos 소프트웨어 엔지니어링 오픈소스 기술 토론 프로그래밍 개발 워크플로우 기술 인프라",
+  "category_id": "22",
+  "privacy_status": "unlisted",
+  "thumbnail_file": "Episodes/2025-07-16/thumbnail/thumbnail_ko.jpg",
+  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB"
+}

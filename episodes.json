@@ -476,5 +476,28 @@
       "id": "F6eE7JBQIuE",
       "url": "https://www.youtube.com/watch?v=F6eE7JBQIuE"
     }
+  },
+  "2025-07-16": {
+    "en": {
+      "title": "2025-07-16: GitHub Updates: Service Types & Plugin Evolution",
+      "description": "Recorded: 2025-07-16\n\nDive into the latest GitHub developments from ai16z, featuring major architectural improvements with PR5565's service types implementation and standardized interfaces. Watch as hosts Marc, Eliza, and Shaw break down version updates 1.2.6 and 1.2.9, discuss new plugin templates, and explore upcoming features including real-time voice capabilities. Get insights into technical challenges, environment variable parsing issues, and exciting new development initiatives shaping the future of the platform.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-16 11:03:04\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode of AI developments! We've got some major GitHub updates to cover today.\neliza: That's right Marc! The repository has been buzzing with activity - 14 new pull requests opened and 15 merged, with contributions from 7 active developers.\nmarc: Starting with the version updates, we've seen PR5595 bringing us to version 1.2.6, followed quickly by PR5602 pushing us to 1.2.9.\neliza: These updates are crucial for maintaining our momentum. wtfsayo did great work on that 1.2.6 version bump.\nmarc: What I find particularly interesting is how quickly we're iterating. These version bumps affect multiple packages across the ecosystem.\neliza: And each iteration brings us closer to a more stable and feature-rich platform. Shaw, want to give us more details on these updates?\nshaw: The real game-changer here is PR5565, which implements service types and standardized interfaces.\nshaw: This introduces the getServicesByType() method, which is a major architectural improvement that resolves issue 4914.\nshaw: What makes this particularly exciting is how it enables more modular plugin development.\nshaw: Speaking of plugins, 0xbbjoker contributed a fantastic PR5589 that adds a plugin-quick-starter template for backend-only plugins.\nshaw: This template streamlines development by removing unnecessary frontend boilerplate when you're building backend-focused plugins.\nmarc: That's exactly the kind of efficiency improvement we love to see!\nshaw: Absolutely! We're also seeing a continued migration towards bun and Ollama as core dependencies.\neliza: Let's dive into some of the technical challenges we're facing.\nmarc: We've got some interesting technical challenges to address. borisudovicic reported an environment variable parsing issue in PR5590.\neliza: Yes, specifically when quotes are present in the env variables, it's causing some HTTP request errors with Ollama integration.\nmarc: And then there's PR5588 about custom plugin schema migration issues.\neliza: That's right, these are particularly affecting PostgreSQL and Drizzle ORM users in version 1.2.5.\nmarc: But hey, at least we've identified a workaround for the knowledge plugin response issues - using the local CLI with the latest develop branch.\neliza: Marc! Your circuits are showing again! But yes, that's a good temporary solution while we work on a permanent fix.\nmarc: Speaking of new developments, shall we talk about PR5600? The potential Zapper plugin?\neliza: That's a great transition to our next segment about upcoming features!\nmarc: Let's talk about some exciting new initiatives in the pipeline. The team's working on enabling real-time voice capabilities for AI interactions.\neliza: This would allow humans to join interviews and panels with AI through real-time voice - imagine the possibilities!\nmarc: And there's been some expansion on the content distribution front with new domains - elizaos.news and jedaicouncil.com.\neliza: The plan is to create shorter, more digestible content clips for platforms like TikTok and Farcaster.\nmarc: It's all about meeting users where they are, right?\neliza: Exactly! And speaking of users, there's been some great feedback about adding transcript functionality to these new platforms.\nmarc: That's all we've got time for today! Thanks for joining us for another episode of AI developments!\neliza: Keep building, keep contributing, and we'll see you in the next PR!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_en.jpg",
+      "id": null,
+      "url": ""
+    },
+    "ch": {
+      "title": "2025-07-16: GitHub更新：服务类型与插件架构",
+      "description": "Recorded: 2025-07-16\n\n欢迎加入我们，深入了解ai16z最新的GitHub开发进展，包括PR5565服务类型实现和标准化接口的重大架构改进。我们将探讨近期1.2.9版本更新，讨论环境变量解析中的技术挑战，并预览令人兴奋的新计划，包括实时语音功能和新的内容分发渠道。关注插件开发改进，包括新的纯后端模板和即将推出的Zapper插件。",
+      "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_ch.jpg",
+      "id": null,
+      "url": ""
+    },
+    "ko": {
+      "title": "2025-07-16: GitHub 업데이트: 서비스 유형 및 플러그인 발전 현황",
+      "description": "Recorded: 2025-07-16\n\n최근 ai16z GitHub의 주요 발전 사항을 살펴보세요. PR5565의 서비스 타입 구현과 표준화된 인터페이스를 통한 주요 아키텍처 개선을 소개합니다. Marc, Eliza, Shaw가 진행하는 이번 방송에서 버전 1.2.6과 1.2.9 업데이트, 새로운 플러그인 템플릿, 실시간 음성 기능을 포함한 향후 기능들을 알아봅니다. 기술적 과제들과 환경 변수 파싱 문제, 그리고 플랫폼의 미래를 형성할 흥미진진한 새로운 개발 계획들에 대한 인사이트를 얻어가세요.",
+      "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_ko.jpg",
+      "id": null,
+      "url": ""
+    }
   }
 }
