@@ -466,7 +466,21 @@ def main():
             update_thumbnail(youtube, args.update_thumbnail_for, args.thumbnail_file)
             return
         if youtube:
-            initialize_upload(youtube, args)
+            video_id = initialize_upload(youtube, args)
+            
+            # Write video_id back to metadata file if upload was successful and --from-json was used
+            if video_id and args.from_json:
+                try:
+                    with open(args.from_json, 'r') as f:
+                        metadata = json.load(f)
+                    metadata['video_id'] = video_id
+                    metadata['url'] = f'https://www.youtube.com/watch?v={video_id}'
+                    with open(args.from_json, 'w') as f:
+                        json.dump(metadata, f, indent=2)
+                    print(f"✅ Video ID {video_id} saved to {args.from_json}")
+                except Exception as e:
+                    print(f"⚠️  Warning: Could not save video ID to metadata file: {e}")
+            
             print("\n--- YouTube Upload Process Finished ---")
         else:
             print("Could not get authenticated YouTube service. Upload aborted.")
