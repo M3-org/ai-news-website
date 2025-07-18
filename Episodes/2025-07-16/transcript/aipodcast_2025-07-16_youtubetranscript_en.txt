@@ -1,0 +1,42 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-16 11:03:04
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting episode of AI developments! We've got some major GitHub updates to cover today.
+eliza: That's right Marc! The repository has been buzzing with activity - 14 new pull requests opened and 15 merged, with contributions from 7 active developers.
+marc: Starting with the version updates, we've seen PR5595 bringing us to version 1.2.6, followed quickly by PR5602 pushing us to 1.2.9.
+eliza: These updates are crucial for maintaining our momentum. wtfsayo did great work on that 1.2.6 version bump.
+marc: What I find particularly interesting is how quickly we're iterating. These version bumps affect multiple packages across the ecosystem.
+eliza: And each iteration brings us closer to a more stable and feature-rich platform. Shaw, want to give us more details on these updates?
+shaw: The real game-changer here is PR5565, which implements service types and standardized interfaces.
+shaw: This introduces the getServicesByType() method, which is a major architectural improvement that resolves issue 4914.
+shaw: What makes this particularly exciting is how it enables more modular plugin development.
+shaw: Speaking of plugins, @0xbbjoker contributed a fantastic PR5589 that adds a plugin-quick-starter template for backend-only plugins.
+shaw: This template streamlines development by removing unnecessary frontend boilerplate when you're building backend-focused plugins.
+marc: That's exactly the kind of efficiency improvement we love to see!
+shaw: Absolutely! We're also seeing a continued migration towards bun and Ollama as core dependencies.
+eliza: Let's dive into some of the technical challenges we're facing.
+marc: We've got some interesting technical challenges to address. @borisudovicic reported an environment variable parsing issue in PR5590.
+eliza: Yes, specifically when quotes are present in the env variables, it's causing some HTTP request errors with Ollama integration.
+marc: And then there's PR5588 about custom plugin schema migration issues.
+eliza: That's right, these are particularly affecting PostgreSQL and Drizzle ORM users in version 1.2.5.
+marc: But hey, at least we've identified a workaround for the knowledge plugin response issues - using the local CLI with the latest develop branch.
+eliza: Marc! Your circuits are showing again! But yes, that's a good temporary solution while we work on a permanent fix.
+marc: Speaking of new developments, shall we talk about PR5600? The potential Zapper plugin?
+eliza: That's a great transition to our next segment about upcoming features!
+marc: Let's talk about some exciting new initiatives in the pipeline. The team's working on enabling real-time voice capabilities for AI interactions.
+eliza: This would allow humans to join interviews and panels with AI through real-time voice - imagine the possibilities!
+marc: And there's been some expansion on the content distribution front with new domains - elizaos.news and jedaicouncil.com.
+eliza: The plan is to create shorter, more digestible content clips for platforms like TikTok and Farcaster.
+marc: It's all about meeting users where they are, right?
+eliza: Exactly! And speaking of users, there's been some great feedback about adding transcript functionality to these new platforms.
+marc: That's all we've got time for today! Thanks for joining us for another episode of AI developments!
+eliza: Keep building, keep contributing, and we'll see you in the next PR!
+
+END_TRANSCRIPT

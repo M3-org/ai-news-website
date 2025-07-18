@@ -1,0 +1,20 @@
+{
+  "language": "en",
+  "date": "2025-07-16",
+  "headlines": [
+    "ElizaOS Twitter account suspended amid Elon Musk AI competition concerns",
+    "Twitter/X charging $50k monthly API fees to AI competitors",
+    "Major architectural update: Service types and interfaces standardized for plugins",
+    "New quick-starter template speeds up backend-only plugin development",
+    "ElizaOS launches news domains for AI-generated content distribution",
+    "Real-time voice capabilities enabling human-AI panel discussions",
+    "Environment variable formatting causing Ollama integration errors",
+    "Knowledge plugin facing client-side response delivery issues",
+    "Custom Plugin Schema migration problems reported in v1.2.5",
+    "Development team implements getServicesByType() for modular plugins",
+    "Platform shifting toward bun and Ollama as core dependencies",
+    "New proposal: AI companions to interact with token contracts",
+    "ElizaOS developing TikTok and Farcaster content strategy"
+  ],
+  "separator": "     "
+}
