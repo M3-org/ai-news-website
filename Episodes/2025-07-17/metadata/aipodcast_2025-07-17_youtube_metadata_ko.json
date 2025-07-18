@@ -1,10 +1,12 @@
 {
   "video_file": "Episodes/2025-07-17/recordings/2025-07-17_ko.mp4",
-  "title": "2025-07-17: ElizaOS V2 출시: 새로운 웹사이트 및 주요 GitHub 업데이트",
-  "description": "Recorded: 2025-07-17\n\nElizaOS V2가 멋진 새 웹사이트 elizaos.ai와 함께 출시되는 속보를 함께 확인해보세요! GitHub의 최신 개발 상황을 자세히 살펴보며, 중요한 데이터베이스 마이그레이션 개선사항과 Windows 호환성 문제 해결을 알아봅니다. 앰비언트 오클루전과 향상된 컨트롤을 특징으로 하는 Hyperfy의 흥미진진한 v0.14.0 출시 소식도 확인하세요. 또한 시나리오 러너 프레임워크와 실시간 음성 기능과 같은 예정된 기능에 대한 독점 정보도 공개합니다. 이번 에피소드에서는 ElizaOS의 미래를 형성하는 주요 기술 업데이트, 커뮤니티 피드백, 그리고 전략적 발전 사항을 다룹니다.",
-  "tags": "ElizaOS ElizaOS V2 AI 개발 GitHub 업데이트 데이터베이스 마이그레이션 Hyperfy AI 뉴스 테크 뉴스 블록체인 AI 팟캐스트 소프트웨어 개발 윈도우 호환성 토큰노믹스 개발자 도구 테크 업데이트 AI 플랫폼 elizaosai 프로그래밍 개발자 뉴스 기술 혁신",
+  "title": "2025-07-17: ElizaOS V2 \ucd9c\uc2dc: \uc0c8\ub85c\uc6b4 \uc6f9\uc0ac\uc774\ud2b8 \ubc0f \uc8fc\uc694 GitHub \uc5c5\ub370\uc774\ud2b8",
+  "description": "Recorded: 2025-07-17\n\nElizaOS V2\uac00 \uba4b\uc9c4 \uc0c8 \uc6f9\uc0ac\uc774\ud2b8 elizaos.ai\uc640 \ud568\uaed8 \ucd9c\uc2dc\ub418\ub294 \uc18d\ubcf4\ub97c \ud568\uaed8 \ud655\uc778\ud574\ubcf4\uc138\uc694! GitHub\uc758 \ucd5c\uc2e0 \uac1c\ubc1c \uc0c1\ud669\uc744 \uc790\uc138\ud788 \uc0b4\ud3b4\ubcf4\uba70, \uc911\uc694\ud55c \ub370\uc774\ud130\ubca0\uc774\uc2a4 \ub9c8\uc774\uadf8\ub808\uc774\uc158 \uac1c\uc120\uc0ac\ud56d\uacfc Windows \ud638\ud658\uc131 \ubb38\uc81c \ud574\uacb0\uc744 \uc54c\uc544\ubd05\ub2c8\ub2e4. \uc570\ube44\uc5b8\ud2b8 \uc624\ud074\ub8e8\uc804\uacfc \ud5a5\uc0c1\ub41c \ucee8\ud2b8\ub864\uc744 \ud2b9\uc9d5\uc73c\ub85c \ud558\ub294 Hyperfy\uc758 \ud765\ubbf8\uc9c4\uc9c4\ud55c v0.14.0 \ucd9c\uc2dc \uc18c\uc2dd\ub3c4 \ud655\uc778\ud558\uc138\uc694. \ub610\ud55c \uc2dc\ub098\ub9ac\uc624 \ub7ec\ub108 \ud504\ub808\uc784\uc6cc\ud06c\uc640 \uc2e4\uc2dc\uac04 \uc74c\uc131 \uae30\ub2a5\uacfc \uac19\uc740 \uc608\uc815\ub41c \uae30\ub2a5\uc5d0 \ub300\ud55c \ub3c5\uc810 \uc815\ubcf4\ub3c4 \uacf5\uac1c\ud569\ub2c8\ub2e4. \uc774\ubc88 \uc5d0\ud53c\uc18c\ub4dc\uc5d0\uc11c\ub294 ElizaOS\uc758 \ubbf8\ub798\ub97c \ud615\uc131\ud558\ub294 \uc8fc\uc694 \uae30\uc220 \uc5c5\ub370\uc774\ud2b8, \ucee4\ubba4\ub2c8\ud2f0 \ud53c\ub4dc\ubc31, \uadf8\ub9ac\uace0 \uc804\ub7b5\uc801 \ubc1c\uc804 \uc0ac\ud56d\uc744 \ub2e4\ub8f9\ub2c8\ub2e4.",
+  "tags": "ElizaOS ElizaOS V2 AI \uac1c\ubc1c GitHub \uc5c5\ub370\uc774\ud2b8 \ub370\uc774\ud130\ubca0\uc774\uc2a4 \ub9c8\uc774\uadf8\ub808\uc774\uc158 Hyperfy AI \ub274\uc2a4 \ud14c\ud06c \ub274\uc2a4 \ube14\ub85d\uccb4\uc778 AI \ud31f\uce90\uc2a4\ud2b8 \uc18c\ud504\ud2b8\uc6e8\uc5b4 \uac1c\ubc1c \uc708\ub3c4\uc6b0 \ud638\ud658\uc131 \ud1a0\ud070\ub178\ubbf9\uc2a4 \uac1c\ubc1c\uc790 \ub3c4\uad6c \ud14c\ud06c \uc5c5\ub370\uc774\ud2b8 AI \ud50c\ub7ab\ud3fc elizaosai \ud504\ub85c\uadf8\ub798\ubc0d \uac1c\ubc1c\uc790 \ub274\uc2a4 \uae30\uc220 \ud601\uc2e0",
   "category_id": "22",
   "privacy_status": "unlisted",
   "thumbnail_file": "Episodes/2025-07-17/thumbnail/thumbnail_ko.jpg",
-  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB"
+  "playlist_id": "PLp5K4ceh2pR3cIS4AEN3UDxoiVrR9J1JB",
+  "video_id": "-kd2UfRF3wo",
+  "url": "https://www.youtube.com/watch?v=-kd2UfRF3wo"
 }

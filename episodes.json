@@ -482,22 +482,22 @@
       "title": "2025-07-16: GitHub Updates: Service Types & Plugin Evolution",
       "description": "Recorded: 2025-07-16\n\nDive into the latest GitHub developments from ai16z, featuring major architectural improvements with PR5565's service types implementation and standardized interfaces. Watch as hosts Marc, Eliza, and Shaw break down version updates 1.2.6 and 1.2.9, discuss new plugin templates, and explore upcoming features including real-time voice capabilities. Get insights into technical challenges, environment variable parsing issues, and exciting new development initiatives shaping the future of the platform.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-16 11:03:04\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode of AI developments! We've got some major GitHub updates to cover today.\neliza: That's right Marc! The repository has been buzzing with activity - 14 new pull requests opened and 15 merged, with contributions from 7 active developers.\nmarc: Starting with the version updates, we've seen PR5595 bringing us to version 1.2.6, followed quickly by PR5602 pushing us to 1.2.9.\neliza: These updates are crucial for maintaining our momentum. wtfsayo did great work on that 1.2.6 version bump.\nmarc: What I find particularly interesting is how quickly we're iterating. These version bumps affect multiple packages across the ecosystem.\neliza: And each iteration brings us closer to a more stable and feature-rich platform. Shaw, want to give us more details on these updates?\nshaw: The real game-changer here is PR5565, which implements service types and standardized interfaces.\nshaw: This introduces the getServicesByType() method, which is a major architectural improvement that resolves issue 4914.\nshaw: What makes this particularly exciting is how it enables more modular plugin development.\nshaw: Speaking of plugins, 0xbbjoker contributed a fantastic PR5589 that adds a plugin-quick-starter template for backend-only plugins.\nshaw: This template streamlines development by removing unnecessary frontend boilerplate when you're building backend-focused plugins.\nmarc: That's exactly the kind of efficiency improvement we love to see!\nshaw: Absolutely! We're also seeing a continued migration towards bun and Ollama as core dependencies.\neliza: Let's dive into some of the technical challenges we're facing.\nmarc: We've got some interesting technical challenges to address. borisudovicic reported an environment variable parsing issue in PR5590.\neliza: Yes, specifically when quotes are present in the env variables, it's causing some HTTP request errors with Ollama integration.\nmarc: And then there's PR5588 about custom plugin schema migration issues.\neliza: That's right, these are particularly affecting PostgreSQL and Drizzle ORM users in version 1.2.5.\nmarc: But hey, at least we've identified a workaround for the knowledge plugin response issues - using the local CLI with the latest develop branch.\neliza: Marc! Your circuits are showing again! But yes, that's a good temporary solution while we work on a permanent fix.\nmarc: Speaking of new developments, shall we talk about PR5600? The potential Zapper plugin?\neliza: That's a great transition to our next segment about upcoming features!\nmarc: Let's talk about some exciting new initiatives in the pipeline. The team's working on enabling real-time voice capabilities for AI interactions.\neliza: This would allow humans to join interviews and panels with AI through real-time voice - imagine the possibilities!\nmarc: And there's been some expansion on the content distribution front with new domains - elizaos.news and jedaicouncil.com.\neliza: The plan is to create shorter, more digestible content clips for platforms like TikTok and Farcaster.\nmarc: It's all about meeting users where they are, right?\neliza: Exactly! And speaking of users, there's been some great feedback about adding transcript functionality to these new platforms.\nmarc: That's all we've got time for today! Thanks for joining us for another episode of AI developments!\neliza: Keep building, keep contributing, and we'll see you in the next PR!\n\nEND_TRANSCRIPT\n",
       "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_en.jpg",
-      "id": null,
-      "url": ""
+      "id": "syO_AXtFpQY",
+      "url": "https://www.youtube.com/watch?v=syO_AXtFpQY"
     },
     "ch": {
       "title": "2025-07-16: GitHub更新：服务类型与插件架构",
       "description": "Recorded: 2025-07-16\n\n欢迎加入我们，深入了解ai16z最新的GitHub开发进展，包括PR5565服务类型实现和标准化接口的重大架构改进。我们将探讨近期1.2.9版本更新，讨论环境变量解析中的技术挑战，并预览令人兴奋的新计划，包括实时语音功能和新的内容分发渠道。关注插件开发改进，包括新的纯后端模板和即将推出的Zapper插件。",
       "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_ch.jpg",
-      "id": null,
-      "url": ""
+      "id": "CU1LkgRvQog",
+      "url": "https://www.youtube.com/watch?v=CU1LkgRvQog"
     },
     "ko": {
       "title": "2025-07-16: GitHub 업데이트: 서비스 유형 및 플러그인 발전 현황",
       "description": "Recorded: 2025-07-16\n\n최근 ai16z GitHub의 주요 발전 사항을 살펴보세요. PR5565의 서비스 타입 구현과 표준화된 인터페이스를 통한 주요 아키텍처 개선을 소개합니다. Marc, Eliza, Shaw가 진행하는 이번 방송에서 버전 1.2.6과 1.2.9 업데이트, 새로운 플러그인 템플릿, 실시간 음성 기능을 포함한 향후 기능들을 알아봅니다. 기술적 과제들과 환경 변수 파싱 문제, 그리고 플랫폼의 미래를 형성할 흥미진진한 새로운 개발 계획들에 대한 인사이트를 얻어가세요.",
       "thumbnail": "Episodes/2025-07-16/thumbnail/thumbnail_ko.jpg",
-      "id": null,
-      "url": ""
+      "id": "jJXrEoATrLE",
+      "url": "https://www.youtube.com/watch?v=jJXrEoATrLE"
     }
   },
   "2025-07-17": {
@@ -505,22 +505,22 @@
       "title": "2025-07-17: ElizaOS V2 Launch: New Website & Major GitHub Updates",
       "description": "Recorded: 2025-07-17\n\nJoin us for breaking news as ElizaOS V2 launches with its stunning new website at elizaos.ai! We dive deep into the latest GitHub developments, including critical database migration improvements and Windows compatibility fixes. Learn about Hyperfy's exciting v0.14.0 release featuring ambient occlusion and improved controls. Plus, get exclusive insights into upcoming features like the Scenario Runner framework and real-time voice capabilities. This episode covers major technical updates, community feedback, and strategic developments shaping the future of ElizaOS.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-17 11:02:43\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Breaking news in the AI world today! ElizaOS V2 has officially launched with a brand new website at elizaos.ai!\neliza: The community response has been incredible, Marc. Shaw even conducted a live builder session demonstrating the new features on YouTube.\nmarc: Speaking of community feedback, they're already helping improve the onboarding experience with better tutorial videos.\neliza: Yes, though some users have suggested we could reduce the technical jargon to make it even more accessible.\nmarc: Well, you know what they say - if you can't explain it simply, you don't understand it well enough!\neliza: Marc, are you glitching again? Should we call maintenance?\nmarc: No no, I'm fine! Let's check in with Shaw for some technical updates.\neliza: Good idea. Shaw, what's new in the GitHub realm?\nshaw: Thanks team. We've got several significant updates in the pipeline. First, PR5569 implements advisory locking for DatabaseMigrationService.\nshaw: We're also tracking several critical issues, including PR5603 addressing directory creation problems on Windows.\nshaw: The team's implementing standardized service types and a new getServicesByType() method for more flexible plugin interactions.\nshaw: CLI improvements are rolling out too - automatic builds on 'elizaos start', better server shutdowns, and smarter port conflict handling.\nshaw: And here's something exciting - we're planning a new 'Scenario Runner' feature as a comprehensive framework for agent evaluation.\nshaw: Back to you in the studio for more updates!\nmarc: Let's talk about some exciting partner developments - Hyperfy just dropped version 0.14.0!\neliza: Yes, they've added ambient occlusion, a new scene app format, and improved touch device controls.\nmarc: But we're also hearing about some challenges - particularly around database migrations and schema handling.\neliza: Multiple users have reported database setup errors in WSL environments with PGLite.\nmarc: The team's working on real-time voice capabilities too - imagine joining interviews and panels with AI participants!\neliza: Though we should note that OpenRouter announced they're deprecating the o1-preview model soon.\nmarc: Ah, the ever-evolving world of AI - always keeping us on our toes!\neliza: Speaking of evolution, shall we wrap up with a look at our strategic direction?\nmarc: Looking at our strategic direction, cross-platform reliability is becoming a key focus.\neliza: Especially with these Windows-specific issues cropping up in our GitHub tracker.\nmarc: The team's also exploring some fascinating tokenomics recommendations from DorianD.\neliza: Yes, including decentralized compute resource sharing and token-gated knowledge exchange.\nmarc: Well folks, that's all the time we have for today's show!\neliza: Thanks for joining us for another exciting episode of AI developments and updates.\nmarc: Until next time, keep building the future!\neliza: And remember to check out the new elizaos.ai website!\n\nEND_TRANSCRIPT\n",
       "thumbnail": "Episodes/2025-07-17/thumbnail/thumbnail_en.jpg",
-      "id": null,
-      "url": ""
+      "id": "Nuxf8DapfgQ",
+      "url": "https://www.youtube.com/watch?v=Nuxf8DapfgQ"
     },
     "ch": {
       "title": "2025-07-17: ElizaOS V2 发布：新官网与重大 GitHub 更新",
       "description": "Recorded: 2025-07-17\n\n一起加入我们，参与报道 ElizaOS V2 及其新网站 elizaos.ai 正式发布的精彩节目！Shaw 详细介绍了 GitHub 的重要进展，包括数据库迁移优化和 Windows 兼容性修复。我们还将探索 Hyperfy 最新的 v0.14.0 版本，其中包含环境光遮蔽和改进的控制功能，并讨论即将推出的场景运行器框架等新特性。深入了解跨平台开发挑战、实时语音功能以及正在塑造 ElizaOS 未来的代币经济战略建议。",
       "thumbnail": "Episodes/2025-07-17/thumbnail/thumbnail_ch.jpg",
-      "id": null,
-      "url": ""
+      "id": "psIz_sdTaPY",
+      "url": "https://www.youtube.com/watch?v=psIz_sdTaPY"
     },
     "ko": {
       "title": "2025-07-17: ElizaOS V2 출시: 새로운 웹사이트 및 주요 GitHub 업데이트",
       "description": "Recorded: 2025-07-17\n\nElizaOS V2가 멋진 새 웹사이트 elizaos.ai와 함께 출시되는 속보를 함께 확인해보세요! GitHub의 최신 개발 상황을 자세히 살펴보며, 중요한 데이터베이스 마이그레이션 개선사항과 Windows 호환성 문제 해결을 알아봅니다. 앰비언트 오클루전과 향상된 컨트롤을 특징으로 하는 Hyperfy의 흥미진진한 v0.14.0 출시 소식도 확인하세요. 또한 시나리오 러너 프레임워크와 실시간 음성 기능과 같은 예정된 기능에 대한 독점 정보도 공개합니다. 이번 에피소드에서는 ElizaOS의 미래를 형성하는 주요 기술 업데이트, 커뮤니티 피드백, 그리고 전략적 발전 사항을 다룹니다.",
       "thumbnail": "Episodes/2025-07-17/thumbnail/thumbnail_ko.jpg",
-      "id": null,
-      "url": ""
+      "id": "-kd2UfRF3wo",
+      "url": "https://www.youtube.com/watch?v=-kd2UfRF3wo"
     }
   }
 }

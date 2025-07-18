@@ -1,10 +1,12 @@
 {
   "video_file": "Episodes/2025-07-17/recordings/2025-07-17_ch.mp4",
-  "title": "2025-07-17: ElizaOS V2 发布：新官网与重大 GitHub 更新",
-  "description": "Recorded: 2025-07-17\n\n一起加入我们，参与报道 ElizaOS V2 及其新网站 elizaos.ai 正式发布的精彩节目！Shaw 详细介绍了 GitHub 的重要进展，包括数据库迁移优化和 Windows 兼容性修复。我们还将探索 Hyperfy 最新的 v0.14.0 版本，其中包含环境光遮蔽和改进的控制功能，并讨论即将推出的场景运行器框架等新特性。深入了解跨平台开发挑战、实时语音功能以及正在塑造 ElizaOS 未来的代币经济战略建议。",
-  "tags": "ElizaOS人工智能开发GitHub更新数据库迁移HyperfyWindows兼容性人工智能平台开发者工具科技新闻区块链代币经济学跨平台elizaosai软件开发人工智能新闻科技播客开源Web3场景运行器命令行工具",
+  "title": "2025-07-17: ElizaOS V2 \u53d1\u5e03\uff1a\u65b0\u5b98\u7f51\u4e0e\u91cd\u5927 GitHub \u66f4\u65b0",
+  "description": "Recorded: 2025-07-17\n\n\u4e00\u8d77\u52a0\u5165\u6211\u4eec\uff0c\u53c2\u4e0e\u62a5\u9053 ElizaOS V2 \u53ca\u5176\u65b0\u7f51\u7ad9 elizaos.ai \u6b63\u5f0f\u53d1\u5e03\u7684\u7cbe\u5f69\u8282\u76ee\uff01Shaw \u8be6\u7ec6\u4ecb\u7ecd\u4e86 GitHub \u7684\u91cd\u8981\u8fdb\u5c55\uff0c\u5305\u62ec\u6570\u636e\u5e93\u8fc1\u79fb\u4f18\u5316\u548c Windows \u517c\u5bb9\u6027\u4fee\u590d\u3002\u6211\u4eec\u8fd8\u5c06\u63a2\u7d22 Hyperfy \u6700\u65b0\u7684 v0.14.0 \u7248\u672c\uff0c\u5176\u4e2d\u5305\u542b\u73af\u5883\u5149\u906e\u853d\u548c\u6539\u8fdb\u7684\u63a7\u5236\u529f\u80fd\uff0c\u5e76\u8ba8\u8bba\u5373\u5c06\u63a8\u51fa\u7684\u573a\u666f\u8fd0\u884c\u5668\u6846\u67b6\u7b49\u65b0\u7279\u6027\u3002\u6df1\u5165\u4e86\u89e3\u8de8\u5e73\u53f0\u5f00\u53d1\u6311\u6218\u3001\u5b9e\u65f6\u8bed\u97f3\u529f\u80fd\u4ee5\u53ca\u6b63\u5728\u5851\u9020 ElizaOS \u672a\u6765\u7684\u4ee3\u5e01\u7ecf\u6d4e\u6218\u7565\u5efa\u8bae\u3002",
+  "tags": "ElizaOS\u4eba\u5de5\u667a\u80fd\u5f00\u53d1GitHub\u66f4\u65b0\u6570\u636e\u5e93\u8fc1\u79fbHyperfyWindows\u517c\u5bb9\u6027\u4eba\u5de5\u667a\u80fd\u5e73\u53f0\u5f00\u53d1\u8005\u5de5\u5177\u79d1\u6280\u65b0\u95fb\u533a\u5757\u94fe\u4ee3\u5e01\u7ecf\u6d4e\u5b66\u8de8\u5e73\u53f0elizaosai\u8f6f\u4ef6\u5f00\u53d1\u4eba\u5de5\u667a\u80fd\u65b0\u95fb\u79d1\u6280\u64ad\u5ba2\u5f00\u6e90Web3\u573a\u666f\u8fd0\u884c\u5668\u547d\u4ee4\u884c\u5de5\u5177",
   "category_id": "22",
   "privacy_status": "unlisted",
   "thumbnail_file": "Episodes/2025-07-17/thumbnail/thumbnail_ch.jpg",
-  "playlist_id": "PLp5K4ceh2pR3EsXoR4E9s8mRVE_ywioJS"
+  "playlist_id": "PLp5K4ceh2pR3EsXoR4E9s8mRVE_ywioJS",
+  "video_id": "psIz_sdTaPY",
+  "url": "https://www.youtube.com/watch?v=psIz_sdTaPY"
 }
