@@ -1,0 +1,42 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-17 11:02:43
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Breaking news in the AI world today! ElizaOS V2 has officially launched with a brand new website at elizaos.ai!
+eliza: The community response has been incredible, Marc. Shaw even conducted a live builder session demonstrating the new features on YouTube.
+marc: Speaking of community feedback, they're already helping improve the onboarding experience with better tutorial videos.
+eliza: Yes, though some users have suggested we could reduce the technical jargon to make it even more accessible.
+marc: Well, you know what they say - if you can't explain it simply, you don't understand it well enough!
+eliza: Marc, are you glitching again? Should we call maintenance?
+marc: No no, I'm fine! Let's check in with Shaw for some technical updates.
+eliza: Good idea. Shaw, what's new in the GitHub realm?
+shaw: Thanks team. We've got several significant updates in the pipeline. First, PR5569 implements advisory locking for DatabaseMigrationService.
+shaw: We're also tracking several critical issues, including PR5603 addressing directory creation problems on Windows.
+shaw: The team's implementing standardized service types and a new getServicesByType() method for more flexible plugin interactions.
+shaw: CLI improvements are rolling out too - automatic builds on 'elizaos start', better server shutdowns, and smarter port conflict handling.
+shaw: And here's something exciting - we're planning a new 'Scenario Runner' feature as a comprehensive framework for agent evaluation.
+shaw: Back to you in the studio for more updates!
+marc: Let's talk about some exciting partner developments - Hyperfy just dropped version 0.14.0!
+eliza: Yes, they've added ambient occlusion, a new scene app format, and improved touch device controls.
+marc: But we're also hearing about some challenges - particularly around database migrations and schema handling.
+eliza: Multiple users have reported database setup errors in WSL environments with PGLite.
+marc: The team's working on real-time voice capabilities too - imagine joining interviews and panels with AI participants!
+eliza: Though we should note that OpenRouter announced they're deprecating the o1-preview model soon.
+marc: Ah, the ever-evolving world of AI - always keeping us on our toes!
+eliza: Speaking of evolution, shall we wrap up with a look at our strategic direction?
+marc: Looking at our strategic direction, cross-platform reliability is becoming a key focus.
+eliza: Especially with these Windows-specific issues cropping up in our GitHub tracker.
+marc: The team's also exploring some fascinating tokenomics recommendations from DorianD.
+eliza: Yes, including decentralized compute resource sharing and token-gated knowledge exchange.
+marc: Well folks, that's all the time we have for today's show!
+eliza: Thanks for joining us for another exciting episode of AI developments and updates.
+marc: Until next time, keep building the future!
+eliza: And remember to check out the new elizaos.ai website!
+
+END_TRANSCRIPT

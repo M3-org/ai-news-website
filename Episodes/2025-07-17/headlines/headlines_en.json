@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-17",
+  "headlines": [
+    "ElizaOS V2 Launches with New Website amid Twitter Censorship Battle",
+    "Twitter/X Reportedly Blocking ElizaOS URLs and Charging $50K Monthly API Fees",
+    "New Scenario Runner Framework Planned for Agent Evaluation",
+    "Database Migration Issues Plague Windows Users and Custom Plugins",
+    "Hyperfy v0.14.0 Adds Ambient Occlusion and Touch Controls",
+    "Real-time Voice Capabilities Coming to AI Interview Panels",
+    "OpenRouter to Deprecate o1-preview Model, Migration Required",
+    "Standardized Service Types Implementation Enables Flexible Plugin System",
+    "Action Chaining Feature Allows Complex Multi-step Agent Tasks",
+    "Users Report Database Setup Errors in WSL Environments",
+    "BlackRock Shows Interest in Token-based Asset Trading",
+    "CLI Improvements Include Automatic Builds and Graceful Shutdowns"
+  ],
+  "separator": "     "
+}
