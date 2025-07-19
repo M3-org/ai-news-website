@@ -1,0 +1,19 @@
+{
+  "language": "ch",
+  "date": "2025-07-18",
+  "headlines": [
+    "Twitter暂停ElizaOS账号，原因是每月60万美元的API费用要求",
+    "ElizaOS 迁移到 Bun 的原生 EventTarget API 以提升性能",
+    "NPM软件包安装的关键插件操作修复已部署",
+    "标准化服务类型系统改进核心运行时模块化程度",
+    "WebSocket API 实现与文档相冲突，需要修复",
+    "Windows路径处理问题影响CLI代理兼容性",
+    "插件引导系统从JSON格式转换为XML格式",
+    "移动应用开发缺口被确定为社区优先事项",
+    "MessageBusService缓存问题影响代理通信",
+    "UI全面改版，使其与平台上的新Figma设计保持一致",
+    "API文档中的技术债阻碍了开发者采纳速度",
+    "CLI稳定化工作提升了跨平台兼容性"
+  ],
+  "separator": "     "
+}

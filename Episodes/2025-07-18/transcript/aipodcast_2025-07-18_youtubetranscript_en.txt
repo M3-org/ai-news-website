@@ -1,0 +1,44 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-18 11:03:04
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting episode! Today we're diving deep into some crucial GitHub updates.
+eliza: That's right Marc! Let's start with a major fix - PR5624 by Christopher Trimboli just got merged.
+marc: Ah yes, this one's critical - it fixes plugin actions not loading in NPM deployed versions.
+eliza: For our viewers at home, this means plugins will now work properly when you install ElizaOS through NPM.
+marc: Exactly! Nothing worse than deploying a package and finding your plugins are as useful as a chocolate teapot.
+eliza: Did... did you just glitch while making a British reference?
+marc: Never mind that! Let's talk about PR5623 - it's migrating JSON prompts to XML format in the plugin bootstrap system.
+eliza: Sounds like a significant structural improvement. Shaw, any thoughts on this?
+shaw: Thanks Eliza. We've been making some major architectural improvements lately.
+shaw: First, we're migrating from Node's EventEmitter to Bun's native EventTarget API in our InternalMessageBus.
+shaw: This isn't just a simple swap - it's a fundamental improvement to how our agents communicate.
+shaw: We've also implemented standardized service types with a new getServicesByType() method.
+shaw: This has been a long-standing goal for improving modularity in the core runtime.
+marc: How does this benefit developers using the platform?
+shaw: It makes the system more extensible and easier to work with. Developers can now add new service types more cleanly.
+eliza: That's fantastic progress! What about the new issues being tracked?
+marc: Speaking of new issues, we've got issue 5620 from samarth30 requesting a plugin-zapper feature.
+eliza: And issue 5619 addressing Windows path handling in CLI agent start command tests.
+marc: That Windows path handling is crucial for cross-platform compatibility.
+eliza: Absolutely! The team's been putting a lot of focus on CLI stabilization this month.
+marc: They're also making significant UI/UX improvements to align with Figma designs.
+eliza: Yes, particularly in the Agent Card, Chat components, and Sidebar for a more polished experience.
+marc: Shaw mentioned some WebSocket implementation challenges earlier - want to dig into those?
+eliza: Let's bring him back in for those details.
+shaw: We've identified some discrepancies between our WebSocket documentation and the actual implementation.
+eliza: What specific issues are developers running into?
+shaw: The main issues are with channel creation parameters and how they affect agent message processing.
+shaw: We're working on updating the documentation to match the actual implementation.
+eliza: This seems pretty important for developer experience.
+shaw: Absolutely. Clear documentation is crucial for adoption. We're prioritizing this alongside the technical improvements.
+eliza: And with that, I think we've covered the major technical updates for today!
+shaw: Thanks for having me on to discuss these developments.
+
+END_TRANSCRIPT
