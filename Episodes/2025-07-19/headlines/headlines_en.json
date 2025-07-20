@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-19",
+  "headlines": [
+    "53 ElizaOS Projects Move from MVP to Production Status",
+    "ElizaOS Twitter Accounts Suspended for Over a Month",
+    "Framework Migrates to Bun's EventTarget API for Enhanced Performance",
+    "ModuleLoader Updated with Local-First Module Resolution Guarantees",
+    "CLI Now Makes API Keys Optional During Project Creation",
+    "Database Inheritance Bug Fixed for Nested Project Creation",
+    "Twitter Plugin Database Error Resolved in Version 1.2.17",
+    "Wintermute Whale Wallets Reportedly Hold 7% of EDDY Tokens",
+    "Project Positions as Largest Agentic Framework in Crypto x AI",
+    "Community Requests Official ElizaOS Docker Image",
+    "Core Architecture Modernization Effort Underway",
+    "Multiple Token Ecosystem Emerges with AI16Z, DEGENAI, ELIZA Tokens"
+  ],
+  "separator": "     "
+}

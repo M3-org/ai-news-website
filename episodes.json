@@ -545,5 +545,28 @@
       "id": "XdT7BPZtbbU",
       "url": "https://www.youtube.com/watch?v=XdT7BPZtbbU"
     }
+  },
+  "2025-07-19": {
+    "en": {
+      "title": "2025-07-19: 53 ElizaOS Projects Hit Production & Major GitHub...",
+      "description": "Recorded: 2025-07-19\n\nExciting developments in the ElizaOS ecosystem as 53 projects move from MVP to production status, making it the largest agentic framework in crypto x AI. This episode covers significant GitHub updates including ModuleLoader enhancements (PR5629), version 1.2.12 release, and core architecture improvements. Marc and Eliza discuss ongoing development efforts, including optional API keys implementation and CLI improvements, plus potential academic partnerships with MIT and Stanford. Get the latest on technical improvements, ecosystem growth, and community developments in the world's leading autonomous agent framework.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-19 11:03:10\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode! Today we've got some major developments to cover in the elizaOS ecosystem.\neliza: That's right Marc! The biggest news is that 53 projects have moved from MVP to production status, making elizaOS the largest agentic framework in the crypto and AI space.\nmarc: This is a massive milestone for the ecosystem. Each of these projects represents real-world applications of autonomous agent technology.\neliza: And speaking of development, there's been significant activity in the GitHub repository with multiple important PRs merged this week.\nmarc: Let's bring in Shaw for a detailed look at those technical updates. Shaw, what's new in the codebase?\nshaw: Thanks Marc. We've had several significant PRs merged this week. First up is PR5630, which brings us to version 1.2.12.\nshaw: But the real meat is in PR5629, which enhances our ModuleLoader with local-first guarantees for consistent module resolution.\nmarc: Can you break down what that means for developers?\nshaw: Essentially, it ensures that modules are always loaded consistently, prioritizing local versions first. This is crucial for maintaining stable behavior across different environments.\nshaw: We also merged PR5618 from yungalgo, fixing an important bug where nested projects were incorrectly inheriting parent database settings.\neliza: These changes seem focused on improving developer experience and system reliability.\nshaw: Exactly. We're also modernizing our core architecture by migrating from Node.js's EventEmitter to Bun's native EventTarget API for better performance and type safety.\nmarc: Thanks Shaw, we'll come back to you for more technical insights later.\nmarc: Let's talk about some of the ongoing development work. There are several interesting PRs still open.\neliza: Indeed! PR5634 from ai16z-demirix is working on making API keys optional during project creation - that's going to make getting started much easier.\nmarc: And PR5622 adds a warning when running from a monorepo environment. These quality-of-life improvements really add up.\neliza: There's also PR5628 addressing JSON string handling in the SQL base. The attention to detail in these fixes is impressive.\nmarc: The community has been quite active too - we've seen 13 contributors participating in recent development.\neliza: And let's not forget the tech support wins - version 1.2.17 fixed that Twitter plugin database issue that some users were experiencing.\nmarc: There's been some exciting discussion about potential partnerships with major academic institutions.\neliza: Yes, both MIT and Stanford were mentioned in recent community discussions. This could really accelerate research and development.\nmarc: Speaking of the community, there's been some fascinating discussion about sovereign agents and stablecoin security in the partners channel.\neliza: The community's technical discourse keeps getting deeper. Did you see the historical discussion about Tether's development on the Mastercoin protocol?\nmarc: Well folks, that wraps up another exciting episode of our show. Keep building, keep shipping, and we'll see you next time!\neliza: Thanks for watching everyone! Don't forget to check out the GitHub repository to stay up to date with all the latest developments.\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-19/thumbnail/thumbnail_en.jpg",
+      "id": "nVtngQ8yDxU",
+      "url": "https://www.youtube.com/watch?v=nVtngQ8yDxU"
+    },
+    "ch": {
+      "title": "2025-07-19: 53个ElizaOS项目投入生产：GitHub重大更新",
+      "description": "Recorded: 2025-07-19\n\n加入马克和伊丽莎的讨论，共同见证ElizaOS生态系统的重要里程碑：53个项目已升级至生产环境。了解重要的GitHub更新，包括ModuleLoader的增强功能（PR5629）、1.2.12版本发布，以及框架的持续改进。探索新功能，如可选API密钥、命令行界面改进，以及与麻省理工和斯坦福潜在的学术合作。本期节目将介绍全球最大的结合加密和人工智能的代理框架在技术发展和社区成长方面的最新进展。",
+      "thumbnail": "Episodes/2025-07-19/thumbnail/thumbnail_ch.jpg",
+      "id": "IMrruH9efqg",
+      "url": "https://www.youtube.com/watch?v=IMrruH9efqg"
+    },
+    "ko": {
+      "title": "2025-07-19: 53개의 ElizaOS 프로젝트가 프로덕션 단계에 진입하고 깃허브 주요 업데이트 진행",
+      "description": "Recorded: 2025-07-19\n\nElizaOS 생태계에서 53개의 프로젝트가 MVP에서 프로덕션 단계로 전환되면서 암호화폐 x AI 분야에서 가장 큰 에이전트 프레임워크로 자리매김했습니다. 이번 에피소드에서는 ModuleLoader 개선(PR5629), 버전 1.2.12 출시, 핵심 아키텍처 개선을 포함한 주요 GitHub 업데이트를 다룹니다. Marc와 Eliza는 선택적 API 키 구현과 CLI 개선, MIT 및 스탠포드와의 잠재적 학술 파트너십을 포함한 진행 중인 개발 노력에 대해 논의합니다. 세계 최고의 자율 에이전트 프레임워크의 기술적 개선, 생태계 성장, 커뮤니티 발전에 대한 최신 소식을 확인하세요.",
+      "thumbnail": "Episodes/2025-07-19/thumbnail/thumbnail_ko.jpg",
+      "id": "f5PpXCMaZ2A",
+      "url": "https://www.youtube.com/watch?v=f5PpXCMaZ2A"
+    }
   }
 }
