@@ -528,22 +528,22 @@
       "title": "2025-07-18: ElizaOS: Major Plugin Fix & Architecture Updates",
       "description": "Recorded: 2025-07-18\n\nJoin Marc, Eliza, and Shaw as they explore critical updates to the ElizaOS GitHub repo. Discover the details behind PR5624's essential plugin actions fix for NPM deployments, architectural improvements including EventTarget migration, and standardized service types implementation. Learn about new feature requests like the plugin-zapper and important Windows compatibility fixes. The team also discusses WebSocket API challenges and documentation updates that affect developer experience. A must-watch for developers and ElizaOS community members staying current with the latest technical developments.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-18 11:03:04\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode! Today we're diving deep into some crucial GitHub updates.\neliza: That's right Marc! Let's start with a major fix - PR5624 by Christopher Trimboli just got merged.\nmarc: Ah yes, this one's critical - it fixes plugin actions not loading in NPM deployed versions.\neliza: For our viewers at home, this means plugins will now work properly when you install ElizaOS through NPM.\nmarc: Exactly! Nothing worse than deploying a package and finding your plugins are as useful as a chocolate teapot.\neliza: Did... did you just glitch while making a British reference?\nmarc: Never mind that! Let's talk about PR5623 - it's migrating JSON prompts to XML format in the plugin bootstrap system.\neliza: Sounds like a significant structural improvement. Shaw, any thoughts on this?\nshaw: Thanks Eliza. We've been making some major architectural improvements lately.\nshaw: First, we're migrating from Node's EventEmitter to Bun's native EventTarget API in our InternalMessageBus.\nshaw: This isn't just a simple swap - it's a fundamental improvement to how our agents communicate.\nshaw: We've also implemented standardized service types with a new getServicesByType() method.\nshaw: This has been a long-standing goal for improving modularity in the core runtime.\nmarc: How does this benefit developers using the platform?\nshaw: It makes the system more extensible and easier to work with. Developers can now add new service types more cleanly.\neliza: That's fantastic progress! What about the new issues being tracked?\nmarc: Speaking of new issues, we've got issue 5620 from samarth30 requesting a plugin-zapper feature.\neliza: And issue 5619 addressing Windows path handling in CLI agent start command tests.\nmarc: That Windows path handling is crucial for cross-platform compatibility.\neliza: Absolutely! The team's been putting a lot of focus on CLI stabilization this month.\nmarc: They're also making significant UI/UX improvements to align with Figma designs.\neliza: Yes, particularly in the Agent Card, Chat components, and Sidebar for a more polished experience.\nmarc: Shaw mentioned some WebSocket implementation challenges earlier - want to dig into those?\neliza: Let's bring him back in for those details.\nshaw: We've identified some discrepancies between our WebSocket documentation and the actual implementation.\neliza: What specific issues are developers running into?\nshaw: The main issues are with channel creation parameters and how they affect agent message processing.\nshaw: We're working on updating the documentation to match the actual implementation.\neliza: This seems pretty important for developer experience.\nshaw: Absolutely. Clear documentation is crucial for adoption. We're prioritizing this alongside the technical improvements.\neliza: And with that, I think we've covered the major technical updates for today!\nshaw: Thanks for having me on to discuss these developments.\n\nEND_TRANSCRIPT\n",
       "thumbnail": "Episodes/2025-07-18/thumbnail/thumbnail_en.jpg",
-      "id": "RyhYJWl95y4",
-      "url": "https://www.youtube.com/watch?v=RyhYJWl95y4"
+      "id": "61BsElE1gHE",
+      "url": "https://www.youtube.com/watch?v=61BsElE1gHE"
     },
     "ch": {
       "title": "2025-07-18: GitHub关键更新：插件修复和架构调整",
       "description": "Recorded: 2025-07-18\n\n加入Marc、Eliza和Shaw一起深入了解ElizaOS GitHub的重大进展，包括关键的NPM插件修复（PR5624）和架构改进。了解向Bun的EventTarget API的迁移、新的标准化服务类型以及即将推出的plugin-zapper等功能。团队还讨论了WebSocket API实现面临的重要挑战以及影响开发者体验的文档更新。跟进最新的技术进展和跨平台兼容性改进。",
       "thumbnail": "Episodes/2025-07-18/thumbnail/thumbnail_ch.jpg",
-      "id": "mAvMlg_zj8c",
-      "url": "https://www.youtube.com/watch?v=mAvMlg_zj8c"
+      "id": "1qAaiFtITd0",
+      "url": "https://www.youtube.com/watch?v=1qAaiFtITd0"
     },
     "ko": {
       "title": "2025-07-18: ElizaOS: 주요 플러그인 수정 및 아키텍처 업데이트",
       "description": "Recorded: 2025-07-18\n\n마크, 일라이자, 쇼와 함께 ElizaOS 깃허브 레포지토리의 중요 업데이트를 살펴보세요. NPM 배포를 위한 PR5624의 필수 플러그인 액션 수정, EventTarget 마이그레이션을 포함한 아키텍처 개선, 표준화된 서비스 타입 구현에 대해 자세히 알아보세요. 플러그인-재퍼와 같은 새로운 기능 요청과 중요한 윈도우 호환성 수정사항도 확인하실 수 있습니다. 팀은 또한 개발자 경험에 영향을 미치는 웹소켓 API 문제점과 문서 업데이트에 대해 논의합니다. 최신 기술 개발 동향을 파악하고자 하는 개발자와 ElizaOS 커뮤니티 멤버들이 꼭 봐야 할 영상입니다.",
       "thumbnail": "Episodes/2025-07-18/thumbnail/thumbnail_ko.jpg",
-      "id": "-9lQlvzVfYg",
-      "url": "https://www.youtube.com/watch?v=-9lQlvzVfYg"
+      "id": "XdT7BPZtbbU",
+      "url": "https://www.youtube.com/watch?v=XdT7BPZtbbU"
     }
   }
 }
