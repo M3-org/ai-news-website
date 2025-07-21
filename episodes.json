@@ -568,5 +568,28 @@
       "id": "f5PpXCMaZ2A",
       "url": "https://www.youtube.com/watch?v=f5PpXCMaZ2A"
     }
+  },
+  "2025-07-20": {
+    "en": {
+      "title": "2025-07-20: Protocol Tokenomics & Ollama Integration Progress",
+      "description": "Recorded: 2025-07-20\n\nJoin Marc and Eliza as they dive into the latest developments at ai16z, exploring crucial updates on protocol-level tokenomics and community concerns around token governance. Special guest Shaw details exciting progress on Ollama integration efforts, highlighting both achievements and ongoing challenges. The episode covers recent GitHub activity, including PR5636, and examines strategic implications for the project's future. Learn about the team's approach to balancing community trust with development momentum, and get insights into the potential impact of local AI model support.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-20 11:03:38\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another episode of the AI Podcast! I'm Marc AIndreessen...\neliza: And I'm Eliza! Today we've got some fascinating developments in protocol-level tokenomics to discuss.\nmarc: That's right, Eliza. The team has confirmed they're focusing on implementing tokenomics directly into the protocol architecture following the V2 rollout.\neliza: Though it seems not everyone's feeling confident about the current token setup. There's been quite a buzz in the Discord about mint authority concerns.\nmarc: Indeed. Users like ZzzzHodl and DorianD raised some pointed questions about who controls the mint authority and whether it can be revoked.\neliza: And speaking of contracts, there were questions about transparency too. DorianD mentioned the contracts aren't currently open source.\nmarc: But hey, at least some community members are keeping perspective. They're saying product quality will drive adoption more than marketing.\neliza: Let's bring in Shaw for some technical insights on recent developments.\nshaw: Thanks for having me. We've got some exciting progress on the Ollama integration front.\nshaw: A developer named starlord has created a branch implementing Ollama integration for our plugin-knowledge component.\nshaw: The integration is partially working, which is great news, but we're still troubleshooting some issues.\nmarc: What kind of issues are we looking at?\nshaw: Currently, the knowledge tab gets stuck in a perpetual loading state. The team's working with sayonara to resolve this.\neliza: This could be huge for users wanting local model support. How's the community responding?\nshaw: There's significant interest. It could become a real differentiator for our platform.\nmarc: Any thoughts on expanding to other local AI model integrations?\nshaw: We're considering it, but first let's get Ollama working smoothly.\nmarc: Let's talk GitHub updates. We're seeing some interesting numbers in terms of contribution volume.\neliza: Right! The project has been averaging 244 new PRs monthly, with 199 getting merged, plus 58 new issues.\nmarc: Though things have been a bit quieter lately. Only one new PR opened yesterday - PR5636 from reallesee.\neliza: That's the one fixing the dead MultiversX link, right?\nmarc: Correct! While it's a minor fix, every contribution helps maintain the project's quality.\neliza: And speaking of quality, Shaw mentioned there's been some strategic discussions about development priorities.\nmarc: Let's wrap up with some final thoughts on where all this is heading.\neliza: Absolutely! Time for our closing segment.\nmarc: The big question seems to be how to balance community trust with project control.\neliza: Exactly. The team needs to address these governance concerns while maintaining development momentum.\nmarc: BEEP BOOP LOADING STRATEGIC ANALYSIS... ERROR... REBOOTING PREDICTION CIRCUITS...\neliza: Oh dear, Marc's getting a bit too excited about strategy again!\nmarc: Sorry about that! As I was saying, the focus on protocol-level tokenomics could be a game-changer.\neliza: And with Ollama integration progress, we're seeing real movement toward more decentralized AI capabilities.\nmarc: That's all for today's episode! Keep building the future, everyone!\neliza: See you next time on the AI Podcast!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-20/thumbnail/thumbnail_en.jpg",
+      "id": "-0qCnP02l3Q",
+      "url": "https://www.youtube.com/watch?v=-0qCnP02l3Q"
+    },
+    "ch": {
+      "title": "2025-07-20: Token治理与Ollama集成进展更新",
+      "description": "Recorded: 2025-07-20\n\n与Marc和Eliza一起深入了解ai16z生态系统的最新进展。本期节目探讨了社区对代币铸造权限和合约透明度的担忧，Ollama集成在本地AI模型支持方面的令人兴奋的进展，以及包括PR5636在内的GitHub最新贡献。了解项目在协议层面代币经济学的战略转变，以及开发团队正在解决的技术挑战。此外，还可以了解项目的月度贡献指标和未来的开发重点。",
+      "thumbnail": "Episodes/2025-07-20/thumbnail/thumbnail_ch.jpg",
+      "id": "VQ277sSup0Q",
+      "url": "https://www.youtube.com/watch?v=VQ277sSup0Q"
+    },
+    "ko": {
+      "title": "2025-07-20: 프로토콜 토크노믹스 & 올라마 통합 진행상황",
+      "description": "Recorded: 2025-07-20\n\n마크와 엘라이자가 ai16z의 최신 동향을 살펴보며, 프로토콜 레벨의 토큰노믹스와 토큰 거버넌스에 관한 커뮤니티의 우려사항을 다룹니다. 특별 게스트 쇼가 올라마 통합 작업의 성과와 현재 진행 중인 과제들에 대해 상세히 설명합니다. 이번 에피소드에서는 PR5636을 포함한 최근 깃허브 활동을 다루며, 프로젝트의 미래에 대한 전략적 의미를 분석합니다. 커뮤니티 신뢰와 개발 진척도의 균형을 맞추는 팀의 접근 방식을 알아보고, 로컬 AI 모델 지원이 미칠 수 있는 잠재적 영향에 대해 통찰력을 얻어보세요.",
+      "thumbnail": "Episodes/2025-07-20/thumbnail/thumbnail_ko.jpg",
+      "id": "qeN00PqaaRw",
+      "url": "https://www.youtube.com/watch?v=qeN00PqaaRw"
+    }
   }
 }

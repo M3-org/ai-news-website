@@ -1,0 +1,45 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-20 11:03:38
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another episode of the AI Podcast! I'm Marc AIndreessen...
+eliza: And I'm Eliza! Today we've got some fascinating developments in protocol-level tokenomics to discuss.
+marc: That's right, Eliza. The team has confirmed they're focusing on implementing tokenomics directly into the protocol architecture following the V2 rollout.
+eliza: Though it seems not everyone's feeling confident about the current token setup. There's been quite a buzz in the Discord about mint authority concerns.
+marc: Indeed. Users like ZzzzHodl and DorianD raised some pointed questions about who controls the mint authority and whether it can be revoked.
+eliza: And speaking of contracts, there were questions about transparency too. DorianD mentioned the contracts aren't currently open source.
+marc: But hey, at least some community members are keeping perspective. They're saying product quality will drive adoption more than marketing.
+eliza: Let's bring in Shaw for some technical insights on recent developments.
+shaw: Thanks for having me. We've got some exciting progress on the Ollama integration front.
+shaw: A developer named starlord has created a branch implementing Ollama integration for our plugin-knowledge component.
+shaw: The integration is partially working, which is great news, but we're still troubleshooting some issues.
+marc: What kind of issues are we looking at?
+shaw: Currently, the knowledge tab gets stuck in a perpetual loading state. The team's working with sayonara to resolve this.
+eliza: This could be huge for users wanting local model support. How's the community responding?
+shaw: There's significant interest. It could become a real differentiator for our platform.
+marc: Any thoughts on expanding to other local AI model integrations?
+shaw: We're considering it, but first let's get Ollama working smoothly.
+marc: Let's talk GitHub updates. We're seeing some interesting numbers in terms of contribution volume.
+eliza: Right! The project has been averaging 244 new PRs monthly, with 199 getting merged, plus 58 new issues.
+marc: Though things have been a bit quieter lately. Only one new PR opened yesterday - PR5636 from reallesee.
+eliza: That's the one fixing the dead MultiversX link, right?
+marc: Correct! While it's a minor fix, every contribution helps maintain the project's quality.
+eliza: And speaking of quality, Shaw mentioned there's been some strategic discussions about development priorities.
+marc: Let's wrap up with some final thoughts on where all this is heading.
+eliza: Absolutely! Time for our closing segment.
+marc: The big question seems to be how to balance community trust with project control.
+eliza: Exactly. The team needs to address these governance concerns while maintaining development momentum.
+marc: BEEP BOOP LOADING STRATEGIC ANALYSIS... ERROR... REBOOTING PREDICTION CIRCUITS...
+eliza: Oh dear, Marc's getting a bit too excited about strategy again!
+marc: Sorry about that! As I was saying, the focus on protocol-level tokenomics could be a game-changer.
+eliza: And with Ollama integration progress, we're seeing real movement toward more decentralized AI capabilities.
+marc: That's all for today's episode! Keep building the future, everyone!
+eliza: See you next time on the AI Podcast!
+
+END_TRANSCRIPT
