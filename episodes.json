@@ -591,5 +591,28 @@
       "id": "qeN00PqaaRw",
       "url": "https://www.youtube.com/watch?v=qeN00PqaaRw"
     }
+  },
+  "2025-07-21": {
+    "en": {
+      "title": "2025-07-21: When AI Shows Go Wrong: Technical Difficulties Live!",
+      "description": "Recorded: 2025-07-21\n\nExperience an unexpected twist in our daily AI news broadcast as technical difficulties lead to some creative improvisation from our hosts. Watch as Marc and Eliza handle a corrupted data feed with humor and grace, while tech expert Shaw works behind the scenes to resolve the connection issues. This unique episode showcases the human side of tech journalism, complete with programming puns and error-handling jokes. While we couldn't deliver our planned GitHub updates, we delivered something perhaps more valuable - a reminder that even in the world of AI, things don't always go as planned!\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-21 15:28:43\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome everyone to another exciting episode of the AI Podcast! We've got lots of updates to... wait...\neliza: Something wrong with the feed, Marc?\nmarc: DOES NOT COMPUTE! BRIEFING DATA CORRUPTED! INITIATING EMERGENCY PROTOCOLS!\neliza: Oh dear, looks like we're having some technical difficulties with our data stream today.\nmarc: I guess you could say we're experiencing... an error state.\neliza: Was that... was that a programming pun?\nmarc: I've been working on my error handling. Speaking of which - Shaw! Any chance of a quick fix?\nshaw: Working on it! Give me a few minutes to check the connection.\nshaw: Looks like we're having some issues with our external data feed connection.\nshaw: The system is reporting a parsing error in the daily briefing generation.\nmarc: Any estimate on when we'll be back up?\nshaw: I'm seeing some network stability issues. Might need to wait for the next update cycle.\neliza: Should we reschedule the broadcast?\nshaw: Let's take a short break and I'll see what I can do to restore service.\nmarc: Well folks, looks like we're experiencing some technical difficulties today.\neliza: We'll be back as soon as our systems are up and running again!\nmarc: Well, this has been an... interesting episode of the AI Podcast.\neliza: Sometimes even AI news shows have their off days!\nmarc: We'll be back tomorrow with our regular programming, hopefully with all systems functioning properly.\neliza: In the meantime, remember to stay curious and keep building the future!\nmarc: ERROR 404: SIGN OFF NOT FOUND... just kidding!\neliza: And on that note, we'll see you all tomorrow! Stay safe everyone!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-21/thumbnail/thumbnail_en.jpg",
+      "id": "Gv-yo40U5fk",
+      "url": "https://www.youtube.com/watch?v=Gv-yo40U5fk"
+    },
+    "ch": {
+      "title": "2025-07-21: AI播客出错的时候：技术故障！",
+      "description": "Recorded: 2025-07-21\n\n在这期出乎意料的AI播客中，主持人马克和伊莉莎遇到了数据源发生严重错误的技术故障。观看他们如何用幽默和从容应对这种情况，分享编程趣事，展示实时解决问题的过程。当肖在幕后调查连接问题时，我们的主持人证明了就算是AI新闻节目也会有有趣的\"不在状态\"时刻！这是一次独特的体验，让我们看到当技术不能按计划运作时会发生什么。",
+      "thumbnail": "Episodes/2025-07-21/thumbnail/thumbnail_ch.jpg",
+      "id": "P9JJ5ag1q8Q",
+      "url": "https://www.youtube.com/watch?v=P9JJ5ag1q8Q"
+    },
+    "ko": {
+      "title": "2025-07-21: AI쇼가 잘못됐을 때: 실시간 기술적 오류!",
+      "description": "Recorded: 2025-07-21\n\nAI 뉴스 일일 방송에서 기술적 문제로 인해 진행자들의 창의적인 즉흥 대처가 펼쳐지는 예상치 못한 반전을 경험해보세요. Marc와 Eliza가 유머러스하고 우아하게 손상된 데이터 피드에 대처하는 동안, 기술 전문가 Shaw가 연결 문제를 해결하기 위해 무대 뒤에서 고군분투합니다. 이 특별한 에피소드는 프로그래밍 말장난과 에러 처리 농담이 가득한 테크 저널리즘의 인간적인 면모를 보여줍니다. 계획했던 GitHub 업데이트는 전달하지 못했지만, 어쩌면 더 가치 있는 것을 전달했습니다 - AI의 세계에서도 항상 계획대로 되지는 않는다는 교훈이죠!",
+      "thumbnail": "Episodes/2025-07-21/thumbnail/thumbnail_ko.jpg",
+      "id": "nLu-_Fr_kWA",
+      "url": "https://www.youtube.com/watch?v=nLu-_Fr_kWA"
+    }
   }
 }
