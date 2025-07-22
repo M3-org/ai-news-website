@@ -49,8 +49,19 @@ python3 scripts/update_website.py --episode-date "$EPISODE_DATE"
 
 # Commit and push
 echo "Committing changes..."
+echo "=== SSH Debug Info ==="
+echo "SSH_AUTH_SOCK: ${SSH_AUTH_SOCK:-not set}"
+echo "SSH Agent status:"
+ssh-add -l || echo "No SSH agent or no keys loaded"
+echo "Testing GitHub SSH:"
+ssh -T git@github.com || echo "GitHub SSH test failed with code $?"
+echo "Git SSH config:"
+git config --get core.sshCommand || echo "No core.sshCommand set"
+echo "======================"
+
 git add episodes.json "Episodes/${EPISODE_DATE}/"
 git commit -m "automated update site" || echo "No changes to commit"
-git push
+echo "Attempting git push..."
+git push || echo "Git push failed with code $?"
 
 echo "✅ Episode $EPISODE_DATE completed!"
