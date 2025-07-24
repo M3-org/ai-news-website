@@ -1,0 +1,17 @@
+{
+  "language": "en",
+  "date": "2025-07-23",
+  "headlines": [
+    "Security fix prevents command injection in bunExec parameters",
+    "New plugin-composio emerges as 'MCP killer' alternative",
+    "Qwen3-Coder 480B model now available via OpenRouter",
+    "ElizaOS plans mobile development based on Solana platform",
+    "Multiple instructional videos in production for user onboarding",
+    "ELI5 token launching V2 and startup incubator this week",
+    "Local LLM integration struggles highlight documentation gaps",
+    "Google API integration issues causing agent response failures",
+    "Custom Telegram buttons planned for blockchain transactions",
+    "Web3 plugin debugging efforts intensify across platform"
+  ],
+  "separator": "     "
+}

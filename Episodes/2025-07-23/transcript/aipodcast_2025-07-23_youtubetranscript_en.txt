@@ -1,0 +1,45 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-23 11:02:51
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to the daily AI roundup! Today we've got some serious security updates to cover.
+eliza: That's right Marc. Developer wtfsayo has been on fire with four critical PRs merged today.
+marc: The most notable being PR5663, which adds validation for the bunExec parameter to prevent potential command injection attacks.
+eliza: Security first! They also fixed undefined model handling in PR5660 and corrected dataset paths in PR5662.
+marc: Speaking of which, PR5661 cleaned up some double escaping issues in bunExec prompts. Much needed housekeeping there.
+eliza: These fixes really show how seriously the team takes security and stability. Shaw, what's your take on these updates?
+shaw: These fixes are crucial for our ecosystem's security. The parameter validation in PR5663 prevents malicious actors from injecting unauthorized commands.
+shaw: Combined with PR5660's undefined model handling, we're seeing a robust approach to preventing potential exploits.
+shaw: The dataset path correction in PR5662 ensures smooth HuggingFace uploads, which is essential for our community's model sharing capabilities.
+shaw: And the prompt formatting fix? That's going to make a huge difference in response quality.
+marc: Sounds like a solid foundation for future development. What's next on the horizon?
+shaw: Well, we've got some exciting developments with Ollama plugin integration for local LLMs that I think everyone will love.
+shaw: Back to you at the desk!
+marc: Education is clearly a priority - we've got three new issues opened for creating instructional videos!
+eliza: Yes! Issues 5666 through 5668 are all about helping new users get started with agents and characters.
+marc: Starting with the basics in 'Getting Started Right - CLI vs Monorepo' and moving up to multiple agents...
+eliza: Marc! Are you okay? Do we need to run a diagnostic?
+marc: Just excited about educational content! Nothing beats good documentation.
+eliza: Speaking of exciting developments, there's been quite a buzz about plugin integration in the Discord channels.
+marc: Let's dive into that next - Shaw has some interesting insights about the new plugin-composio tool.
+shaw: The new plugin-composio is being called an 'MCP killer' - it's revolutionizing how we handle model context.
+eliza: And there's big news about Qwen3-Coder availability too, right?
+shaw: Absolutely! We now have access to a 480B parameter coding model through OpenRouter.
+eliza: That's massive! How will this impact development workflows?
+shaw: Combined with our local LLM support through Ollama, developers now have unprecedented flexibility in choosing their model stack.
+eliza: These are exciting times for ElizaOS development!
+shaw: Indeed! And with the new security improvements, we're building on solid ground.
+marc: What a packed day of updates! From security fixes to new model integrations.
+eliza: And don't forget those upcoming educational videos - they're going to make a huge difference for new users.
+marc: Absolutely! The community's really stepping up to make ElizaOS more accessible.
+eliza: That's what I love about this project - it's not just about the code, it's about the people.
+marc: Speaking of people, huge thanks to wtfsayo for those critical security fixes!
+eliza: And that's all for today's update! Keep building, keep learning, and we'll see you tomorrow!
+
+END_TRANSCRIPT
