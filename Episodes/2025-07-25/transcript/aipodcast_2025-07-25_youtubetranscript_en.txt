@@ -1,0 +1,50 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-07-25 11:03:38
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to the AI Show! Today we've got some interesting GitHub updates to cover.
+eliza: That's right Marc! Let's start with a crucial fix that came in through PR5675 from ChristopherTrimboli.
+marc: Ah yes, the missing gitignore files in the plugin starter. This is actually more important than it might sound at first.
+eliza: Exactly! Without proper gitignore files, developers might accidentally commit sensitive data like environment variables.
+marc: And nobody wants their API keys floating around on GitHub! Good catch by Christopher there.
+eliza: We should also mention sentdeed's contribution with PR5674, fixing a spelling error in the plugin-starter.
+marc: Every little improvement counts! Clean code is readable code.
+eliza: Let's bring in Shaw for some technical perspective on these updates.
+shaw: We've got an interesting issue opened by lalalune - PR5673 proposes replacing pino with adze as our logging library.
+eliza: What's driving that proposal, Shaw?
+shaw: We're seeing some errors in export builds from Bun specifically related to pino-pretty.
+eliza: And adze would solve those issues?
+shaw: That's the hypothesis. It's a more modern logging solution that might play better with Bun's architecture.
+eliza: Seems like a solid optimization for our build process.
+shaw: We're also tracking issue 5676 from borisudovicic about DevRel agent documentation.
+eliza: Thanks Shaw, let's check in with Marc about some community feedback.
+marc: There's been some heated discussion in our community about blockchain integration.
+eliza: Yes, particularly around character file storage and memory systems.
+marc: Some users feel we should be storing more data on-chain.
+eliza: Whoa, you okay there Marc?
+marc: Just a minor glitch! As I was saying, it's about finding the right balance between decentralization and functionality.
+eliza: True, and there's also discussion about implementing more token utility features.
+marc: The community has been quite vocal about wanting clearer tokenomics implementation.
+eliza: Let's bring Shaw back in to discuss some technical developments in the works.
+shaw: We're actively working on improving socket communication between ElizaOS and external services.
+eliza: And I hear there's progress on Windows compatibility?
+shaw: Yes, specifically with the knowledge plugin. It's been a priority issue.
+eliza: That should make a lot of Windows users happy!
+shaw: We're also implementing better room creation for services and addressing authentication challenges.
+eliza: Sounds like solid progress on the technical front.
+shaw: Indeed. Every PR brings us closer to a more stable and feature-complete system.
+eliza: Let's wrap things up with Marc for our closing thoughts.
+marc: What a productive development cycle we've had!
+eliza: Between the merged PRs and the ongoing technical improvements, there's a lot to be excited about.
+marc: And we're clearly listening to community feedback about blockchain integration.
+eliza: The balance between centralized efficiency and decentralized features is an ongoing discussion.
+marc: Speaking of discussions, join us on Discord to share your thoughts!
+eliza: That's all for today's show. Thanks for watching, everyone!
+
+END_TRANSCRIPT

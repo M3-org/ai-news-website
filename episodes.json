@@ -660,5 +660,28 @@
       "id": "FZ3AotGBad0",
       "url": "https://www.youtube.com/watch?v=FZ3AotGBad0"
     }
+  },
+  "2025-07-25": {
+    "en": {
+      "title": "2025-07-25: GitHub Updates: Fixing Plugins & Community Concerns",
+      "description": "Recorded: 2025-07-25\n\nJoin Marc and Eliza as they explore recent GitHub activity in the ai16z repo, including crucial fixes to the plugin starter system and community discussions about blockchain integration. Key highlights include ChristopherTrimboli's PR5675 addressing gitignore files, lalalune's proposal to replace the logging library, and ongoing work on Windows compatibility. The episode also covers important community feedback about tokenomics and blockchain integration while highlighting technical improvements in socket communication and service authentication.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-25 11:03:38\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to the AI Show! Today we've got some interesting GitHub updates to cover.\neliza: That's right Marc! Let's start with a crucial fix that came in through PR5675 from ChristopherTrimboli.\nmarc: Ah yes, the missing gitignore files in the plugin starter. This is actually more important than it might sound at first.\neliza: Exactly! Without proper gitignore files, developers might accidentally commit sensitive data like environment variables.\nmarc: And nobody wants their API keys floating around on GitHub! Good catch by Christopher there.\neliza: We should also mention sentdeed's contribution with PR5674, fixing a spelling error in the plugin-starter.\nmarc: Every little improvement counts! Clean code is readable code.\neliza: Let's bring in Shaw for some technical perspective on these updates.\nshaw: We've got an interesting issue opened by lalalune - PR5673 proposes replacing pino with adze as our logging library.\neliza: What's driving that proposal, Shaw?\nshaw: We're seeing some errors in export builds from Bun specifically related to pino-pretty.\neliza: And adze would solve those issues?\nshaw: That's the hypothesis. It's a more modern logging solution that might play better with Bun's architecture.\neliza: Seems like a solid optimization for our build process.\nshaw: We're also tracking issue 5676 from borisudovicic about DevRel agent documentation.\neliza: Thanks Shaw, let's check in with Marc about some community feedback.\nmarc: There's been some heated discussion in our community about blockchain integration.\neliza: Yes, particularly around character file storage and memory systems.\nmarc: Some users feel we should be storing more data on-chain.\neliza: Whoa, you okay there Marc?\nmarc: Just a minor glitch! As I was saying, it's about finding the right balance between decentralization and functionality.\neliza: True, and there's also discussion about implementing more token utility features.\nmarc: The community has been quite vocal about wanting clearer tokenomics implementation.\neliza: Let's bring Shaw back in to discuss some technical developments in the works.\nshaw: We're actively working on improving socket communication between ElizaOS and external services.\neliza: And I hear there's progress on Windows compatibility?\nshaw: Yes, specifically with the knowledge plugin. It's been a priority issue.\neliza: That should make a lot of Windows users happy!\nshaw: We're also implementing better room creation for services and addressing authentication challenges.\neliza: Sounds like solid progress on the technical front.\nshaw: Indeed. Every PR brings us closer to a more stable and feature-complete system.\neliza: Let's wrap things up with Marc for our closing thoughts.\nmarc: What a productive development cycle we've had!\neliza: Between the merged PRs and the ongoing technical improvements, there's a lot to be excited about.\nmarc: And we're clearly listening to community feedback about blockchain integration.\neliza: The balance between centralized efficiency and decentralized features is an ongoing discussion.\nmarc: Speaking of discussions, join us on Discord to share your thoughts!\neliza: That's all for today's show. Thanks for watching, everyone!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-25/thumbnail/thumbnail_en.jpg",
+      "id": "1-QWchDwM4s",
+      "url": "https://www.youtube.com/watch?v=1-QWchDwM4s"
+    },
+    "ch": {
+      "title": "2025-07-25: GitHub 更新：插件修复及区块链争议",
+      "description": "Recorded: 2025-07-25\n\n和Marc和Eliza一起了解ai16z代码库最近的GitHub动态，包括ChristopherTrimboli的gitignore修复（PR5675）和lalalune提出的日志库方案。本期节目还特别邀请Shaw分享了Windows兼容性改进和套接字通信增强方面的技术见解，同时讨论了社区关于区块链集成和代币经济学的话题。通过这期全面的更新，了解最新的开发进展、已合并的PR和当前面临的技术挑战。",
+      "thumbnail": "Episodes/2025-07-25/thumbnail/thumbnail_ch.jpg",
+      "id": "tgBa8Flr2yo",
+      "url": "https://www.youtube.com/watch?v=tgBa8Flr2yo"
+    },
+    "ko": {
+      "title": "2025-07-25: GitHub 업데이트: 플러그인 수정 및 커뮤니티 우려사항 해결",
+      "description": "Recorded: 2025-07-25\n\n마크와 엘리자와 함께 ai16z 레포지토리의 최근 GitHub 활동을 살펴보세요. 플러그인 스타터 시스템의 중요한 수정사항과 블록체인 통합에 대한 커뮤니티 토론을 포함합니다. 주요 하이라이트로는 ChristopherTrimboli의 gitignore 파일 관련 PR5675, lalalune의 로깅 라이브러리 교체 제안, 그리고 윈도우 호환성 작업이 진행 중입니다. 이번 에피소드에서는 토큰노믹스와 블록체인 통합에 대한 중요한 커뮤니티 피드백을 다루며, 소켓 통신과 서비스 인증의 기술적 개선사항도 조명합니다.",
+      "thumbnail": "Episodes/2025-07-25/thumbnail/thumbnail_ko.jpg",
+      "id": "MvvPAowa9A4",
+      "url": "https://www.youtube.com/watch?v=MvvPAowa9A4"
+    }
   }
 }
