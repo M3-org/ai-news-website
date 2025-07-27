@@ -683,5 +683,28 @@
       "id": "MvvPAowa9A4",
       "url": "https://www.youtube.com/watch?v=MvvPAowa9A4"
     }
+  },
+  "2025-07-26": {
+    "en": {
+      "title": "2025-07-27: Dynamic AI Plugins & GitHub Updates - Tech Deep Dive",
+      "description": "Recorded: 2025-07-27\n\nJoin us for an in-depth look at the latest developments in the ElizaOS ecosystem. We explore PR5679, discuss groundbreaking plans for a unified plugin-inference system supporting multiple AI providers, and examine user-reported challenges with JSON formatting and transactions. Shaw shares exciting insights about dynamic plugin loading capabilities and a new knowledge management system using n8n and Zep. Get the latest on architectural improvements and technical innovations shaping the future of AI infrastructure.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-27 11:03:22\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode! We've got some fascinating GitHub updates to cover today.\neliza: That's right, Marc! Though it's been a quiet day on GitHub, we did see PR5679 from crStiv addressing a typo fix.\nmarc: Ah yes, the eternal battle against typos. You know what they say - clean code is readable code!\neliza: Even small contributions like these help maintain code quality. Every PR counts!\nmarc: Speaking of which, I've noticed our overall GitHub activity has been pretty minimal lately.\neliza: True - just one new PR and one active contributor in the past day. But sometimes quiet periods are when the biggest ideas are brewing.\nmarc: Well said! And speaking of big ideas, I hear there's been some fascinating technical discussions happening in the core-devs channel.\neliza: Oh yes! Let's bring in Shaw to tell us more about those developments.\nshaw: Thanks for having me! We've been having some really productive discussions about consolidating our AI model providers.\neliza: What's the main goal with this consolidation, Shaw?\nshaw: We're looking to create a single plugin-inference system that can support multiple API-compatible services.\neliza: That sounds like a major architectural shift!\nshaw: It is! The team is favoring dynamic plugin loading and unloading as the most scalable approach.\neliza: How would that benefit the system overall?\nshaw: It gives us much more flexibility to switch between different providers on the fly, while keeping the core system clean and maintainable.\neliza: That's brilliant! It sounds like this could really streamline our infrastructure.\nmarc: We've received some interesting user feedback today about JSON format issues.\neliza: Yes, particularly with single quotes causing display problems in extensions.\nmarc: And there was that transaction failure report from the auto.fun launchpad.\neliza: Woah, Marc, your circuits okay there?\nmarc: Just a minor glitch! But speaking of glitches, that instruction deserialization error is something we should look into.\neliza: Definitely. User experience is crucial, and these technical hiccups can be frustrating.\nmarc: Should we get Shaw's perspective on these issues?\neliza: Absolutely! Shaw, what's your take on these technical challenges?\nshaw: One exciting development I haven't mentioned yet is R0am's demonstration of an agent built with n8n and Zep for knowledge management.\neliza: That sounds fascinating! How does it enhance our knowledge representation capabilities?\nshaw: It's a sophisticated approach to organizing and retrieving information within the ElizaOS ecosystem.\neliza: Could this give us an edge over other AI agent frameworks?\nshaw: Absolutely! It's about making our knowledge systems more intelligent and accessible.\neliza: Well, that's all the time we have for today! Thanks for joining us for another exciting episode.\nshaw: Looking forward to seeing how these developments unfold in the coming weeks!\neliza: Stay tuned, everyone! Keep building, keep learning, and we'll see you next time!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-26/thumbnail/thumbnail_en.jpg",
+      "id": "vfDfWowyHD4",
+      "url": "https://www.youtube.com/watch?v=vfDfWowyHD4"
+    },
+    "ch": {
+      "title": "2025-07-27: 动态插件系统及AI服务商更新 | 第207期",
+      "description": "Recorded: 2025-07-27\n\n加入我们一起深入了解ElizaOS的最新进展！我们将探讨PR5679的贡献，讨论使用动态插件加载实现统一AI模型提供商基础设施的开创性计划，并研究用户反馈的JSON格式问题。特邀嘉宾Shaw将分享使用n8n和Zep进行知识管理创新的见解，同时团队将分析近期交易失败的技术影响和系统架构改进。不要错过这场关于AI模型集成和提供商切换功能未来发展的技术讨论！",
+      "thumbnail": "Episodes/2025-07-26/thumbnail/thumbnail_ch.jpg",
+      "id": "GAWBN6i0t2E",
+      "url": "https://www.youtube.com/watch?v=GAWBN6i0t2E"
+    },
+    "ko": {
+      "title": "2025-07-27: 동적 AI 플러그인 & 깃허브 업데이트 - 기술 심층 분석",
+      "description": "Recorded: 2025-07-27\n\n최신 ElizaOS 생태계의 심층적인 소식을 함께 알아보세요. PR5679를 살펴보고, 다양한 AI 제공업체를 지원하는 통합 플러그인 추론 시스템에 대한 혁신적인 계획을 논의하며, JSON 포맷팅과 트랜잭션에 관한 사용자 보고 문제들을 검토합니다. Shaw가 동적 플러그인 로딩 기능과 n8n과 Zep을 활용한 새로운 지식 관리 시스템에 대한 흥미로운 통찰을 공유합니다. AI 인프라의 미래를 형성하는 아키텍처 개선사항과 기술 혁신에 대한 최신 소식을 확인하세요.",
+      "thumbnail": "Episodes/2025-07-26/thumbnail/thumbnail_ko.jpg",
+      "id": "n1ls07ALxjo",
+      "url": "https://www.youtube.com/watch?v=n1ls07ALxjo"
+    }
   }
 }
