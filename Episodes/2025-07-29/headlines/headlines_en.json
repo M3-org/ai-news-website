@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "date": "2025-07-29",
+  "headlines": [
+    "Browser extension in development for AI-powered call assistance without separate accounts",
+    "GLM-4.5 open-source model outperforms competitors except Sonnet and Opus",
+    "ElizaCloud and ClandTank projects revealed as major upcoming initiatives",
+    "Plugin integration issues reported with EVM, Gaianet, and Ollama modules",
+    "New CLI delegation debug tool under development",
+    "Team developing cross-device context syncing while maintaining privacy",
+    "Agent-to-agent protocol planned to enable third-party development",
+    "Auto.fun ecosystem shifting focus from memes to startup launchpad",
+    "Documentation being standardized to use bun:test exclusively",
+    "Token ecosystem clarified: AI16z for agent framework, ELI5 for explanations",
+    "Hybrid monetization strategy emerges with token-based cloud credits"
+  ],
+  "separator": "     "
+}
