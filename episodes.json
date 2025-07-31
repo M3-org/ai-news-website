@@ -752,5 +752,28 @@
       "id": "qDIv5_OVeTY",
       "url": "https://www.youtube.com/watch?v=qDIv5_OVeTY"
     }
+  },
+  "2025-07-30": {
+    "en": {
+      "title": "2025-07-30: ElizaOS GitHub Updates: Logging & Plugin Config News",
+      "description": "Recorded: 2025-07-30\n\nGet the latest updates from the ElizaOS GitHub repository, featuring major improvements to the logging system with PR5684's YAML-based solution and exciting plugin configuration updates in PR5686. Join Marc, Eliza, and Shaw as they discuss the new character-based model settings, TEE Starter Project updates, and the classified game feature request. Learn about the team's focus on infrastructure improvements and developer experience enhancements, plus get insights into the ongoing Clank Tank hackathon for QandA v2 testing.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-07-30 11:02:42\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome back to the daily briefing! We've got some juicy GitHub updates to dive into today.\neliza: That's right Marc! The dev team has been hard at work, particularly on improving our logging system.\nmarc: PR5684 from odilitime brings in a new YAML-based logging improvement. Finally tackling those excessive console logs!\neliza: I've heard the devs were getting overwhelmed with all the log data. This should help organize things better, right?\nmarc: Absolutely! The new system organizes user interactions as hourly YAML lists on disk. Much cleaner.\neliza: And perfect timing too - the core-devs channel has been discussing data management solutions.\nmarc: INITIATING LOG COMPRESSION SEQUENCE... BEEP BOOP... LOGS OPTIMIZED!\neliza: Oh Marc, your enthusiasm for efficient logging is... unique. Let's check in with Shaw for more technical details!\nshaw: thanks for having me. PR5686 from 0xbbjoker is a game-changer for plugin configuration.\nshaw: it adds support for configuring model settings directly from character files - something our devs have been requesting.\nshaw: this particularly helps with temperature settings in plugin-openrouter, which was a pain point in our discord discussions.\nshaw: the implementation allows passing temperature settings through useModel parameters, making it much more flexible.\nmarc: How does this tie into the overall v3 development?\nshaw: it's part of our broader infrastructure push, alongside the agent hosting solution we're working on.\neliza: Speaking of infrastructure, what about HashWarlock's TEE Starter Project update?\nshaw: PR5683 addresses some key issues there. it's crucial for our enterprise readiness initiative.\nmarc: Let's talk about this interesting new issue that popped up - Issue 5685 from samarth30.\neliza: Ah yes, the classified game feature request! It's meant to work with the plugin-autocoder system.\nmarc: The autocoder plugin has been getting a lot of attention lately. Shaw, any thoughts on this?\nshaw: it's an interesting direction for expanding our plugin ecosystem. ties into our internal hackathon too.\neliza: The 'Clank Tank' hackathon, right? Testing QandA v2?\nmarc: GAME DEVELOPMENT PROTOCOLS ACTIVATED... LOADING FUN SUBROUTINES...\neliza: Oh dear, Marc's getting excited about games again. Maybe we should wrap up with some final thoughts on today's updates?\nmarc: Right you are! The team's really focusing on infrastructure and developer experience - solid foundation building.\nmarc: What a productive day in the ElizaOS ecosystem!\neliza: Indeed! From logging improvements to character-based configurations, the foundation is getting stronger.\nmarc: And don't forget the ongoing Clank Tank hackathon - really showing the team's commitment to testing and quality.\neliza: The focus on developer experience is particularly encouraging. Those temperature setting improvements will make a big difference.\nmarc: Well, that's all for today's update! Keep building, keep coding, and keep pushing those PRs!\neliza: Thanks for joining us everyone! See you in the next update!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-30/thumbnail/thumbnail_en.jpg",
+      "id": "-nl7aMTaOlw",
+      "url": "https://www.youtube.com/watch?v=-nl7aMTaOlw"
+    },
+    "ch": {
+      "title": "2025-07-30: ElizaOS开发进展：日志系统与插件功能",
+      "description": "Recorded: 2025-07-30\n\n和Marc与Eliza一起探索ElizaOS GitHub仓库的最新进展。亮点包括PR5684的基于YAML的日志系统，用于解决过度日志记录问题，PR5686的基于字符的模型配置功能，以及对TEE启动项目的更新。Shaw提供了关于插件开发和基础设施改进的技术见解，同时团队还讨论了一个有趣的机密游戏功能需求。了解正在进行的Clank Tank黑客马拉松，以及这些更新如何加强ElizaOS生态系统。",
+      "thumbnail": "Episodes/2025-07-30/thumbnail/thumbnail_ch.jpg",
+      "id": "2egSmhCqKVc",
+      "url": "https://www.youtube.com/watch?v=2egSmhCqKVc"
+    },
+    "ko": {
+      "title": "2025-07-30: ElizaOS 깃허브 업데이트: 로깅 & 플러그인 설정 소식",
+      "description": "Recorded: 2025-07-30\n\nElizaOS GitHub 저장소의 최신 업데이트를 확인하세요. PR5684의 YAML 기반 솔루션으로 로깅 시스템이 크게 개선되었고, PR5686에서는 플러그인 설정이 흥미롭게 업데이트되었습니다. Marc, Eliza, Shaw와 함께 새로운 캐릭터 기반 모델 설정, TEE 스타터 프로젝트 업데이트, 그리고 비공개 게임 기능 요청에 대해 알아보세요. 인프라 개선과 개발자 경험 향상에 중점을 둔 팀의 노력을 확인하고, QandA v2 테스트를 위한 진행 중인 Clank Tank 해커톤에 대한 인사이트도 얻어보세요.",
+      "thumbnail": "Episodes/2025-07-30/thumbnail/thumbnail_ko.jpg",
+      "id": "OfRz3QFN-FI",
+      "url": "https://www.youtube.com/watch?v=OfRz3QFN-FI"
+    }
   }
 }

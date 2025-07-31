@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-30",
+  "headlines": [
+    "ElizaOS team actively developing v3 with focus on core infrastructure",
+    "New YAML-based logging system proposed to address excessive logs",
+    "Character-based model configuration settings coming to runtime",
+    "Internal 'Clank Tank' hackathon launched for Q&A v2 testing",
+    "Team reports positive signals about X/Twitter account reinstatement",
+    "Build errors with Radix UI dependencies affecting developers",
+    "Plugin temperature settings configuration improvements underway",
+    "Agent hosting solution in development for enterprise scaling",
+    "TEE Starter Project template receiving critical updates",
+    "New plugin-autocoder feature requested for classified game implementation",
+    "Community expresses concerns over token price amid development progress",
+    "Discord voice integration under technical discussion"
+  ],
+  "separator": "     "
+}
