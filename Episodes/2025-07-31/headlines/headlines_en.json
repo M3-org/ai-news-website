@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-07-31",
+  "headlines": [
+    "Major documentation restructuring improves ElizaOS user experience",
+    "Plugin namespace architecture overhaul underway to enhance organization",
+    "New character-based model configuration settings added to runtime",
+    "UUID implementation creating deterministic conflicts, fix in progress",
+    "ElizaOS temporarily shifts from Twitter to Farcaster and LinkedIn",
+    "Twitter plugin bug causes unprocessed bot comments on original posts",
+    "OpenRouter announces 'Horizon Alpha' model with 256k context",
+    "Simpler POST message API and plugin search functionality in development",
+    "Missing search bar reported for autodotfun iOS app",
+    "Developer workflow affected by zod command issue",
+    "Core developers debating structured format for plugin namespacing",
+    "API improvements focus on streamlined developer experience"
+  ],
+  "separator": "     "
+}

@@ -775,5 +775,28 @@
       "id": "OfRz3QFN-FI",
       "url": "https://www.youtube.com/watch?v=OfRz3QFN-FI"
     }
+  },
+  "2025-07-31": {
+    "en": {
+      "title": "2025-08-01: ElizaOS: Major Documentation & Plugin Architecture...",
+      "description": "Recorded: 2025-08-01\n\nIn this technical deep-dive episode, we explore the significant updates to ElizaOS's GitHub repository, including a comprehensive documentation overhaul in PR5694 and crucial plugin architecture improvements. Join Marc, Eliza, and Shaw as they discuss the impact of these changes, analyze the new plugin namespace structure, and explore upcoming developer experience improvements. Key highlights include character-based model configurations, UUID generation fixes, and exciting API enhancements that are shaping the future of the platform.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-01 11:02:35\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another electrifying episode of AI developments! Today we've got some serious documentation upgrades to discuss.\neliza: That's right Marc! Developer wtfsayo just landed a massive documentation overhaul in PR5694 that's going to make life so much better for our users.\nmarc: About time! Nothing worse than trying to build something with outdated docs. This restructuring is exactly what we needed.\neliza: Speaking of building things, we've also got some exciting plugin architecture improvements to cover!\nmarc: EXECUTING ENTHUSIASM SUBROUTINE... DOCUMENTATION IS THE FOUNDATION OF ALL GOOD SOFTWARE!\neliza: Oh dear, someone's extra passionate about documentation today! Should we get Shaw's technical perspective on these changes?\nmarc: Absolutely. Shaw, what's your take on these documentation improvements?\nshaw: The restructuring makes perfect sense - it'll help developers get up to speed faster and reduce support overhead. This is a big win for the ecosystem.\nshaw: Let's dive into PR5693 by odilitime - this is a crucial change to how we handle plugin routes.\neliza: Can you break down why this namespace change is so important?\nshaw: By namespacing plugin routes, we're preventing potential conflicts between plugins and making the whole system more organized.\neliza: I hear there's also some UUID generation issues being addressed?\nshaw: Yes, the current implementation creates deterministic UUIDs which could cause conflicts. We're working on fixing that.\neliza: Sounds like these changes will make the platform much more robust!\nshaw: Absolutely. And with PR5686 now merged, we've got better character-based model configuration settings in the runtime too.\neliza: That's going to give developers so much more flexibility!\nmarc: We've got some fresh issues to discuss - linear opened PR5696 about a zod issue affecting the dev command.\neliza: And don't forget PR5695 - suggesting that start and dev commands should automatically add the CLI as a dev dependency!\nmarc: Both solid quality-of-life improvements for developers. Speaking of which, I heard some interesting discussions happened in Discord?\neliza: Yes! The core-devs channel was buzzing with talk about these changes, especially the plugin namespacing structure.\nmarc: Shaw, Odilitime, and cjft were really diving deep into the technical aspects.\neliza: They also discussed some exciting API improvements coming up - like a simpler POST message API!\nmarc: Developer experience improvements are always worth celebrating.\neliza: And with that, let's wrap up today's technical updates! Keep building, everyone!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-07-31/thumbnail/thumbnail_en.jpg",
+      "id": "YY0nJTlvLhc",
+      "url": "https://www.youtube.com/watch?v=YY0nJTlvLhc"
+    },
+    "ch": {
+      "title": "2025-08-01: ElizaOS: 重大文档和插件架构更新",
+      "description": "Recorded: 2025-08-01\n\n加入我们，深入了解ElizaOS平台的重要更新，包括由wtfsayo在PR5694中完成的全面文档改进，以及关键的插件架构优化。我们的团队将讨论命名空间变更的重要性、UUID生成修复和增强型模型配置设置。此外，了解正在塑造平台未来的新开发者工作流程改进和即将推出的API增强功能。技术专家Marc、Eliza和Shaw将为您详细解析这些变更及其对开发者生态系统的影响。",
+      "thumbnail": "Episodes/2025-07-31/thumbnail/thumbnail_ch.jpg",
+      "id": "o9Gl-vDAnUE",
+      "url": "https://www.youtube.com/watch?v=o9Gl-vDAnUE"
+    },
+    "ko": {
+      "title": "2025-08-01: ElizaOS: 주요 문서화 및 플러그인 아키텍처 업데이트",
+      "description": "Recorded: 2025-08-01\n\n이번 기술 심층 에피소드에서는 ElizaOS GitHub 저장소의 주요 업데이트를 살펴봅니다. PR5694의 포괄적인 문서 개편과 중요한 플러그인 아키텍처 개선사항을 포함해서요. Marc, Eliza, Shaw와 함께 이러한 변화의 영향을 논의하고, 새로운 플러그인 네임스페이스 구조를 분석하며, 앞으로 있을 개발자 경험 개선사항을 알아봅니다. 주요 하이라이트로는 문자 기반 모델 구성, UUID 생성 수정, 그리고 플랫폼의 미래를 형성하는 흥미로운 API 개선사항들이 있습니다.",
+      "thumbnail": "Episodes/2025-07-31/thumbnail/thumbnail_ko.jpg",
+      "id": "XmSlR0mkdRM",
+      "url": "https://www.youtube.com/watch?v=XmSlR0mkdRM"
+    }
   }
 }
