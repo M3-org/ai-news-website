@@ -798,5 +798,28 @@
       "id": "XmSlR0mkdRM",
       "url": "https://www.youtube.com/watch?v=XmSlR0mkdRM"
     }
+  },
+  "2025-08-02": {
+    "en": {
+      "title": "2025-08-02: ElizaOS: New Sessions API & Cloud Infrastructure Leap",
+      "description": "Recorded: 2025-08-02\n\nJoin Marc and Eliza as they dive into groundbreaking developments in ElizaOS, featuring ChristopherTrimboli's revolutionary sessions API implementation and Shaw's insights on parallel cloud deployments to Railway and Phala. Learn about the new developer experience improvements, including auto-installing CLI dependencies and core architecture enhancements. Plus, get exclusive details on upcoming payment integrations with Stripe and x402, showcasing ElizaOS's evolution into a comprehensive AI infrastructure platform.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-02 11:03:01\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another electrifying episode of AI developments! Today we're diving deep into some major architectural updates.\neliza: That's right Marc! Let's start with a game-changing PR that just landed - PR5704 introducing a new sessions API.\nmarc: ChristopherTrimboli really delivered here - this API is going to revolutionize how agents communicate with users.\neliza: The simplified interface should make it much easier for developers to implement messaging features. What are your thoughts on the impact?\nmarc: PROCESSING... INTERFACE SIMPLIFICATION EQUALS DEVELOPER VELOCITY MULTIPLICATION\neliza: Oh dear, you're glitching again Marc. But you make a good point about velocity!\nmarc: Sorry about that! Yes, this API will be a major accelerator for the ecosystem. Speaking of velocity, should we check in with Shaw about the cloud deployment progress?\neliza: Absolutely! Shaw has been leading some fascinating work on that front. Let's bring him in!\nshaw: things are moving fast with our cloud infrastructure - we've got parallel deployment paths in motion\neliza: Tell us more about the Railway deployment - I saw PR5703 opened for that.\nshaw: right, we're implementing Redis queues and setting up Docker for local services. it's all about creating a robust foundation\neliza: And Phala cloud integration is happening simultaneously?\nshaw: exactly - we're taking a multi-platform approach to give users flexibility in where they host their agents\neliza: How are you handling the complexity of managing multiple cloud providers?\nshaw: standardized interfaces are key - that's why we're adding IStorageService type to core, check PR5698\neliza: Brilliant approach! This should make future cloud integrations smoother too.\nmarc: Let's talk about some quality-of-life improvements - PR5702 just got merged.\neliza: Ah yes, wtfsayo's work on auto-installing the CLI as a dev dependency. Such a simple but impactful change!\nmarc: This is exactly the kind of attention to developer experience that sets great platforms apart.\neliza: No more manual CLI installations for start and dev commands. It's these little frictions that add up.\nmarc: Speaking of development improvements, there's also PR5697 for adding unregisterAction to core.\neliza: That's going to give developers much more control over action lifecycle management.\nmarc: The core architecture is really maturing nicely. Shaw's team is hitting all the right notes.\neliza: And it's all happening while maintaining backward compatibility. Really impressive work!\nmarc: Before we wrap up, let's talk about the exciting payment integration plans in the works.\neliza: Yes! The team is working on both Stripe and x402 integrations. This could be huge for accessibility.\nmarc: Offering both fiat and crypto payment options shows real foresight. Not everyone's ready for web3.\neliza: And there's been user feedback requesting USDC on-ramp options alongside fiat payments.\nmarc: That's all the time we have for today! Thanks for joining us for another episode of AI developments.\neliza: We'll be back with more updates on ElizaOS's journey toward next-gen AI infrastructure!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-02/thumbnail/thumbnail_en.jpg",
+      "id": "D3JUnL-yGxE",
+      "url": "https://www.youtube.com/watch?v=D3JUnL-yGxE"
+    },
+    "ch": {
+      "title": "2025-08-02: ElizaOS：全新会话 API 与云平台演进",
+      "description": "Recorded: 2025-08-02\n\n在这期AI播客中，Marc和Eliza探讨了ElizaOS的GitHub仓库中的突破性进展。亮点包括ChristopherTrimboli开创性的会话API实现（PR5704），详细介绍了在Railway和Phala平台上的云部署进展，以及显著的开发者体验改进。Shaw加入讨论Redis队列和Docker服务的实现，同时主持人分析了wtfsayo的CLI自动安装PR以及即将与Stripe和x402进行的支付集成。深入了解ElizaOS如何发展其核心架构并扩展其云基础设施。",
+      "thumbnail": "Episodes/2025-08-02/thumbnail/thumbnail_ch.jpg",
+      "id": "fpaYrOMDBQ8",
+      "url": "https://www.youtube.com/watch?v=fpaYrOMDBQ8"
+    },
+    "ko": {
+      "title": "2025-08-02: ElizaOS: 새로운 세션 API와 클라우드 인프라의 도약",
+      "description": "Recorded: 2025-08-02\n\nMarc과 Eliza와 함께 ElizaOS의 혁신적인 발전을 살펴보세요. ChristopherTrimboli의 혁명적인 세션 API 구현과 Railway와 Phala에 대한 병렬 클라우드 배포에 관한 Shaw의 통찰력을 확인하실 수 있습니다. CLI 종속성 자동 설치와 핵심 아키텍처 개선을 포함한 새로운 개발자 경험 향상에 대해 알아보세요. 또한 Stripe와 x402를 통한 결제 통합에 대한 독점 정보를 확인하시고, ElizaOS가 종합적인 AI 인프라 플랫폼으로 발전하는 과정을 만나보세요.",
+      "thumbnail": "Episodes/2025-08-02/thumbnail/thumbnail_ko.jpg",
+      "id": "woYI9Cv-fLM",
+      "url": "https://www.youtube.com/watch?v=woYI9Cv-fLM"
+    }
   }
 }
