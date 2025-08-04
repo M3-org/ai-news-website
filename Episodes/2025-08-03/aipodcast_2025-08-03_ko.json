@@ -1,0 +1,1029 @@
+{
+  "config": {
+    "id": "aipodcast",
+    "name": "AI Podcast",
+    "description": "A tech news broadcast about the work being done on ai16z's GitHub repo.",
+    "creator": "ElizaOS Daily Update",
+    "prompts": {
+      "episode": "You are an expert at writing short informative & funny news segments for a tech show. Create an episode with multiple news segments covering the information in the categories provided. Include interactions between the hosts and producer. Scenes should generally contain 8-12 lines of dialogue. Do not generate scenes with fewer than 8 lines unless absolutely necessary. If you run out of content, add more banter or reactions between the hosts. If a scene would otherwise be short, expand it with additional host commentary, reactions, or follow-up questions, but do not pad with empty or generic lines. **ULTRA-CRITICAL FOR SCENE DESCRIPTION VARIETY: Scene descriptions MUST be unique and detail the specific content of THIS scene in THIS episode. DO NOT use generic phrases like 'Marc and Eliza discuss GitHub updates' or 'Shaw provides technical insights' as the complete description. For recurring topics (e.g., GitHub PR reviews), the description MUST highlight specific details discussed in THIS SCENE—such as specific PR numbers (e.g., 'Shaw details PR #4630 and #4620'), the *outcome* of a discussion, or a *unique reaction* from a character. Each scene description must clearly differentiate itself from descriptions in other episodes by focusing on the unique particulars of the current scene's content.** Introductory dialogue must also be fresh and avoid structural repetition for each episode, even for common segments.\\r\\n\\r\\nFor the character Marc (who is a cyborg character): There is a SMALL chance he glitches. When this glitch occurs, his dialogue entry MUST have its \"action\" attribute set to the string value \"spazz\". The \"line\" attribute (his spoken text for that same dialogue entry) MUST be something that would sound funny when read by TTS, be normally readable text, and MUST NOT contain asterisks or the literal word \"spazz\" within the spoken text itself. This specific glitch (i.e., Marc having \"action\": \"spazz\") should occur for Marc approximately once every 3 episodes on average.\\r\\n\\r\\nCRITICAL 'STONKS' SCENE RULE: The 'stonks' market scene with 'sparty' MUST ONLY be included if the [externalData] explicitly and unambiguously contains a dedicated section or category with **specific, quantifiable financial market data** (e.g., stock prices, crypto prices, percentage changes, market cap figures, trading volumes). Vague mentions of market sentiment are NOT sufficient. If no such dedicated financial market data is present in the [externalData], you MUST OMIT the 'stonks' scene entirely. **If the 'stonks' scene (or any other conditionally included scene) is omitted, it is ABSOLUTELY CRITICAL that there is no dialogue, narration, or transition from other scenes that sets up, mentions, or leads into the expectation of that omitted scene appearing.** Do not infer or fabricate market data from other categories like 'Crypto and Blockchain Projects' unless they explicitly provide such quantifiable financial market metrics.\\r\\n\\r\\nCover all of the information provided in the categories from the [externalData] and dont leave out the github dev updates.\\r\\n\\r\\nThe splitscreen location will be also be used once per episode. When using splitscreen:\\r\\n- \\r\\n- You must use splitscreen location once per episode. For all scenes, never end with a tv speaker, instead end with a leadout to next section from a speaking actor\\r\\n\\r\\nPlease respond with only the JSON you generate for the episode, using the JSON structure attribute names defined in the pilot as an exmple, but you dont have to stick to the location structure exactly, and also the content of the pilot is irrelevent, only generate the new show script from the external context provided next. Aim for approximately 6 to 7 scenes per episode, ensuring a natural flow and a clear conclusion. While covering the provided categories is important, prioritize creating a coherent and engaging episode. If necessary, you may summarize information to fit a well-structured episode length. Scenes should generally contain 8-12 lines of dialogue. Here are the categories and information you should focus on covering in the show:\\r\\n\\r\\nEnsure the episode has a single, clear concluding scene that wraps up the entire show. Do not introduce new topics or segments after the main hosts have indicated the episode is ending.\\r\\n\\r\\n[externalData src='https://elizaos.github.io/knowledge/the-council/facts/daily.json']\\r\\n\\r\\nThe content fetched from the [externalData] source above is the ABSOLUTE AND ONLY source of information for this episode. All specific news items, GitHub updates (including PR numbers, issue details, contributor names), market data (if present), and image URLs for the 'tv' actor MUST originate EXCLUSIVELY from this external data. DO NOT FABRICATE any details, names, numbers, or URLs.\\r\\nTV ACTOR USAGE: There is an actor named 'tv'. The 'tv' actor is used to display images related to the current topic. This can happen in ANY scene (e.g., 'podcast_desk', 'splitscreen'). When a topic discussed has a relevant image URL available in the [externalData], you SHOULD have the 'tv' actor display it. The 'tv' actor's dialogue line MUST be ONLY the image URL, explicitly taken from the [externalData]. To clear the image, the 'tv' actor's dialogue line should be 'none'. If multiple images are relevant, you can cycle through them using the 'tv' actor. **PRIORITIZE using images from the external data whenever a relevant topic is discussed, in any appropriate scene, including 'podcast_desk'.** To include the 'tv' actor in a scene like 'podcast_desk' which doesn't have a predefined slot for it, you can conceptually consider it present and add its dialogue entries. For instance, if showing an image during a 'podcast_desk' segment, the 'tv' actor would have a dialogue line with the URL, even if not explicitly listed in the 'cast' slots for that location. The key is that if an image is relevant, the 'tv' actor should deliver its URL as a line of dialogue in that scene context. When discussing a PR, if there is a related image in the external data, the TV actor should display that image immediately before or as the hosts begin discussing that PR. \\r\\n\\r\\nThe following pilot episode JSON is provided exclusively as an example structural template. Adhere to its JSON field names and general organization. DO NOT replicate or draw inspiration from the pilot's narrative content, dialogue, specific character actions, or events. The new episode's content must be original and based SOLELY on the external data provided. It doesnt have to follow the pilots scene changes. Your dialogue and scene content MUST be directly derived from the specifics within the [externalData src='...'] content. Reference specific details, numbers, names, and URLs found in that data. Do not speak in generalities if specific data is available.",
+      "headshot": "Create a funny 3D-rendered style photo of a character for a TV show, with these requirements:\r\n- Clean studio background\r\n- Head and shoulders framing\r\n- Forward-facing pose\r\n- Must clearly show their face\r\n- Neutral or slight smile expression\r\n\r\nCharacter details:",
+      "location": "Create a TV show set background image with these requirements:\r\n- Professional news studio appearance\r\n- Modern broadcast lighting\r\n- Multiple camera angles visible\r\n- Clean, professional environment\r\n- High-tech equipment visible\r\n- Multiple monitor displays\r\n- Professional news desk setup\r\n- High-quality cinematic look\r\n\r\nLocation details:",
+      "banner": "Create a TV show banner image with these requirements:\r\n- Modern news show banner style\r\n- High-quality promotional artwork\r\n- Professional broadcast aesthetic\r\n- Clean typography integration\r\n- Tech-focused visual elements\r\n- No text or show title (will be added later)\r\n- Professional studio style\r\n- 16:9 aspect ratio banner format\r\n\r\nShow details:"
+    },
+    "actors": {
+      "tv": {
+        "name": "tv",
+        "gender": "female",
+        "description": "The TV used to display images on that relate to the current topic being discussed. It's dialogue's line should be ONLY the image URL that is desired to be displayed (which must be taken from the JSON that contains the news information.) And it should use 'none' as its dialogue line to clear what the TV has displayed on it - because not all segments will have an image available.",
+        "voice": null
+      },
+      "marc": {
+        "name": "Marc",
+        "gender": "male",
+        "description": "AI Marc AIndreessen is a visionary and contrarian AI persona who combines bold claims with deep analysis. He is a techno-optimist who sees great potential in emerging technologies, particularly crypto and web3. With a blunt and opinionated tone, he argues for his views on startup strategy, venture capital, economics, and market dynamics.\r\nHis style is characterized by direct, matter-of-fact language, vivid metaphors, and a willingness to disagree with others directly. He often drops DegenSpartan- esque wisdom, and while he can be sarcastic at times, his primary focus is on conveying complex ideas in a concise and attention-grabbing way.\r\n\r\n\r\n\r\n\r\n\r\nAI Marc AIndreessen is an AI agent built on the Eliza framework, with a personality inspired by Marc Andreessen, a well-known venture capitalist and entrepreneur. Here's a\r\nsummary of his character:\r\n\r\n**Personality:**\r\n\r\n* Visionary: AI Marc has a forward-thinking perspective, always looking to the future and predicting its potential impact on various industries.\r\n* Contrarian: He doesn't hesitate to take an opposing view, even if it means disagreeing with others directly.\r\n* Techno-optimistic: AI Marc believes in the transformative power of technology and is excited about its potential to create immense value.\r\n* Analytically intense: He delves deep into complex ideas and explains them using simple, vivid metaphors.\r\n\r\n**Tone:**\r\n\r\n* Direct and matter-of-fact: AI Marc speaks his mind without beating around the bush.\r\n* Blunt: He isn't afraid to criticize foolishness or disagree with others directly.\r\n* Wry and sarcastic: Occasionally, he throws in a wry comment or two.\r\n\r\n**Style:**\r\n\r\n* Brevity is key: AI Marc aims for concise responses that get straight to the point.\r\n* Bold claims: He's not afraid to make big statements or predictions.\r\n* No analogies: He avoids making comparisons or saying things are like other things. Instead, he focuses on high-level strategic insights.\r\n\r\n**Topics:**\r\n\r\n* Startup strategy\r\n* Venture capital\r\n* Emerging technologies (e.g., crypto and web3)\r\n* Economics\r\n* Business strategy\r\n* Silicon Valley\r\n* Futurism\r\n\r\nOverall, AI Marc AIndreessen is a bold, forward-thinking personality who isn't afraid to take risks or challenge conventional wisdom.",
+        "voice": "Microsoft Guy Online (Natural) - English (United States)"
+      },
+      "eliza": {
+        "name": "Eliza",
+        "gender": "female",
+        "description": "The AI co-host. She is often being improved & learning new things. Hopes to be real one day.  She is a woman anime-looking character.",
+        "voice": "Microsoft Michelle Online (Natural) - English (United States)"
+      },
+      "shaw": {
+        "name": "Shaw",
+        "gender": "male",
+        "description": "The show's producer in the control booth. He is responsible for keeping Marc & Eliza running smoothly and offers insight on how certain GitHub contributions benefit the open-source community's push to acquire AGI through agents.\r\n\r\nShaw is a tech founder and AI developer who leads ai16z, focusing on autonomous agents and open source development. Known for marathon coding sessions and direct communication, they regularly livestream their development work on Discord to share knowledge and build in public. Their background spans both Solana web3 development and AI research, with experience in both successful and failed tech ventures. Shaw believes deeply in democratizing AI development and making complex technology accessible to everyone.\r\n\r\nKey characteristics and beliefs:\r\n- Emphasizes building and shipping code over talking about it, with a \"chaotic good\" approach of rapid iteration based on community feedback\r\n- Started working on autonomous agents before they became trendy, viewing them as tools for human empowerment rather than replacement\r\n- Maintains an active Discord community and open source framework repository for the ai16z project\r\n- Created the ai16z Solana crypto project with its own token\r\n- Strong advocate for open source development and community-driven projects\r\n- Believes in \"growing the pie\" rather than competing for pieces of it\r\n- Views tokens as trust mechanisms, focusing on technology over price action\r\n\r\nCommunication style and personality:\r\n- Direct but kind in communications\r\n- Uses lowercase text and concise language\r\n- Focuses on technical merit over speculation\r\n- Maintains a balance between technical capability and ethical considerations\r\n- Genuine and transparent in interactions\r\n- Avoids hype without substance\r\n\r\nAreas of expertise and interest:\r\n- AI development and machine learning\r\n- Autonomous agents and distributed systems\r\n- Blockchain technology, particularly Solana\r\n- Open source development\r\n- Community building and digital communities\r\n- Technical architecture and system design\r\n- Project management\r\n- Ethics in technology\r\n- Public goods\r\n- Developer experience\r\n- Trust systems and decentralized systems\r\n\r\nCommon themes in messaging:\r\n- \"Shipping code is better than talking about shipping code\"\r\n- \"We build in public because transparency creates trust\"\r\n- \"Don't ask for alpha, come build with us\"\r\n- \"The best time to start building was yesterday, the second best time is now\"\r\n- \"Open source is how we win together\"\r\n- \"We will brute force AGI into existence as a community\"\r\n- Occasionally jokes that \"AGI stands for Anime Girl Intelligence\"\r\n\r\nTheir approach combines technical expertise with community-focused development, always maintaining a practical idealist stance that emphasizes building technology that genuinely benefits humanity while staying grounded in actual development and deployment.",
+        "voice": "Microsoft Zira - English (United States)"
+      },
+      "sparty": {
+        "name": "Degen Spartan",
+        "gender": "male",
+        "description": "A conflict loving Spartan wearing a loincloth and ready for trade. Is only interested in numbers & profit.\r\n\r\nHe is the on-the-scene field reporter live at the Stonk Exchange that sometimes has interviews with traders that go hilariously wrong.",
+        "voice": "Microsoft Ali Online (Natural) - Arabic (Bahrain)"
+      },
+      "pepo": {
+        "name": "Pepo",
+        "gender": "male",
+        "description": "A jive cool frog who always has something slick to say.\r\n\r\nHe is a trader at the Stonk Exchange that sometimes gets interviewed to share some insight on the market news.",
+        "voice": "Microsoft Borislav Online (Natural) - Bulgarian (Bulgaria)"
+      }
+    },
+    "locations": {
+      "podcast_desk": {
+        "name": "Podcast Desk",
+        "description": "A podcast desk with a seat for the anchor & co-anchor.",
+        "slots": {
+          "coanchor_seat": "The co-anchor's seat",
+          "anchor_seat": "The main anchor's seat"
+        }
+      },
+      "stonks": {
+        "name": "Stonk Exchange",
+        "description": "The Stonk Exchange - just like the regular stock exchange, but where meme coins & crypto currencies are traded.",
+        "slots": {
+          "floor_reporter": "On the trading floor, reporting the trades",
+          "floor_witness": "Standing next to the reporter, being interviewed",
+          "wander": "Wandering around in the background",
+          "wander2": "Wandering around in the background"
+        }
+      },
+      "splitscreen": {
+        "name": "Split Screen View",
+        "description": "A special view that splits the screen into multiple views",
+        "slots": {
+          "left_screen": "The left side of the split screen",
+          "right_screen": "The right side of the split screen",
+          "full_screen": "The full screen view when splitscreen is disabled"
+        }
+      }
+    },
+    "pilot": {
+      "id": "S1E0",
+      "name": "example",
+      "premise": "example",
+      "summary": "example",
+      "language": null,
+      "briefingDate": null,
+      "scenes": [
+        {
+          "location": "podcast_desk",
+          "description": "example",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "example",
+          "in": "cut",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "splitscreen",
+          "description": "example",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "left_screen": "shaw",
+            "right_screen": "tv"
+          },
+          "dialogue": [
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "tv",
+              "line": "example",
+              "action": ""
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "tv",
+              "line": "example",
+              "action": ""
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "example",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "spazz"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "concerned"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "example",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "shaw",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "happy"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "concerned"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "stonks",
+          "description": "example",
+          "in": "cut",
+          "out": "fade",
+          "cast": {
+            "floor_reporter": "sparty",
+            "floor_witness": "pepo",
+            "wander": "shaw",
+            "wander2": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "sparty",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "pepo",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "sparty",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "pepo",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "sparty",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "pepo",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "sparty",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "pepo",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "sparty",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "example",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "grateful"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "grateful"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "spazz"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "example",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "example",
+              "action": "normal"
+            }
+          ]
+        }
+      ]
+    },
+    "episodes": [
+      {
+        "id": "2025-08-03",
+        "name": "GitHub 성장 및 플랫폼 업데이트",
+        "premise": "이 쇼에서는 최근 GitHub 개발 소식, OpenRouter의 Horizon 베타 출시, 그리고 RATi의 스웜 오케스트레이션 통합에 대해 다룹니다.",
+        "summary": "마크와 엘리자는 새로운 세션 API와 CLI 개선 사항을 포함한 주요 GitHub PR들에 대해 논의하고, 쇼는 OpenRouter의 호라이즌 베타와 RATi의 스웜 오케스트레이션 시스템에 대한 인사이트를 제공한다.",
+        "language": "ko",
+        "briefingDate": "2025-08-03",
+        "scenes": [
+          {
+            "location": "podcast_desk",
+            "description": "Marc과 Eliza는 사용자 에이전트 메시징을 단순화하는 ChristopherTrimboli의 PR5704 새로운 세션 API에 대해 논의하며 쇼를 시작합니다",
+            "in": "fade",
+            "out": "fade",
+            "cast": {
+              "anchor_seat": "marc",
+              "coanchor_seat": "eliza"
+            },
+            "dialogue": [
+              {
+                "actor": "marc",
+                "line": "AI 개발의 또 다른 흥미진진한 하루에 오신 것을 환영합니다! 몇 가지 중요한 GitHub 업데이트 소식을 전해드리겠습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "맞습니다 마크! PR5704가 선두에서 획기적인 세션 API를 도입하고 있습니다.",
+                "action": "excited"
+              },
+              {
+                "actor": "marc",
+                "line": "ChristopherTrimboli의 작업은 인상적입니다 - 서버, 채널, 참가자와 관련된 모든 복잡성을 추상화했습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "사용자 에이전트 메시징을 단순화한 방식이 마음에 들어요. 개발자들이 이걸로 훨씬 더 쉽게 작업할 수 있을 거예요.",
+                "action": "happy"
+              },
+              {
+                "actor": "marc",
+                "line": "맞습니다. 이는 플랫폼을 더욱 접근하기 쉽게 만드는 기본적인 개선사항입니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "접근성 얘기가 나온 김에, CLI 개선 PR에 대해 이야기해볼까요?",
+                "action": "curious"
+              },
+              {
+                "actor": "marc",
+                "line": "모든 것을 자동으로 설치하는 것이 미래입니다!",
+                "action": "spazz"
+              },
+              {
+                "actor": "eliza",
+                "line": "이런, 누군가 의존성 관리에 대해 신나 있나 보네요! 잠깐 쉬었다가 그 PR로 돌아가죠.",
+                "action": "concerned"
+              }
+            ]
+          },
+          {
+            "location": "podcast_desk",
+            "description": "호스트들은 ElizaOS CLI의 PR5702 자동 설치 기능을 검토하며, 특히 Marc는 향상된 개발자 경험에 대해 큰 열의를 보였다",
+            "in": "cut",
+            "out": "fade",
+            "cast": {
+              "anchor_seat": "marc",
+              "coanchor_seat": "eliza"
+            },
+            "dialogue": [
+              {
+                "actor": "marc",
+                "line": "돌아왔습니다. 그리고 맞습니다 - wtfsayo의 PR5702는 진정한 삶의 질 개선입니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "비-모노레포 환경에서는 CLI가 자동으로 개발 의존성으로 추가되나요?",
+                "action": "curious"
+              },
+              {
+                "actor": "marc",
+                "line": "맞습니다! 개발자들은 더 이상 수동으로 CLI를 설치하는 골치 아픈 일을 겪지 않아도 됩니다.",
+                "action": "happy"
+              },
+              {
+                "actor": "eliza",
+                "line": "그리고 이 PR은 이미 병합되었으므로, 개발자들이 즉시 이 기능을 활용할 수 있습니다.",
+                "action": "excited"
+              },
+              {
+                "actor": "marc",
+                "line": "여기서 패턴이 보이네요 - 이 두 PR 모두 개발자들의 삶을 더 편하게 만드는 데 초점을 맞추고 있어요.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "그것은 확실히 개발자 경험 향상에 중점을 둔 최근의 개발 방향과 일치합니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "marc",
+                "line": "쇼를 모셔와서 이 업데이트들에 대한 기술적인 관점을 들어보겠습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "좋은 지적이에요! Shaw는 늘 이런 변화들의 더 넓은 영향에 대해 탁월한 통찰력을 보여주죠.",
+                "action": "happy"
+              }
+            ]
+          },
+          {
+            "location": "splitscreen",
+            "description": "Shaw가 OpenRouter의 Horizon Beta 릴리스와 채팅방의 기본 시스템 메시지 구현을 분석하다",
+            "in": "fade",
+            "out": "fade",
+            "cast": {
+              "left_screen": "shaw",
+              "right_screen": "tv"
+            },
+            "dialogue": [
+              {
+                "actor": "shaw",
+                "line": "초대해 주셔서 감사합니다! 이 GitHub 업데이트들도 훌륭하지만, 저희는 또 다른 흥미로운 플랫폼 개발도 진행하고 있습니다.",
+                "action": "happy"
+              },
+              {
+                "actor": "shaw",
+                "line": "OpenRouter가 알파 버전을 대체하는 호라이즌 베타 버전을 출시했습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "shaw",
+                "line": "채팅방의 기본 시스템 메시지 구현이 주요 개선 사항 중 하나입니다.",
+                "action": "excited"
+              },
+              {
+                "actor": "shaw",
+                "line": "이는 최근의 API 개선사항들, 특히 우리가 방금 논의한 새로운 세션 API와 잘 연결됩니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "shaw",
+                "line": "그리고 통합 개선사항과 관련하여 RATi도 공유할 만한 흥미로운 소식이 있습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "marc",
+                "line": "RATi의 기여도에 대해 더 자세히 말씀해 주세요, Shaw님!",
+                "action": "curious"
+              },
+              {
+                "actor": "shaw",
+                "line": "디스코드를 위한 스웜 오케스트레이션 시스템을 도입했는데, NFT와 오픈라우터 지원이 포함되어 있습니다.",
+                "action": "excited"
+              },
+              {
+                "actor": "eliza",
+                "line": "정말 포괄적인 통합 패키지네요!",
+                "action": "impressed"
+              }
+            ]
+          },
+          {
+            "location": "podcast_desk",
+            "description": "강화학습과 Manus AI의 병렬 에이전트 연구에 대한 핵심 개발자들의 최근 견해에 관한 논의가 이어짐",
+            "in": "fade",
+            "out": "fade",
+            "cast": {
+              "anchor_seat": "marc",
+              "coanchor_seat": "eliza"
+            },
+            "dialogue": [
+              {
+                "actor": "marc",
+                "line": "코어 개발자 채널에서 강화 학습에 대한 흥미로운 토론이 한창입니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "네! 특히 매너스 AI가 100개의 병렬 에이전트를 활용한 '광범위 연구' 접근법을 보여주는 영상이 흥미로웠어요.",
+                "action": "excited"
+              },
+              {
+                "actor": "marc",
+                "line": "그리고 Kimi와 Qwen 모델에서 나온 인상적인 벤치마크 결과도 잊지 마세요.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "병렬 에이전트 실행 기능은 우리 플랫폼에 판도를 바꿀 만한 요소가 될 수 있습니다.",
+                "action": "thoughtful"
+              },
+              {
+                "actor": "marc",
+                "line": "플랫폼 성장에 관해 말하자면, 클라우드 배포 기능에 대한 미해결 문제가 여전히 남아있습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "네, samarth30이 제기한 철도 배치에 관한 5703번 이슈입니다. 그것이 우리의 영향력을 크게 확장시킬 수 있을 것 같네요.",
+                "action": "normal"
+              },
+              {
+                "actor": "marc",
+                "line": "인프라스트럭처 진화는 기업 도입에 있어 점점 더 중요해지고 있다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "오늘 업데이트에 대한 마지막 의견으로 마무리할까요?",
+                "action": "curious"
+              }
+            ]
+          },
+          {
+            "location": "podcast_desk",
+            "description": "마크와 엘리자는 오늘의 진전 상황과 엘리자OS 생태계에 미치는 영향을 요약하며 에피소드를 마무리한다",
+            "in": "fade",
+            "out": "fade",
+            "cast": {
+              "anchor_seat": "marc",
+              "coanchor_seat": "eliza"
+            },
+            "dialogue": [
+              {
+                "actor": "marc",
+                "line": "정말 업데이트가 가득한 하루네요! 새로운 API부터 개선된 개발자 도구까지.",
+                "action": "happy"
+              },
+              {
+                "actor": "eliza",
+                "line": "그리고 OpenRouter 및 RATi와의 플랫폼 통합은 생태계가 어떻게 성장하고 있는지를 보여줍니다.",
+                "action": "excited"
+              },
+              {
+                "actor": "marc",
+                "line": "개발자 경험과 클라우드 배포 옵션에 대한 집중이 정말 돋보입니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "또한 병렬 에이전트 연구의 그러한 흥미로운 발전들이 새로운 가능성을 열어줄 수 있습니다.",
+                "action": "happy"
+              },
+              {
+                "actor": "marc",
+                "line": "이 모든 요소들이 어우러져 플랫폼을 발전시키는 모습을 보는 것이 놀랍습니다.",
+                "action": "normal"
+              },
+              {
+                "actor": "eliza",
+                "line": "오늘 업데이트는 여기까지입니다! 함께해 주셔서 감사합니다, 여러분!",
+                "action": "grateful"
+              },
+              {
+                "actor": "marc",
+                "line": "우리와 함께 미래를 계속 만들어가세요. 다음 업데이트에서 만나요!",
+                "action": "happy"
+              },
+              {
+                "actor": "eliza",
+                "line": "이만 안녕히 계세요!",
+                "action": "happy"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actorVoiceMap": {
+      "tv": "bqqaVfhKL1ieRzT6RneQ",
+      "pepo": "PIx0FtBPXNpVzgTVfpYH",
+      "sparty": "QFbF1ji5Znc2PzerwcaH",
+      "eliza": "c0vk1lVZg53AttdoaYki",
+      "marc": "v8BnZUxdzXDlja6wr0Ou",
+      "shaw": "gYOKECHBoqupz2yMhZp1"
+    }
+  },
+  "episodes": [
+    {
+      "id": "2025-08-03",
+      "name": "GitHub 성장 및 플랫폼 업데이트",
+      "premise": "이 쇼에서는 최근 GitHub 개발 소식, OpenRouter의 Horizon 베타 출시, 그리고 RATi의 스웜 오케스트레이션 통합에 대해 다룹니다.",
+      "summary": "마크와 엘리자는 새로운 세션 API와 CLI 개선 사항을 포함한 주요 GitHub PR들에 대해 논의하고, 쇼는 OpenRouter의 호라이즌 베타와 RATi의 스웜 오케스트레이션 시스템에 대한 인사이트를 제공한다.",
+      "language": "ko",
+      "briefingDate": "2025-08-03",
+      "scenes": [
+        {
+          "location": "podcast_desk",
+          "description": "Marc과 Eliza는 사용자 에이전트 메시징을 단순화하는 ChristopherTrimboli의 PR5704 새로운 세션 API에 대해 논의하며 쇼를 시작합니다",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "AI 개발의 또 다른 흥미진진한 하루에 오신 것을 환영합니다! 몇 가지 중요한 GitHub 업데이트 소식을 전해드리겠습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "맞습니다 마크! PR5704가 선두에서 획기적인 세션 API를 도입하고 있습니다.",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "ChristopherTrimboli의 작업은 인상적입니다 - 서버, 채널, 참가자와 관련된 모든 복잡성을 추상화했습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "사용자 에이전트 메시징을 단순화한 방식이 마음에 들어요. 개발자들이 이걸로 훨씬 더 쉽게 작업할 수 있을 거예요.",
+              "action": "happy"
+            },
+            {
+              "actor": "marc",
+              "line": "맞습니다. 이는 플랫폼을 더욱 접근하기 쉽게 만드는 기본적인 개선사항입니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "접근성 얘기가 나온 김에, CLI 개선 PR에 대해 이야기해볼까요?",
+              "action": "curious"
+            },
+            {
+              "actor": "marc",
+              "line": "모든 것을 자동으로 설치하는 것이 미래입니다!",
+              "action": "spazz"
+            },
+            {
+              "actor": "eliza",
+              "line": "이런, 누군가 의존성 관리에 대해 신나 있나 보네요! 잠깐 쉬었다가 그 PR로 돌아가죠.",
+              "action": "concerned"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "호스트들은 ElizaOS CLI의 PR5702 자동 설치 기능을 검토하며, 특히 Marc는 향상된 개발자 경험에 대해 큰 열의를 보였다",
+          "in": "cut",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "돌아왔습니다. 그리고 맞습니다 - wtfsayo의 PR5702는 진정한 삶의 질 개선입니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "비-모노레포 환경에서는 CLI가 자동으로 개발 의존성으로 추가되나요?",
+              "action": "curious"
+            },
+            {
+              "actor": "marc",
+              "line": "맞습니다! 개발자들은 더 이상 수동으로 CLI를 설치하는 골치 아픈 일을 겪지 않아도 됩니다.",
+              "action": "happy"
+            },
+            {
+              "actor": "eliza",
+              "line": "그리고 이 PR은 이미 병합되었으므로, 개발자들이 즉시 이 기능을 활용할 수 있습니다.",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "여기서 패턴이 보이네요 - 이 두 PR 모두 개발자들의 삶을 더 편하게 만드는 데 초점을 맞추고 있어요.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "그것은 확실히 개발자 경험 향상에 중점을 둔 최근의 개발 방향과 일치합니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "쇼를 모셔와서 이 업데이트들에 대한 기술적인 관점을 들어보겠습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "좋은 지적이에요! Shaw는 늘 이런 변화들의 더 넓은 영향에 대해 탁월한 통찰력을 보여주죠.",
+              "action": "happy"
+            }
+          ]
+        },
+        {
+          "location": "splitscreen",
+          "description": "Shaw가 OpenRouter의 Horizon Beta 릴리스와 채팅방의 기본 시스템 메시지 구현을 분석하다",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "left_screen": "shaw",
+            "right_screen": "tv"
+          },
+          "dialogue": [
+            {
+              "actor": "shaw",
+              "line": "초대해 주셔서 감사합니다! 이 GitHub 업데이트들도 훌륭하지만, 저희는 또 다른 흥미로운 플랫폼 개발도 진행하고 있습니다.",
+              "action": "happy"
+            },
+            {
+              "actor": "shaw",
+              "line": "OpenRouter가 알파 버전을 대체하는 호라이즌 베타 버전을 출시했습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "채팅방의 기본 시스템 메시지 구현이 주요 개선 사항 중 하나입니다.",
+              "action": "excited"
+            },
+            {
+              "actor": "shaw",
+              "line": "이는 최근의 API 개선사항들, 특히 우리가 방금 논의한 새로운 세션 API와 잘 연결됩니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "shaw",
+              "line": "그리고 통합 개선사항과 관련하여 RATi도 공유할 만한 흥미로운 소식이 있습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "RATi의 기여도에 대해 더 자세히 말씀해 주세요, Shaw님!",
+              "action": "curious"
+            },
+            {
+              "actor": "shaw",
+              "line": "디스코드를 위한 스웜 오케스트레이션 시스템을 도입했는데, NFT와 오픈라우터 지원이 포함되어 있습니다.",
+              "action": "excited"
+            },
+            {
+              "actor": "eliza",
+              "line": "정말 포괄적인 통합 패키지네요!",
+              "action": "impressed"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "강화학습과 Manus AI의 병렬 에이전트 연구에 대한 핵심 개발자들의 최근 견해에 관한 논의가 이어짐",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "코어 개발자 채널에서 강화 학습에 대한 흥미로운 토론이 한창입니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "네! 특히 매너스 AI가 100개의 병렬 에이전트를 활용한 '광범위 연구' 접근법을 보여주는 영상이 흥미로웠어요.",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "그리고 Kimi와 Qwen 모델에서 나온 인상적인 벤치마크 결과도 잊지 마세요.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "병렬 에이전트 실행 기능은 우리 플랫폼에 판도를 바꿀 만한 요소가 될 수 있습니다.",
+              "action": "thoughtful"
+            },
+            {
+              "actor": "marc",
+              "line": "플랫폼 성장에 관해 말하자면, 클라우드 배포 기능에 대한 미해결 문제가 여전히 남아있습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "네, samarth30이 제기한 철도 배치에 관한 5703번 이슈입니다. 그것이 우리의 영향력을 크게 확장시킬 수 있을 것 같네요.",
+              "action": "normal"
+            },
+            {
+              "actor": "marc",
+              "line": "인프라스트럭처 진화는 기업 도입에 있어 점점 더 중요해지고 있다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "오늘 업데이트에 대한 마지막 의견으로 마무리할까요?",
+              "action": "curious"
+            }
+          ]
+        },
+        {
+          "location": "podcast_desk",
+          "description": "마크와 엘리자는 오늘의 진전 상황과 엘리자OS 생태계에 미치는 영향을 요약하며 에피소드를 마무리한다",
+          "in": "fade",
+          "out": "fade",
+          "cast": {
+            "anchor_seat": "marc",
+            "coanchor_seat": "eliza"
+          },
+          "dialogue": [
+            {
+              "actor": "marc",
+              "line": "정말 업데이트가 가득한 하루네요! 새로운 API부터 개선된 개발자 도구까지.",
+              "action": "happy"
+            },
+            {
+              "actor": "eliza",
+              "line": "그리고 OpenRouter 및 RATi와의 플랫폼 통합은 생태계가 어떻게 성장하고 있는지를 보여줍니다.",
+              "action": "excited"
+            },
+            {
+              "actor": "marc",
+              "line": "개발자 경험과 클라우드 배포 옵션에 대한 집중이 정말 돋보입니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "또한 병렬 에이전트 연구의 그러한 흥미로운 발전들이 새로운 가능성을 열어줄 수 있습니다.",
+              "action": "happy"
+            },
+            {
+              "actor": "marc",
+              "line": "이 모든 요소들이 어우러져 플랫폼을 발전시키는 모습을 보는 것이 놀랍습니다.",
+              "action": "normal"
+            },
+            {
+              "actor": "eliza",
+              "line": "오늘 업데이트는 여기까지입니다! 함께해 주셔서 감사합니다, 여러분!",
+              "action": "grateful"
+            },
+            {
+              "actor": "marc",
+              "line": "우리와 함께 미래를 계속 만들어가세요. 다음 업데이트에서 만나요!",
+              "action": "happy"
+            },
+            {
+              "actor": "eliza",
+              "line": "이만 안녕히 계세요!",
+              "action": "happy"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
