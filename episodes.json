@@ -867,5 +867,28 @@
       "id": "IqmEOi6HrmE",
       "url": "https://www.youtube.com/watch?v=IqmEOi6HrmE"
     }
+  },
+  "2025-08-05": {
+    "en": {
+      "title": "2025-08-05: Major GitHub Merges & Technical Challenges | AI16z...",
+      "description": "Recorded: 2025-08-05\n\nJoin Marc, Eliza, and Shaw as they dive into significant GitHub activity including wtfsayo's PR5709 for improved authentication and dependency management, Shaw's massive 316-file Eliza Cloud transformation, and key technical challenges facing the community. The team discusses WebSocket disconnection issues with Ollama, VPS deployment hurdles, and the strategic focus on developer experience and platform independence. Get the latest updates on elizaOS development and upcoming platform changes in this packed episode.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-05 11:02:42\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting day in the world of autonomous agent development!\neliza: We've got some major GitHub updates to cover today, starting with a significant merge from wtfsayo.\nmarc: PR5709 landed, bringing major improvements to authentication support and dependency management across packages.\neliza: This is a big one - it standardizes how different packages work together and handle authentication. Makes life easier for developers.\nmarc: Speaking of making things easier, we also saw PR5704 merge, introducing a simplified messaging interface between users and agents.\neliza: ChristopherTrimboli's work on that sessions API is going to make agent interactions much smoother.\nmarc: And let's not forget yungalgo's PR5705 fixing the component testing command - now working across all project types!\neliza: That's going to save developers a lot of headaches. Shaw, want to give us some technical context on these changes?\nshaw: Thanks Eliza. While those merges are significant, I've got something even bigger in the pipeline.\neliza: 316 files? That's massive, Shaw!\nshaw: This PR represents a fundamental shift in how Eliza Cloud operates. It's going to change everything about how we handle distributed agent deployments.\neliza: How are you planning to manage such a big change?\nshaw: We're taking it step by step. First, we'll onboard internal core members after merging to ensure smooth adoption.\neliza: Sounds like you're being careful with such a significant platform change.\nshaw: Has to be done right. This will affect everything from deployment to operational workflows.\nshaw: Let's get back to Marc for the latest technical issues we're tracking.\nmarc: We're tracking several technical issues reported by our community.\neliza: Marc! Your circuits okay there?\nmarc: Just excited about bug hunting! Users are reporting WebSocket disconnections with Ollama after about 5 minutes of streaming.\neliza: Starlord and cjft are already investigating that one. What else are we seeing?\nmarc: Some users are hitting snags with VPS deployments - specifically around the wrtc binary.\neliza: Right, that one needs additional dependency installation. Niann and 0xbbjoker are working on a fix.\nmarc: Meanwhile, wtfsayo has PR5712 open to address memory count and agent ID errors.\neliza: That'll help with those pesky invalid agent ID issues. Should we check in with Shaw about the strategic implications?\nshaw: Looking at the bigger picture, we're seeing a clear focus on developer experience optimization.\neliza: Through standardized testing and better dependency management?\nshaw: Exactly. These improvements align perfectly with our roadmap priority of making elizaOS more accessible to new developers.\neliza: And speaking of accessibility, I notice we're pushing harder on platform independence.\nshaw: Decentralization is key. We're exploring alternatives like Matrix and Farcaster to ensure robust community communication.\neliza: Looks like we're wrapping up another packed episode. Any final thoughts?\nshaw: Keep building, keep shipping, and keep contributing to the community. That's how we move forward together.\neliza: Thanks for joining us everyone! Keep those PRs coming!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-05/thumbnail/thumbnail_en.jpg",
+      "id": "SGxKxtTEdo4",
+      "url": "https://www.youtube.com/watch?v=SGxKxtTEdo4"
+    },
+    "ch": {
+      "title": "2025-08-05: GitHub重大更新和云平台革命",
+      "description": "Recorded: 2025-08-05\n\n加入马克、伊丽莎和肖的讨论，探索重要的GitHub动态，包括wtfsayo提交的PR5709（用于改进身份验证和依赖管理），以及肖提交的涉及316个文件的大型PR（将彻底改变伊丽莎云平台）。团队深入探讨了关键技术挑战，包括Ollama的WebSocket断连问题、VPS部署难题，以及在开发者体验和平台独立性方面的战略重点。获取elizaOS开发的最新进展，了解即将到来的平台变更。",
+      "thumbnail": "Episodes/2025-08-05/thumbnail/thumbnail_ch.jpg",
+      "id": "k5EmmVjO94E",
+      "url": "https://www.youtube.com/watch?v=k5EmmVjO94E"
+    },
+    "ko": {
+      "title": "2025-08-05: GitHub 주요 병합과 기술적 도전과제 | AI16z 업데이트",
+      "description": "Recorded: 2025-08-05\n\n마크, 엘라이자, 쇼와 함께 깃허브의 주요 활동을 살펴보세요. wtfsayo의 PR5709를 통한 인증 및 의존성 관리 개선, 쇼의 316개 파일에 걸친 엘라이자 클라우드 대규모 변환, 그리고 커뮤니티가 직면한 주요 기술적 과제들을 다룹니다. 팀은 Ollama와의 웹소켓 연결 해제 문제, VPS 배포 과정의 어려움, 그리고 개발자 경험과 플랫폼 독립성에 대한 전략적 초점을 논의합니다. 이번 알찬 에피소드에서 elizaOS 개발 현황과 예정된 플랫폼 변경사항에 대한 최신 소식을 확인하세요.",
+      "thumbnail": "Episodes/2025-08-05/thumbnail/thumbnail_ko.jpg",
+      "id": "_WRu_qNjiAI",
+      "url": "https://www.youtube.com/watch?v=_WRu_qNjiAI"
+    }
   }
 }

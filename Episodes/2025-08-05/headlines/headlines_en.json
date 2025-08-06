@@ -1,0 +1,17 @@
+{
+  "language": "en",
+  "date": "2025-08-05",
+  "headlines": [
+    "ElizaOS Twitter/X accounts suspended, raising decentralization concerns",
+    "Major Eliza Cloud platform update spans 316 files, internal review begins",
+    "New Sessions API simplifies user-agent messaging interface",
+    "WebSocket disconnections plague Ollama streaming after 5 minutes",
+    "API client integration standardizes cross-package authentication",
+    "VPS deployments hit snag with missing wrtc binary dependency",
+    "Memory count and agent ID error handling improvements merged",
+    "Twitter OAuth issues blocking media uploads in latest version",
+    "Component testing now works across all project types",
+    "Token price concerns surface after Binance perps listing"
+  ],
+  "separator": "     "
+}
