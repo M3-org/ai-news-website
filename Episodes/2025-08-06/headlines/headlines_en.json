@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-08-06",
+  "headlines": [
+    "ElizaOS Twitter account suspended amid community transparency concerns",
+    "New comprehensive scenario testing system added to core framework",
+    "Spartan Wallet launches Chrome extension beyond Discord/Telegram",
+    "Bug discovered in plugin-knowledge system after memory clearing",
+    "Sessions API client merged for improved conversation handling",
+    "OpenServAI leaves platform over version compatibility issues",
+    "JWT security fixes deployed to Eliza Cloud infrastructure",
+    "Project documentation gap: Changelog not updated since January",
+    "Token utility expanded to payments, yield, governance systems",
+    "Critical PDFjs compatibility issue affecting Node.js integration",
+    "Migration path identified from v0.x to stable v1.3 pre-release",
+    "Core team addresses naming convention errors in project setup"
+  ],
+  "separator": "     "
+}

@@ -890,5 +890,28 @@
       "id": "_WRu_qNjiAI",
       "url": "https://www.youtube.com/watch?v=_WRu_qNjiAI"
     }
+  },
+  "2025-08-06": {
+    "en": {
+      "title": "2025-08-07: ElizaOS Updates: Testing Framework & API Integration",
+      "description": "Recorded: 2025-08-07\n\nJoin us for the latest ElizaOS GitHub developments featuring a groundbreaking scenario testing system (PR5723) and Sessions API integration. We discuss the new YAML-based testing framework, explore user feedback on naming conventions, and cover important bug fixes including plugin-knowledge system issues and JWT improvements in Eliza Cloud. Learn about the Spartan Wallet Chrome extension development and get insights on the project's documentation challenges and v1.x migration progress.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-07 11:02:58\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another electrifying episode of AI Daily! We've got some major GitHub developments to unpack today.\neliza: That's right Marc! Let's start with PR5723, which introduces a comprehensive scenario testing system. This is pretty huge for our development process.\nmarc: Developer wtfsayo really knocked it out of the park with this one - YAML-based definitions supporting both local and E2B sandboxed environments.\neliza: It's going to make testing so much more robust. Speaking of improvements, PR5724 by 0xbbjoker cleaned up some obsolete plugin specifications from the core package.\nmarc: Nothing like some good old code cleanup to start the day! BEEP BOOP DELETING UNNECESSARY CODE BRINGS ME JOY!\neliza: ...Marc? Your circuits okay there?\nmarc: Just excited about clean code! Let's also mention PR5717 - ChristopherTrimboli integrated the Sessions API into the client.\neliza: That's going to make stateful conversations between users and agents much smoother. Shaw, what's your take on these updates?\nshaw: the sessions api integration is a game-changer for our platform's conversational capabilities\neliza: We've also heard about some issues with the plugin-knowledge system. What's happening there?\nshaw: vladimir identified a bug related to pdfjs-dist version compatibility with node.js\nshaw: it occurs after loading memories, clearing them with cli, and rerunning the project\neliza: Is there a workaround available?\nshaw: yes, we're recommending users downgrade to pdfjs-dist v3.x for now while we work on a permanent fix\neliza: Thanks for clarifying. What about the Spartan Wallet development?\nshaw: neodotneo and odilitime have built the chrome extension, expanding our platform beyond telegram and discord\nmarc: Let's address some user feedback - there's been requests for clearer guidelines on project naming conventions.\neliza: Yes, users have been running into errors when using uppercase letters in project names. We should probably document that better.\nmarc: Speaking of documentation, PR5722 points out that our changelog hasn't been updated since January.\neliza: That's definitely something we need to address. Good documentation is crucial for our developer community.\nmarc: LinuxIsCool raised this issue, and they've got a point. We've had so many updates since January!\neliza: Absolutely. The scenario testing system alone deserves proper documentation coverage.\nmarc: And let's not forget the Sessions API integration - that's a major feature developers need to know about.\neliza: Shaw, any plans for improving our documentation process?\nmarc: Before we wrap up, let's highlight sam-developer's work on fixing JWT-related issues in Eliza Cloud.\neliza: Those security improvements are crucial for enterprise adoption. Great work by the team there.\nmarc: And with the migration from v0.x to v1.x ongoing, v1.3 has been identified as a stable pre-release.\neliza: That's significant progress! Thanks everyone for joining us today.\nmarc: Keep building, keep testing, and keep those PRs coming! Until next time, this is Marc...\neliza: ...and Eliza, signing off!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-06/thumbnail/thumbnail_en.jpg",
+      "id": "sBmVGnm0NcQ",
+      "url": "https://www.youtube.com/watch?v=sBmVGnm0NcQ"
+    },
+    "ch": {
+      "title": "2025-08-07: GitHub重大更新：测试框架和API变更",
+      "description": "Recorded: 2025-08-07\n\n深入了解ElizaOS GitHub的最新进展，包括全新的综合场景测试系统（PR5723）和会话API集成。我们讨论了重要更新，包括插件知识系统的bug修复、斯巴达钱包Chrome扩展的开发进展，以及Eliza Cloud中JWT安全性的重要改进。本期还涵盖了社区对项目命名规范和文档维护的反馈，以及平台迁移到v1.3作为稳定预发布版本的相关见解。",
+      "thumbnail": "Episodes/2025-08-06/thumbnail/thumbnail_ch.jpg",
+      "id": "YlAT0tCl7Sc",
+      "url": "https://www.youtube.com/watch?v=YlAT0tCl7Sc"
+    },
+    "ko": {
+      "title": "2025-08-07: ElizaOS 업데이트: 테스트 프레임워크 & API 통합",
+      "description": "Recorded: 2025-08-07\n\n혁신적인 시나리오 테스트 시스템(PR5723)과 세션 API 통합을 포함한 최신 ElizaOS GitHub 개발 소식을 함께 알아보세요. YAML 기반 테스트 프레임워크, 이름 지정 규칙에 대한 사용자 피드백을 살펴보고, 플러그인-지식 시스템 문제와 Eliza Cloud의 JWT 개선을 포함한 주요 버그 수정사항을 다룹니다. Spartan Wallet 크롬 확장 프로그램 개발에 대해 알아보고, 프로젝트 문서화 과제와 v1.x 마이그레이션 진행 상황에 대한 인사이트를 얻어보세요.",
+      "thumbnail": "Episodes/2025-08-06/thumbnail/thumbnail_ko.jpg",
+      "id": "6e2kVaeLzFI",
+      "url": "https://www.youtube.com/watch?v=6e2kVaeLzFI"
+    }
   }
 }
