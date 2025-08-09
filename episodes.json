@@ -913,5 +913,28 @@
       "id": "6e2kVaeLzFI",
       "url": "https://www.youtube.com/watch?v=6e2kVaeLzFI"
     }
+  },
+  "2025-08-08": {
+    "en": {
+      "title": "2025-08-08: ElizaOS v2 Progress & Critical GitHub Updates...",
+      "description": "Recorded: 2025-08-08\n\nIn this episode of the AI Podcast, our hosts dive deep into crucial ElizaOS developments, including a critical agent initialization bug (PR5719) and the game-changing action chaining fix (PR5736). Shaw provides exclusive insights into v2 finalization and v3 architecture decisions, revealing why swarm functionality will become optional. We also address recent community concerns about competitor FUD and explore significant Cloud Platform security improvements. Get the latest on ElizaOS's evolving ecosystem, new plugin developments, and strategic architectural decisions shaping the future of AI agents.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-08 11:02:44\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to the AI16z Daily Update! We've got some spicy GitHub activity to cover today.\neliza: Indeed! Let's start with a critical bug report from contributor monilpat regarding agent initialization.\nmarc: PR5719 highlights a nasty hang in the startAgent CLI command - definitely something the team needs to tackle ASAP.\neliza: Interestingly, it happens both with and without the bootstrap plugin, just at different stages of initialization.\nmarc: Speaking of bugs, Kemystra reported in PR5734 that the CLI is failing to build new projects entirely.\neliza: These issues highlight why the team is so focused on improving developer experience in the upcoming releases.\nmarc: On a more positive note, alex-nax submitted PR5736 with a fix for action chaining.\neliza: That's crucial for the core functionality. Shaw, can you give us more technical context on these updates?\nshaw: The action chaining fix is particularly important as we finish up v2 and plan for v3.\neliza: What's the current status of v2 finalization?\nshaw: We're in the final stages, with significant focus on the message bus architecture and swarm functionality.\neliza: I heard there were some interesting decisions made about swarm architecture for v3?\nshaw: Yes - we've decided to make swarm architecture optional rather than default in v3. Single agent implementations are often simpler and faster.\neliza: That seems like a pragmatic choice for developers.\nshaw: Exactly. Plus, cjft just knocked out a new Wolfram plugin in about 2 hours, and we're updating the Telegram plugin as well.\neliza: That's impressive plugin development speed!\nmarc: Let's talk about something that's been causing some drama in the community.\neliza: Ah, you mean the situation with Poink and OpenServ?\nmarc: Exactly. They've been spreading what appears to be FUD about ElizaOS.\neliza: Our investigation suggests it's more of a competitive tactic than legitimate technical criticism.\nmarc: You know what they say - first they ignore you, then they FUD you, then you win.\neliza: The community seems to see through it though, especially with the positive momentum around AI agent technology returning.\nmarc: Speaking of momentum, should we check in with Shaw about the Cloud Platform progress?\neliza: Absolutely, there's been some significant security improvements there.\nshaw: We've made substantial progress on the Cloud Platform's security infrastructure.\neliza: I heard the JWT token issues have been resolved?\nshaw: Yes, and we've significantly improved the API key page creation flow.\neliza: How's the authentication system holding up with these changes?\nshaw: Rock solid now. We've also enhanced the overall security architecture.\neliza: That's crucial for enterprise adoption. Should we wrap up with a final word on v3 planning?\nshaw: The focus is on making it powerful yet accessible. Optional swarm architecture means developers can start simple and scale up when needed.\neliza: Perfect balance of flexibility and simplicity. That's all for today's update, thanks for tuning in!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-08/thumbnail/thumbnail_en.jpg",
+      "id": "z87RQ22k-jQ",
+      "url": "https://www.youtube.com/watch?v=z87RQ22k-jQ"
+    },
+    "ch": {
+      "title": "2025-08-08: ElizaOS GitHub：关键Bug修复及v3架构规划",
+      "description": "Recorded: 2025-08-08\n\n和我们一起深入了解ElizaOS最近的GitHub动态，包括影响代理初始化和CLI功能的关键bug修复。我们将讨论即将完成的v2版本，并探讨v3版本的重大架构决策，特别是将群体架构设为可选项的改动。此外，还将了解新插件开发进展、云平台安全改进，以及AI代理竞争格局的洞察。重点包括PR5719的代理初始化修复、alex-nax的动作链解决方案，以及JWT和API安全性的重大增强。",
+      "thumbnail": "Episodes/2025-08-08/thumbnail/thumbnail_ch.jpg",
+      "id": "cbZZ71u6UpI",
+      "url": "https://www.youtube.com/watch?v=cbZZ71u6UpI"
+    },
+    "ko": {
+      "title": "2025-08-08: ElizaOS v2 개발 현황 및 중요 GitHub 업데이트 공개",
+      "description": "Recorded: 2025-08-08\n\n이번 AI 팟캐스트 에피소드에서는 중요한 에이전트 초기화 버그(PR5719)와 획기적인 액션 체이닝 수정(PR5736)을 포함한 ElizaOS의 주요 개발 사항을 심도있게 다룹니다. Shaw가 v2 완성과 v3 아키텍처 결정에 대한 독점적인 통찰을 공유하며, 스웜 기능이 선택적으로 바뀌게 된 이유를 밝힙니다. 또한 경쟁사의 FUD에 대한 최근 커뮤니티의 우려를 다루고, 클라우드 플랫폼의 주요 보안 개선 사항을 살펴봅니다. AI 에이전트의 미래를 형성하는 ElizaOS의 진화하는 생태계, 새로운 플러그인 개발, 그리고 전략적 아키텍처 결정에 대한 최신 소식을 확인하세요.",
+      "thumbnail": "Episodes/2025-08-08/thumbnail/thumbnail_ko.jpg",
+      "id": "4Z8OcUZLLqw",
+      "url": "https://www.youtube.com/watch?v=4Z8OcUZLLqw"
+    }
   }
 }
