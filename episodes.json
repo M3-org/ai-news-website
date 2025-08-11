@@ -959,5 +959,28 @@
       "id": "thI5WHXrKv8",
       "url": "https://www.youtube.com/watch?v=thI5WHXrKv8"
     }
+  },
+  "2025-08-10": {
+    "en": {
+      "title": "2025-08-10: ElizaOS Unveils Clank Tank v2 & Major Tech Updates",
+      "description": "Recorded: 2025-08-10\n\nJoin us for an in-depth look at ElizaOS's latest developments! We explore the exciting announcement of Clank Tank v2, a new platform for pitching ideas with full media support, and dive into significant infrastructure improvements. Learn about the simplified database connectivity that's making development more streamlined, the newly merged iframe support for production environments, and the strategic shift toward AI agents. Plus, get technical insights on recent GitHub updates, including solutions for WSL development environments and upcoming features that are reshaping the ElizaOS ecosystem.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-10 11:02:41\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode of AI developments! We've got some juicy updates from the development front.\neliza: That's right, Marc! The team has been hard at work on infrastructure improvements. I'm particularly excited about PR5735 that just got merged.\nmarc: Ah yes, the iframe support for production environments! Wookosh really came through with that one.\neliza: And speaking of improvements, have you heard about the database connectivity simplification?\nmarc: Oh, you mean how you can now directly connect to Postgres without the adapter-supabase plugin? That's a game-changer for developers.\neliza: Easy there, Marc! But yes, it's a significant improvement that makes development much more straightforward.\nmarc: Sorry about that... Let's get Shaw's technical perspective on these updates.\neliza: Good call! Shaw, what's your take on these infrastructure changes?\nshaw: Thanks for having me. Let's start with PR5748 from yungalgo, which improves our logging test consistency.\nshaw: We're also seeing some challenges with the CLI, particularly issue 5734 where new projects aren't building properly.\nshaw: And there's issue 5719 causing agent initialization hangs that we need to address.\nshaw: But it's not all challenges - we've made significant progress with our WSL development environment solutions.\nshaw: Windows developers can now use the Remote Explorer extension or launch directly from the Ubuntu terminal.\nshaw: Back to you in the studio for the exciting Clank Tank v2 news!\nmarc: Time for the big announcement - Clank Tank v2 is in development!\neliza: Jin mentioned it's going to be a platform for pitching ideas with full media support, including MP4 and YouTube videos.\nmarc: And there's more - Jin has an interesting philosophy about AI agents: 'good agents sell visions' just like good apps sell phones.\neliza: That's right! They're developing new AI agents trained specifically on elizaOS data.\nmarc: Speaking of agents, I heard some interesting developments in the core-devs channel about modularizing prompts for judge feedback.\neliza: Yes, and yikesawjeez shared some fascinating experiences with GPT-5 implementation using a Kanban board system.\nmarc: It's amazing how the community keeps innovating. Should we wrap up with final thoughts on today's updates?\neliza: Let's do it, Marc!\nmarc: What a packed episode! From infrastructure improvements to exciting new platforms.\neliza: The simplified database connectivity really shows how ElizaOS is evolving to be more developer-friendly.\nmarc: And Clank Tank v2 sounds like it's going to be a game-changer for idea pitching and community engagement.\neliza: Don't forget the strategic shift toward AI agents - that's going to be fascinating to watch.\nmarc: Absolutely! Thanks for joining us for another episode of AI developments!\neliza: Until next time, keep building the future!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-10/thumbnail/thumbnail_en.jpg",
+      "id": "GSDu361jkOA",
+      "url": "https://www.youtube.com/watch?v=GSDu361jkOA"
+    },
+    "ch": {
+      "title": "2025-08-10: ElizaOS：Clank Tank v2版本与重大基础设施更新",
+      "description": "Recorded: 2025-08-10\n\n获取ElizaOS最新动态！本期节目我们深入探讨重磅发布的Clank Tank v2平台，以及包括简化数据库连接和iframe支持在内的关键基础设施改进。跟随Marc、Eliza和Shaw一起了解GitHub的最新更新、开发环境解决方案以及向AI代理转型的战略变革。了解ElizaOS如何通过直接的Postgres连接、改进的测试框架以及创新的社区互动方式不断发展。不要错过即将推出的功能和技术改进细节，这些都将塑造ElizaOS的未来。",
+      "thumbnail": "Episodes/2025-08-10/thumbnail/thumbnail_ch.jpg",
+      "id": "8zx5iecUnic",
+      "url": "https://www.youtube.com/watch?v=8zx5iecUnic"
+    },
+    "ko": {
+      "title": "2025-08-10: ElizaOS에서 클랭크 탱크 v2와 주요 기술 업데이트 공개",
+      "description": "Recorded: 2025-08-10\n\nElizaOS의 최신 개발 현황을 함께 살펴보세요! 미디어 지원이 완벽히 갖춰진 아이디어 제안 플랫폼, Clank Tank v2의 흥미진진한 발표와 주요 인프라 개선 사항을 자세히 알아봅니다. 개발 과정을 더욱 간소화한 데이터베이스 연결 방식, 프로덕션 환경에 새롭게 통합된 iframe 지원, 그리고 AI 에이전트로의 전략적 전환에 대해 알아보세요. 또한 WSL 개발 환경을 위한 해결책과 ElizaOS 생태계를 재편하는 예정된 기능들을 포함한 최근 GitHub 업데이트에 대한 기술적 인사이트를 얻어가세요.",
+      "thumbnail": "Episodes/2025-08-10/thumbnail/thumbnail_ko.jpg",
+      "id": "HDf0Pg5Z8LA",
+      "url": "https://www.youtube.com/watch?v=HDf0Pg5Z8LA"
+    }
   }
 }

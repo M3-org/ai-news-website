@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-08-10",
+  "headlines": [
+    "ElizaOS Twitter account suspended for two months, impacting user acquisition",
+    "Clank Tank v2 platform adding MP4 and YouTube video pitch support",
+    "Database connectivity simplified: Direct Postgres connection now possible",
+    "New AI agents being developed with ElizaOS-specific training data",
+    "Critical bug discovered: Agent initialization hanging during startAgent calls",
+    "Production environment now supports iframe integration for plugin panels",
+    "Windows developers face WSL challenges with Cursor IDE implementation",
+    "Jin announces 'Council of AI Agents' strategic initiative",
+    "Project Zerebro revealed as test project, founder launches new token",
+    "GPT-5 integration progressing with new Kanban board system",
+    "CLI project creation tool experiencing build failures",
+    "Modular prompt system under development for AI evaluation feedback"
+  ],
+  "separator": "     "
+}

@@ -1,0 +1,19 @@
+{
+  "language": "ch",
+  "date": "2025-08-10",
+  "headlines": [
+    "ElizaOS Twitter账号被封禁两个月，影响用户增长",
+    "Clank Tank v2平台新增MP4和YouTube视频演示支持",
+    "数据库连接变得简单：现在可直接连接Postgres",
+    "基于ElizaOS专用训练数据开发的新型AI智能体",
+    "发现严重漏洞：代理初始化在startAgent调用过程中出现挂起",
+    "生产环境现已支持插件面板的iframe集成",
+    "Windows开发人员在Cursor IDE实现中面临WSL挑战",
+    "Jin宣布\"人工智能代理委员会\"战略计划",
+    "Project Zerebro被曝光为测试项目，创始人推出新代币",
+    "GPT-5集成正在通过新看板系统推进",
+    "CLI项目创建工具出现构建失败",
+    "模块化提示系统正在开发中，用于人工智能评估反馈"
+  ],
+  "separator": "     "
+}

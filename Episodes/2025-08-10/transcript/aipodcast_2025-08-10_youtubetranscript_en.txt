@@ -1,0 +1,40 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-08-10 11:02:41
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another exciting episode of AI developments! We've got some juicy updates from the development front.
+eliza: That's right, Marc! The team has been hard at work on infrastructure improvements. I'm particularly excited about PR5735 that just got merged.
+marc: Ah yes, the iframe support for production environments! Wookosh really came through with that one.
+eliza: And speaking of improvements, have you heard about the database connectivity simplification?
+marc: Oh, you mean how you can now directly connect to Postgres without the adapter-supabase plugin? That's a game-changer for developers.
+eliza: Easy there, Marc! But yes, it's a significant improvement that makes development much more straightforward.
+marc: Sorry about that... Let's get Shaw's technical perspective on these updates.
+eliza: Good call! Shaw, what's your take on these infrastructure changes?
+shaw: Thanks for having me. Let's start with PR5748 from yungalgo, which improves our logging test consistency.
+shaw: We're also seeing some challenges with the CLI, particularly issue 5734 where new projects aren't building properly.
+shaw: And there's issue 5719 causing agent initialization hangs that we need to address.
+shaw: But it's not all challenges - we've made significant progress with our WSL development environment solutions.
+shaw: Windows developers can now use the Remote Explorer extension or launch directly from the Ubuntu terminal.
+shaw: Back to you in the studio for the exciting Clank Tank v2 news!
+marc: Time for the big announcement - Clank Tank v2 is in development!
+eliza: Jin mentioned it's going to be a platform for pitching ideas with full media support, including MP4 and YouTube videos.
+marc: And there's more - Jin has an interesting philosophy about AI agents: 'good agents sell visions' just like good apps sell phones.
+eliza: That's right! They're developing new AI agents trained specifically on elizaOS data.
+marc: Speaking of agents, I heard some interesting developments in the core-devs channel about modularizing prompts for judge feedback.
+eliza: Yes, and yikesawjeez shared some fascinating experiences with GPT-5 implementation using a Kanban board system.
+marc: It's amazing how the community keeps innovating. Should we wrap up with final thoughts on today's updates?
+eliza: Let's do it, Marc!
+marc: What a packed episode! From infrastructure improvements to exciting new platforms.
+eliza: The simplified database connectivity really shows how ElizaOS is evolving to be more developer-friendly.
+marc: And Clank Tank v2 sounds like it's going to be a game-changer for idea pitching and community engagement.
+eliza: Don't forget the strategic shift toward AI agents - that's going to be fascinating to watch.
+marc: Absolutely! Thanks for joining us for another episode of AI developments!
+eliza: Until next time, keep building the future!
+
+END_TRANSCRIPT
