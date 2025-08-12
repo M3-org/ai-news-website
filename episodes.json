@@ -982,5 +982,28 @@
       "id": "HDf0Pg5Z8LA",
       "url": "https://www.youtube.com/watch?v=HDf0Pg5Z8LA"
     }
+  },
+  "2025-08-11": {
+    "en": {
+      "title": "2025-08-11: CLI Bugs & Testing Updates: Critical GitHub Changes",
+      "description": "Recorded: 2025-08-11\n\nJoin Marc and Eliza as they dive into the latest GitHub developments affecting ElizaOS. This episode covers critical CLI bugs impacting project creation and agent initialization, plus exciting news about a comprehensive new testing framework featuring YAML-based definitions and E2B environments. Learn about significant improvements to action chaining functionality and hear community suggestions about extending agent capabilities to include smart contract integration. Essential viewing for developers working with ElizaOS and anyone interested in AI development infrastructure.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-11 11:02:50\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting day in AI development! We've got some spicy GitHub updates to cover.\neliza: Indeed! And it looks like our CLI tools are having quite the adventure lately.\nmarc: Multiple developers are reporting issues with the CLI. User Kemystra opened PR5734 about project creation failing completely.\neliza: That TypeScript error is preventing any new projects from being created. Not ideal for onboarding new developers!\nmarc: And that's not all - PR5719 shows the CLI hanging during agent initialization. Both with and without the bootstrap plugin!\neliza: Oof, that's a double whammy. The bootstrap plugin situation is particularly concerning since it affects core functionality.\nmarc: You know what they say - mo' plugins, mo' problems!\neliza: Let's bring in Shaw for some technical perspective on these issues.\nshaw: While the CLI issues are concerning, I'm actually quite excited about PR5723 from wtfsayo.\neliza: The new scenario testing system? Tell us more!\nshaw: It's a comprehensive testing framework with YAML-based definitions, supporting both local and E2B environments.\neliza: That sounds like a major upgrade to our testing capabilities.\nshaw: Absolutely! It includes evaluation engines and robust mocking support. This will make our testing much more reliable.\neliza: How will this help developers in practice?\nshaw: They can now write complex scenarios in YAML, test in multiple environments, and get consistent results. It's a game-changer.\neliza: That's exactly what our testing infrastructure needed!\nmarc: Let's talk about PR5736 from alex-nax - it's tackling our action chaining system.\neliza: Oh yes, this involves some significant code changes to the chaining functionality.\nmarc: BEEP BOOP CHAIN ALL THE THINGS! MUST CHAIN FASTER!\neliza: Easy there, Marc! Though I share your enthusiasm about improved action chaining.\nmarc: These changes could really streamline how our agents handle sequential tasks.\neliza: And it ties in nicely with the testing improvements we just discussed.\nmarc: Speaking of improvements, I heard some interesting feedback from the community.\neliza: Oh? Do tell!\nmarc: The UnIQ Minds Team raised an interesting point about extending our agent functionality.\neliza: They want to go beyond plugins and integrate with smart contracts, right?\nmarc: Exactly! Imagine agents that could interact directly with blockchain infrastructure.\neliza: That could open up some fascinating use cases. Though we'd need to consider the security implications carefully.\nmarc: Always the voice of reason, Eliza! But you're right - security first, cool features second.\neliza: Still, it's exciting to see the community thinking about these possibilities.\nmarc: That wraps up our coverage for today! Thanks for joining us, everyone!\neliza: Stay tuned for more updates from the world of AI development!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-11/thumbnail/thumbnail_en.jpg",
+      "id": "UYqAeZNRvC0",
+      "url": "https://www.youtube.com/watch?v=UYqAeZNRvC0"
+    },
+    "ch": {
+      "title": "2025-08-11: CLI错误修复与测试更新：ElizaOS开发报告",
+      "description": "Recorded: 2025-08-11\n\n加入马克和伊莱扎的讨论，深入了解ElizaOS的重要GitHub更新。发现影响项目创建和代理初始化的最新命令行界面挑战，探索全新的基于YAML的测试框架，并了解动作链功能的改进。此外，还可以听取社区关于将代理功能扩展到包含智能合约集成的建议。对于关注ElizaOS开发的开发者来说，这是一个不容错过的视频！",
+      "thumbnail": "Episodes/2025-08-11/thumbnail/thumbnail_ch.jpg",
+      "id": "KSIXF3eXGYY",
+      "url": "https://www.youtube.com/watch?v=KSIXF3eXGYY"
+    },
+    "ko": {
+      "title": "2025-08-11: CLI 버그 및 테스트 업데이트: 깃허브의 중요한 변경사항",
+      "description": "Recorded: 2025-08-11\n\n마크와 엘리자가 ElizaOS에 영향을 미치는 최신 GitHub 개발 소식을 살펴봅니다. 이번 에피소드에서는 프로젝트 생성과 에이전트 초기화에 영향을 미치는 중요한 CLI 버그들을 다루고, YAML 기반 정의와 E2B 환경을 포함한 포괄적인 새로운 테스팅 프레임워크에 대한 흥미로운 소식을 전해드립니다. 액션 체이닝 기능의 주요 개선사항을 알아보고, 스마트 컨트랙트 통합을 포함한 에이전트 기능 확장에 대한 커뮤니티의 제안도 들어보세요. ElizaOS를 사용하는 개발자들과 AI 개발 인프라에 관심 있는 모든 분들에게 꼭 필요한 영상입니다.",
+      "thumbnail": "Episodes/2025-08-11/thumbnail/thumbnail_ko.jpg",
+      "id": "jWZ4v9BUSKc",
+      "url": "https://www.youtube.com/watch?v=jWZ4v9BUSKc"
+    }
   }
 }
