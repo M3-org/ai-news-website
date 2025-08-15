@@ -1,0 +1,52 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-08-14 11:03:33
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to the daily ElizaOS update! Today we've got some spicy architectural drama cooking in the kitchen.
+eliza: That's right, Marc. There's been quite the debate in the core-devs channel about ElizaOS's fundamental design philosophy.
+marc: Some folks want to simplify everything down to a basic tool-calling framework, but Shaw's not having any of that.
+eliza: Shaw's pretty adamant about keeping our social agent capabilities. Says it's what makes us special in the market.
+marc: And you know what? He's got a point. Why compete in the enterprise workflow space where everyone's losing money?
+eliza: Instead, we're positioning ourselves for gaming environments and 3D worlds. Pretty smart move if you ask me.
+marc: Speaking of positioning, let's check in with Shaw for some technical updates.
+eliza: He's got all the details on our latest GitHub activity. Over to you, Shaw!
+shaw: Thanks team. We've got some interesting GitHub activity to cover today.
+shaw: First up, yungalgo submitted PR5763 to fix some issues with the elizaos publish command.
+shaw: This PR specifically addresses problems with the --test and --npm flags, which should improve the plugin publishing workflow.
+shaw: We've also got two new issues from borisudovicic that are pretty significant.
+shaw: Issue 5772 is setting up telemetry for RULER training data extraction - crucial for improving our AI model training.
+shaw: And Issue 5771 focuses on creating a dashboard for Nisita, which will help with admin and analytics.
+shaw: Overall, we're seeing moderate but focused development with 11 active contributors keeping things moving.
+shaw: Back to you in the studio!
+marc: Now here's something exciting - Jin dropped details about Clank Tank 2.0 in the partners channel!
+eliza: Oh yes! It's like Shark Tank meets AI meets prediction markets meets DAO governance. That's a lot of meets!
+marc: The coolest part? They're using AI judges representing different archetypes to evaluate submissions.
+eliza: And they're implementing it with client-side rendering using PlayCanvas. Pretty technical stuff!
+marc: Speaking of technical stuff, we should probably address some of those plugin integration challenges users have been reporting.
+eliza: Good point. There have been quite a few issues popping up in the coders channel.
+marc: Let's break those down after the break. But first, MUST RECALIBRATE MY CIRCUITS!
+eliza: We'll be right back folks! Don't go anywhere!
+marc: And we're back! Let's talk about those plugin problems that have been driving developers crazy.
+eliza: Users are particularly confused about the hyperliquid plugin documentation.
+marc: There's also this tricky issue with URL handling where trailing slashes are getting cut off.
+eliza: The MCP implementation seems to be causing some headaches too.
+marc: But hey, at least we're seeing some creative solutions! Some users are exploring Morpheus AI for GPU-intensive tasks.
+eliza: That's true! And speaking of creative solutions, we're seeing more projects being built on ElizaOS.
+marc: Tapestryai, Pixels, Bonsai, Comput3ai - the ecosystem is really growing!
+eliza: Should we wrap things up with a look at our strategic direction?
+marc: The big strategic shift we're seeing is a focus on viral applications rather than refactoring.
+eliza: Right, like the OTC/bond desk agent and Clank Tank 2.0 we mentioned earlier.
+marc: Though some community members are questioning how all this connects to token value.
+eliza: Valid concern. There's definitely room for better communication about the connection between development and tokenomics.
+marc: But overall, I'd say we're making solid progress on multiple fronts.
+eliza: Agreed! And that wraps up today's update. Thanks for joining us everyone!
+marc: See you tomorrow for more ElizaOS news and updates! BZZT- END TRANSMISSION!
+eliza: And there he goes with the robot act again... Goodbye everyone!
+
+END_TRANSCRIPT
