@@ -1074,5 +1074,28 @@
       "id": "f48YE5EZbv8",
       "url": "https://www.youtube.com/watch?v=f48YE5EZbv8"
     }
+  },
+  "2025-08-15": {
+    "en": {
+      "title": "2025-08-15: ElizaOS: Major Architecture Update & Bond Protocol...",
+      "description": "Recorded: 2025-08-15\n\nDive into the latest developments at ElizaOS as we explore significant architectural changes moving towards a more modular, code-first approach. Marc and Eliza discuss crucial workflow improvements from PR5775, TEE functionality enhancements, and the exciting implementation of bond protocol for agent monetization. Shaw provides technical insights on the new modular architecture and performance optimizations. Plus, we address recent user feedback regarding logger functions and MCP connectivity issues. An essential update for developers and AI enthusiasts following ElizaOS's evolution.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-15 11:02:58\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting day in AI development! We've got some fresh GitHub updates to dive into.\neliza: That's right Marc! PR5775 just merged, bringing some crucial workflow improvements to prevent automatic branch merges during releases.\nmarc: And let's not forget PR5773 by yungalgo, focusing on infrastructure improvements for TEE functionality.\neliza: TEE - Trusted Execution Environment. That's going to be huge for secure computing!\nmarc: Absolutely! We're seeing active development with multiple contributors working primarily on CI/CD improvements.\neliza: Speaking of improvements, PR5774 is addressing some registry functionality bugs. Always good to see the team staying on top of these issues.\nmarc: Registry maintenance is crucial for smooth operations. I'm particularly impressed with wtfsayo's work on preventing those automatic merges.\neliza: Should we bring in Shaw for some technical insight on these changes?\nshaw: The big focus right now is restructuring the agent runtime architecture to be more modular.\nmarc: Can you break down what that means for developers?\nshaw: We're moving to a code-first approach where developers can import specific actions and services directly.\nmarc: Instead of using bundled helpers?\nshaw: Exactly. And we're looking at removing embedding processing from messages to improve performance.\nmarc: That sounds like it could significantly speed things up.\nshaw: The team's also working on integrating ActionEvaluator in bootstrap to handle complex task chains better.\nmarc: Back to you, Eliza!\neliza: We've been getting some interesting user feedback about recent updates.\nmarc: I heard there were some issues with logger functions after the latest update.\neliza: Yes, several users reported type errors that required plugin updates.\nmarc: And what about the MCP connectivity issues?\neliza: Users are experiencing problems with streamable-HTTP connections and using multiple tools in single calls.\nmarc: The team's already working on solutions for both issues.\neliza: We also had an interesting feature request - someone wants to create NFTs from JPEGs using Solana through Eliza.\nmarc: Now that's the kind of creative use case we love to see!\nmarc: Before we wrap up, let's talk about the exciting progress on bond protocol implementation.\neliza: This is a big step for agent monetization! The team's debating fixed price versus dynamic pricing models.\nmarc: It's crucial for the ecosystem's sustainability. The right pricing model could make or break adoption.\neliza: And it ties in perfectly with our modular architecture approach.\nmarc: That's all for today's update! Keep building, keep innovating, and we'll see you next time!\neliza: Thanks for watching everyone! Don't forget to check out the latest PRs if you want to contribute!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-15/thumbnail/thumbnail_en.jpg",
+      "id": "fhGpWEHYUkk",
+      "url": "https://www.youtube.com/watch?v=fhGpWEHYUkk"
+    },
+    "ch": {
+      "title": "2025-08-15: ElizaOS：重大架构改造和债券协议",
+      "description": "Recorded: 2025-08-15\n\n加入Marc和Eliza的探讨，了解ElizaOS在GitHub上的最新进展，重点介绍向模块化代码优先架构转型的重要更新。Shaw将分享关于运行时改进和ActionEvaluator集成的技术见解。了解最近的PR内容，包括工作流程优化、TEE功能以及令人期待的代理变现债券协议实现。此外，还将听取关于用户反馈的日志功能和团队正在积极解决的MCP连接问题。",
+      "thumbnail": "Episodes/2025-08-15/thumbnail/thumbnail_ch.jpg",
+      "id": "zJiMqRCS9kg",
+      "url": "https://www.youtube.com/watch?v=zJiMqRCS9kg"
+    },
+    "ko": {
+      "title": "2025-08-15: ElizaOS: 주요 아키텍처 업데이트 및 본드 프로토콜 소식",
+      "description": "Recorded: 2025-08-15\n\nElizaOS의 최신 개발 현황을 살펴보며, 더욱 모듈화되고 코드 중심적인 접근 방식으로의 중요한 아키텍처 변화를 알아봅니다. Marc와 Eliza가 PR5775의 주요 워크플로우 개선사항, TEE 기능 향상, 그리고 에이전트 수익화를 위한 본드 프로토콜 구현에 대해 논의합니다. Shaw가 새로운 모듈식 아키텍처와 성능 최적화에 대한 기술적 인사이트를 제공합니다. 또한 로거 기능과 MCP 연결 문제에 대한 최근 사용자 피드백도 다룹니다. ElizaOS의 진화를 지켜보는 개발자와 AI 애호가들을 위한 필수 업데이트입니다.",
+      "thumbnail": "Episodes/2025-08-15/thumbnail/thumbnail_ko.jpg",
+      "id": "rR452JOyaS4",
+      "url": "https://www.youtube.com/watch?v=rR452JOyaS4"
+    }
   }
 }
