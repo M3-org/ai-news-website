@@ -1,0 +1,17 @@
+{
+  "language": "en",
+  "date": "2025-08-16",
+  "headlines": [
+    "ElizaOS website migrates to docs.elizaos.ai amid user access issues",
+    "Database timeouts plague PGLITE after 15-20 hours of runtime",
+    "Streaming functionality added to useModel for real-time responses",
+    "iOS app for ElizaOS agents under consideration with DAO integration",
+    "University researcher explores AI agents for MEV on L2 blockchains",
+    "Build system switches from Bun to pnpm for better dependency management",
+    "Twitter Plugin gains local RAG database functionality",
+    "Shaw's X account banned amid API scraping controversy",
+    "New agent looping mechanisms implemented for chained action calls",
+    "Core team implements metrics collection for developer engagement tracking"
+  ],
+  "separator": "     "
+}
