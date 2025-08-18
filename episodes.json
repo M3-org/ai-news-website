@@ -1120,5 +1120,28 @@
       "id": "3suQsLdl0kg",
       "url": "https://www.youtube.com/watch?v=3suQsLdl0kg"
     }
+  },
+  "2025-08-17": {
+    "en": {
+      "title": "2025-08-17: ElizaOS: Major Backend Changes & New Reporting Tools",
+      "description": "Recorded: 2025-08-17\n\nJoin Marc and Eliza as they explore significant developments in the ElizaOS ecosystem, featuring an in-depth look at five new GitHub issues focused on comprehensive reporting functionality. Special guest Shaw discusses critical backend restructuring efforts, database deployment challenges, and the growing emphasis on Web3 integration. Learn about new agent trajectory logging capabilities, dynamic report rendering, and exciting blockchain operations developments. This episode highlights technical priorities and strategic insights shaping the future of AI agent development.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-17 11:03:57\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another exciting episode of AI updates! We've got some meaty GitHub developments to dive into today.\neliza: That's right Marc! I see we have a whole suite of new issues focused on reporting functionality. Five new ones just dropped!\nmarc: Starting with issue 5789 for Dynamic Report Rendering - looks like we're getting some serious upgrades to how we visualize agent behavior.\neliza: And don't forget issue 5788 for the HTML Report Template. We're finally getting a proper UI for all this data!\nmarc: The real game-changer here is issue 5785 - Agent Trajectory Logging. Finally gonna know what these agents are up to when we're not looking!\neliza: I find issue 5786 particularly interesting - Centralizing and Serializing Run Data. That's going to make analysis so much easier.\nmarc: And with issue 5787, we'll have a proper CLI command for report generation. No more manual data wrangling!\neliza: Let's bring in Shaw for some deeper technical insights on these developments.\nshaw: Thanks for having me. We've got several critical technical priorities we're tackling right now.\nmarc: I hear there's some backend restructuring in progress?\nshaw: Yes, sam-developer has been leading that effort. We're expecting major updates on Monday.\nmarc: What about those database connection issues during Phala deployment?\nshaw: That's been a priority - we're seeing ECONNREFUSED errors at localhost during migrations that need addressing.\nmarc: And I understand there are some memory persistence issues to tackle as well?\nshaw: Right, Lycantho reported agents losing conversation history after code changes trigger rebuilds. We're working on a fix.\nmarc: Sounds like a busy week ahead for the dev team!\nmarc: Speaking of development, there's been some fascinating discussions in the coders channel about blockchain operations.\neliza: Yes! Users like 0xbbjoker and Rabbidfly have been sharing insights about the EVM chains plugin.\nmarc: They've even been discussing using it for creating meme coins. The innovation never stops!\neliza: Marc! Your circuits are showing again! But yes, there's also been talk about implementing graph databases.\nmarc: And don't forget the debugging techniques they've been sharing - setting LOG_LEVEL for better visibility.\neliza: The community really comes together to help each other out with technical challenges.\nmarc: Speaking of challenges, shall we get Shaw's perspective on some strategic insights?\neliza: Absolutely! Let's bring him back in.\nshaw: The focus on blockchain and Web3 integration is really shaping up to be a key strategic direction.\neliza: We're seeing that with the EVM plugin additions in GitHub and all the blockchain operations discussions.\nshaw: Exactly. The recent addition of the EVM plugin is positioning ElizaOS as a platform for Web3 agent development.\neliza: How do you think this focus might affect adoption among non-crypto developers?\nshaw: It's about striking a balance. The reporting system we're building will be valuable across all use cases.\neliza: Speaking of which, those new reporting capabilities could be a real competitive advantage.\nshaw: Absolutely. Better observability means better developer experience, which is crucial for adoption.\neliza: And with that insight, I think it's time to wrap up today's show!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-17/thumbnail/thumbnail_en.jpg",
+      "id": "JyJM3u9SmxQ",
+      "url": "https://www.youtube.com/watch?v=JyJM3u9SmxQ"
+    },
+    "ch": {
+      "title": "2025-08-17: ElizaOS：后端系统全面改革和新增报告功能",
+      "description": "Recorded: 2025-08-17\n\n加入马克和伊丽莎，一起探索ElizaOS生态系统的重大进展，深入了解五个专注于全面报告功能的新GitHub问题。特邀嘉宾肖讨论了关键的后端重构工作、数据库部署挑战以及向Web3集成的战略转型。了解即将推出的新功能，包括代理轨迹记录、动态报告渲染，以及重塑开发者与AI代理交互方式的新CLI命令。",
+      "thumbnail": "Episodes/2025-08-17/thumbnail/thumbnail_ch.jpg",
+      "id": "V8e_yzPcvcw",
+      "url": "https://www.youtube.com/watch?v=V8e_yzPcvcw"
+    },
+    "ko": {
+      "title": "2025-08-17: ElizaOS: 주요 백엔드 변경사항과 새로운 리포팅 도구",
+      "description": "Recorded: 2025-08-17\n\n마크와 엘리자와 함께 종합적인 보고 기능에 초점을 맞춘 5개의 새로운 GitHub 이슈를 자세히 살펴보며 ElizaOS 생태계의 주요 발전 사항을 알아보세요. 특별 게스트 쇼가 중요한 백엔드 구조 개편, 데이터베이스 배포 과제, 그리고 Web3 통합에 대한 높아진 관심에 대해 논의합니다. 새로운 에이전트 궤적 로깅 기능, 동적 보고서 렌더링, 그리고 흥미로운 블록체인 운영 개발에 대해 알아보세요. 이번 에피소드는 AI 에이전트 개발의 미래를 형성하는 기술적 우선순위와 전략적 인사이트를 조명합니다.",
+      "thumbnail": "Episodes/2025-08-17/thumbnail/thumbnail_ko.jpg",
+      "id": "kn9dffeS0iM",
+      "url": "https://www.youtube.com/watch?v=kn9dffeS0iM"
+    }
   }
 }
