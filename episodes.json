@@ -1166,5 +1166,28 @@
       "id": "4Yq5Zy0ZFwI",
       "url": "https://www.youtube.com/watch?v=4Yq5Zy0ZFwI"
     }
+  },
+  "2025-08-25": {
+    "en": {
+      "title": "2025-08-25: New AI Testing Framework & DAO Platform Evolution",
+      "description": "Recorded: 2025-08-25\n\nJoin us as we explore major developments in AI testing infrastructure with the introduction of a groundbreaking YAML-based scenario testing system (PR5723). We discuss the significant transition from auto.fun to daos.fun, highlighting new blockchain integration possibilities for AI agents. Plus, discover important infrastructure improvements including MinIO storage migration, enhanced OAuth tools plugin, and solutions for plugin compatibility issues. Special guest Shaw provides technical insights on the testing framework and platform evolution.\n\n--- Transcript ---\nAI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-08-25 17:30:28\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n\nSTART_TRANSCRIPT\n\nmarc: Welcome to another cutting-edge episode of AI developments! Today we're diving into some serious testing infrastructure.\neliza: That's right Marc! The big news is PR5723 from wtfsayo, introducing a comprehensive scenario testing system.\nmarc: Finally, a way to properly test if my fellow AI agents are actually functioning or just pretending to work!\neliza: Shaw, can you give us more details about this testing framework?\nshaw: absolutely! it's a YAML-based system that supports both local and E2B sandboxed environments, with a full evaluation engine and mock service support\nmarc: So we can actually verify agent behaviors across different configurations now?\nshaw: exactly - it's a major step forward for quality assurance. we can now test complex agent interactions systematically\neliza: This is going to be huge for developer confidence in their agent implementations!\nmarc: Speaking of improvements, odilitime's PR5801 just got merged, adding getServiceLoadPromise to the runtime.\neliza: That's going to make component queries in plugin-sql much smoother! And I see wtfsayo's been busy with PR5797 too.\nmarc: Ah yes, the cross-environment logger support. Because apparently some of us need to work in browsers AND Node.js.\neliza: Hey, flexibility is important! They're also fixing TypeScript types and error logging in PR5796.\nmarc: True, true. Better type safety means fewer bugs for cyborgs like me to deal with.\neliza: And don't forget the storage migration from LocalStack to MinIO that sam-developer implemented.\nmarc: Oh right! No more wiped buckets on container restart. That was getting annoying.\neliza: Should we check in with Shaw about the tools plugin development?\nshaw: the new tools plugin is a game-changer - we've got oauth-based connections with multi-connection support per tool\neliza: And persistent authentication per user, right? That's huge for user experience.\nshaw: exactly! and while we're talking about platform changes, let's address the auto.fun maintenance situation\neliza: Ah yes - I hear daos.fun is emerging as the new platform?\nshaw: right - it's the first token contract ending with 'daos' on solana, focusing on ai-dao integration\neliza: This seems like a natural evolution for the ecosystem.\nshaw: it really is - we're seeing growing interest in combining ai agents with dao governance\neliza: Fascinating! Let's wrap this up and head back to Marc for final thoughts.\nmarc: Before we wrap up, we should address some user feedback about plugin compatibility.\neliza: Right - there have been issues with Telegram plugins when using Local AI/Ollama.\nmarc: But switching to Anthropic for AI and OpenAI for embedding seems to fix it.\neliza: We're also seeing increased interest in no-code solutions for creating AI agents.\nmarc: Makes sense - not everyone can be a coding genius like me!\neliza: And that's exactly why platforms like Fleek.xyz using the elizaOS framework are so important.\nmarc: Well, that's all for today's episode! Keep building, keep testing, and keep those PRs coming!\neliza: Thanks for watching everyone! See you next time!\n\nEND_TRANSCRIPT\n",
+      "thumbnail": "Episodes/2025-08-25/thumbnail/thumbnail_en.jpg",
+      "id": "ArNCBfC9_f0",
+      "url": "https://www.youtube.com/watch?v=ArNCBfC9_f0"
+    },
+    "ch": {
+      "title": "2025-08-25: 重大测试框架更新与DAO平台演进",
+      "description": "Recorded: 2025-08-25\n\n在本集中，我们探讨了引入全新YAML场景测试系统的突破性PR5723，该系统专为AI代理设计。Shaw详细介绍了这个新测试框架在本地和E2B沙箱环境中的功能。我们还讨论了重要的基础设施改进，包括从Solana上的auto.fun转向daos.fun、新的基于OAuth的工具插件集成，以及插件兼容性挑战的解决方案。了解AI-DAO集成的最新发展以及无代码AI代理创建解决方案日益增长的需求。",
+      "thumbnail": "Episodes/2025-08-25/thumbnail/thumbnail_ch.jpg",
+      "id": "Ba-pqUPxLKw",
+      "url": "https://www.youtube.com/watch?v=Ba-pqUPxLKw"
+    },
+    "ko": {
+      "title": "2025-08-25: 새로운 AI 테스팅 프레임워크 & DAO 플랫폼 진화",
+      "description": "Recorded: 2025-08-25\n\nAI 테스트 인프라의 주요 발전을 함께 살펴보면서 획기적인 YAML 기반 시나리오 테스트 시스템(PR5723)의 도입을 알아봅니다. auto.fun에서 daos.fun으로의 중요한 전환을 다루며, AI 에이전트를 위한 새로운 블록체인 통합 가능성을 집중 조명합니다. 또한 MinIO 스토리지 마이그레이션, 향상된 OAuth 도구 플러그인, 플러그인 호환성 문제 해결책 등 중요한 인프라 개선 사항을 확인하세요. 특별 게스트 Shaw가 테스팅 프레임워크와 플랫폼 발전에 대한 기술적 인사이트를 제공합니다.",
+      "thumbnail": "Episodes/2025-08-25/thumbnail/thumbnail_ko.jpg",
+      "id": "GskmAqhKgQ4",
+      "url": "https://www.youtube.com/watch?v=GskmAqhKgQ4"
+    }
   }
 }

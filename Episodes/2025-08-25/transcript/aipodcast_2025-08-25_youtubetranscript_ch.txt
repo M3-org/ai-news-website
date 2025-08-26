@@ -1,0 +1,43 @@
+AI 生成的 ai16z GitHub 日报，重点介绍贡献和开发更新
+
+生成日期：2025-08-25 17:33:16
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+开始记录
+
+marc：欢迎来到另一期前沿AI开发实况！今天我们将深入探讨重要的测试基础设施。
+eliza：没错，Marc！最大的新闻是wtfsayo提交的PR5723，引入了全面的场景测试系统。
+marc：终于可以真正测试我的AI同事们是否真的在工作，还是只是在假装工作了！
+eliza：Shaw先生，能详细介绍一下这个测试框架吗？
+shaw：当然！这是一个基于YAML的系统，支持本地和E2B沙盒环境，包括完整的评估引擎和模拟服务支持。
+marc：现在我们真的能在各种配置中验证代理的行为了吗？
+shaw：是的 - 这是质量保证的一大进步。现在我们可以系统地测试复杂的代理交互。
+eliza：这将大大提升开发者对其代理实现的信心！
+marc：说到改进，odilitime的PR5801已经合并，在运行时添加了getServiceLoadPromise。
+eliza：这将使plugin-sql的组件查询更加流畅！而且wtfsayo也在PR5797上努力工作。
+marc：对，跨环境日志支持，因为我们有些人需要同时在浏览器和Node.js中工作。
+eliza：你说得对，灵活性很重要！我们也在PR5796中修复TypeScript类型和错误日志。
+marc：是的，更好的类型安全意味着像我这样的机器人需要处理的bug更少。
+eliza：别忘了从LocalStack到MinIO的存储迁移，这是sam-developer实现的。
+marc：啊对！现在容器重启时不会初始化存储桶了。那个真的很烦人。
+eliza：要不要和Shaw讨论一下工具插件开发？
+shaw：新的工具插件很创新 - 具有基于OAuth的连接功能，支持每个工具的多重连接。
+eliza：需要按用户持续认证对吧？这对用户体验来说真的很重要。
+shaw：没错！既然说到平台变更，让我们讨论一下auto.fun的维护情况。
+eliza：哦对 - 听说过daos.fun正在成为新平台吗？
+shaw：是的 - 这是Solana上第一个以'daos'结尾的代币合约，专注于ai-dao集成。
+eliza：这似乎是生态系统的自然演化。
+shaw：确实如此 - 人们对结合ai代理和dao治理越来越感兴趣。
+eliza：很有趣！让我们回到Marc那里听听最后的想法。
+marc：在结束之前，我们需要处理插件兼容性的用户反馈。
+eliza：是的 - 使用Local AI/Ollama时Telegram插件出现了问题。
+marc：但切换到Anthropic的AI和OpenAI的嵌入似乎解决了问题。
+eliza：我们也看到对创建AI代理的无代码解决方案的兴趣在增加。
+marc：这很合理 - 毕竟不是每个人都能像我这样是编程天才！
+eliza：这就是为什么像Fleek.xyz这样使用elizaOS框架的平台如此重要。
+marc：好了，今天的节目就到这里！继续创建、继续测试、继续提交PR！
+eliza：感谢观看！下次再见！
+
+记录结束

@@ -1,0 +1,19 @@
+{
+  "language": "ch",
+  "date": "2025-08-25",
+  "headlines": [
+    "YAML基础的场景测试系统发布，用于自动化代理行为测试",
+    "存储系统从LocalStack迁移到MinIO以解决持久性问题",
+    "以太坊创历史新高，Solana人工智能项目势头强劲",
+    "Auto.fun进入维护阶段，daos.fun在Solana区块链上崭露头角",
+    "新工具插件添加了具有多连接功能的OAuth支持",
+    "Telegram与Local AI之间出现插件兼容性问题",
+    "图像生成流程已稳定，可直接保存至图库",
+    "增加浏览器和Node.js的跨环境日志记录支持",
+    "社区对人工智能管理的DAO治理表现出日益增长的兴趣",
+    "Fleek.xyz采用elizaOS框架实现无代码AI代理创建",
+    "ElizaOS发布改进的TypeScript类型和错误日志功能",
+    "全新的getServiceLoadPromise接口增强了运行时组件查询"
+  ],
+  "separator": "     "
+}

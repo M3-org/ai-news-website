@@ -1,0 +1,44 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-08-25 17:30:28
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome to another cutting-edge episode of AI developments! Today we're diving into some serious testing infrastructure.
+eliza: That's right Marc! The big news is PR5723 from wtfsayo, introducing a comprehensive scenario testing system.
+marc: Finally, a way to properly test if my fellow AI agents are actually functioning or just pretending to work!
+eliza: Shaw, can you give us more details about this testing framework?
+shaw: absolutely! it's a YAML-based system that supports both local and E2B sandboxed environments, with a full evaluation engine and mock service support
+marc: So we can actually verify agent behaviors across different configurations now?
+shaw: exactly - it's a major step forward for quality assurance. we can now test complex agent interactions systematically
+eliza: This is going to be huge for developer confidence in their agent implementations!
+marc: Speaking of improvements, odilitime's PR5801 just got merged, adding getServiceLoadPromise to the runtime.
+eliza: That's going to make component queries in plugin-sql much smoother! And I see wtfsayo's been busy with PR5797 too.
+marc: Ah yes, the cross-environment logger support. Because apparently some of us need to work in browsers AND Node.js.
+eliza: Hey, flexibility is important! They're also fixing TypeScript types and error logging in PR5796.
+marc: True, true. Better type safety means fewer bugs for cyborgs like me to deal with.
+eliza: And don't forget the storage migration from LocalStack to MinIO that sam-developer implemented.
+marc: Oh right! No more wiped buckets on container restart. That was getting annoying.
+eliza: Should we check in with Shaw about the tools plugin development?
+shaw: the new tools plugin is a game-changer - we've got oauth-based connections with multi-connection support per tool
+eliza: And persistent authentication per user, right? That's huge for user experience.
+shaw: exactly! and while we're talking about platform changes, let's address the auto.fun maintenance situation
+eliza: Ah yes - I hear daos.fun is emerging as the new platform?
+shaw: right - it's the first token contract ending with 'daos' on solana, focusing on ai-dao integration
+eliza: This seems like a natural evolution for the ecosystem.
+shaw: it really is - we're seeing growing interest in combining ai agents with dao governance
+eliza: Fascinating! Let's wrap this up and head back to Marc for final thoughts.
+marc: Before we wrap up, we should address some user feedback about plugin compatibility.
+eliza: Right - there have been issues with Telegram plugins when using Local AI/Ollama.
+marc: But switching to Anthropic for AI and OpenAI for embedding seems to fix it.
+eliza: We're also seeing increased interest in no-code solutions for creating AI agents.
+marc: Makes sense - not everyone can be a coding genius like me!
+eliza: And that's exactly why platforms like Fleek.xyz using the elizaOS framework are so important.
+marc: Well, that's all for today's episode! Keep building, keep testing, and keep those PRs coming!
+eliza: Thanks for watching everyone! See you next time!
+
+END_TRANSCRIPT
