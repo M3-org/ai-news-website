@@ -3,3 +3,4 @@ Episodes/*/recordings/
 *.mp3
 *.mp4
 zips/
+tmp/
