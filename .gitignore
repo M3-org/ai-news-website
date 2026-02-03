@@ -1,4 +1,5 @@
 Episodes/*/recordings/
+episodes/
 node_modules
 .env
 *.meta
@@ -7,3 +8,5 @@ node_modules
 zips/
 tmp/
 scripts/local_daily_upload.sh
+youtube_credentials.json
+client_secrets.json
