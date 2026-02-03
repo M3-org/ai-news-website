@@ -1,4 +1,6 @@
 Episodes/*/recordings/
+node_modules
+.env
 *.meta
 *.mp3
 *.mp4
