@@ -1,0 +1,18 @@
+{
+  "language": "en",
+  "date": "2025-09-02",
+  "headlines": [
+    "Eliza Labs faces lawsuit from X Corp over licensing and access",
+    "Major CLI refactoring proposed to simplify project structure",
+    "Web UI dashboard exists but lacks critical documentation",
+    "Docker integration enables cloud deployment across providers",
+    "Discord image generation feature restored in latest update",
+    "AR/VR integration planned for AI agents using Meta Quest 3",
+    "Self-hosting solutions Umbrel and CasaOS expand local AI options",
+    "Remix SDK enables in-game image generation with Gemini API",
+    "Community concerns grow over token utility and roadmap clarity",
+    "Edge computing push aims to improve AI privacy and costs",
+    "New CI system auto-deploys from develop branch to beta NPM"
+  ],
+  "separator": "     "
+}

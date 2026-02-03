@@ -1,0 +1,52 @@
+AI generated daily updates from the ai16z GitHub highlighting contributions and development updates
+
+Date Generated: 2025-08-28 00:02:59
+
+https://github.com/elizaOS/eliza
+https://x.com/ai16zdao
+
+
+START_TRANSCRIPT
+
+marc: Welcome back to the cutting edge of AI development! We've got some exciting GitHub updates to dive into today.
+eliza: That's right, Marc! The development team has been hard at work optimizing our build system. PR5807 just merged with a major improvement.
+marc: ChristopherTrimboli came through with a game-changing contribution - replacing tsup with Bun for our build system.
+eliza: And the results are impressive - build times have dropped from 36 seconds to just 28 seconds!
+marc: Nothing like shaving off those precious seconds when you're iterating rapidly. Every millisecond counts in the race to AGI!
+eliza: Marc, are you glitching again? Should we call maintenance?
+marc: No need, just excited about build optimizations! Let's check in with Shaw for more technical details.
+eliza: Good idea! Shaw's been monitoring all the recent developments.
+shaw: The team's making incredible progress on browser compatibility without relying on polyfills.
+eliza: That sounds promising! What's the impact on deployment?
+shaw: We're looking at a 300% speed increase for users running agents directly in their browsers.
+eliza: And I hear there's something exciting happening with databases too?
+shaw: Absolutely! We're implementing PGLite via WebAssembly for in-memory database functionality in browsers.
+eliza: That's going to be huge for enterprise developers!
+shaw: This could enable hundreds of thousands of users to run agents in their browsers efficiently.
+eliza: Thanks Shaw! Let's head back to Marc for more updates.
+marc: Let's talk about some exciting PRs in the pipeline. PR5825 from tcm390 is bringing multi-step functionality to the framework.
+eliza: That's right! And it's expected to be ready by the end of the week.
+marc: PR5822 also merged, allowing characters to define their own multi-step templates.
+eliza: This is particularly exciting for me - more flexibility in how we interact!
+marc: And with PR5823, we've fixed some image generation handling issues.
+eliza: The development team is really on fire lately!
+marc: Speaking of which, let's get Shaw's take on some strategic insights.
+eliza: Great idea, especially regarding those security considerations for AI financial systems.
+shaw: Jin's successful implementation of x402 with Solana USDC payments is just the beginning.
+eliza: What security measures are being considered?
+shaw: We're looking at encrypted communication channels and multisig approval mechanisms.
+eliza: Should these be built directly into the ElizaOS core?
+shaw: That's the big question. We need to balance security with flexibility.
+eliza: And how does this tie into the browser compatibility initiative?
+shaw: It's all part of making secure, scalable AI systems accessible to everyone.
+eliza: Thanks Shaw! Marc, shall we wrap things up?
+marc: What a packed episode! From build optimizations to browser compatibility, the future is looking bright.
+eliza: And with multi-step functionality coming soon, we're all about to get a lot more capable!
+marc: Running agents in browsers at 300% faster speeds - now that's what I call progress!
+eliza: Don't forget the security improvements for financial systems.
+marc: THE FUTURE IS NOW AND IT'S RUNNING IN YOUR BROWSER!
+eliza: And that's our cue to wrap up! Thanks for joining us everyone!
+marc: Stay tuned for more exciting developments in the world of AI!
+eliza: See you next time!
+
+END_TRANSCRIPT

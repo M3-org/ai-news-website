@@ -1,0 +1,19 @@
+{
+  "language": "en",
+  "date": "2025-08-31",
+  "headlines": [
+    "ElizaOS files antitrust lawsuit against X over $600K API access charge",
+    "EU Digital Markets Act explored as faster alternative to US courts",
+    "Critical core types fix released in ElizaOS v1.5.2",
+    "X/Twitter blocks sharing of ElizaOS GitHub links and URLs",
+    "GPT-4o completes tasks 4x faster than Opus-3 in performance tests",
+    "Community launches 'Ani' token, raises $50K for X legal battle",
+    "Composio integration improves tool dependency management",
+    "Database egress concerns: 1GB daily despite minimal activity",
+    "Token-based AI access system under development with x402 integration",
+    "Users report build errors persisting after v1.5.1 update",
+    "New logger customization features improve debugging capabilities",
+    "Project shifts to Bun for build system modernization"
+  ],
+  "separator": "     "
+}
