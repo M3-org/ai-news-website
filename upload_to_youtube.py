@@ -7,6 +7,7 @@ import random
 import sys
 import time
 import json # For loading .env.json if used
+import urllib.request
 
 # The google-api-python-client and oauth2client libraries are typically installed via pip
 # For example: pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
@@ -355,7 +356,7 @@ def load_metadata_from_json(json_file):
     if not os.path.exists(json_file):
         print(f"ERROR: JSON metadata file not found: {json_file}")
         sys.exit(1)
-    
+
     try:
         with open(json_file, 'r') as f:
             metadata = json.load(f)
@@ -368,11 +369,90 @@ def load_metadata_from_json(json_file):
         print(f"ERROR: Could not read {json_file}: {e}")
         sys.exit(1)
 
+
+def load_metadata_from_session_log(session_log_file, options=None):
+    """
+    Generate YouTube metadata directly from a session-log.json file.
+    Uses the generate_youtube_metadata module for processing.
+    """
+    if not os.path.exists(session_log_file):
+        print(f"ERROR: Session log file not found: {session_log_file}")
+        sys.exit(1)
+
+    # Try to import the generate_youtube_metadata module
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        scripts_dir = os.path.join(script_dir, 'scripts')
+        if scripts_dir not in sys.path:
+            sys.path.insert(0, scripts_dir)
+
+        from generate_youtube_metadata import generate_metadata
+
+        options = options or {}
+        metadata = generate_metadata(session_log_file, options)
+        print(f"Generated metadata from session log: {session_log_file}")
+        return metadata
+    except ImportError as e:
+        print(f"ERROR: Could not import generate_youtube_metadata module: {e}")
+        print("Make sure scripts/generate_youtube_metadata.py exists")
+        sys.exit(1)
+    except Exception as e:
+        print(f"ERROR: Failed to generate metadata from session log: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+
+
+def download_thumbnail_from_url(url, output_dir=None, base_name=None):
+    """Download thumbnail from URL to local file.
+
+    Args:
+        url: URL to download thumbnail from
+        output_dir: Directory to save thumbnail (defaults to episodes/thumbnails/)
+        base_name: Base filename without extension (e.g., "2026-02-02_Cron-Job_Workflow-Revolution")
+    """
+    if not url:
+        return None
+    try:
+        # Determine extension from URL
+        ext = os.path.splitext(url.split('?')[0])[1] or '.jpg'
+
+        # Use episodes/thumbnails/ as default directory
+        if output_dir is None:
+            script_dir = os.path.dirname(os.path.abspath(__file__))
+            output_dir = os.path.join(script_dir, 'episodes', 'thumbnails')
+
+        os.makedirs(output_dir, exist_ok=True)
+
+        # Generate filename from base_name or use timestamp
+        if base_name:
+            filename = f"{base_name}{ext}"
+        else:
+            filename = f"thumbnail_{int(time.time())}{ext}"
+
+        output_path = os.path.join(output_dir, filename)
+
+        print(f"Downloading thumbnail from {url}")
+
+        # Add User-Agent header to avoid 406 errors
+        req = urllib.request.Request(url, headers={'User-Agent': 'Mozilla/5.0'})
+        with urllib.request.urlopen(req) as response:
+            with open(output_path, 'wb') as f:
+                f.write(response.read())
+
+        print(f"Thumbnail downloaded to {output_path}")
+        return output_path
+    except Exception as e:
+        print(f"Warning: Failed to download thumbnail from URL: {e}")
+        return None
+
+
 def main():
     load_env_vars() # Load .env.json first
 
     parser = argparse.ArgumentParser(description="Upload or update a video/thumbnail on YouTube.")
     parser.add_argument("--from-json", help="Load all upload parameters from a JSON metadata file. Command line args will override JSON values.")
+    parser.add_argument("--from-session-log", help="Generate metadata directly from a session-log.json file and upload. This processes the session log on-the-fly.")
     parser.add_argument("--video-file", default=os.environ.get('YOUTUBE_VIDEO_FILE'),
                         help="Path to the video file to upload.")
     parser.add_argument("--title", default=os.environ.get('YOUTUBE_TITLE', "Default Title"))
@@ -395,8 +475,45 @@ def main():
     
     args = parser.parse_args()
 
+    # Load metadata from session log if specified (generates metadata on-the-fly)
+    if args.from_session_log:
+        session_log_options = {
+            'playlist_id': args.playlist_id,
+            'privacy': args.privacy_status,
+            'download_thumb': False,  # Don't download by default in upload script
+        }
+        metadata = load_metadata_from_session_log(args.from_session_log, session_log_options)
+
+        # Apply metadata to args
+        if 'video_file' in metadata and not args.video_file:
+            args.video_file = metadata['video_file']
+        if 'title' in metadata and args.title == os.environ.get('YOUTUBE_TITLE', "Default Title"):
+            args.title = metadata['title']
+        if 'description' in metadata and args.description == os.environ.get('YOUTUBE_DESCRIPTION', "Default description."):
+            args.description = metadata['description']
+        if 'tags' in metadata and args.tags == os.environ.get('YOUTUBE_TAGS', ""):
+            args.tags = metadata['tags']
+        if 'category_id' in metadata and args.category_id == os.environ.get('YOUTUBE_CATEGORY_ID', "22"):
+            args.category_id = metadata['category_id']
+        if 'privacy_status' in metadata and args.privacy_status == os.environ.get('YOUTUBE_PRIVACY_STATUS', "private"):
+            args.privacy_status = metadata['privacy_status']
+        if 'thumbnail_file' in metadata and not args.thumbnail_file:
+            args.thumbnail_file = metadata['thumbnail_file']
+        if 'playlist_id' in metadata and not args.playlist_id:
+            args.playlist_id = metadata['playlist_id']
+
+        # Auto-download thumbnail from URL if thumbnail_file not set
+        if 'thumbnail_url' in metadata and not args.thumbnail_file:
+            # Derive base_name from video file (e.g., "2026-02-02_Cron-Job_Workflow-Revolution")
+            base_name = None
+            if args.video_file:
+                base_name = os.path.splitext(os.path.basename(args.video_file))[0]
+            downloaded = download_thumbnail_from_url(metadata['thumbnail_url'], base_name=base_name)
+            if downloaded:
+                args.thumbnail_file = downloaded
+
     # Load metadata from JSON if specified
-    if args.from_json:
+    elif args.from_json:
         metadata = load_metadata_from_json(args.from_json)
         
         # Map JSON fields to args, only if not explicitly set via command line
@@ -416,6 +533,16 @@ def main():
             args.thumbnail_file = metadata['thumbnail_file']
         if 'playlist_id' in metadata and not args.playlist_id:
             args.playlist_id = metadata['playlist_id']
+
+        # Auto-download thumbnail from URL if thumbnail_file not set
+        if 'thumbnail_url' in metadata and not args.thumbnail_file:
+            # Derive base_name from video file (e.g., "2026-02-02_Cron-Job_Workflow-Revolution")
+            base_name = None
+            if args.video_file:
+                base_name = os.path.splitext(os.path.basename(args.video_file))[0]
+            downloaded = download_thumbnail_from_url(metadata['thumbnail_url'], base_name=base_name)
+            if downloaded:
+                args.thumbnail_file = downloaded
 
     # Validate playlist ID if provided
     if args.playlist_id:
@@ -453,7 +580,9 @@ def main():
             args.thumbnail_file = None 
 
     print("--- YouTube Uploader Initializing ---")
-    if args.from_json:
+    if args.from_session_log:
+        print(f"Using metadata generated from session log: {args.from_session_log}")
+    elif args.from_json:
         print(f"Using metadata from: {args.from_json}")
     if not os.environ.get('YOUTUBE_CLIENT_ID'): # Heuristic: if no direct env vars, probably local mode
         print(f"Using Client Secrets Path: {os.path.abspath(args.client_secrets)}")
