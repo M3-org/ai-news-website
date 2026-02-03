@@ -4,3 +4,4 @@ Episodes/*/recordings/
 *.mp4
 zips/
 tmp/
+scripts/local_daily_upload.sh
