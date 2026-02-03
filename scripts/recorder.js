@@ -292,7 +292,14 @@ class ShmotimeRecorder {
         if (eventData) this.processShowConfig(eventData);
         break;
       case 'load_episode':
-        if (eventData) this.processEpisodeData(eventData);
+        if (eventData) {
+          // Debug: log first scene's raw structure to verify in/out fields
+          const sampleScene = eventData.scenes?.[0];
+          if (sampleScene) {
+            this.log(`DEBUG load_episode scene[0]: in="${sampleScene.in}", out="${sampleScene.out}", location="${sampleScene.location}"`);
+          }
+          this.processEpisodeData(eventData);
+        }
         break;
       case 'start_intro':
         this.currentPhase = 'intro';
@@ -318,6 +325,25 @@ class ShmotimeRecorder {
         if (eventData?.sceneIndex !== undefined) {
           this.currentSceneIndex = eventData.sceneIndex;
           this.currentDialogueInScene = 0;
+
+          // Record scene visual start time (when transition begins)
+          const now = Date.now();
+          const sceneStartSec = this.recordingStartTime
+            ? (now - this.recordingStartTime) / 1000
+            : 0;
+
+          if (this.episodeData?.scenes?.[eventData.sceneIndex]) {
+            const scene = this.episodeData.scenes[eventData.sceneIndex];
+            // Set visualStartSec - the actual moment the scene transition begins
+            scene.visualStartSec = sceneStartSec;
+            // Also close previous scene's visual end
+            if (eventData.sceneIndex > 0) {
+              const prevScene = this.episodeData.scenes[eventData.sceneIndex - 1];
+              if (prevScene && !prevScene.visualEndSec) {
+                prevScene.visualEndSec = sceneStartSec;
+              }
+            }
+          }
         }
         break;
     }
@@ -492,29 +518,41 @@ class ShmotimeRecorder {
         number: scene.number || sceneIdx + 1,
         description: scene.description || '',
         location: scene.location || '',
-        transitionIn: scene.transitionIn || '',
-        transitionOut: scene.transitionOut || '',
-        cast: {
-          center_pod: scene.cast?.center_pod || undefined,
-          east_pod: scene.cast?.east_pod || undefined,
-          north_pod: scene.cast?.north_pod || undefined,
-          south_pod: scene.cast?.south_pod || undefined,
-          west_pod: scene.cast?.west_pod || undefined
-        },
+        in: scene.in || '',
+        out: scene.out || '',
+        // Preserve cast data if present (actor positions in scene)
+        cast: scene.cast || {},
         // Scene-level timing (populated during recording)
-        startSec: undefined,
-        endSec: undefined,
-        dialogue: (scene.dialogue || []).map((dialogue, dialogueIdx) => ({
-          number: dialogue.number || dialogueIdx + 1,
-          action: dialogue.action || '',
-          line: dialogue.line || '',
-          actor: dialogue.actor || '',
-          // Dialogue-level timing (populated during recording)
-          startSec: undefined,
-          endSec: undefined,
-          // NEW in v6: Word-level timestamps (populated by speak_start)
-          words: []
-        })),
+        startSec: undefined,      // First dialogue audio start
+        endSec: undefined,        // Last dialogue audio end
+        visualStartSec: undefined, // Scene transition start (from scene_loaded)
+        visualEndSec: undefined,   // Scene transition end (next scene's visualStartSec)
+        dialogue: (scene.dialogue || []).map((dialogue, dialogueIdx) => {
+          // Detect media commands that won't have TTS audio
+          const isMediaCommand =
+            dialogue.actor === 'aishaw' ||
+            dialogue.line === 'roll-commercial' ||
+            dialogue.line === 'roll-media' ||
+            dialogue.line === 'clear-media';
+
+          const entry = {
+            number: dialogue.number || dialogueIdx + 1,
+            type: dialogue.type,  // speech, action, media, etc.
+            action: dialogue.action || '',
+            line: dialogue.line || '',
+            actor: dialogue.actor || '',
+            // Dialogue-level timing (populated during recording)
+            startSec: undefined,
+            endSec: undefined,
+            // NEW in v6: Word-level timestamps (populated by speak_start)
+            words: []
+          };
+
+          // Mark media commands so clip.ts can skip them for timing calculations
+          if (isMediaCommand) entry.isMediaCommand = true;
+
+          return entry;
+        }),
         length: scene.length || 0,
         totalInEpisode: scene.totalInEpisode || 0,
         total_dialogues: scene.total_dialogues || 0
@@ -535,19 +573,25 @@ class ShmotimeRecorder {
           filename: this.outputFile?.path || null
         });
 
-        // Finalize timing for last dialogue
+        // Finalize timing for last dialogue and scene
         if (this.episodeData?.scenes?.length > 0) {
           const lastScene = this.episodeData.scenes[this.episodeData.scenes.length - 1];
+          const now = Date.now();
+          const sec = this.recordingStartTime ? (now - this.recordingStartTime) / 1000 : 0;
+
           if (lastScene?.dialogue?.length > 0) {
             const lastDialogue = lastScene.dialogue[lastScene.dialogue.length - 1];
-            const now = Date.now();
-            const sec = this.recordingStartTime ? (now - this.recordingStartTime) / 1000 : 0;
             if (lastDialogue && !lastDialogue.endSec) {
               lastDialogue.endSec = sec;
             }
             if (!lastScene.endSec) {
               lastScene.endSec = sec;
             }
+          }
+
+          // Set final scene's visualEndSec (no next scene_loaded event to close it)
+          if (!lastScene.visualEndSec) {
+            lastScene.visualEndSec = sec;
           }
         }
 

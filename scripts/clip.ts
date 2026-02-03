@@ -42,17 +42,21 @@ interface Dialogue {
   startSec: number;
   endSec: number;
   words?: Word[];
+  isMediaCommand?: boolean;  // True for aishaw/roll-commercial/roll-media/clear-media
 }
 
 interface Scene {
   number: number;
   location: string;
   description: string;
-  startSec: number;
-  endSec: number;
+  startSec: number;        // First dialogue audio start
+  endSec: number;          // Last dialogue audio end
+  visualStartSec?: number; // Scene transition start (more accurate for clips)
+  visualEndSec?: number;   // Scene transition end
   dialogue: Dialogue[];
-  transitionIn?: string;
-  transitionOut?: string;
+  in?: string;             // Transition in type (fade, cut, etc.)
+  out?: string;            // Transition out type
+  cast?: Record<string, string>;  // Slot-to-actor mapping
 }
 
 interface TimedEpisodeData {
@@ -64,7 +68,7 @@ interface TimedEpisodeData {
 
 interface CliArgs {
   command: "list" | "extract" | "search" | "help";
-  video?: string;
+  videos: string[];  // Video paths (supports multiple from shell glob expansion)
   scene?: number;
   from?: number;
   to?: number;
@@ -76,6 +80,8 @@ interface CliArgs {
   output?: string;
   dryRun?: boolean;
   doExtract?: boolean;  // For search: actually extract clips (default: just show matches)
+  location?: string;  // Extract scenes by location name
+  actor?: string;     // Extract dialogue by actor name
 }
 
 interface SearchMatch {
@@ -90,14 +96,7 @@ interface SearchMatch {
 
 function parseArgs(): CliArgs {
   const command = (process.argv[2] || "help") as CliArgs["command"];
-  const args: CliArgs = { command, padding: 2 };
-
-  // Check for video path as positional argument
-  let argStartIndex = 3;
-  if (command !== "help" && process.argv[3] && !process.argv[3].startsWith("--")) {
-    args.video = process.argv[3];
-    argStartIndex = 4;
-  }
+  const args: CliArgs = { command, videos: [], padding: 2 };
 
   // Helper to get value: supports --arg=value and --arg value
   const getValue = (arg: string, nextArg: string | undefined): string | null => {
@@ -110,9 +109,16 @@ function parseArgs(): CliArgs {
     return null;
   };
 
-  for (let i = argStartIndex; i < process.argv.length; i++) {
+  // Process all arguments starting from index 3
+  for (let i = 3; i < process.argv.length; i++) {
     const arg = process.argv[i];
     const nextArg = process.argv[i + 1];
+
+    // Collect positional arguments (video paths) - anything not starting with --
+    if (!arg.startsWith("--")) {
+      args.videos.push(arg);
+      continue;
+    }
 
     if (arg === "--dry-run") {
       args.dryRun = true;
@@ -172,6 +178,18 @@ function parseArgs(): CliArgs {
         args.end = parseTimeArg(val);
         if (!arg.includes("=")) i++;
       }
+    } else if (arg === "--location" || arg.startsWith("--location=")) {
+      const val = getValue(arg, nextArg);
+      if (val) {
+        args.location = val;
+        if (!arg.includes("=")) i++;
+      }
+    } else if (arg === "--actor" || arg.startsWith("--actor=")) {
+      const val = getValue(arg, nextArg);
+      if (val) {
+        args.actor = val;
+        if (!arg.includes("=")) i++;
+      }
     }
   }
 
@@ -207,26 +225,16 @@ function formatTimePrecise(seconds: number): string {
   return `${mins}:${secs.padStart(5, "0")}`;
 }
 
+interface VideoData {
+  videoPath: string;
+  dataPath: string;
+  isSessionLog: boolean;
+}
+
 /**
- * Resolve video path (handles glob patterns) and find corresponding data file.
- * Looks for session-log.json first (v6 format), falls back to episode-data-timed.json.
+ * Resolve a single video path and find its corresponding data file.
  */
-async function resolveVideoAndData(
-  videoPattern: string
-): Promise<{ videoPath: string; dataPath: string; isSessionLog: boolean }> {
-  // Resolve glob pattern
-  const matches = await glob(videoPattern, { nodir: true });
-
-  if (matches.length === 0) {
-    throw new Error(`No video file found matching: ${videoPattern}`);
-  }
-
-  const videoPath = matches[0];
-
-  // Derive data file paths from video path
-  // video: episodes/2026-01-31_Cron-Job_Welcome-To-The-Machine_fps30.mp4
-  // v6:    episodes/2026-01-31_Cron-Job_Welcome-To-The-Machine_fps30_session-log.json
-  // v5:    episodes/2026-01-31_Cron-Job_Welcome-To-The-Machine_fps30_episode-data-timed.json
+function resolveDataForVideo(videoPath: string): VideoData | null {
   const ext = path.extname(videoPath);
   const baseName = path.basename(videoPath, ext);
   const dirName = path.dirname(videoPath);
@@ -243,7 +251,54 @@ async function resolveVideoAndData(
     return { videoPath, dataPath: timedDataPath, isSessionLog: false };
   }
 
-  throw new Error(`Episode data file not found. Looked for:\n  - ${sessionLogPath}\n  - ${timedDataPath}`);
+  return null;
+}
+
+/**
+ * Resolve video path(s) and find corresponding data files.
+ * Accepts either:
+ * - An array of explicit paths (from shell glob expansion)
+ * - A single glob pattern string
+ */
+async function resolveVideosAndData(
+  videoPaths: string[]
+): Promise<VideoData[]> {
+  let allPaths: string[] = [];
+
+  // If single path that looks like a glob pattern, expand it
+  if (videoPaths.length === 1 && (videoPaths[0].includes("*") || videoPaths[0].includes("?"))) {
+    const matches = await glob(videoPaths[0], { nodir: true });
+    allPaths = matches;
+  } else {
+    // Use paths as-is (shell already expanded them)
+    allPaths = videoPaths;
+  }
+
+  if (allPaths.length === 0) {
+    throw new Error(`No video files found`);
+  }
+
+  const results: VideoData[] = [];
+  const errors: string[] = [];
+
+  for (const videoPath of allPaths) {
+    const data = resolveDataForVideo(videoPath);
+    if (data) {
+      results.push(data);
+    } else {
+      errors.push(path.basename(videoPath));
+    }
+  }
+
+  if (results.length === 0) {
+    throw new Error(`No episode data files found for any matched videos.\nVideos without data: ${errors.join(", ")}`);
+  }
+
+  if (errors.length > 0) {
+    console.log(`Note: Skipping ${errors.length} video(s) without data files: ${errors.join(", ")}`);
+  }
+
+  return results;
 }
 
 /**
@@ -310,14 +365,23 @@ function listScenes(data: TimedEpisodeData, videoPath?: string): void {
 
   for (let i = 0; i < data.scenes.length; i++) {
     const scene = data.scenes[i];
-    const prevScene = data.scenes[i - 1];
 
-    // Visual start = when previous scene ends (actual visual transition)
-    const visualStart = prevScene ? prevScene.endSec : scene.startSec;
-    const duration = Math.round(scene.endSec - visualStart);
+    // Use visual timing when available, otherwise fall back to dialogue timing
+    const sceneStart = scene.visualStartSec ?? scene.startSec;
+    const sceneEnd = scene.visualEndSec ?? scene.endSec;
+    const duration = Math.round(sceneEnd - sceneStart);
 
-    // Get first speech line for preview
-    const firstSpeech = scene.dialogue.find(d => d.type === "speech" && d.line);
+    // Get first speech line for preview (skip media commands)
+    // Check both the flag (new recordings) and content (old recordings)
+    const isMediaCmd = (d: Dialogue) =>
+      d.isMediaCommand ||
+      d.actor === 'aishaw' ||
+      d.line === 'roll-commercial' ||
+      d.line === 'roll-media' ||
+      d.line === 'clear-media';
+    const firstSpeech = scene.dialogue.find(d =>
+      d.line && !isMediaCmd(d) && d.type !== "action" && d.type !== "media"
+    );
     const preview = firstSpeech?.line || scene.description || "";
     const maxPreview = 70;
     const truncated = preview.length > maxPreview
@@ -327,7 +391,7 @@ function listScenes(data: TimedEpisodeData, videoPath?: string): void {
     // Scene row
     console.log(
       `${scene.number.toString().padStart(3)}  ` +
-      `${formatTime(visualStart).padEnd(8)} ` +
+      `${formatTime(sceneStart).padEnd(8)} ` +
       `${(duration + "s").padStart(4)}  ` +
       `${scene.location.padEnd(16).substring(0, 16)}  ` +
       `${truncated}`
@@ -407,29 +471,51 @@ function searchTranscript(data: TimedEpisodeData, query: string): SearchMatch[] 
 // ============================================================================
 
 async function handleList(args: CliArgs): Promise<void> {
-  if (!args.video) {
+  if (args.videos.length === 0) {
     console.error("Error: Video path required for list command");
     console.error("Usage: npm run clip -- list <video-path>");
     process.exit(1);
   }
 
-  const { videoPath, dataPath, isSessionLog } = await resolveVideoAndData(args.video);
-  const data = loadTimedData(dataPath, isSessionLog);
-  listScenes(data, videoPath);
+  const videos = await resolveVideosAndData(args.videos);
+
+  for (const { videoPath, dataPath, isSessionLog } of videos) {
+    const data = loadTimedData(dataPath, isSessionLog);
+    listScenes(data, videoPath);
+  }
 }
 
 async function handleExtract(args: CliArgs): Promise<void> {
-  if (!args.video) {
+  if (args.videos.length === 0) {
     console.error("Error: Video path required for extract command");
     console.error("Usage: npm run clip -- extract <video-path> --scene=N");
     process.exit(1);
   }
 
-  const { videoPath, dataPath, isSessionLog } = await resolveVideoAndData(args.video);
-  const data = loadTimedData(dataPath, isSessionLog);
-  const episodeName = getEpisodeBaseName(videoPath);
+  const videos = await resolveVideosAndData(args.videos);
   const outputDir = args.output || "episodes/clips";
   ensureOutputDir(outputDir);
+
+  for (const { videoPath, dataPath, isSessionLog } of videos) {
+    if (videos.length > 1) {
+      console.log(`\n${"=".repeat(60)}`);
+      console.log(`Processing: ${path.basename(videoPath)}`);
+      console.log("=".repeat(60));
+    }
+
+    await extractFromVideo(videoPath, dataPath, isSessionLog, args, outputDir);
+  }
+}
+
+async function extractFromVideo(
+  videoPath: string,
+  dataPath: string,
+  isSessionLog: boolean,
+  args: CliArgs,
+  outputDir: string
+): Promise<void> {
+  const data = loadTimedData(dataPath, isSessionLog);
+  const episodeName = getEpisodeBaseName(videoPath);
 
   // Direct time-based clipping (--start and --end)
   if (args.start !== undefined && args.end !== undefined) {
@@ -437,6 +523,133 @@ async function handleExtract(args: CliArgs): Promise<void> {
     const endFormatted = formatTime(args.end).replace(":", "m") + "s";
     const outputPath = path.join(outputDir, `${episodeName}_${startFormatted}-${endFormatted}.mp4`);
     extractClip(videoPath, args.start, args.end, outputPath, args.dryRun);
+    return;
+  }
+
+  // Helper: Check if dialogue is a media command (works for old and new recordings)
+  const isMediaCmd = (d: Dialogue) =>
+    d.isMediaCommand ||
+    d.actor === 'aishaw' ||
+    d.line === 'roll-commercial' ||
+    d.line === 'roll-media' ||
+    d.line === 'clear-media';
+
+  // Helper: Find first speech dialogue (skip media commands)
+  const getFirstSpeechDialogue = (scene: Scene): Dialogue | undefined => {
+    return scene.dialogue.find(d => !isMediaCmd(d) && d.line && d.startSec !== undefined);
+  };
+
+  // Helper: Find last speech dialogue (skip media commands)
+  const getLastSpeechDialogue = (scene: Scene): Dialogue | undefined => {
+    return [...scene.dialogue].reverse().find(d => !isMediaCmd(d) && d.line && d.endSec !== undefined);
+  };
+
+  // Helper: Get best start time for a scene (prefer visual timing)
+  const getSceneStart = (scene: Scene): number => {
+    // Prefer visualStartSec (when scene transition begins)
+    if (scene.visualStartSec !== undefined) {
+      return scene.visualStartSec;
+    }
+    // Fall back to first speech dialogue (skip media commands)
+    const firstSpeech = getFirstSpeechDialogue(scene);
+    if (firstSpeech) {
+      return firstSpeech.startSec;
+    }
+    // Last resort: use scene.startSec
+    return scene.startSec;
+  };
+
+  // Helper: Get best end time for a scene (prefer visual timing)
+  const getSceneEnd = (scene: Scene): number => {
+    // Prefer visualEndSec (when next scene starts)
+    if (scene.visualEndSec !== undefined) {
+      return scene.visualEndSec;
+    }
+    // Fall back to last speech dialogue (skip media commands)
+    const lastSpeech = getLastSpeechDialogue(scene);
+    if (lastSpeech) {
+      return lastSpeech.endSec;
+    }
+    // Last resort: use scene.endSec
+    return scene.endSec;
+  };
+
+  // Location-based extraction (--location)
+  if (args.location) {
+    const locationLower = args.location.toLowerCase();
+    const matchingScenes = data.scenes.filter(s =>
+      s.location.toLowerCase().includes(locationLower)
+    );
+
+    if (matchingScenes.length === 0) {
+      const allLocations = [...new Set(data.scenes.map(s => s.location))];
+      console.error(`No scenes found at location "${args.location}"`);
+      console.error(`Available locations: ${allLocations.join(", ")}`);
+      process.exit(1);
+    }
+
+    console.log(`\nFound ${matchingScenes.length} scene(s) at location "${args.location}":\n`);
+    for (const scene of matchingScenes) {
+      const start = getSceneStart(scene);
+      const end = getSceneEnd(scene);
+      const hasVisual = scene.visualStartSec !== undefined;
+      console.log(`  Scene ${scene.number}: ${scene.location} (${formatTime(start)} - ${formatTime(end)})${hasVisual ? '' : ' [no visual timing]'}`);
+    }
+
+    // Extract each scene
+    const sanitizedLoc = args.location.replace(/[^a-zA-Z0-9]/g, "-").substring(0, 20);
+    if (matchingScenes.length === 1) {
+      const scene = matchingScenes[0];
+      const outputPath = path.join(outputDir, `${episodeName}_loc_${sanitizedLoc}.mp4`);
+      extractClip(videoPath, getSceneStart(scene), getSceneEnd(scene), outputPath, args.dryRun);
+    } else {
+      for (let i = 0; i < matchingScenes.length; i++) {
+        const scene = matchingScenes[i];
+        const outputPath = path.join(outputDir, `${episodeName}_loc_${sanitizedLoc}_${i + 1}.mp4`);
+        extractClip(videoPath, getSceneStart(scene), getSceneEnd(scene), outputPath, args.dryRun);
+      }
+    }
+    return;
+  }
+
+  // Actor-based extraction (--actor)
+  if (args.actor) {
+    const actorLower = args.actor.toLowerCase();
+    const padding = args.padding || 1;
+
+    // Find all dialogue from the actor
+    const actorDialogues: { scene: Scene; dialogue: Dialogue }[] = [];
+    for (const scene of data.scenes) {
+      for (const dialogue of scene.dialogue) {
+        if (dialogue.actor?.toLowerCase().includes(actorLower) && dialogue.line) {
+          actorDialogues.push({ scene, dialogue });
+        }
+      }
+    }
+
+    if (actorDialogues.length === 0) {
+      const allActors = [...new Set(data.scenes.flatMap(s => s.dialogue.map(d => d.actor).filter(Boolean)))];
+      console.error(`No dialogue found for actor "${args.actor}"`);
+      console.error(`Available actors: ${allActors.join(", ")}`);
+      process.exit(1);
+    }
+
+    console.log(`\nFound ${actorDialogues.length} line(s) from "${args.actor}":\n`);
+    for (let i = 0; i < actorDialogues.length; i++) {
+      const { scene, dialogue } = actorDialogues[i];
+      const preview = dialogue.line.length > 60 ? dialogue.line.substring(0, 57) + "..." : dialogue.line;
+      console.log(`  ${i + 1}. Scene ${scene.number} [${formatTime(dialogue.startSec)}]: "${preview}"`);
+    }
+
+    // Extract each dialogue segment with padding
+    const sanitizedActor = args.actor.replace(/[^a-zA-Z0-9]/g, "-").substring(0, 20);
+    for (let i = 0; i < actorDialogues.length; i++) {
+      const { dialogue } = actorDialogues[i];
+      const startWithPadding = Math.max(0, dialogue.startSec - padding);
+      const endWithPadding = dialogue.endSec + padding;
+      const outputPath = path.join(outputDir, `${episodeName}_actor_${sanitizedActor}_${i + 1}.mp4`);
+      extractClip(videoPath, startWithPadding, endWithPadding, outputPath, args.dryRun);
+    }
     return;
   }
 
@@ -452,7 +665,7 @@ async function handleExtract(args: CliArgs): Promise<void> {
       scenesToExtract.push(i);
     }
   } else {
-    console.error("Error: Specify --start=M:SS --end=M:SS, --scene=N, --scenes=1,3,7, or --from=N --to=M");
+    console.error("Error: Specify --scene=N, --scenes=1,3,7, --from=N --to=M, --start/--end, --location=NAME, or --actor=NAME");
     process.exit(1);
   }
 
@@ -465,42 +678,6 @@ async function handleExtract(args: CliArgs): Promise<void> {
     }
   }
 
-  // Helper to get clip start (after transition completes)
-  const getClipStart = (sceneNum: number): number => {
-    const sceneIdx = data.scenes.findIndex((s) => s.number === sceneNum);
-    const scene = data.scenes[sceneIdx];
-    if (!scene) return 0;
-
-    // For first scene, use scene's startSec
-    if (sceneIdx <= 0) {
-      return scene.startSec;
-    }
-
-    // Visual start = when previous scene ends
-    const visualStart = data.scenes[sceneIdx - 1].endSec;
-
-    // Find first dialogue with audio that starts at or after visual transition
-    // Use first word's start time (actual audio) instead of dialogue startSec
-    const firstDialogueAfterTransition = scene.dialogue
-      .filter(d => {
-        const audioStart = d.words?.[0]?.start ?? d.startSec;
-        return audioStart >= visualStart;
-      })
-      .sort((a, b) => {
-        const aStart = a.words?.[0]?.start ?? a.startSec;
-        const bStart = b.words?.[0]?.start ?? b.startSec;
-        return aStart - bStart;
-      })[0];
-
-    // Use actual audio start (first word) for precise timing
-    const audioStart = firstDialogueAfterTransition?.words?.[0]?.start
-      ?? firstDialogueAfterTransition?.startSec
-      ?? visualStart;
-
-    // Add small buffer for video encoding latency (~5 frames at 30fps)
-    return audioStart + 0.17;
-  };
-
   // Extract each scene or combined range
   if (scenesToExtract.length === 1) {
     // Single scene
@@ -511,10 +688,8 @@ async function handleExtract(args: CliArgs): Promise<void> {
       process.exit(1);
     }
 
-    // Start after transition (first dialogue after visual change)
-    const startSec = getClipStart(sceneNum);
     const outputPath = path.join(outputDir, `${episodeName}_scene${sceneNum}.mp4`);
-    extractClip(videoPath, startSec, scene.endSec, outputPath, args.dryRun);
+    extractClip(videoPath, getSceneStart(scene), getSceneEnd(scene), outputPath, args.dryRun);
   } else if (args.from !== undefined && args.to !== undefined) {
     // Continuous range - extract as single clip
     const fromScene = data.scenes.find((s) => s.number === args.from);
@@ -525,12 +700,11 @@ async function handleExtract(args: CliArgs): Promise<void> {
       process.exit(1);
     }
 
-    const startSec = getClipStart(args.from);
     const outputPath = path.join(
       outputDir,
       `${episodeName}_scene${args.from}-${args.to}.mp4`
     );
-    extractClip(videoPath, startSec, toScene.endSec, outputPath, args.dryRun);
+    extractClip(videoPath, getSceneStart(fromScene), getSceneEnd(toScene), outputPath, args.dryRun);
   } else {
     // Multiple specific scenes - extract each separately
     for (const sceneNum of scenesToExtract) {
@@ -541,13 +715,13 @@ async function handleExtract(args: CliArgs): Promise<void> {
       }
 
       const outputPath = path.join(outputDir, `${episodeName}_scene${sceneNum}.mp4`);
-      extractClip(videoPath, scene.startSec, scene.endSec, outputPath, args.dryRun);
+      extractClip(videoPath, getSceneStart(scene), getSceneEnd(scene), outputPath, args.dryRun);
     }
   }
 }
 
 async function handleSearch(args: CliArgs): Promise<void> {
-  if (!args.video) {
+  if (args.videos.length === 0) {
     console.error("Error: Video path required for search command");
     console.error('Usage: npm run clip -- search <video-path> --query="search term"');
     process.exit(1);
@@ -558,51 +732,61 @@ async function handleSearch(args: CliArgs): Promise<void> {
     process.exit(1);
   }
 
-  const { videoPath, dataPath, isSessionLog } = await resolveVideoAndData(args.video);
-  const data = loadTimedData(dataPath, isSessionLog);
-  const episodeName = getEpisodeBaseName(videoPath);
+  const videos = await resolveVideosAndData(args.videos);
   const outputDir = args.output || "episodes/clips";
   const padding = args.padding || 2;
+  const sanitizedQuery = args.query.replace(/[^a-zA-Z0-9]/g, "_").substring(0, 20);
 
-  const matches = searchTranscript(data, args.query);
+  let totalMatches = 0;
+  let clipIndex = 0;
 
-  if (matches.length === 0) {
+  for (const { videoPath, dataPath, isSessionLog } of videos) {
+    const data = loadTimedData(dataPath, isSessionLog);
+    const episodeName = getEpisodeBaseName(videoPath);
+    const matches = searchTranscript(data, args.query);
+
+    if (matches.length === 0) continue;
+
+    totalMatches += matches.length;
+
+    if (videos.length > 1) {
+      console.log(`\n${path.basename(videoPath)}:`);
+    } else {
+      console.log(`\nFound ${matches.length} match(es) for "${args.query}":\n`);
+    }
+
+    for (let i = 0; i < matches.length; i++) {
+      const match = matches[i];
+      console.log(
+        `  ${clipIndex + 1}. Scene ${match.scene.number} [${formatTime(match.dialogue.startSec)}] ${match.dialogue.actor}:`
+      );
+      console.log(`     "${match.matchedText}"`);
+
+      if (args.doExtract) {
+        ensureOutputDir(outputDir);
+        const startWithPadding = Math.max(0, match.dialogue.startSec - padding);
+        const endWithPadding = match.dialogue.endSec + padding;
+        const outputPath = path.join(
+          outputDir,
+          `${episodeName}_search_${sanitizedQuery}_${clipIndex + 1}.mp4`
+        );
+        extractClip(videoPath, startWithPadding, endWithPadding, outputPath, args.dryRun);
+      }
+      clipIndex++;
+    }
+  }
+
+  if (totalMatches === 0) {
     console.log(`No matches found for query: "${args.query}"`);
     return;
   }
 
-  console.log(`\nFound ${matches.length} match(es) for "${args.query}":\n`);
-
-  for (let i = 0; i < matches.length; i++) {
-    const match = matches[i];
-
-    console.log(
-      `${i + 1}. Scene ${match.scene.number} [${formatTime(match.dialogue.startSec)}] ${match.dialogue.actor}:`
-    );
-    console.log(`   "${match.matchedText}"`);
-    console.log();
+  if (videos.length > 1) {
+    console.log(`\nTotal: ${totalMatches} match(es) across ${videos.length} videos`);
   }
 
-  // Only extract if --extract flag is passed
   if (!args.doExtract) {
-    console.log(`Add --extract to cut these clips.`);
-    return;
-  }
-
-  // Extract clips
-  ensureOutputDir(outputDir);
-  const sanitizedQuery = args.query.replace(/[^a-zA-Z0-9]/g, "_").substring(0, 20);
-
-  for (let i = 0; i < matches.length; i++) {
-    const match = matches[i];
-    const startWithPadding = Math.max(0, match.dialogue.startSec - padding);
-    const endWithPadding = match.dialogue.endSec + padding;
-
-    const outputPath = path.join(
-      outputDir,
-      `${episodeName}_search_${sanitizedQuery}_${i + 1}.mp4`
-    );
-    extractClip(videoPath, startWithPadding, endWithPadding, outputPath, args.dryRun);
+    console.log(`\nAdd --extract to cut these clips.`);
   }
 }
 
@@ -612,7 +796,7 @@ Episode Clip Extraction CLI
 
 Commands:
   list      Show scenes overview with timestamps and excerpts
-  extract   Cut clips by scene number(s) or time range
+  extract   Cut clips by scene number(s), time range, location, or actor
   search    Find dialogue by transcript content
   help      Show this help message
 
@@ -622,6 +806,8 @@ Usage:
   npm run clip -- extract <video-path> --from=N --to=M
   npm run clip -- extract <video-path> --scenes=1,3,7
   npm run clip -- extract <video-path> --start=1:30 --end=2:45
+  npm run clip -- extract <video-path> --location=stonks
+  npm run clip -- extract <video-path> --actor=jin
   npm run clip -- search <video-path> --query="search term"
   npm run clip -- search <video-path> --query="term" --extract
 
@@ -631,9 +817,11 @@ Options:
   --scenes=1,3,7    Extract multiple specific scenes (separate clips)
   --start=M:SS      Start time for direct time-based clipping
   --end=M:SS        End time for direct time-based clipping
+  --location=NAME   Extract all scenes at a location (partial match)
+  --actor=NAME      Extract all dialogue from an actor (partial match)
   --query="text"    Search transcript for matching dialogue
   --extract         Actually cut clips (for search command)
-  --padding=N       Seconds of padding before/after search matches (default: 2)
+  --padding=N       Seconds of padding (default: 2 for search, 1 for actor)
   --output=DIR      Output directory (default: episodes/clips)
   --dry-run         Show what would be done without executing
 
@@ -642,6 +830,8 @@ Examples:
   npm run clip -- extract episodes/*.mp4 --scene=1
   npm run clip -- extract episodes/*.mp4 --from=2 --to=5
   npm run clip -- extract episodes/*.mp4 --start=1:30 --end=2:00
+  npm run clip -- extract episodes/*.mp4 --location=stonks
+  npm run clip -- extract episodes/*.mp4 --actor=eliza --padding=2
   npm run clip -- search episodes/*.mp4 --query="ElizaOS"
   npm run clip -- search episodes/*.mp4 --query="ElizaOS" --extract --padding=3
 `);
