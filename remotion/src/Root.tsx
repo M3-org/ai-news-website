@@ -1,9 +1,9 @@
-import { Composition, staticFile } from "remotion";
-import { Trailer, TrailerSchema } from "./Trailer";
+import { Composition } from "remotion";
+import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
 
 // Default props for Remotion Studio preview
 // When no video_file is provided, clips show text-only mode
-const defaultProps = {
+const defaultProps: TrailerProps = {
   type: "trailer" as const,
   duration: 20,
   title: "Coming up on Cron Job...",
@@ -22,7 +22,7 @@ const defaultProps = {
       end_sec: 2,
       duration: 2,
       actor: "eliza",
-      video_file: "", // Empty = text-only mode
+      video_file: "",
     },
     {
       source: "sample",
@@ -64,31 +64,41 @@ const defaultProps = {
   generated_at: new Date().toISOString(),
 };
 
-export const RemotionRoot: React.FC = () => {
-  const fps = 30;
-  const totalDuration =
-    2 + // Title card
-    defaultProps.clips.reduce((sum, c) => sum + c.duration, 0) +
-    defaultProps.end_card.duration;
+const FPS = 30;
 
+// Calculate total duration from props
+const calculateDurationInFrames = (props: TrailerProps): number => {
+  const titleDuration = 2; // 2 seconds for title card
+  const clipsDuration = props.clips.reduce((sum, c) => sum + c.duration, 0);
+  const endCardDuration = props.end_card.duration;
+  const totalSeconds = titleDuration + clipsDuration + endCardDuration;
+  return Math.ceil(totalSeconds * FPS);
+};
+
+export const RemotionRoot: React.FC = () => {
   return (
     <>
       <Composition
         id="Trailer"
         component={Trailer}
-        durationInFrames={Math.ceil(totalDuration * fps)}
-        fps={fps}
-        width={1920}
-        height={1080}
+        // Use calculateMetadata to dynamically set duration based on props
+        calculateMetadata={({ props }) => {
+          return {
+            durationInFrames: calculateDurationInFrames(props),
+            fps: FPS,
+            width: 1920,
+            height: 1080,
+          };
+        }}
         schema={TrailerSchema}
         defaultProps={defaultProps}
       />
-      {/* Preview composition with shorter duration */}
+      {/* Preview composition with fixed shorter duration for quick previews */}
       <Composition
         id="TrailerPreview"
         component={Trailer}
-        durationInFrames={Math.ceil(15 * fps)}
-        fps={fps}
+        durationInFrames={Math.ceil(15 * FPS)}
+        fps={FPS}
         width={1920}
         height={1080}
         schema={TrailerSchema}
