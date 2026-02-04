@@ -4,7 +4,10 @@
   "description": "AI News Show website with episode recording and clipping tools",
   "scripts": {
     "record": "node scripts/recorder.js",
-    "clip": "npx ts-node scripts/clip.ts"
+    "clip": "npx ts-node scripts/clip.ts",
+    "trailer:config": "uv run python scripts/generate_trailer.py",
+    "trailer:studio": "cd remotion && npm start",
+    "trailer:render": "cd remotion && npx remotion render Trailer"
   },
   "dependencies": {
     "puppeteer-stream": "^3.0.22"
