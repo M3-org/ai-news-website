@@ -171,6 +171,3 @@ export const Glitch: React.FC<GlitchProps> = ({ durationInFrames }) => {
     </AbsoluteFill>
   );
 };
-
-// Export all transitions
-export { Flash, ZoomPunch, Glitch };
