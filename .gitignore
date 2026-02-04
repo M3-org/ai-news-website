@@ -10,3 +10,8 @@ tmp/
 scripts/local_daily_upload.sh
 youtube_credentials.json
 client_secrets.json
+
+# IDE and build artifacts
+.cursor/
+__pycache__/
+*.pyc
