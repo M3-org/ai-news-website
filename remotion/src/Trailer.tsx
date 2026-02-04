@@ -32,6 +32,7 @@ const ClipSchema = z.object({
   end_sec: z.number(),
   duration: z.number(),
   actor: z.string(),
+  video_file: z.string().optional(),
 });
 
 const EndCardSchema = z.object({
@@ -141,6 +142,8 @@ export const Trailer: React.FC<TrailerProps> = ({
                 actor={clip.actor}
                 index={index + 1}
                 total={clips.length}
+                videoSrc={clip.video_file}
+                startSec={clip.start_sec}
               />
             </Sequence>
 

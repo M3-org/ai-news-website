@@ -105,6 +105,7 @@ class TrailerClip:
     end_sec: float = 0.0           # End time in video
     duration: float = 0.0          # Clip duration
     actor: str = ""                # Speaker
+    video_file: str = ""           # Path to source video file
 
 
 @dataclass
@@ -450,9 +451,50 @@ def interactive_clip_selection(session_log: dict, session_log_path: Path) -> lis
 # Trailer Config Generation
 # ============================================================================
 
+def find_video_file(session_log: dict, session_log_path: Path) -> str:
+    """Find the video file for a session-log."""
+    # First check if video_file is specified in session-log
+    video_file = session_log.get("video_file", "")
+    if video_file:
+        # Check if it's a relative path
+        video_path = session_log_path.parent / video_file
+        if video_path.exists():
+            return str(video_path)
+
+    # Try to find by pattern matching
+    base = session_log_path.stem.replace("_session-log", "")
+    directory = session_log_path.parent
+
+    # Try various video patterns
+    patterns = [
+        f"{base}.mp4",
+        f"{base}_fps30.mp4",
+        f"{base}_fps60.mp4",
+    ]
+
+    for pattern in patterns:
+        video_path = directory / pattern
+        if video_path.exists():
+            return str(video_path)
+
+    # Try glob pattern
+    matches = list(directory.glob(f"{base}*.mp4"))
+    if matches:
+        return str(matches[0])
+
+    return ""
+
+
 def resolve_clips(raw_clips: list[dict], session_log: dict, session_log_path: Path) -> list[TrailerClip]:
     """Resolve raw clip suggestions to full TrailerClip objects with timing."""
     resolved = []
+
+    # Find the video file once for all clips
+    video_file = find_video_file(session_log, session_log_path)
+    if video_file:
+        print(f"Video file: {Path(video_file).name}")
+    else:
+        print("Warning: No video file found - trailer will be text-only")
 
     for raw in raw_clips:
         scene_num = raw.get("scene", 1)
@@ -484,7 +526,8 @@ def resolve_clips(raw_clips: list[dict], session_log: dict, session_log_path: Pa
             start_sec=partial["startSec"],
             end_sec=partial["endSec"],
             duration=partial["duration"],
-            actor=dialogue.get("actor", "")
+            actor=dialogue.get("actor", ""),
+            video_file=video_file
         )
         resolved.append(clip)
 

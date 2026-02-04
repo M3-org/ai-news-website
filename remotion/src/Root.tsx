@@ -2,6 +2,7 @@ import { Composition, staticFile } from "remotion";
 import { Trailer, TrailerSchema } from "./Trailer";
 
 // Default props for Remotion Studio preview
+// When no video_file is provided, clips show text-only mode
 const defaultProps = {
   type: "trailer" as const,
   duration: 20,
@@ -21,6 +22,7 @@ const defaultProps = {
       end_sec: 2,
       duration: 2,
       actor: "eliza",
+      video_file: "", // Empty = text-only mode
     },
     {
       source: "sample",
@@ -35,6 +37,7 @@ const defaultProps = {
       end_sec: 12,
       duration: 2,
       actor: "jin",
+      video_file: "",
     },
     {
       source: "sample",
@@ -49,6 +52,7 @@ const defaultProps = {
       end_sec: 22,
       duration: 2,
       actor: "hk47",
+      video_file: "",
     },
   ],
   end_card: {
