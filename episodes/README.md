@@ -461,6 +461,58 @@ episodes/
 └── 2026-02-02_Cron-Job_Workflow-Revolution_session-log.json
 ```
 
+## Automated Recording (Cron Job)
+
+Automatically record new Cron Job episodes every Sunday at 9pm EST.
+
+### Manual Recording
+
+```bash
+# Test what would be recorded (dry run)
+./scripts/record_cronjob.sh --dry-run
+
+# Record the latest episode
+./scripts/record_cronjob.sh
+```
+
+### Crontab Setup
+
+Sunday 9pm EST = Monday 02:00 UTC
+
+```bash
+# Edit crontab
+crontab -e
+
+# Add this line (adjust path as needed):
+0 2 * * 1 cd /home/jin/repo/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
+```
+
+### How It Works
+
+1. Fetches latest episode from Shmotime API: `https://shmotime.com/wp-json/shmotime/v1/get-latest-episode?show_id=5296`
+2. Extracts episode URL and metadata
+3. Skips if episode already recorded (checks for existing .mp4)
+4. Runs `recorder.js` with proper date/show naming
+5. Outputs to `episodes/` directory
+
+### API Response Format
+
+```json
+{
+  "success": true,
+  "episode": {
+    "id": 8721,
+    "title": "Workflow Revolution",
+    "permalink": "https://shmotime.com/shmotime_episode/workflow-revolution/",
+    "date": "2026-02-02T02:53:05+00:00"
+  },
+  "show": {
+    "id": 5296,
+    "title": "Cron Job"
+  }
+}
+```
+
 ## Cleanup
 
 The `_temp.m4a` files are intermediate audio extracts and can be safely deleted after transcription completes.

@@ -15,3 +15,6 @@ client_secrets.json
 .cursor/
 __pycache__/
 *.pyc
+
+# Logs
+logs/
