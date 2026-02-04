@@ -9,11 +9,26 @@
 #   ./scripts/record_cronjob.sh              # Record latest episode
 #   ./scripts/record_cronjob.sh --dry-run    # Show what would be recorded
 #
-# Crontab (Sunday 9pm EST = Monday 02:00 UTC):
-#   0 2 * * 1 cd /home/jin/repo/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
+# Crontab (Sunday 02:15 UTC = Saturday 9:15pm EST / 6:15pm PST):
+#   15 2 * * 0 cd /path/to/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
+#
+# Environment:
+#   ALERT_WEBHOOK_URL - Discord webhook URL for notifications (optional)
 #
 
 set -e
+
+# Discord webhook for alerts (optional)
+DISCORD_WEBHOOK="${ALERT_WEBHOOK_URL:-}"
+
+send_alert() {
+    local message="$1"
+    if [[ -n "$DISCORD_WEBHOOK" ]]; then
+        curl -s -X POST "$DISCORD_WEBHOOK" \
+            -H "Content-Type: application/json" \
+            -d "{\"content\": \"$message\"}" > /dev/null 2>&1 || true
+    fi
+}
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
@@ -49,6 +64,7 @@ SUCCESS=$(echo "$RESPONSE" | jq -r '.success')
 if [[ "$SUCCESS" != "true" ]]; then
     log "ERROR: API request failed"
     echo "$RESPONSE" | jq .
+    send_alert "❌ **Cron Job Recording** failed: API request unsuccessful"
     exit 1
 fi
 
@@ -72,6 +88,7 @@ log "Output base: $OUTPUT_BASE"
 # Check if already recorded
 if [[ -f "${OUTPUT_DIR}/${OUTPUT_BASE}.mp4" ]]; then
     log "Episode already recorded: ${OUTPUT_DIR}/${OUTPUT_BASE}.mp4"
+    send_alert "ℹ️ Episode already recorded: ${EPISODE_TITLE}"
     exit 0
 fi
 
@@ -89,12 +106,16 @@ fi
 log "Starting recording..."
 
 # Record the episode
-node scripts/recorder.js \
+if ! node scripts/recorder.js \
     --date="${EPISODE_DATE}" \
     --show="${SHOW_NAME}" \
     --output="${OUTPUT_DIR}" \
     --stop-recording-at=end_postcredits \
-    "${EPISODE_URL}"
+    "${EPISODE_URL}"; then
+    log "ERROR: Recording failed"
+    send_alert "❌ **Cron Job Recording** failed: recorder.js error for ${EPISODE_TITLE}"
+    exit 1
+fi
 
 log "Recording complete!"
 
@@ -107,5 +128,8 @@ fi
 if [[ -f "${OUTPUT_DIR}/${OUTPUT_BASE}_session-log.json" ]]; then
     log "Session log: ${OUTPUT_DIR}/${OUTPUT_BASE}_session-log.json"
 fi
+
+# Send success alert
+send_alert "✅ **Cron Job Recording** complete: ${EPISODE_TITLE}"
 
 log "Done!"
