@@ -341,6 +341,126 @@ episodes/
 └── 2026-02-02_Cron-Job_Workflow-Revolution_youtube_metadata.json
 ```
 
+## CDN Upload Workflow
+
+Upload thumbnails, clips, and videos to Bunny CDN with provenance tracking.
+
+### Environment Setup
+
+Copy `.env.example` to `.env` and configure:
+```bash
+BUNNY_STORAGE_ZONE="your_storage_zone"
+BUNNY_STORAGE_PASSWORD="your_api_password"
+BUNNY_CDN_URL="https://cdn.elizaos.news"
+```
+
+### Upload Single File
+
+```bash
+uv run python scripts/cdn_upload.py episodes/thumbnails/2026-02-02_Cron-Job_Workflow-Revolution.png \
+  --remote cronjob/thumbnails/
+```
+
+### Upload Directory
+
+```bash
+# Upload all thumbnails
+uv run python scripts/cdn_upload.py --dir episodes/thumbnails/ --remote cronjob/thumbnails/
+
+# Upload all clips (max 50MB each by default)
+uv run python scripts/cdn_upload.py --dir episodes/clips/ --remote cronjob/clips/
+```
+
+### Manifest-Based Upload (with Provenance)
+
+For clips with provenance tracking:
+
+```bash
+# 1. Generate manifest with provenance info
+uv run python scripts/generate_manifest.py episodes/clips/ --show cronjob
+
+# 2. Upload using manifest (updates manifest with CDN URLs)
+uv run python scripts/cdn_upload.py --manifest episodes/clips/manifest.json --remote cronjob/clips/
+```
+
+### Unix-Style Piping
+
+```bash
+# Upload specific files via stdin
+find episodes/clips -name "*_scene*.mp4" | uv run python scripts/cdn_upload.py --stdin --remote cronjob/clips/
+```
+
+### Dry Run
+
+Test uploads without actually uploading:
+```bash
+uv run python scripts/cdn_upload.py --dir episodes/clips/ --remote cronjob/clips/ --dry-run
+```
+
+### Manifest Schema
+
+The manifest tracks provenance and CDN URLs for each file:
+
+```json
+{
+  "version": "1.0",
+  "generated_at": "2026-02-03T12:00:00Z",
+  "source": {
+    "show": "cronjob",
+    "directory": "episodes/clips"
+  },
+  "cdn": {
+    "provider": "bunny",
+    "base_url": "https://cdn.elizaos.news/cronjob/clips",
+    "uploaded_at": "2026-02-03T12:05:00Z"
+  },
+  "files": [
+    {
+      "filename": "2026-02-02_Cron-Job_Workflow-Revolution_scene3.mp4",
+      "size_bytes": 15234567,
+      "provenance": {
+        "date": "2026-02-02",
+        "show": "Cron-Job",
+        "title": "Workflow-Revolution",
+        "clip_type": "scene",
+        "scene": 3,
+        "episode_id": "S2E1",
+        "episode_name": "Workflow Revolution",
+        "scene_description": "Eliza and Jin discuss technical developments..."
+      },
+      "cdn_url": "https://cdn.elizaos.news/cronjob/clips/2026-02-02_...",
+      "cdn_path": "cronjob/clips/2026-02-02_...",
+      "uploaded_at": "2026-02-03T12:05:00Z"
+    }
+  ]
+}
+```
+
+### Clip Naming Conventions
+
+The manifest generator extracts provenance from these filename patterns:
+
+| Pattern | Example | Type |
+|---------|---------|------|
+| `{date}_{show}_{title}_scene{N}.mp4` | `2026-02-02_Cron-Job_Title_scene3.mp4` | Scene clip |
+| `{date}_{show}_{title}_actor_{name}_{N}.mp4` | `2026-02-02_Cron-Job_Title_actor_jin_5.mp4` | Actor clip |
+| `{date}_{show}_{title}_loc_{location}.mp4` | `2026-02-02_Cron-Job_Title_loc_stonks.mp4` | Location clip |
+| `{date}_{show}_{title}.png` | `2026-02-02_Cron-Job_Title.png` | Thumbnail |
+
+### Directory Structure After CDN Upload
+
+```
+episodes/
+├── clips/
+│   ├── manifest.json                    # Manifest with CDN URLs
+│   ├── 2026-02-02_Cron-Job_*_scene3.mp4
+│   └── ...
+├── thumbnails/
+│   └── 2026-02-02_Cron-Job_*.png
+├── 2026-02-02_Cron-Job_Workflow-Revolution.mp4
+└── 2026-02-02_Cron-Job_Workflow-Revolution_session-log.json
+```
+
 ## Cleanup
 
 The `_temp.m4a` files are intermediate audio extracts and can be safely deleted after transcription completes.
