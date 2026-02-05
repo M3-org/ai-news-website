@@ -81,14 +81,36 @@ Set up a cron job to automatically record new episodes:
 # Edit crontab
 crontab -e
 
-# Sunday 9pm EST = Monday 02:00 UTC
-0 2 * * 1 cd /path/to/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
+# Sunday 02:15 UTC = Saturday 9:15pm EST / 6:15pm PST
+# Note: '0' = Sunday in cron (UTC). This is Saturday night in US timezones.
+15 2 * * 0 cd /path/to/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
 ```
+
+### Timing Chain
+
+| Event | UTC | EST | PST |
+|-------|-----|-----|-----|
+| elizaos workflow | Sun 00:00 | Sat 7pm | Sat 4pm |
+| weekly.json ready | Sun 01:00 | Sat 8pm | Sat 5pm |
+| Shmotime video ready | Sun 02:00 | Sat 9pm | Sat 6pm |
+| **Recorder runs** | **Sun 02:15** | **Sat 9:15pm** | **Sat 6:15pm** |
+
+The recorder runs 15 minutes after the video should be ready, providing a buffer for processing.
+
+### Discord Alerts
+
+Set `ALERT_WEBHOOK_URL` in your environment to receive Discord notifications:
+- ✅ Success: Episode recorded successfully
+- ❌ Failure: Recording failed (API error or recorder error)
+- ℹ️ Skip: Episode already recorded
 
 Test manually:
 ```bash
 ./scripts/record_cronjob.sh --dry-run  # Preview
 ./scripts/record_cronjob.sh            # Record
+
+# With alerts
+ALERT_WEBHOOK_URL="your_webhook" ./scripts/record_cronjob.sh --dry-run
 ```
 
 ## Environment Setup
