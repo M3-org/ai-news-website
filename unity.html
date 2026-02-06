@@ -77,6 +77,7 @@
       <nav class="space-x-6 flex items-center">
         <a class="nav-link" href="#episodes">Episodes</a>
         <a class="nav-link" href="#pipeline">How It Works</a>
+        <a class="nav-link" href="#archive">Archive</a>
         <a class="nav-link" href="https://github.com/elizaOS/eliza" target="_blank" title="GitHub">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -139,7 +140,17 @@
     <div id="episodes-pagination" class="flex justify-center items-center gap-2 mt-8"></div>
   </section>
 
-  <!-- Stepper Timeline: How the AI Show Works + Key Innovations (moved below Latest Episodes) -->
+  <!-- Older Videos Archive -->
+  <section id="archive" class="container mx-auto px-6 py-12">
+    <h2 class="text-3xl font-bold text-center mb-3 lava-text">Older Videos Archive</h2>
+    <p class="text-center text-gray-300 mb-8 max-w-3xl mx-auto">
+      One-time imported long-form uploads from <a href="https://www.youtube.com/@Ai16Z/videos" target="_blank" class="lava-text hover:underline">@Ai16Z/videos</a>.
+    </p>
+    <div id="archive-grid" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    <div id="archive-pagination" class="flex justify-center items-center gap-2 mt-8"></div>
+  </section>
+
+  <!-- Stepper Timeline: How the AI Show Works + Key Innovations -->
   <section class="relative py-24 overflow-hidden" id="pipeline">
     <!-- Slideshow as background -->
     <div id="hero-slideshow" class="absolute inset-0 w-full h-full object-cover -z-10"></div>
@@ -151,21 +162,21 @@
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">1</span>
             <h4 class="font-semibold mb-2">Data&nbsp;Collection</h4>
-            <p class="text-sm text-gray-300">Discord · GitHub · News feeds</p>
+            <p class="text-sm text-gray-300">GitHub + community sources are aggregated into daily JSON</p>
           </div>
         </li>
         <li class="relative md:w-40">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">2</span>
             <h4 class="font-semibold mb-2">Script&nbsp;Generation</h4>
-            <p class="text-sm text-gray-300">LLM-powered writing</p>
+            <p class="text-sm text-gray-300">AI writes scene/dialogue JSON and ElevenLabs generates voices</p>
           </div>
         </li>
         <li class="relative md:w-40">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">3</span>
             <h4 class="font-semibold mb-2">3D&nbsp;Production</h4>
-            <p class="text-sm text-gray-300">Unity animation & effects</p>
+            <p class="text-sm text-gray-300">Unity 2022.3.53f1 + UniVRM render scenes, effects, and camera moves</p>
           </div>
         </li>
         <li class="relative md:w-40">
@@ -186,22 +197,34 @@
         </div>
         <div class="steel p-6 rounded-lg shadow flex flex-col items-start">
           <i class="fas fa-users lava-text text-3xl mb-4"></i>
-          <h3 class="text-lg font-bold mb-2">Dynamic Character Animation</h3>
+          <h3 class="text-lg font-bold mb-2">Async Scene + Spawn System</h3>
           <p class="text-gray-300 text-sm">
-            Realistic avatars, emotional visemes, and script-driven effects.
+            Scene loading, actor spawn points, and script-driven actions are orchestrated at runtime.
           </p>
         </div>
         <div class="steel p-6 rounded-lg shadow flex flex-col items-start">
           <i class="fas fa-tv lava-text text-3xl mb-4"></i>
-          <h3 class="text-lg font-bold mb-2">Advanced Media Integration</h3>
+          <h3 class="text-lg font-bold mb-2">Voice + Lip Sync Pipeline</h3>
           <p class="text-gray-300 text-sm">
-            In-game TV, commercial breaks, and seamless media loading.
+            ElevenLabs audio drives character speech, with ongoing improvements to lip-sync fidelity.
           </p>
+        </div>
+      </div>
+      <div class="mt-10 w-full max-w-4xl mx-auto">
+        <div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg border border-white/10">
+          <iframe
+            src="https://www.youtube.com/embed/fIGoyaEd0Hw?rel=0&modestbranding=1"
+            title="AI Show Production Pipeline Walkthrough"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            class="w-full h-full"
+          ></iframe>
         </div>
       </div>
       <button id="open-bts-modal"
          class="inline-block mt-12 lava px-5 py-2 rounded font-semibold shadow hover:opacity-90">
-         Watch the full pipeline demo
+         Open Pipeline Demo in Modal
       </button>
     </div>
   </section>
@@ -298,10 +321,17 @@
     }
     document.addEventListener('DOMContentLoaded', startHeroSlideshow);
 
-    // Language filter and episode rendering
+    // Shared episode/archive rendering state
     let selectedLang = 'en';
     let currentPage = 1;
+    let archivePage = 1;
     const episodesPerPage = 6;
+    const archivePerPage = 6;
+    const cacheWindowMs = 5 * 60 * 1000;
+    let episodesData = null;
+    let ai16zData = null;
+    let archiveItems = [];
+    let activeViewer = 'episodes';
 
     document.querySelectorAll('#lang-filter button').forEach(btn => {
       btn.addEventListener('click', () => {
@@ -324,101 +354,182 @@
       });
     });
 
-    // Fetch episodes.json with simple caching
-    let episodesData = null;
-    
-    // Check if we have cached data (valid for 5 minutes)
-    const cachedData = localStorage.getItem('episodesData');
-    const cacheTime = localStorage.getItem('episodesDataTime');
-    const now = Date.now();
-    
-    if (cachedData && cacheTime && (now - parseInt(cacheTime)) < 5 * 60 * 1000) {
-      episodesData = JSON.parse(cachedData);
-      renderEpisodeCards();
-    } else {
-      fetch('episodes.json')
-        .then(r => r.json())
-        .then(data => { 
-          episodesData = data; 
-          localStorage.setItem('episodesData', JSON.stringify(data));
-          localStorage.setItem('episodesDataTime', now.toString());
-          renderEpisodeCards(); 
+    function loadJsonWithCache(cacheKey, url) {
+      const cachedData = localStorage.getItem(cacheKey);
+      const cacheTime = localStorage.getItem(`${cacheKey}Time`);
+      const now = Date.now();
+
+      if (cachedData && cacheTime && (now - parseInt(cacheTime, 10)) < cacheWindowMs) {
+        try {
+          return Promise.resolve(JSON.parse(cachedData));
+        } catch (error) {
+          console.warn(`Invalid cached JSON for ${cacheKey}:`, error);
+        }
+      }
+
+      return fetch(url)
+        .then(r => {
+          if (!r.ok) throw new Error(`${url} returned ${r.status}`);
+          return r.json();
         })
-        .catch(e => {
-          console.error('Failed to load episodes:', e);
-          // Fallback to cached data if fetch fails
+        .then(data => {
+          localStorage.setItem(cacheKey, JSON.stringify(data));
+          localStorage.setItem(`${cacheKey}Time`, now.toString());
+          return data;
+        })
+        .catch(error => {
+          console.error(`Failed to load ${url}:`, error);
           if (cachedData) {
-            episodesData = JSON.parse(cachedData);
-            renderEpisodeCards();
+            try {
+              return JSON.parse(cachedData);
+            } catch (parseError) {
+              console.warn(`Failed to parse stale cache for ${cacheKey}:`, parseError);
+            }
           }
+          return null;
         });
+    }
+
+    function renderPagination(containerId, current, total, onPageChange) {
+      const pag = document.getElementById(containerId);
+      pag.innerHTML = '';
+      if (total <= 1) return;
+
+      const prev = document.createElement('button');
+      prev.textContent = 'Prev';
+      prev.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
+      prev.disabled = current === 1;
+      prev.onclick = () => onPageChange(current - 1);
+      pag.appendChild(prev);
+
+      for (let i = 1; i <= total; i++) {
+        const btn = document.createElement('button');
+        btn.textContent = i;
+        btn.className = 'px-3 py-1 rounded font-semibold ' + (i === current ? 'lava text-black' : 'bg-gray-700 text-white hover:bg-gray-600');
+        btn.onclick = () => onPageChange(i);
+        pag.appendChild(btn);
+      }
+
+      const next = document.createElement('button');
+      next.textContent = 'Next';
+      next.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
+      next.disabled = current === total;
+      next.onclick = () => onPageChange(current + 1);
+      pag.appendChild(next);
+    }
+
+    function buildVideoCard({ title, dateLabel, description, videoId, thumbnail, badgeText, buttonText, onClick }) {
+      const customThumb = /^https?:\/\//i.test(thumbnail || '') ? thumbnail : '';
+      const initialThumb = customThumb || getYouTubeThumbnailUrl(videoId, 'maxresdefault') || episodeThumbPlaceholderSvg;
+      const initialStage = customThumb ? 'custom' : 'maxres';
+      const descPreview = description ? description.split('\n')[0] : '';
+
+      const card = document.createElement('div');
+      card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
+      card.innerHTML = `
+        <div class="relative">
+          <img src="${initialThumb}" alt="${title}" data-video-id="${videoId || ''}" data-fallback-stage="${initialStage}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="handleEpisodeThumbnailError(this)"/>
+          <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${badgeText}</span>
+        </div>
+        <h3 class="text-lg font-bold line-clamp-2">${title}</h3>
+        <p class="text-sm card-secondary">${dateLabel}</p>
+        <p class="text-sm text-gray-300 mt-2 line-clamp-3">${descPreview}</p>
+        <button class="mt-4 lava font-semibold px-4 py-2 rounded hover:opacity-90">${buttonText}</button>
+      `;
+      card.addEventListener('click', onClick);
+      return card;
     }
 
     function renderEpisodeCards() {
       if (!episodesData) return;
       const grid = document.getElementById('episodes-grid');
       grid.innerHTML = '';
-      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const dates = Object.keys(episodesData).sort((a, b) => b.localeCompare(a));
       const filteredDates = dates.filter(date => episodesData[date][selectedLang]);
-      const totalPages = Math.ceil(filteredDates.length / episodesPerPage);
+      const totalPages = Math.ceil(filteredDates.length / episodesPerPage) || 1;
+      if (currentPage > totalPages) currentPage = totalPages;
       const startIdx = (currentPage - 1) * episodesPerPage;
       const endIdx = startIdx + episodesPerPage;
+
       for (const date of filteredDates.slice(startIdx, endIdx)) {
         const ep = episodesData[date][selectedLang];
         if (!ep) continue;
         const videoId = ep.id || extractYouTubeId(ep.url);
-        const customThumb = /^https?:\/\//i.test(ep.thumbnail || '') ? ep.thumbnail : '';
-        const initialThumb = customThumb || getYouTubeThumbnailUrl(videoId, 'maxresdefault') || episodeThumbPlaceholderSvg;
-        const initialStage = customThumb ? 'custom' : 'maxres';
-        const card = document.createElement('div');
-        card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
-        card.innerHTML = `
-          <div class="relative">
-            <img src="${initialThumb}" alt="${ep.title}" data-video-id="${videoId}" data-fallback-stage="${initialStage}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="handleEpisodeThumbnailError(this)"/>
-            <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${selectedLang.toUpperCase()}</span>
-          </div>
-          <h3 class="text-lg font-bold line-clamp-2">${ep.title}</h3>
-          <p class="text-sm card-secondary">${formatDate(date)}</p>
-          <p class="text-sm text-gray-300 mt-2 line-clamp-3">${ep.description ? ep.description.split('\n')[0] : ''}</p>
-          <button class="mt-4 lava font-semibold px-4 py-2 rounded hover:opacity-90">Watch Episode</button>
-        `;
-        card.addEventListener('click', () => openLightbox(date, selectedLang));
-        grid.appendChild(card);
+        grid.appendChild(buildVideoCard({
+          title: ep.title,
+          dateLabel: formatDate(date),
+          description: ep.description || '',
+          videoId,
+          thumbnail: ep.thumbnail || '',
+          badgeText: selectedLang.toUpperCase(),
+          buttonText: 'Watch Episode',
+          onClick: () => openLightbox(date, selectedLang)
+        }));
       }
-      renderEpisodesPagination(totalPages);
+
+      renderPagination('episodes-pagination', currentPage, totalPages, page => {
+        currentPage = page;
+        renderEpisodeCards();
+      });
     }
 
-    function renderEpisodesPagination(totalPages) {
-      const pag = document.getElementById('episodes-pagination');
-      pag.innerHTML = '';
-      if (totalPages <= 1) return;
-      // Previous button
-      const prev = document.createElement('button');
-      prev.textContent = 'Prev';
-      prev.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
-      prev.disabled = currentPage === 1;
-      prev.onclick = () => { currentPage--; renderEpisodeCards(); };
-      pag.appendChild(prev);
-      // Page numbers
-      for (let i = 1; i <= totalPages; i++) {
-        const btn = document.createElement('button');
-        btn.textContent = i;
-        btn.className = 'px-3 py-1 rounded font-semibold ' + (i === currentPage ? 'lava text-black' : 'bg-gray-700 text-white hover:bg-gray-600');
-        btn.onclick = () => { currentPage = i; renderEpisodeCards(); };
-        pag.appendChild(btn);
+    function renderArchiveCards() {
+      const grid = document.getElementById('archive-grid');
+      grid.innerHTML = '';
+      if (!archiveItems.length) {
+        grid.innerHTML = '<div class="card p-6 rounded-lg text-center text-gray-300 md:col-span-3">No archive data loaded. Run `scripts/fetch_ai16z_channel.py` to generate `ai16z.json`.</div>';
+        document.getElementById('archive-pagination').innerHTML = '';
+        return;
       }
-      // Next button
-      const next = document.createElement('button');
-      next.textContent = 'Next';
-      next.className = 'px-3 py-1 rounded bg-gray-700 text-white font-semibold disabled:opacity-50';
-      next.disabled = currentPage === totalPages;
-      next.onclick = () => { currentPage++; renderEpisodeCards(); };
-      pag.appendChild(next);
+
+      const totalPages = Math.ceil(archiveItems.length / archivePerPage) || 1;
+      if (archivePage > totalPages) archivePage = totalPages;
+      const startIdx = (archivePage - 1) * archivePerPage;
+      const endIdx = startIdx + archivePerPage;
+
+      archiveItems.slice(startIdx, endIdx).forEach((item, idx) => {
+        const listIndex = startIdx + idx;
+        const videoId = item.id || extractYouTubeId(item.url);
+        grid.appendChild(buildVideoCard({
+          title: item.title || 'Untitled',
+          dateLabel: formatDate(item.publishedAt || ''),
+          description: item.description || '',
+          videoId,
+          thumbnail: item.thumbnail || '',
+          badgeText: 'ARCHIVE',
+          buttonText: 'Watch Video',
+          onClick: () => openArchiveLightbox(listIndex)
+        }));
+      });
+
+      renderPagination('archive-pagination', archivePage, totalPages, page => {
+        archivePage = page;
+        renderArchiveCards();
+      });
     }
+
+    Promise.all([
+      loadJsonWithCache('episodesData', 'episodes.json'),
+      loadJsonWithCache('ai16zData', 'ai16z.json')
+    ]).then(([episodes, archive]) => {
+      if (episodes) {
+        episodesData = episodes;
+        renderEpisodeCards();
+      }
+      if (archive && Array.isArray(archive.items)) {
+        ai16zData = archive;
+        archiveItems = archive.items
+          .filter(item => item && (item.id || item.url))
+          .sort((a, b) => new Date(b.publishedAt || 0) - new Date(a.publishedAt || 0));
+      }
+      renderArchiveCards();
+    });
 
     // Utility: Format date as "Month DD, YYYY"
     function formatDate(dateStr) {
+      if (!dateStr) return '';
       const d = new Date(dateStr);
+      if (Number.isNaN(d.getTime())) return '';
       return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
     }
 
@@ -491,22 +602,17 @@
       return '';
     }
 
-    // Lightbox logic (unchanged)
+    // Shared lightbox logic for latest episodes + archive
     const lightbox = document.getElementById('lightbox');
     const closeBtn = document.getElementById('close-lightbox');
-    let currentDate = null, currentLang = null;
-    function openLightbox(date, lang) {
-      currentDate = date;
-      currentLang = lang;
-      const ep = episodesData[date][lang];
-      document.getElementById('lightbox-title').textContent = ep.title;
-      document.getElementById('lightbox-date').textContent = formatDate(date);
-      // Description logic
-      const descDiv = document.getElementById('lightbox-description');
-      let desc = ep.description || '';
+    let currentDate = null, currentLang = null, currentArchiveIndex = -1;
+
+    function renderDescription(descDiv, descRaw) {
+      let desc = descRaw || '';
       desc = desc.replace(/\\n/g, '\n');
       desc = desc.replace(/\r/g, '');
       let expanded = false;
+
       function renderDesc() {
         descDiv.innerHTML = '';
         if (!desc) return;
@@ -541,44 +647,84 @@
           descDiv.appendChild(less);
         }
       }
+
       renderDesc();
-      const tabs = document.getElementById('lightbox-lang-tabs');
-      tabs.innerHTML = '';
-      for (const l of ['en', 'ch', 'ko']) {
-        if (!episodesData[date][l]) continue;
+    }
+
+    function openVideoModal({ title, dateLabel, description, videoId, tabs }) {
+      document.getElementById('lightbox-title').textContent = title || '';
+      document.getElementById('lightbox-date').textContent = dateLabel || '';
+      const descDiv = document.getElementById('lightbox-description');
+      renderDescription(descDiv, description || '');
+
+      const tabsContainer = document.getElementById('lightbox-lang-tabs');
+      tabsContainer.innerHTML = '';
+      (tabs || []).forEach(tab => {
         const btn = document.createElement('button');
-        btn.textContent = l.toUpperCase();
-        btn.className = 'px-2 py-1 rounded font-bold ' + (l === lang ? 'lava' : 'bg-gray-700 text-gray-200 hover:bg-gray-600');
-        btn.addEventListener('click', e => {
-          e.stopPropagation();
-          openLightbox(date, l);
-        });
-        tabs.appendChild(btn);
-      }
+        btn.textContent = tab.label;
+        btn.className = tab.active
+          ? 'px-2 py-1 rounded font-bold lava'
+          : 'px-2 py-1 rounded font-bold bg-gray-700 text-gray-200 hover:bg-gray-600';
+        btn.addEventListener('click', tab.onClick);
+        tabsContainer.appendChild(btn);
+      });
+
       const iframe = document.getElementById('lightbox-iframe');
       const placeholder = document.getElementById('video-placeholder');
-      
-      const videoId = ep.id || extractYouTubeId(ep.url);
       if (videoId) {
-        // Set up the iframe with the video
         iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
-        iframe.title = ep.title;
+        iframe.title = title || 'Video';
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
-        
-        // Show iframe, hide placeholder
         iframe.style.display = 'block';
         placeholder.style.display = 'none';
       } else {
-        // Show placeholder, hide iframe
         iframe.style.display = 'none';
         placeholder.style.display = 'flex';
         placeholder.textContent = 'Video unavailable';
       }
+
       lightbox.classList.remove('hidden');
       document.body.classList.add('overflow-hidden');
-      
-      // Update navigation arrows
       updateNavigationArrows();
+    }
+
+    function openLightbox(date, lang) {
+      activeViewer = 'episodes';
+      currentDate = date;
+      currentLang = lang;
+      const ep = episodesData[date][lang];
+      const videoId = ep.id || extractYouTubeId(ep.url);
+      openVideoModal({
+        title: ep.title,
+        dateLabel: formatDate(date),
+        description: ep.description || '',
+        videoId,
+        tabs: ['en', 'ch', 'ko']
+          .filter(l => episodesData[date][l])
+          .map(l => ({
+            label: l.toUpperCase(),
+            active: l === lang,
+            onClick: e => {
+              e.stopPropagation();
+              openLightbox(date, l);
+            }
+          }))
+      });
+    }
+
+    function openArchiveLightbox(index) {
+      if (!archiveItems[index]) return;
+      activeViewer = 'archive';
+      currentArchiveIndex = index;
+      const item = archiveItems[index];
+      const videoId = item.id || extractYouTubeId(item.url);
+      openVideoModal({
+        title: item.title || 'Untitled',
+        dateLabel: formatDate(item.publishedAt || ''),
+        description: item.description || '',
+        videoId,
+        tabs: []
+      });
     }
     
     // Event listeners for navigation arrows
@@ -661,42 +807,68 @@
       }
     });
 
-    // Episode navigation functions
+    // Episode/archive navigation functions
     function navigateToPreviousEpisode() {
+      if (activeViewer === 'archive') {
+        if (!archiveItems.length || currentArchiveIndex < 0) return;
+        if (currentArchiveIndex < archiveItems.length - 1) {
+          openArchiveLightbox(currentArchiveIndex + 1);
+        }
+        return;
+      }
       if (!episodesData || !currentDate) return;
-      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const dates = Object.keys(episodesData).sort((a, b) => b.localeCompare(a));
       const currentIndex = dates.indexOf(currentDate);
       if (currentIndex < dates.length - 1) {
-        const prevDate = dates[currentIndex + 1];
-        openLightbox(prevDate, selectedLang);
+        openLightbox(dates[currentIndex + 1], selectedLang);
       }
     }
 
     function navigateToNextEpisode() {
+      if (activeViewer === 'archive') {
+        if (!archiveItems.length || currentArchiveIndex < 0) return;
+        if (currentArchiveIndex > 0) {
+          openArchiveLightbox(currentArchiveIndex - 1);
+        }
+        return;
+      }
       if (!episodesData || !currentDate) return;
-      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
+      const dates = Object.keys(episodesData).sort((a, b) => b.localeCompare(a));
       const currentIndex = dates.indexOf(currentDate);
       if (currentIndex > 0) {
-        const nextDate = dates[currentIndex - 1];
-        openLightbox(nextDate, selectedLang);
+        openLightbox(dates[currentIndex - 1], selectedLang);
       }
     }
 
     function updateNavigationArrows() {
-      if (!episodesData || !currentDate) return;
-      
-      const dates = Object.keys(episodesData).sort((a,b)=>b.localeCompare(a));
-      const currentIndex = dates.indexOf(currentDate);
-      
+      let currentIndex = 0;
+      let total = 0;
+      if (activeViewer === 'archive') {
+        total = archiveItems.length;
+        currentIndex = currentArchiveIndex;
+      } else {
+        if (!episodesData || !currentDate) return;
+        const dates = Object.keys(episodesData).sort((a, b) => b.localeCompare(a));
+        total = dates.length;
+        currentIndex = dates.indexOf(currentDate);
+      }
+
       const prevBtn = document.getElementById('prev-episode');
       const nextBtn = document.getElementById('next-episode');
       const counter = document.getElementById('episode-counter');
-      
-      // Update episode counter (1-indexed for users)
-      counter.textContent = `${currentIndex + 1} of ${dates.length}`;
-      
-      // Show/hide and enable/disable based on position
-      if (currentIndex >= dates.length - 1) {
+
+      if (currentIndex < 0 || total <= 0) {
+        counter.textContent = '';
+        prevBtn.style.opacity = '0.3';
+        nextBtn.style.opacity = '0.3';
+        prevBtn.style.cursor = 'not-allowed';
+        nextBtn.style.cursor = 'not-allowed';
+        return;
+      }
+
+      counter.textContent = `${currentIndex + 1} of ${total}`;
+
+      if (currentIndex >= total - 1) {
         prevBtn.style.opacity = '0.3';
         prevBtn.style.cursor = 'not-allowed';
       } else {
@@ -716,6 +888,7 @@
     function closeLightbox() {
       lightbox.classList.add('hidden'); 
       document.body.classList.remove('overflow-hidden');
+      currentArchiveIndex = -1;
       
       // Stop video playback and reset iframe
       const iframe = document.getElementById('lightbox-iframe');

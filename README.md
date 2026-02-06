@@ -72,6 +72,13 @@ uv run python upload_to_youtube.py --from-json episodes/2026-02-02_*_youtube_met
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
 | `scripts/cdn_upload.py` | Upload assets to Bunny CDN |
 | `scripts/update_website.py` | Update episodes.json for the website |
+| `scripts/fetch_ai16z_channel.py` | One-time import of long-form `@Ai16Z` videos into `ai16z.json` |
+
+One-time archive import:
+
+```bash
+uv run python scripts/fetch_ai16z_channel.py --out ai16z.json
+```
 
 ## Automated Recording
 
