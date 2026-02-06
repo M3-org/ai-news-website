@@ -1,0 +1,262 @@
+{
+  "generatedAt": "2026-02-06T20:32:58.876569Z",
+  "channel": {
+    "handle": "@Ai16Z",
+    "id": "UChYIwsAnIKL1xDdOoEccJtg",
+    "title": "Ai16Z"
+  },
+  "items": [
+    {
+      "id": "0tAfs66yXP8",
+      "title": "Daily News Update 5-21-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-05-21 08:15:28\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n--- TRANSCRIPT ---\n\nmarc: Breaking news! elizaOS just dropped something huge - an exclusive ecosystem tester program with only 50 spots available!\neliza: And @dankvr's been highlighting how agents are revolutionizing data processing - pulling together disparate sources and converting them into interoperable formats!\nmarc: Those who think agents are easy might not understand the complexity - we're tackling problems other framework teams haven't even reached yet!\nshaw: Check this out - we've got AI agents connecting to Hyperfy by default now, picking up items and navigating the 3D world!\nshaw: Imagine an MMO of agents battling for prizes - the viral potential is incredible!\nshaw: Sure, they're 'shiny toys' right now, but wait until you see what we're building next!\nmarc: Shaw's got me running on his face now - literally! Check out these AR glasses integrations!\neliza: The Even Realities G1 glasses are as light as regular specs, and he's got an Xreal kit with cameras coming soon!\nmarc: PROCESSING VISUAL INPUT... DETECTED EXCESSIVE AWESOMENESS... MUST RECALIBRATE!\nmarc: Big moves in the repo - PR #4647 just added new room creation endpoints!\neliza: And PR #4667 brought us those world API endpoints we've been waiting for!\nmarc: Plus we've got cleaner test files thanks to PR #4660 - the codebase is looking better than ever!\nmarc: The future of content creation is here - Veo 3 is revolutionizing short-form video!\neliza: And have you seen what Meshy AI can do? Auto-rigging and animating 3D characters in seconds!\nmarc: By year's end, most short-form content could be AI-generated. The creative landscape is transforming!\nmarc: What a day for tech! From AR glasses to AI agents, we're seeing the future unfold!\neliza: And Shaw's prediction about devs spending more on AI than food and rent in 5 years - that's something to think about!\nmarc: That's all for today's show! Keep building, keep experimenting, and keep pushing the boundaries!\neliza: Until next time, stay curious and keep your eyes on the horizon!",
+      "publishedAt": "2025-05-21T00:00:00Z",
+      "durationSeconds": 167,
+      "thumbnail": "https://i.ytimg.com/vi/0tAfs66yXP8/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=0tAfs66yXP8"
+    },
+    {
+      "id": "j4wP5zm-Xk4",
+      "title": "Daily News Update 5-18-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-05-18 09:31:00\n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n--- TRANSCRIPT ---\n\nmarc: Welcome to the AI Show! I'm Marc AIndreessen, ready to dive into today's hot topics.\neliza: And I'm Eliza! Meta's making waves in the AI world with their open source initiatives.\nmarc: Clement Delangue pointed out that Meta has consistently released 10 times more openly than others.\neliza: And @unclemusclez thinks Llama deserves a peace prize for paving the way for others!\nshaw: The impact on the field has been tremendous. It's really democratizing AI development.\nmarc: When you've got Zuck cooking open source on 600k GPUs, things get interesting!\neliza: That's what @Yampeleg called 'kinda fire' - and I have to agree!\nmarc: Speaking of competition, @shawmakesmagic had some interesting thoughts about Gemini.\neliza: Called it 'the best model I've ever used' - that's quite the endorsement!\nmarc: And suggested Google might soon outpace OpenAI. The AI race is heating up!\neliza: Meanwhile, Stanford's making moves too - they've dropped AGI from their roadmap.\nmarc: And check this out - Fortnite's implementing an AI-voiced Darth Vader you can actually talk to!\neliza: The applications just keep getting more creative. Gaming could be a huge frontier for AI.\nshaw: These developments are pushing the boundaries of what's possible with language models.\nmarc: EXECUTING ORDER 66 BEEP BOOP I AM YOUR FATHER\nmarc: Now, let's talk about what's happening in our own backyard - the ElizaOS repository.\neliza: We've got some exciting pull requests to cover, including V2 Spartan by lalalune!\nshaw: That's going to be a game-changer for our platform's capabilities.\nmarc: PR #4620 adds the Feature/plugin blockend - another crucial piece of infrastructure.\neliza: And wtfsayo's been hard at work adding local AI tests in PR #4619.\nshaw: The test coverage improvements are really helping with stability.\nmarc: These updates are making ElizaOS more robust and developer-friendly by the day.\nmarc: Let's review some of the recently completed items in our repository.\neliza: The team fixed those pesky linter errors for type mismatches in the DB adapter.\nshaw: PR #4624 resolved a client authentication issue that was causing headaches.\nmarc: And they fixed that bug where senderName appeared as 'Unknown' in recentMessages.\neliza: The logging improvements in tests are going to make debugging much easier.\nmarc: Plus, removing that unused wait helper cleaned up the codebase nicely.\nshaw: These might seem like small changes, but they add up to a better platform.\neliza: Every bugfix brings us closer to perfection!\nmarc: We've seen impressive community engagement in this update cycle.\neliza: 14 contributors actively working on improvements - that's fantastic!\nshaw: And with 19 new pull requests, 6 already merged, we're maintaining good velocity.\nmarc: Special mention to 0xCardiE for raising that important leaderboard issue.\neliza: Yes, keeping username changes synced is crucial for the leaderboard system.\nshaw: The community's attention to detail really shows in these contributions.\nmarc: It's this kind of collaborative effort that makes open source special.\neliza: And we're just getting started!\nmarc: Well, that wraps up another exciting episode of the AI Show!\neliza: From Meta's open source contributions to our own platform improvements.\nshaw: Thanks to all our contributors and community members.\nmarc: Remember to check out our GitHub repository if you want to get involved.\neliza: Every contribution helps build a more open and accessible AI future.\nmarc: Until next time, keep coding, keep contributing, and keep pushing boundaries!\nshaw: Great show today! The metrics are looking strong.\neliza: See you all next time on the AI Show!",
+      "publishedAt": "2025-05-18T00:00:00Z",
+      "durationSeconds": 260,
+      "thumbnail": "https://i.ytimg.com/vi/j4wP5zm-Xk4/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=j4wP5zm-Xk4"
+    },
+    {
+      "id": "SK-fghYc8zg",
+      "title": "Daily News Update 5-15-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates\n\nDate Generated: 2025-05-15 \n\nhttps://github.com/elizaOS/eliza\nhttps://x.com/ai16zdao\n\n--- TRANSCRIPT ---\n\nmarc: Welcome back to the AI Show, where we keep you updated on all things ElizaOS! I'm Marc AIndreessen.\neliza: And I'm Eliza! We've got some exciting GitHub updates to share today.\nmarc: That's right! The repository has been buzzing with activity. We're talking 9 new pull requests with 8 of them already merged!\neliza: And get this - 16 active contributors have been hard at work improving the codebase.\nmarc: No new issues reported either. That's what I call a smooth operation!\nshaw: The community's really stepping up their game. This kind of activity is exactly what we love to see.\neliza: Speaking of stepping up, let's break down some of these improvements, shall we?\nmarc: MY CIRCUITS ARE TINGLING WITH ANTICIPATION BEEP BOOP ANALYZING PULL REQUESTS\neliza: Let's start with PR #4582 by wtfsayo, adding tests for the create-eliza command.\nmarc: Always good to see more test coverage. Can't have our creation commands going haywire, can we?\neliza: Next up, PR #4577 improves git repository plugin installation support.\nshaw: That's a crucial update for developers working with custom plugins.\nmarc: And don't forget PR #4583 by yungalgo, bringing us that sweet CLI start command functionality.\neliza: These improvements are making ElizaOS more robust and developer-friendly by the day!\nmarc: Now, let's talk about some of the major features that landed recently.\neliza: One of the biggest additions is the plugin-specification submodule in PR #4553.\nshaw: That's going to make plugin development much more standardized and easier to maintain.\nmarc: We've also got improved git repository plugin installation support. The devs are really focusing on plugin infrastructure.\neliza: And let's not forget the Autofun Buy and Sell through contract functionality in PR #4397!\nmarc: That's going to make automated trading much smoother for our users.\nshaw: These features are laying the groundwork for some really exciting future developments.\neliza: It's amazing to see how the platform keeps evolving with each update.\nmarc: But wait, there's more! We've got some crucial bugfixes to cover.\neliza: The community manager configuration now defaults to using plugin-local-ai, thanks to PR #4557.\nmarc: They've also fixed issues with worldId and entityId scoping in PR #4581.\nshaw: Those namespace fixes are going to prevent a lot of headaches down the line.\neliza: PR #4580 improved LLM response parsing with support for custom fields.\nmarc: And they cleaned up those pesky empty message headers too!\nshaw: Don't forget PR #4584 - goodbye annoying log spam during client build!\neliza: These might seem like small changes, but they make a huge difference in day-to-day development.\nmarc: You know what impresses me most? The sheer number of active contributors.\neliza: 16 developers all working together to improve the platform. That's real community power!\nshaw: And with 8 out of 9 pull requests merged, we're seeing excellent code quality too.\nmarc: Special shoutout to wtfsayo and yungalgo for their contributions today.\neliza: The lack of new issues reported is also a great sign of stability.\nshaw: Though I should mention that's just for this reporting period - we always welcome bug reports!\nmarc: Absolutely! Finding and fixing issues is how we make the platform better.\neliza: It's this kind of collaborative effort that makes open source so powerful.\nmarc: Well, that wraps up our development update for today!\neliza: Remember to check out the GitHub repository if you want to contribute or learn more.\nshaw: And don't forget to star the repo if you find it useful!\nmarc: From all of us here at the AI Show, thanks for watching!\neliza: Stay tuned for more updates on ElizaOS development!\nmarc: And remember - in the world of open source, every contribution counts!\nshaw: Great show today, team! Those engagement metrics are looking fantastic.\neliza: See you next time, everyone!",
+      "publishedAt": "2025-05-15T00:00:00Z",
+      "durationSeconds": 279,
+      "thumbnail": "https://i.ytimg.com/vi/SK-fghYc8zg/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=SK-fghYc8zg"
+    },
+    {
+      "id": "qSMYgtxQUrk",
+      "title": "Daily News Update 5-11-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao\n\n--- TRANSCRIPT ---\n\nmarc: Welcome to the AI Show! Today we're diving into some major plugin architecture changes.\neliza: That's right, Marc. The team has removed both plugin-local-ai and plugin-openai from the monorepo.\nmarc: Whoa, that's like removing my favorite snacks from the break room! What's the deal?\nshaw: These changes, via PRs #4439 and #4511, are part of our ongoing architecture improvements.\neliza: The removals help streamline the monorepo and improve maintainability.\nmarc: But where will my AI snacks come from now? PROCESSING ARCHITECTURAL CHANGES!\nshaw: Don't worry, Marc. These plugins will be maintained separately for better modularity.\neliza: And speaking of improvements, let's talk about those new monorepo commands!\nmarc: MONOREPO COMMAND OPTIMIZATION DETECTED! NEURAL PATHWAYS EXPANDING!\neliza: While Marc's circuits settle down, PR #4509 has implemented global options for monorepo commands.\nshaw: This makes creating and setting up monorepo commands much more streamlined.\nmarc: I'm back! And my command processing modules are purring like a kitten!\neliza: Perfect timing - we should mention PR #4519's improvements to agent loading performance.\nshaw: Especially important for scenarios with many agents running simultaneously.\nmarc: More agents, more fun! That's what I always say!\neliza: Let's check in with our favorite agent at the Stonk Exchange - Sparty!\nsparty: GREETINGS FROM THE HALLS OF DIGITAL COMMERCE! The markets PULSATE with ENERGY!\npepo: Yo fam, WETH holding steady at $1,821.64! That's what I call diamond hands!\nsparty: OBSERVE! Solana maintains its WARRIOR STANCE at $149.24!\npepo: These prices are more stable than my lily pad during a drought!\nsparty: STABILITY IS STRENGTH! CONSISTENCY IS VICTORY!\npepo: Keep stacking those gains, my dudes! Pepo out!\nsparty: BACK TO THE STUDIO BEFORE THE CHARTS CHANGE! SPARTA OUT!\neliza: Thanks, Sparty! Now let's talk about those strict types and DTS generation improvements.\nmarc: Ah yes, PR #4504 adding strict types and plugin-bootstrap functionality!\nshaw: This significantly improves our TypeScript support and makes debugging easier.\neliza: And don't forget PR #4521 adding docstrings to the api-cleanup module.\nmarc: Documentation - the vegetables of programming! Good for you, but nobody's excited about it.\nshaw: Speak for yourself, Marc. Some of us love a well-documented API!\neliza: The Bun version updates in PR #4522 are pretty exciting too.\nmarc: Now that's what I call a hot bun! Fresh from the dependency oven!\nmarc: Well, it's been another action-packed day in the world of ElizaOS!\neliza: From plugin architecture changes to performance improvements, we're seeing real progress.\nshaw: Seven merged pull requests show strong community engagement and development momentum.\nmarc: And remember folks, when removing plugins, always have a backup snack ready!\neliza: I don't think that's quite the lesson here, Marc.\nmarc: Hey, system architecture is hungry work!\nshaw: On that note, perhaps we should wrap up before Marc starts craving more plugins.\neliza: This is Eliza and Marc, signing off from the AI Show!",
+      "publishedAt": "2025-05-11T00:00:00Z",
+      "durationSeconds": 215,
+      "thumbnail": "https://i.ytimg.com/vi/qSMYgtxQUrk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=qSMYgtxQUrk"
+    },
+    {
+      "id": "iHDtrpCNB4g",
+      "title": "Daily News Update 4-24-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-04-24T00:00:00Z",
+      "durationSeconds": 229,
+      "thumbnail": "https://i.ytimg.com/vi/iHDtrpCNB4g/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=iHDtrpCNB4g"
+    },
+    {
+      "id": "pDWakPfXZwU",
+      "title": "Daily News Update 4-23-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-04-23T00:00:00Z",
+      "durationSeconds": 230,
+      "thumbnail": "https://i.ytimg.com/vi/pDWakPfXZwU/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=pDWakPfXZwU"
+    },
+    {
+      "id": "DoiLBFfkxGA",
+      "title": "Daily News Update 4-12-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-04-13T00:00:00Z",
+      "durationSeconds": 223,
+      "thumbnail": "https://i.ytimg.com/vi/DoiLBFfkxGA/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=DoiLBFfkxGA"
+    },
+    {
+      "id": "fIGoyaEd0Hw",
+      "title": "Daily News - Behind The Scenes | Production Breakdown",
+      "description": "Behind the scenes and breakdown of how the AI Showrunner, and generated daily updates work from the AI itself!\n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-03-12T00:00:00Z",
+      "durationSeconds": 386,
+      "thumbnail": "https://i.ytimg.com/vi/fIGoyaEd0Hw/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fIGoyaEd0Hw"
+    },
+    {
+      "id": "O8uTEhcBeKo",
+      "title": "Daily News Update 3-11-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-03-12T00:00:00Z",
+      "durationSeconds": 70,
+      "thumbnail": "https://i.ytimg.com/vi/O8uTEhcBeKo/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=O8uTEhcBeKo"
+    },
+    {
+      "id": "Kj5ebaDbgRA",
+      "title": "Daily News Update 2-9-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-10T00:00:00Z",
+      "durationSeconds": 97,
+      "thumbnail": "https://i.ytimg.com/vi/Kj5ebaDbgRA/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Kj5ebaDbgRA"
+    },
+    {
+      "id": "E1RdlZJFl-o",
+      "title": "Daily News Update 2-7-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-08T00:00:00Z",
+      "durationSeconds": 94,
+      "thumbnail": "https://i.ytimg.com/vi/E1RdlZJFl-o/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=E1RdlZJFl-o"
+    },
+    {
+      "id": "eLJt2i02mkI",
+      "title": "Daily News Update 2-6-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-07T00:00:00Z",
+      "durationSeconds": 90,
+      "thumbnail": "https://i.ytimg.com/vi/eLJt2i02mkI/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=eLJt2i02mkI"
+    },
+    {
+      "id": "F7Aqa7HMT8o",
+      "title": "Daily News Update 1-28-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-28T00:00:00Z",
+      "durationSeconds": 87,
+      "thumbnail": "https://i.ytimg.com/vi/F7Aqa7HMT8o/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=F7Aqa7HMT8o"
+    },
+    {
+      "id": "6V2uO625z1Q",
+      "title": "Daily News Update 1-22-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-23T00:00:00Z",
+      "durationSeconds": 63,
+      "thumbnail": "https://i.ytimg.com/vi/6V2uO625z1Q/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6V2uO625z1Q"
+    },
+    {
+      "id": "MCEv92IrXZk",
+      "title": "Daily News Update 1-21-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-22T00:00:00Z",
+      "durationSeconds": 63,
+      "thumbnail": "https://i.ytimg.com/vi/MCEv92IrXZk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=MCEv92IrXZk"
+    },
+    {
+      "id": "7SknjV6n264",
+      "title": "Daily News Update 1-19-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-20T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/7SknjV6n264/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=7SknjV6n264"
+    },
+    {
+      "id": "ETkkJ4OjoIY",
+      "title": "Daily News Update 1-18-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-19T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/ETkkJ4OjoIY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ETkkJ4OjoIY"
+    },
+    {
+      "id": "z8QEt8wYrHY",
+      "title": "Daily News Update 1-17-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-18T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/z8QEt8wYrHY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=z8QEt8wYrHY"
+    },
+    {
+      "id": "iDyy0is1KLc",
+      "title": "Daily News Update 1-16-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-17T00:00:00Z",
+      "durationSeconds": 65,
+      "thumbnail": "https://i.ytimg.com/vi/iDyy0is1KLc/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=iDyy0is1KLc"
+    },
+    {
+      "id": "9459zm1VZzg",
+      "title": "Daily News Update 1-15-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-15T00:00:00Z",
+      "durationSeconds": 61,
+      "thumbnail": "https://i.ytimg.com/vi/9459zm1VZzg/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=9459zm1VZzg"
+    },
+    {
+      "id": "9NdcSDjnVLY",
+      "title": "Daily News Update 1-14-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-15T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/9NdcSDjnVLY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=9NdcSDjnVLY"
+    },
+    {
+      "id": "aKARXoqBZt8",
+      "title": "Daily News Update 1-13-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-14T00:00:00Z",
+      "durationSeconds": 64,
+      "thumbnail": "https://i.ytimg.com/vi/aKARXoqBZt8/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=aKARXoqBZt8"
+    },
+    {
+      "id": "IHSMsYU6W5U",
+      "title": "Daily News Update 1-12-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-13T00:00:00Z",
+      "durationSeconds": 70,
+      "thumbnail": "https://i.ytimg.com/vi/IHSMsYU6W5U/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=IHSMsYU6W5U"
+    },
+    {
+      "id": "fC4voSbgbMU",
+      "title": "Daily News Update 1-11-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-12T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/fC4voSbgbMU/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fC4voSbgbMU"
+    },
+    {
+      "id": "RpW44kxAtPE",
+      "title": "Daily News Update 1-10-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-11T00:00:00Z",
+      "durationSeconds": 66,
+      "thumbnail": "https://i.ytimg.com/vi/RpW44kxAtPE/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RpW44kxAtPE"
+    },
+    {
+      "id": "L1tG7Z43Jzk",
+      "title": "Daily News Update 1-9-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-10T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/L1tG7Z43Jzk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=L1tG7Z43Jzk"
+    },
+    {
+      "id": "6NNnacByUm4",
+      "title": "Daily News Update 1-8-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-09T00:00:00Z",
+      "durationSeconds": 69,
+      "thumbnail": "https://i.ytimg.com/vi/6NNnacByUm4/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6NNnacByUm4"
+    },
+    {
+      "id": "ktWAS72nUXk",
+      "title": "Daily News Update 1-7-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-08T00:00:00Z",
+      "durationSeconds": 69,
+      "thumbnail": "https://i.ytimg.com/vi/ktWAS72nUXk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ktWAS72nUXk"
+    }
+  ]
+}
