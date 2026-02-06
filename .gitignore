@@ -5,6 +5,7 @@ node_modules
 *.meta
 *.mp3
 *.mp4
+!media/trailer.mp4
 zips/
 tmp/
 scripts/local_daily_upload.sh

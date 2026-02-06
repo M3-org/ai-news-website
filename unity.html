@@ -101,7 +101,7 @@
       loop
       playsinline
       loading="lazy"
-      poster="media/trailer_poster.jpg"
+      poster="media/15.jpg"
       tabindex="-1"
       aria-hidden="true"
     ></video>
@@ -366,11 +366,15 @@
       for (const date of filteredDates.slice(startIdx, endIdx)) {
         const ep = episodesData[date][selectedLang];
         if (!ep) continue;
+        const videoId = ep.id || extractYouTubeId(ep.url);
+        const customThumb = /^https?:\/\//i.test(ep.thumbnail || '') ? ep.thumbnail : '';
+        const initialThumb = customThumb || getYouTubeThumbnailUrl(videoId, 'maxresdefault') || episodeThumbPlaceholderSvg;
+        const initialStage = customThumb ? 'custom' : 'maxres';
         const card = document.createElement('div');
         card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
         card.innerHTML = `
           <div class="relative">
-            <img src="${ep.thumbnail || 'media/1.jpg'}" alt="${ep.title}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="this.src='media/1.jpg'"/>
+            <img src="${initialThumb}" alt="${ep.title}" data-video-id="${videoId}" data-fallback-stage="${initialStage}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="handleEpisodeThumbnailError(this)"/>
             <span class="absolute top-2 right-2 lava text-xs font-bold px-2 py-1 rounded">${selectedLang.toUpperCase()}</span>
           </div>
           <h3 class="text-lg font-bold line-clamp-2">${ep.title}</h3>
@@ -416,6 +420,75 @@
     function formatDate(dateStr) {
       const d = new Date(dateStr);
       return d.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+    }
+
+    const episodeThumbPlaceholderSvg =
+      "data:image/svg+xml;utf8," +
+      encodeURIComponent(
+        `<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720" viewBox="0 0 1280 720">
+          <defs>
+            <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#222831"/>
+              <stop offset="100%" stop-color="#111418"/>
+            </linearGradient>
+          </defs>
+          <rect width="1280" height="720" fill="url(#g)"/>
+          <g fill="#ff4e1b">
+            <circle cx="640" cy="330" r="56" opacity="0.85"/>
+            <polygon points="622,298 622,362 680,330" fill="#111418"/>
+          </g>
+          <text x="640" y="430" text-anchor="middle" fill="#d1d5db" font-size="32" font-family="Arial, sans-serif">
+            Episode thumbnail unavailable
+          </text>
+        </svg>`
+      );
+
+    function getYouTubeThumbnailUrl(videoId, quality) {
+      if (!videoId) return '';
+      return `https://i.ytimg.com/vi/${videoId}/${quality}.jpg`;
+    }
+
+    function handleEpisodeThumbnailError(img) {
+      const videoId = img.dataset.videoId || '';
+      const stage = img.dataset.fallbackStage || 'custom';
+
+      if (videoId && stage === 'custom') {
+        img.dataset.fallbackStage = 'maxres';
+        img.src = getYouTubeThumbnailUrl(videoId, 'maxresdefault');
+        return;
+      }
+      if (videoId && stage === 'maxres') {
+        img.dataset.fallbackStage = 'hq';
+        img.src = getYouTubeThumbnailUrl(videoId, 'hqdefault');
+        return;
+      }
+      if (videoId && stage === 'hq') {
+        img.dataset.fallbackStage = 'mq';
+        img.src = getYouTubeThumbnailUrl(videoId, 'mqdefault');
+        return;
+      }
+      if (videoId && stage === 'mq') {
+        img.dataset.fallbackStage = 'sd';
+        img.src = getYouTubeThumbnailUrl(videoId, 'sddefault');
+        return;
+      }
+
+      img.onerror = null;
+      img.src = episodeThumbPlaceholderSvg;
+    }
+
+    function extractYouTubeId(url) {
+      if (!url) return '';
+      const patterns = [
+        /(?:youtube\.com\/watch\?v=)([^&]+)/,
+        /(?:youtu\.be\/)([^?&]+)/,
+        /(?:youtube\.com\/embed\/)([^?&]+)/
+      ];
+      for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match && match[1]) return match[1];
+      }
+      return '';
     }
 
     // Lightbox logic (unchanged)
@@ -485,9 +558,10 @@
       const iframe = document.getElementById('lightbox-iframe');
       const placeholder = document.getElementById('video-placeholder');
       
-      if (ep.url && ep.id) {
+      const videoId = ep.id || extractYouTubeId(ep.url);
+      if (videoId) {
         // Set up the iframe with the video
-        iframe.src = `https://www.youtube.com/embed/${ep.id}?autoplay=1&rel=0&modestbranding=1`;
+        iframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&modestbranding=1`;
         iframe.title = ep.title;
         iframe.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
         
