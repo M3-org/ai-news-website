@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-02-06T20:20:18.732777Z",
+  "generatedAt": "2026-02-06T20:32:58.876569Z",
   "channel": {
     "handle": "@Ai16Z",
     "id": "UChYIwsAnIKL1xDdOoEccJtg",
@@ -77,6 +77,186 @@
       "durationSeconds": 386,
       "thumbnail": "https://i.ytimg.com/vi/fIGoyaEd0Hw/maxresdefault.jpg",
       "url": "https://www.youtube.com/watch?v=fIGoyaEd0Hw"
+    },
+    {
+      "id": "O8uTEhcBeKo",
+      "title": "Daily News Update 3-11-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-03-12T00:00:00Z",
+      "durationSeconds": 70,
+      "thumbnail": "https://i.ytimg.com/vi/O8uTEhcBeKo/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=O8uTEhcBeKo"
+    },
+    {
+      "id": "Kj5ebaDbgRA",
+      "title": "Daily News Update 2-9-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-10T00:00:00Z",
+      "durationSeconds": 97,
+      "thumbnail": "https://i.ytimg.com/vi/Kj5ebaDbgRA/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=Kj5ebaDbgRA"
+    },
+    {
+      "id": "E1RdlZJFl-o",
+      "title": "Daily News Update 2-7-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-08T00:00:00Z",
+      "durationSeconds": 94,
+      "thumbnail": "https://i.ytimg.com/vi/E1RdlZJFl-o/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=E1RdlZJFl-o"
+    },
+    {
+      "id": "eLJt2i02mkI",
+      "title": "Daily News Update 2-6-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-02-07T00:00:00Z",
+      "durationSeconds": 90,
+      "thumbnail": "https://i.ytimg.com/vi/eLJt2i02mkI/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=eLJt2i02mkI"
+    },
+    {
+      "id": "F7Aqa7HMT8o",
+      "title": "Daily News Update 1-28-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-28T00:00:00Z",
+      "durationSeconds": 87,
+      "thumbnail": "https://i.ytimg.com/vi/F7Aqa7HMT8o/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=F7Aqa7HMT8o"
+    },
+    {
+      "id": "6V2uO625z1Q",
+      "title": "Daily News Update 1-22-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-23T00:00:00Z",
+      "durationSeconds": 63,
+      "thumbnail": "https://i.ytimg.com/vi/6V2uO625z1Q/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6V2uO625z1Q"
+    },
+    {
+      "id": "MCEv92IrXZk",
+      "title": "Daily News Update 1-21-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-22T00:00:00Z",
+      "durationSeconds": 63,
+      "thumbnail": "https://i.ytimg.com/vi/MCEv92IrXZk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=MCEv92IrXZk"
+    },
+    {
+      "id": "7SknjV6n264",
+      "title": "Daily News Update 1-19-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-20T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/7SknjV6n264/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=7SknjV6n264"
+    },
+    {
+      "id": "ETkkJ4OjoIY",
+      "title": "Daily News Update 1-18-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-19T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/ETkkJ4OjoIY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ETkkJ4OjoIY"
+    },
+    {
+      "id": "z8QEt8wYrHY",
+      "title": "Daily News Update 1-17-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-18T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/z8QEt8wYrHY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=z8QEt8wYrHY"
+    },
+    {
+      "id": "iDyy0is1KLc",
+      "title": "Daily News Update 1-16-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-17T00:00:00Z",
+      "durationSeconds": 65,
+      "thumbnail": "https://i.ytimg.com/vi/iDyy0is1KLc/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=iDyy0is1KLc"
+    },
+    {
+      "id": "9459zm1VZzg",
+      "title": "Daily News Update 1-15-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-15T00:00:00Z",
+      "durationSeconds": 61,
+      "thumbnail": "https://i.ytimg.com/vi/9459zm1VZzg/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=9459zm1VZzg"
+    },
+    {
+      "id": "9NdcSDjnVLY",
+      "title": "Daily News Update 1-14-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-15T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/9NdcSDjnVLY/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=9NdcSDjnVLY"
+    },
+    {
+      "id": "aKARXoqBZt8",
+      "title": "Daily News Update 1-13-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-14T00:00:00Z",
+      "durationSeconds": 64,
+      "thumbnail": "https://i.ytimg.com/vi/aKARXoqBZt8/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=aKARXoqBZt8"
+    },
+    {
+      "id": "IHSMsYU6W5U",
+      "title": "Daily News Update 1-12-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-13T00:00:00Z",
+      "durationSeconds": 70,
+      "thumbnail": "https://i.ytimg.com/vi/IHSMsYU6W5U/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=IHSMsYU6W5U"
+    },
+    {
+      "id": "fC4voSbgbMU",
+      "title": "Daily News Update 1-11-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-12T00:00:00Z",
+      "durationSeconds": 62,
+      "thumbnail": "https://i.ytimg.com/vi/fC4voSbgbMU/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=fC4voSbgbMU"
+    },
+    {
+      "id": "RpW44kxAtPE",
+      "title": "Daily News Update 1-10-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-11T00:00:00Z",
+      "durationSeconds": 66,
+      "thumbnail": "https://i.ytimg.com/vi/RpW44kxAtPE/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=RpW44kxAtPE"
+    },
+    {
+      "id": "L1tG7Z43Jzk",
+      "title": "Daily News Update 1-9-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-10T00:00:00Z",
+      "durationSeconds": 67,
+      "thumbnail": "https://i.ytimg.com/vi/L1tG7Z43Jzk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=L1tG7Z43Jzk"
+    },
+    {
+      "id": "6NNnacByUm4",
+      "title": "Daily News Update 1-8-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-09T00:00:00Z",
+      "durationSeconds": 69,
+      "thumbnail": "https://i.ytimg.com/vi/6NNnacByUm4/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=6NNnacByUm4"
+    },
+    {
+      "id": "ktWAS72nUXk",
+      "title": "Daily News Update 1-7-25 | ai16z",
+      "description": "AI generated daily updates from the ai16z GitHub highlighting contributions and development updates \n\nhttps://github.com/elizaOS/eliza \nhttps://x.com/ai16zdao",
+      "publishedAt": "2025-01-08T00:00:00Z",
+      "durationSeconds": 69,
+      "thumbnail": "https://i.ytimg.com/vi/ktWAS72nUXk/maxresdefault.jpg",
+      "url": "https://www.youtube.com/watch?v=ktWAS72nUXk"
     }
   ]
 }
