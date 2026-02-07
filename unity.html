@@ -4,8 +4,8 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>AI Show | Automated 3D Media Pipeline</title>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; media-src 'self' data: https:; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https:; font-src 'self' https://cdnjs.cloudflare.com data:;">
-  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://formspree.io; style-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; img-src 'self' data: https:; media-src 'self' data: https:; frame-src https://www.youtube.com https://youtube.com; connect-src 'self' https:; font-src 'self' data:;">
+
   <!-- Open Graph meta tags -->
   <meta property="og:title" content="AI Show"/>
   <meta property="og:description" content="Turn project updates into a living show. An automated 3D media pipeline for teams that ship in public."/>
@@ -13,18 +13,17 @@
   <meta property="og:url" content="https://elizaos.news/"/>
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="AI Show"/>
-  
+
   <!-- Twitter Card meta tags -->
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="AI Show"/>
   <meta name="twitter:description" content="An AI-powered 3D production system that turns project activity into watchable daily episodes."/>
   <meta name="twitter:image" content="https://elizaos.news/media/15.jpg"/>
-  
+
   <!-- Additional meta tags -->
   <meta name="description" content="Your project already has a story. AI Show turns it into a daily show with virtual hosts, scenes, narration, and automated publishing."/>
   <meta name="keywords" content="AI show, automated media pipeline, 3D virtual hosts, Unity production, DAO media, community updates, YouTube automation"/>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
   <style>
     :root {
       --lava: #ff4e1b;
@@ -64,6 +63,70 @@
     .nav-link:hover { color: #fff; }
     .desc-trunc { max-height: 7.5em; overflow: hidden; position: relative; display: -webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical; }
     .desc-fade { position: absolute; bottom: 0; left: 0; width: 100%; height: 2em; background: linear-gradient(to bottom, rgba(45,49,58,0), var(--surface)); }
+
+    /* Elevated card style */
+    .card-elevated {
+      background: linear-gradient(145deg, #2d313a 0%, #23262d 100%) !important;
+      color: var(--text-primary) !important;
+      border: 1px solid rgba(255,78,27,0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .card-elevated:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 32px rgba(255,78,27,0.18), 0 2px 8px rgba(0,0,0,0.3);
+      border-color: rgba(255,78,27,0.35);
+    }
+
+    /* Fade-in-up animation */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    .fade-in-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .stagger-1 { transition-delay: 0.1s; }
+    .stagger-2 { transition-delay: 0.2s; }
+    .stagger-3 { transition-delay: 0.3s; }
+    .stagger-4 { transition-delay: 0.4s; }
+    .stagger-5 { transition-delay: 0.5s; }
+    .stagger-6 { transition-delay: 0.6s; }
+
+    /* Play button glow */
+    @keyframes play-glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(255,78,27,0.4), 0 0 60px rgba(255,78,27,0.1); }
+      50% { box-shadow: 0 0 30px rgba(255,78,27,0.6), 0 0 80px rgba(255,78,27,0.2); }
+    }
+    .play-glow {
+      animation: play-glow 2.5s ease-in-out infinite;
+    }
+
+    /* Stat number gradient text */
+    .stat-number {
+      font-size: 3rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--lava) 0%, #ff8a5c 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1.1;
+    }
+
+    /* Pipeline connector arrows */
+    .pipeline-connector {
+      display: none;
+    }
+    @media (min-width: 768px) {
+      .pipeline-connector {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 48px;
+        flex-shrink: 0;
+      }
+    }
   </style>
 </head>
 <body class="font-sans">
@@ -75,9 +138,10 @@
         <span class="ml-1">Show</span>
       </a>
       <nav class="space-x-6 flex items-center">
-        <a class="nav-link" href="#episodes">Samples</a>
-        <a class="nav-link" href="#pipeline">How It Works</a>
-        <a class="nav-link" href="#contact">Contact</a>
+        <a class="nav-link hidden sm:inline" href="#episodes">Samples</a>
+        <a class="nav-link hidden sm:inline" href="#pipeline">How It Works</a>
+        <a class="nav-link hidden sm:inline" href="#contact">Contact</a>
+        <a class="nav-link" href="unity.md" target="_blank" title="Machine-readable Markdown">LLM</a>
         <a class="nav-link" href="https://discord.gg/ai16z" target="_blank" title="Discord">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
             <path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9554 2.4189-2.1568 2.4189Z"/>
@@ -86,6 +150,7 @@
       </nav>
     </div>
   </header>
+
   <!-- Hero Section -->
   <section class="relative steel min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Fullscreen trailer video as background -->
@@ -104,22 +169,26 @@
     <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
     <!-- Hero content -->
     <div class="container mx-auto px-6 py-24 flex flex-col items-center justify-center text-center relative z-20">
-      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Automated 3D episodes from GitHub, Discord, and community activity.</h1>
-      <p class="text-xl md:text-2xl text-gray-200 mb-6">Not a chatbot UI. A production pipeline.</p>
+      <h1 class="text-4xl md:text-6xl font-extrabold mb-4 drop-shadow-lg">Your Project.<br class="hidden md:block"/> Automated Into a Daily&nbsp;Show.</h1>
+      <p class="text-xl md:text-2xl text-gray-200 mb-8">Not a chatbot UI. A production pipeline.</p>
       <button
-        class="flex items-center justify-center mx-auto w-20 h-20 rounded-full bg-black bg-opacity-60 text-white text-4xl shadow-lg hover:bg-opacity-80 transition"
+        class="flex items-center justify-center mx-auto w-20 h-20 rounded-full bg-black bg-opacity-50 border-2 border-white/30 text-white shadow-lg hover:bg-opacity-70 transition play-glow"
         aria-label="Play trailer"
         id="hero-trailer-btn"
       >
-        ▶
+        <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z"/>
+        </svg>
       </button>
       <div class="flex flex-col sm:flex-row gap-4 mt-8">
-        <a href="#contact" class="inline-block lava font-semibold px-6 py-3 rounded-lg shadow hover:opacity-90 transition">Contact us</a>
+        <a href="#episodes" class="inline-block lava font-semibold px-6 py-3 rounded-lg shadow hover:opacity-90 transition">Watch Episodes</a>
+        <a href="unity.md" target="_blank" class="inline-block font-semibold px-6 py-3 rounded-lg shadow border border-white/30 text-white hover:bg-white/10 transition">LLMs</a>
       </div>
     </div>
   </section>
 
-  <section class="surface py-10">
+  <!-- Value Prop Band -->
+  <section class="surface py-10 fade-in-up">
     <div class="container mx-auto px-6 text-center max-w-4xl">
       <p class="text-lg text-gray-200">
         Most communities ship constantly, but barely communicate it. AI Show turns scattered updates into
@@ -128,50 +197,164 @@
     </div>
   </section>
 
+  <!-- Built for Teams -->
   <section class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-center mb-8 lava-text">Built for Teams That Ship in Public</h2>
+    <h2 class="text-3xl font-bold text-center mb-8 lava-text fade-in-up">Built for Teams That Ship in Public</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <div class="card p-6 rounded-lg"><p>Fast-moving projects drowning in updates and release noise.</p></div>
-      <div class="card p-6 rounded-lg"><p>DAOs that need transparent, consistent community communication.</p></div>
-      <div class="card p-6 rounded-lg"><p>Product teams that want dependable media output without manual production.</p></div>
-      <div class="card p-6 rounded-lg"><p>Creators experimenting with AI-native storytelling and virtual hosts.</p></div>
+      <div class="card-elevated p-6 rounded-lg fade-in-up stagger-1">
+        <div class="flex items-start gap-4">
+          <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Fast-Moving Projects</h3>
+            <p class="text-gray-300">Projects drowning in updates and release noise. Turn chaos into a daily highlight reel.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-elevated p-6 rounded-lg fade-in-up stagger-2">
+        <div class="flex items-start gap-4">
+          <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path stroke-linecap="round" stroke-linejoin="round" d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">DAOs &amp; Communities</h3>
+            <p class="text-gray-300">Transparent, consistent community communication without depending on individuals.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-elevated p-6 rounded-lg fade-in-up stagger-3">
+        <div class="flex items-start gap-4">
+          <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">Product Teams</h3>
+            <p class="text-gray-300">Dependable media output without manual production. Ship updates, get episodes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="card-elevated p-6 rounded-lg fade-in-up stagger-4">
+        <div class="flex items-start gap-4">
+          <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/></svg>
+          </div>
+          <div>
+            <h3 class="font-bold text-lg mb-2">AI-Native Creators</h3>
+            <p class="text-gray-300">Experiment with AI-native storytelling, virtual hosts, and generative media pipelines.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
+  <!-- What It Does -->
   <section class="surface py-12" id="what-it-does">
     <div class="container mx-auto px-6">
-      <h2 class="text-3xl font-bold text-center mb-8 lava-text">What It Does</h2>
+      <h2 class="text-3xl font-bold text-center mb-8 lava-text fade-in-up">What It Does</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card p-6 rounded-lg">Collects updates from GitHub, Discord, and social feeds.</div>
-        <div class="card p-6 rounded-lg">Transforms raw updates into structured episode scripts.</div>
-        <div class="card p-6 rounded-lg">Renders 3D virtual hosts, scenes, voice, and effects.</div>
-        <div class="card p-6 rounded-lg">Runs event-driven scene transitions and actor actions.</div>
-        <div class="card p-6 rounded-lg">Records and publishes finished episodes automatically.</div>
-        <div class="card p-6 rounded-lg">Supports multilingual workflows and scalable production cadence.</div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-1">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Collect</h3>
+              <p class="text-gray-300">Aggregates updates from GitHub, Discord, and social feeds.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-2">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Script</h3>
+              <p class="text-gray-300">Transforms raw updates into structured episode scripts.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-3">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Render</h3>
+              <p class="text-gray-300">3D virtual hosts, scenes, voice, and effects in real time.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-4">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"/><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Animate</h3>
+              <p class="text-gray-300">Event-driven scene transitions and actor actions.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-5">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Publish</h3>
+              <p class="text-gray-300">Records and publishes finished episodes automatically.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-elevated p-6 rounded-lg fade-in-up stagger-6">
+          <div class="flex items-start gap-4">
+            <div class="text-[var(--lava)] flex-shrink-0 mt-1">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-lg mb-1">Scale</h3>
+              <p class="text-gray-300">Multilingual workflows and scalable production cadence.</p>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="mt-12">
-        <h3 class="text-2xl font-bold text-center mb-6">Core System Layers</h3>
+        <h3 class="text-2xl font-bold text-center mb-6 fade-in-up">Core System Layers</h3>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="card rounded-lg p-6 text-gray-300 space-y-2">
-            <h4 class="font-bold text-lg text-white">Content Ingestion + AI Scripting</h4>
+          <div class="card-elevated rounded-lg p-6 text-gray-300 space-y-2 fade-in-up stagger-1">
+            <h4 class="font-bold text-lg text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--lava)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/></svg>
+              Content Ingestion + AI Scripting
+            </h4>
             <p>Aggregates GitHub, Discord, and social activity into structured daily JSON.</p>
             <p>Transforms updates into deterministic episode JSON with scenes, dialogue, actions, and timing-friendly events.</p>
             <p>Supports multi-source merging, graceful degradation, and automation-safe outputs.</p>
           </div>
-          <div class="card rounded-lg p-6 text-gray-300 space-y-2">
-            <h4 class="font-bold text-lg text-white">Unity Runtime + World Systems</h4>
+          <div class="card-elevated rounded-lg p-6 text-gray-300 space-y-2 fade-in-up stagger-2">
+            <h4 class="font-bold text-lg text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--lava)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              Unity Runtime + World Systems
+            </h4>
             <p>Built on Unity 2022.3.53f1 with a central ShowRunner and event-driven architecture.</p>
             <p>Async scene loading, dynamic character spawn points, scene transitions, camera logic, and runtime orchestration.</p>
             <p>Handles missing optional components safely for robust unattended runs.</p>
           </div>
-          <div class="card rounded-lg p-6 text-gray-300 space-y-2">
-            <h4 class="font-bold text-lg text-white">Avatars, Voice, Lip Sync, and Effects</h4>
+          <div class="card-elevated rounded-lg p-6 text-gray-300 space-y-2 fade-in-up stagger-3">
+            <h4 class="font-bold text-lg text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--lava)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"/></svg>
+              Avatars, Voice, Lip Sync, and Effects
+            </h4>
             <p>UniVRM avatars with character-specific voice and action mapping.</p>
             <p>ElevenLabs TTS pipeline with per-line speech timing and event hooks.</p>
             <p>Oculus Lip Sync integration plus modular effect triggers (glitch, particles, character effects).</p>
           </div>
-          <div class="card rounded-lg p-6 text-gray-300 space-y-2">
-            <h4 class="font-bold text-lg text-white">Recording, Distribution, and Scale</h4>
+          <div class="card-elevated rounded-lg p-6 text-gray-300 space-y-2 fade-in-up stagger-4">
+            <h4 class="font-bold text-lg text-white flex items-center gap-2">
+              <svg class="w-5 h-5 text-[var(--lava)]" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
+              Recording, Distribution, and Scale
+            </h4>
             <p>Automated recording pipeline with transcript generation and multi-format outputs.</p>
             <p>Near-daily production cadence with reusable studio environments and expandable cast workflows.</p>
             <p>Roadmap includes better discovery, improved lip-sync fidelity, HDRP upgrades, and governance hooks.</p>
@@ -181,10 +364,34 @@
     </div>
   </section>
 
+  <!-- Stats Section -->
+  <section class="py-16">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center fade-in-up">
+        <div>
+          <div class="stat-number" id="stat-episodes">0</div>
+          <p class="text-gray-400 mt-2 text-sm uppercase tracking-wide">Episodes Produced</p>
+        </div>
+        <div>
+          <div class="stat-number">3+</div>
+          <p class="text-gray-400 mt-2 text-sm uppercase tracking-wide">Languages</p>
+        </div>
+        <div>
+          <div class="stat-number">0</div>
+          <p class="text-gray-400 mt-2 text-sm uppercase tracking-wide">Manual Intervention</p>
+        </div>
+        <div>
+          <div class="stat-number">Daily</div>
+          <p class="text-gray-400 mt-2 text-sm uppercase tracking-wide">Production Cadence</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Sample Episodes -->
   <section id="episodes" class="container mx-auto px-6 py-12">
-    <h2 class="text-3xl font-bold text-center mb-8 lava-text">Sample Episodes</h2>
-    <!-- Language Filter Bar (moved here) -->
+    <h2 class="text-3xl font-bold text-center mb-8 lava-text fade-in-up">Sample Episodes</h2>
+    <!-- Language Filter Bar -->
     <div class="flex justify-center gap-4 mb-8" id="lang-filter">
       <button data-lang="en" class="lava px-3 py-1 rounded font-semibold text-black">EN</button>
       <button data-lang="ch" class="steel px-3 py-1 rounded font-semibold text-white hover:bg-gray-700">中文</button>
@@ -195,45 +402,64 @@
     <div id="episodes-pagination" class="flex justify-center items-center gap-2 mt-8"></div>
   </section>
 
-  <!-- Stepper Timeline: How the AI Show Works + Key Innovations -->
+  <!-- Stepper Timeline: How the AI Show Works -->
   <section class="relative py-24 overflow-hidden" id="pipeline">
     <!-- Slideshow as background -->
     <div id="hero-slideshow" class="absolute inset-0 w-full h-full object-cover -z-10"></div>
     <div class="absolute inset-0 bg-black bg-opacity-70 z-0"></div>
     <div class="container mx-auto px-6 text-center relative z-10">
-      <h2 class="text-3xl font-bold lava-text mb-8">How the AI Show Works</h2>
-      <ol class="flex flex-col md:flex-row gap-6 md:gap-12 justify-center text-left md:text-center mb-16">
-        <li class="relative md:w-40">
+      <h2 class="text-3xl font-bold lava-text mb-8 fade-in-up">How the AI Show Works</h2>
+      <ol class="flex flex-col md:flex-row gap-4 md:gap-0 justify-center items-center text-left md:text-center mb-8">
+        <li class="relative md:w-48 fade-in-up stagger-1">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">1</span>
             <h4 class="font-semibold mb-2">Data&nbsp;Collection</h4>
             <p class="text-sm text-gray-300">GitHub + community sources are aggregated into daily JSON</p>
           </div>
         </li>
-        <li class="relative md:w-40">
+        <!-- Connector arrow -->
+        <li class="pipeline-connector" aria-hidden="true">
+          <svg class="w-10 h-6 text-[var(--lava)]" viewBox="0 0 40 24" fill="none">
+            <line x1="0" y1="12" x2="32" y2="12" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <path d="M30 6l8 6-8 6" fill="currentColor"/>
+          </svg>
+        </li>
+        <li class="relative md:w-48 fade-in-up stagger-2">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">2</span>
             <h4 class="font-semibold mb-2">Script&nbsp;Generation</h4>
             <p class="text-sm text-gray-300">AI writes scene/dialogue JSON and ElevenLabs generates voices</p>
           </div>
         </li>
-        <li class="relative md:w-40">
+        <li class="pipeline-connector" aria-hidden="true">
+          <svg class="w-10 h-6 text-[var(--lava)]" viewBox="0 0 40 24" fill="none">
+            <line x1="0" y1="12" x2="32" y2="12" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <path d="M30 6l8 6-8 6" fill="currentColor"/>
+          </svg>
+        </li>
+        <li class="relative md:w-48 fade-in-up stagger-3">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">3</span>
             <h4 class="font-semibold mb-2">3D&nbsp;Production</h4>
             <p class="text-sm text-gray-300">Unity 2022.3.53f1 + UniVRM render scenes, effects, and camera moves</p>
           </div>
         </li>
-        <li class="relative md:w-40">
+        <li class="pipeline-connector" aria-hidden="true">
+          <svg class="w-10 h-6 text-[var(--lava)]" viewBox="0 0 40 24" fill="none">
+            <line x1="0" y1="12" x2="32" y2="12" stroke="currentColor" stroke-width="2" stroke-dasharray="4 3"/>
+            <path d="M30 6l8 6-8 6" fill="currentColor"/>
+          </svg>
+        </li>
+        <li class="relative md:w-48 fade-in-up stagger-4">
           <div class="bg-black bg-opacity-50 backdrop-blur-sm rounded-lg p-4 relative">
             <span class="absolute -top-3 -left-3 flex items-center justify-center w-8 h-8 rounded-full lava font-bold shadow-lg">4</span>
             <h4 class="font-semibold mb-2">Distribution</h4>
-            <p class="text-sm text-gray-300">YouTube & social posting</p>
+            <p class="text-sm text-gray-300">YouTube &amp; social posting, multilingual, fully automated</p>
           </div>
         </li>
       </ol>
-      <p class="text-gray-300 max-w-3xl mx-auto mb-8">This section focuses on sequence and orchestration.</p>
-      <div class="mt-10 w-full max-w-4xl mx-auto">
+      <p class="text-gray-300 max-w-3xl mx-auto mb-8 fade-in-up">From raw data to published video. Fully automated, every day.</p>
+      <div class="mt-10 w-full max-w-4xl mx-auto fade-in-up">
         <div class="w-full aspect-video bg-black rounded-lg overflow-hidden shadow-lg border border-white/10">
           <iframe
             src="https://www.youtube.com/embed/fIGoyaEd0Hw?rel=0&modestbranding=1"
@@ -247,77 +473,77 @@
       </div>
     </div>
   </section>
+
+  <!-- Contact Section -->
   <section id="contact" class="surface py-16">
     <div class="container mx-auto px-6 max-w-3xl">
-      <h2 class="text-3xl font-bold text-center lava-text mb-3">Contact Us</h2>
-      <form id="contact-form" action="https://formspree.io/f/REPLACE_ME" method="POST" class="card p-6 rounded-lg space-y-4">
+      <h2 class="text-3xl font-bold text-center lava-text mb-3 fade-in-up">Get In Touch</h2>
+      <p class="text-center text-gray-400 mb-10 fade-in-up">Send us a message or reach out on socials.</p>
+      <form action="https://formspree.io/f/xbdajgdw" method="POST" class="card-elevated p-6 rounded-lg space-y-4 fade-in-up">
         <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div>
-            <label class="block text-sm mb-1" for="name">Name *</label>
-            <input id="name" name="name" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white" />
+            <label class="block text-sm mb-1" for="contact-email">Email *</label>
+            <input id="contact-email" name="email" type="email" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white focus:border-[var(--lava)] focus:outline-none transition" placeholder="your@email.com" />
           </div>
           <div>
-            <label class="block text-sm mb-1" for="email">Email *</label>
-            <input id="email" name="email" type="email" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white" />
+            <label class="block text-sm mb-1" for="contact-name">Name</label>
+            <input id="contact-name" name="name" class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white focus:border-[var(--lava)] focus:outline-none transition" placeholder="Your name" />
           </div>
         </div>
         <div>
-          <label class="block text-sm mb-1" for="company_or_project">Company / Project</label>
-          <input id="company_or_project" name="company_or_project" class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white" />
+          <label class="block text-sm mb-1" for="contact-message">Message *</label>
+          <textarea id="contact-message" name="message" rows="4" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white focus:border-[var(--lava)] focus:outline-none transition" placeholder="What's on your mind?"></textarea>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div>
-            <label class="block text-sm mb-1" for="interest_type">Interest Type *</label>
-            <select id="interest_type" name="interest_type" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white">
-              <option value="">Select one</option>
-              <option value="buy_license">Buy / License</option>
-              <option value="hire_dev">Hire Developer</option>
-              <option value="partnership">Partnership</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm mb-1" for="budget_range">Budget Range</label>
-            <select id="budget_range" name="budget_range" class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white">
-              <option value="">Prefer not to say</option>
-              <option value="under_10k">Under $10k</option>
-              <option value="10k_50k">$10k - $50k</option>
-              <option value="50k_100k">$50k - $100k</option>
-              <option value="100k_plus">$100k+</option>
-            </select>
-          </div>
-          <div>
-            <label class="block text-sm mb-1" for="timeline">Timeline</label>
-            <select id="timeline" name="timeline" class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white">
-              <option value="">No strict timeline</option>
-              <option value="asap">ASAP</option>
-              <option value="30_days">Within 30 days</option>
-              <option value="this_quarter">This quarter</option>
-              <option value="exploring">Just exploring</option>
-            </select>
-          </div>
-        </div>
-        <div>
-          <label class="block text-sm mb-1" for="message">What are you trying to build? *</label>
-          <textarea id="message" name="message" rows="5" required class="w-full rounded bg-black/30 border border-white/20 px-3 py-2 text-white"></textarea>
-        </div>
-        <div class="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-          <button type="submit" class="lava font-semibold px-6 py-3 rounded shadow hover:opacity-90 transition">Send Inquiry</button>
-        </div>
-        <p id="contact-form-note" class="text-xs text-gray-400">
-          Form endpoint placeholder in use: replace <code>REPLACE_ME</code> with your Formspree form ID.
-        </p>
+        <button type="submit" class="lava font-semibold px-6 py-3 rounded shadow hover:opacity-90 transition">Send Message</button>
       </form>
+      <div class="flex justify-center gap-8 mt-10 fade-in-up">
+        <a href="https://x.com/dankvr" target="_blank" class="text-gray-400 hover:text-white transition flex flex-col items-center gap-1" title="X.com">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          <span class="text-xs">DM @dankvr</span>
+        </a>
+        <a href="https://discord.gg/ai16z" target="_blank" class="text-gray-400 hover:text-white transition flex flex-col items-center gap-1" title="Discord">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9554 2.4189-2.1568 2.4189Z"/></svg>
+          <span class="text-xs">Discord</span>
+        </a>
+        <a href="https://www.youtube.com/@m3org" target="_blank" class="text-gray-400 hover:text-white transition flex flex-col items-center gap-1" title="YouTube">
+          <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span class="text-xs">YouTube</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <footer class="py-6 bg-white/10 backdrop-blur-md border-t border-white/20">
-    <div class="container mx-auto px-6 text-center text-gray-300 text-sm">
-      <p>AI Show &copy; 2026. Automated media pipeline for teams that ship in public.</p>
-      <p class="text-gray-400">Media doesn't have to be manual.</p>
+  <!-- Footer -->
+  <footer class="py-8 bg-white/5 border-t border-white/10">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col md:flex-row justify-between items-center mb-6">
+        <div class="mb-4 md:mb-0 text-center md:text-left">
+          <span class="text-xl font-bold"><span class="lava-text">AI</span> Show</span>
+          <p class="text-gray-400 text-sm mt-1">Automated media pipeline for teams that ship in public.</p>
+        </div>
+        <div class="flex items-center gap-5">
+          <a href="https://x.com/m3org" target="_blank" class="text-gray-400 hover:text-white transition" title="X.com">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://discord.gg/ai16z" target="_blank" class="text-gray-400 hover:text-white transition" title="Discord - ping jin">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419-.0002 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9554 2.4189-2.1568 2.4189Z"/></svg>
+          </a>
+          <a href="https://www.youtube.com/@m3org" target="_blank" class="text-gray-400 hover:text-white transition" title="YouTube">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.546 12 3.546 12 3.546s-7.505 0-9.377.504A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.504 9.376.504 9.376.504s7.505 0 9.377-.504a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </a>
+          <a href="https://github.com/elizaOS" target="_blank" class="text-gray-400 hover:text-white transition" title="GitHub">
+            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="border-t border-white/10 pt-4 flex flex-col sm:flex-row justify-between items-center text-sm text-gray-500">
+        <p>AI Show &copy; 2026. Media doesn't have to be manual.</p>
+        <a href="unity.md" target="_blank" class="text-gray-400 hover:text-white transition mt-2 sm:mt-0">View site as Markdown</a>
+      </div>
     </div>
   </footer>
+
   <!-- Lightbox Modal for Episodes -->
   <div id="lightbox" class="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 hidden">
     <!-- Navigation arrows -->
@@ -331,7 +557,7 @@
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
       </svg>
     </button>
-    
+
     <div class="surface rounded-lg shadow-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto relative p-4 md:p-6 pr-3 md:pr-4 mx-2 md:mx-0">
       <button id="close-lightbox" class="absolute top-4 right-4 text-gray-400 hover:text-white text-2xl">&times;</button>
       <div class="flex flex-col gap-6 items-center">
@@ -366,6 +592,18 @@
   </div>
   <!-- Episodes/Lightbox Script -->
   <script>
+    // IntersectionObserver for fade-in-up animations
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in-up').forEach(el => fadeObserver.observe(el));
+
     // Hero slideshow logic with gentle crossfade
     const heroImages = Array.from({length: 16}, (_, i) => `media/${i+1}.jpg`);
     let heroIndex = 0;
@@ -506,7 +744,7 @@
       const descPreview = description ? description.split('\n')[0] : '';
 
       const card = document.createElement('div');
-      card.className = 'card p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl hover:scale-105 transition-all duration-300';
+      card.className = 'card-elevated p-4 rounded-lg shadow-lg flex flex-col cursor-pointer hover:shadow-2xl transition-all duration-300';
       card.innerHTML = `
         <div class="relative">
           <img src="${initialThumb}" alt="${title}" data-video-id="${videoId || ''}" data-fallback-stage="${initialStage}" class="rounded-lg mb-4 w-full h-48 object-cover bg-gray-800" loading="lazy" onerror="handleEpisodeThumbnailError(this)"/>
@@ -528,7 +766,7 @@
 
       if (selectedLang === 'archive') {
         if (!archiveItems.length) {
-          grid.innerHTML = '<div class="card p-6 rounded-lg text-center text-gray-300 md:col-span-3">No archive data loaded. Run `scripts/fetch_ai16z_channel.py` to generate `ai16z.json`.</div>';
+          grid.innerHTML = '<div class="card-elevated p-6 rounded-lg text-center text-gray-300 md:col-span-3">No archive data loaded. Run `scripts/fetch_ai16z_channel.py` to generate `ai16z.json`.</div>';
           document.getElementById(pagId).innerHTML = '';
           return;
         }
@@ -561,7 +799,7 @@
       }
 
       if (!episodesData) {
-        grid.innerHTML = '<div class="card p-6 rounded-lg text-center text-gray-300 md:col-span-3">Episode data unavailable.</div>';
+        grid.innerHTML = '<div class="card-elevated p-6 rounded-lg text-center text-gray-300 md:col-span-3">Episode data unavailable.</div>';
         document.getElementById(pagId).innerHTML = '';
         return;
       }
@@ -595,12 +833,26 @@
       });
     }
 
+    // Dynamic stats update
+    function updateStats(episodes) {
+      if (!episodes) return;
+      const dates = Object.keys(episodes);
+      let totalEpisodes = 0;
+      dates.forEach(date => {
+        const langs = Object.keys(episodes[date]);
+        totalEpisodes += langs.length;
+      });
+      const el = document.getElementById('stat-episodes');
+      if (el) el.textContent = totalEpisodes;
+    }
+
     Promise.all([
       loadJsonWithCache('episodesData', 'episodes.json'),
       loadJsonWithCache('ai16zData', 'ai16z.json')
     ]).then(([episodes, archive]) => {
       if (episodes) {
         episodesData = episodes;
+        updateStats(episodes);
         renderEpisodeCards();
       }
       if (archive && Array.isArray(archive.items)) {
@@ -816,46 +1068,40 @@
         tabs: []
       });
     }
-    
+
     // Event listeners for navigation arrows
     document.getElementById('prev-episode').addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
       navigateToPreviousEpisode();
     });
-    
+
     document.getElementById('next-episode').addEventListener('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
       navigateToNextEpisode();
     });
-    
+
     // Add touch event listeners for better mobile experience
     document.getElementById('prev-episode').addEventListener('touchstart', function(e) {
       e.stopPropagation();
     });
-    
+
     document.getElementById('next-episode').addEventListener('touchstart', function(e) {
       e.stopPropagation();
     });
-    
+
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (lightbox) lightbox.addEventListener('mousedown', e => {
       if (e.target === lightbox) { closeLightbox(); }
     });
 
-    // BTS Modal logic
+    // BTS/Trailer Modal logic
     const btsModal = document.getElementById('bts-modal');
-    const openBtsBtn = document.getElementById('open-bts-modal');
     const closeBtsBtn = document.getElementById('close-bts-modal');
     const btsIframe = document.getElementById('bts-iframe');
-    openBtsBtn.addEventListener('click', () => {
-      btsModal.classList.remove('hidden');
-      btsIframe.src = 'https://www.youtube.com/embed/fIGoyaEd0Hw?autoplay=1&rel=0&modestbranding=1';
-      document.body.classList.add('overflow-hidden');
-    });
-    closeBtsBtn.addEventListener('click', closeTrailerModal);
-    btsModal.addEventListener('mousedown', e => {
+    if (closeBtsBtn) closeBtsBtn.addEventListener('click', closeTrailerModal);
+    if (btsModal) btsModal.addEventListener('mousedown', e => {
       if (e.target === btsModal) {
         closeTrailerModal();
       }
@@ -872,21 +1118,6 @@
       const heroTrailerBtn = document.getElementById('hero-trailer-btn');
       if (heroTrailerBtn) {
         heroTrailerBtn.addEventListener('click', openHeroTrailerModal);
-      }
-
-      const contactForm = document.getElementById('contact-form');
-      const formNote = document.getElementById('contact-form-note');
-      if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-          if (contactForm.action.includes('REPLACE_ME')) {
-            e.preventDefault();
-            if (formNote) {
-              formNote.textContent = 'Set your real Formspree endpoint first (replace REPLACE_ME), then submit again.';
-              formNote.classList.remove('text-gray-400');
-              formNote.classList.add('text-yellow-300');
-            }
-          }
-        });
       }
     });
 
@@ -980,7 +1211,7 @@
         prevBtn.style.opacity = '1';
         prevBtn.style.cursor = 'pointer';
       }
-      
+
       if (currentIndex <= 0) {
         nextBtn.style.opacity = '0.3';
         nextBtn.style.cursor = 'not-allowed';
@@ -991,14 +1222,14 @@
     }
 
     function closeLightbox() {
-      lightbox.classList.add('hidden'); 
+      lightbox.classList.add('hidden');
       document.body.classList.remove('overflow-hidden');
       currentArchiveIndex = -1;
-      
+
       // Stop video playback and reset iframe
       const iframe = document.getElementById('lightbox-iframe');
       const placeholder = document.getElementById('video-placeholder');
-      
+
       iframe.src = '';
       iframe.style.display = 'none';
       placeholder.style.display = 'flex';
@@ -1011,6 +1242,39 @@
       document.body.classList.remove('overflow-hidden');
     }
   </script>
+  <!-- Formbutton floating contact widget -->
+  <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
+  <script>
+    window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
+    formbutton("create", {
+      action: "https://formspree.io/f/xbdajgdw",
+      title: "How can we help?",
+      fields: [
+        {
+          type: "email",
+          label: "Email:",
+          name: "email",
+          required: true,
+          placeholder: "your@email.com"
+        },
+        {
+          type: "textarea",
+          label: "Message:",
+          name: "message",
+          placeholder: "What's on your mind?",
+        },
+        { type: "submit" }
+      ],
+      styles: {
+        title: {
+          backgroundColor: "gray"
+        },
+        button: {
+          backgroundColor: "gray"
+        }
+      }
+    });
+  </script>
 
 </body>
-</html> 
+</html>
