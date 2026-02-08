@@ -335,7 +335,7 @@ step_2_generate_metadata() {
         playlist_arg="--playlist-id=${YOUTUBE_PLAYLIST_ID}"
     fi
 
-    python3 scripts/generate_youtube_metadata.py "$SESSION_LOG" \
+    python3 scripts/youtube_metadata.py "$SESSION_LOG" \
         --privacy unlisted \
         --download-thumb \
         ${playlist_arg:+"$playlist_arg"}
@@ -365,7 +365,7 @@ step_3_upload_youtube() {
 
     log "Uploading to YouTube from: $(basename "$METADATA_JSON")"
 
-    python3 scripts/upload_to_youtube.py --from-json "$METADATA_JSON"
+    python3 scripts/youtube_upload.py --from-json "$METADATA_JSON"
 
     # Extract video ID from updated metadata
     if [[ -f "$METADATA_JSON" ]]; then

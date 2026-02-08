@@ -26,9 +26,8 @@ from pathlib import Path
 
 import discord
 
-# Reuse publish function from sibling script
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-from publish_youtube import publish
+# Reuse set_privacy function from youtube_upload (same directory)
+from youtube_upload import set_privacy as publish
 
 
 # ---------------------------------------------------------------------------

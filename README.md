@@ -33,10 +33,10 @@ pip install google-auth google-auth-oauthlib google-api-python-client python-dot
 # Or run individual steps:
 
 # Generate YouTube metadata with chapters
-python3 scripts/generate_youtube_metadata.py episodes/2026-02-02_Cron-Job_*_session-log.json
+python3 scripts/youtube_metadata.py episodes/2026-02-02_Cron-Job_*_session-log.json
 
 # Upload to YouTube
-python3 scripts/upload_to_youtube.py --from-json episodes/2026-02-02_*_youtube_metadata.json
+python3 scripts/youtube_upload.py --from-json episodes/2026-02-02_*_youtube_metadata.json
 
 # Analyze clips via LLM
 python3 scripts/llm_producer.py clips episodes/*_session-log.json
@@ -51,7 +51,7 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
 │  1. Record      │────>│  2. Process     │────>│  3. Publish     │
 │                 │     │                 │     │                 │
-│ run_pipeline.sh │     │ generate_meta   │     │ upload_youtube  │
+│ run_pipeline.sh │     │ generate_meta   │     │ youtube_upload  │
 │ recorder.js     │     │ llm_producer.py │     │ cdn_upload      │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
@@ -69,7 +69,7 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 
 | Script | Description |
 |--------|-------------|
-| `scripts/generate_youtube_metadata.py` | Generate YouTube metadata with auto-chapters |
+| `scripts/youtube_metadata.py` | Generate YouTube metadata with auto-chapters |
 | `scripts/llm_producer.py clips` | LLM-based clip analysis with optional ffmpeg extraction |
 | `scripts/llm_producer.py trailer` | LLM-based trailer config generator for Remotion |
 | `scripts/generate_manifest.py` | Generate manifest with provenance for clips |
@@ -78,8 +78,7 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 
 | Script | Description |
 |--------|-------------|
-| `scripts/upload_to_youtube.py` | Upload videos to YouTube with metadata |
-| `scripts/publish_youtube.py` | Change YouTube video privacy status |
+| `scripts/youtube_upload.py` | Upload videos to YouTube; `--set-privacy` to change listing status |
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
 | `scripts/cdn_upload.py` | Upload assets to Bunny CDN |
 | `scripts/publish_m3tv.py` | Update website with episode data |
@@ -146,9 +145,8 @@ ai-news-website/
 ├── scripts/
 │   ├── run_pipeline.sh             # Full pipeline orchestrator
 │   ├── recorder.js                 # Browser-based recorder
-│   ├── generate_youtube_metadata.py
-│   ├── upload_to_youtube.py        # YouTube uploader
-│   ├── publish_youtube.py          # YouTube privacy updater
+│   ├── youtube_metadata.py          # YouTube metadata generator
+│   ├── youtube_upload.py           # YouTube uploader + privacy manager
 │   ├── llm_producer.py             # LLM clip analysis + trailer generation
 │   ├── generate_manifest.py        # Manifest generation
 │   ├── cdn_upload.py               # CDN upload utility

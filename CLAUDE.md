@@ -13,9 +13,8 @@ This is the **AI News Website** repository for the "Cron Job" AI news show hoste
 
 ### Core Scripts
 - **scripts/recorder.js**: Puppeteer-based episode recorder (captures video + session log with word-level timestamps)
-- **scripts/generate_youtube_metadata.py**: Generates YouTube metadata (title, description with chapters, tags) from session logs
-- **scripts/upload_to_youtube.py**: Uploads video to YouTube with metadata, thumbnail, and playlist placement
-- **scripts/publish_youtube.py**: Changes a YouTube video's privacy status (e.g. unlisted -> public)
+- **scripts/youtube_metadata.py**: Generates YouTube metadata (title, description with chapters, tags) from session logs
+- **scripts/youtube_upload.py**: Uploads video to YouTube with metadata, thumbnail, playlist; also `--set-privacy` to change listing status
 - **scripts/llm_producer.py**: LLM-powered clip analysis and trailer config generation (subcommands: `clips`, `trailer`)
 - **scripts/generate_manifest.py**: Generates media manifest with provenance for CDN uploads
 - **scripts/cdn_upload.py**: Bunny CDN uploader (single file, directory, stdin, or manifest-based)
@@ -45,11 +44,12 @@ The following have been moved to `tmp/legacy/`:
 - analyze_clips.py - Replaced by `llm_producer.py clips`
 - generate_trailer.py - Replaced by `llm_producer.py trailer`
 - update_website.py - Replaced by `publish_m3tv.py`
+- publish_youtube.py - Merged into `youtube_upload.py --set-privacy`
 
 ## Pipeline Flow
 
 ```
-run_pipeline.sh step 1 (record) → generate_youtube_metadata.py → upload_to_youtube.py
+run_pipeline.sh step 1 (record) → youtube_metadata.py → youtube_upload.py
                                 → llm_producer.py clips → generate_manifest.py → cdn_upload.py
                                 → llm_producer.py trailer → Remotion render → cdn_upload.py
                                 → publish_m3tv.py → Discord/desktop notification

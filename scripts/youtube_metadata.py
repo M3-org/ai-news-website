@@ -9,7 +9,7 @@ This script creates rich YouTube metadata including:
 - Tags extracted from actors and show info
 - Thumbnail handling
 
-Output is a JSON file compatible with upload_to_youtube.py --from-json
+Output is a JSON file compatible with youtube_upload.py --from-json
 """
 
 import argparse
@@ -240,15 +240,15 @@ def main():
         epilog="""
 Examples:
   # Generate metadata with default settings
-  uv run python scripts/generate_youtube_metadata.py episodes/session-log.json
+  uv run python scripts/youtube_metadata.py episodes/session-log.json
 
   # Generate metadata with playlist and custom output
-  uv run python scripts/generate_youtube_metadata.py episodes/session-log.json \\
+  uv run python scripts/youtube_metadata.py episodes/session-log.json \\
     --playlist-id PLxxxxxxx \\
     --output episodes/youtube_metadata.json
 
   # Download thumbnail and set privacy
-  uv run python scripts/generate_youtube_metadata.py episodes/session-log.json \\
+  uv run python scripts/youtube_metadata.py episodes/session-log.json \\
     --download-thumb \\
     --privacy unlisted
 """
@@ -345,7 +345,7 @@ Examples:
             print(f"  Chapters: {len(chapter_lines)}")
 
         print(f"\nTo upload, run:")
-        print(f"  uv run python upload_to_youtube.py --from-json {output_path}")
+        print(f"  uv run python scripts/youtube_upload.py --from-json {output_path}")
 
     except json.JSONDecodeError as e:
         print(f"ERROR: Invalid JSON in session log: {e}")

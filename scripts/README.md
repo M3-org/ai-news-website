@@ -21,13 +21,13 @@ End-to-end pipeline for recording Shmotime episodes, generating trailers, upload
                  ┌─────────────────┼─────────────────┐
                  │                 │                  │
         ┌────────▼───────┐ ┌──────▼───────┐ ┌───────▼──────┐
- Step 2 │  generate_yt   │ │ llm_producer │ │ llm_producer │  Steps 2, 4, 5
-        │  _metadata.py  │ │ .py clips    │ │ .py trailer  │  (can overlap)
+ Step 2 │  youtube_      │ │ llm_producer │ │ llm_producer │  Steps 2, 4, 5
+        │  metadata.py   │ │ .py clips    │ │ .py trailer  │  (can overlap)
         └────────┬───────┘ └──────┬───────┘ └───────┬──────┘
                  │                │                  │
         ┌────────▼───────┐       │         ┌───────▼──────┐
- Step 3 │ upload_to_     │       │  Step 6 │ Remotion     │
-        │ youtube.py     │       │         │ render       │
+ Step 3 │ youtube_       │       │  Step 6 │ Remotion     │
+        │ upload.py      │       │         │ render       │
         └────────┬───────┘       │         └───────┬──────┘
                  │                │                  │
          YouTube URL      clips/ dir        trailers/{date}_trailer.mp4
@@ -108,50 +108,43 @@ node scripts/recorder.js \
 
 ---
 
-### `generate_youtube_metadata.py` — YouTube Metadata Generator
+### `youtube_metadata.py` — YouTube Metadata Generator
 
 Creates YouTube upload metadata (title, description with chapters, tags, thumbnail) from a session log.
 
 ```bash
-python3 scripts/generate_youtube_metadata.py episodes/*_session-log.json
-python3 scripts/generate_youtube_metadata.py episodes/*_session-log.json \
+python3 scripts/youtube_metadata.py episodes/*_session-log.json
+python3 scripts/youtube_metadata.py episodes/*_session-log.json \
     --playlist-id PLxxxx --privacy public --download-thumb
 ```
 
 **Inputs:** `_session-log.json`
-**Outputs:** `_youtube_metadata.json` (compatible with `upload_to_youtube.py --from-json`)
+**Outputs:** `_youtube_metadata.json` (compatible with `youtube_upload.py --from-json`)
 
 ---
 
-### `upload_to_youtube.py` — YouTube Uploader
+### `youtube_upload.py` — YouTube Uploader & Privacy Manager
 
-Uploads video to YouTube with metadata, thumbnail, and optional playlist placement.
+Uploads video to YouTube with metadata, thumbnail, and optional playlist placement. Also supports changing an existing video's privacy/listing status.
 
 ```bash
 # From metadata JSON (preferred)
-python3 scripts/upload_to_youtube.py --from-json episodes/*_youtube_metadata.json
+python3 scripts/youtube_upload.py --from-json episodes/*_youtube_metadata.json
 
 # From session log (generates metadata on-the-fly)
-python3 scripts/upload_to_youtube.py --from-session-log episodes/*_session-log.json
+python3 scripts/youtube_upload.py --from-session-log episodes/*_session-log.json
 
 # Direct arguments
-python3 scripts/upload_to_youtube.py --video-file ep.mp4 --title "Episode" --privacy public
+python3 scripts/youtube_upload.py --video-file ep.mp4 --title "Episode" --privacy-status public
+
+# Change listing status of an existing video (e.g. unlisted -> public)
+python3 scripts/youtube_upload.py --set-privacy VIDEO_ID --privacy-status public
+python3 scripts/youtube_upload.py --from-state episodes/2026-02-08_pipeline_state.json --privacy-status public
 ```
 
 **Inputs:** Video file + metadata (JSON, session-log, or CLI args)
 **Outputs:** Writes `video_id` and `url` back to metadata JSON on success
 **Dependencies:** `google-api-python-client`, `google-auth-oauthlib`
-
----
-
-### `publish_youtube.py` — YouTube Privacy Updater
-
-Changes a video's privacy status (e.g. unlisted -> public).
-
-```bash
-python3 scripts/publish_youtube.py VIDEO_ID
-python3 scripts/publish_youtube.py --from-state episodes/2026-02-08_pipeline_state.json
-```
 
 ---
 
@@ -267,7 +260,7 @@ Copy `.env.example` to `.env` and fill in your values.
 | `BUNNY_STORAGE_PASSWORD` | cdn_upload | Bunny CDN API password |
 | `BUNNY_CDN_URL` | cdn_upload | CDN base URL (e.g., `https://cdn.elizaos.news`) |
 | `BUNNY_STORAGE_HOST` | cdn_upload | Storage host region (default: LA) |
-| `YOUTUBE_PLAYLIST_ID` | upload_to_youtube | Playlist to add uploaded videos to |
+| `YOUTUBE_PLAYLIST_ID` | youtube_upload | Playlist to add uploaded videos to |
 
 YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) are managed separately via `setup_youtube_auth.py`.
 
@@ -278,9 +271,8 @@ ai-news-website/
 ├── scripts/
 │   ├── run_pipeline.sh          # Full orchestrator
 │   ├── recorder.js              # Puppeteer recorder
-│   ├── generate_youtube_metadata.py
-│   ├── upload_to_youtube.py     # YouTube uploader
-│   ├── publish_youtube.py       # YouTube privacy updater
+│   ├── youtube_metadata.py       # YouTube metadata generator
+│   ├── youtube_upload.py        # YouTube uploader + privacy manager
 │   ├── llm_producer.py          # LLM clip analysis + trailer generation
 │   ├── generate_manifest.py
 │   ├── cdn_upload.py
