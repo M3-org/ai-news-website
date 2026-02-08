@@ -365,7 +365,7 @@ step_3_upload_youtube() {
 
     log "Uploading to YouTube from: $(basename "$METADATA_JSON")"
 
-    python3 upload_to_youtube.py --from-json "$METADATA_JSON"
+    python3 scripts/upload_to_youtube.py --from-json "$METADATA_JSON"
 
     # Extract video ID from updated metadata
     if [[ -f "$METADATA_JSON" ]]; then
@@ -395,7 +395,7 @@ step_4_analyze_clips() {
 
     log "Analyzing clips from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/analyze_clips.py "$SESSION_LOG" --extract
+    python3 scripts/llm_producer.py clips "$SESSION_LOG" --extract
 
     log "Clip analysis complete"
 }
@@ -410,7 +410,7 @@ step_5_generate_trailer() {
 
     log "Generating trailer config from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/generate_trailer.py "$SESSION_LOG" --output="$TRAILER_DIR"
+    python3 scripts/llm_producer.py trailer "$SESSION_LOG" --output="$TRAILER_DIR"
 
     # Find the generated config
     local base

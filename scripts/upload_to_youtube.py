@@ -379,13 +379,8 @@ def load_metadata_from_session_log(session_log_file, options=None):
         print(f"ERROR: Session log file not found: {session_log_file}")
         sys.exit(1)
 
-    # Try to import the generate_youtube_metadata module
+    # Try to import the generate_youtube_metadata module (same directory)
     try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        scripts_dir = os.path.join(script_dir, 'scripts')
-        if scripts_dir not in sys.path:
-            sys.path.insert(0, scripts_dir)
-
         from generate_youtube_metadata import generate_metadata
 
         options = options or {}
@@ -419,8 +414,8 @@ def download_thumbnail_from_url(url, output_dir=None, base_name=None):
 
         # Use episodes/thumbnails/ as default directory
         if output_dir is None:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            output_dir = os.path.join(script_dir, 'episodes', 'thumbnails')
+            project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            output_dir = os.path.join(project_dir, 'episodes', 'thumbnails')
 
         os.makedirs(output_dir, exist_ok=True)
 

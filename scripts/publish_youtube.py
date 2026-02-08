@@ -14,8 +14,7 @@ import sys
 from pathlib import Path
 from types import SimpleNamespace
 
-# Reuse existing auth from upload_to_youtube.py
-sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
+# Reuse existing auth from upload_to_youtube.py (same directory)
 from upload_to_youtube import get_authenticated_service
 
 

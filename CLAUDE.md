@@ -12,16 +12,16 @@ This is the **AI News Website** repository for the "Cron Job" AI news show hoste
 - **scripts/run_pipeline.sh**: Full end-to-end pipeline orchestrator — chains all steps with logging, error handling, `--dry-run`, `--from-step=N`, and Discord/desktop notifications. See `scripts/README.md` for details.
 
 ### Core Scripts
-- **scripts/record_cronjob.sh**: Fetches latest episode from Shmotime API and records via `recorder.js`
 - **scripts/recorder.js**: Puppeteer-based episode recorder (captures video + session log with word-level timestamps)
 - **scripts/generate_youtube_metadata.py**: Generates YouTube metadata (title, description with chapters, tags) from session logs
-- **upload_to_youtube.py**: Uploads video to YouTube with metadata, thumbnail, and playlist placement
-- **setup_youtube_auth.py**: One-time YouTube OAuth credential setup
-- **scripts/analyze_clips.py**: LLM-based clip analysis (OpenRouter + Kimi K2.5) with optional ffmpeg extraction
-- **scripts/generate_trailer.py**: LLM-based trailer config generator for Remotion
+- **scripts/upload_to_youtube.py**: Uploads video to YouTube with metadata, thumbnail, and playlist placement
+- **scripts/publish_youtube.py**: Changes a YouTube video's privacy status (e.g. unlisted -> public)
+- **scripts/llm_producer.py**: LLM-powered clip analysis and trailer config generation (subcommands: `clips`, `trailer`)
 - **scripts/generate_manifest.py**: Generates media manifest with provenance for CDN uploads
 - **scripts/cdn_upload.py**: Bunny CDN uploader (single file, directory, stdin, or manifest-based)
-- **scripts/update_website.py**: *(Legacy)* Updates `unity/episodes.json` — replaced by `scripts/publish_m3tv.py` in the pipeline
+- **scripts/publish_m3tv.py**: Updates website with new episode data (pipeline step 8)
+- **scripts/discord_notify.py**: Discord bot notification for pipeline completion
+- **setup_youtube_auth.py**: One-time YouTube OAuth credential setup
 
 ### Website
 - **index.html**: Current placeholder page
@@ -41,14 +41,18 @@ The following have been moved to `tmp/legacy/`:
 - media/ - Visual assets
 - facts/ - Curated news data
 - docs/ - Unity system documentation
+- record_cronjob.sh - Standalone recorder (duplicated in run_pipeline.sh step 1)
+- analyze_clips.py - Replaced by `llm_producer.py clips`
+- generate_trailer.py - Replaced by `llm_producer.py trailer`
+- update_website.py - Replaced by `publish_m3tv.py`
 
 ## Pipeline Flow
 
 ```
-record_cronjob.sh → generate_youtube_metadata.py → upload_to_youtube.py
-                  → analyze_clips.py → generate_manifest.py → cdn_upload.py
-                  → generate_trailer.py → Remotion render → cdn_upload.py
-                  → publish_m3tv.py → Discord/desktop notification
+run_pipeline.sh step 1 (record) → generate_youtube_metadata.py → upload_to_youtube.py
+                                → llm_producer.py clips → generate_manifest.py → cdn_upload.py
+                                → llm_producer.py trailer → Remotion render → cdn_upload.py
+                                → publish_m3tv.py → Discord/desktop notification
 ```
 
 All steps are chained by `scripts/run_pipeline.sh`. See `scripts/README.md` for the full pipeline diagram and script reference.
@@ -66,5 +70,5 @@ The pipeline runs locally via cron (no VPS or GitHub Actions):
 - Legacy content is preserved in `tmp/legacy/` (gitignored)
 - The `unity/` directory preserves the old Unity version website as a self-contained mini-site
 - YouTube upload infrastructure uses OAuth (local credentials via `setup_youtube_auth.py`)
-- LLM steps (clip analysis, trailer generation) use OpenRouter API
+- LLM steps (clip analysis, trailer generation) use OpenRouter API via `llm_producer.py`
 - CDN uploads go to Bunny CDN
