@@ -1,4 +1,3 @@
-Episodes/*/recordings/
 episodes/
 node_modules
 .env
@@ -8,7 +7,6 @@ node_modules
 !media/trailer.mp4
 zips/
 tmp/
-scripts/local_daily_upload.sh
 youtube_credentials.json
 client_secrets.json
 

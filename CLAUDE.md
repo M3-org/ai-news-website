@@ -4,53 +4,67 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the **AI News Website** repository for hosting the AI news show. The repository is being upgraded to a new pipeline. Legacy Unity-based content has been moved to `tmp/legacy/`.
+This is the **AI News Website** repository for the "Cron Job" AI news show hosted on [elizaos.news](https://elizaos.news). The pipeline records Shmotime episodes, generates trailers, uploads to YouTube/CDN, and updates the website.
 
 ## Repository Structure
 
-### Core Scripts (YouTube Upload Infrastructure)
-- **upload_to_youtube.py**: Main YouTube upload script - handles video uploads with metadata
-- **setup_youtube_auth.py**: YouTube OAuth authentication setup - run once to configure credentials
-- **scripts/update_website.py**: Updates episodes.json for the website
-- **scripts/local_daily_upload.sh**: Local workflow for manual episode uploads
+### Pipeline Orchestrator
+- **scripts/run_pipeline.sh**: Full end-to-end pipeline orchestrator — chains all steps with logging, error handling, `--dry-run`, `--from-step=N`, and Discord/desktop notifications. See `scripts/README.md` for details.
+
+### Core Scripts
+- **scripts/record_cronjob.sh**: Fetches latest episode from Shmotime API and records via `recorder.js`
+- **scripts/recorder.js**: Puppeteer-based episode recorder (captures video + session log with word-level timestamps)
+- **scripts/generate_youtube_metadata.py**: Generates YouTube metadata (title, description with chapters, tags) from session logs
+- **upload_to_youtube.py**: Uploads video to YouTube with metadata, thumbnail, and playlist placement
+- **setup_youtube_auth.py**: One-time YouTube OAuth credential setup
+- **scripts/analyze_clips.py**: LLM-based clip analysis (OpenRouter + Kimi K2.5) with optional ffmpeg extraction
+- **scripts/generate_trailer.py**: LLM-based trailer config generator for Remotion
+- **scripts/generate_manifest.py**: Generates media manifest with provenance for CDN uploads
+- **scripts/cdn_upload.py**: Bunny CDN uploader (single file, directory, stdin, or manifest-based)
+- **scripts/update_website.py**: *(Legacy)* Updates `unity/episodes.json` — replaced by `scripts/publish_m3tv.py` in the pipeline
 
 ### Website
-- **index.html**: Current placeholder page (new pipeline coming soon)
-- **unity.html**: Archived Unity version website
+- **index.html**: Current placeholder page
+- **unity/**: Archived Unity show as a self-contained mini-site (`unity/index.html`, `unity/episodes.json`, `unity/ai16z.json`)
 
 ### Configuration
 - **CNAME**: Domain configuration (elizaos.news)
-- **.github/workflows/daily-upload.yml**: GitHub Actions workflow for automated uploads
+- **.env.example**: Environment variable template
+- **scripts/README.md**: Full pipeline documentation with script reference
+
+### Remotion (Trailer Rendering)
+- **remotion/**: React-based video rendering project for trailers (`npx remotion render`)
 
 ### Legacy Content (in tmp/legacy/, gitignored)
-The following have been moved to `tmp/legacy/` for the new pipeline:
+The following have been moved to `tmp/legacy/`:
 - Episodes/ - Historical episode JSON files
 - media/ - Visual assets
 - facts/ - Curated news data
 - docs/ - Unity system documentation
-- episodes.json - Episode index
 
-## Key Scripts
+## Pipeline Flow
 
-### upload_to_youtube.py
-Main upload script that:
-- Uploads videos to YouTube with metadata
-- Handles authentication via OAuth
-- Supports custom titles, descriptions, and thumbnails
+```
+record_cronjob.sh → generate_youtube_metadata.py → upload_to_youtube.py
+                  → analyze_clips.py → generate_manifest.py → cdn_upload.py
+                  → generate_trailer.py → Remotion render → cdn_upload.py
+                  → publish_m3tv.py → Discord/desktop notification
+```
 
-### scripts/local_daily_upload.sh
-Local workflow script for manual uploads when not using the automated pipeline.
+All steps are chained by `scripts/run_pipeline.sh`. See `scripts/README.md` for the full pipeline diagram and script reference.
 
-### scripts/update_website.py
-Updates the episodes.json index file for the website.
+## Automation
 
-## GitHub Actions
+The pipeline runs locally via cron (no VPS or GitHub Actions):
 
-The `daily-upload.yml` workflow SSHs to a remote VPS (`clanktank.tv`) and runs scripts there at `~/scripts/server/`. This repo contains a local reference copy but the active scripts run on the VPS.
+```crontab
+15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
+```
 
 ## Development Notes
 
 - Legacy content is preserved in `tmp/legacy/` (gitignored)
-- The `unity.html` file preserves the old Unity version website
-- New pipeline development is in progress
-- YouTube upload infrastructure remains functional
+- The `unity/` directory preserves the old Unity version website as a self-contained mini-site
+- YouTube upload infrastructure uses OAuth (local credentials via `setup_youtube_auth.py`)
+- LLM steps (clip analysis, trailer generation) use OpenRouter API
+- CDN uploads go to Bunny CDN
