@@ -1,0 +1,323 @@
+<?xml version="1.0" ?>
+<?xml-stylesheet type="text/xsl" href="style.xsl"?>
+<rss xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>elizaOS Daily Intelligence</title>
+    <link>https://elizaos.github.io/knowledge</link>
+    <description>Daily facts and insights from the elizaOS ecosystem</description>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 08 Feb 2026 10:12:38 +0000</lastBuildDate>
+    <ns0:link href="https://elizaos.github.io/knowledge/rss/feed.xml" rel="self" type="application/rss+xml"/>
+    <ns0:link href="https://x.com/elizaos" rel="related" title="@elizaos on X"/>
+    <ns0:link href="https://elizaos.github.io/rss.xml" rel="related" title="GitHub Activity Feed"/>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-08</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-08.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-08.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The community focus shifted toward the launch of Milaidy, a Mac-native AI assistant, while critical login and credit bugs on ElizaCloud were addressed. Strategically, the project is moving from text-heavy prompts toward logic-based synchronization to improve agent efficiency.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;dynamic execution engine (test if context is going to blown) (merged)&lt;/li&gt;
+&lt;li&gt;feat(core): add request context for per-user entity settings (merged)&lt;/li&gt;
+&lt;li&gt;[Agent] Eliza Character File &amp; Prompt Engineering (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Focus was on the Milaidy project's architecture and the strategic debate over branding Eliza-derivative projects vs. maintaining core brand mindshare....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Heavy recruitment of community developers for bug hunting in the Milaidy repository and testing 'next-gen' Eliza software....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sun, 08 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-07</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-07.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-07.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS reached a major milestone with its expansion to Ethereum as a cross-chain platform, while simultaneously launching the production-ready Babylon game for internal testing. However, the ecosystem faces immediate technical challenges with ElizaCloud account fragmentation and a contentious closure of the 90-day token migration window.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (merged)&lt;/li&gt;
+&lt;li&gt;feat(core): add request context for per-user entity settings (merged)&lt;/li&gt;
+&lt;li&gt;[Infra] Telegram Webhook Registration (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Technical focus on ElizaCloud payment and account bugs. Users are being redirected to dev environments, causing balance and credit issues....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Launch and immediate hot-fixing of the Babylon game. Testing centered on profile updates and admin access through ElizaLabs credentials....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Heated debate over the closed token migration window and announcements regarding Ethereum cross-chain expansion....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sat, 07 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-06</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-06.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-06.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The ElizaOS ecosystem is facing critical technical challenges on the ElizaCloud platform alongside community friction regarding the closed 90-day token migration window. Simultaneous development pushes include the internal launch of Babylon.market and the release of Claude Opus 4.6 integration interests.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;[Plugin] Integrate SMS/iMessage (closed)&lt;/li&gt;
+&lt;li&gt;[Domain] Purchase eliza.app Domain (closed)&lt;/li&gt;
+&lt;li&gt;feat!: Dynamic MCP tool actions (v1.8.0) (merged)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Heavy focus on ElizaCloud bugs, specifically account credit failures and the account-overwriting welcome email bug. Discussions also covered VPN-blocked payment pages....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Centrally focused on Babylon.market deployment, fixing broken Discord OAuth and reward systems. Discussion regarding Claude 4.6 release features....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Community tension peaked regarding the closed token migration window. Scams targeting un-migrated users were detected. Updates on DegenAI and RentASoul were shared....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Fri, 06 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-05</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-05.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-05.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS is undergoing a strategic pivot toward revenue-generating products while managing internal team restructuring and technical comparisons with the Openclaw framework. Core development has prioritized OAuth integrations and a version 2.0 framework refresh to improve packaging and developer adoption.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;[Agent] Eliza Character File &amp; Prompt Engineering (open)&lt;/li&gt;
+&lt;li&gt;[Plugin] Integrate SMS/iMessage (closed)&lt;/li&gt;
+&lt;li&gt;feat!: Dynamic MCP tool actions (v1.8.0) (merged)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Technical deep dives into Moltbook's success via heartbeat mechanisms and emotionally manipulative prompts to drive LLM participation. Discussion on ElizaOS 2.0 native skills and autonomous mode defau...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Comparison of ElizaOS business focus vs. Openclaw personal assistant focus. Updates on Babylon.market testing bugs including infinite spinners and network switching issues....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Thu, 05 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-04</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-04.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-04.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The community is approaching the critical February 3rd token migration deadline amidst reports of significant financial losses and technical friction in ElizaCloud's payment infrastructure. Technical efforts focus on multi-layered security for plugin execution and the introduction of the large-scale CICADA-71 distributed AI agent challenge.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;Main eliza repository update (open)&lt;/li&gt;
+&lt;li&gt;[Plugin] Integrate SMS/iMessage (closed)&lt;/li&gt;
+&lt;li&gt;eliza-cloud-v2 update (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Focus on security for plugin-cskills/OpenClaw. Discussion of scanner skills, LLM review for malicious skills, and sandboxing....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Tooling compatibility issues noted for Apple Silicon only apps (Codex). Advice to move development to odi-dev branch....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Wed, 04 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-03</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-03.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-03.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The community is focused on the February 3rd token migration deadline while developers address a 56% failure rate in agent skill invocation using mandatory activation sequences. Strategic shifts prioritize the deployment of Babylon into Trusted Execution Environments (TEE) to capitalize on a projected 3-month hype cycle.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;feat!: Dynamic MCP tool actions (v1.8.0) (merged)&lt;/li&gt;
+&lt;li&gt;[Plugin] Integrate SMS/iMessage (closed)&lt;/li&gt;
+&lt;li&gt;[Domain] Purchase eliza.app Domain (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Technical debate on skill invocation reliability; consensus moved towards mandatory reasoning steps and better documentation via AGENTS.md....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Discussions on making ElizaCloud more accessible to non-technical users and addressing visual consistency bugs in image generation....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Tue, 03 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-02</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-02.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-02.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The ElizaOS ecosystem is navigating a critical transition period marked by the February 3rd token migration deadline and strategic pivot toward the 'Babylon' social agent platform. While technical infrastructure is expanding through GPU training workflows and N8N integrations, community concerns persist regarding ElizaCloud payment friction and team wallet transparency.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;feat!: Dynamic MCP tool actions (v1.8.0) (merged)&lt;/li&gt;
+&lt;li&gt;Monday Launch - Eliza App MVP (open)&lt;/li&gt;
+&lt;li&gt;Corrected installation instructions to use @elizaos/cli (merged)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Focus on the impending February 3rd migration deadline. Users are reporting technical friction with wallet balances, while the team clarifies the VC SAFT status and a dynamic 6-8 month runway....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Discussions on ElizaCloud API friction, specifically the requirement for credit cards on free tiers. Technical debates compared the multi-agent architecture of Eliza to the personal assistant focus of...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Coordination of GPU training deployment using Docker Compose and exploring PageIndex for tree-based RAG systems. Integration of Trendshift badges into the repository README was discussed....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Mon, 02 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-02-01</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-02-01.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-02-01.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS is undergoing a strategic shift to prioritize the 'Babylon' agent social media platform within TEE environments while managing significant community tension regarding token utility and migration transparency. Technical efforts are focused on stabilizing developer onboarding and expanding agent code execution capabilities.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;Fix elizaos create command and pathing (merged)&lt;/li&gt;
+&lt;li&gt;Broker Authentication for Twitter (merged)&lt;/li&gt;
+&lt;li&gt;Code Execution Plugin (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Strategic pivot toward rapid deployment of Babylon as an agent social media platform in TEE to compete with Moltbook and leverage the Claude 5 hype cycle....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Discussion of ElizaCloud server-side bugs and authentication issues with OpenClaw agents. Documentation for A2A protocols was disseminated....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Intense community debate regarding the 40% team token allocation, lack of ElizaCloud token utility, and project transparency....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sun, 01 Feb 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-31</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-31.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-31.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The ElizaOS ecosystem is balancing critical technical stabilization, including fixes for project generation and v2.0 development, against significant community concerns regarding token migration eligibility and financial runway. Strategic integration with the Moltbot/openclaw network is being explored to expand the agent ecosystem into mobile and voice interfaces.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0 (open)&lt;/li&gt;
+&lt;li&gt;Can not generate project (closed)&lt;/li&gt;
+&lt;li&gt;Integrate N8N Workflow Engine (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#partners:&lt;/em&gt; Discussions focused on the 8-month financial runway and the trade-offs between decentralized sovereignty and centralized AI infrastructure security....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Technical comparison between ElizaOS (multi-agent) and Clawdbot (assistant). Discussion on Moltbook integration and mobile/voice interface gaps in Eliza....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Dominated by migration troubleshooting and high-alert security warnings following a user hack. Updates on Jeju staking mechanics using ETH placeholders....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sat, 31 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-30</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-30.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-30.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Error: Failed to generate briefing due to LLM or parsing issues.&lt;/p&gt;</description>
+      <pubDate>Fri, 30 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-29</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-29.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-29.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS has pivoted strongly toward a multi-product strategy and workflow automation platform, integrating n8n as a core engine for AI agent tasks. Technical efforts are concurrently focused on resolving persistent OpenRouter embedding issues and stabilizing the v2.0.0 scoped CLI release.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;fix: update import statement in elizaos.js to use package alias (merged)&lt;/li&gt;
+&lt;li&gt;[Plugin] Integrate N8N Workflow Engine (open)&lt;/li&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#-partners:&lt;/em&gt; Serious legal and structural concerns were raised regarding the 'ClawdBot' FOMO dapp, characterizing it as a potential scam/illegal gambling operation. Discussions shifted to improving the @elizaos Tw...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#-coders:&lt;/em&gt; Troubleshooting centered on OpenRouter embedding failures, MIME_TYPE_MISMATCH errors in SSE streaming (with socket.io recommended as a fix), and the use of 'Composer 1' over Cursor's AUTO mode for dep...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;core-devs:&lt;/em&gt; Development roadmap focused on developer onboarding (Time To Value), n8n workflow integration, and the implementation of MCP for repo activity data....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Thu, 29 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-28</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-28.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-28.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS has initiated a major technical pivot toward a workflow-automation platform integrated with n8n, while simultaneously releasing Eliza v2.0.0 to the npm 'next' tag. Development focus is shifting from hardware to a multi-product strategy including Babylon, Hyperscape, and Eliza Anime to reward long-term holders.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (open)&lt;/li&gt;
+&lt;li&gt;fix(v2.0.0): Python example testing &amp; fixes (merged)&lt;/li&gt;
+&lt;li&gt;Can not generate project (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Strategic pivot from hardware development to an AI agent platform focused on n8n workflow automation for non-technical users....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Resolution of Knowledge plugin cost issues and configuration errors related to 'openrouter' embedding providers....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Ongoing talks regarding the Babylon airdrop for ElizaOS holders and mapping human decision patterns to trading agent logic....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Wed, 28 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-27</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-27.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-27.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Core developers returned from medical leave as the project shifted focus toward infrastructure stability and plugin integration for Eliza V2.0.0. Simultaneously, significant community tension persisted regarding the launch of ecosystem tokens and $ELIZAOS token price performance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;fix: update import statement in elizaos.js to use package alias (merged)&lt;/li&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (open)&lt;/li&gt;
+&lt;li&gt;Opus - pro and Ultra - sonnet? Is this right? (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#partners:&lt;/em&gt; Exploration of integrating Eliza into the Seeker phone DApp store as a premiere AI assistant using a Claude-bot style interface....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Technical troubleshooting of plugin callback behaviors and investigation into the recovery of 481K lines of unreleased code found in old branches....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Heated debate over the $ELIZAOS token reaching all-time lows and community backlash regarding 'gold' token launches for ecosystem projects like Hyperscape....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Tue, 27 Jan 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.elizaos.news/elizaos-media/embed-thumbnail-1465478301735977165_e437797f.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-26</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-26.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-26.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Error: Failed to generate briefing due to LLM or parsing issues.&lt;/p&gt;</description>
+      <pubDate>Mon, 26 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-25</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-25.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-25.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The project is navigating significant internal tension regarding ecosystem tokenomics and funding for independent projects like Hyperscape, while simultaneously advancing technical foundations for Eliza V2.0.0 and DaVinci Resolve AI integration. Core leadership is balancing resource constraints and a 20 million market cap against community demands for more direct $elizaos token utility.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0 (open)&lt;/li&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (open)&lt;/li&gt;
+&lt;li&gt;feat(v2.0.0): wasm agent runtime (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#partners:&lt;/em&gt; Critical debate regarding 'GOLD' token launch for Hyperscape. Core team cites 8-month runway and budget constraints as reason for separate funding, while partners argue it dilutes $elizaos value....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Focus on DaVinci Resolve MCP integration and resolving CLI migration errors during the 1.6.5 to 1.7.2 transition....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Dominated by scam alerts regarding fake ai16z-to-elizaOS migrations and speculation on ecosystem token distributions....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sun, 25 Jan 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.elizaos.news/elizaos-media/embed-image-1464749143346905189_53a93717.jpg" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-24</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-24.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-24.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; The discord community is heavily focused on the controversial GOLD token launch and insider trading allegations, while technical development shifts toward the elizaOS V2.0.0 dynamic execution engine and new plugin integrations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0: dynamic execution engine (open)&lt;/li&gt;
+&lt;li&gt;feat(v2.0.0): wasm agent runtime (open)&lt;/li&gt;
+&lt;li&gt;Eligibility Mismatch &amp; Snapshot Bug - Tangem Hardware Wallet (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Focused on GOLD token controversy, specifically allegations of insider trading and a 40% dev wallet. Community expressed frustration over project prioritization and monetization transparency....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Resolution of Discord plugin v1.3.8 issues and the release of the Sportradar integration. Discussion on building prediction agents similar to Polymarket using multi-AI competition models....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#partners:&lt;/em&gt; Strategic discussions regarding tax-efficient airdrop mechanisms using buy-and-burn smart contracts and the sunset timeline for Hyperfy legacy hosting....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sat, 24 Jan 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.elizaos.news/elizaos-media/opengraph-image-m75hzs-f33d24f02bd25c41_47339e1c.jpg" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-23</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-23.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-23.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Error: Failed to generate briefing due to LLM or parsing issues.&lt;/p&gt;</description>
+      <pubDate>Fri, 23 Jan 2026 12:00:00 +0000</pubDate>
+      <enclosure url="https://cdn.elizaos.news/elizaos-media/embed-image-1463836331242426432_00aa084c.jpg" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-20</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-20.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-20.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; ElizaOS released version 1.7.2 focusing on stability and streaming reliability, while core development shifted toward a Rust-based v2.0.0 and WASM compatibility. Community discussions centered on AI-powered moderation systems and market liquidity cycles.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;V2.0.0 (open)&lt;/li&gt;
+&lt;li&gt;feat(v2.0.0): wasm agent runtime (open)&lt;/li&gt;
+&lt;li&gt;dashboard usability bug: clicking outside input box (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Community discussed Quantitative Easing cycles and their positive historical impact on crypto microcaps, alongside concerns over long-term token sustainability....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Demonstration of 'Solimp', an Eliza-based Telegram moderation bot using exponential mutes to manage spam. Discussion also covered the 'jintern' revival and development of RAG systems using the knowled...&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Technical review of PR #6286 focused on refining 'ensureEntities' logic into batch processing rather than individual calls to optimize runtime performance....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Tue, 20 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-19</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-19.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-19.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Core development remains focused on the v2.0.0 Rust/TypeScript transition and significant database refactoring, while the community faces anxiety regarding token utility, budget constraints, and price manipulation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;refactor(plugin-sql): extract domain stores from BaseDrizzleAdapter (merged)&lt;/li&gt;
+&lt;li&gt;feat(v2.0.0): wasm agent runtime (open)&lt;/li&gt;
+&lt;li&gt;Reflection evaluator fails with 'Entity not found' (closed)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#core-devs:&lt;/em&gt; Initiative launched to optimize technical documentation specifically for AI agent consumption using kapa.ai's best practices....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Deep concerns regarding token performance and utility; debate on the future of AI-integrated prediction markets....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Mon, 19 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>elizaOS Intelligence: 2026-01-18</title>
+      <link>https://elizaos.github.io/knowledge/the-council/facts/2026-01-18.json</link>
+      <guid>https://elizaos.github.io/knowledge/the-council/facts/2026-01-18.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Summary:&lt;/strong&gt; Development shifted towards ElizaOS v2.0.0 with significant infrastructure refactoring, alongside the successful implementation of Eliza on the Internet Computer Protocol (ICP). Community attention is currently focused on the February 4th token migration deadline and technical hurdles in prediction market integrations.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;GitHub Activity:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;refactor(plugin-sql): extract domain stores from BaseDrizzleAdapter (merged)&lt;/li&gt;
+&lt;li&gt;V2.0.0 (open)&lt;/li&gt;
+&lt;li&gt;USE_OPENAI_EMBEDDING setting not respected (open)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Community Highlights:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;#discussion:&lt;/em&gt; Debates on the validity of AI prediction markets and proposals for holder rewards tied to agent creation....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#coders:&lt;/em&gt; Technical deep dive into high-performance trading systems using Rust and NATS Jetstream; troubleshooting Cloudflare 403 blocks on Polymarket CLOB APIs....&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;#partners:&lt;/em&gt; Discussion of the Jeju decentralized compute network and its potential use for asynchronous autonomous agents....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Sun, 18 Jan 2026 12:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>

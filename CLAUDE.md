@@ -65,6 +65,66 @@ The pipeline runs locally via cron (no VPS or GitHub Actions):
 15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
 ```
 
+## Print Media Pipeline (Posters & Dashboards)
+
+This repo is also the **media production layer** for elizaOS content. The knowledge repo provides data; this repo generates visual media from it.
+
+### Knowledge Symlink
+- `knowledge -> /home/jin/repo/knowledge` (symlink at repo root)
+- Scripts read data from `knowledge/the-council/facts/`, `knowledge/the-council/council_briefing/`, etc.
+- Set `KNOWLEDGE_ROOT` env var to override the symlink path
+
+### Poster/Illustration Generation
+- **scripts/posters/illustrate.py**: Main illustration pipeline - generates editorial posters from daily facts
+- **scripts/posters/illustrate-adaptive.py**: LLM-first format-agnostic illustration pipeline
+- **scripts/posters/scene_director.py**: Scene director pipeline for multi-image editorial narratives
+- **scripts/posters/create-entity-icons.py**: Entity icon generation with CoinGecko integration
+- **scripts/posters/create-tag-icons.py**: Tag icon generation
+- **scripts/posters/validate-illustrations.py**: Vision-based illustration validation
+- **scripts/posters/character-analyze.py**: Character reference sheet analysis
+- **scripts/posters/character-reference.py**: Character reference sheet generation
+- **scripts/posters/test-all-scripts.py**: Comprehensive test runner for all poster scripts
+- **scripts/posters/config/**: Style presets and character configurations
+- **scripts/posters/characters/**: Character reference sheets and assets (~94MB)
+- **scripts/posters/assets/**: Fonts, logos, templates, entity icon inventory
+
+### RSS & CDN
+- **scripts/generate-rss.py**: RSS feed generation from knowledge data (facts + council briefings)
+- **scripts/cdn/upload.py**: Bunny CDN uploader for media files
+- **rss/**: Generated RSS feeds (feed.xml, council.xml, style.xsl)
+
+### Dashboards & Viewers
+- **dashboards/media-studio.html**: Hub page for all media tools
+- **dashboards/facts.html** + **facts.css**: Facts data dashboard (API-driven)
+- **dashboards/council.html** + **council.css**: Council briefing dashboard (API-driven)
+- **dashboards/gallery.html**: Poster gallery viewer
+- **dashboards/facts-viewer.html**: Magazine-style facts viewer with CDN images
+- **dashboards/validation-viewer.html**: AI validation report viewer
+- **dashboards/lib/data-loader.js**: Unified data loading library (fetches from knowledge API)
+- **dashboards/lib/design-tokens.css**: Design system tokens
+
+### Media Output
+- **media/daily/**: Generated poster output organized by date (YYYY-MM-DD/)
+- Generated posters stay in this repo, not pushed back to knowledge
+
+### Path Resolution
+Scripts use two root paths:
+- `WORKSPACE_ROOT` = ai-news-website root (for output: media/, rss/)
+- `KNOWLEDGE_ROOT` = knowledge repo (for input: the-council/, hackmd/, ai-news/)
+- `SCRIPT_DIR` = scripts/posters/ (for assets: characters/, config/)
+
+```bash
+# Generate posters from facts
+uv run python scripts/posters/illustrate.py -f knowledge/the-council/facts/2026-02-08.json --batch
+
+# Generate RSS feeds
+uv run python scripts/generate-rss.py
+
+# Serve dashboards locally
+python -m http.server 8080
+# Browser: http://localhost:8080/dashboards/media-studio.html
+```
+
 ## Development Notes
 
 - Legacy content is preserved in `tmp/legacy/` (gitignored)
@@ -72,3 +132,4 @@ The pipeline runs locally via cron (no VPS or GitHub Actions):
 - YouTube upload infrastructure uses OAuth (local credentials via `setup_youtube_auth.py`)
 - LLM steps (clip analysis, trailer generation) use OpenRouter API via `llm_producer.py`
 - CDN uploads go to Bunny CDN
+- Print media scripts use OpenRouter API via `OPENROUTER_API_KEY` env var

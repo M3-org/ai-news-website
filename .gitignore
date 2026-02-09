@@ -17,3 +17,9 @@ __pycache__/
 
 # Logs
 logs/
+
+# Generated poster output (large, regenerated daily)
+media/daily/
+
+# Knowledge symlink (local dev only)
+knowledge

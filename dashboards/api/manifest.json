@@ -1,0 +1,232 @@
+{
+  "version": "1.0.0",
+  "generated_at": "2026-01-20T22:49:04.229575+00:00",
+  "latest": {
+    "facts": "2026-01-14",
+    "council_briefing": "2026-01-15",
+    "aggregated": "2026-01-15",
+    "github_week": "2026-01-11",
+    "github_day": "2026-01-14",
+    "github_month": "2026-01",
+    "ai_news_json": "2026-01-14",
+    "ai_news_md": "temp",
+    "daily_silk": "README",
+    "hackmd_facts": "2026-01-14",
+    "help_reports": "2025-12-report",
+    "retros_monthly": "2025-12-retro",
+    "retros_quarterly": "2025-Q4-summary"
+  },
+  "data_sources": {
+    "facts": {
+      "path_template": "the-council/facts/{date}.json",
+      "signal_value": "VERY HIGH",
+      "description": "LLM-extracted daily insights with categorization and sentiment",
+      "update_frequency": "daily",
+      "use_case": "Primary dashboard briefing, key facts display",
+      "file_count": 368,
+      "size_mb": 4.01
+    },
+    "council_briefing": {
+      "path_template": "the-council/council_briefing/{date}.json",
+      "signal_value": "HIGH",
+      "description": "Strategic deliberation briefings with multi-choice questions",
+      "update_frequency": "daily",
+      "use_case": "Strategic insights, council questions",
+      "file_count": 375,
+      "size_mb": 5.52
+    },
+    "aggregated": {
+      "path_template": "the-council/aggregated/{date}.json",
+      "signal_value": "LOW",
+      "description": "Raw combined data from all sources (large files)",
+      "update_frequency": "daily",
+      "use_case": "Debugging, raw data access (not for dashboards)",
+      "file_count": 458,
+      "size_mb": 88.95
+    },
+    "github_week": {
+      "path_template": "github/stats/week/{date}.json",
+      "signal_value": "VERY HIGH",
+      "description": "Weekly GitHub statistics (most stable for dashboards)",
+      "update_frequency": "weekly",
+      "use_case": "Primary KPI cards, contributor leaderboards",
+      "file_count": 81,
+      "size_mb": 2.79
+    },
+    "github_day": {
+      "path_template": "github/stats/day/{date}.json",
+      "signal_value": "MEDIUM",
+      "description": "Daily GitHub statistics (may have gaps on weekends)",
+      "update_frequency": "daily",
+      "use_case": "Activity trend charts, recent activity feeds",
+      "file_count": 563,
+      "size_mb": 6.21
+    },
+    "github_month": {
+      "path_template": "github/stats/month/{date}.json",
+      "signal_value": "MEDIUM",
+      "description": "Monthly GitHub statistics (aggregated rollups)",
+      "update_frequency": "monthly",
+      "use_case": "Historical trends, month selector",
+      "file_count": 19,
+      "size_mb": 1.84
+    },
+    "ai_news_json": {
+      "path_template": "ai-news/elizaos/json/{date}.json",
+      "signal_value": "HIGH",
+      "description": "Multi-source AI news aggregation (1,640+ files)",
+      "update_frequency": "daily",
+      "use_case": "News feed widget, media gallery",
+      "file_count": 437,
+      "size_mb": 4.25
+    },
+    "ai_news_md": {
+      "path_template": "ai-news/elizaos/md/{date}.md",
+      "signal_value": "MEDIUM",
+      "description": "Markdown-formatted AI news summaries",
+      "update_frequency": "daily",
+      "use_case": "Human-readable news display",
+      "file_count": 433,
+      "size_mb": 1.24
+    },
+    "daily_silk": {
+      "path_template": "daily-silk/{date}.md",
+      "signal_value": "MEDIUM",
+      "description": "Discord AI news collection (25,000+ lines)",
+      "update_frequency": "daily",
+      "use_case": "Community pulse, Discord highlights",
+      "file_count": 297,
+      "size_mb": 3.2
+    },
+    "hackmd_facts": {
+      "path_template": "hackmd/facts/{date}.md",
+      "signal_value": "MEDIUM",
+      "description": "HackMD-formatted daily facts",
+      "update_frequency": "daily",
+      "use_case": "External publishing, backups",
+      "file_count": 359,
+      "size_mb": 2.24
+    },
+    "help_reports": {
+      "path_template": "the-council/help-reports/{date}.json",
+      "signal_value": "HIGH",
+      "description": "Monthly community help interaction analysis",
+      "update_frequency": "monthly",
+      "use_case": "Community health metrics, helper leaderboards",
+      "file_count": 12,
+      "size_mb": 1.78
+    },
+    "retros_monthly": {
+      "path_template": "the-council/retros/{date}.json",
+      "signal_value": "VERY HIGH",
+      "description": "Monthly retrospective analysis",
+      "update_frequency": "monthly",
+      "use_case": "Strategic insights, persistent challenges",
+      "file_count": 12,
+      "size_mb": 0.25
+    },
+    "retros_quarterly": {
+      "path_template": "the-council/retros/{date}.json",
+      "signal_value": "VERY HIGH",
+      "description": "Quarterly summary analysis",
+      "update_frequency": "quarterly",
+      "use_case": "Long-term trends, achievement highlights",
+      "file_count": 4,
+      "size_mb": 0.25
+    }
+  },
+  "data_health": {
+    "last_successful_run": "2026-01-20T22:49:04.229580+00:00",
+    "facts_count": 368,
+    "council_briefing_count": 375,
+    "aggregated_count": 458,
+    "github_week_count": 81,
+    "github_day_count": 563,
+    "github_month_count": 19,
+    "ai_news_json_count": 437,
+    "ai_news_md_count": 433,
+    "daily_silk_count": 297,
+    "hackmd_facts_count": 359,
+    "help_reports_count": 12,
+    "retros_monthly_count": 12,
+    "retros_quarterly_count": 4
+  },
+  "available_months": {
+    "github_month": [
+      "2026-01",
+      "2025-12",
+      "2025-11",
+      "2025-10",
+      "2025-09",
+      "2025-08",
+      "2025-07",
+      "2025-06",
+      "2025-05",
+      "2025-04",
+      "2025-03",
+      "2025-02",
+      "2025-01",
+      "2024-12",
+      "2024-11",
+      "2024-10",
+      "2024-09",
+      "2024-08",
+      "2024-07"
+    ],
+    "help_reports": [
+      "2025-12",
+      "2025-11",
+      "2025-10",
+      "2025-09",
+      "2025-08",
+      "2025-07",
+      "2025-06",
+      "2025-05",
+      "2025-04",
+      "2025-03",
+      "2025-02",
+      "2025-01"
+    ],
+    "retros_monthly": [
+      "2025-12",
+      "2025-11",
+      "2025-10",
+      "2025-09",
+      "2025-08",
+      "2025-07",
+      "2025-06",
+      "2025-05",
+      "2025-04",
+      "2025-03",
+      "2025-02",
+      "2025-01"
+    ],
+    "retros_quarterly": [
+      "2025-Q4",
+      "2025-Q3",
+      "2025-Q2",
+      "2025-Q1"
+    ],
+    "github": [
+      "2026-01",
+      "2025-12",
+      "2025-11",
+      "2025-10",
+      "2025-09",
+      "2025-08",
+      "2025-07",
+      "2025-06",
+      "2025-05",
+      "2025-04",
+      "2025-03",
+      "2025-02",
+      "2025-01",
+      "2024-12",
+      "2024-11",
+      "2024-10",
+      "2024-09",
+      "2024-08",
+      "2024-07"
+    ]
+  }
+}

@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The ElizaOS Daily</title>
+  <link rel="stylesheet" href="facts15.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <script src="lib/data-loader.js"></script>
+</head>
+<body>
+  <div class="container">
+    <!-- Masthead -->
+    <div class="masthead">
+      <h1 class="newspaper-title">Eliza Times</h1>
+      <div class="date-nav">
+        <button class="nav-btn" id="prev-btn" title="Previous day (←)">←</button>
+        <input type="date" class="date-input" id="date-picker" title="Select date">
+        <button class="nav-btn" id="next-btn" title="Next day (→)">→</button>
+      </div>
+    </div>
+
+
+    <!-- Lead Story (Daily Brief with Hero) -->
+    <div id="lead-story-container"></div>
+
+    <!-- Strategic Focus (hidden, DRY with daily brief) -->
+    <div id="strategic-focus-container"></div>
+
+    <!-- Main Grid: Key Developments + Open Questions -->
+    <div class="main-grid">
+      <!-- Left Column: Key Facts -->
+      <div class="facts-section">
+        <h2 class="section-header">Today's Key Developments</h2>
+        <div id="facts-container"></div>
+      </div>
+
+      <!-- Right Sidebar: Daily AI News -->
+      <aside class="questions-sidebar">
+        <h3 class="sidebar-title">Daily AI News</h3>
+        <div id="daily-ai-news-container"></div>
+      </aside>
+    </div>
+
+    <!-- Opinion Section merged with Council Deliberation below -->
+
+    <!-- Grouped Sections: Community + Strategy -->
+    <div class="grouped-sections">
+      <div id="community-section" class="section-column"></div>
+      <div id="strategy-section" class="section-column"></div>
+    </div>
+
+    <!-- Council Section (Opinion + Deliberation) -->
+    <div id="council-section"></div>
+
+    <!-- Development Section with Stats -->
+    <div class="development-grid">
+      <div id="development-section"></div>
+      <div id="github-stats-section"></div>
+    </div>
+
+    <!-- Full Stories Section (AI News Integration) -->
+    <div id="full-stories-container"></div>
+  </div>
+
+  <script>
+    let currentDate = null;
+
+    // URL query param helpers
+    function getDateFromURL() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('date');
+    }
+
+    function updateURL(date) {
+      const url = new URL(window.location);
+      url.searchParams.set('date', date);
+      window.history.pushState({}, '', url);
+    }
+
+    function isValidDate(dateString) {
+      const date = new Date(dateString);
+      return date instanceof Date && !isNaN(date);
+    }
+
+    // Initialize
+    async function init() {
+      const manifest = await ElizaData.init();
+
+      // Check URL for date, fallback to latest
+      const urlDate = getDateFromURL();
+      currentDate = urlDate && isValidDate(urlDate) ? urlDate : manifest.latest.facts;
+
+      // Set up date picker
+      const picker = document.getElementById('date-picker');
+      picker.value = currentDate;
+      picker.max = manifest.latest.facts;
+
+      // Load initial facts and update URL
+      await loadFacts(currentDate);
+      updateURL(currentDate);
+
+      // Set up event listeners
+      setupEventListeners();
+    }
+
+    function setupEventListeners() {
+      const picker = document.getElementById('date-picker');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+
+      picker.addEventListener('change', async (e) => {
+        currentDate = e.target.value;
+        await loadFacts(currentDate);
+      });
+
+      prevBtn.addEventListener('click', () => navigateDate(-1));
+      nextBtn.addEventListener('click', () => navigateDate(1));
+
+      document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT') return;
+
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          navigateDate(-1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          navigateDate(1);
+        }
+      });
+    }
+
+    async function navigateDate(days) {
+      const date = new Date(currentDate);
+      date.setDate(date.getDate() + days);
+
+      const newDate = date.toISOString().split('T')[0];
+      const picker = document.getElementById('date-picker');
+
+      if (newDate > picker.max) return;
+
+      currentDate = newDate;
+      picker.value = newDate;
+
+      await loadFacts(currentDate);
+      updateURL(currentDate);  // Update URL on navigation
+    }
+
+    async function loadFacts(date) {
+      try {
+        const facts = await ElizaData._fetch(`/the-council/facts/${date}.json`);
+
+        // Try to load council briefing (may not exist for all dates)
+        let councilBriefing = null;
+        try {
+          councilBriefing = await ElizaData._fetch(`/the-council/council_briefing/${date}.json`);
+        } catch (e) {
+          console.log('No council briefing for', date);
+        }
+
+        // Try to load AI news (may not exist for all dates)
+        let aiNews = null;
+        try {
+          aiNews = await ElizaData._fetch(`/ai-news/elizaos/json/${date}.json`);
+        } catch (e) {
+          console.log('No AI news for', date);
+        }
+
+        // Try to load GitHub stats (may not exist for all dates)
+        let githubStats = null;
+        try {
+          githubStats = await ElizaData._fetch(`/github/stats/day/stats_${date}.json`);
+        } catch (e) {
+          console.log('No GitHub stats for', date);
+        }
+
+        // Try to load highlights (may not exist for all dates)
+        let highlights = null;
+        try {
+          highlights = await ElizaData._fetch(`/the-council/highlights/${date}.json`);
+        } catch (e) {
+          console.log('No highlights for', date);
+        }
+
+        // Update date display
+        updateDateDisplay(date);
+
+        // Update navigation buttons
+        updateNavButtons();
+
+        // Render sections
+        renderLeadStory(facts.overall_summary, facts.tags?.sentiment, date);
+        renderStrategicFocus(councilBriefing, date);
+        renderKeyFacts(facts.key_facts);
+        renderDailySilk(date);
+        renderGroupedSections(facts.categories, councilBriefing, date, facts.images, facts.videos, githubStats);
+        renderCouncilSection(highlights, councilBriefing, date);
+        renderFullStories(aiNews, date);
+
+      } catch (error) {
+        console.error('Failed to load facts:', error);
+        document.getElementById('lead-story-container').innerHTML = `
+          <div class="error">
+            <p><strong>Failed to load facts for ${date}</strong></p>
+            <p style="margin-top: 0.5rem; font-size: 0.875rem;">${ElizaData.escapeHtml(error.message)}</p>
+          </div>
+        `;
+      }
+    }
+
+    function updateDateDisplay(dateStr) {
+      // Date display removed from UI
+    }
+
+    function updateNavButtons() {
+      const picker = document.getElementById('date-picker');
+      const nextBtn = document.getElementById('next-btn');
+      nextBtn.disabled = currentDate >= picker.max;
+    }
+
+    function renderLeadStory(summary, sentiment, date) {
+      const container = document.getElementById('lead-story-container');
+      const sentimentBadge = sentiment?.overall ? `<span class="badge badge-${sentiment.overall}">${sentiment.overall}</span>` : '';
+
+      // Extract first sentence for compact brief
+      const firstSentence = summary?.match(/^[^.!?]+[.!?]/)?.[0] || summary?.substring(0, 150) + '...' || 'Intelligence briefing for today';
+
+      // Add hero image
+      const heroImage = `../media/daily/${date}/overall.png`;
+
+      container.innerHTML = `
+        <article class="daily-brief">
+          <div class="lead-image-container">
+            <img src="${heroImage}" alt="Daily briefing illustration" loading="eager" onerror="this.style.display='none'">
+          </div>
+          <div class="brief-label">
+            Daily Brief
+            ${sentimentBadge}
+          </div>
+          <p class="brief-text">${ElizaData.escapeHtml(firstSentence)}</p>
+          <details class="brief-expand">
+            <summary>Read full summary</summary>
+            <p class="brief-full">${ElizaData.escapeHtml(summary)}</p>
+          </details>
+        </article>
+      `;
+    }
+
+    function renderKeyFacts(facts) {
+      if (!facts || facts.length === 0) return;
+
+      const container = document.getElementById('facts-container');
+      // Limit to top 5 most actionable developments
+      const topFacts = facts.slice(0, 5);
+      container.innerHTML = topFacts.map((fact, index) => `
+        <article class="fact-item">
+          <div class="fact-headline">${extractHeadline(fact)}</div>
+        </article>
+      `).join('');
+    }
+
+    function extractHeadline(fact) {
+      return ElizaData.escapeHtml(fact);
+    }
+
+    async function renderDailySilk(date) {
+      const sidebar = document.querySelector('.questions-sidebar');
+      const container = document.getElementById('daily-ai-news-container');
+      const mainGrid = document.querySelector('.main-grid');
+      const factsSection = document.querySelector('.facts-section');
+
+      try {
+        const dailySilk = await ElizaData._fetch(`/daily-silk/${date}.md`);
+
+        // Parse markdown and extract bullet points
+        const lines = dailySilk.split('\n');
+        const bullets = lines
+          .filter(line => line.trim().startsWith('-') || line.trim().startsWith('*'))
+          .map(line => line.replace(/^[\s-*]+/, '').trim())
+          .filter(line => line.length > 0)
+          .slice(0, 8); // Limit to 8 items
+
+        if (bullets.length > 0) {
+          sidebar.style.display = 'block';
+          factsSection.style.gridColumn = '1 / 9'; // Default: 8 columns
+          container.innerHTML = bullets.map(item => `
+            <div class="question-item">${ElizaData.escapeHtml(item)}</div>
+          `).join('');
+        } else {
+          // Hide sidebar and expand facts section
+          sidebar.style.display = 'none';
+          factsSection.style.gridColumn = '1 / -1'; // Full width
+        }
+      } catch (e) {
+        console.log('No daily-silk for', date);
+        // Hide sidebar and expand facts section
+        sidebar.style.display = 'none';
+        factsSection.style.gridColumn = '1 / -1'; // Full width
+      }
+    }
+
+    function renderStrategicFocus(councilBriefing, date) {
+      const container = document.getElementById('strategic-focus-container');
+      // Hide strategic focus since it duplicates the daily brief
+      // The daily brief with hero image provides better visual hierarchy
+      container.innerHTML = '';
+    }
+
+    function renderHighlights(highlights, date) {
+      const container = document.getElementById('highlights-container');
+
+      if (!highlights || !highlights.highlights || highlights.highlights.length === 0) {
+        // Show quiet day message if summary exists
+        if (highlights?.summary) {
+          container.innerHTML = `
+            <div class="highlights-section">
+              <h2 class="section-header" style="text-align: center; margin-bottom: 1rem;">Council Highlights</h2>
+              <div class="quiet-day">
+                <p style="text-align: center; color: #666; font-style: italic;">${ElizaData.escapeHtml(highlights.summary)}</p>
+              </div>
+            </div>
+          `;
+        } else {
+          container.innerHTML = '';
+        }
+        return;
+      }
+
+      // Character info with profile images
+      const characterProfiles = {
+        eliza: '../scripts/posters/characters/eliza/1.png',
+        shaw: '../scripts/posters/characters/shaw/1.png',
+        marc: '../scripts/posters/characters/marc/1.png',
+        spartan: '../scripts/posters/characters/spartan/1.png',
+        peepo: '../scripts/posters/characters/peepo/1.png'
+      };
+
+      const characterInfo = {
+        eliza: { name: 'Eliza', title: 'Moderator', color: '#6B46C1' },
+        shaw: { name: 'AI Shaw', title: 'Technical', color: '#2563EB' },
+        marc: { name: 'AI Marc', title: 'Strategy', color: '#DC2626' },
+        spartan: { name: 'Degen Spartan AI', title: 'Markets', color: '#CA8A04' },
+        peepo: { name: 'Peepo', title: 'Community', color: '#16A34A' }
+      };
+
+      // Limit to 3 highlights on homepage
+      const displayHighlights = highlights.highlights.slice(0, 3);
+      const hasMore = highlights.highlights.length > 3;
+
+      const highlightsHtml = displayHighlights.map((h, index) => {
+        const char = characterInfo[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
+        const profileImg = characterProfiles[h.character] || '';
+        const firstPara = h.body.split('\n')[0];
+
+        return `
+          <article class="highlight-card">
+            <div class="highlight-meta">
+              ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="profile-pic">` : ''}
+              <div class="byline-info">
+                <div class="author-name">${char.name}</div>
+                <div class="author-title">${char.title}</div>
+              </div>
+            </div>
+
+            <h3 class="highlight-title">${ElizaData.escapeHtml(h.headline)}</h3>
+
+            <p class="highlight-excerpt">${ElizaData.escapeHtml(firstPara)}</p>
+
+            <details class="read-more">
+              <summary>Read full analysis</summary>
+              <div class="full-analysis">${ElizaData.escapeHtml(h.body).replace(/\n/g, '<br><br>')}</div>
+              ${h.sources && h.sources.length > 0 ? `
+                <div class="highlight-sources">
+                  <span class="sources-label">Sources:</span>
+                  ${h.sources.map(s => `<span class="source-tag">${ElizaData.escapeHtml(s)}</span>`).join(' ')}
+                </div>
+              ` : ''}
+            </details>
+          </article>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div class="highlights-section">
+          <h2 class="section-header">
+            Opinion
+            <span style="font-size: 0.75rem; font-weight: normal; color: #666; display: block; margin-top: 0.5rem;">
+              Council columnists
+            </span>
+          </h2>
+          <div class="highlights-grid">
+            ${highlightsHtml}
+          </div>
+          ${hasMore ? `
+            <div class="more-highlights">
+              <a href="#" class="more-link">More from the Council →</a>
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function renderCouncilSection(highlights, councilBriefing, date) {
+      const container = document.getElementById('council-section');
+      let html = '<h2 class="section-title">The Council</h2>';
+
+      // Character info for highlights
+      const characterProfiles = {
+        eliza: '../scripts/posters/characters/eliza/1.png',
+        shaw: '../scripts/posters/characters/shaw/1.png',
+        marc: '../scripts/posters/characters/marc/1.png',
+        spartan: '../scripts/posters/characters/spartan/1.png',
+        peepo: '../scripts/posters/characters/peepo/1.png'
+      };
+
+      const characterInfo = {
+        eliza: { name: 'Eliza', title: 'Moderator', color: '#6B46C1' },
+        shaw: { name: 'AI Shaw', title: 'Technical', color: '#2563EB' },
+        marc: { name: 'AI Marc', title: 'Strategy', color: '#DC2626' },
+        spartan: { name: 'Degen Spartan AI', title: 'Markets', color: '#CA8A04' },
+        peepo: { name: 'Peepo', title: 'Community', color: '#16A34A' }
+      };
+
+      // Create two-column layout: Deliberation (left) + Columnists (right)
+      let deliberationHtml = '';
+      let columnistsHtml = '';
+
+      // Render deliberation topics if available
+      if (councilBriefing?.key_points?.length > 0) {
+        deliberationHtml = `
+          <div class="council-deliberation-column">
+            <h3 class="section-subtitle">Deliberation</h3>
+            ${renderDeliberationTopics(councilBriefing.key_points)}
+          </div>
+        `;
+      }
+
+      // Render columnists (Opinion) if available
+      if (highlights?.highlights?.length > 0) {
+        const displayHighlights = highlights.highlights.slice(0, 3);
+        const hasMore = highlights.highlights.length > 3;
+
+        const columnistsCards = displayHighlights.map((h, index) => {
+          const char = characterInfo[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
+          const profileImg = characterProfiles[h.character] || '';
+          const firstPara = h.body.split('\n')[0];
+
+          return `
+            <article class="columnist-card">
+              <div class="columnist-header">
+                <div class="columnist-text">
+                  <div class="columnist-name">${char.name}</div>
+                  <div class="columnist-title">${char.title}</div>
+                </div>
+                ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="columnist-pic">` : ''}
+              </div>
+
+              <h4 class="columnist-headline">${ElizaData.escapeHtml(h.headline)}</h4>
+            </article>
+          `;
+        }).join('');
+
+        columnistsHtml = `
+          <div class="council-columnists-column">
+            <h3 class="section-subtitle">Columnists</h3>
+            <div class="columnists-stack">
+              ${columnistsCards}
+            </div>
+          </div>
+        `;
+      }
+
+      html += `<div class="council-grid">${deliberationHtml}${columnistsHtml}</div>`;
+
+      container.innerHTML = html;
+    }
+
+    function renderGroupedSections(categories, councilBriefing, date, images = [], videos = [], githubStats = null) {
+      let imageIndex = 0;
+
+      // Community Section (Twitter + Discord + User Feedback)
+      let communityHtml = '';
+
+      // Twitter News
+      if (categories.twitter_news_highlights?.length > 0) {
+        const twitterImages = images.slice(imageIndex, imageIndex + 2);
+        imageIndex += 2;
+        communityHtml += renderCategoryBox('Twitter News', categories.twitter_news_highlights.map(item => ({
+          text: `🐦 ${item.claim}`,
+          source: item.source
+        })), `../media/daily/${date}/twitter-news.png`, twitterImages, 'twitter');
+      }
+
+      // Discord Updates
+      if (categories.discord_updates?.length > 0) {
+        const discordImages = images.slice(imageIndex);
+        communityHtml += renderCategoryBox('Discord Updates', categories.discord_updates.map(item => ({
+          headline: `💬 #${item.channel}`,
+          text: item.summary,
+          meta: item.key_participants ? `Participants: ${item.key_participants.join(', ')}` : '',
+          source: item.source
+        })), `../media/daily/${date}/discord-updates.png`, discordImages, 'discord');
+      }
+
+      document.getElementById('community-section').innerHTML = communityHtml;
+
+      // Strategy Section (Strategic Insights + Market Analysis + User Feedback)
+      let strategyHtml = '';
+
+      // Strategic Insights with expanded implications
+      if (categories.strategic_insights?.length > 0) {
+        strategyHtml += renderStrategyBox('Strategic Insights', categories.strategic_insights, date);
+      }
+
+      // Market Analysis with relevance
+      if (categories.market_analysis?.length > 0) {
+        strategyHtml += renderStrategyBox('Market Analysis', categories.market_analysis, date);
+      }
+
+      // User Feedback
+      if (categories.user_feedback?.length > 0) {
+        strategyHtml += renderCategoryBox('User Feedback', categories.user_feedback.map(item => ({
+          text: item.feedback_summary,
+          source: item.source
+        })), null, [], 'feedback');
+      }
+
+      document.getElementById('strategy-section').innerHTML = strategyHtml;
+
+      // Development Section (GitHub Updates)
+      let developmentHtml = '<h2 class="section-title">Development</h2>';
+      if (categories.github_updates?.new_issues_prs?.length > 0) {
+        developmentHtml += renderCategoryBox('GitHub Updates <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="vertical-align: -0.2em; margin-left: 0.25rem;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>', categories.github_updates.new_issues_prs.map(item => ({
+          headline: `${item.title} #${item.number}`,
+          text: item.significance,
+          meta: `${item.item_type === 'pull_request' ? 'PR' : 'Issue'} by ${item.author}`,
+          badge: `badge-${item.status}`,
+          badgeText: item.status,
+          url: item.url,
+          avatar: `https://github.com/${item.author}.png`
+        })), `../media/daily/${date}/github-updates.png`, [], 'github');
+      }
+
+      document.getElementById('development-section').innerHTML = developmentHtml;
+
+      // GitHub Stats Sidebar
+      let statsHtml = '';
+      if (githubStats) {
+        statsHtml = renderGitHubStats(githubStats);
+      }
+      document.getElementById('github-stats-section').innerHTML = statsHtml;
+    }
+
+    function renderCategories(categories, date, images = []) {
+      const container = document.getElementById('categories-container');
+      let html = '';
+      let imageIndex = 0;
+
+      // Twitter News - integrate first 2 images
+      if (categories.twitter_news_highlights?.length > 0) {
+        const twitterImages = images.slice(imageIndex, imageIndex + 2);
+        imageIndex += 2;
+        html += renderCategoryBox('Twitter News', categories.twitter_news_highlights.map(item => ({
+          text: item.claim,
+          badge: `badge-${item.sentiment}`,
+          badgeText: item.sentiment
+        })), null, twitterImages, 'twitter');
+      }
+
+      // GitHub Updates
+      if (categories.github_updates?.new_issues_prs?.length > 0) {
+        html += renderCategoryBox('GitHub Updates', categories.github_updates.new_issues_prs.map(item => ({
+          headline: `${item.title} #${item.number}`,
+          text: item.significance,
+          meta: `${item.item_type === 'pull_request' ? 'PR' : 'Issue'} by ${item.author}`,
+          badge: `badge-${item.status}`,
+          badgeText: item.status,
+          url: item.url
+        })), `../media/daily/${date}/github-updates.png`, [], 'github');
+      }
+
+      // Discord Updates - integrate remaining images
+      if (categories.discord_updates?.length > 0) {
+        const discordImages = images.slice(imageIndex);
+        html += renderCategoryBox('Discord Updates', categories.discord_updates.map(item => ({
+          headline: `#${item.channel}`,
+          text: item.summary,
+          meta: item.key_participants ? `Participants: ${item.key_participants.join(', ')}` : ''
+        })), `../media/daily/${date}/discord-updates.png`, discordImages, 'discord');
+      }
+
+      // Strategic Insights (if exists)
+      if (categories.strategic_insights?.length > 0) {
+        html += renderCategoryBox('Strategic Insights', categories.strategic_insights.map(item => ({
+          text: item.insight || item.summary || item,
+          badge: item.priority ? `badge-${item.priority}` : null,
+          badgeText: item.priority
+        })), `../media/daily/${date}/strategic-insights.png`, [], 'strategic');
+      }
+
+      // Market Analysis (if exists)
+      if (categories.market_analysis?.length > 0) {
+        html += renderCategoryBox('Market Analysis', categories.market_analysis.map(item => ({
+          text: item.observation || item.analysis || item.summary || (typeof item === 'string' ? item : ''),
+          badge: item.trend ? `badge-${item.trend}` : null,
+          badgeText: item.trend
+        })), `../media/daily/${date}/market-analysis.png`, [], 'market');
+      }
+
+      // User Feedback
+      if (categories.user_feedback?.length > 0) {
+        html += renderCategoryBox('User Feedback', categories.user_feedback.map(item => ({
+          text: item.feedback_summary,
+          badge: `badge-${item.sentiment}`,
+          badgeText: item.sentiment
+        })), null, [], 'feedback');
+      }
+
+      container.innerHTML = html;
+    }
+
+    function renderGitHubStats(githubStats) {
+      if (!githubStats) return '';
+
+      const topContributors = (githubStats.topContributors || []).slice(0, 3);
+
+      return `
+        <h2 class="section-title">Activity</h2>
+        <div class="github-stats-box">
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value">${githubStats.newPRs || 0}</div>
+              <div class="stat-label">New PRs</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">${githubStats.mergedPRs || 0}</div>
+              <div class="stat-label">Merged</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">${githubStats.newIssues || 0}</div>
+              <div class="stat-label">New Issues</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">${githubStats.closedIssues || 0}</div>
+              <div class="stat-label">Closed</div>
+            </div>
+          </div>
+
+          ${topContributors.length > 0 ? `
+            <div class="top-contributors">
+              <h4 class="contributors-title">Top Contributors</h4>
+              ${topContributors.map((contributor, index) => `
+                <div class="contributor-item">
+                  <img src="${contributor.avatarUrl}" alt="${contributor.username}" class="contributor-avatar" loading="lazy">
+                  <div class="contributor-info">
+                    <div class="contributor-name">${ElizaData.escapeHtml(contributor.username)}</div>
+                    <div class="contributor-score">${Math.round(contributor.totalScore)} pts</div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          ` : ''}
+        </div>
+      `;
+    }
+
+    function renderCategoryBox(title, items, categoryImage = null, inlineImages = [], categoryType = '') {
+      // Extract plain text from title for alt attribute (remove any HTML tags)
+      const plainTitle = title.replace(/<[^>]*>/g, '');
+
+      const imageHtml = categoryImage ? `
+        <div class="category-header-image-container">
+          <img src="${categoryImage}" alt="${plainTitle}" class="category-header-image" loading="lazy" onerror="this.parentElement.style.display='none'">
+        </div>
+      ` : '';
+
+      // Adaptive image layout based on count
+      // 4+ images: horizontal scrolling carousel below content
+      // 1-3 images: side-by-side grid layout
+      const useCarousel = inlineImages.length >= 4;
+      const layoutClass = inlineImages.length > 0 ? (useCarousel ? 'with-carousel' : 'with-inline-media') : '';
+
+      let inlineMediaHtml = '';
+      if (inlineImages.length > 0) {
+        if (useCarousel) {
+          // Carousel layout for 4+ images with navigation
+          const carouselId = `carousel-${categoryType}`;
+          inlineMediaHtml = `
+            <div class="image-carousel" data-carousel="${carouselId}">
+              <button class="carousel-nav carousel-prev" aria-label="Previous">‹</button>
+              <button class="carousel-nav carousel-next" aria-label="Next">›</button>
+              <div class="carousel-track" id="${carouselId}">
+                ${inlineImages.map((url, index) => `
+                  <figure class="carousel-item">
+                    <img src="${url}" alt="Media ${index + 1}" loading="lazy">
+                    <figcaption>${index + 1}/${inlineImages.length}</figcaption>
+                  </figure>
+                `).join('')}
+              </div>
+              <div class="carousel-dots">
+                ${inlineImages.map((_, index) => `
+                  <button class="carousel-dot ${index === 0 ? 'active' : ''}" data-index="${index}" aria-label="Go to image ${index + 1}"></button>
+                `).join('')}
+              </div>
+            </div>
+          `;
+        } else {
+          // Inline grid for 1-3 images
+          inlineMediaHtml = `
+            <div class="inline-media">
+              ${inlineImages.map((url, index) => `
+                <figure class="inline-media-item">
+                  <img src="${url}" alt="Media ${index + 1}" loading="lazy">
+                </figure>
+              `).join('')}
+            </div>
+          `;
+        }
+      }
+
+      return `
+        <div class="category-box ${layoutClass}" data-category="${categoryType}">
+          ${imageHtml}
+          <div class="category-content">
+            <h3 class="category-title">${title}</h3>
+            ${items.map(item => {
+              // GitHub items: status bottom left, meta under avatar bottom right
+              if (item.avatar) {
+                return `
+                  <div class="category-item with-avatar github-layout">
+                    <div class="item-main">
+                      ${item.headline ? `<div class="item-headline">${item.url ? `<a href="${item.url}" target="_blank" style="color: #1565c0; text-decoration: none;">${ElizaData.escapeHtml(item.headline)}</a>` : ElizaData.escapeHtml(item.headline)}</div>` : ''}
+                      ${item.text ? `<div>${ElizaData.escapeHtml(item.text)}</div>` : ''}
+                      <div class="item-footer">
+                        ${item.badge ? `<span class="badge ${item.badge}">${item.badgeText}</span>` : ''}
+                      </div>
+                    </div>
+                    <div class="item-avatar-column">
+                      <img src="${item.avatar}" alt="Author avatar" class="item-avatar" loading="lazy">
+                      ${item.meta ? `<div class="item-meta-small">${ElizaData.escapeHtml(item.meta)}</div>` : ''}
+                    </div>
+                  </div>
+                `;
+              }
+              // Regular items: original layout
+              return `
+                <div class="category-item">
+                  <div class="item-content">
+                    ${item.headline ? `<div class="item-headline">${item.url ? `<a href="${item.url}" target="_blank" style="color: #1565c0; text-decoration: none;">${ElizaData.escapeHtml(item.headline)}</a>` : ElizaData.escapeHtml(item.headline)}</div>` : ''}
+                    ${item.text ? `<div>${ElizaData.escapeHtml(item.text)}</div>` : ''}
+                    ${item.badge ? `<span class="badge ${item.badge}">${item.badgeText}</span>` : ''}
+                    ${item.meta ? `<div class="item-meta">${ElizaData.escapeHtml(item.meta)}</div>` : ''}
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+          ${inlineMediaHtml}
+        </div>
+      `;
+    }
+
+    // Carousel navigation functionality
+    function initCarousels() {
+      document.querySelectorAll('.image-carousel').forEach(carousel => {
+        const track = carousel.querySelector('.carousel-track');
+        const prevBtn = carousel.querySelector('.carousel-prev');
+        const nextBtn = carousel.querySelector('.carousel-next');
+        const dots = carousel.querySelectorAll('.carousel-dot');
+
+        if (!track || !prevBtn || !nextBtn) return;
+
+        const scrollAmount = 280 + 12; // item width + gap
+
+        prevBtn.addEventListener('click', () => {
+          track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        nextBtn.addEventListener('click', () => {
+          track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+
+        dots.forEach(dot => {
+          dot.addEventListener('click', () => {
+            const index = parseInt(dot.dataset.index);
+            track.scrollTo({ left: index * scrollAmount, behavior: 'smooth' });
+          });
+        });
+
+        // Update active dot on scroll
+        track.addEventListener('scroll', () => {
+          const scrollLeft = track.scrollLeft;
+          const currentIndex = Math.round(scrollLeft / scrollAmount);
+
+          dots.forEach((dot, index) => {
+            dot.classList.toggle('active', index === currentIndex);
+          });
+        });
+
+        // Keyboard navigation for focused carousel
+        track.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowLeft') {
+            e.preventDefault();
+            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          } else if (e.key === 'ArrowRight') {
+            e.preventDefault();
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          }
+        });
+      });
+    }
+
+    // Render strategy boxes with expanded implications
+    function renderStrategyBox(title, items, date) {
+      const type = title.toLowerCase().includes('insight') ? 'strategic' : 'market';
+      return `
+        <div class="strategy-box" data-category="${type}">
+          <h3 class="category-title">${title}</h3>
+          ${items.map(item => {
+            const theme = item.theme ? `<span class="strategy-theme">${ElizaData.escapeHtml(item.theme)}</span>` : '';
+            const text = item.insight || item.observation || item.summary || '';
+            const relevance = item.relevance ? `<div class="relevance">${ElizaData.escapeHtml(item.relevance)}</div>` : '';
+            const implications = item.implications_or_questions || [];
+            const implHtml = implications.length > 0 ? `
+              <div class="implications">
+                <div class="implications-label">Key Questions:</div>
+                <ul class="implications-list">
+                  ${implications.map(q => `<li>${ElizaData.escapeHtml(q)}</li>`).join('')}
+                </ul>
+              </div>
+            ` : '';
+
+            return `
+              <div class="strategy-item">
+                ${theme}
+                <div>${ElizaData.escapeHtml(text)}</div>
+                ${relevance}
+                ${implHtml}
+              </div>
+            `;
+          }).join('')}
+        </div>
+      `;
+    }
+
+    // Render council briefing deliberation topics
+    function renderDeliberationTopics(keyPoints) {
+      if (!keyPoints || keyPoints.length === 0) return '';
+
+      const topicsHtml = keyPoints.map(point => {
+        let itemsHtml = '';
+        if (point.deliberation_items && point.deliberation_items.length > 0) {
+          itemsHtml = point.deliberation_items.map(item => {
+            let answersHtml = '';
+            if (item.multiple_choice_answers) {
+              answersHtml = Object.entries(item.multiple_choice_answers)
+                .filter(([key]) => !key.includes('4')) // Skip option 4 (Other/More discussion needed)
+                .map(([key, answer]) => {
+                  if (answer.implication) {
+                    return `
+                      <details class="answer-option">
+                        <summary><strong>${key.replace('answer_', '')}:</strong> ${ElizaData.escapeHtml(answer.text)}</summary>
+                        <div class="answer-implication">${ElizaData.escapeHtml(answer.implication)}</div>
+                      </details>
+                    `;
+                  } else {
+                    return `<div class="answer-option"><strong>${key.replace('answer_', '')}:</strong> ${ElizaData.escapeHtml(answer.text)}</div>`;
+                  }
+                }).join('');
+            }
+
+            let contextHtml = '';
+            if (item.context && item.context.length > 0) {
+              contextHtml = item.context.map(ctx => `<li>${ElizaData.escapeHtml(ctx)}</li>`).join('');
+            }
+
+            return `
+              <div class="delib-question">❓ ${ElizaData.escapeHtml(item.text)}</div>
+              ${answersHtml}
+              ${contextHtml.length > 0 || point.summary ? `
+                <details class="delib-context">
+                  <summary>Summary & Context</summary>
+                  ${point.summary ? `<div class="context-summary">${ElizaData.escapeHtml(point.summary)}</div>` : ''}
+                  ${contextHtml.length > 0 ? `<ul class="context-list">${contextHtml}</ul>` : ''}
+                </details>
+              ` : ''}
+            `;
+          }).join('');
+        }
+
+        return `
+          <div class="deliberation-topic">
+            <h4 class="topic-header">${ElizaData.escapeHtml(point.topic)}</h4>
+            <div class="topic-content">${itemsHtml}</div>
+          </div>
+        `;
+      }).join('');
+
+      return `<div class="deliberation-box">${topicsHtml}</div>`;
+    }
+
+    // Render videos section
+    function renderVideos(videos) {
+      const container = document.getElementById('videos-container');
+      if (!videos || videos.length === 0) {
+        container.innerHTML = '';
+        return;
+      }
+
+      container.innerHTML = `
+        <div class="videos-section">
+          <h3 class="section-title">Community Media</h3>
+          <div class="videos-grid">
+            ${videos.map((url, index) => `
+              <div class="video-item">
+                <video controls preload="metadata">
+                  <source src="${url}" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
+                <div class="video-caption">Video ${index + 1} from Discord</div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    // Render full stories section (AI News Integration) - NYTimes grid style
+    function renderFullStories(aiNews, date) {
+      const container = document.getElementById('full-stories-container');
+      if (!aiNews || !aiNews.categories) {
+        container.innerHTML = '';
+        return;
+      }
+
+      let html = '';
+
+      aiNews.categories.forEach(category => {
+        if (!category.content || category.content.length === 0) return;
+
+        // Skip miscellaneous section (generic project activity)
+        if (category.topic === 'miscellaneous') return;
+
+        const displayTitle = "Full Stories";
+
+        const storiesHtml = category.content.map((story, index) => {
+          // Pick first available image for this story
+          let storyImage = null;
+          if (story.posters) storyImage = story.posters;
+          else if (story.images) storyImage = story.images;
+          else if (story.memes?.url) storyImage = story.memes.url;
+
+          // Derive headline from first sentence or first 80 chars
+          // Fixed regex: matches sentence up to period followed by space + capital (or end)
+          // Handles decimal numbers like "2.0" and abbreviations like "Mr."
+          const text = story.text || '';
+          const firstSentenceMatch = text.match(/^(.+?[.!?])(?=\s+[A-Z]|$)/);
+          const headline = firstSentenceMatch
+            ? firstSentenceMatch[1]
+            : text.substring(0, 80) + (text.length > 80 ? '...' : '');
+
+          // Rest of text after headline
+          const bodyText = firstSentenceMatch
+            ? text.substring(firstSentenceMatch[0].length).trim()
+            : text.substring(80).trim();
+
+          let imageHtml = '';
+          if (storyImage) {
+            imageHtml = `<div class="story-image-container"><img src="${storyImage}" alt="Story ${index + 1}" loading="lazy"></div>`;
+          }
+
+          let deckHtml = '';
+          if (bodyText) {
+            deckHtml = `<p class="story-deck">${ElizaData.escapeHtml(bodyText)}</p>`;
+          }
+
+          let sourcesHtml = '';
+          if (story.sources) {
+            const sources = (Array.isArray(story.sources) ? story.sources : [story.sources])
+              .filter(src => src.includes('discord'))
+              .map(src => '<span class="source-text">💬 Discord</span>')
+              .join('');
+          }
+
+          return `
+            <article class="story-card">
+              ${imageHtml}
+              <div class="story-card-content">
+                <h4 class="story-headline">${ElizaData.escapeHtml(headline)}</h4>
+                ${deckHtml}
+                ${sourcesHtml}
+              </div>
+            </article>
+          `;
+        }).join('');
+
+        html += `
+          <div class="full-stories-category">
+            <h3 class="category-title">${ElizaData.escapeHtml(displayTitle)}</h3>
+            <div class="stories-grid">${storiesHtml}</div>
+          </div>
+        `;
+      });
+
+      container.innerHTML = html;
+    }
+
+    // Load on page load
+    init().then(() => {
+      // Initialize carousels after content loads
+      setTimeout(initCarousels, 100);
+    });
+  </script>
+</body>
+</html>
