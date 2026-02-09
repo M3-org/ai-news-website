@@ -196,16 +196,22 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json --dry-run
 
 ### `generate_manifest.py` — Media Manifest Generator
 
-Scans a directory for media files and creates `manifest.json` with provenance metadata. Used as input for CDN uploads.
+Scans a directory for media files and creates `manifest.json` with provenance metadata. Used as input for CDN uploads. Optionally links the YouTube full-video URL into the manifest via `--metadata-json`.
 
 ```bash
 python3 scripts/generate_manifest.py episodes/clips/ --show cronjob
+
+# With session log for enriched provenance
 python3 scripts/generate_manifest.py episodes/clips/ --show cronjob \
     --session-log episodes/*_session-log.json
+
+# Include YouTube URL from metadata JSON
+python3 scripts/generate_manifest.py episodes/clips/ --show cronjob \
+    --metadata-json episodes/*_youtube_metadata.json
 ```
 
-**Inputs:** Directory of media files, optional session log
-**Outputs:** `manifest.json` in the scanned directory
+**Inputs:** Directory of media files, optional session log, optional YouTube metadata JSON
+**Outputs:** `manifest.json` in the scanned directory (includes `youtube_url` in `source` when `--metadata-json` provided)
 
 ---
 
@@ -241,11 +247,21 @@ Sends rich Discord notifications after pipeline completion, with optional publis
 
 ### `publish_m3tv.py` — Website Publisher (Step 8)
 
-Updates the website with new episode data.
+Updates the M3TV website (`m3org.com/tv`) with new episode data. Upserts into `cronjob-episodes.json` and `gallery.json`, then commits and pushes.
 
 ```bash
+# Requires --website-repo or WEBSITE_REPO env var
 python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --push
+
+# Using env var (recommended for automation)
+WEBSITE_REPO=/path/to/website python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --push
+
+# Preview changes without writing
+python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --dry-run
 ```
+
+**Inputs:** Episode date, website repo path (via `--website-repo` or `WEBSITE_REPO` env var), optional `--metadata-json` override
+**Outputs:** Updated `tv/data/cronjob-episodes.json` and `tv/gallery.json` in the website repo
 
 ---
 
@@ -262,6 +278,7 @@ Copy `.env.example` to `.env` and fill in your values.
 | `BUNNY_CDN_URL` | cdn_upload | CDN base URL (e.g., `https://cdn.elizaos.news`) |
 | `BUNNY_STORAGE_HOST` | cdn_upload | Storage host region (default: LA) |
 | `YOUTUBE_PLAYLIST_ID` | youtube_upload | Playlist to add uploaded videos to |
+| `WEBSITE_REPO` | publish_m3tv | Path to the M3-org/website repo checkout |
 
 YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) are managed separately via `setup_youtube_auth.py`.
 

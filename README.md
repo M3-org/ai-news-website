@@ -72,13 +72,13 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 | `scripts/youtube_metadata.py` | Generate YouTube metadata with auto-chapters |
 | `scripts/llm_producer.py clips` | LLM-based clip analysis with optional ffmpeg extraction |
 | `scripts/llm_producer.py trailer` | LLM-based trailer config generator for Remotion |
-| `scripts/generate_manifest.py` | Generate manifest with provenance for clips |
+| `scripts/generate_manifest.py` | Generate manifest with provenance for clips; `--metadata-json` to link YouTube URL |
 
 ### Publishing
 
 | Script | Description |
 |--------|-------------|
-| `scripts/youtube_upload.py` | Upload videos to YouTube; `--set-privacy` to change listing status |
+| `scripts/youtube_upload.py` | Upload videos to YouTube; `--visibility` to change listing status |
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
 | `scripts/cdn_upload.py` | Upload assets to Bunny CDN |
 | `scripts/publish_m3tv.py` | Update website with episode data |
@@ -134,6 +134,9 @@ BUNNY_CDN_URL=https://cdn.elizaos.news
 # OpenRouter (for LLM-based clip analysis + trailer generation)
 OPENROUTER_API_KEY=sk-or-...
 
+# Website repo path (for publish_m3tv.py step 8)
+WEBSITE_REPO=/path/to/M3-org/website
+
 # YouTube (run setup_youtube_auth.py first)
 # Credentials stored in youtube_credentials.json
 ```
@@ -159,9 +162,9 @@ ai-news-website/
 │   └── *.mp4, *_session-log.json
 ├── trailers/                       # Generated trailers
 ├── remotion/                       # Remotion project for trailer rendering
-├── unity/                          # Archived Unity show mini-site
+├── unity/                          # Archived Unity show (self-contained mini-site)
 ├── setup_youtube_auth.py           # YouTube auth setup
-├── index.html                      # Website (elizaos.news)
+├── index.html                      # Website landing page (elizaos.news)
 └── .env.example                    # Environment template
 ```
 
@@ -191,7 +194,3 @@ The manifest system tracks three types of clips:
 - Python 3.10+
 - Chrome/Chromium (for recording)
 - FFmpeg (for video processing)
-
-## License
-
-MIT
