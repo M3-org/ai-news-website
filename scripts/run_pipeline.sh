@@ -471,6 +471,9 @@ step_7_cdn_upload() {
         if [[ -n "$SESSION_LOG" ]]; then
             manifest_args+=(--session-log "$SESSION_LOG")
         fi
+        if [[ -n "$METADATA_JSON" && -f "$METADATA_JSON" ]]; then
+            manifest_args+=(--metadata-json "$METADATA_JSON")
+        fi
         python3 scripts/generate_manifest.py "${manifest_args[@]}"
 
         log "Uploading clips to CDN..."
@@ -522,7 +525,7 @@ step_8_update_website() {
 
     log "Updating website for date: $date_str"
 
-    python3 scripts/publish_m3tv.py --episode-date="$date_str" --website-repo="/home/jin/repo/website" --push
+    python3 scripts/publish_m3tv.py --episode-date="$date_str" --push
 
     log "Website updated"
 }

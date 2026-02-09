@@ -23,6 +23,10 @@ Examples:
     # Link to session log for enriched provenance
     uv run python scripts/generate_manifest.py episodes/clips/ --show cronjob \\
         --session-log episodes/2026-02-02_Cron-Job_Workflow-Revolution_session-log.json
+
+    # Include YouTube URL from metadata JSON
+    uv run python scripts/generate_manifest.py episodes/clips/ --show cronjob \\
+        --metadata-json episodes/2026-02-02_Cron-Job_Workflow-Revolution_youtube_metadata.json
 """
 
 import argparse
@@ -248,7 +252,8 @@ def generate_manifest(
     directory: str,
     show: str,
     session_log_path: Optional[str] = None,
-    output_path: Optional[str] = None
+    output_path: Optional[str] = None,
+    metadata_json_path: Optional[str] = None
 ) -> dict:
     """
     Generate a manifest for all media files in a directory.
@@ -258,6 +263,7 @@ def generate_manifest(
         show: Show identifier (e.g., 'cronjob')
         session_log_path: Optional path to session log for enrichment
         output_path: Optional output path (default: directory/manifest.json)
+        metadata_json_path: Optional path to YouTube metadata JSON for linking
 
     Returns:
         Generated manifest dict
@@ -266,6 +272,26 @@ def generate_manifest(
     if not dir_path.exists():
         print(f"ERROR: Directory not found: {directory}", file=sys.stderr)
         return {}
+
+    # Load YouTube metadata if provided
+    youtube_info = {}
+    if metadata_json_path:
+        try:
+            with open(metadata_json_path, 'r', encoding='utf-8') as f:
+                meta = json.load(f)
+            video_id = meta.get('video_id', meta.get('id', ''))
+            url = meta.get('url', '')
+            if video_id and not url:
+                url = f"https://www.youtube.com/watch?v={video_id}"
+            if url:
+                youtube_info['youtube_url'] = url
+            if video_id:
+                youtube_info['youtube_video_id'] = video_id
+            title = meta.get('title', '')
+            if title:
+                youtube_info['episode_title'] = title
+        except Exception as e:
+            print(f"Warning: Failed to load metadata JSON: {e}", file=sys.stderr)
 
     # Load session log if provided
     session_data = None
@@ -312,13 +338,16 @@ def generate_manifest(
         files.append(file_entry)
 
     # Build manifest
+    source = {
+        'show': show,
+        'directory': str(dir_path),
+    }
+    source.update(youtube_info)
+
     manifest = {
         'version': '1.0',
         'generated_at': datetime.now(timezone.utc).isoformat(),
-        'source': {
-            'show': show,
-            'directory': str(dir_path)
-        },
+        'source': source,
         'cdn': {
             'provider': None,
             'base_url': None,
@@ -391,6 +420,11 @@ Examples:
         help="Path to session-log.json for provenance enrichment"
     )
 
+    parser.add_argument(
+        "--metadata-json",
+        help="Path to youtube_metadata.json to include YouTube URL in manifest"
+    )
+
     args = parser.parse_args()
 
     # Validate directory
@@ -403,7 +437,8 @@ Examples:
         args.directory,
         args.show,
         args.session_log,
-        args.output
+        args.output,
+        args.metadata_json
     )
 
     if not manifest:

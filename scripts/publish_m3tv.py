@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import glob
 import json
+import os
 import re
 import subprocess
 from pathlib import Path
@@ -108,12 +109,16 @@ def run_git(repo: Path, args: list[str], check: bool = True) -> subprocess.Compl
 def main() -> int:
     parser = argparse.ArgumentParser(description="Publish Cron Job episode updates to m3org website")
     parser.add_argument("--episode-date", required=True, help="Episode date YYYY-MM-DD")
-    parser.add_argument("--website-repo", default="/home/jin/repo/website", help="Path to website repo")
+    parser.add_argument("--website-repo", default=os.environ.get("WEBSITE_REPO"),
+                        help="Path to website repo (or set WEBSITE_REPO env var)")
     parser.add_argument("--metadata-json", help="Override metadata JSON path")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
     parser.add_argument("--push", action="store_true", help="Commit and push website repo changes")
     parser.add_argument("--no-push", action="store_true", help="Do not push even if --push provided")
     args = parser.parse_args()
+
+    if not args.website_repo:
+        parser.error("--website-repo is required (or set WEBSITE_REPO env var)")
 
     project_dir = Path(__file__).resolve().parents[1]
     episodes_dir = project_dir / "episodes"
