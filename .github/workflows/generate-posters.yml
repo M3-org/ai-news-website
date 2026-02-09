@@ -1,0 +1,126 @@
+name: Generate Daily Posters
+
+on:
+  schedule:
+    # Runs daily at 11:00 UTC (30 min after knowledge repo's poster step at 10:00)
+    - cron: '0 11 * * *'
+  workflow_dispatch: # Allows manual triggering
+
+concurrency:
+  group: ai-news-poster-generation
+  cancel-in-progress: false
+
+env:
+  PYTHONPATH: ${{ github.workspace }}/scripts/posters
+
+jobs:
+  generate-posters:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout ai-news-website
+        uses: actions/checkout@v4
+
+      - name: Checkout knowledge data
+        uses: actions/checkout@v4
+        with:
+          repository: elizaOS/knowledge
+          path: knowledge
+          sparse-checkout: |
+            the-council/facts
+            the-council/council_briefing
+            the-council/retros
+            the-council/aggregated
+            hackmd/facts
+            ai-news/elizaos/json
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install requests pillow
+
+      - name: Get today's date
+        id: date
+        run: echo "date=$(date +%Y-%m-%d)" >> "$GITHUB_OUTPUT"
+
+      - name: Check for facts file
+        id: check-facts
+        run: |
+          FACTS_FILE="knowledge/the-council/facts/${{ steps.date.outputs.date }}.json"
+          if [ -f "$FACTS_FILE" ]; then
+            echo "facts_exist=true" >> "$GITHUB_OUTPUT"
+            echo "facts_file=$FACTS_FILE" >> "$GITHUB_OUTPUT"
+            echo "Found facts file: $FACTS_FILE"
+          else
+            # Fallback to daily.json symlink
+            if [ -f "knowledge/the-council/facts/daily.json" ]; then
+              echo "facts_exist=true" >> "$GITHUB_OUTPUT"
+              echo "facts_file=knowledge/the-council/facts/daily.json" >> "$GITHUB_OUTPUT"
+              echo "Using fallback: daily.json"
+            else
+              echo "facts_exist=false" >> "$GITHUB_OUTPUT"
+              echo "::warning::No facts file found for ${{ steps.date.outputs.date }}"
+            fi
+          fi
+
+      - name: Generate illustrations
+        if: steps.check-facts.outputs.facts_exist == 'true'
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: |
+          cd scripts/posters
+          python illustrate.py --batch \
+            -f "../../${{ steps.check-facts.outputs.facts_file }}" \
+            --with-icons || echo "::warning::Generation had errors"
+        continue-on-error: true
+
+      - name: Upload to CDN
+        if: steps.check-facts.outputs.facts_exist == 'true'
+        env:
+          BUNNY_STORAGE_ZONE: ${{ secrets.BUNNY_STORAGE_ZONE }}
+          BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
+          BUNNY_CDN_URL: ${{ secrets.BUNNY_CDN_URL }}
+        run: |
+          DATE="${{ steps.date.outputs.date }}"
+          if [ -n "$BUNNY_STORAGE_PASSWORD" ] && [ -d "media/daily/${DATE}" ]; then
+            python scripts/cdn/upload.py "media/daily/${DATE}/" --update-manifest || true
+          else
+            echo "Skipping CDN upload (no credentials or no media generated)"
+          fi
+        continue-on-error: true
+
+      - name: Generate RSS feeds
+        if: steps.check-facts.outputs.facts_exist == 'true'
+        env:
+          KNOWLEDGE_ROOT: ${{ github.workspace }}/knowledge
+        run: python scripts/generate-rss.py
+        continue-on-error: true
+
+      - name: Cleanup old media (keep last 7 days)
+        run: |
+          CUTOFF_DATE=$(date -d '7 days ago' +%Y-%m-%d)
+          echo "Removing media directories older than $CUTOFF_DATE"
+
+          for dir in media/daily/20??-??-??/; do
+            if [ -d "$dir" ]; then
+              DIR_DATE=$(basename "$dir")
+              if [[ "$DIR_DATE" < "$CUTOFF_DATE" ]]; then
+                echo "Removing old media: $dir"
+                rm -rf "$dir"
+              fi
+            fi
+          done
+
+      - name: Commit and push
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "Automated: Generate posters for ${{ steps.date.outputs.date }}"
+          file_pattern: "media/daily/ rss/"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+          commit_author: "github-actions[bot] <github-actions[bot]@users.noreply.github.com>"
