@@ -138,8 +138,9 @@ python3 scripts/youtube_upload.py --from-session-log episodes/*_session-log.json
 python3 scripts/youtube_upload.py --video-file ep.mp4 --title "Episode" --privacy-status public
 
 # Change listing status of an existing video (e.g. unlisted -> public)
-python3 scripts/youtube_upload.py --set-privacy VIDEO_ID --privacy-status public
-python3 scripts/youtube_upload.py --from-state episodes/2026-02-08_pipeline_state.json --privacy-status public
+python3 scripts/youtube_upload.py --visibility public --video dQw4w9WgXcQ
+python3 scripts/youtube_upload.py --visibility public --video "https://youtube.com/watch?v=dQw4w9WgXcQ"
+python3 scripts/youtube_upload.py --visibility public --from-state episodes/2026-02-08_pipeline_state.json
 ```
 
 **Inputs:** Video file + metadata (JSON, session-log, or CLI args)

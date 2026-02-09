@@ -483,10 +483,12 @@ def main():
                         help="YouTube playlist ID to add the video to after upload. Extract from playlist URL: youtube.com/playlist?list=PLAYLIST_ID")
     parser.add_argument("--update-thumbnail-for",
                         help="If specified, updates the thumbnail for the given video ID instead of uploading a new video.")
-    parser.add_argument("--set-privacy",
-                        help="Change an existing video's privacy status. Pass a video ID, or use --from-state for pipeline state JSON.")
+    parser.add_argument("--visibility", choices=["public", "private", "unlisted"],
+                        help="Change an existing video's visibility instead of uploading.")
+    parser.add_argument("--video",
+                        help="YouTube video ID or URL (for --visibility)")
     parser.add_argument("--from-state",
-                        help="Read video_id from pipeline state JSON (for --set-privacy)")                        
+                        help="Read video_id from pipeline state JSON (for --visibility)")                        
     parser.add_argument("--client-secrets",
                         default=os.environ.get('YOUTUBE_CLIENT_SECRETS_PATH', DEFAULT_CLIENT_SECRETS_FILE),
                         help=f"Path to client_secrets.json. Defaults to '{DEFAULT_CLIENT_SECRETS_FILE}' or YOUTUBE_CLIENT_SECRETS_PATH env var.")
@@ -496,16 +498,26 @@ def main():
     
     args = parser.parse_args()
 
-    # Shortcut mode: change privacy status of an existing video
-    if args.set_privacy or args.from_state:
-        video_id = args.set_privacy
+    # Shortcut mode: change visibility of an existing video
+    if args.visibility:
+        video_id = args.video
         if args.from_state:
             with open(args.from_state) as f:
                 state = json.load(f)
             video_id = state.get("youtube_video_id", video_id)
         if not video_id:
-            parser.error("Provide a video ID via --set-privacy or --from-state")
-        result = set_privacy(video_id, args.privacy_status)
+            parser.error("--visibility requires --video VIDEO_ID_OR_URL or --from-state")
+        # Accept full URLs: extract video ID from youtube.com/watch?v=XXX or youtu.be/XXX
+        if "youtube.com" in video_id or "youtu.be" in video_id:
+            from urllib.parse import urlparse, parse_qs
+            parsed = urlparse(video_id)
+            if "youtu.be" in parsed.netloc:
+                video_id = parsed.path.lstrip("/")
+            else:
+                video_id = parse_qs(parsed.query).get("v", [""])[0]
+            if not video_id:
+                parser.error(f"Could not extract video ID from URL: {args.video}")
+        result = set_privacy(video_id, args.visibility)
         status = result.get("status", {}).get("privacyStatus", "unknown")
         print(f"{video_id} -> {status}")
         return
