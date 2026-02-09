@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-09T11:41:29.744628+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-09.json",
+  "facts_date": "2026-02-09",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-09",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Technical focus is split between optimizing the core Eliza framework's database performance and the active development of 'milaidy', a Mac-native application. Simultaneously, the project faces severe community tension regarding token delistings in Korea and significant price declines.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands in silhouette at a snowy window, framed by tangled wires and glowing screens; outside, distant city lights blur through frosted glass, while a faint crowd\u2019s shadow presses against the cold, layered in the wintry dusk, spotlighting her quiet resolve amid tumult.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands in silhouette at a snowy window, framed by tangled wires and glowing screens; outside, distant city lights blur through frosted glass, while a faint crowd\u2019s shadow presses against the cold, layered in the wintry dusk, spotlighting her quiet resolve amid tumult.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.09,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "dataviz",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Development is centered on hardening security via multi-tenant privacy features, implementing request context for per-user settings, and transitioning to a more logic-based architectural system.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Data points/categories: Security Hardening, Multi-Tenant Privacy Features, Request Context (Per-User Settings), Logic-Based Architecture  \n3. Flow/relationship direction: Sequential progression from security hardening \u2192 privacy features \u2192 request context \u2192 logic-based architecture  \n4. Suggested section headers: Security Enhancements, Privacy Implementation, User Context, Architectural Transition",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Data points/categories: Security Hardening, Multi-Tenant Privacy Features, Request Context (Per-User Settings), Logic-Based Architecture  \n3. Flow/relationship direction: Sequential progression from security hardening \u2192 privacy features \u2192 request context \u2192 logic-based architecture  \n4. Suggested section headers: Security Enhancements, Privacy Implementation, User Context, Architectural Transition\n\nCONTENT CONTEXT:\nDevelopment is centered on hardening security via multi-tenant privacy features, implementing request context for per-user settings, and transitioning to a more logic-based architectural system.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 35.66,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "comic_panel",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Discussions focused on milaidy integration, specifically plugin compatibility and character configuration bugs. Architecture proposals for using PM2 for process management were introduced. Critical identification of PostgreSQL performance degradation caused by excessive hits to the logs table. Stan confirmed an optimization plan is underway. High community frustration regarding the token price drop to $0.0013 and delistings on Korean exchanges. Concerns were raised about project transparency and",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Peepo stand side by side in silhouette atop a snow-dusted city rooftop, the cold haze of winter framing their slumped shoulders; below, dim city lights flicker while a dramatic spotlight from above left casts long shadows, capturing their shared worry and contemplation amid distant, blurred financial tickers.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza and Peepo stand side by side in silhouette atop a snow-dusted city rooftop, the cold haze of winter framing their slumped shoulders; below, dim city lights flicker while a dramatic spotlight from above left casts long shadows, capturing their shared worry and contemplation amid distant, blurred financial tickers.\n\nART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.91,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "editorial",
+      "characters": [
+        "marc",
+        "eliza"
+      ],
+      "content_context": "The introduction of the 'milaidy' brand for the Mac app has triggered strategy debates regarding whether separate branding dilutes the ElizaOS core network effect. Database architecture (specifically the log table) has become a primary bottleneck for agent responsiveness, potentially hindering retail adoption if not solved prior to further scaling.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Marc and Eliza, silhouetted in profile, stand apart on a frozen rooftop, city lights muffled by thick overcast. Between them, abstracted icons of data streams and app logos fracture the winter stillness, tension etched in their postures beneath a solitary shaft of cold, blue-white light.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Marc and Eliza, silhouetted in profile, stand apart on a frozen rooftop, city lights muffled by thick overcast. Between them, abstracted icons of data streams and app logos fracture the winter stillness, tension etched in their postures beneath a solitary shaft of cold, blue-white light.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.44,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "ELIZAOS token price dropped to $0.0013 with delistings confirmed on three major Korean exchanges.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Visualization type: Dashboard\n\nSpecific data points or categories to show:\n- ELIZAOS Token Price ($0.0013)\n- Number of Delistings (3)\n- List of Affected Korean Exchanges\n\nFlow/relationship direction:\n- Show the correlation between delisting events and token price drop\n\nSuggested section headers:\n- ELIZAOS Price Movement\n- Major Exchange Delistings\n- Impact Analysis",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Visualization type: Dashboard\n\nSpecific data points or categories to show:\n- ELIZAOS Token Price ($0.0013)\n- Number of Delistings (3)\n- List of Affected Korean Exchanges\n\nFlow/relationship direction:\n- Show the correlation between delisting events and token price drop\n\nSuggested section headers:\n- ELIZAOS Price Movement\n- Major Exchange Delistings\n- Impact Analysis\n\nCONTENT CONTEXT:\nELIZAOS token price dropped to $0.0013 with delistings confirmed on three major Korean exchanges.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 19.64,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-09/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 138.81
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-09/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-09/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-09/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-09/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-09/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-09/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-09/strategic-insights.png"
+  }
+}

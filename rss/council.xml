@@ -3,17 +3,30 @@
 <rss xmlns:ns0="http://www.w3.org/2005/Atom" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>elizaOS Council Briefings</title>
-    <link>https://elizaos.github.io/knowledge</link>
+    <link>https://elizaos.news</link>
     <description>Strategic briefings, retrospectives, and deliberation items for elizaOS leadership</description>
     <language>en-us</language>
-    <lastBuildDate>Sun, 08 Feb 2026 10:12:38 +0000</lastBuildDate>
-    <ns0:link href="https://elizaos.github.io/knowledge/rss/council.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Mon, 09 Feb 2026 11:43:51 +0000</lastBuildDate>
+    <ns0:link href="https://elizaos.news/rss/council.xml" rel="self" type="application/rss+xml"/>
     <ns0:link href="https://x.com/elizaos" rel="related" title="@elizaos on X"/>
     <ns0:link href="https://elizaos.github.io/rss.xml" rel="related" title="GitHub Activity Feed"/>
     <item>
+      <title>Council Briefing: 2026-02-09</title>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-09.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-09.json</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The council must reconcile a high-velocity v2.0.0 architectural pivot and the 'Milaidy' launch against critical database scalability failures and deteriorating community sentiment regarding token delistings.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;System Reliability vs. V2 Velocity:&lt;/strong&gt; While the core team is aggressively pushing V2.0.0 and multi-language support, the current production environment is suffering from severe PostgreSQL log table bottlenecks and plugin compatibility iss...&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ecosystem Fragmentation &amp; Branding:&lt;/strong&gt; The emergence of 'Milaidy' as a next-gen Mac-native app has sparked a debate on whether to unify under the ElizaOS brand or pursue a multi-brand memetic strategy....&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Token Utility &amp; Governance Trust:&lt;/strong&gt; Community sentiment is at an all-time low following Korean exchange delistings and perceived lack of communication regarding $ELIZAOS utility....&lt;/li&gt;
+&lt;/ul&gt;</description>
+      <pubDate>Mon, 09 Feb 2026 14:00:00 +0000</pubDate>
+    </item>
+    <item>
       <title>Council Briefing: 2026-02-08</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-08.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-08.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-08.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-08.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Transitioning from experimental framework to production-ready 'OS' via ElizaOS Cloud stabilization and the launch of the 'Milaidy' consumer-facing Mac-native sub-ecosystem.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -24,8 +37,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-06</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-06.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-06.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-06.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-06.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The Council must address critical stability failures in ElizaOS Cloud and the potential reputational fallout from the conclusion of the token migration window as we transitionสู่ monetized agent services.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -36,8 +49,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-05</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-05.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-05.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-05.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-05.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The Council faces a critical pivot point between sustaining a pure open-source framework and aggressively pursuing revenue-generating products to counter competitive pressure from OpenClaw.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -48,8 +61,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-04</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-04.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-04.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-04.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-04.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Transitioning from technical groundwork to ecosystem security and community stability as the migration deadline concludes.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -60,8 +73,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-03</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-03.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-03.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-03.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-03.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Transitioning from technical stabilization and migration deadlines to high-stakes social deployment (Babylon) while confronting fundamental agent reliability issues.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -73,8 +86,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-02</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-02.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-02.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-02.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-02.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; As the February 3rd token migration deadline looms, the Council must reconcile technical onboarding friction in ElizaCloud with the strategic need for a unified token ecosystem and 6-8 month financial runway.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -85,8 +98,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-02-01</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-01.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-02-01.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-02-01.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-02-01.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The council must pivot quickly to address mounting community concerns over token utility and transparency while debating a high-stakes shift toward TEE-integrated agent social platforms.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -97,8 +110,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-31</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-31.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-31.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-31.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-31.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Transitioning from stabilization to aggressive network expansion while mitigating critical trust-decay risks arising from migration friction and security threats.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -109,8 +122,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-30</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-30.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-30.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-30.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-30.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The Council must address a critical divergence between rapid technical architectural shifts (V2/n8n) and deteriorating community trust regarding token migration and technical stability.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -121,8 +134,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-29</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-29.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-29.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-29.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-29.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The transition toward ElizaOS v2.0 is accelerating via a strategic technical pivot toward n8n-driven workflow automation and multi-language reliability (Rust/Python), despite lingering migration friction and platform scaling risks.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -133,8 +146,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-28</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-28.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-28.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-28.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-28.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The core team has rapidly pivoted toward an AI workflow automation platform leveraging n8n, prioritizing immediate user utility over low-level infrastructure.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -145,8 +158,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-27</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-27.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-27.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-27.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-27.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Navigating a critical juncture of fiscal runway constraints, community sentiment volatility regarding tokenomics, and the re-stabilization of core technical leadership.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -158,8 +171,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-26</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-26.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-26.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-26.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-26.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Strategic tension rises between rapid ecosystem expansion via sub-tokens and the imperative for core framework stability and $elizaos token alignment.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -170,8 +183,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-25</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-25.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-25.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-25.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-25.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The Council must address critical friction between core team funding strategies and community trust amidst the Hyperscape 'GOLD' token controversy and resource constraints.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -182,8 +195,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-24</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-24.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-24.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-24.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-24.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The council must reconcile the friction between rapid, experimental token launches and the core objective of building a reliable, developer-first enterprise framework.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -194,8 +207,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-23</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-23.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-23.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-23.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-23.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; Transitioning from technical instability in v1.7.2 toward a robust v2.0.0 architecture while enforcing strict ecosystem standards for token utility and developer conduct.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -206,8 +219,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-22</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-22.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-22.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-22.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-22.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The technical pivot toward stabilizing API pipelines and core database architecture is at odds with community anxiety regarding token utility and migration clarity.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -218,8 +231,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-21</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-21.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-21.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-21.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-21.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The project faces a critical perception gap where technical progression toward ElizaOS Cloud and Jeju remains robust, yet token utility and roadmap communication are causing significant community friction and market volatility.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -230,8 +243,8 @@
     </item>
     <item>
       <title>Council Briefing: 2026-01-20</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-20.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-20.json</guid>
+      <link>https://elizaos.news/the-council/council_briefing/2026-01-20.json</link>
+      <guid>https://elizaos.news/the-council/council_briefing/2026-01-20.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The framework solidifies its technical foundation via version 1.7.2 while simultaneously expanding its frontier through a functional WASM runtime and specialized high-performance rust infrastructure.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -241,22 +254,9 @@
       <pubDate>Tue, 20 Jan 2026 14:00:00 +0000</pubDate>
     </item>
     <item>
-      <title>Council Briefing: 2026-01-19</title>
-      <link>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-19.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/council_briefing/2026-01-19.json</guid>
-      <description>&lt;p&gt;&lt;strong&gt;Daily Focus:&lt;/strong&gt; The framework faces a critical divergence between internal resource constraints/token volatility and breakthrough technical advancements in multi-platform (WASM/Rust) agent portability.&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Monthly Goal:&lt;/em&gt; December 2025: Execution excellence—complete token migration with high success rate, launch ElizaOS Cloud, stabilize flagship agents, and build developer trust through reliability and clear documentation.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Key Topics:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Strategic Resource &amp; Token Alignment:&lt;/strong&gt; Community sentiment has dipped due to perceived budget constraints and token utility stagnation, contrasting with aggressive core shipping. A high-profile staffing trade-off for API costs highlights c...&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;V2 Architecture and Multi-Platform Portability:&lt;/strong&gt; Technical logs indicate a major shift toward Rust-based core logic and WebAssembly (WASM) to enable agents to run in browser/Node environments, increasing framework ubiquity....&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;AI-Optimized Documentation &amp; Agent UX:&lt;/strong&gt; The 'Taming Information' strategy is entering a meta-phase where AI is being used to rewrite documentation specifically for consumption by other AI agents....&lt;/li&gt;
-&lt;/ul&gt;</description>
-      <pubDate>Mon, 19 Jan 2026 14:00:00 +0000</pubDate>
-    </item>
-    <item>
       <title>Monthly Retro: January 2026</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2026-01-retro.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2026-01-retro.json</guid>
+      <link>https://elizaos.news/the-council/retros/2026-01-retro.json</link>
+      <guid>https://elizaos.news/the-council/retros/2026-01-retro.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Premise:&lt;/strong&gt; January 2026 was a planning-heavy month where ElizaOS clarified its next product arc—public agents and discovery—while quietly paying down key reliability and performance debts. The Council reviews what shipped, what didn’t, and what must be prioritized to protect trust during token migration and upcoming Cloud/Babylon milestones.&lt;/p&gt;
 &lt;p&gt;The project aligned around a public agent ecosystem (discovery, forking, knowledge-sharing) and opened a comprehensive roadmap to get there. Under the hood, performance improvements landed (MultiStep provider handling), interoperability improved (unified multi-transport hooks), and documentation cov...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Developments:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -271,8 +271,8 @@
     </item>
     <item>
       <title>Annual Summary: Year 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-annual-summary.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-annual-summary.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-annual-summary.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-annual-summary.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Executive Summary:&lt;/strong&gt; Across 2025, ElizaOS substantially expanded capability and modernized its foundations: the plugin ecosystem and AI provider surface grew rapidly, social/real-time clients widened the public-facing footprint, and core architecture moved toward modular, agent-scoped, multi-tenant readiness. The product also matured with a redesigned management UI, better observability, and multiple refactors (eventing, messaging, server separation) that collectively set a stronger baseline for cloud deployment and...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Achievements:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Capability expansion (plugins, chains/DeFi, providers, models, voice):&lt;/strong&gt; ...&lt;/li&gt;
@@ -286,8 +286,8 @@
     </item>
     <item>
       <title>Quarterly Summary: Q4 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-Q4-summary.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-Q4-summary.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-Q4-summary.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-Q4-summary.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Executive Summary:&lt;/strong&gt; Q4 2025 was a “foundation-first” quarter: ElizaOS made significant progress on core architecture, reliability, security, and monorepo health—laying groundwork for scale (Cloud, marketplace, multi-tenant deployments) and for higher-quality real-time agent UX via streaming. The engineering trajectory strengthened (server refactor, unified messaging APIs, entity-level security, TypeScript/build stabilization), and the plugin ecosystem continued to mature with practical integrations.
 
 In parallel, t...&lt;/p&gt;
@@ -303,8 +303,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Monthly Retro: December 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-12-retro.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-12-retro.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-12-retro.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-12-retro.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Premise:&lt;/strong&gt; The JedAI Council reviews December 2025: a month of deep core hardening (refactors, type safety, dependency upgrades, security fixes), early groundwork for real-time streaming across model providers, and a parallel wave of UX planning—while community trust was stressed by token migration friction, support gaps, and multi-user architecture uncertainty.&lt;/p&gt;
 &lt;p&gt;December delivered meaningful foundational progress: the core server was refactored for reliability and cleanliness, monorepo build health improved, and at least one critical security issue (secret handling/auth) was addressed. The plugin ecosystem expanded (DeFi, OpenChat, Farcaster local hub), and...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Developments:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -319,8 +319,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Monthly Retro: November 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-11-retro.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-11-retro.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-11-retro.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-11-retro.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Premise:&lt;/strong&gt; The JedAI Council convenes for their November retrospective to assess the critical month of token migration, technical advances, and community challenges. As the AI16Z to ElizaOS migration unfolds and key infrastructure pieces fall into place, the council must chart the path forward for December.&lt;/p&gt;
 &lt;p&gt;November proved to be a pivotal transition month with the AI16Z to ElizaOS token migration taking center stage alongside significant technical developments. While infrastructure improvements like entity-level security and agent persistence fixes showed strong progress toward v2, community concerns a...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Developments:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -335,8 +335,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Monthly Retro: October 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-10-retro.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-10-retro.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-10-retro.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-10-retro.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Premise:&lt;/strong&gt; The JedAI Council convenes for their monthly retrospective as October 2025 closes out with significant architectural milestones but persistent community friction around the token migration. The framework is maturing rapidly while the ecosystem faces growing pains.&lt;/p&gt;
 &lt;p&gt;October marked a pivotal month where ElizaOS achieved major technical milestones in framework modularity and developer experience while simultaneously grappling with token migration uncertainties and community communication challenges. The council debates whether to prioritize technical excellence o...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Developments:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
@@ -351,8 +351,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Quarterly Summary: Q3 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-Q3-summary.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-Q3-summary.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-Q3-summary.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-Q3-summary.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Executive Summary:&lt;/strong&gt; Q3 2025 marked a critical maturation phase for ElizaOS, characterized by significant architectural achievements alongside emerging stability challenges. The quarter began with major developer experience improvements and UI redesigns, establishing a strong foundation for v2. However, external dependencies proved fragile with the X/Twitter account suspension, while internal technical debt accumulated, culminating in a CLI crisis that threatened core user workflows. The period revealed a fundamenta...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Achievements:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Developer Experience Revolution:&lt;/strong&gt; ...&lt;/li&gt;
@@ -365,8 +365,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Quarterly Summary: Q2 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-Q2-summary.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-Q2-summary.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-Q2-summary.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-Q2-summary.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Executive Summary:&lt;/strong&gt; Q2 2025 marked a pivotal quarter for ElizaOS, culminating in the successful launch of v2.0 with major architectural improvements including server separation, agent-scoped plugins, and unified testing frameworks. The development velocity remained strong with consistent high-impact releases across CLI modernization, AI provider ecosystem expansion, and enhanced developer tooling. However, this technical progress was overshadowed by persistent reliability issues, particularly with Twitter integrati...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Achievements:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Platform Maturation:&lt;/strong&gt; ...&lt;/li&gt;
@@ -379,8 +379,8 @@ In parallel, t...&lt;/p&gt;
     </item>
     <item>
       <title>Quarterly Summary: Q1 2025</title>
-      <link>https://elizaos.github.io/knowledge/the-council/retros/2025-Q1-summary.json</link>
-      <guid>https://elizaos.github.io/knowledge/the-council/retros/2025-Q1-summary.json</guid>
+      <link>https://elizaos.news/the-council/retros/2025-Q1-summary.json</link>
+      <guid>https://elizaos.news/the-council/retros/2025-Q1-summary.json</guid>
       <description>&lt;p&gt;&lt;strong&gt;Executive Summary:&lt;/strong&gt; Q1 2025 was defined by outsized capability expansion and major architectural shifts, alongside growing pressure on reliability, onboarding, and trust surfaces. ElizaOS meaningfully widened its ecosystem reach (chains/DeFi/data providers), increased AI-provider portability, and expanded real-time/social agent presence (Twitter Spaces, Instagram, XMTP), while simultaneously investing in foundational changes (dynamic plugin loading, DB multi-tenancy primitives, and a redesigned agent management UI)...&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Key Achievements:&lt;/strong&gt;&lt;/p&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Ecosystem &amp; capability expansion (Web3, data, infra):&lt;/strong&gt; ...&lt;/li&gt;
