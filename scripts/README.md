@@ -1,8 +1,11 @@
-# Scripts — Cron Job Episode Pipeline
+# Scripts — AI News Pipelines
 
-End-to-end pipeline for recording Shmotime episodes, generating trailers, uploading to YouTube/CDN, and updating the website.
+This repo contains two automated content pipelines:
 
-## Pipeline Overview
+1. **Cron Job Episode Pipeline** — Weekly 3D animated news show (Shmotime episodes → YouTube)
+2. **Daily Poster Generation** — Automated social media posters from [elizaOS/knowledge](https://github.com/elizaOS/knowledge) facts
+
+## Cron Job Pipeline Overview
 
 ```
                           ┌──────────────────┐
@@ -265,20 +268,116 @@ python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/t
 
 ---
 
+### `posters/illustrate.py` — Poster Generation from Knowledge Facts
+
+Generates social media posters from daily facts in the [elizaOS/knowledge](https://github.com/elizaOS/knowledge) repo. Used by GitHub Actions workflows.
+
+```bash
+# Generate all facts for a specific date
+uv run python scripts/posters/illustrate.py --date 2025-06-04
+
+# Include custom icons
+uv run python scripts/posters/illustrate.py --date 2025-06-04 --with-icons
+
+# Batch mode (processes all facts in date directory)
+uv run python scripts/posters/illustrate.py --date 2025-06-04 --batch
+
+# Dry run (no image generation, just validation)
+uv run python scripts/posters/illustrate.py --date 2025-06-04 --dry-run
+```
+
+**Inputs:** Knowledge repo facts at `$KNOWLEDGE_ROOT/data/facts/YYYY-MM-DD/`
+**Outputs:** Generated posters in `media/daily/YYYY-MM-DD/`
+**Dependencies:** OpenRouter API key, PIL/Pillow
+
+See `scripts/posters/README.md` for full documentation.
+
+---
+
+### `generate-rss.py` — RSS Feed Generator
+
+Generates RSS feeds for daily facts and council meeting notes.
+
+```bash
+# Generate all feeds
+uv run python scripts/generate-rss.py
+
+# Custom site URL
+SITE_URL=https://elizaos.news uv run python scripts/generate-rss.py
+```
+
+**Inputs:** Facts and council notes from knowledge repo
+**Outputs:** `rss/feed.xml` (daily facts), `rss/council.xml` (council notes)
+
+---
+
+### `cdn/upload.py` — Bunny CDN Uploader (Poster Workflows)
+
+Uploads generated posters to Bunny CDN. Similar to `cdn_upload.py` but optimized for poster workflow batching.
+
+```bash
+# Upload directory with pattern matching
+uv run python scripts/cdn/upload.py media/daily/2025-06-04/ --remote daily/2025-06-04/
+
+# JSON output for CI/CD
+uv run python scripts/cdn/upload.py media/daily/2025-06-04/ --remote daily/2025-06-04/ --json
+```
+
+**Inputs:** Local files or directories
+**Outputs:** CDN URLs (JSON format with `--json`)
+**Dependencies:** Bunny CDN credentials
+
+---
+
+## GitHub Actions Workflows
+
+### Daily Poster Generation (`generate-posters.yml`)
+
+Runs automatically at **11:00 UTC** daily (30 min after knowledge repo updates).
+
+**Steps:**
+1. Sparse-checkout knowledge repo data (facts + council)
+2. Generate illustrations via `illustrate.py --batch --with-icons`
+3. Upload to Bunny CDN (if secrets configured)
+4. Regenerate RSS feeds
+5. Clean up media dirs older than 7 days
+6. Auto-commit `media/daily/` and `rss/`
+
+**Required Secrets:**
+- `OPENROUTER_API_KEY` — Required for image generation
+- `BUNNY_STORAGE_ZONE` — Optional (for CDN upload)
+- `BUNNY_STORAGE_PASSWORD` — Optional
+- `BUNNY_CDN_URL` — Optional (e.g., `https://cdn.elizaos.news`)
+
+### Manual Poster Generation (`generate-illustrations.yml`)
+
+Trigger manually from **Actions tab** with custom options.
+
+**Inputs:**
+- `facts_date` — Date to generate (YYYY-MM-DD)
+- `with_icons` — Include custom icons (true/false)
+- `upload_to_cdn` — Upload to CDN after generation (true/false)
+- `dry_run` — Validation only, no actual generation (true/false)
+
+**Outputs:** GitHub Actions job summary table with results.
+
+---
+
 ## Environment Variables
 
 Copy `.env.example` to `.env` and fill in your values.
 
 | Variable | Required By | Description |
 |----------|-------------|-------------|
-| `OPENROUTER_API_KEY` | llm_producer.py | OpenRouter API key for LLM analysis |
+| `OPENROUTER_API_KEY` | llm_producer, posters/illustrate | OpenRouter API key for LLM analysis and image generation |
 | `ALERT_WEBHOOK_URL` | run_pipeline | Discord webhook URL for notifications |
-| `BUNNY_STORAGE_ZONE` | cdn_upload | Bunny CDN storage zone name |
-| `BUNNY_STORAGE_PASSWORD` | cdn_upload | Bunny CDN API password |
-| `BUNNY_CDN_URL` | cdn_upload | CDN base URL (e.g., `https://cdn.elizaos.news`) |
-| `BUNNY_STORAGE_HOST` | cdn_upload | Storage host region (default: LA) |
+| `BUNNY_STORAGE_ZONE` | cdn_upload, cdn/upload | Bunny CDN storage zone name |
+| `BUNNY_STORAGE_PASSWORD` | cdn_upload, cdn/upload | Bunny CDN API password |
+| `BUNNY_CDN_URL` | cdn_upload, cdn/upload | CDN base URL (e.g., `https://cdn.elizaos.news`) |
+| `BUNNY_STORAGE_HOST` | cdn_upload, cdn/upload | Storage host region (default: LA) |
 | `YOUTUBE_PLAYLIST_ID` | youtube_upload | Playlist to add uploaded videos to |
 | `WEBSITE_REPO` | publish_m3tv | Path to the M3-org/website repo checkout |
+| `KNOWLEDGE_ROOT` | posters/illustrate, generate-rss | Path to elizaOS/knowledge repo checkout |
 
 YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) are managed separately via `setup_youtube_auth.py`.
 
@@ -321,13 +420,24 @@ ai-news-website/
 
 ## Automation
 
-### Crontab (recommended)
+### Local Cron (Cron Job show)
 
 Record and process every Sunday at 2:15 AM UTC (Saturday 9:15 PM EST):
 
-```crontab
-15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
+```bash
+# One-liner to add to crontab
+(crontab -l 2>/dev/null; echo "15 2 * * 0 cd $(pwd) && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1") | crontab -
 ```
+
+Or edit manually:
+```bash
+crontab -e
+# Add: 15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
+```
+
+### GitHub Actions (Poster generation)
+
+The daily poster generation workflow runs automatically at 11:00 UTC. See "GitHub Actions Workflows" section above for setup.
 
 ### tmux alternative
 

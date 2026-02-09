@@ -56,6 +56,31 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 └─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
+## Automation
+
+### Local Cron Job (Cron Job show)
+
+Add this one-liner to your crontab to run the weekly pipeline every Sunday at 02:15 UTC:
+
+```bash
+(crontab -l 2>/dev/null; echo "15 2 * * 0 cd $(pwd) && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1") | crontab -
+```
+
+### GitHub Actions (Daily poster generation)
+
+Two workflows auto-generate illustrations from the [elizaOS/knowledge](https://github.com/elizaOS/knowledge) facts:
+
+- **Daily workflow** — Runs at 11:00 UTC (30 min after knowledge repo updates)
+- **Manual workflow** — Configurable date, icons, CDN upload, dry-run options
+
+**Required GitHub Secrets:**
+- `OPENROUTER_API_KEY` — OpenRouter API key (required for image generation)
+- `BUNNY_STORAGE_ZONE` — Bunny CDN storage zone (optional, for auto-upload)
+- `BUNNY_STORAGE_PASSWORD` — Bunny CDN API password (optional)
+- `BUNNY_CDN_URL` — CDN base URL like `https://cdn.elizaos.news` (optional)
+
+Set these at: **Settings → Secrets and variables → Actions → New repository secret**
+
 ## Scripts
 
 ### Recording
@@ -73,6 +98,8 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 | `scripts/llm_producer.py clips` | LLM-based clip analysis with optional ffmpeg extraction |
 | `scripts/llm_producer.py trailer` | LLM-based trailer config generator for Remotion |
 | `scripts/generate_manifest.py` | Generate manifest with provenance for clips; `--metadata-json` to link YouTube URL |
+| `scripts/posters/illustrate.py` | Generate social media posters from knowledge repo facts |
+| `scripts/generate-rss.py` | Generate RSS feeds for daily facts and council notes |
 
 ### Publishing
 
@@ -80,9 +107,19 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 |--------|-------------|
 | `scripts/youtube_upload.py` | Upload videos to YouTube; `--visibility` to change listing status |
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
-| `scripts/cdn_upload.py` | Upload assets to Bunny CDN |
+| `scripts/cdn_upload.py` | Upload assets to Bunny CDN (Cron Job pipeline) |
+| `scripts/cdn/upload.py` | Upload assets to Bunny CDN (poster workflows) |
 | `scripts/publish_m3tv.py` | Update website with episode data |
 | `scripts/discord_notify.py` | Discord notification bot |
+
+### Dashboards
+
+| Dashboard | Description |
+|-----------|-------------|
+| `dashboards/media-studio.html` | Central hub for facts viewer, gallery, validation tools |
+| `dashboards/facts.html` | Browse daily facts from knowledge repo with media previews |
+| `dashboards/gallery.html` | Visual gallery of all generated posters |
+| `dashboards/council.html` | Council meeting notes viewer |
 
 One-time archive import:
 
@@ -90,7 +127,7 @@ One-time archive import:
 uv run python scripts/fetch_ai16z_channel.py --out ai16z.json
 ```
 
-## Automated Recording
+## Local Cron Setup (Cron Job show)
 
 Set up a cron job to automatically record new episodes:
 
@@ -126,16 +163,19 @@ Set `ALERT_WEBHOOK_URL` in your environment to receive Discord notifications:
 Copy `.env.example` to `.env` and configure:
 
 ```bash
+# OpenRouter (for LLM-based features: clips, trailers, poster generation)
+OPENROUTER_API_KEY=sk-or-...
+
 # Bunny CDN (for asset hosting)
 BUNNY_STORAGE_ZONE=your_zone
 BUNNY_STORAGE_PASSWORD=your_password
 BUNNY_CDN_URL=https://cdn.elizaos.news
 
-# OpenRouter (for LLM-based clip analysis + trailer generation)
-OPENROUTER_API_KEY=sk-or-...
-
 # Website repo path (for publish_m3tv.py step 8)
 WEBSITE_REPO=/path/to/M3-org/website
+
+# Knowledge repo path (for poster generation)
+KNOWLEDGE_ROOT=/path/to/elizaOS/knowledge
 
 # YouTube (run setup_youtube_auth.py first)
 # Credentials stored in youtube_credentials.json
@@ -146,21 +186,36 @@ WEBSITE_REPO=/path/to/M3-org/website
 ```
 ai-news-website/
 ├── scripts/
-│   ├── run_pipeline.sh             # Full pipeline orchestrator
+│   ├── run_pipeline.sh             # Full Cron Job pipeline orchestrator
 │   ├── recorder.js                 # Browser-based recorder
-│   ├── youtube_metadata.py          # YouTube metadata generator
+│   ├── youtube_metadata.py         # YouTube metadata generator
 │   ├── youtube_upload.py           # YouTube uploader + privacy manager
 │   ├── llm_producer.py             # LLM clip analysis + trailer generation
 │   ├── generate_manifest.py        # Manifest generation
-│   ├── cdn_upload.py               # CDN upload utility
+│   ├── cdn_upload.py               # CDN upload (Cron Job pipeline)
+│   ├── cdn/upload.py               # CDN upload (poster workflows)
 │   ├── publish_m3tv.py             # Website publisher
-│   └── discord_notify.py           # Discord notifications
+│   ├── discord_notify.py           # Discord notifications
+│   ├── posters/illustrate.py       # Poster generation from knowledge facts
+│   └── generate-rss.py             # RSS feed generator
+├── .github/workflows/
+│   ├── generate-posters.yml        # Daily poster generation (11:00 UTC)
+│   └── generate-illustrations.yml  # Manual poster generation
+├── dashboards/                     # Interactive data viewers
+│   ├── media-studio.html           # Central hub
+│   ├── facts.html                  # Daily facts browser
+│   ├── gallery.html                # Poster gallery
+│   └── council.html                # Council notes viewer
 ├── episodes/                       # Recorded episodes & metadata
 │   ├── clips/                      # Extracted clips
 │   │   └── manifest.json           # Clip provenance & CDN URLs
 │   ├── thumbnails/                 # Episode thumbnails
 │   └── *.mp4, *_session-log.json
-├── trailers/                       # Generated trailers
+├── media/daily/                    # Generated posters (gitignored)
+├── trailers/                       # Generated trailers (gitignored)
+├── rss/                            # RSS feeds
+│   ├── feed.xml                    # Daily facts feed
+│   └── council.xml                 # Council notes feed
 ├── remotion/                       # Remotion project for trailer rendering
 ├── unity/                          # Archived Unity show (self-contained mini-site)
 ├── setup_youtube_auth.py           # YouTube auth setup
