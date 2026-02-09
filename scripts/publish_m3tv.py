@@ -12,6 +12,13 @@ import subprocess
 from pathlib import Path
 from typing import Any, Dict, Optional
 
+# Load .env file if present
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    pass  # dotenv not required if env vars set directly
+
 
 def extract_youtube_id(value: str) -> Optional[str]:
     if not value:
