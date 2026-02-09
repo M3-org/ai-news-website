@@ -25,26 +25,34 @@ Weekly AI news covering ElizaOS development, token economics, and ecosystem upda
 ```bash
 # Install dependencies
 npm install
-pip install google-auth google-auth-oauthlib google-api-python-client python-dotenv
+pip install google-auth google-auth-oauthlib google-api-python-client python-dotenv requests
 
-# Record the latest episode
-./scripts/record_cronjob.sh
+# Run the full pipeline (record + process + publish)
+./scripts/run_pipeline.sh
+
+# Or run individual steps:
 
 # Generate YouTube metadata with chapters
-uv run python scripts/generate_youtube_metadata.py episodes/2026-02-02_Cron-Job_*.mp4
+python3 scripts/youtube_metadata.py episodes/2026-02-02_Cron-Job_*_session-log.json
 
 # Upload to YouTube
-uv run python upload_to_youtube.py --from-json episodes/2026-02-02_*_youtube_metadata.json
+python3 scripts/youtube_upload.py --from-json episodes/2026-02-02_*_youtube_metadata.json
+
+# Analyze clips via LLM
+python3 scripts/llm_producer.py clips episodes/*_session-log.json
+
+# Generate trailer config via LLM
+python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 ```
 
 ## Pipeline Overview
 
 ```
 ┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
-│  1. Record      │────▶│  2. Process     │────▶│  3. Publish     │
+│  1. Record      │────>│  2. Process     │────>│  3. Publish     │
 │                 │     │                 │     │                 │
-│ record_cronjob  │     │ generate_meta   │     │ upload_youtube  │
-│ recorder.js     │     │ generate_manifest│    │ cdn_upload      │
+│ run_pipeline.sh │     │ generate_meta   │     │ youtube_upload  │
+│ recorder.js     │     │ llm_producer.py │     │ cdn_upload      │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
@@ -54,25 +62,27 @@ uv run python upload_to_youtube.py --from-json episodes/2026-02-02_*_youtube_met
 
 | Script | Description |
 |--------|-------------|
-| `scripts/record_cronjob.sh` | Fetch and record latest Cron Job episode |
+| `scripts/run_pipeline.sh` | Full end-to-end pipeline orchestrator |
 | `scripts/recorder.js` | Puppeteer-based recorder with word-level timestamps |
 
 ### Processing
 
 | Script | Description |
 |--------|-------------|
-| `scripts/generate_youtube_metadata.py` | Generate YouTube metadata with auto-chapters |
-| `scripts/generate_manifest.py` | Generate manifest with provenance for clips |
+| `scripts/youtube_metadata.py` | Generate YouTube metadata with auto-chapters |
+| `scripts/llm_producer.py clips` | LLM-based clip analysis with optional ffmpeg extraction |
+| `scripts/llm_producer.py trailer` | LLM-based trailer config generator for Remotion |
+| `scripts/generate_manifest.py` | Generate manifest with provenance for clips; `--metadata-json` to link YouTube URL |
 
 ### Publishing
 
 | Script | Description |
 |--------|-------------|
-| `upload_to_youtube.py` | Upload videos to YouTube with metadata |
+| `scripts/youtube_upload.py` | Upload videos to YouTube; `--visibility` to change listing status |
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
 | `scripts/cdn_upload.py` | Upload assets to Bunny CDN |
-| `scripts/update_website.py` | Update episodes.json for the website |
-| `scripts/fetch_ai16z_channel.py` | One-time import of long-form `@Ai16Z` videos into `ai16z.json` |
+| `scripts/publish_m3tv.py` | Update website with episode data |
+| `scripts/discord_notify.py` | Discord notification bot |
 
 One-time archive import:
 
@@ -90,7 +100,7 @@ crontab -e
 
 # Sunday 02:15 UTC = Saturday 9:15pm EST / 6:15pm PST
 # Note: '0' = Sunday in cron (UTC). This is Saturday night in US timezones.
-15 2 * * 0 cd /path/to/ai-news-website && ./scripts/record_cronjob.sh >> logs/record.log 2>&1
+15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
 ```
 
 ### Timing Chain
@@ -107,18 +117,9 @@ The recorder runs 15 minutes after the video should be ready, providing a buffer
 ### Discord Alerts
 
 Set `ALERT_WEBHOOK_URL` in your environment to receive Discord notifications:
-- ✅ Success: Episode recorded successfully
-- ❌ Failure: Recording failed (API error or recorder error)
-- ℹ️ Skip: Episode already recorded
-
-Test manually:
-```bash
-./scripts/record_cronjob.sh --dry-run  # Preview
-./scripts/record_cronjob.sh            # Record
-
-# With alerts
-ALERT_WEBHOOK_URL="your_webhook" ./scripts/record_cronjob.sh --dry-run
-```
+- Success: Episode recorded successfully
+- Failure: Recording failed (API error or recorder error)
+- Skip: Episode already recorded
 
 ## Environment Setup
 
@@ -130,6 +131,12 @@ BUNNY_STORAGE_ZONE=your_zone
 BUNNY_STORAGE_PASSWORD=your_password
 BUNNY_CDN_URL=https://cdn.elizaos.news
 
+# OpenRouter (for LLM-based clip analysis + trailer generation)
+OPENROUTER_API_KEY=sk-or-...
+
+# Website repo path (for publish_m3tv.py step 8)
+WEBSITE_REPO=/path/to/M3-org/website
+
 # YouTube (run setup_youtube_auth.py first)
 # Credentials stored in youtube_credentials.json
 ```
@@ -138,22 +145,27 @@ BUNNY_CDN_URL=https://cdn.elizaos.news
 
 ```
 ai-news-website/
-├── episodes/                    # Recorded episodes & metadata
-│   ├── clips/                   # Extracted clips
-│   │   └── manifest.json        # Clip provenance & CDN URLs
-│   ├── thumbnails/              # Episode thumbnails
-│   └── *.mp4, *_session-log.json
 ├── scripts/
-│   ├── record_cronjob.sh        # Automated recording
-│   ├── recorder.js              # Browser-based recorder
-│   ├── generate_manifest.py     # Manifest generation
-│   ├── generate_youtube_metadata.py
-│   ├── cdn_upload.py            # CDN upload utility
-│   └── update_website.py        # Website updater
-├── upload_to_youtube.py         # YouTube uploader
-├── setup_youtube_auth.py        # YouTube auth setup
-├── index.html                   # Website (elizaos.news)
-└── .env.example                 # Environment template
+│   ├── run_pipeline.sh             # Full pipeline orchestrator
+│   ├── recorder.js                 # Browser-based recorder
+│   ├── youtube_metadata.py          # YouTube metadata generator
+│   ├── youtube_upload.py           # YouTube uploader + privacy manager
+│   ├── llm_producer.py             # LLM clip analysis + trailer generation
+│   ├── generate_manifest.py        # Manifest generation
+│   ├── cdn_upload.py               # CDN upload utility
+│   ├── publish_m3tv.py             # Website publisher
+│   └── discord_notify.py           # Discord notifications
+├── episodes/                       # Recorded episodes & metadata
+│   ├── clips/                      # Extracted clips
+│   │   └── manifest.json           # Clip provenance & CDN URLs
+│   ├── thumbnails/                 # Episode thumbnails
+│   └── *.mp4, *_session-log.json
+├── trailers/                       # Generated trailers
+├── remotion/                       # Remotion project for trailer rendering
+├── unity/                          # Archived Unity show (self-contained mini-site)
+├── setup_youtube_auth.py           # YouTube auth setup
+├── index.html                      # Website landing page (elizaos.news)
+└── .env.example                    # Environment template
 ```
 
 ## Output Files
@@ -182,7 +194,3 @@ The manifest system tracks three types of clips:
 - Python 3.10+
 - Chrome/Chromium (for recording)
 - FFmpeg (for video processing)
-
-## License
-
-MIT

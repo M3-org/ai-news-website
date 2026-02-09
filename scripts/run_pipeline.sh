@@ -335,7 +335,7 @@ step_2_generate_metadata() {
         playlist_arg="--playlist-id=${YOUTUBE_PLAYLIST_ID}"
     fi
 
-    python3 scripts/generate_youtube_metadata.py "$SESSION_LOG" \
+    python3 scripts/youtube_metadata.py "$SESSION_LOG" \
         --privacy unlisted \
         --download-thumb \
         ${playlist_arg:+"$playlist_arg"}
@@ -365,7 +365,7 @@ step_3_upload_youtube() {
 
     log "Uploading to YouTube from: $(basename "$METADATA_JSON")"
 
-    python3 upload_to_youtube.py --from-json "$METADATA_JSON"
+    python3 scripts/youtube_upload.py --from-json "$METADATA_JSON"
 
     # Extract video ID from updated metadata
     if [[ -f "$METADATA_JSON" ]]; then
@@ -395,7 +395,7 @@ step_4_analyze_clips() {
 
     log "Analyzing clips from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/analyze_clips.py "$SESSION_LOG" --extract
+    python3 scripts/llm_producer.py clips "$SESSION_LOG" --extract
 
     log "Clip analysis complete"
 }
@@ -410,7 +410,7 @@ step_5_generate_trailer() {
 
     log "Generating trailer config from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/generate_trailer.py "$SESSION_LOG" --output="$TRAILER_DIR"
+    python3 scripts/llm_producer.py trailer "$SESSION_LOG" --output="$TRAILER_DIR"
 
     # Find the generated config
     local base
@@ -471,6 +471,9 @@ step_7_cdn_upload() {
         if [[ -n "$SESSION_LOG" ]]; then
             manifest_args+=(--session-log "$SESSION_LOG")
         fi
+        if [[ -n "$METADATA_JSON" && -f "$METADATA_JSON" ]]; then
+            manifest_args+=(--metadata-json "$METADATA_JSON")
+        fi
         python3 scripts/generate_manifest.py "${manifest_args[@]}"
 
         log "Uploading clips to CDN..."
@@ -522,7 +525,7 @@ step_8_update_website() {
 
     log "Updating website for date: $date_str"
 
-    python3 scripts/publish_m3tv.py --episode-date="$date_str" --website-repo="/home/jin/repo/website" --push
+    python3 scripts/publish_m3tv.py --episode-date="$date_str" --push
 
     log "Website updated"
 }

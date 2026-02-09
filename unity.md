@@ -5,7 +5,7 @@
 Your project already has a story. AI Show turns it into a daily show
 with virtual hosts, scenes, narration, and automated publishing.
 
-Website: https://elizaos.news
+Website: https://elizaos.news/unity/
 
 
 ## What It Does

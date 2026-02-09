@@ -5,7 +5,7 @@
   "scripts": {
     "record": "node scripts/recorder.js",
     "clip": "npx ts-node scripts/clip.ts",
-    "trailer:config": "uv run python scripts/generate_trailer.py",
+    "trailer:config": "uv run python scripts/llm_producer.py trailer",
     "trailer:studio": "cd remotion && npm start",
     "trailer:render": "cd remotion && npx remotion render Trailer"
   },

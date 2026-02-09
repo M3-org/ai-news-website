@@ -147,6 +147,28 @@ def update_thumbnail(youtube, video_id, thumbnail_path):
         print(f"Unexpected error during thumbnail update: {e}")
 
 
+def set_privacy(video_id: str, privacy: str = "public") -> dict:
+    """Change a video's privacy/listing status (e.g. unlisted -> public).
+
+    Can be called standalone or imported by other scripts (e.g. discord_notify.py).
+    """
+    from types import SimpleNamespace
+    args = SimpleNamespace(
+        client_secrets=os.environ.get("YOUTUBE_CLIENT_SECRETS_PATH", DEFAULT_CLIENT_SECRETS_FILE),
+        credentials_storage=os.environ.get("YOUTUBE_CREDENTIALS_LOCAL_PATH", DEFAULT_CREDENTIALS_FILE),
+    )
+    youtube = get_authenticated_service(args)
+    response = (
+        youtube.videos()
+        .update(
+            part="status",
+            body={"id": video_id, "status": {"privacyStatus": privacy}},
+        )
+        .execute()
+    )
+    return response
+
+
 def validate_playlist_id(playlist_id):
     """
     Validates YouTube playlist ID format.
@@ -373,28 +395,23 @@ def load_metadata_from_json(json_file):
 def load_metadata_from_session_log(session_log_file, options=None):
     """
     Generate YouTube metadata directly from a session-log.json file.
-    Uses the generate_youtube_metadata module for processing.
+    Uses the youtube_metadata module for processing.
     """
     if not os.path.exists(session_log_file):
         print(f"ERROR: Session log file not found: {session_log_file}")
         sys.exit(1)
 
-    # Try to import the generate_youtube_metadata module
+    # Try to import the youtube_metadata module (same directory)
     try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        scripts_dir = os.path.join(script_dir, 'scripts')
-        if scripts_dir not in sys.path:
-            sys.path.insert(0, scripts_dir)
-
-        from generate_youtube_metadata import generate_metadata
+        from youtube_metadata import generate_metadata
 
         options = options or {}
         metadata = generate_metadata(session_log_file, options)
         print(f"Generated metadata from session log: {session_log_file}")
         return metadata
     except ImportError as e:
-        print(f"ERROR: Could not import generate_youtube_metadata module: {e}")
-        print("Make sure scripts/generate_youtube_metadata.py exists")
+        print(f"ERROR: Could not import youtube_metadata module: {e}")
+        print("Make sure scripts/youtube_metadata.py exists")
         sys.exit(1)
     except Exception as e:
         print(f"ERROR: Failed to generate metadata from session log: {e}")
@@ -419,8 +436,8 @@ def download_thumbnail_from_url(url, output_dir=None, base_name=None):
 
         # Use episodes/thumbnails/ as default directory
         if output_dir is None:
-            script_dir = os.path.dirname(os.path.abspath(__file__))
-            output_dir = os.path.join(script_dir, 'episodes', 'thumbnails')
+            project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            output_dir = os.path.join(project_dir, 'episodes', 'thumbnails')
 
         os.makedirs(output_dir, exist_ok=True)
 
@@ -465,7 +482,13 @@ def main():
     parser.add_argument("--playlist-id", default=os.environ.get('YOUTUBE_PLAYLIST_ID'),
                         help="YouTube playlist ID to add the video to after upload. Extract from playlist URL: youtube.com/playlist?list=PLAYLIST_ID")
     parser.add_argument("--update-thumbnail-for",
-                        help="If specified, updates the thumbnail for the given video ID instead of uploading a new video.")                        
+                        help="If specified, updates the thumbnail for the given video ID instead of uploading a new video.")
+    parser.add_argument("--visibility", choices=["public", "private", "unlisted"],
+                        help="Change an existing video's visibility instead of uploading.")
+    parser.add_argument("--video",
+                        help="YouTube video ID or URL (for --visibility)")
+    parser.add_argument("--from-state",
+                        help="Read video_id from pipeline state JSON (for --visibility)")                        
     parser.add_argument("--client-secrets",
                         default=os.environ.get('YOUTUBE_CLIENT_SECRETS_PATH', DEFAULT_CLIENT_SECRETS_FILE),
                         help=f"Path to client_secrets.json. Defaults to '{DEFAULT_CLIENT_SECRETS_FILE}' or YOUTUBE_CLIENT_SECRETS_PATH env var.")
@@ -474,6 +497,30 @@ def main():
                         help=f"Path to store/load OAuth2 credentials for local interactive runs. Defaults to '{DEFAULT_CREDENTIALS_FILE}' or YOUTUBE_CREDENTIALS_LOCAL_PATH env var.")
     
     args = parser.parse_args()
+
+    # Shortcut mode: change visibility of an existing video
+    if args.visibility:
+        video_id = args.video
+        if args.from_state:
+            with open(args.from_state) as f:
+                state = json.load(f)
+            video_id = state.get("youtube_video_id", video_id)
+        if not video_id:
+            parser.error("--visibility requires --video VIDEO_ID_OR_URL or --from-state")
+        # Accept full URLs: extract video ID from youtube.com/watch?v=XXX or youtu.be/XXX
+        if "youtube.com" in video_id or "youtu.be" in video_id:
+            from urllib.parse import urlparse, parse_qs
+            parsed = urlparse(video_id)
+            if "youtu.be" in parsed.netloc:
+                video_id = parsed.path.lstrip("/")
+            else:
+                video_id = parse_qs(parsed.query).get("v", [""])[0]
+            if not video_id:
+                parser.error(f"Could not extract video ID from URL: {args.video}")
+        result = set_privacy(video_id, args.visibility)
+        status = result.get("status", {}).get("privacyStatus", "unknown")
+        print(f"{video_id} -> {status}")
+        return
 
     # Load metadata from session log if specified (generates metadata on-the-fly)
     if args.from_session_log:

@@ -11,7 +11,7 @@ End-to-end pipeline for recording Shmotime episodes, generating trailers, upload
                           └────────┬─────────┘
                                    │
                           ┌────────▼─────────┐
-                   Step 1 │  record_cronjob   │  Record episode via Puppeteer
+                   Step 1 │  run_pipeline.sh  │  Record episode via Puppeteer
                           │  recorder.js      │
                           └────────┬─────────┘
                                    │
@@ -21,13 +21,13 @@ End-to-end pipeline for recording Shmotime episodes, generating trailers, upload
                  ┌─────────────────┼─────────────────┐
                  │                 │                  │
         ┌────────▼───────┐ ┌──────▼───────┐ ┌───────▼──────┐
- Step 2 │  generate_yt   │ │ analyze_clips│ │ generate_    │  Steps 2, 4, 5
-        │  _metadata.py  │ │ .py (LLM)    │ │ trailer.py   │  (can overlap)
+ Step 2 │  youtube_      │ │ llm_producer │ │ llm_producer │  Steps 2, 4, 5
+        │  metadata.py   │ │ .py clips    │ │ .py trailer  │  (can overlap)
         └────────┬───────┘ └──────┬───────┘ └───────┬──────┘
                  │                │                  │
         ┌────────▼───────┐       │         ┌───────▼──────┐
- Step 3 │ upload_to_     │       │  Step 6 │ Remotion     │
-        │ youtube.py     │       │         │ render       │
+ Step 3 │ youtube_       │       │  Step 6 │ Remotion     │
+        │ upload.py      │       │         │ render       │
         └────────┬───────┘       │         └───────┬──────┘
                  │                │                  │
          YouTube URL      clips/ dir        trailers/{date}_trailer.mp4
@@ -89,27 +89,9 @@ Chains all steps into a single invocation with logging, error handling, and noti
 
 ---
 
-### `record_cronjob.sh` — Episode Recorder
-
-Fetches the latest episode URL from Shmotime API and records it using `recorder.js` (Puppeteer + puppeteer-stream).
-
-```bash
-./scripts/record_cronjob.sh              # Record latest episode
-./scripts/record_cronjob.sh --dry-run    # Show what would be recorded
-```
-
-**Inputs:** Shmotime API (show ID 5296)
-**Outputs:**
-- `episodes/{date}_{show}_{title}.mp4` — Full episode video
-- `episodes/{date}_{show}_{title}_session-log.json` — Structured episode data with word-level timestamps
-
-**Dependencies:** Node.js, `puppeteer-stream`
-
----
-
 ### `recorder.js` — Puppeteer Recorder
 
-Low-level recorder that captures video from a Shmotime episode URL. Called by `record_cronjob.sh`.
+Low-level recorder that captures video from a Shmotime episode URL. Called by `run_pipeline.sh` step 1.
 
 ```bash
 node scripts/recorder.js \
@@ -126,34 +108,39 @@ node scripts/recorder.js \
 
 ---
 
-### `generate_youtube_metadata.py` — YouTube Metadata Generator
+### `youtube_metadata.py` — YouTube Metadata Generator
 
 Creates YouTube upload metadata (title, description with chapters, tags, thumbnail) from a session log.
 
 ```bash
-python3 scripts/generate_youtube_metadata.py episodes/*_session-log.json
-python3 scripts/generate_youtube_metadata.py episodes/*_session-log.json \
+python3 scripts/youtube_metadata.py episodes/*_session-log.json
+python3 scripts/youtube_metadata.py episodes/*_session-log.json \
     --playlist-id PLxxxx --privacy public --download-thumb
 ```
 
 **Inputs:** `_session-log.json`
-**Outputs:** `_youtube_metadata.json` (compatible with `upload_to_youtube.py --from-json`)
+**Outputs:** `_youtube_metadata.json` (compatible with `youtube_upload.py --from-json`)
 
 ---
 
-### `upload_to_youtube.py` — YouTube Uploader
+### `youtube_upload.py` — YouTube Uploader & Privacy Manager
 
-Uploads video to YouTube with metadata, thumbnail, and optional playlist placement.
+Uploads video to YouTube with metadata, thumbnail, and optional playlist placement. Also supports changing an existing video's privacy/listing status.
 
 ```bash
 # From metadata JSON (preferred)
-python3 upload_to_youtube.py --from-json episodes/*_youtube_metadata.json
+python3 scripts/youtube_upload.py --from-json episodes/*_youtube_metadata.json
 
 # From session log (generates metadata on-the-fly)
-python3 upload_to_youtube.py --from-session-log episodes/*_session-log.json
+python3 scripts/youtube_upload.py --from-session-log episodes/*_session-log.json
 
 # Direct arguments
-python3 upload_to_youtube.py --video-file ep.mp4 --title "Episode" --privacy public
+python3 scripts/youtube_upload.py --video-file ep.mp4 --title "Episode" --privacy-status public
+
+# Change listing status of an existing video (e.g. unlisted -> public)
+python3 scripts/youtube_upload.py --visibility public --video dQw4w9WgXcQ
+python3 scripts/youtube_upload.py --visibility public --video "https://youtube.com/watch?v=dQw4w9WgXcQ"
+python3 scripts/youtube_upload.py --visibility public --from-state episodes/2026-02-08_pipeline_state.json
 ```
 
 **Inputs:** Video file + metadata (JSON, session-log, or CLI args)
@@ -175,14 +162,16 @@ python3 setup_youtube_auth.py
 
 ---
 
-### `analyze_clips.py` — LLM Clip Analyzer
+### `llm_producer.py` — LLM Clip Analysis & Trailer Generator
 
-Uses OpenRouter + Kimi K2.5 to identify clip-worthy moments from episode session logs.
+Uses OpenRouter LLMs to analyze episode session logs. Two subcommands:
+
+#### `clips` — Identify clip-worthy moments
 
 ```bash
-python3 scripts/analyze_clips.py episodes/*_session-log.json
-python3 scripts/analyze_clips.py episodes/*_session-log.json --extract  # Also extract clips via ffmpeg
-python3 scripts/analyze_clips.py episodes/*_session-log.json --dry-run
+python3 scripts/llm_producer.py clips episodes/*_session-log.json
+python3 scripts/llm_producer.py clips episodes/*_session-log.json --extract  # Also extract via ffmpeg
+python3 scripts/llm_producer.py clips episodes/*_session-log.json --dry-run
 ```
 
 **Inputs:** `_session-log.json`
@@ -190,38 +179,39 @@ python3 scripts/analyze_clips.py episodes/*_session-log.json --dry-run
 - `_suggestions.json` — Clip suggestions with timing
 - `clips/*.mp4` — Extracted clips (with `--extract`)
 
-**Dependencies:** `requests`, OpenRouter API key, `ffmpeg` (for extraction)
-
----
-
-### `generate_trailer.py` — Trailer Config Generator
-
-Uses LLM to select punchy 1-3 second moments for a "Coming up on Cron Job..." trailer.
+#### `trailer` — Generate trailer configs for Remotion
 
 ```bash
-python3 scripts/generate_trailer.py episodes/*_session-log.json
-python3 scripts/generate_trailer.py episodes/*_session-log.json --manual  # Interactive mode
-python3 scripts/generate_trailer.py episodes/*_session-log.json --dry-run
+python3 scripts/llm_producer.py trailer episodes/*_session-log.json
+python3 scripts/llm_producer.py trailer episodes/*_session-log.json --manual  # Interactive mode
+python3 scripts/llm_producer.py trailer episodes/*_session-log.json --dry-run
 ```
 
 **Inputs:** `_session-log.json`
 **Outputs:** `trailers/{date}_{show}_{title}_trailer-config.json` (Remotion props)
-**Dependencies:** `requests`, OpenRouter API key
+
+**Dependencies:** `requests`, OpenRouter API key, `ffmpeg` (for clip extraction)
 
 ---
 
 ### `generate_manifest.py` — Media Manifest Generator
 
-Scans a directory for media files and creates `manifest.json` with provenance metadata. Used as input for CDN uploads.
+Scans a directory for media files and creates `manifest.json` with provenance metadata. Used as input for CDN uploads. Optionally links the YouTube full-video URL into the manifest via `--metadata-json`.
 
 ```bash
 python3 scripts/generate_manifest.py episodes/clips/ --show cronjob
+
+# With session log for enriched provenance
 python3 scripts/generate_manifest.py episodes/clips/ --show cronjob \
     --session-log episodes/*_session-log.json
+
+# Include YouTube URL from metadata JSON
+python3 scripts/generate_manifest.py episodes/clips/ --show cronjob \
+    --metadata-json episodes/*_youtube_metadata.json
 ```
 
-**Inputs:** Directory of media files, optional session log
-**Outputs:** `manifest.json` in the scanned directory
+**Inputs:** Directory of media files, optional session log, optional YouTube metadata JSON
+**Outputs:** `manifest.json` in the scanned directory (includes `youtube_url` in `source` when `--metadata-json` provided)
 
 ---
 
@@ -249,19 +239,29 @@ python3 scripts/cdn_upload.py file.mp4 --remote path/ --json
 
 ---
 
-### `update_website.py` — Website Updater *(Legacy)*
+### `discord_notify.py` — Discord Notification Bot
 
-> **Deprecated:** Replaced by `publish_m3tv.py` in the pipeline (step 8). Kept for reference until the new publisher has run 2+ cycles.
+Sends rich Discord notifications after pipeline completion, with optional publish button.
 
-Updates `unity/episodes.json` with YouTube video info and optionally commits/pushes.
+---
+
+### `publish_m3tv.py` — Website Publisher (Step 8)
+
+Updates the M3TV website (`m3org.com/tv`) with new episode data. Upserts into `cronjob-episodes.json` and `gallery.json`, then commits and pushes.
 
 ```bash
-python3 scripts/update_website.py --episode-date=2026-02-02
-python3 scripts/update_website.py --episode-date=2026-02-02 --push
+# Requires --website-repo or WEBSITE_REPO env var
+python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --push
+
+# Using env var (recommended for automation)
+WEBSITE_REPO=/path/to/website python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --push
+
+# Preview changes without writing
+python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --dry-run
 ```
 
-**Inputs:** Episode metadata files in `Episodes/{date}/metadata/`
-**Outputs:** Updated `unity/episodes.json`
+**Inputs:** Episode date, website repo path (via `--website-repo` or `WEBSITE_REPO` env var), optional `--metadata-json` override
+**Outputs:** Updated `tv/data/cronjob-episodes.json` and `tv/gallery.json` in the website repo
 
 ---
 
@@ -271,13 +271,14 @@ Copy `.env.example` to `.env` and fill in your values.
 
 | Variable | Required By | Description |
 |----------|-------------|-------------|
-| `OPENROUTER_API_KEY` | analyze_clips, generate_trailer | OpenRouter API key for LLM analysis |
-| `ALERT_WEBHOOK_URL` | run_pipeline, record_cronjob | Discord webhook URL for notifications |
+| `OPENROUTER_API_KEY` | llm_producer.py | OpenRouter API key for LLM analysis |
+| `ALERT_WEBHOOK_URL` | run_pipeline | Discord webhook URL for notifications |
 | `BUNNY_STORAGE_ZONE` | cdn_upload | Bunny CDN storage zone name |
 | `BUNNY_STORAGE_PASSWORD` | cdn_upload | Bunny CDN API password |
 | `BUNNY_CDN_URL` | cdn_upload | CDN base URL (e.g., `https://cdn.elizaos.news`) |
 | `BUNNY_STORAGE_HOST` | cdn_upload | Storage host region (default: LA) |
-| `YOUTUBE_PLAYLIST_ID` | upload_to_youtube | Playlist to add uploaded videos to |
+| `YOUTUBE_PLAYLIST_ID` | youtube_upload | Playlist to add uploaded videos to |
+| `WEBSITE_REPO` | publish_m3tv | Path to the M3-org/website repo checkout |
 
 YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) are managed separately via `setup_youtube_auth.py`.
 
@@ -287,15 +288,14 @@ YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) ar
 ai-news-website/
 ├── scripts/
 │   ├── run_pipeline.sh          # Full orchestrator
-│   ├── record_cronjob.sh        # Episode recording
 │   ├── recorder.js              # Puppeteer recorder
-│   ├── generate_youtube_metadata.py
-│   ├── analyze_clips.py
-│   ├── generate_trailer.py
+│   ├── youtube_metadata.py       # YouTube metadata generator
+│   ├── youtube_upload.py        # YouTube uploader + privacy manager
+│   ├── llm_producer.py          # LLM clip analysis + trailer generation
 │   ├── generate_manifest.py
 │   ├── cdn_upload.py
 │   ├── publish_m3tv.py          # Website publisher (step 8)
-│   └── update_website.py        # Legacy website updater
+│   └── discord_notify.py        # Discord notifications
 ├── unity/                       # Archived Unity show mini-site
 │   ├── index.html
 │   ├── episodes.json
@@ -314,7 +314,6 @@ ai-news-website/
 ├── logs/                        # Pipeline logs (gitignored)
 │   └── pipeline_{date}.log
 ├── remotion/                    # Remotion project for trailer rendering
-├── upload_to_youtube.py
 ├── setup_youtube_auth.py
 ├── .env                         # Local credentials (gitignored)
 └── .env.example
