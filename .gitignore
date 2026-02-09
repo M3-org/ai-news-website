@@ -18,8 +18,8 @@ __pycache__/
 # Logs
 logs/
 
-# Generated poster output (large, regenerated daily)
-media/daily/
+# Generated poster output (large, cleaned up after 7 days by CI)
+# media/daily/
 
 # Knowledge symlink (local dev only)
 knowledge
