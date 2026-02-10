@@ -116,10 +116,12 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 
 | Dashboard | Description |
 |-----------|-------------|
-| `dashboards/media-studio.html` | Central hub for facts viewer, gallery, validation tools |
-| `dashboards/facts.html` | Browse daily facts from knowledge repo with media previews |
-| `dashboards/gallery.html` | Visual gallery of all generated posters |
-| `dashboards/council.html` | Council meeting notes viewer |
+| `media/dashboards/index.html` | Central hub for facts viewer, gallery, validation tools |
+| `media/dashboards/facts.html` | Browse daily facts from knowledge repo with media previews |
+| `media/dashboards/gallery.html` | Visual gallery of all generated posters |
+| `media/dashboards/council.html` | Council meeting notes viewer |
+
+Legacy `/dashboards/*.html` URLs are maintained as redirect shims to `media/dashboards/*.html`.
 
 One-time archive import:
 
@@ -201,8 +203,8 @@ ai-news-website/
 ├── .github/workflows/
 │   ├── generate-posters.yml        # Daily poster generation (11:00 UTC)
 │   └── generate-illustrations.yml  # Manual poster generation
-├── dashboards/                     # Interactive data viewers
-│   ├── media-studio.html           # Central hub
+├── media/dashboards/               # Interactive data viewers (canonical)
+│   ├── index.html                  # Central hub
 │   ├── facts.html                  # Daily facts browser
 │   ├── gallery.html                # Poster gallery
 │   └── council.html                # Council notes viewer
