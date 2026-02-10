@@ -39,6 +39,7 @@ from vision import load_image_base64, analyze
 WORKSPACE_ROOT = SCRIPT_DIR.parent.parent  # ai-news-website root
 KNOWLEDGE_ROOT = Path(os.environ.get("KNOWLEDGE_ROOT", WORKSPACE_ROOT / "knowledge"))
 SAMPLES_DIR = WORKSPACE_ROOT / "media" / "samples"
+DASHBOARDS_DIR = WORKSPACE_ROOT / "media" / "dashboards"
 FACTS_DIR = KNOWLEDGE_ROOT / "the-council" / "facts"
 DEFAULT_MODEL = "google/gemini-3-flash-preview"
 
@@ -271,7 +272,7 @@ def main():
     )
     parser.add_argument(
         "-r", "--results",
-        default=str(SAMPLES_DIR / "results.json"),
+        default=str(DASHBOARDS_DIR / "results.json"),
         help="Results JSON file"
     )
     parser.add_argument(
@@ -460,7 +461,7 @@ def main():
             print(f"✗ Needs work: {recommendations['weakest']}")
 
     # Auto-save report
-    report_path = Path(args.output) if args.output else SAMPLES_DIR / "validation-report.json"
+    report_path = Path(args.output) if args.output else DASHBOARDS_DIR / "validation-report.json"
     report_path.write_text(json.dumps(report, indent=2))
     print(f"\nReport saved: {report_path}")
 

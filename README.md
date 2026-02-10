@@ -123,6 +123,26 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 
 Legacy `/dashboards/*.html` URLs are maintained as redirect shims to `media/dashboards/*.html`.
 
+### Media Samples Organization
+
+`media/samples/` is used for generated artifacts and experiments:
+
+- `media/samples/characters/`: reference sheets used by dashboards
+- `media/samples/illustrate*/`, `media/samples/scene_director/`, `media/samples/create-tag-icons/`: generated experiment outputs
+- `media/samples/prototypes/`: non-core viewer prototypes
+- `media/samples/reports/`: ad hoc report outputs
+
+Generated dashboard data files live in `media/dashboards/`:
+
+- `media/dashboards/results.json`
+- `media/dashboards/validation-*.json`
+
+To audit overlap between dashboard and sample roots:
+
+```bash
+./scripts/check-media-overlap.sh --allow-diff
+```
+
 One-time archive import:
 
 ```bash
@@ -208,6 +228,10 @@ ai-news-website/
 │   ├── facts.html                  # Daily facts browser
 │   ├── gallery.html                # Poster gallery
 │   └── council.html                # Council notes viewer
+├── media/samples/                  # Generated samples and experiments
+│   ├── prototypes/                 # Experimental viewers
+│   ├── reports/                    # Ad hoc report artifacts
+│   └── illustrate*/ scene_director/ create-tag-icons/
 ├── episodes/                       # Recorded episodes & metadata
 │   ├── clips/                      # Extracted clips
 │   │   └── manifest.json           # Clip provenance & CDN URLs
