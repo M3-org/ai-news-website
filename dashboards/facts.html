@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The ElizaOS Daily</title>
-  <link rel="stylesheet" href="facts15.css">
+  <link rel="stylesheet" href="facts.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -67,6 +67,7 @@
 
   <script>
     let currentDate = null;
+    let manifestData = null;
 
     // URL query param helpers
     function getDateFromURL() {
@@ -88,6 +89,7 @@
     // Initialize
     async function init() {
       const manifest = await ElizaData.init();
+      manifestData = manifest;
 
       // Check URL for date, fallback to latest
       const urlDate = getDateFromURL();
@@ -104,6 +106,14 @@
 
       // Set up event listeners
       setupEventListeners();
+    }
+
+    function isDateAvailable(datasetKey, date) {
+      const dates = manifestData?.available_dates?.[datasetKey];
+      if (!Array.isArray(dates) || dates.length === 0) {
+        return true;
+      }
+      return dates.includes(date);
     }
 
     function setupEventListeners() {
@@ -150,20 +160,28 @@
 
     async function loadFacts(date) {
       try {
-        const facts = await ElizaData._fetch(`/the-council/facts/${date}.json`);
+        const facts = await ElizaData._fetch(`${ElizaData.KNOWLEDGE_BASE}/the-council/facts/${date}.json`);
 
         // Try to load council briefing (may not exist for all dates)
         let councilBriefing = null;
-        try {
-          councilBriefing = await ElizaData._fetch(`/the-council/council_briefing/${date}.json`);
-        } catch (e) {
-          console.log('No council briefing for', date);
+        if (isDateAvailable('council_briefing', date)) {
+          try {
+            councilBriefing = await ElizaData._fetch(
+              `${ElizaData.KNOWLEDGE_BASE}/the-council/council_briefing/${date}.json`,
+              { retries: 0 }
+            );
+          } catch (e) {
+            console.log('No council briefing for', date);
+          }
         }
 
         // Try to load AI news (may not exist for all dates)
         let aiNews = null;
         try {
-          aiNews = await ElizaData._fetch(`/ai-news/elizaos/json/${date}.json`);
+          aiNews = await ElizaData._fetch(
+            `${ElizaData.KNOWLEDGE_BASE}/ai-news/elizaos/json/${date}.json`,
+            { retries: 0 }
+          );
         } catch (e) {
           console.log('No AI news for', date);
         }
@@ -171,17 +189,25 @@
         // Try to load GitHub stats (may not exist for all dates)
         let githubStats = null;
         try {
-          githubStats = await ElizaData._fetch(`/github/stats/day/stats_${date}.json`);
+          githubStats = await ElizaData._fetch(
+            `${ElizaData.KNOWLEDGE_BASE}/github/stats/day/stats_${date}.json`,
+            { retries: 0 }
+          );
         } catch (e) {
           console.log('No GitHub stats for', date);
         }
 
         // Try to load highlights (may not exist for all dates)
         let highlights = null;
-        try {
-          highlights = await ElizaData._fetch(`/the-council/highlights/${date}.json`);
-        } catch (e) {
-          console.log('No highlights for', date);
+        if (isDateAvailable('highlights', date)) {
+          try {
+            highlights = await ElizaData._fetch(
+              `${ElizaData.KNOWLEDGE_BASE}/the-council/highlights/${date}.json`,
+              { retries: 0 }
+            );
+          } catch (e) {
+            console.log('No highlights for', date);
+          }
         }
 
         // Update date display
@@ -265,29 +291,93 @@
       return ElizaData.escapeHtml(fact);
     }
 
+    function renderInlineMarkdown(text) {
+      let output = ElizaData.escapeHtml(text || '');
+      output = output.replace(/\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g, (_match, label, url) => {
+        return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+      });
+      output = output.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+      output = output.replace(/`([^`]+)`/g, '<code>$1</code>');
+      return output;
+    }
+
+    function markdownToHtml(markdown) {
+      const lines = (markdown || '').split('\n');
+      const html = [];
+      let inList = false;
+      let para = [];
+
+      const flushParagraph = () => {
+        if (para.length === 0) return;
+        html.push(`<p>${renderInlineMarkdown(para.join(' ').trim())}</p>`);
+        para = [];
+      };
+
+      lines.forEach((rawLine) => {
+        const line = rawLine.trim();
+
+        if (!line) {
+          flushParagraph();
+          if (inList) {
+            html.push('</ul>');
+            inList = false;
+          }
+          return;
+        }
+
+        const headingMatch = line.match(/^(#{1,3})\s+(.*)$/);
+        if (headingMatch) {
+          flushParagraph();
+          if (inList) {
+            html.push('</ul>');
+            inList = false;
+          }
+          const level = Math.min(3, headingMatch[1].length) + 1;
+          html.push(`<h${level}>${renderInlineMarkdown(headingMatch[2])}</h${level}>`);
+          return;
+        }
+
+        const listMatch = line.match(/^[-*+]\s+(.*)$/);
+        if (listMatch) {
+          flushParagraph();
+          if (!inList) {
+            html.push('<ul>');
+            inList = true;
+          }
+          html.push(`<li>${renderInlineMarkdown(listMatch[1])}</li>`);
+          return;
+        }
+
+        if (inList) {
+          html.push('</ul>');
+          inList = false;
+        }
+        para.push(line);
+      });
+
+      flushParagraph();
+      if (inList) {
+        html.push('</ul>');
+      }
+
+      return html.join('');
+    }
+
     async function renderDailySilk(date) {
       const sidebar = document.querySelector('.questions-sidebar');
       const container = document.getElementById('daily-ai-news-container');
-      const mainGrid = document.querySelector('.main-grid');
       const factsSection = document.querySelector('.facts-section');
 
       try {
-        const dailySilk = await ElizaData._fetch(`/daily-silk/${date}.md`);
+        const response = await fetch(`${ElizaData.KNOWLEDGE_BASE}/daily-silk/${date}.md`);
+        if (!response.ok) throw new Error(`Failed to fetch daily-silk (${response.status})`);
+        const dailySilk = await response.text();
+        const rendered = markdownToHtml(dailySilk);
 
-        // Parse markdown and extract bullet points
-        const lines = dailySilk.split('\n');
-        const bullets = lines
-          .filter(line => line.trim().startsWith('-') || line.trim().startsWith('*'))
-          .map(line => line.replace(/^[\s-*]+/, '').trim())
-          .filter(line => line.length > 0)
-          .slice(0, 8); // Limit to 8 items
-
-        if (bullets.length > 0) {
+        if (rendered) {
           sidebar.style.display = 'block';
           factsSection.style.gridColumn = '1 / 9'; // Default: 8 columns
-          container.innerHTML = bullets.map(item => `
-            <div class="question-item">${ElizaData.escapeHtml(item)}</div>
-          `).join('');
+          container.innerHTML = `<article class="daily-news-markdown">${rendered}</article>`;
         } else {
           // Hide sidebar and expand facts section
           sidebar.style.display = 'none';
@@ -352,12 +442,13 @@
       const highlightsHtml = displayHighlights.map((h, index) => {
         const char = characterInfo[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
         const profileImg = characterProfiles[h.character] || '';
+        const fallbackImg = `../media/samples/characters/reference-sheet-${h.character}.png`;
         const firstPara = h.body.split('\n')[0];
 
         return `
           <article class="highlight-card">
             <div class="highlight-meta">
-              ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="profile-pic">` : ''}
+              ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="profile-pic" onerror="this.onerror=null;this.src='${fallbackImg}'">` : ''}
               <div class="byline-info">
                 <div class="author-name">${char.name}</div>
                 <div class="author-title">${char.title}</div>
@@ -445,6 +536,7 @@
         const columnistsCards = displayHighlights.map((h, index) => {
           const char = characterInfo[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
           const profileImg = characterProfiles[h.character] || '';
+          const fallbackImg = `../media/samples/characters/reference-sheet-${h.character}.png`;
           const firstPara = h.body.split('\n')[0];
 
           return `
@@ -454,7 +546,7 @@
                   <div class="columnist-name">${char.name}</div>
                   <div class="columnist-title">${char.title}</div>
                 </div>
-                ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="columnist-pic">` : ''}
+                ${profileImg ? `<img src="${profileImg}" alt="${char.name}" class="columnist-pic" onerror="this.onerror=null;this.src='${fallbackImg}'">` : ''}
               </div>
 
               <h4 class="columnist-headline">${ElizaData.escapeHtml(h.headline)}</h4>
@@ -927,30 +1019,66 @@
       `;
     }
 
+    function normalizeAiNewsCategories(aiNews) {
+      const categories = aiNews?.categories;
+      if (!categories) return [];
+      if (Array.isArray(categories)) return categories;
+
+      if (typeof categories === 'object') {
+        // Newer single-category object shape: { topic, title, content }
+        if (Array.isArray(categories.content) || categories.topic || categories.title) {
+          return [categories];
+        }
+        // Fallback for keyed category maps.
+        return Object.values(categories).filter(value => value && typeof value === 'object');
+      }
+
+      return [];
+    }
+
+    function firstMediaUrl(value) {
+      if (Array.isArray(value)) return value[0] || null;
+      return value || null;
+    }
+
     // Render full stories section (AI News Integration) - NYTimes grid style
     function renderFullStories(aiNews, date) {
       const container = document.getElementById('full-stories-container');
-      if (!aiNews || !aiNews.categories) {
+      const categories = normalizeAiNewsCategories(aiNews);
+
+      if (categories.length === 0) {
         container.innerHTML = '';
         return;
       }
 
       let html = '';
 
-      aiNews.categories.forEach(category => {
-        if (!category.content || category.content.length === 0) return;
+      categories.forEach(category => {
+        const content = Array.isArray(category?.content) ? category.content : [];
+        if (content.length === 0) return;
 
         // Skip miscellaneous section (generic project activity)
         if (category.topic === 'miscellaneous') return;
 
         const displayTitle = "Full Stories";
 
-        const storiesHtml = category.content.map((story, index) => {
+        const seenStories = new Set();
+        const dedupedContent = content.filter((story) => {
+          const key = JSON.stringify({
+            text: story?.text || '',
+            sources: Array.isArray(story?.sources) ? story.sources : [story?.sources || '']
+          });
+          if (seenStories.has(key)) return false;
+          seenStories.add(key);
+          return true;
+        });
+
+        const storiesHtml = dedupedContent.map((story, index) => {
           // Pick first available image for this story
           let storyImage = null;
-          if (story.posters) storyImage = story.posters;
-          else if (story.images) storyImage = story.images;
-          else if (story.memes?.url) storyImage = story.memes.url;
+          if (story.posters) storyImage = firstMediaUrl(story.posters);
+          else if (story.images) storyImage = firstMediaUrl(story.images);
+          else if (story.memes?.url) storyImage = firstMediaUrl(story.memes.url);
 
           // Derive headline from first sentence or first 80 chars
           // Fixed regex: matches sentence up to period followed by space + capital (or end)
@@ -978,10 +1106,15 @@
 
           let sourcesHtml = '';
           if (story.sources) {
-            const sources = (Array.isArray(story.sources) ? story.sources : [story.sources])
-              .filter(src => src.includes('discord'))
-              .map(src => '<span class="source-text">💬 Discord</span>')
-              .join('');
+            const rawSources = (Array.isArray(story.sources) ? story.sources : [story.sources])
+              .map(src => String(src || '').toLowerCase());
+            const labels = [];
+
+            if (rawSources.some(src => src.includes('discord'))) labels.push('<span class="source-text">💬 Discord</span>');
+            if (rawSources.some(src => src.includes('github'))) labels.push('<span class="source-text">🐙 GitHub</span>');
+            if (rawSources.some(src => src.includes('x.com') || src.includes('twitter'))) labels.push('<span class="source-text">🐦 X/Twitter</span>');
+
+            sourcesHtml = labels.join('');
           }
 
           return `

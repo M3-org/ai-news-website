@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ElizaOS Council Briefing</title>
   <link rel="stylesheet" href="lib/design-tokens.css">
-  <link rel="stylesheet" href="council_briefing.css">
+  <link rel="stylesheet" href="council.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
@@ -129,7 +129,7 @@
     async function loadBriefing(date) {
       try {
         // Load council briefing data for specific date
-        const briefing = await ElizaData._fetch(`/the-council/council_briefing/${date}.json`);
+        const briefing = await ElizaData._fetch(`${ElizaData.KNOWLEDGE_BASE}/the-council/council_briefing/${date}.json`);
 
         // Update navigation buttons
         updateNavButtons();

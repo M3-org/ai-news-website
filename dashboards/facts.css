@@ -365,6 +365,56 @@ body {
   color: #666;
 }
 
+.daily-news-markdown {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: #1d1d1d;
+}
+
+.daily-news-markdown h2,
+.daily-news-markdown h3,
+.daily-news-markdown h4 {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.3;
+  margin: 1rem 0 0.5rem;
+}
+
+.daily-news-markdown h2 {
+  font-size: 1.1rem;
+}
+
+.daily-news-markdown h3 {
+  font-size: 1rem;
+}
+
+.daily-news-markdown h4 {
+  font-size: 0.95rem;
+}
+
+.daily-news-markdown p {
+  margin: 0.6rem 0;
+}
+
+.daily-news-markdown ul {
+  margin: 0.6rem 0 0.9rem 1.2rem;
+}
+
+.daily-news-markdown li {
+  margin-bottom: 0.45rem;
+}
+
+.daily-news-markdown a {
+  color: #0b57d0;
+  text-decoration: underline;
+}
+
+.daily-news-markdown code {
+  font-family: 'IBM Plex Mono', monospace;
+  background: #efefef;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+}
+
 /* Categories Grid */
 .categories-grid {
   grid-column: 1 / -1;

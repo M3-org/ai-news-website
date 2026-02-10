@@ -481,7 +481,7 @@
 </head>
 <body>
     <nav class="studio-nav">
-        <a href="media-studio.html" class="home">Media Studio</a>
+        <a href="index.html" class="home">Media Studio</a>
         <a href="gallery.html">Gallery</a>
         <a href="validation-viewer.html" class="active">Validation</a>
         <a href="facts-viewer.html">Facts</a>
@@ -637,8 +637,8 @@ ${(data.stories_analyzed || []).map((s, i) => `${i + 1}. ${s}`).join('\n\n')}
                     <h3>Character References</h3>
                     <div class="char-grid">
                         ${characters.map(c => `
-                            <div class="char-card" onclick="openLightbox('characters/reference-sheet-${c}.png')">
-                                <img src="characters/reference-sheet-${c}.png" alt="${c}" loading="lazy">
+                            <div class="char-card" onclick="openLightbox('../media/samples/characters/reference-sheet-${c}.png')">
+                                <img src="../media/samples/characters/reference-sheet-${c}.png" alt="${c}" loading="lazy">
                                 <div class="char-name">${c}</div>
                             </div>
                         `).join('')}
@@ -679,8 +679,10 @@ ${(data.stories_analyzed || []).map((s, i) => `${i + 1}. ${s}`).join('\n\n')}
             (data.evaluations || []).forEach((ev, idx) => {
                 const scoreClass = ev.avg_score >= 4 ? 'good' : ev.avg_score >= 3 ? 'ok' : 'bad';
                 let imgPath = ev.image_path || ev.image;
-                // Strip leading media/samples/ if present (for older reports)
-                imgPath = imgPath.replace(/^media\/samples\//, '');
+                // Normalize sample asset paths to canonical media/samples location.
+                if (!/^(https?:\/\/|data:|blob:|\/|\.\.\/)/.test(imgPath)) {
+                    imgPath = `../media/samples/${imgPath.replace(/^media\/samples\//, '')}`;
+                }
 
                 html += `
                     <div class="evaluation-card">
