@@ -1,0 +1,21 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three main floating metric panels: 
+1) AI16Z Token Status (price trend, trade volume gauge)
+2) ELIZAOS Token Status (real-time price, liquidity bar)
+3) Korean Exchange Liquidity Health (risk level meter, transaction flow gauge)
+
+Animated cyan and magenta data flow lines link token panels to the liquidity panel, indicating impact direction. Orange warning indicators highlight irregular activity. All metrics and gauges rendered as semi-transparent holographic overlays with pulsing edges.
+
+CONTENT CONTEXT:
+Confusion between pre-rebrand AI16Z and current ELIZAOS tokens caused brief market panic regarding Korean exchange liquidity.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

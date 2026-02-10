@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-10T11:45:30.807162+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-10.json",
+  "facts_date": "2026-02-10",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-10",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Discussions shifted towards the launch of the 'Milaidy' personal assistant and major database optimizations, while community tension remained high due to token performance and Korean exchange delisting rumors.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and teammates huddle close around glowing screens in a glass-walled office; snow falls past frosted windows, while digital interfaces reflecting 'Milaidy' shimmer across faces\u2014subtle tension evident, yet their focused collaboration and scattered notes tell a story of unity amidst pressure, bathed in cool, contrasting pools of artificial light.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza and teammates huddle close around glowing screens in a glass-walled office; snow falls past frosted windows, while digital interfaces reflecting 'Milaidy' shimmer across faces\u2014subtle tension evident, yet their focused collaboration and scattered notes tell a story of unity amidst pressure, bathed in cool, contrasting pools of artificial light.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 54.81,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "shaw",
+        "eliza"
+      ],
+      "content_context": "Focus on hardening security for the Eliza App MVP and transitioning from prose-heavy prompts to structured logic systems.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Shaw and Eliza huddle over glowing monitors in a sparse, frosty office at night, shadows stretched on icy windows; code and logic diagrams scatter the desks, highlighting their synchronized efforts to reinforce the Eliza App\u2019s security amid the hush of winter.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Shaw and Eliza huddle over glowing monitors in a sparse, frosty office at night, shadows stretched on icy windows; code and logic diagrams scatter the desks, highlighting their synchronized efforts to reinforce the Eliza App\u2019s security amid the hush of winter.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.33,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Heavy focus on clearing up misinformation regarding Korean exchange delistings and defending the team against claims of developer exits and token sales. Technical focus on the Milaidy project launch, VPS installation bugs, and proposed directory structures utilizing PM2 as an external process manager.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Peepo huddle over glowing monitors in a cozy, cluttered winter workspace, papers and screens filled with project notes and code. Their focused faces, shadows cast by diffused blue and white light, convey unity as they collaborate to untangle confusion under the night\u2019s quiet, snow pressed against the window.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza and Peepo huddle over glowing monitors in a cozy, cluttered winter workspace, papers and screens filled with project notes and code. Their focused faces, shadows cast by diffused blue and white light, convey unity as they collaborate to untangle confusion under the night\u2019s quiet, snow pressed against the window.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 151.81,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "eliza",
+        "marc"
+      ],
+      "content_context": "The project is strategically moving away from prose-heavy instructions to logic-based synchronization to solve performance bottlenecks.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Marc, huddled together under wintry city lights, exchange focused glances over glowing laptops\u2014rows of logic diagrams bridge their screens, casting overlapping pools of blue and white across scattered papers, symbolizing synchronized teamwork against a backdrop of snowy glass and silent, contemplative night.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: Eliza and Marc, huddled together under wintry city lights, exchange focused glances over glowing laptops\u2014rows of logic diagrams bridge their screens, casting overlapping pools of blue and white across scattered papers, symbolizing synchronized teamwork against a backdrop of snowy glass and silent, contemplative night.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 39.54,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Confusion between pre-rebrand AI16Z and current ELIZAOS tokens caused brief market panic regarding Korean exchange liquidity.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three main floating metric panels: \n1) AI16Z Token Status (price trend, trade volume gauge)\n2) ELIZAOS Token Status (real-time price, liquidity bar)\n3) Korean Exchange Liquidity Health (risk level meter, transaction flow gauge)\n\nAnimated cyan and magenta data flow lines link token panels to the liquidity panel, indicating impact direction. Orange warning indicators highlight irregular activity. All metrics and gauges rendered as semi-transparent holographic overlays with pulsing edges.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three main floating metric panels: \n1) AI16Z Token Status (price trend, trade volume gauge)\n2) ELIZAOS Token Status (real-time price, liquidity bar)\n3) Korean Exchange Liquidity Health (risk level meter, transaction flow gauge)\n\nAnimated cyan and magenta data flow lines link token panels to the liquidity panel, indicating impact direction. Orange warning indicators highlight irregular activity. All metrics and gauges rendered as semi-transparent holographic overlays with pulsing edges.\n\nCONTENT CONTEXT:\nConfusion between pre-rebrand AI16Z and current ELIZAOS tokens caused brief market panic regarding Korean exchange liquidity.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-10/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 304.61
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-10/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-10/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-10/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-10/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-10/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-10/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-10/strategic-insights.png"
+  }
+}
