@@ -581,20 +581,20 @@ Runs all poster scripts with various configurations and generates a comparison g
 # Run all tests
 python scripts/posters/test-all-scripts.py
 
-# Use specific facts file
-python scripts/posters/test-all-scripts.py -f the-council/facts/2025-05-15.json
+# Use specific date
+python scripts/posters/test-all-scripts.py -d 2025-05-15
 
 # Regenerate HTML gallery only (skip image generation)
 python scripts/posters/test-all-scripts.py --html-only
 
-# Clean previous outputs first
-python scripts/posters/test-all-scripts.py --clean
+# Run only one script family
+python scripts/posters/test-all-scripts.py --only illustrate
 ```
 
-**Output:** `media/samples/`
-- `results.json` - Test results with commands, status, and image paths
-- `gallery.html` - Visual comparison of all test outputs
-- `illustrate/` - Generated images organized by test name
+**Output:**
+- `media/dashboards/results.json` - Test results with commands, status, and image paths
+- `media/dashboards/gallery.html` - Interactive comparison dashboard
+- `media/samples/illustrate/` - Generated images organized by test name
 
 **Test Coverage:**
 | Script | Tests |
@@ -629,7 +629,7 @@ python scripts/posters/validate-illustrations.py --dry-run
 | Developer | Wants technical substance, dislikes generic AI art |
 | First-Time Visitor | Never heard of ElizaOS, trying to understand |
 
-**Output:** `media/samples/validation-*.json`
+**Output:** `media/dashboards/validation-*.json`
 - Per-image scores (1-5) and engagement predictions
 - Consensus rate across perspectives
 - Synthesized recommendations for improvement
@@ -655,7 +655,9 @@ python scripts/posters/enrich-facts.py the-council/facts/2025-12-25.json -o enri
 
 ## HTML Viewers
 
-Interactive viewers for exploring generated content. Located in `media/viewers/`.
+Interactive viewers for exploring generated content.
+
+Canonical dashboard UIs live in `media/dashboards/`.
 
 ### gallery.html - Test Output Gallery
 
@@ -667,7 +669,7 @@ Visual comparison of all test outputs from `test-all-scripts.py`.
 - Exact commands used for each test
 - Lightbox for full-size viewing
 
-**URL:** `http://localhost:8000/media/samples/gallery.html`
+**URL:** `http://localhost:8000/media/dashboards/gallery.html`
 
 ### validation-viewer.html - Validation Report Viewer
 
@@ -680,7 +682,7 @@ Displays AI validation analysis with multi-perspective feedback.
 - Copy Full Report button for JSON export
 - Generation and validation commands
 
-**URL:** `http://localhost:8000/media/samples/validation-viewer.html`
+**URL:** `http://localhost:8000/media/dashboards/validation-viewer.html`
 
 ### facts-viewer.html - Daily Briefing Viewer
 
@@ -692,20 +694,20 @@ Magazine-style visualization of enriched facts.json files.
 - Market analysis with observations
 - Open questions and tags
 
-**URL:** `http://localhost:8000/media/facts-viewer.html`
+**URL (canonical):** `http://localhost:8000/media/dashboards/facts-viewer.html`
 
 ---
 
-## Sample Gallery
+## Samples Directory
 
-The `media/samples/` directory contains committed test outputs showcasing the system's capabilities:
+The `media/samples/` directory contains generated test outputs and references:
 
 ```
 media/samples/
-├── gallery.html              # Test comparison viewer
-├── validation-viewer.html    # Validation report viewer
-├── results.json              # Test execution results
-├── validation-*.json         # AI validation reports
+├── prototypes/               # Experimental viewer prototypes
+│   ├── help-network-viewer.html
+│   └── help-network-viewer-visjs.html
+├── reports/                  # Additional ad hoc report outputs
 ├── characters/               # Character reference sheets
 │   ├── reference-sheet-eliza.png
 │   ├── reference-sheet-marc.png

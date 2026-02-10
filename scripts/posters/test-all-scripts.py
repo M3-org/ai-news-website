@@ -2,8 +2,9 @@
 """
 Generate sample images from all poster scripts for comparison testing.
 
-Runs each script with typical use cases and collects outputs into media/samples/.
-Then generates an HTML gallery for easy comparison.
+Runs each script with typical use cases and collects image outputs into
+media/samples/. Then updates canonical dashboard artifacts in
+media/dashboards/ for easy comparison.
 
 Usage:
   # Run all tests
@@ -36,6 +37,7 @@ SCRIPT_DIR = Path(__file__).parent.resolve()
 WORKSPACE_ROOT = SCRIPT_DIR.parent.parent  # ai-news-website root
 KNOWLEDGE_ROOT = Path(os.environ.get("KNOWLEDGE_ROOT", WORKSPACE_ROOT / "knowledge"))
 SAMPLES_DIR = WORKSPACE_ROOT / "media" / "samples"
+DASHBOARDS_DIR = WORKSPACE_ROOT / "media" / "dashboards"
 FACTS_DIR = KNOWLEDGE_ROOT / "the-council" / "facts"
 
 # Script definitions with test configurations
@@ -267,6 +269,22 @@ def find_new_or_modified_pngs(before: dict, after: dict) -> set:
     return result
 
 
+def to_samples_url(path: str) -> str:
+    """Convert a relative sample path to a dashboard-friendly URL."""
+    if not path:
+        return path
+
+    if path.startswith(("http://", "https://", "data:", "blob:", "/")):
+        return path
+
+    normalized = path.replace("\\", "/").lstrip("./")
+    if normalized.startswith("media/samples/"):
+        normalized = normalized[len("media/samples/"):]
+    if normalized.startswith("../samples/"):
+        return normalized
+    return f"../samples/{normalized}"
+
+
 def run_script(script_name: str, test_config: dict, date_str: str, dry_run: bool = False) -> dict:
     """Run a single test configuration for a script."""
     script_info = SCRIPTS[script_name]
@@ -371,7 +389,7 @@ def run_script(script_name: str, test_config: dict, date_str: str, dry_run: bool
                 prompt_dest = output_dir / prompt_file.name
                 if prompt_file.exists() and prompt_file.resolve() != prompt_dest.resolve():
                     shutil.copy2(prompt_file, prompt_dest)
-                # Use path relative to SAMPLES_DIR for gallery (works for file:// and http server)
+                # Store path relative to SAMPLES_DIR; gallery generation adds ../samples/ prefix.
                 sample_images.append(str(dest.relative_to(SAMPLES_DIR)))
 
             result["images"] = sample_images
@@ -657,8 +675,9 @@ def generate_html_gallery(results: list, date_str: str) -> str:
                 if not dest.exists() or ref_sheet.stat().st_mtime > dest.stat().st_mtime:
                     shutil.copy2(ref_sheet, dest)
                 rel_path = f"characters/reference-sheet-{char_name}.png"
-                html += f'''                <div class="image-card" onclick="openLightbox('{rel_path}', '{char_name}')">
-                    <img src="{rel_path}" alt="{char_name}" loading="lazy">
+                rel_url = to_samples_url(rel_path)
+                html += f'''                <div class="image-card" onclick="openLightbox('{rel_url}', '{char_name}')">
+                    <img src="{rel_url}" alt="{char_name}" loading="lazy">
                     <div class="image-name">{char_name}</div>
                 </div>
 '''
@@ -719,9 +738,10 @@ def generate_html_gallery(results: list, date_str: str) -> str:
                 if result.get("images"):
                     html += '                <div class="image-gallery">\n'
                     for img_path in result["images"]:
+                        img_url = to_samples_url(img_path)
                         img_name = Path(img_path).name
-                        html += f'''                    <div class="image-card" onclick="openLightbox('{img_path}', '{img_name}')">
-                        <img src="{img_path}" alt="{img_name}" loading="lazy">
+                        html += f'''                    <div class="image-card" onclick="openLightbox('{img_url}', '{img_name}')">
+                        <img src="{img_url}" alt="{img_name}" loading="lazy">
                         <div class="image-name">{img_name}</div>
                     </div>
 '''
@@ -884,6 +904,7 @@ def main():
     if not args.html_only:
         # Create samples directory
         SAMPLES_DIR.mkdir(parents=True, exist_ok=True)
+        DASHBOARDS_DIR.mkdir(parents=True, exist_ok=True)
 
         # Run tests for each script
         for script_name, script_info in SCRIPTS.items():
@@ -902,14 +923,14 @@ def main():
                 results.append(result)
 
         # Save results JSON
-        results_path = SAMPLES_DIR / "results.json"
+        results_path = DASHBOARDS_DIR / "results.json"
         with open(results_path, "w") as f:
             json.dump({"date": date_str, "results": results}, f, indent=2)
         print(f"\nResults saved: {results_path}")
 
     else:
         # Load existing results
-        results_path = SAMPLES_DIR / "results.json"
+        results_path = DASHBOARDS_DIR / "results.json"
         if results_path.exists():
             with open(results_path) as f:
                 data = json.load(f)
@@ -953,7 +974,7 @@ def main():
 
     # Generate HTML gallery
     html = generate_html_gallery(results, date_str)
-    html_path = SAMPLES_DIR / "gallery.html"
+    html_path = DASHBOARDS_DIR / "gallery.html"
     html_path.write_text(html)
     print(f"Gallery saved: {html_path}")
 
