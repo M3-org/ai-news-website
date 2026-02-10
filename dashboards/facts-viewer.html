@@ -396,6 +396,45 @@
             margin-bottom: 1rem;
             color: var(--text);
         }
+        /* Date Navigator */
+        .date-navigator {
+            position: fixed;
+            top: 4rem;
+            right: 2rem;
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            background: rgba(18, 18, 26, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem;
+            z-index: 999;
+        }
+
+        .date-navigator button {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .date-navigator button:hover {
+            background: var(--surface-2);
+            border-color: var(--accent);
+        }
+
+        .date-navigator input {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 <body>
@@ -405,14 +444,21 @@
         <a href="validation-viewer.html">Validation</a>
         <a href="facts-viewer.html" class="active">Facts</a>
     </nav>
+
+    <div class="date-navigator">
+        <button id="prev-btn" title="Previous day (←)">←</button>
+        <input type="date" id="date-picker" title="Select date">
+        <button id="next-btn" title="Next day (→)">→</button>
+    </div>
+
     <div class="file-selector">
-        <input type="file" id="fileInput" accept=".json">
+        <input type="file" id="fileInput" accept=".json" title="Or load a local facts.json">
     </div>
 
     <div id="content">
         <div class="empty-state">
             <h2>Daily Briefing Viewer</h2>
-            <p>Load a facts.json file to view the briefing</p>
+            <p>Loading...</p>
         </div>
     </div>
 
@@ -420,6 +466,99 @@
         <img id="lightboxImg" src="" alt="">
     </div>
 
+    <script src="lib/data-loader.js"></script>
+    <script>
+        let currentDate = null;
+        let manifestData = null;
+
+        // URL query param helpers
+        function getDateFromURL() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('date');
+        }
+
+        function updateURL(date) {
+            const url = new URL(window.location);
+            url.searchParams.set('date', date);
+            window.history.pushState({}, '', url);
+        }
+
+        function isValidDate(dateString) {
+            const date = new Date(dateString);
+            return date instanceof Date && !isNaN(date);
+        }
+
+        // Date navigation
+        function changeDate(delta) {
+            if (!currentDate) return;
+            const date = new Date(currentDate);
+            date.setDate(date.getDate() + delta);
+            const newDate = date.toISOString().split('T')[0];
+            loadDate(newDate);
+        }
+
+        async function loadDate(date) {
+            if (!manifestData) return;
+
+            currentDate = date;
+            document.getElementById('date-picker').value = date;
+            updateURL(date);
+
+            try {
+                const facts = await ElizaData.getFacts(date);
+                renderBriefing(facts);
+            } catch (error) {
+                document.getElementById('content').innerHTML = `
+                    <div class="empty-state">
+                        <h2>No data for ${date}</h2>
+                        <p>${error.message}</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        async function init() {
+            try {
+                const manifest = await ElizaData.init();
+                manifestData = manifest;
+
+                // Check URL for date, fallback to latest
+                const urlDate = getDateFromURL();
+                currentDate = urlDate && isValidDate(urlDate) ? urlDate : manifest.latest.facts;
+
+                // Set up date picker
+                const picker = document.getElementById('date-picker');
+                picker.value = currentDate;
+                picker.addEventListener('change', (e) => loadDate(e.target.value));
+
+                // Set up nav buttons
+                document.getElementById('prev-btn').addEventListener('click', () => changeDate(-1));
+                document.getElementById('next-btn').addEventListener('click', () => changeDate(1));
+
+                // Keyboard shortcuts
+                document.addEventListener('keydown', (e) => {
+                    if (e.target.tagName === 'INPUT') return;
+                    if (e.key === 'ArrowLeft') changeDate(-1);
+                    if (e.key === 'ArrowRight') changeDate(1);
+                });
+
+                // Load initial date
+                await loadDate(currentDate);
+            } catch (error) {
+                document.getElementById('content').innerHTML = `
+                    <div class="empty-state">
+                        <h2>Failed to load</h2>
+                        <p>${error.message}</p>
+                        <p style="margin-top: 1rem;">Try loading a local file instead</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Start
+        init();
+    </script>
     <script>
         document.getElementById('fileInput').addEventListener('change', (e) => {
             const file = e.target.files[0];
