@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city core rises the Enterprise Framework Tower (main system hub), bordered by Language Library Blocks (multi-language modules). The Global Authentication Gatehouse stands at district entrances, regulating access. Financial Guardrail Vaults flank transaction boulevards. Data flows via elevated glass skyways: inputs route through Authentication Gatehouse, disperse to Language Library Blocks, then channel into the Framework Tower and finally, transactions pass through the Guardrail Vaults. The city is zoned into Core Operations District (central hub), International Languages Quarter, Security Gateway Plaza, and Financial Safety Zone. Labels: Framework Tower, Language Blocks, Auth Gatehouse, Guardrail Vaults.
+
+CONTENT CONTEXT:
+The project is shifting toward an enterprise-ready framework with multi-language support, global authentication, and financial safety guardrails.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Dashboard  
+2. Specific data points or categories to show: ElizaOS token performance metrics, AI market average performance, community sentiment index  
+3. Flow/relationship direction: Compare ElizaOS vs. AI market (side-by-side bar/line graphs); correlate ElizaOS performance with community sentiment (scatter plot or correlation chart)  
+4. Suggested section headers: "Token Performance Comparison," "Community Sentiment vs. Performance," "Market Trend Snapshot"
+
+CONTENT CONTEXT:
+ElizaOS token is underperforming compared to broader AI market trends, creating community anxiety.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
