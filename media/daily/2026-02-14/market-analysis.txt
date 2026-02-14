@@ -1,0 +1,26 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Central holo-panel: **Pippin Token Price Increase** (bold, with animated upward trend line)
+
+Left floating gauge: **Creator Activity Status** (inactive indicator, pulsing magenta)
+
+Right mini-panel: **Community Sentiment** (gauge bar, neutral/cyan level)
+
+Thin data flows (cyan): Price panel ↔ Activity gauge, highlighting disconnect
+
+Accents: Cyan for positive price, magenta for inactivity alert, orange highlights on data spikes
+
+Floating overlays: Small numeric metrics (24h % change, days since last post) hovering near respective panels
+
+CONTENT CONTEXT:
+The 'pippin' token has seen significant price appreciation despite the creator being inactive on social media for months.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
