@@ -10,8 +10,11 @@ import io
 import json
 import os
 import re
+import secrets
+import ssl
 import subprocess
 import sys
+import warnings
 from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Any, Dict, Optional
@@ -271,7 +274,7 @@ class FtpPublisher(PublishBackend):
 
     def __init__(self, host: str, user: str, password: str, remote_path: str,
                  episode_date: str, port: int = 21, use_tls: bool = True,
-                 timeout: int = 30):
+                 verify_ssl: bool = True, timeout: int = 30):
         self.host = host
         self.port = port
         self.user = user
@@ -279,6 +282,7 @@ class FtpPublisher(PublishBackend):
         self.remote_path = remote_path.rstrip('/')
         self.episode_date = episode_date
         self.use_tls = use_tls
+        self.verify_ssl = verify_ssl
         self.timeout = timeout
 
     def validate_config(self, dry_run: bool) -> bool:
@@ -301,10 +305,23 @@ class FtpPublisher(PublishBackend):
         return True
 
     def _connect(self) -> ftplib.FTP:
-        """Establish FTP connection."""
+        """Establish FTP connection with secure TLS."""
         try:
             if self.use_tls:
-                ftp = ftplib.FTP_TLS(timeout=self.timeout)
+                # Create secure SSL context with certificate verification
+                if self.verify_ssl:
+                    ssl_context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+                    ssl_context.check_hostname = True
+                    ssl_context.verify_mode = ssl.CERT_REQUIRED
+                    ftp = ftplib.FTP_TLS(context=ssl_context, timeout=self.timeout)
+                else:
+                    # Insecure mode: TLS without cert verification (break-glass only)
+                    warnings.warn(
+                        "FTP_VERIFY_SSL=false: Certificate validation disabled. "
+                        "Connection is vulnerable to MITM attacks!",
+                        SecurityWarning
+                    )
+                    ftp = ftplib.FTP_TLS(timeout=self.timeout)
             else:
                 ftp = ftplib.FTP(timeout=self.timeout)
 
@@ -335,21 +352,43 @@ class FtpPublisher(PublishBackend):
             raise
 
     def _upload_json_atomic(self, ftp: ftplib.FTP, filename: str, data: dict):
-        """Upload JSON with atomic rename (upload to .tmp, then rename)."""
+        """Upload JSON with collision-safe atomic rename."""
         json_str = json.dumps(data, ensure_ascii=False, indent=2) + "\n"
-        temp_name = f"{filename}.tmp"
 
-        # Upload to temp file
-        bio = io.BytesIO(json_str.encode('utf-8'))
-        ftp.storbinary(f"STOR {temp_name}", bio)
+        # Generate unique temp name to prevent collisions
+        random_suffix = secrets.token_hex(8)
+        temp_name = f"{filename}.{random_suffix}.tmp"
 
-        # Atomic rename (delete old, rename temp)
         try:
-            ftp.delete(filename)
-        except ftplib.error_perm:
-            pass  # File doesn't exist, that's ok
+            # Upload to unique temp file
+            bio = io.BytesIO(json_str.encode('utf-8'))
+            ftp.storbinary(f"STOR {temp_name}", bio)
 
-        ftp.rename(temp_name, filename)
+            # Attempt atomic rename (behavior depends on FTP server)
+            try:
+                # Try direct rename (may overwrite atomically)
+                ftp.rename(temp_name, filename)
+            except ftplib.error_perm as e:
+                # If rename failed due to existing file, delete and retry once
+                error_msg = str(e).lower()
+                if "550" in str(e) or "exists" in error_msg or "permission" in error_msg:
+                    try:
+                        ftp.delete(filename)
+                        ftp.rename(temp_name, filename)
+                    except Exception as retry_error:
+                        raise RuntimeError(
+                            f"Atomic rename failed after delete retry: {retry_error}"
+                        )
+                else:
+                    raise
+
+        except Exception as e:
+            # Cleanup: Remove temp file if upload succeeded but rename failed
+            try:
+                ftp.delete(temp_name)
+            except:
+                pass  # Temp file may not exist or may be inaccessible
+            raise RuntimeError(f"Atomic upload failed for {filename}: {e}")
 
     def load_existing_data(self, dry_run: bool = False) -> tuple[dict, dict]:
         """Download existing JSON files from FTP.
@@ -429,6 +468,7 @@ def create_backend(args) -> PublishBackend:
             episode_date=args.episode_date,
             port=int(os.environ.get("FTP_PORT", "21")),
             use_tls=os.environ.get("FTP_USE_TLS", "true").lower() == "true",
+            verify_ssl=os.environ.get("FTP_VERIFY_SSL", "true").lower() == "true",
             timeout=int(os.environ.get("FTP_TIMEOUT", "30"))
         )
 

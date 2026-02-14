@@ -114,6 +114,19 @@ This project uses multiple runtime environments:
 - **Dashboards**: `media/dashboards/` (canonical location for all viewer UIs)
 - **Assets**: `scripts/posters/assets/` (fonts, logos, templates), `scripts/posters/characters/` (character reference sheets)
 
+### Security Notes
+
+**FTP Certificate Verification**: FTPS connections enforce SSL certificate verification by default to prevent man-in-the-middle attacks. This requires:
+- FTP server with valid SSL certificate from a trusted CA
+- System with updated CA certificates (`ca-certificates` package)
+
+If you encounter certificate errors:
+1. Verify `FTP_HOST` matches the certificate CN/SAN (use domain name, not IP address)
+2. Update system certificates: `sudo apt-get update && sudo apt-get install ca-certificates`
+3. Last resort only: Temporarily disable with `FTP_VERIFY_SSL=false` in `.env` (⚠️ insecure, troubleshooting only)
+
+**Concurrent Execution**: The FTP publisher uses unique temp filenames to prevent collisions. For defense in depth, avoid running multiple pipeline instances simultaneously.
+
 ## Repository Structure
 
 ### Pipeline Orchestrator
