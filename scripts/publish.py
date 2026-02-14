@@ -319,7 +319,7 @@ class FtpPublisher(PublishBackend):
                     warnings.warn(
                         "FTP_VERIFY_SSL=false: Certificate validation disabled. "
                         "Connection is vulnerable to MITM attacks!",
-                        SecurityWarning
+                        UserWarning
                     )
                     ftp = ftplib.FTP_TLS(timeout=self.timeout)
             else:
@@ -369,9 +369,10 @@ class FtpPublisher(PublishBackend):
                 # Try direct rename (may overwrite atomically)
                 ftp.rename(temp_name, filename)
             except ftplib.error_perm as e:
-                # If rename failed due to existing file, delete and retry once
+                # Only delete+retry for explicit "file exists" errors (FTP 550)
+                # Do NOT handle general permission errors (destructive and unhelpful)
                 error_msg = str(e).lower()
-                if "550" in str(e) or "exists" in error_msg or "permission" in error_msg:
+                if "550" in str(e) and ("exists" in error_msg or "already" in error_msg):
                     try:
                         ftp.delete(filename)
                         ftp.rename(temp_name, filename)
