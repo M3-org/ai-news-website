@@ -523,11 +523,31 @@ step_8_update_website() {
     local date_str
     date_str="${EPISODE_DATE:-$(date '+%Y-%m-%d')}"
 
-    log "Updating website for date: $date_str"
+    # Support multiple targets (space-separated): "m3tv ftp" or single target "m3tv"
+    local publish_targets="${PUBLISH_TARGETS:-${PUBLISH_TARGET:-m3tv}}"
 
-    python3 scripts/publish_m3tv.py --episode-date="$date_str" --push
+    log "Publishing to: ${publish_targets} for date: $date_str"
 
-    log "Website updated"
+    local overall_success=0
+    for target in $publish_targets; do
+        log "Publishing to ${target}..."
+
+        # Use new publish.py script with --target flag
+        uv run python scripts/publish.py \
+            --episode-date="$date_str" \
+            --target="$target" \
+            --push
+
+        local exit_code=$?
+        if [ $exit_code -eq 0 ]; then
+            log "✓ Published to ${target}"
+        else
+            log "✗ Publishing to ${target} failed (exit code: $exit_code)"
+            overall_success=1  # Mark as failed, but continue to next target
+        fi
+    done
+
+    return $overall_success
 }
 
 step_9_notify() {

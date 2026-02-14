@@ -248,23 +248,33 @@ Sends rich Discord notifications after pipeline completion, with optional publis
 
 ---
 
-### `publish_m3tv.py` — Website Publisher (Step 8)
+### `publish.py` — Unified Website Publisher (Step 8)
 
-Updates the M3TV website (`m3org.com/tv`) with new episode data. Upserts into `cronjob-episodes.json` and `gallery.json`, then commits and pushes.
+Publishes episode data to the M3TV website via git repo or FTP server. Supports two backends selected via `--target` flag.
 
 ```bash
-# Requires --website-repo or WEBSITE_REPO env var
-python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --push
+# Publish via git (default, for M3TV repo workflow)
+uv run python scripts/publish.py --episode-date=2026-02-02 --target=m3tv --push
 
-# Using env var (recommended for automation)
-WEBSITE_REPO=/path/to/website python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --push
+# Publish via FTP (alternative, for direct server upload)
+uv run python scripts/publish.py --episode-date=2026-02-02 --target=ftp
 
-# Preview changes without writing
-python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --dry-run
+# Dry run to preview changes
+uv run python scripts/publish.py --episode-date=2026-02-02 --target=ftp --dry-run
+
+# Using env var for default target (recommended for automation)
+PUBLISH_TARGET=ftp uv run python scripts/publish.py --episode-date=2026-02-02
 ```
 
-**Inputs:** Episode date, website repo path (via `--website-repo` or `WEBSITE_REPO` env var), optional `--metadata-json` override
-**Outputs:** Updated `tv/data/cronjob-episodes.json` and `tv/gallery.json` in the website repo
+**Backends:**
+- `--target m3tv` (default): Updates git repo at `$WEBSITE_REPO`, commits and pushes changes
+- `--target ftp`: Uploads directly to FTP server at `$FTP_HOST:$FTP_REMOTE_PATH` via FTPS
+
+**Inputs:** Episode date (required), metadata JSON (auto-found by date)
+**Outputs:** Updates `cronjob-episodes.json` and `gallery.json` at target location
+**Dependencies:**
+- For `m3tv`: `WEBSITE_REPO` env var or `--website-repo` flag
+- For `ftp`: `FTP_HOST`, `FTP_USER`, `FTP_PASSWORD`, `FTP_REMOTE_PATH` env vars
 
 ---
 

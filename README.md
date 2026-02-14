@@ -109,7 +109,7 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
 | `scripts/cdn_upload.py` | Upload assets to Bunny CDN (Cron Job pipeline) |
 | `scripts/cdn/upload.py` | Upload assets to Bunny CDN (poster workflows) |
-| `scripts/publish_m3tv.py` | Update website with episode data |
+| `scripts/publish.py` | Unified website publisher (git or FTP backends) |
 | `scripts/discord_notify.py` | Discord notification bot |
 
 ### Dashboards
@@ -193,8 +193,10 @@ BUNNY_STORAGE_ZONE=your_zone
 BUNNY_STORAGE_PASSWORD=your_password
 BUNNY_CDN_URL=https://cdn.elizaos.news
 
-# Website repo path (for publish_m3tv.py step 8)
-WEBSITE_REPO=/path/to/M3-org/website
+# Publishing configuration (for publish.py step 8)
+PUBLISH_TARGET=m3tv  # or "ftp" for direct server upload
+WEBSITE_REPO=/path/to/M3-org/website  # Required for --target=m3tv
+# FTP_HOST, FTP_USER, FTP_PASSWORD  # Required for --target=ftp
 
 # Knowledge repo path (for poster generation)
 KNOWLEDGE_ROOT=/path/to/elizaOS/knowledge
@@ -216,7 +218,7 @@ ai-news-website/
 │   ├── generate_manifest.py        # Manifest generation
 │   ├── cdn_upload.py               # CDN upload (Cron Job pipeline)
 │   ├── cdn/upload.py               # CDN upload (poster workflows)
-│   ├── publish_m3tv.py             # Website publisher
+│   ├── publish.py                  # Unified website publisher (git/FTP)
 │   ├── discord_notify.py           # Discord notifications
 │   ├── posters/illustrate.py       # Poster generation from knowledge facts
 │   └── generate-rss.py             # RSS feed generator
