@@ -218,7 +218,7 @@ python scripts/posters/test-all-scripts.py --dry-run
 python scripts/posters/test-all-scripts.py --html-only
 ```
 
-Output: `media/samples/gallery.html` - interactive lightbox gallery comparing all script outputs
+Output: `media/dashboards/gallery.html` - interactive lightbox gallery comparing all script outputs
 
 ---
 
