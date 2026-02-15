@@ -107,8 +107,7 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 |--------|-------------|
 | `scripts/youtube_upload.py` | Upload videos to YouTube; `--visibility` to change listing status |
 | `setup_youtube_auth.py` | One-time YouTube OAuth setup |
-| `scripts/cdn_upload.py` | Upload assets to Bunny CDN (Cron Job pipeline) |
-| `scripts/cdn/upload.py` | Upload assets to Bunny CDN (poster workflows) |
+| `scripts/cdn_upload.py` | Upload assets to Bunny CDN (pipeline + poster workflows, with retry and `--update-manifest`) |
 | `scripts/publish_m3tv.py` | Update website with episode data |
 | `scripts/discord_notify.py` | Discord notification bot |
 
@@ -214,8 +213,7 @@ ai-news-website/
 │   ├── youtube_upload.py           # YouTube uploader + privacy manager
 │   ├── llm_producer.py             # LLM clip analysis + trailer generation
 │   ├── generate_manifest.py        # Manifest generation
-│   ├── cdn_upload.py               # CDN upload (Cron Job pipeline)
-│   ├── cdn/upload.py               # CDN upload (poster workflows)
+│   ├── cdn_upload.py               # CDN upload (consolidated, with retry)
 │   ├── publish_m3tv.py             # Website publisher
 │   ├── discord_notify.py           # Discord notifications
 │   ├── posters/illustrate.py       # Poster generation from knowledge facts

@@ -90,7 +90,7 @@ This repo is also the **media production layer** for elizaOS content. The knowle
 
 ### RSS & CDN
 - **scripts/generate-rss.py**: RSS feed generation from knowledge data (facts + council briefings)
-- **scripts/cdn/upload.py**: Bunny CDN uploader for media files
+- **scripts/cdn_upload.py**: Bunny CDN uploader (pipeline + poster workflows, with retry and `--update-manifest`)
 - **rss/**: Generated RSS feeds (feed.xml, council.xml, style.xsl)
 
 ### Dashboards & Viewers

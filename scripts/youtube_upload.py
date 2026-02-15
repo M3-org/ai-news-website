@@ -162,7 +162,7 @@ def set_privacy(video_id: str, privacy: str = "public") -> dict:
         youtube.videos()
         .update(
             part="status",
-            body={"id": video_id, "status": {"privacyStatus": privacy}},
+            body={"id": video_id, "status": {"privacyStatus": privacy, "embeddable": True}},
         )
         .execute()
     )
@@ -268,7 +268,8 @@ def initialize_upload(youtube, args):
         },
         'status': {
             'privacyStatus': args.privacy_status,
-            'selfDeclaredMadeForKids': False # Defaulting to False, adjust if needed
+            'selfDeclaredMadeForKids': False,
+            'embeddable': True,
         }
     }
     

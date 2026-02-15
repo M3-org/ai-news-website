@@ -3,7 +3,7 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-WEBSITE_ROOT="$(cd "${SCRIPT_DIR}/../../.." && pwd)"
+WEBSITE_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 KNOWLEDGE_ROOT="${KNOWLEDGE_ROOT:-${WEBSITE_ROOT}/knowledge}"
 TARGET_SCRIPT="${KNOWLEDGE_ROOT}/scripts/etl/backfill/backfill-council.sh"
 
