@@ -1,0 +1,27 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Ecosystem  
+2. Main sections:  
+   - Pippin Token Overview  
+   - Market Speculation Activity  
+   - Creator Social Media (Inactivity)  
+   - Impact on Token Performance  
+3. Key icons/visuals: Token symbol, magnifying glass (speculation), muted social media icon, performance chart  
+4. Suggested section headers:  
+   - What is ‘Pippin’ Token?  
+   - Market Buzz Despite Inactivity  
+   - Creator’s Quiet Presence  
+   - Factors Influencing Performance
+
+CONTENT CONTEXT:
+Market speculation regarding 'pippin' token performance despite creator inactivity on social media.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
