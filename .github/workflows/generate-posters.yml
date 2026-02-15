@@ -88,7 +88,7 @@ jobs:
         run: |
           DATE="${{ steps.date.outputs.date }}"
           if [ -n "$BUNNY_STORAGE_PASSWORD" ] && [ -d "media/daily/${DATE}" ]; then
-            python scripts/cdn/upload.py "media/daily/${DATE}/" --update-manifest || true
+            python scripts/cdn_upload.py "media/daily/${DATE}/" --update-manifest || true
           else
             echo "Skipping CDN upload (no credentials or no media generated)"
           fi

@@ -488,13 +488,13 @@ export BUNNY_CDN_URL=https://m3tv.b-cdn.net
 
 ```bash
 # Upload entire directory
-python scripts/integrations/cdn/upload.py media/2025-12-25/
+python scripts/cdn_upload.py media/2025-12-25/
 
 # With manifest update (adds cdn_url to manifest.json)
-python scripts/integrations/cdn/upload.py media/2025-12-25/ --update-manifest
+python scripts/cdn_upload.py media/2025-12-25/ --update-manifest
 
 # Dry run first
-python scripts/integrations/cdn/upload.py media/2025-12-25/ --dry-run
+python scripts/cdn_upload.py media/2025-12-25/ --dry-run
 
 # Update facts.json with CDN URLs from manifest
 python scripts/integrations/cdn/update_facts_media.py \
@@ -511,7 +511,7 @@ DATE=2025-12-25
 python scripts/posters/illustrate.py --batch -f the-council/facts/${DATE}.json --with-icons
 
 # 2. Upload to Bunny CDN
-python scripts/integrations/cdn/upload.py media/${DATE}/ --update-manifest
+python scripts/cdn_upload.py media/${DATE}/ --update-manifest
 
 # 3. Update facts with CDN URLs
 python scripts/integrations/cdn/update_facts_media.py \

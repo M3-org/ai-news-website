@@ -130,7 +130,7 @@ jobs:
           BUNNY_STORAGE_PASSWORD: ${{ secrets.BUNNY_STORAGE_PASSWORD }}
           BUNNY_CDN_URL: ${{ secrets.BUNNY_CDN_URL }}
         run: |
-          python scripts/cdn/upload.py \
+          python scripts/cdn_upload.py \
             "${{ steps.facts.outputs.output_dir_rel }}" \
             --update-manifest \
             -v

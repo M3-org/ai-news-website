@@ -311,22 +311,6 @@ SITE_URL=https://elizaos.news uv run python scripts/generate-rss.py
 
 ---
 
-### `cdn/upload.py` — Bunny CDN Uploader (Poster Workflows)
-
-Uploads generated posters to Bunny CDN. Similar to `cdn_upload.py` but optimized for poster workflow batching.
-
-```bash
-# Upload directory with pattern matching
-uv run python scripts/cdn/upload.py media/daily/2025-06-04/ --remote daily/2025-06-04/
-
-# JSON output for CI/CD
-uv run python scripts/cdn/upload.py media/daily/2025-06-04/ --remote daily/2025-06-04/ --json
-```
-
-**Inputs:** Local files or directories
-**Outputs:** CDN URLs (JSON format with `--json`)
-**Dependencies:** Bunny CDN credentials
-
 ---
 
 ## GitHub Actions Workflows

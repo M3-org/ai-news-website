@@ -18,6 +18,9 @@ Examples:
     # Upload directory
     uv run python scripts/cdn_upload.py --dir episodes/clips/ --remote cronjob/clips/
 
+    # Upload directory and update manifest.json with CDN URLs
+    uv run python scripts/cdn_upload.py --dir media/daily/2026-02-15/ --remote daily/2026-02-15/ --update-manifest
+
     # Upload from stdin (pipe-friendly)
     find episodes/clips -name "*.mp4" | uv run python scripts/cdn_upload.py --stdin --remote cronjob/clips/
 
@@ -49,7 +52,8 @@ except ImportError:
 # Default settings
 DEFAULT_STORAGE_HOST = "https://la.storage.bunnycdn.com"
 DEFAULT_MAX_SIZE_MB = 50
-MEDIA_EXTENSIONS = {'.mp4', '.webm', '.mov', '.png', '.jpg', '.jpeg', '.gif', '.webp'}
+MEDIA_EXTENSIONS = {'.mp4', '.webm', '.mov', '.png', '.jpg', '.jpeg', '.gif', '.webp', '.svg', '.json'}
+MAX_UPLOAD_RETRIES = 1  # 1 retry on transient errors
 
 
 def get_env_config() -> dict:
@@ -88,6 +92,20 @@ def get_file_size_mb(file_path: str) -> float:
     return os.path.getsize(file_path) / (1024 * 1024)
 
 
+def validate_remote_path(remote_path: str) -> tuple:
+    """Validate remote path for security issues.
+
+    Returns:
+        (is_valid, sanitized_path_or_error)
+    """
+    clean_path = remote_path.lstrip("/")
+    if ".." in clean_path:
+        return False, "Path traversal not allowed"
+    if any(c in clean_path for c in ["<", ">", "|", "\x00"]):
+        return False, "Invalid characters in path"
+    return True, clean_path
+
+
 def upload_file(
     local_path: str,
     remote_path: str,
@@ -111,8 +129,15 @@ def upload_file(
     filename = os.path.basename(local_path)
     full_remote_path = remote_path.rstrip('/') + '/' + filename if not remote_path.endswith(filename) else remote_path
 
-    # Ensure remote path doesn't start with /
-    full_remote_path = full_remote_path.lstrip('/')
+    # Validate and sanitize remote path
+    is_valid, sanitized = validate_remote_path(full_remote_path)
+    if not is_valid:
+        return {
+            'filename': filename, 'local_path': local_path, 'cdn_path': full_remote_path,
+            'cdn_url': '', 'size_bytes': 0, 'status': 'error',
+            'uploaded_at': None, 'error': f"Invalid remote path: {sanitized}",
+        }
+    full_remote_path = sanitized
 
     result = {
         'filename': filename,
@@ -138,43 +163,66 @@ def upload_file(
     # Build upload URL
     upload_url = f"{config['storage_host']}/{config['storage_zone']}/{full_remote_path}"
 
+    # Read file content once for retry
     try:
-        # Read file content
         with open(local_path, 'rb') as f:
             file_data = f.read()
-
-        # Create request
-        req = urllib.request.Request(
-            upload_url,
-            data=file_data,
-            method='PUT',
-            headers={
-                'AccessKey': config['storage_password'],
-                'Content-Type': 'application/octet-stream',
-            }
-        )
-
-        # Execute upload
-        with urllib.request.urlopen(req) as response:
-            response_data = response.read().decode('utf-8')
-            if response.status in (200, 201):
-                result['status'] = 'uploaded'
-                result['uploaded_at'] = datetime.now(timezone.utc).isoformat()
-                print(f"[OK] Uploaded: {local_path} -> {result['cdn_url']}")
-            else:
-                result['status'] = 'error'
-                result['error'] = f"HTTP {response.status}: {response_data}"
-                print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
-
-    except urllib.error.HTTPError as e:
+    except IOError as e:
         result['status'] = 'error'
-        result['error'] = f"HTTP {e.code}: {e.reason}"
-        print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
-    except Exception as e:
-        result['status'] = 'error'
-        result['error'] = str(e)
-        print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
+        result['error'] = f"File read error: {e}"
+        print(f"[ERROR] {result['error']}", file=sys.stderr)
+        return result
 
+    last_error = None
+    for attempt in range(MAX_UPLOAD_RETRIES + 1):
+        try:
+            req = urllib.request.Request(
+                upload_url,
+                data=file_data,
+                method='PUT',
+                headers={
+                    'AccessKey': config['storage_password'],
+                    'Content-Type': 'application/octet-stream',
+                }
+            )
+
+            with urllib.request.urlopen(req) as response:
+                response.read()
+                if response.status in (200, 201):
+                    result['status'] = 'uploaded'
+                    result['uploaded_at'] = datetime.now(timezone.utc).isoformat()
+                    print(f"[OK] Uploaded: {local_path} -> {result['cdn_url']}")
+                    return result
+                elif response.status >= 500:
+                    last_error = f"HTTP {response.status}"
+                    continue
+                else:
+                    result['status'] = 'error'
+                    result['error'] = f"HTTP {response.status}"
+                    print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
+                    return result
+
+        except urllib.error.HTTPError as e:
+            if e.code >= 500:
+                last_error = f"HTTP {e.code}: {e.reason}"
+                continue
+            result['status'] = 'error'
+            result['error'] = f"HTTP {e.code}: {e.reason}"
+            print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
+            return result
+        except (ConnectionError, OSError) as e:
+            last_error = f"Connection error: {e}"
+            continue
+        except Exception as e:
+            result['status'] = 'error'
+            result['error'] = str(e)
+            print(f"[ERROR] Failed to upload {local_path}: {result['error']}", file=sys.stderr)
+            return result
+
+    # Exhausted retries
+    result['status'] = 'error'
+    result['error'] = f"Failed after {MAX_UPLOAD_RETRIES + 1} attempts: {last_error}"
+    print(f"[ERROR] {result['error']}", file=sys.stderr)
     return result
 
 
@@ -303,6 +351,48 @@ def upload_from_manifest(
     return results
 
 
+def update_dir_manifest(directory: str, results: list) -> bool:
+    """Update manifest.json in a directory with CDN URLs after upload.
+
+    Adds a 'cdn_urls' section mapping filenames to their CDN URLs,
+    and updates individual generation entries if present.
+    """
+    manifest_path = Path(directory) / "manifest.json"
+    if not manifest_path.exists():
+        return False
+
+    try:
+        with open(manifest_path) as f:
+            manifest = json.load(f)
+
+        url_map = {}
+        for r in results:
+            if r['status'] in ('uploaded', 'dry_run') and r.get('cdn_url'):
+                url_map[r['filename']] = r['cdn_url']
+
+        manifest["cdn_urls"] = url_map
+
+        for gen in manifest.get("generations", []):
+            output_file = gen.get("output_file")
+            if output_file and output_file in url_map:
+                gen["cdn_url"] = url_map[output_file]
+
+        if manifest.get("icon_sheet") and manifest["icon_sheet"].get("output_file"):
+            icon_file = manifest["icon_sheet"]["output_file"]
+            if icon_file in url_map:
+                manifest["icon_sheet"]["cdn_url"] = url_map[icon_file]
+
+        with open(manifest_path, "w") as f:
+            json.dump(manifest, f, indent=2)
+
+        print(f"Updated: {manifest_path}")
+        return True
+
+    except (json.JSONDecodeError, IOError) as e:
+        print(f"Error updating manifest: {e}", file=sys.stderr)
+        return False
+
+
 def main():
     parser = argparse.ArgumentParser(
         description="Upload files to Bunny CDN",
@@ -314,6 +404,9 @@ Examples:
 
   # Upload directory
   uv run python scripts/cdn_upload.py --dir episodes/clips/ --remote cronjob/clips/
+
+  # Upload directory and update manifest.json with CDN URLs
+  uv run python scripts/cdn_upload.py --dir media/daily/2026-02-15/ --remote daily/2026-02-15/ --update-manifest
 
   # Upload from stdin
   find episodes/clips -name "*.mp4" | uv run python scripts/cdn_upload.py --stdin --remote cronjob/clips/
@@ -348,11 +441,10 @@ Examples:
         help="Upload files from manifest.json and update it with CDN URLs"
     )
 
-    # Required options
+    # Options
     parser.add_argument(
         "--remote", "-r",
-        required=True,
-        help="Remote CDN path (e.g., 'cronjob/clips/')"
+        help="Remote CDN path (e.g., 'cronjob/clips/'). Defaults to local path."
     )
 
     # Optional flags
@@ -377,6 +469,16 @@ Examples:
         action="store_true",
         help="Output results as JSON"
     )
+    parser.add_argument(
+        "--update-manifest",
+        action="store_true",
+        help="Update manifest.json in directory with CDN URLs (for --dir uploads)"
+    )
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Verbose output"
+    )
 
     args = parser.parse_args()
 
@@ -384,6 +486,24 @@ Examples:
     config = get_env_config()
     if not validate_config(config, args.dry_run):
         sys.exit(1)
+
+    # Default --remote to the input path when not provided
+    if not args.remote:
+        if args.directory:
+            args.remote = args.directory.replace("\\", "/").strip("/")
+        elif args.manifest:
+            args.remote = os.path.dirname(args.manifest).replace("\\", "/").strip("/")
+        elif args.file:
+            if os.path.isdir(args.file):
+                args.remote = args.file.replace("\\", "/").strip("/")
+            else:
+                args.remote = os.path.dirname(args.file).replace("\\", "/").strip("/") or "."
+
+    if args.verbose:
+        print(f"Storage Zone: {config['storage_zone']}")
+        print(f"Storage Host: {config['storage_host']}")
+        print(f"CDN URL: {config['cdn_url']}")
+        print()
 
     skip_existing = not args.no_skip_existing
     results = []
@@ -408,6 +528,9 @@ Examples:
         for file_path in files:
             result = upload_file(file_path, args.remote, config, args.dry_run, skip_existing)
             results.append(result)
+        # Update manifest.json in directory if requested
+        if args.update_manifest:
+            update_dir_manifest(args.directory, results)
     elif args.stdin:
         # Upload from stdin
         files = collect_files_from_stdin(args.max_size)
@@ -418,6 +541,20 @@ Examples:
         for file_path in files:
             result = upload_file(file_path, args.remote, config, args.dry_run, skip_existing)
             results.append(result)
+    elif args.file and os.path.isdir(args.file):
+        # Positional arg is a directory (compat with scripts/cdn/upload.py interface)
+        directory = args.file
+        remote = args.remote or directory.replace("\\", "/").strip("/")
+        files = collect_files_from_dir(directory, args.max_size)
+        if not files:
+            print("No files found to upload.", file=sys.stderr)
+            sys.exit(1)
+        print(f"Found {len(files)} files to upload\n")
+        for file_path in files:
+            result = upload_file(file_path, remote, config, args.dry_run, skip_existing)
+            results.append(result)
+        if args.update_manifest:
+            update_dir_manifest(directory, results)
     elif args.file:
         # Upload single file
         size_mb = get_file_size_mb(args.file) if os.path.exists(args.file) else 0
