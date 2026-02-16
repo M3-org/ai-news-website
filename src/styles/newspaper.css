@@ -63,6 +63,18 @@
   margin-bottom: 0.5rem;
 }
 
+.polymarket-ticker {
+  margin: 0.5rem 0;
+  border-radius: 4px;
+  overflow: hidden;
+  opacity: 0.85;
+}
+
+.ticker-dark { display: none; }
+.ticker-light { display: block; }
+:global(.dark) .ticker-dark { display: block; }
+:global(.dark) .ticker-light { display: none; }
+
 .masthead-rule-bottom {
   height: 1px;
   background: var(--np-border-heavy);

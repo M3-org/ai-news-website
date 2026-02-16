@@ -21,4 +21,9 @@ const formattedDate = formatDateLong(date).toUpperCase();
   <p class="masthead-tagline">Daily Intelligence from the elizaOS Ecosystem</p>
   <DatePicker client:load currentDate={date} latestDate={latestDate} basePath="/daily" />
   <div class="masthead-rule-bottom"></div>
+  <div class="polymarket-ticker">
+    <iframe class="ticker-light" src="https://ticker.polymarket.com/embed?category=Technology&theme=light&speed=1&displayMode=classic&height=48" width="100%" height="48" frameborder="0" scrolling="no" style="border: none; overflow: hidden;"></iframe>
+    <iframe class="ticker-dark" src="https://ticker.polymarket.com/embed?category=Technology&theme=dark&speed=1&displayMode=classic&height=48" width="100%" height="48" frameborder="0" scrolling="no" style="border: none; overflow: hidden;"></iframe>
+  </div>
+  <div class="masthead-rule-bottom"></div>
 </div>
