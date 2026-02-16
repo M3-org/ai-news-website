@@ -1,15 +1,14 @@
 ---
 import CategoryBox from './CategoryBox.astro';
-import type { GitHubItem, GitHubStats } from '../../lib/types';
+import type { GitHubItem } from '../../lib/types';
 
 interface Props {
   githubItems: GitHubItem[];
-  githubStats: GitHubStats | null;
+  githubSummary: string | null;
   date: string;
 }
 
-const { githubItems, githubStats, date } = Astro.props;
-const topContributors = (githubStats?.topContributors || []).slice(0, 3);
+const { githubItems, githubSummary, date } = Astro.props;
 
 const items = githubItems.map(item => ({
   headline: `${item.title} #${item.number}`,
@@ -22,6 +21,22 @@ const items = githubItems.map(item => ({
 }));
 
 const githubSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16" style="vertical-align:-0.2em;margin-left:0.25rem;"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"/></svg>';
+
+// Clean and convert markdown to simple HTML
+function mdToHtml(md: string): string {
+  // Strip the redundant title line
+  const cleaned = md.replace(/^Overall Project Summary for .+:\n*/m, '');
+  return cleaned
+    .replace(/^### (.+)$/gm, '<h4 class="dev-summary-h4">$1</h4>')
+    .replace(/^## (.+)$/gm, '<h3 class="dev-summary-h3">$1</h3>')
+    .replace(/^# (.+)$/gm, '<h3 class="dev-summary-h3">$1</h3>')
+    .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank" rel="noopener">$1</a>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/(<li>.*<\/li>\n?)+/gs, '<ul>$&</ul>')
+    .replace(/\n{2,}/g, '</p><p>')
+    .replace(/^(?!<[hul])/gm, (line) => line ? `<p>${line}</p>` : '');
+}
 ---
 <div class="development-grid full-width">
   <div>
@@ -31,43 +46,26 @@ const githubSvg = '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20
     )}
   </div>
   <div>
-    {githubStats && (
+    {githubSummary && (
       <Fragment>
-        <h2 class="section-title">Activity</h2>
-        <div class="github-stats-box">
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-value">{githubStats.newPRs || 0}</div>
-              <div class="stat-label">New PRs</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">{githubStats.mergedPRs || 0}</div>
-              <div class="stat-label">Merged</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">{githubStats.newIssues || 0}</div>
-              <div class="stat-label">New Issues</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">{githubStats.closedIssues || 0}</div>
-              <div class="stat-label">Closed</div>
-            </div>
-          </div>
-          {topContributors.length > 0 && (
-            <div class="top-contributors">
-              <h4 class="contributors-title">Top Contributors</h4>
-              {topContributors.map(contributor => (
-                <div class="contributor-item">
-                  <img src={contributor.avatarUrl} alt={contributor.username} class="contributor-avatar" loading="lazy" />
-                  <div class="contributor-info">
-                    <div class="contributor-name">{contributor.username}</div>
-                    <div class="contributor-score">{Math.round(contributor.totalScore)} pts</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+        <h2 class="section-title">Summary</h2>
+        <div class="dev-summary-wrap" id="dev-summary-wrap">
+          <div class="dev-summary-box" set:html={mdToHtml(githubSummary)} />
         </div>
+        <button class="dev-summary-toggle" id="dev-summary-toggle" style="display:none">Show more</button>
+        <script>
+          {
+            const wrap = document.getElementById('dev-summary-wrap');
+            const btn = document.getElementById('dev-summary-toggle');
+            if (wrap && btn && wrap.scrollHeight > wrap.clientHeight + 10) {
+              btn.style.display = 'block';
+              btn.addEventListener('click', () => {
+                const expanded = wrap.classList.toggle('is-expanded');
+                btn.textContent = expanded ? 'Show less' : 'Show more';
+              });
+            }
+          }
+        </script>
       </Fragment>
     )}
   </div>

@@ -47,6 +47,13 @@ export function getGitHubStats(date: string): GitHubStats | null {
   return readJson<GitHubStats>(`github/stats/day/stats_${date}.json`);
 }
 
+export function getGitHubSummary(date: string): string | null {
+  const byDate = readJson<{ content?: string }>(`github/api/summaries/overall/day/${date}.json`);
+  if (byDate?.content) return byDate.content;
+  const latest = readJson<{ content?: string }>(`github/api/summaries/overall/day/latest.json`);
+  return latest?.content || null;
+}
+
 export function getDailySilk(date: string): string | null {
   return readText(`daily-silk/${date}.md`);
 }

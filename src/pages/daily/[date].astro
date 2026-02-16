@@ -9,7 +9,7 @@ import StrategyBox from '../../components/daily/StrategyBox.astro';
 import CouncilSection from '../../components/daily/CouncilSection.astro';
 import DevelopmentGrid from '../../components/daily/DevelopmentGrid.astro';
 import FullStories from '../../components/daily/FullStories.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
 
 export function getStaticPaths() {
   const dates = getAvailableDates('facts');
@@ -17,11 +17,16 @@ export function getStaticPaths() {
 }
 
 const { date } = Astro.params;
+const allDates = getAvailableDates('facts');
+const dateIdx = allDates.indexOf(date!);
+const prevDate = dateIdx < allDates.length - 1 ? allDates[dateIdx + 1] : null;
+const nextDate = dateIdx > 0 ? allDates[dateIdx - 1] : null;
+const recentDates = allDates.slice(0, 8).filter(d => d !== date).reverse().slice(-7);
 const facts = getFacts(date!);
 const councilBriefing = getCouncilBriefing(date!);
 const highlights = getHighlights(date!);
 const aiNews = getAiNews(date!);
-const githubStats = getGitHubStats(date!);
+const githubSummary = getGitHubSummary(date!);
 const dailySilk = getDailySilk(date!);
 const latestDate = getLatestDate('facts');
 
@@ -88,10 +93,85 @@ const keyFacts = facts.key_facts || [];
 
   <DevelopmentGrid
     githubItems={categories.github_updates?.new_issues_prs || []}
-    githubStats={githubStats}
+    githubSummary={githubSummary}
     date={date!}
   />
 
   <FullStories aiNews={aiNews} date={date!} />
+
+  <nav class="date-archive full-width">
+    <div class="archive-label">Previous Editions</div>
+    <div class="archive-dates">
+      {recentDates.map(d => (
+        <a href={`/daily/${d}`} class:list={['archive-date', { active: d === date }]}>{d}</a>
+      ))}
+    </div>
+    <div class="archive-nav-links">
+      {prevDate && <a href={`/daily/${prevDate}`} class="archive-older">&larr; Older</a>}
+      {nextDate && <a href={`/daily/${nextDate}`} class="archive-older">Newer &rarr;</a>}
+    </div>
+  </nav>
 </NewspaperLayout>
+
+<style>
+  .date-archive {
+    border-top: 2px solid var(--np-border-heavy, #121212);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .archive-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--np-text, #121212);
+  }
+
+  .archive-dates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .archive-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--np-border, #ddd);
+    border-radius: 2px;
+    color: var(--np-text-muted, #666);
+    transition: all 0.15s;
+  }
+
+  .archive-date:hover {
+    border-color: var(--np-border-heavy, #121212);
+    color: var(--np-text, #121212);
+  }
+
+  .archive-date.active {
+    border-color: var(--np-border-heavy, #121212);
+    color: var(--np-text, #121212);
+    font-weight: 600;
+  }
+
+  .archive-nav-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .archive-older {
+    font-size: 0.8125rem;
+    color: var(--np-text-muted, #666);
+    transition: color 0.15s;
+  }
+
+  .archive-older:hover {
+    color: var(--np-text, #121212);
+  }
+</style>
 

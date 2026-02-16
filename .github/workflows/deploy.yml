@@ -33,6 +33,7 @@ jobs:
             the-council/highlights/
             ai-news/elizaos/json/
             github/stats/day/
+            github/api/summaries/overall/day/
             daily-silk/
 
       - name: Setup Node

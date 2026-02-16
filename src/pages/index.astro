@@ -9,7 +9,7 @@ import StrategyBox from '../components/daily/StrategyBox.astro';
 import CouncilSection from '../components/daily/CouncilSection.astro';
 import DevelopmentGrid from '../components/daily/DevelopmentGrid.astro';
 import FullStories from '../components/daily/FullStories.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubStats, getDailySilk, getLatestDate, getAvailableDates } from '../lib/data-loader';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getDailySilk, getLatestDate, getAvailableDates } from '../lib/data-loader';
 
 const date = getLatestDate('facts');
 const allDates = getAvailableDates('facts');
@@ -20,7 +20,7 @@ const facts = getFacts(date);
 const councilBriefing = getCouncilBriefing(date);
 const highlights = getHighlights(date);
 const aiNews = getAiNews(date);
-const githubStats = getGitHubStats(date);
+const githubSummary = getGitHubSummary(date);
 const dailySilk = getDailySilk(date);
 
 if (!facts) {
@@ -85,7 +85,7 @@ const keyFacts = facts.key_facts || [];
 
   <DevelopmentGrid
     githubItems={categories.github_updates?.new_issues_prs || []}
-    githubStats={githubStats}
+    githubSummary={githubSummary}
     date={date}
   />
 

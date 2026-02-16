@@ -450,62 +450,102 @@
   gap: 2rem;
 }
 
-/* GitHub stats */
-.github-stats-box {
+/* GitHub development summary */
+.dev-summary-wrap {
+  position: relative;
+  max-height: 28rem;
+  overflow: hidden;
+}
+
+.dev-summary-wrap.is-expanded {
+  max-height: none;
+}
+
+.dev-summary-wrap:not(.is-expanded)::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4rem;
+  background: linear-gradient(transparent, var(--np-surface-alt));
+  pointer-events: none;
+}
+
+.dev-summary-toggle {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--np-link);
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+}
+
+.dev-summary-toggle:hover {
+  text-decoration: underline;
+}
+
+.dev-summary-box {
   background: var(--np-surface-alt);
   border: 1px solid var(--np-border-light);
   border-radius: 4px;
-  padding: 1.25rem;
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-}
-
-.stat-item { text-align: center; }
-
-.stat-value {
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  font-weight: 700;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.8125rem;
+  line-height: 1.65;
   color: var(--np-text);
 }
 
-.stat-label {
+.dev-summary-box p {
+  margin: 0 0 0.6rem;
+}
+
+.dev-summary-box p:last-child { margin-bottom: 0; }
+.dev-summary-box p:empty { display: none; }
+
+.dev-summary-box .dev-summary-h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  margin: 1rem 0 0.4rem;
+  color: var(--np-text);
+}
+
+.dev-summary-box .dev-summary-h3:first-child { margin-top: 0; }
+
+.dev-summary-box .dev-summary-h4 {
   font-size: 0.75rem;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.03em;
+  margin: 0.75rem 0 0.25rem;
   color: var(--np-text-muted);
 }
 
-.contributors-title {
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--np-text-muted);
-  margin-bottom: 0.75rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--np-border-light);
+.dev-summary-box ul {
+  margin: 0 0 0.6rem;
+  padding-left: 1.125rem;
 }
 
-.contributor-item {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0;
+.dev-summary-box li {
+  margin-bottom: 0.25rem;
 }
 
-.contributor-avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+.dev-summary-box a {
+  color: var(--np-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
-.contributor-name { font-weight: 600; font-size: 0.875rem; }
-.contributor-score { font-size: 0.75rem; color: var(--np-text-muted); }
+.dev-summary-box a:hover {
+  color: var(--np-text);
+}
+
+.dev-summary-box strong {
+  font-weight: 600;
+}
 
 /* Council section within daily page */
 .council-grid {
