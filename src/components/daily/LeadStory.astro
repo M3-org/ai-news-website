@@ -1,0 +1,22 @@
+---
+interface Props {
+  summary: string;
+  sentiment?: string;
+  date: string;
+}
+
+const { summary, sentiment, date } = Astro.props;
+const heroImage = `/media/daily/${date}/overall.png`;
+---
+<div class="full-width">
+  <article class="daily-brief">
+    <div class="lead-image-container">
+      <img src={heroImage} alt="Daily briefing illustration" loading="eager" onerror="this.style.display='none'" />
+    </div>
+    <div class="brief-label">
+      Daily Brief
+      {sentiment && <span class:list={['badge', `badge-${sentiment}`]}>{sentiment}</span>}
+    </div>
+    <p class="brief-text">{summary}</p>
+  </article>
+</div>

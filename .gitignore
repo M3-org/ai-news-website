@@ -12,8 +12,12 @@ client_secrets.json
 
 # IDE and build artifacts
 .cursor/
+.astro/
 __pycache__/
 *.pyc
+
+# Astro build output
+dist/
 
 # Logs
 logs/

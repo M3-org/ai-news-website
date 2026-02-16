@@ -1,0 +1,53 @@
+---
+import { CHARACTERS } from '../../lib/types';
+
+interface Props {
+  character: string;
+  size?: number;
+}
+
+const { character, size = 40 } = Astro.props;
+const info = CHARACTERS[character] || { name: character, title: 'Analyst', color: '#666' };
+---
+<div class="avatar-group">
+  <img
+    src={`/scripts/posters/characters/${character}/1.png`}
+    alt={info.name}
+    width={size}
+    height={size}
+    class="avatar-img"
+    loading="lazy"
+    onerror={`this.onerror=null;this.src='/media/samples/characters/reference-sheet-${character}.png'`}
+  />
+  <div class="avatar-info">
+    <span class="avatar-name">{info.name}</span>
+    <span class="avatar-title">{info.title}</span>
+  </div>
+</div>
+
+<style>
+  .avatar-group {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .avatar-img {
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  .avatar-info {
+    display: flex;
+    flex-direction: column;
+  }
+  .avatar-name {
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+  .avatar-title {
+    font-size: 0.75rem;
+    color: #666;
+  }
+  :global(.dark) .avatar-title {
+    color: #a1a1aa;
+  }
+</style>

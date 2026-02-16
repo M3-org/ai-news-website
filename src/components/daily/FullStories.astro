@@ -1,0 +1,91 @@
+---
+import type { AiNewsData, AiNewsCategory } from '../../lib/types';
+
+interface Props {
+  aiNews: AiNewsData | null;
+  date: string;
+}
+
+const { aiNews, date } = Astro.props;
+
+function normalizeCategories(data: AiNewsData | null): AiNewsCategory[] {
+  const categories = data?.categories;
+  if (!categories) return [];
+  if (Array.isArray(categories)) return categories;
+  if (typeof categories === 'object') {
+    if (Array.isArray((categories as any).content) || (categories as any).topic || (categories as any).title) {
+      return [categories as AiNewsCategory];
+    }
+    return Object.values(categories).filter(v => v && typeof v === 'object') as AiNewsCategory[];
+  }
+  return [];
+}
+
+function firstMediaUrl(value: string | string[] | undefined): string | null {
+  if (Array.isArray(value)) return value[0] || null;
+  return (value as string) || null;
+}
+
+interface ProcessedStory {
+  headline: string;
+  bodyText: string;
+  storyImage: string | null;
+  labels: string[];
+  index: number;
+}
+
+// Process all stories in frontmatter
+const allStories: ProcessedStory[] = [];
+const categories = normalizeCategories(aiNews).filter(c => c.topic !== 'miscellaneous');
+
+for (const category of categories) {
+  const content = Array.isArray(category?.content) ? category.content : [];
+  const seenStories = new Set<string>();
+
+  for (let i = 0; i < content.length; i++) {
+    const story = content[i];
+    const key = JSON.stringify({ text: story?.text || '', sources: Array.isArray(story?.sources) ? story.sources : [story?.sources || ''] });
+    if (seenStories.has(key)) continue;
+    seenStories.add(key);
+
+    let storyImage: string | null = null;
+    if (story.posters) storyImage = firstMediaUrl(story.posters as string | string[]);
+    else if (story.images) storyImage = firstMediaUrl(story.images as string | string[]);
+    else if (story.memes?.url) storyImage = firstMediaUrl(story.memes.url as string | string[]);
+
+    const text = story.text || '';
+    const firstSentenceMatch = text.match(/^(.+?[.!?])(?=\s+[A-Z]|$)/);
+    const headline = firstSentenceMatch ? firstSentenceMatch[1] : text.substring(0, 80) + (text.length > 80 ? '...' : '');
+    const bodyText = firstSentenceMatch ? text.substring(firstSentenceMatch[0].length).trim() : text.substring(80).trim();
+
+    const rawSources = (Array.isArray(story.sources) ? story.sources : [story.sources || '']).map(s => String(s).toLowerCase());
+    const labels: string[] = [];
+    if (rawSources.some(s => s.includes('discord'))) labels.push('Discord');
+    if (rawSources.some(s => s.includes('github'))) labels.push('GitHub');
+    if (rawSources.some(s => s.includes('x.com') || s.includes('twitter'))) labels.push('X/Twitter');
+
+    allStories.push({ headline, bodyText, storyImage, labels, index: i });
+  }
+}
+---
+{allStories.length > 0 && (
+  <div class="full-stories-category full-width">
+    <h3 class="category-title">Full Stories</h3>
+    <div class="stories-grid">
+      {allStories.map(story => (
+        <article class="story-card">
+          {story.storyImage && (
+            <div class="story-image-container">
+              <img src={story.storyImage} alt={`Story ${story.index + 1}`} loading="lazy" />
+            </div>
+          )}
+          <div class="story-card-content">
+            <h4 class="story-headline">{story.headline}</h4>
+            {story.bodyText && <p class="story-deck">{story.bodyText}</p>}
+            {story.labels.map(label => <span class="source-text">{label}</span>)}
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+)}

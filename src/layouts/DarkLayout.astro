@@ -1,0 +1,31 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteNav from '../components/nav/SiteNav.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  active?: string;
+}
+
+const { title, description, ogImage, active = '' } = Astro.props;
+---
+<BaseLayout title={title} description={description} ogImage={ogImage} theme="dark">
+  <SiteNav slot="nav" active={active} />
+  <div class="dark-container">
+    <slot />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import '../styles/dark.css';
+
+  .dark-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem;
+    position: relative;
+    z-index: 2;
+  }
+</style>

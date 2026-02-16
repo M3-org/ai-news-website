@@ -1,0 +1,339 @@
+---
+import DarkLayout from '../../layouts/DarkLayout.astro';
+import DatePicker from '../../components/nav/DatePicker';
+import MeetingContext from '../../components/council/MeetingContext';
+import DailyFocus from '../../components/council/DailyFocus';
+import DeliberationCard from '../../components/council/DeliberationCard.astro';
+import { getCouncilBriefing, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+
+export function getStaticPaths() {
+  const dates = getAvailableDates('council_briefing');
+  return dates.map(date => ({ params: { date } }));
+}
+
+const { date } = Astro.params;
+const briefing = getCouncilBriefing(date!);
+const latestDate = getLatestDate('council_briefing');
+
+if (!briefing) {
+  return Astro.redirect('/');
+}
+
+// Simple markdown to HTML for meeting context
+function contextToHtml(md: string): string {
+  return md
+    .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+    .replace(/^\*\*(.+?)\*\*:?/gm, '<strong>$1</strong>')
+    .replace(/^- (.+)$/gm, '<li>$1</li>')
+    .replace(/\n\n/g, '<br><br>');
+}
+
+const contextHtml = contextToHtml(briefing.meeting_context || '');
+const description = briefing.daily_focus?.substring(0, 160) || 'Council Strategic Deliberation';
+const keyPoints = briefing.key_points || [];
+---
+<DarkLayout title={`Council Briefing - ${date}`} description={description} active="council">
+  <style is:global>
+    @import '../../styles/dark.css';
+
+    .council-header {
+      margin-bottom: 4rem;
+    }
+
+    .council-header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .council-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .council-subtitle {
+      font-size: 1.125rem;
+      color: #71717a;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    /* Meeting Context */
+    .meeting-context {
+      background: rgba(18, 18, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      margin-bottom: 3rem;
+      overflow: hidden;
+    }
+
+    .context-header {
+      padding: 1.5rem 2rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s ease;
+    }
+
+    .context-header:hover { background: rgba(255, 255, 255, 0.02); }
+
+    .context-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .expand-icon {
+      font-size: 0.875rem;
+      color: #71717a;
+      transition: transform 0.3s ease;
+    }
+
+    .context-header.expanded .expand-icon { transform: rotate(90deg); }
+
+    .context-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .context-content.expanded { max-height: 2000px; }
+
+    .context-body {
+      padding: 0 2rem 2rem;
+      color: #d4d4d8;
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .context-body h1, .context-body h2, .context-body h3 {
+      font-family: 'Playfair Display', serif;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #fafafa;
+    }
+
+    .context-body li { margin-bottom: 0.5rem; list-style: disc; margin-left: 1.5rem; }
+
+    /* Daily Focus */
+    .daily-focus {
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(249, 115, 22, 0.05) 100%);
+      border-left: 4px solid #f97316;
+      padding: 2.5rem;
+      margin-bottom: 3rem;
+      border-radius: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .focus-header { cursor: pointer; user-select: none; margin-bottom: 1rem; }
+
+    .focus-label {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #fb923c;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      transition: color 0.2s ease;
+    }
+
+    .focus-header:hover .focus-label { color: #fdba74; }
+    .focus-header .expand-icon { color: #fb923c; }
+    .focus-header.expanded .expand-icon { transform: rotate(90deg); }
+
+    .focus-text { font-size: 1.25rem; line-height: 1.7; color: #e4e4e7; margin-bottom: 1rem; }
+
+    .focus-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+    .focus-content.expanded { max-height: 500px; }
+
+    .monthly-goal { padding-top: 1rem; border-top: 1px solid rgba(249, 115, 22, 0.2); }
+    .monthly-label { font-size: 0.875rem; font-weight: 600; color: #fb923c; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
+    .monthly-text { font-size: 1rem; line-height: 1.7; color: #d4d4d8; }
+
+    /* Deliberation */
+    .deliberation-section { margin-top: 3rem; }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+    }
+
+    .key-point-wrapper { margin-bottom: 3rem; }
+
+    .key-point-header { margin-bottom: 1.5rem; }
+
+    .topic-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, rgba(249, 115, 22, 0.2) 0%, rgba(249, 115, 22, 0.1) 100%);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fb923c;
+      margin-bottom: 0.75rem;
+    }
+
+    .summary-text { color: #a1a1aa; font-size: 0.9375rem; line-height: 1.6; padding: 0.75rem 0; }
+
+    .deliberation-card {
+      background: rgba(18, 18, 26, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      margin-bottom: 1.5rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .question-id {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 0.375rem 0.875rem;
+      border-radius: 0.25rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 1rem;
+    }
+
+    .question-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      line-height: 1.4;
+      color: #fafafa;
+      margin-bottom: 1.5rem;
+    }
+
+    .context-list { list-style: none; margin-bottom: 2rem; }
+    .context-list li {
+      padding: 0.75rem 0 0.75rem 1.5rem;
+      border-left: 2px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 0.5rem;
+      color: #a1a1aa;
+      font-size: 0.9375rem;
+      position: relative;
+    }
+    .context-list li::before {
+      content: '\203A';
+      position: absolute;
+      left: 0.5rem;
+      color: #71717a;
+    }
+
+    .answers-grid { display: grid; gap: 1rem; margin-top: 2rem; }
+
+    .answer-option {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 0.75rem;
+      padding: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .answer-option:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(255, 255, 255, 0.15);
+      transform: translateX(4px);
+    }
+
+    .answer-option:nth-child(1) { --answer-color: #3b82f6; }
+    .answer-option:nth-child(2) { --answer-color: #a855f7; }
+    .answer-option:nth-child(3) { --answer-color: #22c55e; }
+    .answer-option:nth-child(4) { --answer-color: #71717a; }
+
+    .answer-label {
+      font-weight: 600;
+      color: #fafafa;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .answer-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .answer-implication {
+      font-size: 0.875rem;
+      color: #a1a1aa;
+      margin-top: 0.5rem;
+      padding-left: 2rem;
+      font-style: italic;
+    }
+
+    .error {
+      background: rgba(239, 68, 68, 0.1);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      color: #fca5a5;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .council-header-top { flex-direction: column; align-items: flex-start; }
+      .daily-focus { padding: 1.5rem; }
+      .deliberation-card { padding: 1.5rem; }
+      .question-text { font-size: 1.375rem; }
+    }
+  </style>
+
+  <!-- Header -->
+  <div class="council-header fade-in">
+    <div class="council-header-top">
+      <div>
+        <h1 class="council-title">Council Briefing</h1>
+        <div class="council-subtitle">Strategic Deliberation</div>
+      </div>
+      <DatePicker client:load currentDate={date!} latestDate={latestDate} basePath="/council" />
+    </div>
+  </div>
+
+  <!-- Meeting Context -->
+  {briefing.meeting_context && <MeetingContext client:load contextHtml={contextHtml} />}
+
+  <!-- Daily Focus -->
+  {briefing.daily_focus && <DailyFocus client:load focus={briefing.daily_focus} monthlyGoal={briefing.monthly_goal || ''} />}
+
+  <!-- Deliberation Questions -->
+  {keyPoints.length > 0 && (
+    <div class="deliberation-section">
+      <h2 class="section-title">Key Deliberations</h2>
+      <DeliberationCard keyPoints={keyPoints} />
+    </div>
+  )}
+</DarkLayout>

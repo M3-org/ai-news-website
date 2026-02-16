@@ -1,0 +1,255 @@
+---
+import DarkLayout from '../layouts/DarkLayout.astro';
+import { getFacts, getCouncilBriefing, getHighlights, getLatestDate, getManifest } from '../lib/data-loader';
+import { CHARACTERS } from '../lib/types';
+import { formatDateLong } from '../lib/dates';
+
+const manifest = getManifest();
+const latestFactsDate = getLatestDate('facts');
+const latestCouncilDate = getLatestDate('council_briefing');
+
+const facts = getFacts(latestFactsDate);
+const council = getCouncilBriefing(latestCouncilDate);
+const highlights = getHighlights(latestFactsDate);
+
+const formattedDate = formatDateLong(latestFactsDate);
+const heroImage = `/media/daily/${latestFactsDate}/overall.png`;
+const firstSentence = facts?.overall_summary?.match(/^[^.!?]+[.!?]/)?.[0] || facts?.overall_summary?.substring(0, 200) || '';
+const topFacts = facts?.key_facts?.slice(0, 4) || [];
+const topHighlights = highlights?.highlights?.slice(0, 2) || [];
+const councilTopics = council?.key_points?.slice(0, 3) || [];
+const ogImage = `https://elizaos.news/media/daily/${latestFactsDate}/overall.png`;
+---
+<DarkLayout title="elizaOS News" description="Daily Intelligence from the elizaOS Ecosystem" ogImage={ogImage} active="home">
+  <style>
+    .home-masthead {
+      text-align: center;
+      padding: 3rem 0 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 3rem;
+    }
+    .home-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 900;
+      letter-spacing: 0.04em;
+      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.25rem;
+    }
+    .home-date {
+      font-size: 0.875rem;
+      color: #a1a1aa;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .home-tagline {
+      font-size: 0.875rem;
+      color: #71717a;
+      font-style: italic;
+      margin-top: 0.25rem;
+    }
+
+    .hero-section {
+      margin-bottom: 3rem;
+    }
+    .hero-image {
+      width: 100%;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-summary {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      line-height: 1.4;
+      color: #e4e4e7;
+      margin-bottom: 1rem;
+    }
+    .hero-link {
+      color: #8b5cf6;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .hero-link:hover { color: #a78bfa; }
+
+    .section-cta {
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .section-cta a {
+      color: #a1a1aa;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .section-cta a:hover { color: #fafafa; }
+
+    .home-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #8b5cf6;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .fact-list {
+      list-style: none;
+    }
+    .fact-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+      color: #d4d4d8;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+    }
+
+    .council-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .council-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .council-meta {
+      font-size: 0.75rem;
+      color: #71717a;
+      margin-bottom: 0.25rem;
+    }
+    .council-headline {
+      font-size: 0.9375rem;
+      color: #e4e4e7;
+      line-height: 1.4;
+    }
+
+    .poster-strip {
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+    .poster-thumb {
+      border-radius: 0.5rem;
+      border: 1px solid rgba(255,255,255,0.08);
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+    }
+    .poster-link {
+      display: block;
+      text-align: right;
+      color: #8b5cf6;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-top: 0.75rem;
+    }
+
+    @media (max-width: 768px) {
+      .home-grid { grid-template-columns: 1fr; }
+      .poster-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+
+  <!-- Masthead -->
+  <div class="home-masthead">
+    <h1 class="home-brand">ELIZA TIMES</h1>
+    <div class="home-date">{formattedDate}</div>
+    <div class="home-tagline">Daily Intelligence from the elizaOS Ecosystem</div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero-section">
+    <img src={heroImage} alt="Today's briefing" class="hero-image" loading="eager" onerror="this.style.display='none'" />
+    <p class="hero-summary">{firstSentence}</p>
+    <a href={`/daily/${latestFactsDate}`} class="hero-link">Read Today's Daily Brief &rarr;</a>
+  </div>
+
+  <!-- Two-column grid -->
+  <div class="home-grid">
+    <div>
+      <div class="section-label">Key Developments</div>
+      <ul class="fact-list">
+        {topFacts.map(fact => <li>{fact}</li>)}
+      </ul>
+      <div class="section-cta">
+        <a href={`/daily/${latestFactsDate}`}>View all developments &rarr;</a>
+      </div>
+    </div>
+    <div>
+      <div class="section-label">Council Highlights</div>
+      {topHighlights.length > 0 ? (
+        topHighlights.map(h => {
+          const char = CHARACTERS[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
+          return (
+            <div class="council-item">
+              <img src={`/scripts/posters/characters/${h.character}/1.png`} alt={char.name} class="council-avatar" loading="lazy" />
+              <div>
+                <div class="council-meta">{char.name} &middot; {char.title}</div>
+                <div class="council-headline">{h.headline}</div>
+              </div>
+            </div>
+          );
+        })
+      ) : (
+        councilTopics.map(point => (
+          <div class="council-item">
+            <div>
+              <div class="council-meta">{point.topic}</div>
+              <div class="council-headline">{point.summary}</div>
+            </div>
+          </div>
+        ))
+      )}
+      {council && (
+        <div class="section-cta">
+          <a href={`/council/${latestCouncilDate}`}>View council briefing &rarr;</a>
+        </div>
+      )}
+
+    </div>
+  </div>
+
+  <!-- Poster strip -->
+  <div class="poster-strip">
+    <div class="section-label">Today's Illustrations</div>
+    <div class="poster-grid">
+      {['overall', 'twitter-news', 'discord-updates', 'github-updates'].map(name => (
+        <img
+          src={`/media/daily/${latestFactsDate}/${name}.png`}
+          alt={name}
+          class="poster-thumb"
+          loading="lazy"
+          onerror="this.style.display='none'"
+        />
+      ))}
+    </div>
+    <a href="/gallery" class="poster-link">View All Gallery &rarr;</a>
+  </div>
+</DarkLayout>

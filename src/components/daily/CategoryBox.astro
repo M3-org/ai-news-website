@@ -1,0 +1,69 @@
+---
+import { escapeHtml } from '../../lib/dates';
+
+interface Props {
+  title: string;
+  items: {
+    headline?: string;
+    text?: string;
+    meta?: string;
+    badge?: string;
+    badgeText?: string;
+    url?: string;
+    avatar?: string;
+    source?: string;
+  }[];
+  categoryImage?: string;
+  categoryType?: string;
+}
+
+const { title, items, categoryImage, categoryType = '' } = Astro.props;
+---
+<div class="category-box" data-category={categoryType}>
+  {categoryImage && (
+    <div class="category-header-image-container">
+      <img src={categoryImage} alt={title} class="category-header-image" loading="lazy" onerror="this.parentElement.style.display='none'" />
+    </div>
+  )}
+  <div class="category-content">
+    <h3 class="category-title" set:html={title} />
+    {items.map(item => (
+      item.avatar ? (
+        <div class="category-item with-avatar github-layout">
+          <div class="item-main">
+            {item.headline && (
+              <div class="item-headline">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">{item.headline}</a>
+                ) : item.headline}
+              </div>
+            )}
+            {item.text && <div>{item.text}</div>}
+            <div class="item-footer">
+              {item.badge && <span class:list={['badge', item.badge]}>{item.badgeText}</span>}
+            </div>
+          </div>
+          <div class="item-avatar-column">
+            <img src={item.avatar} alt="Author avatar" class="item-avatar" loading="lazy" />
+            {item.meta && <div class="item-meta-small">{item.meta}</div>}
+          </div>
+        </div>
+      ) : (
+        <div class="category-item">
+          <div class="item-content">
+            {item.headline && (
+              <div class="item-headline">
+                {item.url ? (
+                  <a href={item.url} target="_blank" rel="noopener noreferrer">{item.headline}</a>
+                ) : item.headline}
+              </div>
+            )}
+            {item.text && <div>{item.text}</div>}
+            {item.badge && <span class:list={['badge', item.badge]}>{item.badgeText}</span>}
+            {item.meta && <div class="item-meta">{item.meta}</div>}
+          </div>
+        </div>
+      )
+    ))}
+  </div>
+</div>
