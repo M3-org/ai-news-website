@@ -1,14 +1,14 @@
 {
+  "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "commonjs",
-    "strict": false,
-    "esModuleInterop": true,
-    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    },
+    "jsx": "react-jsx",
     "resolveJsonModule": true,
-    "outDir": "./dist",
-    "downlevelIteration": true
+    "skipLibCheck": true
   },
-  "include": ["scripts/**/*.ts"],
+  "include": ["src/**/*", "scripts/**/*.ts"],
   "exclude": ["node_modules"]
 }

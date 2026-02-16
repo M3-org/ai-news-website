@@ -1,0 +1,68 @@
+---
+import { markdownToHtml } from '../../lib/dates';
+
+interface Props {
+  dailySilk: string | null;
+}
+
+const { dailySilk } = Astro.props;
+
+// Strip redundant headers from the markdown:
+// "# Daily Summary for 2026-02-14", "## 2026-02-14 16:01:14", "# AI Digest - February 14, 2026"
+const cleaned = dailySilk
+  ?.replace(/^#\s+Daily Summary for \d{4}-\d{2}-\d{2}\s*\n*/gm, '')
+  .replace(/^##\s+\d{4}-\d{2}-\d{2}\s+\d{2}:\d{2}:\d{2}\s*\n*/gm, '')
+  .replace(/^#\s+AI Digest\s*-\s*\w+ \d{1,2},\s*\d{4}\s*\n*/gm, '')
+  .trim() || null;
+
+const rendered = cleaned ? markdownToHtml(cleaned) : null;
+---
+{rendered && (
+  <div class="daily-ai-news full-width">
+    <h2 class="section-header">Daily AI News</h2>
+    <article class="daily-news-content" set:html={rendered} />
+  </div>
+)}
+
+<style>
+  .daily-ai-news {
+    border-top: 3px solid var(--np-border-heavy, #121212);
+    padding-top: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .daily-news-content {
+    column-count: 2;
+    column-gap: 2rem;
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .daily-news-content :global(h2),
+  .daily-news-content :global(h3),
+  .daily-news-content :global(h4) {
+    font-family: 'Playfair Display', serif;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    break-after: avoid;
+  }
+
+  .daily-news-content :global(p) {
+    margin-bottom: 0.75rem;
+  }
+
+  .daily-news-content :global(ul) {
+    padding-left: 1.25rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .daily-news-content :global(li) {
+    margin-bottom: 0.25rem;
+  }
+
+  @media (max-width: 768px) {
+    .daily-news-content {
+      column-count: 1;
+    }
+  }
+</style>

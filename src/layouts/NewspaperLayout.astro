@@ -1,0 +1,23 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import SiteNav from '../components/nav/SiteNav.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  ogImage?: string;
+  active?: string;
+}
+
+const { title, description, ogImage, active = 'home' } = Astro.props;
+---
+<BaseLayout title={title} description={description} ogImage={ogImage} theme="light">
+  <SiteNav slot="nav" active={active} />
+  <div class="news-container">
+    <slot />
+  </div>
+</BaseLayout>
+
+<style is:global>
+  @import '../styles/newspaper.css';
+</style>

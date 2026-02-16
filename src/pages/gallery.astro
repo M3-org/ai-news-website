@@ -1,0 +1,148 @@
+---
+import DarkLayout from '../layouts/DarkLayout.astro';
+import { getAvailableDates } from '../lib/data-loader';
+
+const dates = getAvailableDates('facts').slice(0, 30); // Last 30 days
+const posterNames = ['overall', 'twitter-news', 'discord-updates', 'github-updates', 'strategic-insights', 'market-analysis'];
+---
+<DarkLayout title="Gallery" description="Daily poster illustrations from the elizaOS ecosystem" active="gallery">
+  <style>
+    .gallery-header {
+      margin-bottom: 3rem;
+    }
+    .gallery-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+    .gallery-subtitle {
+      color: #71717a;
+      font-size: 1rem;
+    }
+    .date-section {
+      margin-bottom: 3rem;
+    }
+    .date-label {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #fb923c;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .date-label a {
+      color: #fb923c;
+      text-decoration: none;
+    }
+    .date-label a:hover { color: #fdba74; }
+    .poster-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+    .poster-card {
+      border-radius: 0.75rem;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      cursor: pointer;
+    }
+    .poster-card:hover {
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .poster-card img {
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+      display: block;
+    }
+    .poster-name {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.75rem;
+      color: #a1a1aa;
+      background: rgba(18, 18, 26, 0.8);
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .lightbox.active { display: flex; }
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 0.5rem;
+    }
+    .lightbox-close {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+    }
+  </style>
+
+  <div class="gallery-header">
+    <h1 class="gallery-title">Poster Gallery</h1>
+    <p class="gallery-subtitle">Daily editorial illustrations from the elizaOS ecosystem</p>
+  </div>
+
+  {dates.map(date => (
+    <div class="date-section">
+      <div class="date-label"><a href={`/daily/${date}`}>{date}</a></div>
+      <div class="poster-grid">
+        {posterNames.map(name => (
+          <div class="poster-card" data-src={`/media/daily/${date}/${name}.png`} onclick="openLightbox(this)">
+            <img
+              src={`/media/daily/${date}/${name}.png`}
+              alt={`${name} - ${date}`}
+              loading="lazy"
+              onerror="this.closest('.poster-card').style.display='none'"
+            />
+            <div class="poster-name">{name}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  ))}
+
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <img id="lightbox-img" src="" alt="Full size poster" />
+  </div>
+
+  <script is:inline>
+    function openLightbox(el) {
+      const src = el.dataset.src;
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') closeLightbox();
+    });
+  </script>
+</DarkLayout>

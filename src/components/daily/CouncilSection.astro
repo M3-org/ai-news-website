@@ -1,0 +1,214 @@
+---
+import type { HighlightsData, CouncilBriefing } from '../../lib/types';
+import { CHARACTERS } from '../../lib/types';
+
+interface Props {
+  highlights: HighlightsData | null;
+  councilBriefing: CouncilBriefing | null;
+  date: string;
+}
+
+const { highlights, councilBriefing, date } = Astro.props;
+const hasDeliberation = (councilBriefing?.key_points?.length ?? 0) > 0;
+const hasColumnists = (highlights?.highlights?.length ?? 0) > 0;
+const displayHighlights = highlights?.highlights?.slice(0, 3) || [];
+---
+{(hasDeliberation || hasColumnists) && (
+  <div class="council-section full-width">
+    <h2 class="section-title">The Council</h2>
+
+    {hasColumnists && (
+      <div class="columnists-row">
+        {displayHighlights.map(h => {
+          const char = CHARACTERS[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
+          const profileImg = `/scripts/posters/characters/${h.character}/1.png`;
+          return (
+            <article class="columnist-card">
+              <div class="columnist-header">
+                <img src={profileImg} alt={char.name} class="columnist-pic" loading="lazy" />
+                <div class="columnist-text">
+                  <span class="columnist-name">{char.name}</span>
+                  <span class="columnist-title">{char.title}</span>
+                </div>
+              </div>
+              <h4 class="columnist-headline">{h.headline}</h4>
+            </article>
+          );
+        })}
+      </div>
+    )}
+
+    {hasDeliberation && (
+      <div class="deliberation-list">
+        {councilBriefing!.key_points.map(point => (
+          <details class="deliberation-topic">
+            <summary class="topic-summary">
+              <span class="topic-label">{point.topic}</span>
+              <span class="topic-desc">{point.summary}</span>
+            </summary>
+            <div class="topic-content">
+              {(point.deliberation_items || []).map(item => (
+                <div class="delib-item">
+                  <div class="delib-question">{item.text}</div>
+                  <div class="delib-answers">
+                    {Object.entries(item.multiple_choice_answers || {})
+                      .filter(([key]) => !key.includes('4'))
+                      .map(([key, answer]) => (
+                        <div class="delib-answer">
+                          <strong>{key.replace('answer_', '')}.</strong> {answer.text}
+                          {answer.implication && <span class="delib-impl"> — {answer.implication}</span>}
+                        </div>
+                      ))
+                    }
+                  </div>
+                </div>
+              ))}
+            </div>
+          </details>
+        ))}
+      </div>
+    )}
+
+    <div class="council-cta">
+      <a href={`/council/${date}`}>Full council briefing &rarr;</a>
+    </div>
+  </div>
+)}
+
+<style>
+  .council-section {
+    margin-top: 1rem;
+  }
+
+  /* Columnists as horizontal cards */
+  .columnists-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .columnist-card {
+    padding: 1rem;
+    border: 1px solid var(--np-border-light, #eee);
+    border-radius: 4px;
+  }
+
+  .columnist-header {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .columnist-pic {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .columnist-text {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .columnist-name { font-weight: 600; font-size: 0.8125rem; }
+  .columnist-title { font-size: 0.6875rem; color: var(--np-text-muted, #666); }
+
+  .columnist-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  /* Deliberation as collapsible list */
+  .deliberation-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .deliberation-topic {
+    border: 1px solid var(--np-border-light, #eee);
+    border-radius: 4px;
+  }
+
+  .topic-summary {
+    display: flex;
+    align-items: baseline;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    cursor: pointer;
+    font-size: 0.875rem;
+    line-height: 1.4;
+  }
+
+  .topic-summary::-webkit-details-marker { display: none; }
+  .topic-summary::marker { content: ''; }
+
+  .topic-summary::before {
+    content: '▸';
+    color: var(--np-text-dim, #999);
+    flex-shrink: 0;
+  }
+
+  details[open] .topic-summary::before {
+    content: '▾';
+  }
+
+  .topic-label {
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .topic-desc {
+    color: var(--np-text-muted, #666);
+  }
+
+  .topic-content {
+    padding: 0 1rem 1rem 2rem;
+  }
+
+  .delib-item {
+    margin-bottom: 1rem;
+  }
+
+  .delib-question {
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: 0.375rem;
+  }
+
+  .delib-answers {
+    font-size: 0.8125rem;
+    color: var(--np-text-muted, #444);
+  }
+
+  .delib-answer {
+    padding: 0.25rem 0;
+    line-height: 1.4;
+  }
+
+  .delib-impl {
+    color: var(--np-text-dim, #888);
+    font-style: italic;
+  }
+
+  .council-cta {
+    margin-top: 0.5rem;
+  }
+
+  .council-cta a {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--np-link, #1565c0);
+    text-decoration: none;
+  }
+
+  .council-cta a:hover {
+    text-decoration: underline;
+  }
+</style>

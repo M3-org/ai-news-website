@@ -1,0 +1,155 @@
+---
+import NewspaperLayout from '../layouts/NewspaperLayout.astro';
+import Masthead from '../components/daily/Masthead.astro';
+import LeadStory from '../components/daily/LeadStory.astro';
+import KeyFacts from '../components/daily/KeyFacts.astro';
+import DailySidebar from '../components/daily/DailySidebar.astro';
+import CategoryBox from '../components/daily/CategoryBox.astro';
+import StrategyBox from '../components/daily/StrategyBox.astro';
+import CouncilSection from '../components/daily/CouncilSection.astro';
+import DevelopmentGrid from '../components/daily/DevelopmentGrid.astro';
+import FullStories from '../components/daily/FullStories.astro';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubStats, getDailySilk, getLatestDate, getAvailableDates } from '../lib/data-loader';
+
+const date = getLatestDate('facts');
+const allDates = getAvailableDates('facts');
+const dateIdx = allDates.indexOf(date);
+const prevDate = dateIdx < allDates.length - 1 ? allDates[dateIdx + 1] : null;
+const recentDates = allDates.slice(1, 8).reverse(); // oldest to newest (left to right)
+const facts = getFacts(date);
+const councilBriefing = getCouncilBriefing(date);
+const highlights = getHighlights(date);
+const aiNews = getAiNews(date);
+const githubStats = getGitHubStats(date);
+const dailySilk = getDailySilk(date);
+
+if (!facts) {
+  return Astro.redirect('/gallery');
+}
+
+const ogImage = `https://elizaos.news/media/daily/${date}/overall.png`;
+const description = facts.overall_summary?.substring(0, 160) || 'Daily Intelligence from the elizaOS Ecosystem';
+
+const categories = facts.categories || {} as any;
+
+const twitterItems = (categories.twitter_news_highlights || []).map((item: any) => ({
+  text: item?.claim || '',
+  source: item?.source || '',
+}));
+
+const discordItems = (categories.discord_updates || []).map((item: any) => ({
+  headline: `#${item?.channel || 'unknown'}`,
+  text: item?.summary || '',
+  meta: Array.isArray(item?.key_participants) ? `Participants: ${item.key_participants.join(', ')}` : '',
+}));
+
+const feedbackItems = (categories.user_feedback || []).map((item: any) => ({
+  text: item?.feedback_summary || '',
+  source: item?.source || '',
+}));
+
+const keyFacts = facts.key_facts || [];
+---
+<NewspaperLayout title="elizaOS News" description={description} ogImage={ogImage} active="home">
+  <Masthead date={date} latestDate={date} />
+
+  <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date} />
+
+  <KeyFacts facts={keyFacts} />
+
+  {dailySilk && <DailySidebar dailySilk={dailySilk} />}
+
+  <div class:list={['grouped-sections', 'full-width']}>
+    <div class="section-column">
+      {twitterItems.length > 0 && (
+        <CategoryBox title="Twitter News" items={twitterItems} categoryImage={`/media/daily/${date}/twitter-news.png`} categoryType="twitter" />
+      )}
+      {discordItems.length > 0 && (
+        <CategoryBox title="Discord Updates" items={discordItems} categoryImage={`/media/daily/${date}/discord-updates.png`} categoryType="discord" />
+      )}
+    </div>
+    <div class="section-column">
+      {categories.strategic_insights?.length > 0 && (
+        <StrategyBox title="Strategic Insights" items={categories.strategic_insights} />
+      )}
+      {categories.market_analysis?.length > 0 && (
+        <StrategyBox title="Market Analysis" items={categories.market_analysis} />
+      )}
+      {feedbackItems.length > 0 && (
+        <CategoryBox title="User Feedback" items={feedbackItems} categoryType="feedback" />
+      )}
+    </div>
+  </div>
+
+  <CouncilSection highlights={highlights} councilBriefing={councilBriefing} date={date} />
+
+  <DevelopmentGrid
+    githubItems={categories.github_updates?.new_issues_prs || []}
+    githubStats={githubStats}
+    date={date}
+  />
+
+  <FullStories aiNews={aiNews} date={date} />
+
+  <nav class="date-archive full-width">
+    <div class="archive-label">Previous Editions</div>
+    <div class="archive-dates">
+      {recentDates.map(d => (
+        <a href={`/daily/${d}`} class="archive-date">{d}</a>
+      ))}
+    </div>
+    {prevDate && (
+      <a href={`/daily/${prevDate}`} class="archive-older">&larr; Previous day</a>
+    )}
+  </nav>
+</NewspaperLayout>
+
+<style>
+  .date-archive {
+    border-top: 2px solid var(--np-border-heavy, #121212);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .archive-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--np-text, #121212);
+  }
+
+  .archive-dates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .archive-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--np-border, #ddd);
+    border-radius: 2px;
+    color: var(--np-text-muted, #666);
+    transition: all 0.15s;
+  }
+
+  .archive-date:hover {
+    border-color: var(--np-border-heavy, #121212);
+    color: var(--np-text, #121212);
+  }
+
+  .archive-older {
+    font-size: 0.8125rem;
+    color: var(--np-text-muted, #666);
+    transition: color 0.15s;
+  }
+
+  .archive-older:hover {
+    color: var(--np-text, #121212);
+  }
+</style>

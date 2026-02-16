@@ -1,0 +1,43 @@
+---
+import type { KeyPoint } from '../../lib/types';
+
+interface Props {
+  keyPoints: KeyPoint[];
+}
+
+const { keyPoints } = Astro.props;
+---
+{keyPoints.map((point, pointIndex) => (
+  <div class="key-point-wrapper">
+    <div class="key-point-header fade-in">
+      <div class="topic-badge">{point.topic}</div>
+      <div class="summary-text">{point.summary}</div>
+    </div>
+    {(point.deliberation_items || []).map(item => (
+      <div class="deliberation-card fade-in">
+        <div class="deliberation-header">
+          <div class="question-id">{item.question_id.toUpperCase()}</div>
+          <div class="question-text">{item.text}</div>
+        </div>
+        {item.context?.length > 0 && (
+          <ul class="context-list">
+            {item.context.map(ctx => <li>{ctx}</li>)}
+          </ul>
+        )}
+        <div class="answers-grid">
+          {Object.entries(item.multiple_choice_answers || {}).map(([key, answer], index) => (
+            <div class="answer-option">
+              <div class="answer-label">
+                <span class="answer-number">{index + 1}</span>
+                <span class="answer-text">{answer.text}</span>
+              </div>
+              {answer.implication && (
+                <div class="answer-implication">{answer.implication}</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    ))}
+  </div>
+))}

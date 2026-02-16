@@ -1,0 +1,455 @@
+/**
+ * ElizaOS Dashboard Design Tokens
+ * Version: 1.0.0
+ *
+ * Single source of truth for design system across all dashboards and widgets.
+ *
+ * Usage:
+ *   <link rel="stylesheet" href="../lib/design-tokens.css">
+ *
+ * Or for self-contained HTML, inline this file in <head>
+ */
+
+:root {
+  /* ========================================
+     COLOR PALETTE
+     ======================================== */
+
+  /* Backgrounds */
+  --bg-primary: #09090b;                    /* hsl(240 10% 3.9%) - deepest bg */
+  --bg-surface: #12121a;                    /* hsl(240 8% 8%) - card surface */
+  --bg-elevated: #1a1a24;                   /* hsl(240 6% 12%) - hover states */
+  --bg-input: #0f0f12;                      /* Input fields */
+
+  /* Borders */
+  --border: #27272a;                        /* hsl(240 3.7% 15.9%) - default border */
+  --border-hover: #3f3f46;                  /* hsl(240 5% 25%) - interactive hover */
+  --border-input: #1f1f23;                  /* Input border */
+
+  /* Text */
+  --text: #fafafa;                          /* hsl(0 0% 98%) - primary text */
+  --text-muted: #a1a1aa;                    /* hsl(240 5% 64.9%) - secondary text */
+  --text-disabled: #71717a;                 /* hsl(240 4% 46%) - disabled text */
+  --text-dim: #52525b;                      /* hsl(240 4% 35%) - very low emphasis */
+
+  /* ========================================
+     ACCENT COLORS
+     ======================================== */
+
+  /* Primary Accents */
+  --accent: #8b5cf6;                        /* hsl(263.4 70% 50.4%) - primary purple */
+  --accent-hover: #7c3aed;                  /* hsl(262 83% 58%) - hover state */
+
+  --accent-cyan: #06b6d4;                   /* hsl(199 89% 48%) */
+  --accent-cyan-bg: rgba(6, 182, 212, 0.1);
+
+  --accent-orange: #f97316;                 /* hsl(25 95% 53%) */
+  --accent-orange-bg: rgba(249, 115, 22, 0.1);
+
+  --accent-green: #22c55e;                  /* hsl(142 71% 45%) */
+  --accent-green-bg: rgba(34, 197, 94, 0.1);
+
+  --accent-red: #ef4444;                    /* hsl(0 84% 60%) */
+  --accent-red-bg: rgba(239, 68, 68, 0.1);
+
+  --accent-amber: #f59e0b;                  /* hsl(38 92% 50%) */
+  --accent-amber-bg: rgba(245, 158, 11, 0.1);
+
+  --accent-purple: #a855f7;                 /* hsl(271 81% 56%) */
+  --accent-purple-bg: rgba(168, 85, 247, 0.1);
+
+  --accent-pink: #ec4899;                   /* hsl(328 86% 70%) */
+  --accent-pink-bg: rgba(236, 72, 153, 0.1);
+
+  /* ========================================
+     CHARACTER THEME COLORS
+     ======================================== */
+
+  /* Eliza - Orange (host, daily briefing) */
+  --eliza: #f97316;                         /* hsl(25 95% 53%) */
+  --eliza-light: #fb923c;                   /* hsl(25 95% 63%) */
+  --eliza-bg: rgba(249, 115, 22, 0.1);
+
+  /* Shaw - Blue (builder, development) */
+  --shaw: #3b82f6;                          /* hsl(217 91% 60%) */
+  --shaw-light: #60a5fa;                    /* hsl(213 94% 68%) */
+  --shaw-bg: rgba(59, 130, 246, 0.1);
+
+  /* Marc - Purple (analyst, strategy) */
+  --marc: #a855f7;                          /* hsl(271 81% 56%) */
+  --marc-light: #c084fc;                    /* hsl(270 75% 70%) */
+  --marc-bg: rgba(168, 85, 247, 0.1);
+
+  /* Spartan - Red (warrior, alerts) */
+  --spartan: #ef4444;                       /* hsl(0 84% 60%) */
+  --spartan-light: #f87171;                 /* hsl(0 85% 70%) */
+  --spartan-bg: rgba(239, 68, 68, 0.1);
+
+  /* Peepo - Green (community, health) */
+  --peepo: #22c55e;                         /* hsl(142 71% 45%) */
+  --peepo-light: #4ade80;                   /* hsl(142 76% 60%) */
+  --peepo-bg: rgba(34, 197, 94, 0.1);
+
+  /* ========================================
+     SEMANTIC COLORS
+     ======================================== */
+
+  --positive: var(--accent-green);
+  --positive-bg: var(--accent-green-bg);
+
+  --negative: var(--accent-red);
+  --negative-bg: var(--accent-red-bg);
+
+  --warning: var(--accent-amber);
+  --warning-bg: var(--accent-amber-bg);
+
+  --info: var(--accent-cyan);
+  --info-bg: var(--accent-cyan-bg);
+
+  --neutral: #71717a;
+  --neutral-bg: rgba(113, 113, 122, 0.1);
+
+  /* ========================================
+     SPACING (4px base unit)
+     ======================================== */
+
+  --space-0: 0;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+
+  /* ========================================
+     TYPOGRAPHY
+     ======================================== */
+
+  --font-sans: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', 'Monaco', monospace;
+
+  /* Font Sizes */
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-base: 16px;
+  --text-lg: 18px;
+  --text-xl: 20px;
+  --text-2xl: 24px;
+  --text-3xl: 32px;
+  --text-4xl: 40px;
+  --text-5xl: 48px;
+
+  /* Font Weights */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+
+  /* Line Heights */
+  --line-tight: 1.25;
+  --line-normal: 1.5;
+  --line-relaxed: 1.75;
+
+  /* Letter Spacing */
+  --tracking-tight: -0.025em;
+  --tracking-normal: 0em;
+  --tracking-wide: 0.025em;
+  --tracking-wider: 0.05em;
+
+  /* ========================================
+     BORDERS & RADIUS
+     ======================================== */
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-xl: 18px;
+  --radius-2xl: 24px;
+  --radius-full: 9999px;
+
+  --border-width: 1px;
+  --border-width-thick: 2px;
+  --border-width-accent: 3px;
+
+  /* ========================================
+     SHADOWS
+     ======================================== */
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+
+  /* Glow Effects */
+  --glow-green: 0 0 8px rgba(34, 197, 94, 0.3);
+  --glow-orange: 0 0 8px rgba(249, 115, 22, 0.3);
+  --glow-cyan: 0 0 8px rgba(6, 182, 212, 0.3);
+  --glow-purple: 0 0 8px rgba(139, 92, 246, 0.3);
+  --glow-red: 0 0 8px rgba(239, 68, 68, 0.3);
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* ========================================
+     Z-INDEX LAYERS
+     ======================================== */
+
+  --z-base: 0;
+  --z-dropdown: 1000;
+  --z-sticky: 1100;
+  --z-fixed: 1200;
+  --z-modal: 1300;
+  --z-popover: 1400;
+  --z-tooltip: 1500;
+}
+
+/* ========================================
+   BASE STYLES
+   ======================================== */
+
+body {
+  font-family: var(--font-sans);
+  background: var(--bg-primary);
+  color: var(--text);
+  line-height: var(--line-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+
+/* Card Component */
+.card {
+  background: var(--bg-surface);
+  border: var(--border-width) solid var(--border);
+  border-radius: var(--radius-lg);
+  transition: border-color var(--transition-base);
+}
+
+.card:hover {
+  border-color: var(--border-hover);
+}
+
+.card-elevated {
+  background: var(--bg-elevated);
+}
+
+/* Badge Component */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-1) var(--space-2);
+  border-radius: var(--radius-full);
+  font-size: var(--text-xs);
+  font-weight: var(--font-semibold);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-wide);
+}
+
+.badge-positive {
+  background: var(--positive-bg);
+  color: var(--positive);
+}
+
+.badge-negative {
+  background: var(--negative-bg);
+  color: var(--negative);
+}
+
+.badge-warning {
+  background: var(--warning-bg);
+  color: var(--warning);
+}
+
+.badge-info {
+  background: var(--info-bg);
+  color: var(--info);
+}
+
+.badge-neutral {
+  background: var(--neutral-bg);
+  color: var(--neutral);
+}
+
+/* Character Section Accents */
+.section-eliza {
+  border-left: var(--border-width-accent) solid var(--eliza);
+  padding-left: var(--space-4);
+}
+
+.section-shaw {
+  border-left: var(--border-width-accent) solid var(--shaw);
+  padding-left: var(--space-4);
+}
+
+.section-marc {
+  border-left: var(--border-width-accent) solid var(--marc);
+  padding-left: var(--space-4);
+}
+
+.section-spartan {
+  border-left: var(--border-width-accent) solid var(--spartan);
+  padding-left: var(--space-4);
+}
+
+.section-peepo {
+  border-left: var(--border-width-accent) solid var(--peepo);
+  padding-left: var(--space-4);
+}
+
+/* Live Indicator */
+.live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--positive);
+  box-shadow: var(--glow-green);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Sentiment Indicators */
+.sentiment-positive {
+  color: var(--positive);
+  background: var(--positive-bg);
+}
+
+.sentiment-negative {
+  color: var(--negative);
+  background: var(--negative-bg);
+}
+
+.sentiment-mixed {
+  color: var(--warning);
+  background: var(--warning-bg);
+}
+
+.sentiment-neutral {
+  color: var(--neutral);
+  background: var(--neutral-bg);
+}
+
+/* Button Component */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  border: var(--border-width) solid var(--border);
+  background: var(--bg-surface);
+  color: var(--text);
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.btn:hover {
+  background: var(--bg-elevated);
+  border-color: var(--border-hover);
+}
+
+.btn-primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+/* Input Component */
+.input {
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  background: var(--bg-input);
+  border: var(--border-width) solid var(--border-input);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  transition: border-color var(--transition-base);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.input::placeholder {
+  color: var(--text-disabled);
+}
+
+/* Divider */
+.divider {
+  height: var(--border-width);
+  background: var(--border);
+  border: none;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+/* Focus Visible (Accessibility) */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

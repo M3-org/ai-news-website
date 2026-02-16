@@ -1,0 +1,24 @@
+---
+import DatePicker from '../nav/DatePicker';
+import { formatDateLong } from '../../lib/dates';
+
+interface Props {
+  date: string;
+  latestDate: string;
+}
+
+const { date, latestDate } = Astro.props;
+const formattedDate = formatDateLong(date).toUpperCase();
+---
+<div class="masthead full-width">
+  <div class="masthead-rule"></div>
+  <div class="masthead-meta">
+    <span class="masthead-edition">Daily Edition</span>
+    <span class="masthead-date">{formattedDate}</span>
+    <span class="masthead-edition">elizaos.news</span>
+  </div>
+  <h1 class="newspaper-title">Eliza Times</h1>
+  <p class="masthead-tagline">Daily Intelligence from the elizaOS Ecosystem</p>
+  <DatePicker client:load currentDate={date} latestDate={latestDate} basePath="/daily" />
+  <div class="masthead-rule-bottom"></div>
+</div>

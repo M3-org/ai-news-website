@@ -1,0 +1,84 @@
+/* Reset */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-primary, #fafafa);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border, #ccc);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-hover, #999);
+}
+
+::selection {
+  background: var(--accent, #8b5cf6);
+  color: white;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--accent, #8b5cf6);
+  outline-offset: 2px;
+}
+
+/* Site footer */
+.site-footer {
+  border-top: 1px solid rgba(128,128,128,0.15);
+  padding: 1.5rem 2rem;
+  margin-top: 3rem;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+}
+
+.footer-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer-brand {
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a {
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}

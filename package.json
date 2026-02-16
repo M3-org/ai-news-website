@@ -1,27 +1,36 @@
 {
   "name": "ai-news-website",
-  "version": "1.0.0",
-  "description": "AI News Show website with episode recording and clipping tools",
+  "version": "2.0.0",
+  "description": "AI News Show website - elizaOS daily intelligence",
+  "type": "module",
   "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "sync": "git -C knowledge pull --ff-only origin main",
     "record": "node scripts/recorder.js",
     "clip": "npx ts-node scripts/clip.ts",
     "trailer:config": "uv run python scripts/llm_producer.py trailer",
     "trailer:studio": "cd remotion && npm start",
     "trailer:render": "cd remotion && npx remotion render Trailer",
-    "sync": "git -C knowledge pull --ff-only origin main",
-    "serve": "uv run python -m http.server 8080",
-    "dev": "npm run sync && npm run serve",
+    "serve:legacy": "uv run python -m http.server 8080",
     "posters": "uv run python scripts/posters/illustrate.py --batch",
     "test:posters": "uv run python scripts/posters/test-all-scripts.py",
     "rss": "uv run python scripts/generate-rss.py"
   },
   "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/react": "^4.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
     "puppeteer-stream": "^3.0.22"
   },
   "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@types/node": "^22.0.0",
     "glob": "^13.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.8.3",
-    "@types/node": "^22.0.0"
+    "typescript": "^5.8.3"
   }
 }

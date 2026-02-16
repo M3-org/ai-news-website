@@ -1,0 +1,18 @@
+---
+interface Props {
+  facts: string[];
+}
+
+const { facts } = Astro.props;
+const topFacts = facts.slice(0, 5);
+---
+<div class="facts-section full-width">
+  <h2 class="section-header">Today's Key Developments</h2>
+  <div>
+    {topFacts.map(fact => (
+      <article class="fact-item">
+        <div class="fact-headline">{fact}</div>
+      </article>
+    ))}
+  </div>
+</div>
