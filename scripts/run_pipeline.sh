@@ -307,7 +307,7 @@ step_1_record() {
     fi
 
     log "Starting recording..."
-    node scripts/recorder.js \
+    node scripts/recorder.cjs \
         --headless \
         --quiet \
         --date="${ep_date}" \
