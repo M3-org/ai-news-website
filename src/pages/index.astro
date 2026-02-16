@@ -1,255 +1,155 @@
 ---
-import DarkLayout from '../layouts/DarkLayout.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getLatestDate, getManifest } from '../lib/data-loader';
-import { CHARACTERS } from '../lib/types';
-import { formatDateLong } from '../lib/dates';
+import NewspaperLayout from '../layouts/NewspaperLayout.astro';
+import Masthead from '../components/daily/Masthead.astro';
+import LeadStory from '../components/daily/LeadStory.astro';
+import KeyFacts from '../components/daily/KeyFacts.astro';
+import DailySidebar from '../components/daily/DailySidebar.astro';
+import CategoryBox from '../components/daily/CategoryBox.astro';
+import StrategyBox from '../components/daily/StrategyBox.astro';
+import CouncilSection from '../components/daily/CouncilSection.astro';
+import DevelopmentGrid from '../components/daily/DevelopmentGrid.astro';
+import FullStories from '../components/daily/FullStories.astro';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubStats, getDailySilk, getLatestDate, getAvailableDates } from '../lib/data-loader';
 
-const manifest = getManifest();
-const latestFactsDate = getLatestDate('facts');
-const latestCouncilDate = getLatestDate('council_briefing');
+const date = getLatestDate('facts');
+const allDates = getAvailableDates('facts');
+const dateIdx = allDates.indexOf(date);
+const prevDate = dateIdx < allDates.length - 1 ? allDates[dateIdx + 1] : null;
+const recentDates = allDates.slice(1, 8).reverse(); // oldest to newest (left to right)
+const facts = getFacts(date);
+const councilBriefing = getCouncilBriefing(date);
+const highlights = getHighlights(date);
+const aiNews = getAiNews(date);
+const githubStats = getGitHubStats(date);
+const dailySilk = getDailySilk(date);
 
-const facts = getFacts(latestFactsDate);
-const council = getCouncilBriefing(latestCouncilDate);
-const highlights = getHighlights(latestFactsDate);
+if (!facts) {
+  return Astro.redirect('/gallery');
+}
 
-const formattedDate = formatDateLong(latestFactsDate);
-const heroImage = `/media/daily/${latestFactsDate}/overall.png`;
-const firstSentence = facts?.overall_summary?.match(/^[^.!?]+[.!?]/)?.[0] || facts?.overall_summary?.substring(0, 200) || '';
-const topFacts = facts?.key_facts?.slice(0, 4) || [];
-const topHighlights = highlights?.highlights?.slice(0, 2) || [];
-const councilTopics = council?.key_points?.slice(0, 3) || [];
-const ogImage = `https://elizaos.news/media/daily/${latestFactsDate}/overall.png`;
+const ogImage = `https://elizaos.news/media/daily/${date}/overall.png`;
+const description = facts.overall_summary?.substring(0, 160) || 'Daily Intelligence from the elizaOS Ecosystem';
+
+const categories = facts.categories || {} as any;
+
+const twitterItems = (categories.twitter_news_highlights || []).map((item: any) => ({
+  text: item?.claim || '',
+  source: item?.source || '',
+}));
+
+const discordItems = (categories.discord_updates || []).map((item: any) => ({
+  headline: `#${item?.channel || 'unknown'}`,
+  text: item?.summary || '',
+  meta: Array.isArray(item?.key_participants) ? `Participants: ${item.key_participants.join(', ')}` : '',
+}));
+
+const feedbackItems = (categories.user_feedback || []).map((item: any) => ({
+  text: item?.feedback_summary || '',
+  source: item?.source || '',
+}));
+
+const keyFacts = facts.key_facts || [];
 ---
-<DarkLayout title="elizaOS News" description="Daily Intelligence from the elizaOS Ecosystem" ogImage={ogImage} active="home">
-  <style>
-    .home-masthead {
-      text-align: center;
-      padding: 3rem 0 2rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 3rem;
-    }
-    .home-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(3rem, 7vw, 5rem);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 0.25rem;
-    }
-    .home-date {
-      font-size: 0.875rem;
-      color: #a1a1aa;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    .home-tagline {
-      font-size: 0.875rem;
-      color: #71717a;
-      font-style: italic;
-      margin-top: 0.25rem;
-    }
+<NewspaperLayout title="elizaOS News" description={description} ogImage={ogImage} active="home">
+  <Masthead date={date} latestDate={date} />
 
-    .hero-section {
-      margin-bottom: 3rem;
-    }
-    .hero-image {
-      width: 100%;
-      border-radius: 1rem;
-      margin-bottom: 1.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .hero-summary {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      line-height: 1.4;
-      color: #e4e4e7;
-      margin-bottom: 1rem;
-    }
-    .hero-link {
-      color: #8b5cf6;
-      font-weight: 600;
-      font-size: 0.875rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
-    .hero-link:hover { color: #a78bfa; }
+  <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date} />
 
-    .section-cta {
-      margin-top: 1.5rem;
-      padding-top: 1rem;
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-    .section-cta a {
-      color: #a1a1aa;
-      font-size: 0.8125rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
-      transition: color 0.2s;
-    }
-    .section-cta a:hover { color: #fafafa; }
+  <KeyFacts facts={keyFacts} />
 
-    .home-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      margin-bottom: 3rem;
-    }
+  {dailySilk && <DailySidebar dailySilk={dailySilk} />}
 
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: #8b5cf6;
-      margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.08);
-    }
-
-    .fact-list {
-      list-style: none;
-    }
-    .fact-list li {
-      padding: 0.75rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-      color: #d4d4d8;
-      font-size: 0.9375rem;
-      line-height: 1.5;
-    }
-
-    .council-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      padding: 1rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.05);
-    }
-    .council-avatar {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .council-meta {
-      font-size: 0.75rem;
-      color: #71717a;
-      margin-bottom: 0.25rem;
-    }
-    .council-headline {
-      font-size: 0.9375rem;
-      color: #e4e4e7;
-      line-height: 1.4;
-    }
-
-    .poster-strip {
-      margin-top: 2rem;
-      padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .poster-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-    }
-    .poster-thumb {
-      border-radius: 0.5rem;
-      border: 1px solid rgba(255,255,255,0.08);
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
-    }
-    .poster-link {
-      display: block;
-      text-align: right;
-      color: #8b5cf6;
-      font-size: 0.8125rem;
-      font-weight: 600;
-      margin-top: 0.75rem;
-    }
-
-    @media (max-width: 768px) {
-      .home-grid { grid-template-columns: 1fr; }
-      .poster-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-  </style>
-
-  <!-- Masthead -->
-  <div class="home-masthead">
-    <h1 class="home-brand">ELIZA TIMES</h1>
-    <div class="home-date">{formattedDate}</div>
-    <div class="home-tagline">Daily Intelligence from the elizaOS Ecosystem</div>
-  </div>
-
-  <!-- Hero -->
-  <div class="hero-section">
-    <img src={heroImage} alt="Today's briefing" class="hero-image" loading="eager" onerror="this.style.display='none'" />
-    <p class="hero-summary">{firstSentence}</p>
-    <a href={`/daily/${latestFactsDate}`} class="hero-link">Read Today's Daily Brief &rarr;</a>
-  </div>
-
-  <!-- Two-column grid -->
-  <div class="home-grid">
-    <div>
-      <div class="section-label">Key Developments</div>
-      <ul class="fact-list">
-        {topFacts.map(fact => <li>{fact}</li>)}
-      </ul>
-      <div class="section-cta">
-        <a href={`/daily/${latestFactsDate}`}>View all developments &rarr;</a>
-      </div>
+  <div class:list={['grouped-sections', 'full-width']}>
+    <div class="section-column">
+      {twitterItems.length > 0 && (
+        <CategoryBox title="Twitter News" items={twitterItems} categoryImage={`/media/daily/${date}/twitter-news.png`} categoryType="twitter" />
+      )}
+      {discordItems.length > 0 && (
+        <CategoryBox title="Discord Updates" items={discordItems} categoryImage={`/media/daily/${date}/discord-updates.png`} categoryType="discord" />
+      )}
     </div>
-    <div>
-      <div class="section-label">Council Highlights</div>
-      {topHighlights.length > 0 ? (
-        topHighlights.map(h => {
-          const char = CHARACTERS[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
-          return (
-            <div class="council-item">
-              <img src={`/scripts/posters/characters/${h.character}/1.png`} alt={char.name} class="council-avatar" loading="lazy" />
-              <div>
-                <div class="council-meta">{char.name} &middot; {char.title}</div>
-                <div class="council-headline">{h.headline}</div>
-              </div>
-            </div>
-          );
-        })
-      ) : (
-        councilTopics.map(point => (
-          <div class="council-item">
-            <div>
-              <div class="council-meta">{point.topic}</div>
-              <div class="council-headline">{point.summary}</div>
-            </div>
-          </div>
-        ))
+    <div class="section-column">
+      {categories.strategic_insights?.length > 0 && (
+        <StrategyBox title="Strategic Insights" items={categories.strategic_insights} />
       )}
-      {council && (
-        <div class="section-cta">
-          <a href={`/council/${latestCouncilDate}`}>View council briefing &rarr;</a>
-        </div>
+      {categories.market_analysis?.length > 0 && (
+        <StrategyBox title="Market Analysis" items={categories.market_analysis} />
       )}
-
+      {feedbackItems.length > 0 && (
+        <CategoryBox title="User Feedback" items={feedbackItems} categoryType="feedback" />
+      )}
     </div>
   </div>
 
-  <!-- Poster strip -->
-  <div class="poster-strip">
-    <div class="section-label">Today's Illustrations</div>
-    <div class="poster-grid">
-      {['overall', 'twitter-news', 'discord-updates', 'github-updates'].map(name => (
-        <img
-          src={`/media/daily/${latestFactsDate}/${name}.png`}
-          alt={name}
-          class="poster-thumb"
-          loading="lazy"
-          onerror="this.style.display='none'"
-        />
+  <CouncilSection highlights={highlights} councilBriefing={councilBriefing} date={date} />
+
+  <DevelopmentGrid
+    githubItems={categories.github_updates?.new_issues_prs || []}
+    githubStats={githubStats}
+    date={date}
+  />
+
+  <FullStories aiNews={aiNews} date={date} />
+
+  <nav class="date-archive full-width">
+    <div class="archive-label">Previous Editions</div>
+    <div class="archive-dates">
+      {recentDates.map(d => (
+        <a href={`/daily/${d}`} class="archive-date">{d}</a>
       ))}
     </div>
-    <a href="/gallery" class="poster-link">View All Gallery &rarr;</a>
-  </div>
-</DarkLayout>
+    {prevDate && (
+      <a href={`/daily/${prevDate}`} class="archive-older">&larr; Previous day</a>
+    )}
+  </nav>
+</NewspaperLayout>
+
+<style>
+  .date-archive {
+    border-top: 2px solid var(--np-border-heavy, #121212);
+    padding-top: 1.5rem;
+    margin-top: 3rem;
+    text-align: center;
+  }
+
+  .archive-label {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--np-text, #121212);
+  }
+
+  .archive-dates {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .archive-date {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    padding: 0.35rem 0.75rem;
+    border: 1px solid var(--np-border, #ddd);
+    border-radius: 2px;
+    color: var(--np-text-muted, #666);
+    transition: all 0.15s;
+  }
+
+  .archive-date:hover {
+    border-color: var(--np-border-heavy, #121212);
+    color: var(--np-text, #121212);
+  }
+
+  .archive-older {
+    font-size: 0.8125rem;
+    color: var(--np-text-muted, #666);
+    transition: color 0.15s;
+  }
+
+  .archive-older:hover {
+    color: var(--np-text, #121212);
+  }
+</style>

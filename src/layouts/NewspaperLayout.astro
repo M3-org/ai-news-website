@@ -6,13 +6,13 @@ interface Props {
   title: string;
   description?: string;
   ogImage?: string;
-  date?: string;
+  active?: string;
 }
 
-const { title, description, ogImage, date } = Astro.props;
+const { title, description, ogImage, active = 'home' } = Astro.props;
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage} theme="light">
-  <SiteNav slot="nav" active="daily" />
+  <SiteNav slot="nav" active={active} />
   <div class="news-container">
     <slot />
   </div>
