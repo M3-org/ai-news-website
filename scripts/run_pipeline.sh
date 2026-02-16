@@ -675,6 +675,23 @@ main() {
         EPISODE_DATE="$DATE_OVERRIDE"
     fi
 
+    # Always resolve episode date from API if not already set
+    if [[ -z "$EPISODE_DATE" ]]; then
+        log "Fetching episode date from Shmotime API..."
+        local api_response
+        api_response=$(curl -s "$API_URL" 2>/dev/null || true)
+        if [[ -n "$api_response" ]]; then
+            EPISODE_DATE=$(echo "$api_response" | jq -r '.episode.date // empty' 2>/dev/null | cut -d'T' -f1 || true)
+            EPISODE_TITLE=$(echo "$api_response" | jq -r '.episode.title // empty' 2>/dev/null || true)
+        fi
+        if [[ -z "$EPISODE_DATE" ]]; then
+            EPISODE_DATE=$(date '+%Y-%m-%d')
+            log "WARNING: Could not fetch date from API, using today: $EPISODE_DATE"
+        else
+            log "Episode date: $EPISODE_DATE (${EPISODE_TITLE:-unknown})"
+        fi
+    fi
+
     # If resuming, try to find existing files and restore state
     if [[ "$FROM_STEP" -gt 1 || "$SKIP_RECORD" == "true" ]]; then
         _find_session_log
