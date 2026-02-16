@@ -52,7 +52,7 @@ python3 scripts/llm_producer.py trailer episodes/*_session-log.json
 │  1. Record      │────>│  2. Process     │────>│  3. Publish     │
 │                 │     │                 │     │                 │
 │ run_pipeline.sh │     │ generate_meta   │     │ youtube_upload  │
-│ recorder.js     │     │ llm_producer.py │     │ cdn_upload      │
+│ recorder.cjs     │     │ llm_producer.py │     │ cdn_upload      │
 └─────────────────┘     └─────────────────┘     └─────────────────┘
 ```
 
@@ -88,7 +88,7 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 | Script | Description |
 |--------|-------------|
 | `scripts/run_pipeline.sh` | Full end-to-end pipeline orchestrator |
-| `scripts/recorder.js` | Puppeteer-based recorder with word-level timestamps |
+| `scripts/recorder.cjs` | Puppeteer-based recorder with word-level timestamps |
 
 ### Processing
 
@@ -208,7 +208,7 @@ KNOWLEDGE_ROOT=/path/to/elizaOS/knowledge
 ai-news-website/
 ├── scripts/
 │   ├── run_pipeline.sh             # Full Cron Job pipeline orchestrator
-│   ├── recorder.js                 # Browser-based recorder
+│   ├── recorder.cjs                 # Browser-based recorder
 │   ├── youtube_metadata.py         # YouTube metadata generator
 │   ├── youtube_upload.py           # YouTube uploader + privacy manager
 │   ├── llm_producer.py             # LLM clip analysis + trailer generation

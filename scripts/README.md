@@ -15,7 +15,7 @@ This repo contains two automated content pipelines:
                                    │
                           ┌────────▼─────────┐
                    Step 1 │  run_pipeline.sh  │  Record episode via Puppeteer
-                          │  recorder.js      │
+                          │  recorder.cjs      │
                           └────────┬─────────┘
                                    │
                           episodes/{date}_{show}_{title}.mp4
@@ -92,12 +92,12 @@ Chains all steps into a single invocation with logging, error handling, and noti
 
 ---
 
-### `recorder.js` — Puppeteer Recorder
+### `recorder.cjs` — Puppeteer Recorder
 
 Low-level recorder that captures video from a Shmotime episode URL. Called by `run_pipeline.sh` step 1.
 
 ```bash
-node scripts/recorder.js \
+node scripts/recorder.cjs \
     --date=2026-02-02 \
     --show=Cron-Job \
     --output=episodes \
@@ -371,7 +371,7 @@ YouTube OAuth credentials (`client_secrets.json`, `youtube_credentials.json`) ar
 ai-news-website/
 ├── scripts/
 │   ├── run_pipeline.sh          # Full orchestrator
-│   ├── recorder.js              # Puppeteer recorder
+│   ├── recorder.cjs              # Puppeteer recorder
 │   ├── youtube_metadata.py       # YouTube metadata generator
 │   ├── youtube_upload.py        # YouTube uploader + privacy manager
 │   ├── llm_producer.py          # LLM clip analysis + trailer generation
