@@ -49,10 +49,14 @@ jobs:
 
       - name: Copy static assets to dist
         run: |
+          mkdir -p dist/media dist/scripts/posters
           cp -r unity/ dist/unity/ 2>/dev/null || true
           cp -r media/daily/ dist/media/daily/ 2>/dev/null || true
           cp -r rss/ dist/rss/ 2>/dev/null || true
           cp -r scripts/posters/characters/ dist/scripts/posters/characters/ 2>/dev/null || true
+          echo "Static assets copied:"
+          ls -la dist/media/daily/ 2>/dev/null | head -10 || echo "  No media/daily"
+          ls dist/scripts/posters/characters/ 2>/dev/null | head -5 || echo "  No characters"
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
