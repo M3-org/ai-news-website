@@ -11,6 +11,22 @@ import DevelopmentGrid from '../components/daily/DevelopmentGrid.astro';
 import FullStories from '../components/daily/FullStories.astro';
 import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getDailySilk, getLatestDate, getAvailableDates } from '../lib/data-loader';
 
+// Fetch latest episodes from M3TV
+let episodes: Array<{ date: string; title: string; thumbnail: string; url: string }> = [];
+try {
+  const res = await fetch('https://www.m3org.com/tv/data/cronjob-episodes.json');
+  if (res.ok) {
+    const data = await res.json() as Record<string, Record<string, { title?: string; thumbnail?: string; url?: string }>>;
+    episodes = Object.entries(data)
+      .sort(([a], [b]) => b.localeCompare(a))
+      .slice(0, 4)
+      .map(([d, langs]) => {
+        const ep = langs.en || Object.values(langs)[0] || {};
+        return { date: d, title: ep.title || d, thumbnail: ep.thumbnail || '', url: ep.url || '' };
+      });
+  }
+} catch { /* build continues without episodes */ }
+
 const date = getLatestDate('facts');
 const allDates = getAvailableDates('facts');
 const dateIdx = allDates.indexOf(date);
@@ -91,6 +107,24 @@ const keyFacts = facts.key_facts || [];
 
   <FullStories aiNews={aiNews} date={date} />
 
+  {episodes.length > 0 && (
+    <section class="latest-episodes full-width">
+      <h2 class="section-title">Latest Episodes</h2>
+      <div class="episodes-grid">
+        {episodes.map(ep => (
+          <a href={ep.url} target="_blank" rel="noopener" class="episode-card">
+            <img src={ep.thumbnail} alt={ep.title} class="episode-thumb" loading="lazy" />
+            <div class="episode-info">
+              <div class="episode-date">{ep.date}</div>
+              <div class="episode-title">{ep.title}</div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href="https://www.m3org.com/tv/shows/cronjob.html" target="_blank" rel="noopener" class="section-cta">All episodes on M3TV &rarr;</a>
+    </section>
+  )}
+
   <nav class="date-archive full-width">
     <div class="archive-label">Previous Editions</div>
     <div class="archive-dates">
@@ -151,5 +185,67 @@ const keyFacts = facts.key_facts || [];
 
   .archive-older:hover {
     color: var(--np-text, #121212);
+  }
+
+  /* Latest Episodes */
+  .latest-episodes {
+    margin-top: 2rem;
+  }
+
+  .episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-top: 1rem;
+  }
+
+  .episode-card {
+    text-decoration: none;
+    color: var(--np-text, #121212);
+    border: 1px solid var(--np-border-light, #eee);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .episode-card:hover {
+    border-color: var(--np-border-heavy, #121212);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .episode-thumb {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    display: block;
+  }
+
+  .episode-info {
+    padding: 0.75rem;
+  }
+
+  .episode-date {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--np-text-muted, #666);
+    margin-bottom: 0.25rem;
+  }
+
+  .episode-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  @media (max-width: 768px) {
+    .episodes-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 </style>

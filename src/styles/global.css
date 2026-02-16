@@ -82,3 +82,8 @@ a {
 .footer-links a:hover {
   opacity: 1;
 }
+
+.footer-x-link {
+  display: inline-flex;
+  align-items: center;
+}
