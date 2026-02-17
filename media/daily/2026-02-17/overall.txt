@@ -1,10 +1,9 @@
 Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
-- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Marc and Eliza, silhouetted in profile, stand apart on a frozen rooftop, city lights muffled by thick overcast. Between them, abstracted icons of data streams and app logos fracture the winter stillness, tension etched in their postures beneath a solitary shaft of cold, blue-white light.
+SCENE: Eliza stands alone on a snowy bridge at golden hour, backlit, her silhouette rimmed in warm light; she gazes thoughtfully at distant digital icons dissolving into the frosty blur, her breath visible—caught between cautious hope and the weight of communal tension.
 
 ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
