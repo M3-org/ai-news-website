@@ -16,8 +16,101 @@ const { title, description, ogImage, active = 'home' } = Astro.props;
   <div class="news-container">
     <slot />
   </div>
+  <div class="img-lightbox" id="img-lightbox" aria-hidden="true">
+    <button class="img-lightbox-close" aria-label="Close">&times;</button>
+    <img class="img-lightbox-img" />
+  </div>
+  <script is:inline>
+    (function() {
+      var lightbox = document.getElementById('img-lightbox');
+      var lbImg = lightbox.querySelector('.img-lightbox-img');
+
+      function openLightbox(src, alt) {
+        lbImg.src = src;
+        lbImg.alt = alt;
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeLightbox() {
+        lightbox.setAttribute('aria-hidden', 'true');
+        lbImg.src = '';
+        document.body.style.overflow = '';
+      }
+
+      document.addEventListener('click', function(e) {
+        var img = e.target.closest('img[data-lightbox]');
+        if (img) {
+          e.preventDefault();
+          openLightbox(img.src, img.alt || '');
+        }
+      });
+
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox || e.target.closest('.img-lightbox-close')) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && lightbox.getAttribute('aria-hidden') === 'false') {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
 
 <style is:global>
   @import '../styles/newspaper.css';
+
+  /* Image lightbox */
+  img[data-lightbox] { cursor: zoom-in; }
+
+  .img-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease;
+    padding: 2rem;
+  }
+
+  .img-lightbox[aria-hidden="false"] {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .img-lightbox-img {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 4px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .img-lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    cursor: pointer;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+
+  .img-lightbox-close:hover { opacity: 1; }
+
+  @media print {
+    .img-lightbox { display: none !important; }
+  }
 </style>

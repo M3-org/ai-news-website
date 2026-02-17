@@ -18,11 +18,12 @@ interface Props {
 }
 
 const { title, items, categoryImage, categoryType = '' } = Astro.props;
+const altText = title.replace(/<[^>]*>/g, '').trim();
 ---
 <div class="category-box" data-category={categoryType}>
   {categoryImage && (
     <div class="category-header-image-container">
-      <img src={categoryImage} alt={title} class="category-header-image" loading="lazy" onerror="this.parentElement.style.display='none'" />
+      <img src={categoryImage} alt={altText} class="category-header-image" loading="lazy" onerror="this.parentElement.style.display='none'" data-lightbox />
     </div>
   )}
   <div class="category-content">

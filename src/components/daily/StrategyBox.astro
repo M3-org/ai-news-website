@@ -14,7 +14,7 @@ const type = title.toLowerCase().includes('insight') ? 'strategic' : 'market';
 <div class="strategy-box" data-category={type}>
   {categoryImage && (
     <div class="strategy-header-image-container">
-      <img src={categoryImage} alt={title} loading="lazy" onerror="this.parentElement.style.display='none'" />
+      <img src={categoryImage} alt={title} loading="lazy" onerror="this.parentElement.style.display='none'" data-lightbox />
     </div>
   )}
   <h3 class="category-title">{title}</h3>

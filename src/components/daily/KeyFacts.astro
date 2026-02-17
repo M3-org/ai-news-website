@@ -6,9 +6,9 @@ interface Props {
 const { facts } = Astro.props;
 const topFacts = facts.slice(0, 5);
 ---
-<div class="facts-section full-width">
+<div class="facts-section">
   <h2 class="section-header">Today's Key Developments</h2>
-  <div>
+  <div class:list={[topFacts.length >= 4 && 'facts-columns']}>
     {topFacts.map(fact => (
       <article class="fact-item">
         <div class="fact-headline">{fact}</div>

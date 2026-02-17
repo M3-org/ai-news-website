@@ -78,7 +78,7 @@ for (const category of categories) {
         <article class:list={['story-card', { 'story-card--featured': story.featured }]}>
           {story.storyImage && (
             <div class="story-image-container">
-              <img src={story.storyImage} alt={`Story ${story.index + 1}`} loading="lazy" />
+              <img src={story.storyImage} alt={`Story ${story.index + 1}`} loading="lazy" data-lightbox />
             </div>
           )}
           <div class="story-card-content">
