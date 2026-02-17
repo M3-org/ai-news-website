@@ -4,11 +4,11 @@
 
 /* Light mode (default) */
 .newspaper {
-  --np-bg: #fafafa;
-  --np-surface: #ffffff;
+  --np-bg: #fafaf8;
+  --np-surface: #fffffe;
   --np-text: #121212;
-  --np-text-muted: #666666;
-  --np-text-dim: #999999;
+  --np-text-muted: #555555;
+  --np-text-dim: #777777;
   --np-border: #dddddd;
   --np-border-light: #eeeeee;
   --np-border-heavy: #121212;
@@ -19,7 +19,8 @@
   --np-surface-alt: #fafafa;
   --np-shadow: 0 1px 3px rgba(0,0,0,0.04);
 
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.125rem;
   background: var(--np-bg);
   color: var(--np-text);
   line-height: 1.6;
@@ -43,7 +44,8 @@
   --np-surface-alt: #12121a;
   --np-shadow: 0 1px 3px rgba(0,0,0,0.3);
 
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.125rem;
   background: var(--np-bg);
   color: var(--np-text);
   line-height: 1.6;
@@ -166,7 +168,7 @@
   padding: 0.5rem 0.75rem;
   cursor: pointer;
   outline: none;
-  font-family: 'IBM Plex Serif', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   border-radius: 2px;
 }
 
@@ -222,11 +224,12 @@
 }
 
 .brief-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.75rem;
+  max-width: 72ch;
   color: var(--np-text);
 }
 
@@ -238,7 +241,7 @@
 .brief-expand summary {
   cursor: pointer;
   color: var(--np-text-muted);
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -252,7 +255,7 @@
 
 /* Section headers */
 .section-header {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.5rem;
   font-weight: 700;
   border-bottom: 2px solid var(--np-border-heavy);
@@ -262,7 +265,7 @@
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 2rem;
   font-weight: 700;
   border-bottom: 2px solid var(--np-border-heavy);
@@ -296,7 +299,7 @@
 }
 
 .category-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -418,7 +421,7 @@
 
 /* Sidebar / Daily News */
 .sidebar-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   border-bottom: 2px solid var(--np-border-heavy);
@@ -427,12 +430,13 @@
 }
 
 .daily-news-markdown {
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   line-height: 1.6;
+  max-width: 72ch;
 }
 
 .daily-news-markdown h2, .daily-news-markdown h3, .daily-news-markdown h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   margin-top: 1.25rem;
   margin-bottom: 0.5rem;
 }
@@ -505,8 +509,9 @@
   border: 1px solid var(--np-border-light);
   border-radius: 4px;
   padding: 1.25rem 1.5rem;
-  font-size: 0.8125rem;
+  font-size: 0.875rem;
   line-height: 1.65;
+  max-width: 72ch;
   color: var(--np-text);
 }
 
@@ -518,7 +523,7 @@
 .dev-summary-box p:empty { display: none; }
 
 .dev-summary-box .dev-summary-h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.9375rem;
   font-weight: 700;
   margin: 1rem 0 0.4rem;
@@ -567,7 +572,7 @@
 }
 
 .section-subtitle {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   margin-bottom: 1rem;
@@ -583,7 +588,7 @@
 .deliberation-topic { margin-bottom: 1.5rem; }
 
 .topic-header {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
@@ -666,7 +671,7 @@
 .columnist-title { font-size: 0.75rem; color: var(--np-text-muted); }
 
 .columnist-headline {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.3;
@@ -699,7 +704,7 @@
 }
 
 .story-headline {
-  font-family: 'Playfair Display', serif;
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.125rem;
   font-weight: 700;
   line-height: 1.3;
