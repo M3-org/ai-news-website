@@ -9,7 +9,9 @@ import StrategyBox from '../../components/daily/StrategyBox.astro';
 import CouncilSection from '../../components/daily/CouncilSection.astro';
 import DevelopmentGrid from '../../components/daily/DevelopmentGrid.astro';
 import FullStories from '../../components/daily/FullStories.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+import OpenQuestions from '../../components/daily/OpenQuestions.astro';
+import GitHubStatsBar from '../../components/daily/GitHubStatsBar.astro';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
 
 export function getStaticPaths() {
   const dates = getAvailableDates('facts');
@@ -27,6 +29,7 @@ const councilBriefing = getCouncilBriefing(date!);
 const highlights = getHighlights(date!);
 const aiNews = getAiNews(date!);
 const githubSummary = getGitHubSummary(date!);
+const githubStats = getGitHubStats(date!);
 const dailySilk = getDailySilk(date!);
 const latestDate = getLatestDate('facts');
 
@@ -54,6 +57,8 @@ const discordItems = (categories.discord_updates || []).map((item: any) => ({
 const feedbackItems = (categories.user_feedback || []).map((item: any) => ({
   text: item?.feedback_summary || '',
   source: item?.source || '',
+  badge: item?.sentiment ? `badge-${item.sentiment}` : undefined,
+  badgeText: item?.sentiment || undefined,
 }));
 
 const keyFacts = facts.key_facts || [];
@@ -61,9 +66,13 @@ const keyFacts = facts.key_facts || [];
 <NewspaperLayout title={`Daily Brief - ${date}`} description={description} ogImage={ogImage}>
   <Masthead date={date!} latestDate={latestDate} />
 
-  <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date!} />
+  <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date!} themes={facts.tags?.themes} />
 
   <KeyFacts facts={keyFacts} />
+
+  {(facts.open_questions?.length ?? 0) > 0 && (
+    <OpenQuestions questions={facts.open_questions} />
+  )}
 
   {dailySilk && <DailySidebar dailySilk={dailySilk} />}
 
@@ -78,10 +87,10 @@ const keyFacts = facts.key_facts || [];
     </div>
     <div class="section-column">
       {categories.strategic_insights?.length > 0 && (
-        <StrategyBox title="Strategic Insights" items={categories.strategic_insights} />
+        <StrategyBox title="Strategic Insights" items={categories.strategic_insights} categoryImage={`/media/daily/${date}/strategic-insights.png`} />
       )}
       {categories.market_analysis?.length > 0 && (
-        <StrategyBox title="Market Analysis" items={categories.market_analysis} />
+        <StrategyBox title="Market Analysis" items={categories.market_analysis} categoryImage={`/media/daily/${date}/market-analysis.png`} />
       )}
       {feedbackItems.length > 0 && (
         <CategoryBox title="User Feedback" items={feedbackItems} categoryType="feedback" />
@@ -89,13 +98,21 @@ const keyFacts = facts.key_facts || [];
     </div>
   </div>
 
+  <hr class="rule-double full-width" />
+
   <CouncilSection highlights={highlights} councilBriefing={councilBriefing} date={date!} />
+
+  <hr class="rule-double full-width" />
+
+  {githubStats && <GitHubStatsBar stats={githubStats} />}
 
   <DevelopmentGrid
     githubItems={categories.github_updates?.new_issues_prs || []}
     githubSummary={githubSummary}
     date={date!}
   />
+
+  <hr class="rule-double full-width" />
 
   <FullStories aiNews={aiNews} date={date!} />
 

@@ -4,49 +4,93 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is the **AI News Website** repository for the "Cron Job" AI news show hosted on [elizaos.news](https://elizaos.news). The pipeline records Shmotime episodes, generates trailers, uploads to YouTube/CDN, and updates the website.
+This is the **AI News Website** for [elizaos.news](https://elizaos.news) — a daily AI-generated intelligence briefing for the ElizaOS ecosystem, plus the "Cron Job" weekly animated news show pipeline.
 
-## Repository Structure
+## Website (Astro + React Islands)
 
-### Pipeline Orchestrator
-- **scripts/run_pipeline.sh**: Full end-to-end pipeline orchestrator — chains all steps with logging, error handling, `--dry-run`, `--from-step=N`, and Discord/desktop notifications. See `scripts/README.md` for details.
+The site is built with **Astro 5** (static output) and **React 18** islands for interactive components. Deployed to GitHub Pages via GitHub Actions.
+
+### Architecture
+
+```
+src/
+  layouts/
+    BaseLayout.astro        # Shared <head>, footer (RSS, YouTube, GitHub, Discord, X, M3TV, Docs, HiScores, Unity)
+    NewspaperLayout.astro    # Newspaper chrome (nav + main grid wrapper)
+    DarkLayout.astro         # Dark theme base (council, gallery)
+  pages/
+    index.astro              # Homepage = latest daily briefing (fetches M3TV episodes at build time)
+    daily/[date].astro       # /daily/2026-02-16 — SSG via getStaticPaths from knowledge data
+    council/[date].astro     # /council/2026-02-16
+    gallery.astro            # Poster gallery
+  components/
+    nav/SiteNav.astro        # Fixed nav: Home, Gallery | M3TV, Unity, RSS icon, theme toggle
+    nav/DatePicker.tsx       # React island: prev/next + date input
+    daily/                   # Masthead, LeadStory, KeyFacts, DailySidebar, CategoryBox,
+                             # StrategyBox, CouncilSection, DevelopmentGrid, FullStories
+    council/                 # MeetingContext.tsx, DailyFocus.tsx (collapsible React islands)
+    common/                  # Badge, Card, CharacterAvatar
+  lib/
+    data-loader.ts           # Build-time data loading from knowledge/ directory (fs.readFileSync)
+    types.ts                 # TypeScript interfaces for all JSON data shapes
+    dates.ts                 # Date formatting utilities
+  styles/
+    newspaper.css            # Dual-theme styles (light .newspaper / dark .dark) via CSS variables (--np-*)
+    global.css               # Reset, footer styles
+```
+
+### Key Patterns
+
+- **Dual theme**: Light (`.newspaper`) and dark (`.dark`) via CSS variables (`--np-bg`, `--np-text`, `--np-link`, etc.). Theme toggle persists to localStorage. FOUC prevented by inline `<script>` in `<head>`.
+- **Data at build time**: `src/lib/data-loader.ts` reads from `knowledge/` symlink (local) or sparse-checkout (CI). No client-side API calls for content.
+- **React islands**: Only used where interactivity is needed — DatePicker, MeetingContext, DailyFocus. Everything else is Astro (zero JS).
+- **Static assets**: `media/daily/`, `unity/`, `rss/` are symlinked into `public/` for local dev. CI copies them to `dist/` post-build.
+- **Polymarket ticker**: Theme-aware (light/dark iframes toggled via CSS). Sits between masthead separator rules.
+- **Latest Episodes**: Homepage fetches from `https://www.m3org.com/tv/data/cronjob-episodes.json` at build time.
+- **Fonts**: Playfair Display (headlines), IBM Plex Serif (body), DM Sans (UI) via Google Fonts.
+
+### Commands
+
+```bash
+npm run dev          # Astro dev server (port 4321)
+npm run build        # Static build to dist/ (805+ pages)
+npm run preview      # Preview built site
+npm run sync         # Pull latest knowledge repo data
+```
+
+### Deploy (GitHub Actions)
+
+`.github/workflows/deploy.yml` triggers on push to `main`:
+1. Checkout repo + sparse-checkout `elizaOS/knowledge`
+2. `npm ci && npm run build`
+3. Copy static assets (`unity/`, `media/daily/`, `rss/`, `media/dashboards/*.json`) to `dist/`
+4. Upload artifact → deploy to GitHub Pages
+
+GitHub Pages source is set to **workflow** mode (not branch).
+
+### Legacy (Deprecated)
+
+Old HTML dashboards and root `index.html` moved to `tmp/legacy/dashboards/` (gitignored). The Astro build now serves all pages. Files kept locally for reference:
+- `index.html` — old dark landing page
+- `dashboards/*.html` — redirect shims
+- `media/dashboards/*.html`, `*.css`, `lib/` — full dashboard pages replaced by Astro
+
+## Pipeline Scripts
+
+### Orchestrator
+- **scripts/run_pipeline.sh**: Full end-to-end pipeline — chains all steps with logging, error handling, `--dry-run`, `--from-step=N`, and Discord/desktop notifications.
 
 ### Core Scripts
-- **scripts/recorder.cjs**: Puppeteer-based episode recorder (captures video + session log with word-level timestamps)
-- **scripts/youtube_metadata.py**: Generates YouTube metadata (title, description with chapters, tags) from session logs
-- **scripts/youtube_upload.py**: Uploads video to YouTube with metadata, thumbnail, playlist; also `--visibility` to change listing status
-- **scripts/llm_producer.py**: LLM-powered clip analysis and trailer config generation (subcommands: `clips`, `trailer`)
-- **scripts/generate_manifest.py**: Generates media manifest with provenance for CDN uploads; `--metadata-json` to link YouTube URL
+- **scripts/recorder.cjs**: Puppeteer-based episode recorder (`.cjs` because package.json has `"type": "module"`)
+- **scripts/youtube_metadata.py**: YouTube metadata (title, chapters, tags) from session logs
+- **scripts/youtube_upload.py**: Upload + `--visibility` to change listing status
+- **scripts/llm_producer.py**: LLM clip analysis and trailer config (subcommands: `clips`, `trailer`)
+- **scripts/generate_manifest.py**: Media manifest with provenance; `--metadata-json` to link YouTube URL
 - **scripts/cdn_upload.py**: Bunny CDN uploader (single file, directory, stdin, or manifest-based)
-- **scripts/publish_m3tv.py**: Updates M3TV website with new episode data (pipeline step 8); requires `WEBSITE_REPO` env var or `--website-repo`
-- **scripts/discord_notify.py**: Discord bot notification for pipeline completion
-- **setup_youtube_auth.py**: One-time YouTube OAuth credential setup
+- **scripts/publish_m3tv.py**: Updates M3TV website with episode data (step 8)
+- **scripts/discord_notify.py**: Discord notification for pipeline completion
 
-### Website
-- **index.html**: Current placeholder page
-- **unity/**: Archived Unity show as a self-contained mini-site (`unity/index.html`, `unity/episodes.json`, `unity/ai16z.json`)
-
-### Configuration
-- **CNAME**: Domain configuration (elizaos.news)
-- **.env.example**: Environment variable template
-- **scripts/README.md**: Full pipeline documentation with script reference
-
-### Remotion (Trailer Rendering)
-- **remotion/**: React-based video rendering project for trailers (`npx remotion render`)
-
-### Legacy Content (in tmp/legacy/, gitignored)
-The following have been moved to `tmp/legacy/`:
-- Episodes/ - Historical episode JSON files
-- media/ - Visual assets
-- facts/ - Curated news data
-- docs/ - Unity system documentation
-- record_cronjob.sh - Standalone recorder (duplicated in run_pipeline.sh step 1)
-- analyze_clips.py - Replaced by `llm_producer.py clips`
-- generate_trailer.py - Replaced by `llm_producer.py trailer`
-- update_website.py - Replaced by `publish_m3tv.py`
-- publish_youtube.py - Merged into `youtube_upload.py --visibility`
-
-## Pipeline Flow
+### Pipeline Flow
 
 ```
 run_pipeline.sh step 1 (record) → youtube_metadata.py → youtube_upload.py
@@ -55,81 +99,37 @@ run_pipeline.sh step 1 (record) → youtube_metadata.py → youtube_upload.py
                                 → publish_m3tv.py → Discord/desktop notification
 ```
 
-All steps are chained by `scripts/run_pipeline.sh`. See `scripts/README.md` for the full pipeline diagram and script reference.
-
-## Automation
-
-The pipeline runs locally via cron (no VPS or GitHub Actions):
+### Automation
 
 ```crontab
 15 2 * * 0 cd /path/to/ai-news-website && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1
 ```
 
-## Print Media Pipeline (Posters & Dashboards)
+## Print Media Pipeline
 
-This repo is also the **media production layer** for elizaOS content. The knowledge repo provides data; this repo generates visual media from it.
+### Knowledge Data
+- `knowledge -> /home/jin/repo/knowledge` (symlink, gitignored)
+- CI uses sparse-checkout of `elizaOS/knowledge`
+- Set `KNOWLEDGE_ROOT` env var to override
 
-### Knowledge Symlink
-- `knowledge -> /home/jin/repo/knowledge` (symlink at repo root)
-- Scripts read data from `knowledge/the-council/facts/`, `knowledge/the-council/council_briefing/`, etc.
-- Set `KNOWLEDGE_ROOT` env var to override the symlink path
+### Poster Generation
+- **scripts/posters/illustrate.py**: Main illustration pipeline from daily facts
+- **scripts/posters/characters/**: Character reference sheets (~94MB)
+- **scripts/posters/config/**: Style presets
+- Output: `media/daily/YYYY-MM-DD/*.png`
 
-### Poster/Illustration Generation
-- **scripts/posters/illustrate.py**: Main illustration pipeline - generates editorial posters from daily facts
-- **scripts/posters/illustrate-adaptive.py**: LLM-first format-agnostic illustration pipeline
-- **scripts/posters/scene_director.py**: Scene director pipeline for multi-image editorial narratives
-- **scripts/posters/create-entity-icons.py**: Entity icon generation with CoinGecko integration
-- **scripts/posters/create-tag-icons.py**: Tag icon generation
-- **scripts/posters/validate-illustrations.py**: Vision-based illustration validation
-- **scripts/posters/character-analyze.py**: Character reference sheet analysis
-- **scripts/posters/character-reference.py**: Character reference sheet generation
-- **scripts/posters/test-all-scripts.py**: Comprehensive test runner for all poster scripts
-- **scripts/posters/config/**: Style presets and character configurations
-- **scripts/posters/characters/**: Character reference sheets and assets (~94MB)
-- **scripts/posters/assets/**: Fonts, logos, templates, entity icon inventory
+### RSS
+- **scripts/generate-rss.py**: Generates `rss/feed.xml` and `rss/council.xml`
 
-### RSS & CDN
-- **scripts/generate-rss.py**: RSS feed generation from knowledge data (facts + council briefings)
-- **scripts/cdn_upload.py**: Bunny CDN uploader (pipeline + poster workflows, with retry and `--update-manifest`)
-- **rss/**: Generated RSS feeds (feed.xml, council.xml, style.xsl)
-
-### Dashboards & Viewers
-- **dashboards/media-studio.html**: Hub page for all media tools
-- **dashboards/facts.html** + **facts.css**: Facts data dashboard (API-driven)
-- **dashboards/council.html** + **council.css**: Council briefing dashboard (API-driven)
-- **dashboards/gallery.html**: Poster gallery viewer
-- **dashboards/facts-viewer.html**: Magazine-style facts viewer with CDN images
-- **dashboards/validation-viewer.html**: AI validation report viewer
-- **dashboards/lib/data-loader.js**: Unified data loading library (fetches from knowledge API)
-- **dashboards/lib/design-tokens.css**: Design system tokens
-
-### Media Output
-- **media/daily/**: Generated poster output organized by date (YYYY-MM-DD/)
-- Generated posters stay in this repo, not pushed back to knowledge
-
-### Path Resolution
-Scripts use two root paths:
-- `WORKSPACE_ROOT` = ai-news-website root (for output: media/, rss/)
-- `KNOWLEDGE_ROOT` = knowledge repo (for input: the-council/, hackmd/, ai-news/)
-- `SCRIPT_DIR` = scripts/posters/ (for assets: characters/, config/)
-
-```bash
-# Generate posters from facts
-uv run python scripts/posters/illustrate.py -f knowledge/the-council/facts/2026-02-08.json --batch
-
-# Generate RSS feeds
-uv run python scripts/generate-rss.py
-
-# Serve dashboards locally
-python -m http.server 8080
-# Browser: http://localhost:8080/dashboards/media-studio.html
-```
+### Other Assets
+- **unity/**: Archived Unity show (self-contained mini-site, copied to dist)
+- **remotion/**: React-based trailer rendering
+- **media/dashboards/*.json**: Validation data used by poster scripts (kept in repo)
 
 ## Development Notes
 
-- Legacy content is preserved in `tmp/legacy/` (gitignored)
-- The `unity/` directory preserves the old Unity version website as a self-contained mini-site
-- YouTube upload infrastructure uses OAuth (local credentials via `setup_youtube_auth.py`)
-- LLM steps (clip analysis, trailer generation) use OpenRouter API via `llm_producer.py`
+- Use `uv run python` instead of `python3` (hook enforced)
+- Legacy content preserved in `tmp/legacy/` (gitignored)
+- YouTube OAuth via `setup_youtube_auth.py` → `youtube_credentials.json`
+- LLM steps use OpenRouter API via `OPENROUTER_API_KEY`
 - CDN uploads go to Bunny CDN
-- Print media scripts use OpenRouter API via `OPENROUTER_API_KEY` env var

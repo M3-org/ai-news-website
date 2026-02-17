@@ -32,6 +32,7 @@ interface ProcessedStory {
   storyImage: string | null;
   labels: string[];
   index: number;
+  featured: boolean;
 }
 
 // Process all stories in frontmatter
@@ -64,7 +65,8 @@ for (const category of categories) {
     if (rawSources.some(s => s.includes('github'))) labels.push('GitHub');
     if (rawSources.some(s => s.includes('x.com') || s.includes('twitter'))) labels.push('X/Twitter');
 
-    allStories.push({ headline, bodyText, storyImage, labels, index: i });
+    const featured = i === 0 && storyImage !== null;
+    allStories.push({ headline, bodyText, storyImage, labels, index: i, featured });
   }
 }
 ---
@@ -73,7 +75,7 @@ for (const category of categories) {
     <h3 class="category-title">Full Stories</h3>
     <div class="stories-grid">
       {allStories.map(story => (
-        <article class="story-card">
+        <article class:list={['story-card', { 'story-card--featured': story.featured }]}>
           {story.storyImage && (
             <div class="story-image-container">
               <img src={story.storyImage} alt={`Story ${story.index + 1}`} loading="lazy" />

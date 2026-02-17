@@ -5,21 +5,29 @@ import type { StrategicInsight, MarketAnalysis } from '../../lib/types';
 interface Props {
   title: string;
   items: (StrategicInsight | MarketAnalysis)[];
+  categoryImage?: string;
 }
 
-const { title, items } = Astro.props;
+const { title, items, categoryImage } = Astro.props;
 const type = title.toLowerCase().includes('insight') ? 'strategic' : 'market';
 ---
 <div class="strategy-box" data-category={type}>
+  {categoryImage && (
+    <div class="strategy-header-image-container">
+      <img src={categoryImage} alt={title} loading="lazy" onerror="this.parentElement.style.display='none'" />
+    </div>
+  )}
   <h3 class="category-title">{title}</h3>
   {items.map(item => {
     const theme = 'theme' in item ? item.theme : undefined;
+    const priority = 'priority' in item ? (item as any).priority : undefined;
     const text = ('insight' in item ? item.insight : undefined) || ('observation' in item ? item.observation : undefined) || item.summary || '';
     const relevance = item.relevance;
     const implications = ('implications_or_questions' in item ? item.implications_or_questions : undefined) || [];
     return (
       <div class="strategy-item">
         {theme && <span class="strategy-theme">{theme}</span>}
+        {priority && <span class:list={['priority-badge', `priority-badge--${priority}`]}>{priority}</span>}
         <div>{text}</div>
         {relevance && <div class="relevance">{relevance}</div>}
         {implications.length > 0 && (

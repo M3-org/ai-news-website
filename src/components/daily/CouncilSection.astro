@@ -10,61 +10,215 @@ interface Props {
 
 const { highlights, councilBriefing, date } = Astro.props;
 const hasDeliberation = (councilBriefing?.key_points?.length ?? 0) > 0;
-const hasColumnists = (highlights?.highlights?.length ?? 0) > 0;
-const displayHighlights = highlights?.highlights?.slice(0, 3) || [];
+const rawHighlights = highlights?.highlights || [];
+const hasColumnists = rawHighlights.length > 0 || hasDeliberation;
+// Fixed profile images per character
+const PROFILE_IMG: Record<string, number> = { eliza: 1, shaw: 9, marc: 13, spartan: 2, peepo: 2 };
+
+// Ensure all 5 characters appear (concept requires 1 featured + 4 grid cards).
+// Pad missing characters with placeholder entries derived from council briefing topics.
+const CHARACTER_ORDER = ['eliza', 'shaw', 'marc', 'spartan', 'peepo'];
+const presentChars = new Set(rawHighlights.map(h => h.character.toLowerCase()));
+const topics = councilBriefing?.key_points?.map(kp => kp.topic) || [];
+const dailyFocus = councilBriefing?.daily_focus || '';
+
+function makePlaceholder(character: string, idx: number, isFeatured = false) {
+  const charInfo = CHARACTERS[character] || { name: character, title: 'Analyst', color: '#666' };
+  const topic = topics[idx % Math.max(topics.length, 1)] || dailyFocus || 'Council Analysis Pending';
+  const kps = councilBriefing?.key_points || [];
+
+  let body: string;
+  if (isFeatured && kps.length > 0) {
+    // Build a rich multi-paragraph body from council briefing for the featured slot.
+    // Start with topic summaries (not daily_focus, which is used as pull quote).
+    const paragraphs: string[] = [];
+    for (const kp of kps.slice(0, 3)) {
+      paragraphs.push(`On ${(kp.topic || 'recent developments').toLowerCase()}: ${kp.summary || ''}`);
+    }
+    body = paragraphs.join(' ');
+  } else {
+    // Shorter body for grid cards — use the matching key_point summary if available
+    const kp = kps[idx % Math.max(kps.length, 1)];
+    body = kp?.summary
+      ? kp.summary
+      : `${charInfo.name} is reviewing developments related to ${(topic || 'recent developments').toLowerCase()}. Full analysis available in the council briefing.`;
+  }
+
+  return {
+    character,
+    headline: `${charInfo.name} on ${topic}`,
+    body,
+    sources: [] as string[],
+  };
+}
+
+// Build full 5-character list: keep existing entries, fill gaps
+let placeholderIdx = 0;
+const allHighlights = CHARACTER_ORDER.map((char, i) => {
+  const existing = rawHighlights.find(h => h.character.toLowerCase() === char);
+  if (existing) return existing;
+  return makePlaceholder(char, placeholderIdx++, i === 0);
+});
+
+// Eliza always featured (first); rest in grid
+const displayHighlights = allHighlights;
+const featured = displayHighlights[0];
+const gridHighlights = displayHighlights.slice(1);
+
+const featuredChar = featured ? (CHARACTERS[featured.character] || { name: featured.character, title: 'Analyst', color: '#666' }) : null;
+const featuredImg = featured ? `/scripts/posters/characters/${featured.character}/${PROFILE_IMG[featured.character] || 1}.png` : '';
+
+// Layout thresholds
+const MIN_2COL_LENGTH = 600;   // only use 2-column body when text is long enough
+const PULL_QUOTE_MIN = 300;    // only show pull quote when body won't just repeat it
+
+// Extract a pull quote from the featured body — first sentence or up to 120 chars
+function extractPullQuote(body: string): string {
+  if (!body) return '';
+  const firstSentence = body.match(/^[^.!?]+[.!?]/);
+  if (firstSentence && firstSentence[0].length <= 140) return firstSentence[0];
+  return body.substring(0, 120).replace(/\s+\S*$/, '') + '…';
+}
+
+const featuredBodyLength = featured?.body?.length ?? 0;
+const showPullQuote = featuredBodyLength >= PULL_QUOTE_MIN;
+const bodyShort = featuredBodyLength < MIN_2COL_LENGTH;
+
+// Use daily_focus as pull quote when featured is a placeholder (body doesn't start with a natural sentence)
+const featuredIsPlaceholder = featured && !rawHighlights.find(h => h.character.toLowerCase() === featured.character);
+const pullQuoteText = (featuredIsPlaceholder && dailyFocus)
+  ? dailyFocus
+  : extractPullQuote(featured?.body || '');
+
+// Cap sidebar topics to balance with featured content height
+const sidebarTopicLimit = bodyShort ? 1 : 2;
 ---
 {(hasDeliberation || hasColumnists) && (
   <div class="council-section full-width">
-    <h2 class="section-title">The Council</h2>
+    {/* Header bar */}
+    <div class="cs-header-bar">
+      <span class="cs-section-label">The Council</span>
+      <span class="cs-header-title">Today&rsquo;s Deliberation</span>
+      {councilBriefing?.daily_focus && (
+        <span class="cs-header-focus">{councilBriefing.daily_focus}</span>
+      )}
+    </div>
 
-    {hasColumnists && (
-      <div class="columnists-row">
-        {displayHighlights.map(h => {
+    {/* Featured character + debate sidebar */}
+    {featured && (
+      <div class={`cs-featured-row ${hasDeliberation ? '' : 'no-sidebar'}`}>
+        <div class="cs-featured" style={`--char-color: ${featuredChar!.color}`}>
+          <div class="cs-featured-meta">
+            <span class="cs-featured-name">{featuredChar!.name}</span>
+            <span class="cs-featured-role">{featuredChar!.title}</span>
+          </div>
+
+          <h3 class="cs-featured-headline">{featured.headline}</h3>
+
+          <div class="cs-featured-img-wrap">
+            <img src={featuredImg} alt={featuredChar!.name} class="cs-featured-img" loading="lazy" />
+          </div>
+
+          {featured.body && showPullQuote && (
+            <div class="cs-pullquote">{pullQuoteText}</div>
+          )}
+
+          {featured.body && (
+            <div class={`cs-featured-body ${bodyShort ? 'cs-featured-body--short' : ''}`}>{featured.body}</div>
+          )}
+
+          {featured.sources && featured.sources.length > 0 && (
+            <div class="cs-featured-sources">Via: {featured.sources.join(', ')}</div>
+          )}
+        </div>
+
+        {/* Debate sidebar */}
+        {hasDeliberation && (
+          <div class="cs-debate">
+            <div class="cs-debate-title">Deliberation</div>
+
+            {councilBriefing!.key_points.slice(0, sidebarTopicLimit).map(point => (
+              <div class="cs-debate-item">
+                <div class="cs-debate-topic">{point.topic}</div>
+                <div class="cs-debate-question">{point.summary}</div>
+
+                {(point.deliberation_items || []).slice(0, 1).map(item => (
+                  <div class="cs-debate-delib">
+                    {item.context && item.context.length > 0 && (
+                      <div class="cs-debate-quote">&ldquo;{item.context[0]}&rdquo;</div>
+                    )}
+                    <div class="cs-debate-answers">
+                      {Object.entries(item.multiple_choice_answers || {})
+                        .filter(([key]) => !key.includes('4'))
+                        .map(([key, answer]) => (
+                          <div class="cs-debate-answer">
+                            <span class="cs-debate-key">{key.replace('answer_', '')}.</span> {answer.text}
+                          </div>
+                        ))
+                      }
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    )}
+
+    {/* 2x2 grid of remaining characters */}
+    {gridHighlights.length > 0 && (
+      <div class="cs-grid">
+        {gridHighlights.map((h, idx) => {
           const char = CHARACTERS[h.character] || { name: h.character, title: 'Analyst', color: '#666' };
-          const profileImg = `/scripts/posters/characters/${h.character}/1.png`;
+          const profileImg = `/scripts/posters/characters/${h.character}/${PROFILE_IMG[h.character] || 1}.png`;
+          const bodyExcerpt = h.body ? (h.body.length > 180 ? h.body.substring(0, 180).replace(/\s+\S*$/, '') + '…' : h.body) : '';
           return (
-            <article class="columnist-card">
-              <div class="columnist-header">
-                <img src={profileImg} alt={char.name} class="columnist-pic" loading="lazy" />
-                <div class="columnist-text">
-                  <span class="columnist-name">{char.name}</span>
-                  <span class="columnist-title">{char.title}</span>
+            <div class="cs-grid-card" style={`--char-color: ${char.color}`}>
+              <div class="cs-grid-header">
+                <img src={profileImg} alt={char.name} class="cs-grid-avatar" loading="lazy" />
+                <div>
+                  <div class="cs-grid-name">{char.name}</div>
+                  <div class="cs-grid-role">{char.title}</div>
                 </div>
               </div>
-              <h4 class="columnist-headline">{h.headline}</h4>
-            </article>
+              <h4 class="cs-grid-headline">{h.headline}</h4>
+              {bodyExcerpt && <p class="cs-grid-excerpt">{bodyExcerpt}</p>}
+              {h.sources && h.sources.length > 0 && (
+                <div class="cs-grid-sources">Via: {h.sources.join(', ')}</div>
+              )}
+            </div>
           );
         })}
       </div>
     )}
 
-    {hasDeliberation && (
-      <div class="deliberation-list">
+    {/* Deliberation below if no featured character to pair with */}
+    {!featured && hasDeliberation && (
+      <div class="cs-debate-standalone">
+        <div class="cs-debate-title">Deliberation</div>
         {councilBriefing!.key_points.map(point => (
-          <details class="deliberation-topic">
-            <summary class="topic-summary">
-              <span class="topic-label">{point.topic}</span>
-              <span class="topic-desc">{point.summary}</span>
-            </summary>
-            <div class="topic-content">
-              {(point.deliberation_items || []).map(item => (
-                <div class="delib-item">
-                  <div class="delib-question">{item.text}</div>
-                  <div class="delib-answers">
-                    {Object.entries(item.multiple_choice_answers || {})
-                      .filter(([key]) => !key.includes('4'))
-                      .map(([key, answer]) => (
-                        <div class="delib-answer">
-                          <strong>{key.replace('answer_', '')}.</strong> {answer.text}
-                          {answer.implication && <span class="delib-impl"> — {answer.implication}</span>}
-                        </div>
-                      ))
-                    }
-                  </div>
+          <div class="cs-debate-item">
+            <div class="cs-debate-topic">{point.topic}</div>
+            <div class="cs-debate-question">{point.summary}</div>
+            {(point.deliberation_items || []).map(item => (
+              <div class="cs-debate-delib">
+                {item.context && item.context.length > 0 && (
+                  <div class="cs-debate-quote">&ldquo;{item.context[0]}&rdquo;</div>
+                )}
+                <div class="cs-debate-answers">
+                  {Object.entries(item.multiple_choice_answers || {})
+                    .filter(([key]) => !key.includes('4'))
+                    .map(([key, answer]) => (
+                      <div class="cs-debate-answer">
+                        <span class="cs-debate-key">{key.replace('answer_', '')}.</span> {answer.text}
+                      </div>
+                    ))
+                  }
                 </div>
-              ))}
-            </div>
-          </details>
+              </div>
+            ))}
+          </div>
         ))}
       </div>
     )}
@@ -80,125 +234,314 @@ const displayHighlights = highlights?.highlights?.slice(0, 3) || [];
     margin-top: 1rem;
   }
 
-  /* Columnists as horizontal cards */
-  .columnists-row {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .columnist-card {
-    padding: 1rem;
-    border: 1px solid var(--np-border-light, #eee);
-    border-radius: 4px;
-  }
-
-  .columnist-header {
+  /* ── Header bar ── */
+  .cs-header-bar {
     display: flex;
     align-items: center;
-    gap: 0.625rem;
+    gap: 1rem;
+    padding: 0.75rem 0;
+    border-bottom: 3px double var(--np-border-heavy, #121212);
+    margin-bottom: 0;
+  }
+
+  .cs-section-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--np-accent, #c00);
+  }
+
+  .cs-header-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+
+  .cs-header-focus {
+    margin-left: auto;
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 0.8125rem;
+    font-style: italic;
+    color: var(--np-text-muted, #555);
+    max-width: 320px;
+    text-align: right;
+  }
+
+  /* ── Featured row: character + debate sidebar ── */
+  .cs-featured-row {
+    display: grid;
+    grid-template-columns: 1fr 340px;
+    align-items: start;
+    border-bottom: 1px solid var(--np-border, #ddd);
+  }
+
+  .cs-featured-row.no-sidebar {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-featured {
+    padding: 1.5rem 1.5rem 1.5rem 0;
+    border-right: 1px solid var(--np-border, #ddd);
+  }
+
+  .cs-featured-row.no-sidebar .cs-featured {
+    border-right: none;
+    padding-right: 0;
+  }
+
+  .cs-featured-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
     margin-bottom: 0.5rem;
   }
 
-  .columnist-pic {
-    width: 36px;
-    height: 36px;
+  .cs-featured-name {
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--char-color, var(--np-text, #121212));
+  }
+
+  .cs-featured-role {
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--np-text-dim, #777);
+  }
+
+  .cs-featured-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .cs-featured-img-wrap {
+    float: left;
+    width: 140px;
+    margin: 0 1.25rem 0.75rem 0;
+    shape-outside: circle(50%);
+  }
+
+  .cs-featured-img {
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
+    border: 3px solid var(--char-color, var(--np-border, #ddd));
   }
 
-  .columnist-text {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .columnist-name { font-weight: 600; font-size: 0.8125rem; }
-  .columnist-title { font-size: 0.6875rem; color: var(--np-text-muted, #666); }
-
-  .columnist-headline {
+  .cs-pullquote {
     font-family: 'Playfair Display', serif;
+    font-size: 1.125rem;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--np-text-muted, #555);
+    margin: 0 0 1rem 0;
+    padding: 0 0.75rem;
+    position: relative;
+  }
+
+  .cs-pullquote::before {
+    content: '\201C';
+    font-size: 3.5rem;
+    line-height: 1;
+    position: absolute;
+    left: -0.75rem;
+    top: -0.75rem;
+    color: var(--np-accent, #c00);
+    opacity: 0.3;
+    font-style: normal;
+    font-weight: 900;
+  }
+
+  .cs-featured-body {
+    font-family: 'IBM Plex Serif', serif;
     font-size: 0.9375rem;
+    line-height: 1.7;
+    color: var(--np-text-muted, #555);
+    column-count: 2;
+    column-gap: 1.5rem;
+    column-rule: 1px solid var(--np-border-light, #eee);
+  }
+
+  .cs-featured-body--short {
+    column-count: 1;
+  }
+
+  .cs-featured-sources {
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    font-style: italic;
+    color: var(--np-text-dim, #777);
+    clear: both;
+  }
+
+  /* ── Debate sidebar ── */
+  .cs-debate {
+    padding: 1.25rem;
+    background: var(--np-surface-alt, #fafafa);
+  }
+
+  .cs-debate-standalone {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--np-border, #ddd);
+  }
+
+  .cs-debate-title {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.625rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--np-accent, #c00);
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--np-border, #ddd);
+  }
+
+  .cs-debate-item {
+    margin-bottom: 1.25rem;
+  }
+
+  .cs-debate-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .cs-debate-topic {
+    font-weight: 700;
+    font-size: 0.875rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .cs-debate-question {
+    font-family: 'IBM Plex Serif', serif;
+    font-size: 0.8125rem;
+    color: var(--np-text-muted, #555);
+    font-style: italic;
+    margin-bottom: 0.5rem;
+  }
+
+  .cs-debate-delib {
+    margin-bottom: 0.75rem;
+  }
+
+  .cs-debate-quote {
+    font-size: 0.75rem;
+    color: var(--np-text-dim, #777);
+    border-left: 2px solid var(--np-accent, #c00);
+    padding: 0.25rem 0.625rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cs-debate-answers {
+    font-size: 0.75rem;
+  }
+
+  .cs-debate-answer {
+    padding: 0.25rem 0;
+    border-bottom: 1px dotted var(--np-border-light, #eee);
+    line-height: 1.5;
+  }
+
+  .cs-debate-answer:last-child {
+    border-bottom: none;
+  }
+
+  .cs-debate-key {
+    font-weight: 700;
+    color: var(--np-accent, #c00);
+  }
+
+  /* ── 2x2 grid of remaining characters ── */
+  .cs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cs-grid-card {
+    padding: 1.25rem;
+    border-right: 1px solid var(--np-border, #ddd);
+    border-bottom: 1px solid var(--np-border, #ddd);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cs-grid-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--char-color, var(--np-border, #ddd));
+  }
+
+  .cs-grid-card:nth-child(2n) { border-right: none; }
+  .cs-grid-card:nth-last-child(-n+2) { border-bottom: none; }
+  /* Handle odd number of cards — last card in an odd row spans or loses right border */
+  .cs-grid-card:last-child:nth-child(odd) { border-right: none; }
+
+  .cs-grid-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.625rem;
+  }
+
+  .cs-grid-avatar {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--char-color, var(--np-border, #ddd));
+    background: var(--np-badge-bg, #f0f0f0);
+  }
+
+  .cs-grid-name {
+    font-weight: 700;
+    font-size: 0.875rem;
+    color: var(--char-color, var(--np-text, #121212));
+  }
+
+  .cs-grid-role {
+    font-size: 0.6875rem;
+    color: var(--np-text-dim, #777);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .cs-grid-headline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1rem;
     font-weight: 700;
     line-height: 1.3;
-  }
-
-  /* Deliberation as collapsible list */
-  .deliberation-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-  }
-
-  .deliberation-topic {
-    border: 1px solid var(--np-border-light, #eee);
-    border-radius: 4px;
-  }
-
-  .topic-summary {
-    display: flex;
-    align-items: baseline;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    cursor: pointer;
-    font-size: 0.875rem;
-    line-height: 1.4;
-  }
-
-  .topic-summary::-webkit-details-marker { display: none; }
-  .topic-summary::marker { content: ''; }
-
-  .topic-summary::before {
-    content: '▸';
-    color: var(--np-text-dim, #999);
-    flex-shrink: 0;
-  }
-
-  details[open] .topic-summary::before {
-    content: '▾';
-  }
-
-  .topic-label {
-    font-weight: 600;
-    white-space: nowrap;
-  }
-
-  .topic-desc {
-    color: var(--np-text-muted, #666);
-  }
-
-  .topic-content {
-    padding: 0 1rem 1rem 2rem;
-  }
-
-  .delib-item {
-    margin-bottom: 1rem;
-  }
-
-  .delib-question {
-    font-weight: 600;
-    font-size: 0.875rem;
     margin-bottom: 0.375rem;
   }
 
-  .delib-answers {
+  .cs-grid-excerpt {
+    font-family: 'IBM Plex Serif', serif;
     font-size: 0.8125rem;
-    color: var(--np-text-muted, #444);
+    line-height: 1.6;
+    color: var(--np-text-muted, #555);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.375rem;
   }
 
-  .delib-answer {
-    padding: 0.25rem 0;
-    line-height: 1.4;
-  }
-
-  .delib-impl {
-    color: var(--np-text-dim, #888);
+  .cs-grid-sources {
+    font-size: 0.6875rem;
     font-style: italic;
+    color: var(--np-text-dim, #777);
   }
 
+  /* ── CTA ── */
   .council-cta {
-    margin-top: 0.5rem;
+    margin-top: 0.75rem;
   }
 
   .council-cta a {
@@ -210,5 +553,62 @@ const displayHighlights = highlights?.highlights?.slice(0, 3) || [];
 
   .council-cta a:hover {
     text-decoration: underline;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 768px) {
+    .cs-header-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.375rem;
+    }
+
+    .cs-header-focus {
+      margin-left: 0;
+      text-align: left;
+      max-width: none;
+    }
+
+    .cs-featured-row {
+      grid-template-columns: 1fr;
+    }
+
+    .cs-featured {
+      border-right: none;
+      padding: 1.25rem 0;
+    }
+
+    .cs-featured-body {
+      column-count: 1;
+    }
+
+    .cs-featured-img-wrap {
+      float: none;
+      margin: 0 auto 1rem;
+      display: block;
+      width: 100px;
+    }
+
+    .cs-featured-img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .cs-featured-headline {
+      font-size: 1.25rem;
+    }
+
+    .cs-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cs-grid-card {
+      border-right: none;
+      border-bottom: 1px solid var(--np-border, #ddd);
+    }
+
+    .cs-grid-card:last-child {
+      border-bottom: none;
+    }
   }
 </style>

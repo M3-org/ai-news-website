@@ -44,9 +44,7 @@ const links = [
 <script is:inline>
   (function() {
     const stored = localStorage.getItem('theme');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const theme = stored || (prefersDark ? 'dark' : 'light');
-    document.body.className = theme === 'dark' ? 'dark' : 'newspaper';
+    document.body.className = stored === 'dark' ? 'dark' : 'newspaper';
 
     document.addEventListener('DOMContentLoaded', () => {
       const btn = document.getElementById('theme-toggle');

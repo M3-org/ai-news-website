@@ -3,10 +3,12 @@ interface Props {
   summary: string;
   sentiment?: string;
   date: string;
+  themes?: string[];
 }
 
-const { summary, sentiment, date } = Astro.props;
+const { summary, sentiment, date, themes = [] } = Astro.props;
 const heroImage = `/media/daily/${date}/overall.png`;
+const displayThemes = themes.slice(0, 8);
 ---
 <div class="full-width">
   <article class="daily-brief">
@@ -18,5 +20,12 @@ const heroImage = `/media/daily/${date}/overall.png`;
       {sentiment && <span class:list={['badge', `badge-${sentiment}`]}>{sentiment}</span>}
     </div>
     <p class="brief-text">{summary}</p>
+    {displayThemes.length > 0 && (
+      <div class="theme-tags">
+        {displayThemes.map(theme => (
+          <span class="badge badge-neutral">{theme}</span>
+        ))}
+      </div>
+    )}
   </article>
 </div>

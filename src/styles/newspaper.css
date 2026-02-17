@@ -195,24 +195,25 @@
 .daily-brief {
   border-top: 4px solid var(--np-border-heavy);
   border-bottom: 1px solid var(--np-border);
-  padding: 1.25rem 0;
-  margin-bottom: 2rem;
+  padding: 2rem 0;
+  margin-bottom: 3rem;
 }
 
 .lead-image-container {
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .lead-image-container img {
   width: 100%;
   height: auto;
   display: block;
+  border: 1px solid var(--np-border-light);
 }
 
 .brief-label {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -225,7 +226,7 @@
 
 .brief-text {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.5rem;
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
   font-weight: 700;
   line-height: 1.3;
   margin-bottom: 0.75rem;
@@ -253,10 +254,17 @@
   margin-top: 0.5rem;
 }
 
+/* Three-tier divider system */
+.rule-double {
+  border: none;
+  border-top: 3px double var(--np-border-heavy);
+  margin: 2.5rem 0 1.5rem;
+}
+
 /* Section headers */
 .section-header {
   font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: 1.5rem;
+  font-size: 1.375rem;
   font-weight: 700;
   border-bottom: 2px solid var(--np-border-heavy);
   padding-bottom: 0.5rem;
@@ -277,7 +285,7 @@
 
 /* Fact items */
 .fact-item {
-  padding: 0.875rem 0;
+  padding: 0.625rem 0;
   border-bottom: 1px solid var(--np-border-light);
 }
 
@@ -319,7 +327,7 @@
 }
 
 .category-item {
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--np-border-light);
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -369,7 +377,7 @@
 }
 
 .strategy-item {
-  padding: 0.75rem 0;
+  padding: 0.5rem 0;
   border-bottom: 1px solid var(--np-border-light);
   font-size: 0.9375rem;
   line-height: 1.5;
@@ -681,7 +689,7 @@
 /* Full stories */
 .full-stories-category {
   grid-column: 1 / -1;
-  margin-top: 2rem;
+  margin-top: 3rem;
 }
 
 .stories-grid {
@@ -746,6 +754,142 @@
 .dark .badge-negative, .dark .badge-closed { background: rgba(239,68,68,0.15); color: #f87171; }
 .dark .badge-mixed, .dark .badge-merged { background: rgba(129,140,248,0.15); color: #a5b4fc; }
 
+/* Featured story card (high significance — spans 2 cols) */
+.story-card--featured {
+  grid-column: span 2;
+}
+
+.story-card--featured .story-headline {
+  font-size: 1.375rem;
+}
+
+/* Open Questions callout */
+.open-questions {
+  border-left: 3px solid var(--np-accent);
+  padding: 1rem 1.25rem;
+  background: var(--np-surface-alt);
+  margin-bottom: 2rem;
+}
+
+.open-questions-title {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  color: var(--np-text);
+}
+
+.open-questions-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.open-questions-list li {
+  padding: 0.375rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--np-text-muted);
+  border-bottom: 1px solid var(--np-border-light);
+}
+
+.open-questions-list li:last-child {
+  border-bottom: none;
+}
+
+/* Theme tags */
+.theme-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+  margin-bottom: 1rem;
+}
+
+/* GitHub stats bar */
+.github-stats-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--np-surface-alt);
+  border: 1px solid var(--np-border-light);
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  font-size: 0.8125rem;
+  color: var(--np-text-muted);
+}
+
+.github-stats-bar .stat-item {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.github-stats-bar .stat-value {
+  font-weight: 700;
+  color: var(--np-text);
+}
+
+.github-stats-bar .stat-additions {
+  color: #2e7d32;
+}
+
+.dark .github-stats-bar .stat-additions {
+  color: #4ade80;
+}
+
+.github-stats-bar .stat-deletions {
+  color: #c62828;
+}
+
+.dark .github-stats-bar .stat-deletions {
+  color: #f87171;
+}
+
+/* Priority badge for strategy items */
+.priority-badge {
+  display: inline-block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.0625rem 0.375rem;
+  border-radius: 2px;
+  margin-left: 0.5rem;
+}
+
+.priority-badge--high {
+  background: #ffebee;
+  color: #c62828;
+}
+
+.dark .priority-badge--high {
+  background: rgba(239,68,68,0.15);
+  color: #f87171;
+}
+
+.priority-badge--medium {
+  background: #fff8e1;
+  color: #f57f17;
+}
+
+.dark .priority-badge--medium {
+  background: rgba(245,127,23,0.15);
+  color: #fbbf24;
+}
+
+/* Strategy box image support */
+.strategy-header-image-container {
+  margin-bottom: 1rem;
+}
+
+.strategy-header-image-container img {
+  width: 100%;
+  border-radius: 4px;
+}
+
 /* Error state */
 .error {
   background: #fff3f3;
@@ -769,4 +913,160 @@
   .development-grid { grid-template-columns: 1fr; }
   .council-grid { grid-template-columns: 1fr; }
   .stories-grid { grid-template-columns: 1fr; }
+  .story-card--featured { grid-column: span 1; }
+  .github-stats-bar { gap: 1rem; }
+}
+
+/* ============================================
+   Print Stylesheet
+   ============================================ */
+@page {
+  margin: 0.75in;
+}
+
+@media print {
+  /* 1. Hide non-content UI */
+  .site-nav,
+  .date-nav,
+  .polymarket-ticker,
+  .site-footer,
+  .date-archive,
+  .dev-summary-toggle,
+  .council-cta,
+  .theme-btn {
+    display: none !important;
+  }
+
+  /* 2. Force light colors (handles dark-mode users printing) */
+  .newspaper,
+  .dark {
+    --np-bg: #fff;
+    --np-surface: #fff;
+    --np-text: #000;
+    --np-text-muted: #333;
+    --np-text-dim: #555;
+    --np-border: #ccc;
+    --np-border-light: #ddd;
+    --np-border-heavy: #000;
+    --np-accent: #c00;
+    --np-link: #000;
+    --np-badge-bg: #eee;
+    --np-badge-text: #333;
+    --np-surface-alt: #fff;
+    --np-shadow: none;
+
+    background: #fff;
+    color: #000;
+    transition: none;
+  }
+
+  /* 3. Linearize grid layout */
+  .news-container {
+    display: block;
+    max-width: none;
+    padding: 0;
+    min-height: auto;
+  }
+
+  .full-width {
+    grid-column: auto;
+  }
+
+  .grouped-sections,
+  .development-grid,
+  .council-grid,
+  .stories-grid {
+    display: block;
+  }
+
+  .full-stories-category {
+    grid-column: auto;
+  }
+
+  .story-card--featured {
+    grid-column: auto;
+  }
+
+  .rule-double {
+    border-top: 2px double #000;
+  }
+
+  /* Add spacing between stacked grid children */
+  .grouped-sections > *,
+  .development-grid > *,
+  .council-grid > *,
+  .stories-grid > * {
+    margin-bottom: 1.5rem;
+  }
+
+  /* 4. Expand truncated content */
+  .dev-summary-wrap {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .dev-summary-wrap::after {
+    display: none !important;
+  }
+
+  details {
+    open: true;
+  }
+
+  details > summary {
+    list-style: none;
+  }
+
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* 5. Page break control */
+  .category-box,
+  .strategy-box,
+  .story-card,
+  .columnist-card,
+  .fact-item {
+    break-inside: avoid;
+  }
+
+  .masthead {
+    break-after: avoid;
+  }
+
+  /* 6. Image handling */
+  img {
+    max-width: 100% !important;
+    break-inside: avoid;
+  }
+
+  /* 7. Typography for print */
+  .newspaper,
+  .dark {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  a {
+    color: #000 !important;
+    text-decoration: underline;
+  }
+
+  /* 8. Remove box shadows and rounded corners */
+  * {
+    box-shadow: none !important;
+  }
+
+  .badge-positive, .badge-open,
+  .badge-negative, .badge-closed,
+  .badge-mixed, .badge-merged {
+    border: 1px solid #999;
+  }
+
+  .dark .badge-positive, .dark .badge-open,
+  .dark .badge-negative, .dark .badge-closed,
+  .dark .badge-mixed, .dark .badge-merged {
+    background: #eee;
+    color: #333;
+  }
 }
