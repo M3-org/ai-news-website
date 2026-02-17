@@ -50,15 +50,15 @@ jobs:
 
       - name: Copy static assets to dist
         run: |
-          mkdir -p dist/media/daily dist/media/dashboards dist/scripts/posters
+          mkdir -p dist/media dist/scripts/posters
           cp -r unity/ dist/unity/ 2>/dev/null || true
-          cp -r media/daily/ dist/media/daily/ 2>/dev/null || true
-          cp -r media/dashboards/*.json dist/media/dashboards/ 2>/dev/null || true
-          cp -r media/dashboards/api/ dist/media/dashboards/api/ 2>/dev/null || true
+          cp -r media/daily dist/media/daily 2>/dev/null || true
+          cp -r media/dashboards dist/media/dashboards 2>/dev/null || true
           cp -r rss/ dist/rss/ 2>/dev/null || true
           cp -r scripts/posters/characters/ dist/scripts/posters/characters/ 2>/dev/null || true
           echo "Static assets copied:"
-          ls -la dist/media/daily/ 2>/dev/null | head -10 || echo "  No media/daily"
+          ls dist/media/daily/ 2>/dev/null | head -10 || echo "  No media/daily"
+          ls dist/media/daily/2026-02-16/ 2>/dev/null | head -5 || echo "  No 2026-02-16 images"
           ls dist/unity/ 2>/dev/null | head -5 || echo "  No unity"
 
       - name: Upload artifact
