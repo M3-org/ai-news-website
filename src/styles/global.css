@@ -69,6 +69,11 @@ a {
   opacity: 0.5;
 }
 
+.footer-by {
+  font-weight: 400;
+  opacity: 0.7;
+}
+
 .footer-links {
   display: flex;
   gap: 1.5rem;
