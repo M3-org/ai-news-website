@@ -25,5 +25,11 @@ logs/
 # Generated poster output (large, cleaned up after 7 days by CI)
 # media/daily/
 
+# Local dev symlinks in public/ (CI uses post-build copy instead)
+public/media
+public/rss
+public/unity
+public/scripts
+
 # Knowledge symlink (local dev only)
 knowledge
