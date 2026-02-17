@@ -1,0 +1,18 @@
+---
+interface Props {
+  questions: string[];
+}
+
+const { questions } = Astro.props;
+const displayQuestions = questions.slice(0, 5);
+---
+{displayQuestions.length > 0 && (
+  <div class="open-questions full-width">
+    <div class="open-questions-title">Open Questions</div>
+    <ul class="open-questions-list">
+      {displayQuestions.map(q => (
+        <li>{q}</li>
+      ))}
+    </ul>
+  </div>
+)}

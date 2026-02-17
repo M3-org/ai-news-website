@@ -1,0 +1,49 @@
+---
+import type { GitHubStats } from '../../lib/types';
+
+interface Props {
+  stats: GitHubStats;
+}
+
+const { stats } = Astro.props;
+const code = stats.codeChanges;
+---
+{(code || stats.activeContributors) && (
+  <div class="github-stats-bar full-width">
+    {code?.commitCount && (
+      <div class="stat-item">
+        <span class="stat-value">{code.commitCount}</span> commits
+      </div>
+    )}
+    {code?.additions != null && (
+      <div class="stat-item">
+        <span class="stat-value stat-additions">+{code.additions.toLocaleString()}</span>
+      </div>
+    )}
+    {code?.deletions != null && (
+      <div class="stat-item">
+        <span class="stat-value stat-deletions">-{code.deletions.toLocaleString()}</span>
+      </div>
+    )}
+    {code?.files != null && (
+      <div class="stat-item">
+        <span class="stat-value">{code.files}</span> files changed
+      </div>
+    )}
+    {stats.activeContributors != null && (
+      <div class="stat-item">
+        <span class="stat-value">{stats.activeContributors}</span> contributors
+      </div>
+    )}
+    {stats.mergedPRs != null && (
+      <div class="stat-item">
+        <span class="stat-value">{stats.mergedPRs}</span> PRs merged
+      </div>
+    )}
+    {stats.closedIssues != null && (
+      <div class="stat-item">
+        <span class="stat-value">{stats.closedIssues}</span> issues closed
+      </div>
+    )}
+  </div>
+)}

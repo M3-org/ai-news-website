@@ -1,0 +1,69 @@
+---
+import NewspaperLayout from '../layouts/NewspaperLayout.astro';
+---
+<NewspaperLayout title="Page Not Found | elizaOS News">
+  <div class="not-found">
+    <div class="not-found-code">404</div>
+    <h1 class="not-found-title">Page Not Found</h1>
+    <p class="not-found-body">The page you're looking for doesn't exist or may have been moved.</p>
+    <div class="not-found-links">
+      <a href="/" class="not-found-link">Latest Briefing</a>
+      <a href="/gallery" class="not-found-link">Poster Gallery</a>
+    </div>
+  </div>
+</NewspaperLayout>
+
+<style>
+  .not-found {
+    text-align: center;
+    padding: 4rem 1rem;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  .not-found-code {
+    font-family: 'Playfair Display', serif;
+    font-size: 6rem;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--np-accent, #c00);
+    opacity: 0.25;
+    margin-bottom: 0.5rem;
+  }
+
+  .not-found-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-bottom: 0.75rem;
+  }
+
+  .not-found-body {
+    font-size: 1rem;
+    color: var(--np-text-muted, #555);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .not-found-links {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .not-found-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--np-link, #1565c0);
+    text-decoration: none;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--np-border, #ddd);
+    border-radius: 4px;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .not-found-link:hover {
+    background: var(--np-badge-bg, #f0f0f0);
+    border-color: var(--np-border-heavy, #121212);
+  }
+</style>
