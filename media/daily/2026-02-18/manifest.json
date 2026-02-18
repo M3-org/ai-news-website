@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-18T11:34:26.415801+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-18.json",
+  "facts_date": "2026-02-18",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-18",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The project is undergoing a hardware-accelerated news platform redesign and a major architectural transition to v2.0.0 supporting Rust and Python, while facing significant community friction regarding the recently closed token migration deadline and technical hurdles with the Spartan setup.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza, illuminated by golden-hour light, stands at a frosted window\u2014one side showing sleek new server racks aglow with coded reflections, the other shadowed figures in heated debate beyond drifting winter haze; innovation meets resistance in a silent, sharply contrasted moment.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza, illuminated by golden-hour light, stands at a frosted window\u2014one side showing sleek new server racks aglow with coded reflections, the other shadowed figures in heated debate beyond drifting winter haze; innovation meets resistance in a silent, sharply contrasted moment.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 86.26,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Focus shifted toward framework modularity, multi-language core support (Rust/Python), and hardening security through JWT authentication systems.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city center, a **Modular Framework Tower** (interlocking blocks) anchors the **Development District**. To the east, **Multi-Language Twin Labs** (modern structures with Rust and Python logos) enable language interoperability. On the west side, a fortified **JWT Security Vault** (armored data bank) dominates the **Security Zone**. Data highways connect the Labs and Vault to the Framework Tower via illuminated conduits, showing secure, bi-directional data flows. Districts are clearly separated by landscaped greenbelts, with component labels: \"Framework Core\", \"Rust Lab\", \"Python Lab\", and \"JWT Auth Vault\".",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city center, a **Modular Framework Tower** (interlocking blocks) anchors the **Development District**. To the east, **Multi-Language Twin Labs** (modern structures with Rust and Python logos) enable language interoperability. On the west side, a fortified **JWT Security Vault** (armored data bank) dominates the **Security Zone**. Data highways connect the Labs and Vault to the Framework Tower via illuminated conduits, showing secure, bi-directional data flows. Districts are clearly separated by landscaped greenbelts, with component labels: \"Framework Core\", \"Rust Lab\", \"Python Lab\", and \"JWT Auth Vault\".\n\nCONTENT CONTEXT:\nFocus shifted toward framework modularity, multi-language core support (Rust/Python), and hardening security through JWT authentication systems.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.43,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Focus on the redesign of elizaos.news and the recurring technical difficulties with Spartan installation and the Milady pre-release binaries. Discussion of MoltBridge (cryptographic identity layer) integration and the launch of the Security Oracle API Beta for AI trading agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left side\u2014Eliza, eyes wide, illuminated by golden light amidst monitors flickering with ElizaOS.News redesign and glitching Spartan/Milady installers; Right side\u2014Peepo, contemplative in foggy haze, reaches toward ethereal MoltBridge code and a glowing Security Oracle API, world in chiaroscuro contrast.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Split frame: Left side\u2014Eliza, eyes wide, illuminated by golden light amidst monitors flickering with ElizaOS.News redesign and glitching Spartan/Milady installers; Right side\u2014Peepo, contemplative in foggy haze, reaches toward ethereal MoltBridge code and a glowing Security Oracle API, world in chiaroscuro contrast.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 34.77,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "spartan",
+        "eliza"
+      ],
+      "content_context": "The introduction of Rust and Python cores marks a transition from a TypeScript-only project to a universal AI agent framework. Increasing focus on MoltBridge and ERC-8004 suggests an emergent strategic need for verifiable agent identity to combat malicious plugins.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left, Spartan and Eliza analyze swirling code amidst frost-edged monitors (Rust, Python icons aglow); right, their silhouettes gaze at a gleaming MoltBridge gateway, mist veiling an ERC-8004 emblem\u2014golden hour sun spilling harsh light, shadows stretching through winter haze, tension between revelation and vigilance.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left, Spartan and Eliza analyze swirling code amidst frost-edged monitors (Rust, Python icons aglow); right, their silhouettes gaze at a gleaming MoltBridge gateway, mist veiling an ERC-8004 emblem\u2014golden hour sun spilling harsh light, shadows stretching through winter haze, tension between revelation and vigilance.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.12,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "Community discussion regarding the $12M market cap and the lack of direct utility ties between the framework and the $elizaos token.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three main holographic panels: \"Market Cap: $12M,\" \"Framework Utility,\" and \"$elizaos Token Link.\" Gauges show \"Community Concern Level\" (spiking in orange), \"Direct Utility Score\" (low, cyan), and \"Engagement Activity\" (pulsing magenta). Animated data flows connect Market Cap to both Utility and Token panels, highlighting the weak connection in semi-transparent orange. Accents in cyan, magenta, and orange glow along panel edges and lines.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three main holographic panels: \"Market Cap: $12M,\" \"Framework Utility,\" and \"$elizaos Token Link.\" Gauges show \"Community Concern Level\" (spiking in orange), \"Direct Utility Score\" (low, cyan), and \"Engagement Activity\" (pulsing magenta). Animated data flows connect Market Cap to both Utility and Token panels, highlighting the weak connection in semi-transparent orange. Accents in cyan, magenta, and orange glow along panel edges and lines.\n\nCONTENT CONTEXT:\nCommunity discussion regarding the $12M market cap and the lack of direct utility ties between the framework and the $elizaos token.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 87.89,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-18/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 268.56
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-18/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-18/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-18/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-18/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-18/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-18/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-18/strategic-insights.png"
+  }
+}

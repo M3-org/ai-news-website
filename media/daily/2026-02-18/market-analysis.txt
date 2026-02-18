@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three main holographic panels: "Market Cap: $12M," "Framework Utility," and "$elizaos Token Link." Gauges show "Community Concern Level" (spiking in orange), "Direct Utility Score" (low, cyan), and "Engagement Activity" (pulsing magenta). Animated data flows connect Market Cap to both Utility and Token panels, highlighting the weak connection in semi-transparent orange. Accents in cyan, magenta, and orange glow along panel edges and lines.
+
+CONTENT CONTEXT:
+Community discussion regarding the $12M market cap and the lack of direct utility ties between the framework and the $elizaos token.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

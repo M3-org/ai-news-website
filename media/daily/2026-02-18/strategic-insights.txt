@@ -1,9 +1,10 @@
 Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
+- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Eliza and teammates huddle close around glowing screens in a glass-walled office; snow falls past frosted windows, while digital interfaces reflecting 'Milaidy' shimmer across faces—subtle tension evident, yet their focused collaboration and scattered notes tell a story of unity amidst pressure, bathed in cool, contrasting pools of artificial light.
+SCENE: Split frame: Left, Spartan and Eliza analyze swirling code amidst frost-edged monitors (Rust, Python icons aglow); right, their silhouettes gaze at a gleaming MoltBridge gateway, mist veiling an ERC-8004 emblem—golden hour sun spilling harsh light, shadows stretching through winter haze, tension between revelation and vigilance.
 
 ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 
