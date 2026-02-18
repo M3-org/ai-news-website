@@ -43,7 +43,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     })();
   </script>
 
+  <link rel="alternate" type="application/rss+xml" title="elizaOS Daily Intelligence" href="/rss/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="elizaOS Council Briefings" href="/rss/council.xml">
+
   <slot name="head" />
+  <slot name="jsonld" />
 </head>
 <body class={theme === 'light' ? 'newspaper' : 'dark'}>
   <slot name="nav" />
@@ -57,6 +61,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
         <a href="https://github.com/M3-org/ai-news-website" target="_blank" rel="noopener">GitHub</a>
         <a href="https://discord.com/invite/ai16z" target="_blank" rel="noopener">Discord</a>
         <a href="https://x.com/elizaos" target="_blank" rel="noopener" class="footer-x-link"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="/api">API</a>
         <a href="https://eliza.how/" target="_blank" rel="noopener">Docs</a>
         <a href="https://elizaos.github.io/summary/day" target="_blank" rel="noopener">HiScores</a>
         <a href="/unity/">Unity</a>

@@ -183,7 +183,7 @@
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem 2rem;
+  padding: 3.5rem 1.5rem 2rem;
   background: var(--np-surface);
   min-height: 100vh;
   transition: background 0.35s ease;
@@ -926,7 +926,7 @@
 @media (max-width: 768px) {
   .facts-questions-row { grid-template-columns: 1fr; }
   .facts-columns { columns: 1; }
-  .news-container { padding: 0 1rem 2rem; }
+  .news-container { padding: 3.5rem 1rem 2rem; }
   .grouped-sections { grid-template-columns: 1fr; }
   .development-grid { grid-template-columns: 1fr; }
   .council-grid { grid-template-columns: 1fr; }
