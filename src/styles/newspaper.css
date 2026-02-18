@@ -70,6 +70,7 @@
   border-radius: 4px;
   overflow: hidden;
   opacity: 0.85;
+  max-height: 48px;
 }
 
 .ticker-dark { display: none; }
@@ -233,6 +234,8 @@
   margin-bottom: 0.75rem;
   max-width: 72ch;
   color: var(--np-text);
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .brief-expand {
@@ -951,6 +954,13 @@
   .masthead-meta { gap: 0.5rem; font-size: 0.7rem; }
   .facts-list { gap: 0.75rem; }
   .category-box { padding: 1rem; }
+  .polymarket-ticker { max-height: 40px; overflow: hidden; }
+  .brief-text {
+    font-size: 1.25rem;
+    line-height: 1.4;
+    word-break: break-word;
+    hyphens: auto;
+  }
 }
 
 /* ============================================

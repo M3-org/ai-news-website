@@ -131,6 +131,10 @@ const links = [
     display: flex;
     align-items: center;
     gap: 0.25rem;
+    padding: 0.25rem;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
   }
 
   .theme-btn {
@@ -187,8 +191,10 @@ const links = [
     .nav-brand { font-size: 0.7rem; }
     .nav-links { gap: 0.4rem; }
     .nav-link { font-size: 0.7rem; }
-    .nav-right { gap: 0.35rem; }
+    .nav-right { gap: 0.25rem; }
     /* Hide RSS label on very small screens */
     .nav-icon-link .rss-label { display: none; }
+    /* Larger touch targets for icons */
+    .nav-icon-link svg { width: 18px; height: 18px; }
   }
 </style>
