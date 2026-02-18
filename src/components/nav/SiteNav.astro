@@ -10,7 +10,6 @@ const latestFactsDate = getLatestDate('facts');
 const latestCouncilDate = getLatestDate('council_briefing');
 
 const links = [
-  { href: '/', label: 'Home', id: 'home' },
   { href: '/gallery', label: 'Gallery', id: 'gallery' },
 ];
 ---
@@ -168,6 +167,11 @@ const links = [
   :global(.dark) .icon-sun { display: block; }
   :global(.dark) .icon-moon { display: none; }
 
+  @media (max-width: 1024px) {
+    .nav-inner { max-width: 100%; padding: 0 1rem; }
+    .nav-link { font-size: 0.8rem; }
+  }
+
   @media (max-width: 768px) {
     .site-nav { padding: 0.4rem 0.75rem; }
     .nav-inner { gap: 1rem; }
@@ -180,9 +184,9 @@ const links = [
   @media (max-width: 480px) {
     .site-nav { padding: 0.4rem 0.5rem; }
     .nav-inner { gap: 0.5rem; }
-    .nav-brand { font-size: 0.75rem; }
-    .nav-links { gap: 0.5rem; }
-    .nav-link { font-size: 0.72rem; }
+    .nav-brand { font-size: 0.7rem; }
+    .nav-links { gap: 0.4rem; }
+    .nav-link { font-size: 0.7rem; }
     .nav-right { gap: 0.35rem; }
     /* Hide RSS label on very small screens */
     .nav-icon-link .rss-label { display: none; }

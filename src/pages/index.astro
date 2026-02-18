@@ -75,6 +75,13 @@ const feedbackItems = (categories.user_feedback || []).map((item: any) => ({
 const keyFacts = facts.key_facts || [];
 ---
 <NewspaperLayout title="elizaOS News" description={description} ogImage={ogImage} active="home">
+  <script slot="jsonld" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "elizaOS News",
+    "url": "https://elizaos.news",
+    "description": "Daily AI-generated intelligence briefings for the elizaOS ecosystem"
+  })} />
   <Masthead date={date} latestDate={date} />
 
   <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date} themes={facts.tags?.themes} />
@@ -264,9 +271,23 @@ const keyFacts = facts.key_facts || [];
     overflow: hidden;
   }
 
+  @media (max-width: 1024px) {
+    .episodes-grid {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .episodes-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .episodes-grid {
+      grid-template-columns: 1fr;
     }
   }
 </style>
