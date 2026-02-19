@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: From above, Eliza stands alone on a snowy path splitting between shadowed signposts: one side tangled with question-marked wires, the other with scattered milestone markers. Papers flutter around her, illuminated by a cold spotlight, as distant outlines of commanding systems and recruitment icons gleam in the frosty haze.
+SCENE: From above: Eliza stands alone atop a glassy rooftop, city lights flickering on below. Cold blue shadows slice across digital schematics arrayed at her feet, code and SAID Protocol glyphs glowing in harsh relief—her reflection fractured, caught between worlds, as tension crackles in the winter twilight.
 
-ART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
