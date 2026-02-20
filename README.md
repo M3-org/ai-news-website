@@ -235,8 +235,8 @@ ai-news-website/
 │   │   └── manifest.json           # Clip provenance & CDN URLs
 │   ├── thumbnails/                 # Episode thumbnails
 │   └── *.mp4, *_session-log.json
-├── media/daily/                    # Generated posters (gitignored)
-├── trailers/                       # Generated trailers (gitignored)
+├── media/daily/                    # Generated posters (auto-committed, rolling 7-day retention by CI)
+├── trailers/                       # Generated trailer configs and outputs (local workflow artifacts)
 ├── rss/                            # RSS feeds
 │   ├── feed.xml                    # Daily facts feed
 │   └── council.xml                 # Council notes feed

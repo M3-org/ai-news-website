@@ -327,6 +327,8 @@ Runs automatically at **11:00 UTC** daily (30 min after knowledge repo updates).
 5. Clean up media dirs older than 7 days
 6. Auto-commit `media/daily/` and `rss/`
 
+> Note: `media/daily/` is intentionally versioned for site rendering, with rolling 7-day retention. Keep one-off debug artifacts under `tmp/debug/`.
+
 **Required Secrets:**
 - `OPENROUTER_API_KEY` — Required for image generation
 - `BUNNY_STORAGE_ZONE` — Optional (for CDN upload)

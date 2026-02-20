@@ -10,6 +10,10 @@ tmp/
 youtube_credentials.json
 client_secrets.json
 
+# Local scratch/debug artifacts (do not commit)
+screenshot-*.png
+the-council-agents/
+
 # IDE and build artifacts
 .cursor/
 .astro/
@@ -22,8 +26,9 @@ dist/
 # Logs
 logs/
 
-# Generated poster output (large, cleaned up after 7 days by CI)
-# media/daily/
+# Generated poster output is intentionally committed by CI
+# with rolling 7-day retention in generate-posters.yml.
+# Do not ignore media/daily/.
 
 # Local dev symlinks in public/ (CI uses post-build copy instead)
 public/media

@@ -1,0 +1,25 @@
+# elizaOS News
+> Daily AI-generated intelligence briefings for the elizaOS ecosystem
+
+## About
+elizaOS News (elizaos.news) publishes daily intelligence briefings covering Discord activity, X/Twitter news, GitHub development, market analysis, strategic insights, and AI Council deliberations for the elizaOS project.
+
+## Feeds
+- Daily Intelligence RSS: https://elizaos.news/rss/feed.xml
+- Council Briefings RSS: https://elizaos.news/rss/council.xml
+
+## Data Endpoints
+- Latest dates: https://elizaos.news/api/data/latest.json
+- Full catalog: https://elizaos.news/api/data/manifest.json
+
+## URL Patterns
+- Daily briefing: https://elizaos.news/daily/{YYYY-MM-DD}
+- Council briefing: https://elizaos.news/council/{YYYY-MM-DD}
+- Daily poster images: https://elizaos.news/media/daily/{YYYY-MM-DD}/overall.png
+
+## Sitemap
+- https://elizaos.news/sitemap-index.xml
+
+## Documentation
+- API reference: https://elizaos.news/api
+- Source code: https://github.com/M3-org/ai-news-website
