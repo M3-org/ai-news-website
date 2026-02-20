@@ -56,6 +56,9 @@ jobs:
           cp -r media/dashboards dist/media/dashboards 2>/dev/null || true
           cp -r rss/ dist/rss/ 2>/dev/null || true
           cp -r scripts/posters/characters/ dist/scripts/posters/characters/ 2>/dev/null || true
+          mkdir -p dist/api/data
+          cp knowledge/api/manifest.json dist/api/data/manifest.json 2>/dev/null || true
+          cp knowledge/api/latest.json dist/api/data/latest.json 2>/dev/null || true
           echo "Static assets copied:"
           ls dist/media/daily/ 2>/dev/null | head -10 || echo "  No media/daily"
           ls dist/media/daily/2026-02-16/ 2>/dev/null | head -5 || echo "  No 2026-02-16 images"

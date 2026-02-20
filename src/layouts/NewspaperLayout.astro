@@ -12,6 +12,7 @@ interface Props {
 const { title, description, ogImage, active = 'home' } = Astro.props;
 ---
 <BaseLayout title={title} description={description} ogImage={ogImage} theme="light">
+  <slot name="jsonld" slot="jsonld" />
   <SiteNav slot="nav" active={active} />
   <div class="news-container">
     <slot />

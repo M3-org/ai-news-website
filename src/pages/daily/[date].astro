@@ -67,6 +67,20 @@ const feedbackItems = (categories.user_feedback || []).map((item: any) => ({
 const keyFacts = facts.key_facts || [];
 ---
 <NewspaperLayout title={`Daily Brief - ${date}`} description={description} ogImage={ogImage}>
+  <script slot="jsonld" type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": `elizaOS Daily Intelligence - ${date}`,
+    "datePublished": date,
+    "description": description,
+    "image": ogImage,
+    "publisher": {
+      "@type": "Organization",
+      "name": "elizaOS News",
+      "url": "https://elizaos.news"
+    },
+    "mainEntityOfPage": `https://elizaos.news/daily/${date}`
+  })} />
   <Masthead date={date!} latestDate={latestDate} />
 
   <LeadStory summary={facts.overall_summary || ''} sentiment={facts.tags?.sentiment?.overall} date={date!} themes={facts.tags?.themes} />
