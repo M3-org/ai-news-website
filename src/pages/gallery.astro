@@ -4,6 +4,12 @@ import { getAvailableDates } from '../lib/data-loader';
 
 const dates = getAvailableDates('facts').slice(0, 30); // Last 30 days
 const posterNames = ['overall', 'twitter-news', 'discord-updates', 'github-updates', 'strategic-insights', 'market-analysis'];
+
+const dailyMediaCdnBase = 'https://cdn.elizaos.news';
+const toArchivePath = (path: string) => path.replace('/media/daily/', '/archive/media/daily/');
+const toCdnPath = (path: string) => `${dailyMediaCdnBase}${path}`;
+const thumbnailOnError = (archiveSrc: string, cdnSrc: string) =>
+  `if(!this.dataset.fallbackStep){this.dataset.fallbackStep='archive';this.src='${archiveSrc}';this.closest('.poster-card').dataset.src='${archiveSrc}';}else if(this.dataset.fallbackStep==='archive'){this.dataset.fallbackStep='cdn';this.src='${cdnSrc}';this.closest('.poster-card').dataset.src='${cdnSrc}';}else{this.closest('.poster-card').style.display='none';}`;
 ---
 <DarkLayout title="Gallery" description="Daily poster illustrations from the elizaOS ecosystem" active="gallery">
   <style>
@@ -110,17 +116,22 @@ const posterNames = ['overall', 'twitter-news', 'discord-updates', 'github-updat
     <div class="date-section">
       <div class="date-label"><a href={`/daily/${date}`}>{date}</a></div>
       <div class="poster-grid">
-        {posterNames.map(name => (
-          <div class="poster-card" data-src={`/media/daily/${date}/${name}.png`} onclick="openLightbox(this)">
-            <img
-              src={`/media/daily/${date}/${name}.png`}
-              alt={`${name} - ${date}`}
-              loading="lazy"
-              onerror="this.closest('.poster-card').style.display='none'"
-            />
-            <div class="poster-name">{name}</div>
-          </div>
-        ))}
+        {posterNames.map(name => {
+          const localSrc = `/media/daily/${date}/${name}.png`;
+          const archiveSrc = toArchivePath(localSrc);
+          const cdnSrc = toCdnPath(localSrc);
+          return (
+            <div class="poster-card" data-src={localSrc} onclick="openLightbox(this)">
+              <img
+                src={localSrc}
+                alt={`${name} - ${date}`}
+                loading="lazy"
+                onerror={thumbnailOnError(archiveSrc, cdnSrc)}
+              />
+              <div class="poster-name">{name}</div>
+            </div>
+          );
+        })}
       </div>
     </div>
   ))}
@@ -131,9 +142,46 @@ const posterNames = ['overall', 'twitter-news', 'discord-updates', 'github-updat
   </div>
 
   <script is:inline>
+    function toArchivePath(path) {
+      if (path && path.startsWith('/media/daily/')) {
+        return path.replace('/media/daily/', '/archive/media/daily/');
+      }
+      return path;
+    }
+
+    function toCdnPath(path) {
+      if (path && path.startsWith('/media/daily/')) {
+        return `https://cdn.elizaos.news${path}`;
+      }
+      if (path && path.startsWith('/archive/media/daily/')) {
+        return `https://cdn.elizaos.news${path.replace('/archive', '')}`;
+      }
+      return path;
+    }
+
     function openLightbox(el) {
       const src = el.dataset.src;
-      document.getElementById('lightbox-img').src = src;
+      const img = document.getElementById('lightbox-img');
+      img.dataset.fallbackStep = '';
+      img.onerror = () => {
+        if (!src) return;
+        if (!img.dataset.fallbackStep) {
+          if (src.startsWith('/media/daily/')) {
+            img.dataset.fallbackStep = 'archive';
+            img.src = toArchivePath(src);
+            return;
+          }
+          if (src.startsWith('/archive/media/daily/')) {
+            img.dataset.fallbackStep = 'cdn';
+            img.src = toCdnPath(src);
+            return;
+          }
+        } else if (img.dataset.fallbackStep === 'archive') {
+          img.dataset.fallbackStep = 'cdn';
+          img.src = toCdnPath(src);
+        }
+      };
+      img.src = src;
       document.getElementById('lightbox').classList.add('active');
       document.body.style.overflow = 'hidden';
     }

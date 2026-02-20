@@ -38,3 +38,12 @@ public/scripts
 
 # Knowledge symlink (local dev only)
 knowledge
+
+# Local archival storage (non-source artifacts)
+archive/
+
+# Remotion-generated/public symlinked assets (local only)
+remotion/public/
+
+# Local trailer exports
+trailers/

@@ -19,11 +19,21 @@ interface Props {
 
 const { title, items, categoryImage, categoryType = '' } = Astro.props;
 const altText = title.replace(/<[^>]*>/g, '').trim();
+
+const categoryImageArchive = categoryImage?.startsWith('/media/daily/')
+  ? categoryImage.replace('/media/daily/', '/archive/media/daily/')
+  : null;
+const categoryImageCdn = categoryImage?.startsWith('/media/daily/')
+  ? `https://cdn.elizaos.news${categoryImage}`
+  : null;
+const categoryImageOnError = categoryImageArchive && categoryImageCdn
+  ? `if(!this.dataset.fallbackStep){this.dataset.fallbackStep='archive';this.src='${categoryImageArchive}';}else if(this.dataset.fallbackStep==='archive'){this.dataset.fallbackStep='cdn';this.src='${categoryImageCdn}';}else{this.parentElement.style.display='none';}`
+  : "this.parentElement.style.display='none'";
 ---
 <div class="category-box" data-category={categoryType}>
   {categoryImage && (
     <div class="category-header-image-container">
-      <img src={categoryImage} alt={altText} class="category-header-image" loading="lazy" onerror="this.parentElement.style.display='none'" data-lightbox />
+      <img src={categoryImage} alt={altText} class="category-header-image" loading="lazy" onerror={categoryImageOnError} data-lightbox />
     </div>
   )}
   <div class="category-content">

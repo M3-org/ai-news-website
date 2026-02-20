@@ -8,12 +8,15 @@ interface Props {
 
 const { summary, sentiment, date, themes = [] } = Astro.props;
 const heroImage = `/media/daily/${date}/overall.png`;
+const heroImageArchive = heroImage.replace('/media/daily/', '/archive/media/daily/');
+const heroImageCdn = `https://cdn.elizaos.news${heroImage}`;
+const heroImageOnError = `if(!this.dataset.fallbackStep){this.dataset.fallbackStep='archive';this.src='${heroImageArchive}';}else if(this.dataset.fallbackStep==='archive'){this.dataset.fallbackStep='cdn';this.src='${heroImageCdn}';}else{this.style.display='none';}`;
 const displayThemes = themes.slice(0, 8);
 ---
 <div class="full-width">
   <article class="daily-brief">
     <div class="lead-image-container">
-      <img src={heroImage} alt="Daily briefing illustration" loading="eager" onerror="this.style.display='none'" data-lightbox />
+      <img src={heroImage} alt="Daily briefing illustration" loading="eager" onerror={heroImageOnError} data-lightbox />
     </div>
     <div class="brief-label">
       Daily Brief

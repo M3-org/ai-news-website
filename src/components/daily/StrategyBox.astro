@@ -10,11 +10,21 @@ interface Props {
 
 const { title, items, categoryImage } = Astro.props;
 const type = title.toLowerCase().includes('insight') ? 'strategic' : 'market';
+
+const categoryImageArchive = categoryImage?.startsWith('/media/daily/')
+  ? categoryImage.replace('/media/daily/', '/archive/media/daily/')
+  : null;
+const categoryImageCdn = categoryImage?.startsWith('/media/daily/')
+  ? `https://cdn.elizaos.news${categoryImage}`
+  : null;
+const categoryImageOnError = categoryImageArchive && categoryImageCdn
+  ? `if(!this.dataset.fallbackStep){this.dataset.fallbackStep='archive';this.src='${categoryImageArchive}';}else if(this.dataset.fallbackStep==='archive'){this.dataset.fallbackStep='cdn';this.src='${categoryImageCdn}';}else{this.parentElement.style.display='none';}`
+  : "this.parentElement.style.display='none'";
 ---
 <div class="strategy-box" data-category={type}>
   {categoryImage && (
     <div class="strategy-header-image-container">
-      <img src={categoryImage} alt={title} loading="lazy" onerror="this.parentElement.style.display='none'" data-lightbox />
+      <img src={categoryImage} alt={title} loading="lazy" onerror={categoryImageOnError} data-lightbox />
     </div>
   )}
   <h3 class="category-title">{title}</h3>
