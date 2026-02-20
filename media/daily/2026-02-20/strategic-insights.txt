@@ -2,12 +2,11 @@ Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
-- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Three silhouetted figures—Marc facing Spartan and Eliza—stand apart atop a frosty ridge at dawn. Tension crackles in the space between them, golden-pink light casting long shadows, cool mist swirling around their isolated forms against a vast, empty horizon.
+SCENE: In a misty winter dusk, Marc’s gloved hand gently rests on a frost-dusted circuit board, Eliza’s breath clouding the air beside him; between their fingers, a glowing SAID Protocol emblem illuminates drifting fog—signaling the first step from lifeless mechanism to sentient, trusted presence.
 
-ART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.
+ART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
