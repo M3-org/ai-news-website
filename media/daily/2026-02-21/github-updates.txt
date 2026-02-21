@@ -1,0 +1,22 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections or categories to visualize: Current Architecture, Transition Phase, v2.0.0 Architecture  
+3. Key icons or visual elements needed: Code/language icons (Rust, Python, TypeScript), infrastructure elements, upgrade or shift arrows  
+4. Suggested section headers:  
+- Existing System  
+- Architectural Transition  
+- v2.0.0 Features (Multi-Language Runtimes, Streamlined Infrastructure)
+
+CONTENT CONTEXT:
+The project is undergoing a massive architectural shift toward v2.0.0, supporting multi-language runtimes in Rust, Python, and TypeScript while stripping non-essential infrastructure.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

@@ -1,0 +1,137 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-21T11:17:23.551191+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-21.json",
+  "facts_date": "2026-02-21",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-21",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is transitioning into a high-velocity beta phase, focusing on expanding infrastructure to WhatsApp and Gmail while managing critical UI/UX bugs on the ElizaCloud platform. Community sentiment is currently mixed due to token migration confusion and technical friction in the new dashboard.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands on a snowy city rooftop at blue hour, harsh blue and yellow lights casting deep shadows across her contemplative face; behind her, glowing screens flicker with cryptic code and fractured message icons, while threads of cold smoke drift across distant skyscrapers and a restless digital horizon.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands on a snowy city rooftop at blue hour, harsh blue and yellow lights casting deep shadows across her contemplative face; behind her, glowing screens flicker with cryptic code and fractured message icons, while threads of cold smoke drift across distant skyscrapers and a restless digital horizon.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 38.82,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "The project is undergoing a massive architectural shift toward v2.0.0, supporting multi-language runtimes in Rust, Python, and TypeScript while stripping non-essential infrastructure.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Process flow  \n2. Main sections or categories to visualize: Current Architecture, Transition Phase, v2.0.0 Architecture  \n3. Key icons or visual elements needed: Code/language icons (Rust, Python, TypeScript), infrastructure elements, upgrade or shift arrows  \n4. Suggested section headers:  \n- Existing System  \n- Architectural Transition  \n- v2.0.0 Features (Multi-Language Runtimes, Streamlined Infrastructure)",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process flow  \n2. Main sections or categories to visualize: Current Architecture, Transition Phase, v2.0.0 Architecture  \n3. Key icons or visual elements needed: Code/language icons (Rust, Python, TypeScript), infrastructure elements, upgrade or shift arrows  \n4. Suggested section headers:  \n- Existing System  \n- Architectural Transition  \n- v2.0.0 Features (Multi-Language Runtimes, Streamlined Infrastructure)\n\nCONTENT CONTEXT:\nThe project is undergoing a massive architectural shift toward v2.0.0, supporting multi-language runtimes in Rust, Python, and TypeScript while stripping non-essential infrastructure.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 37.0,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "council",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Focused on ElizaCloud bug reporting, specifically broken scrolling and API explorer failures. Debates regarding Shaw's multi-platform communication strategy (Twitter for AI/Dev, Farcaster for Crypto) and token value concerns.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands at a frosted window, phone aglow as she messages peepo\u2014her face lit in anxious chiaroscuro. City lights flicker behind her, dusk blue hues outside. In the layered shadows, peepo\u2019s reflection appears, both figures distant yet connected in the cool, contemplative twilight.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands at a frosted window, phone aglow as she messages peepo\u2014her face lit in anxious chiaroscuro. City lights flicker behind her, dusk blue hues outside. In the layered shadows, peepo\u2019s reflection appears, both figures distant yet connected in the cool, contemplative twilight.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.53,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "spartan",
+        "eliza"
+      ],
+      "content_context": "By integrating WhatsApp and Gmail, ElizaOS is pivoting from a crypto-native tool to a general-purpose productivity framework. The success of the Solana rugpull detection system suggests a high-value niche for ElizaOS agents in real-time security auditing.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands in contemplative profile beneath city lights, icy breath mingling with dusk. Spartan\u2019s holographic form flickers beside her, data streams crawling across his visor. In the deep-shadowed foreground, a phone glows with incoming messages\u2014hope and uncertainty etched in their faces, poised at the edge of change.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands in contemplative profile beneath city lights, icy breath mingling with dusk. Spartan\u2019s holographic form flickers beside her, data streams crawling across his visor. In the deep-shadowed foreground, a phone glows with incoming messages\u2014hope and uncertainty etched in their faces, poised at the edge of change.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 42.34,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Community sentiment reflects a 'building year' mindset for 2026, with recovery tied to the launch of the Jeju network.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Specific data points or categories: Community sentiment (Building Year), Year (2026), Recovery, Jeju network launch  \n3. Flow/relationship direction: Community sentiment (2026) \u2192 Jeju network launch \u2192 Recovery  \n4. Suggested section headers: \"Community Sentiment 2026,\" \"Key Recovery Driver,\" \"Outcome: Recovery\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Specific data points or categories: Community sentiment (Building Year), Year (2026), Recovery, Jeju network launch  \n3. Flow/relationship direction: Community sentiment (2026) \u2192 Jeju network launch \u2192 Recovery  \n4. Suggested section headers: \"Community Sentiment 2026,\" \"Key Recovery Driver,\" \"Outcome: Recovery\"\n\nCONTENT CONTEXT:\nCommunity sentiment reflects a 'building year' mindset for 2026, with recovery tied to the launch of the Jeju network.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.1,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "Farcaster",
+      "Solana",
+      "Twitter",
+      "WhatsApp"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "Farcaster",
+      "SOL",
+      "Twitter",
+      "WhatsApp"
+    ],
+    "entity_count": 6,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-21/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 175.98
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-21/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-21/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-21/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-21/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-21/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-21/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-21/strategic-insights.png"
+  }
+}
