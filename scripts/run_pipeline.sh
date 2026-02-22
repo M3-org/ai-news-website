@@ -365,23 +365,30 @@ step_3_upload_youtube() {
 
     log "Uploading to YouTube from: $(basename "$METADATA_JSON")"
 
-    python3 scripts/youtube_upload.py --from-json "$METADATA_JSON"
+    if ! python3 scripts/youtube_upload.py --from-json "$METADATA_JSON"; then
+        log "ERROR: YouTube upload command failed"
+        return 1
+    fi
+
+    if [[ ! -f "$METADATA_JSON" ]]; then
+        log "ERROR: Metadata JSON missing after upload: $METADATA_JSON"
+        return 1
+    fi
 
     # Extract video ID from updated metadata
-    if [[ -f "$METADATA_JSON" ]]; then
-        YOUTUBE_VIDEO_ID=$(python3 -c "
+    YOUTUBE_VIDEO_ID=$(python3 -c "
 import json, sys
 with open('$METADATA_JSON') as f:
     d = json.load(f)
 print(d.get('video_id', d.get('id', '')))" 2>/dev/null || true)
 
-        if [[ -n "$YOUTUBE_VIDEO_ID" ]]; then
-            YOUTUBE_URL="https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}"
-            log "YouTube upload complete: $YOUTUBE_URL"
-        else
-            log "WARNING: Could not extract video ID from metadata"
-        fi
+    if [[ -z "$YOUTUBE_VIDEO_ID" ]]; then
+        log "ERROR: Could not extract video ID from metadata after upload"
+        return 1
     fi
+
+    YOUTUBE_URL="https://www.youtube.com/watch?v=${YOUTUBE_VIDEO_ID}"
+    log "YouTube upload complete: $YOUTUBE_URL"
     _save_state
 }
 
