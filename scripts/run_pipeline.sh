@@ -529,10 +529,49 @@ except: pass" 2>/dev/null) || true
 step_8_update_website() {
     local date_str
     date_str="${EPISODE_DATE:-$(date '+%Y-%m-%d')}"
+    local publish_source_dir="${OUTPUT_DIR}/published"
+    local state_file
 
     log "Updating website for date: $date_str"
 
-    python3 scripts/publish_m3tv.py --episode-date="$date_str" --push
+    mkdir -p "$publish_source_dir"
+
+    # Keep canonical publish inputs in episodes/published.
+    if [[ -n "${METADATA_JSON:-}" && -f "$METADATA_JSON" ]]; then
+        local metadata_dest
+        metadata_dest="${publish_source_dir}/$(basename "$METADATA_JSON")"
+        if [[ "$(realpath "$METADATA_JSON")" != "$(realpath "$metadata_dest" 2>/dev/null || echo "$metadata_dest")" ]]; then
+            cp "$METADATA_JSON" "$metadata_dest"
+            log "Synced metadata to publish source: $(basename "$METADATA_JSON")"
+        else
+            log "Metadata already in publish source: $(basename "$METADATA_JSON")"
+        fi
+    else
+        local latest_metadata
+        latest_metadata=$(ls -t "${OUTPUT_DIR}/${date_str}"_*_youtube_metadata.json 2>/dev/null | head -1 || true)
+        if [[ -n "$latest_metadata" && -f "$latest_metadata" ]]; then
+            local latest_dest
+            latest_dest="${publish_source_dir}/$(basename "$latest_metadata")"
+            if [[ "$(realpath "$latest_metadata")" != "$(realpath "$latest_dest" 2>/dev/null || echo "$latest_dest")" ]]; then
+                cp "$latest_metadata" "$latest_dest"
+                log "Synced metadata to publish source: $(basename "$latest_metadata")"
+            else
+                log "Metadata already in publish source: $(basename "$latest_metadata")"
+            fi
+        fi
+    fi
+
+    state_file="$(_state_file)"
+    if [[ -f "$state_file" ]]; then
+        cp "$state_file" "${publish_source_dir}/$(basename "$state_file")"
+        log "Synced pipeline state to publish source: $(basename "$state_file")"
+    fi
+
+    python3 scripts/publish_m3tv.py \
+        --episode-date="$date_str" \
+        --source-dir="$publish_source_dir" \
+        --sync-all \
+        --push
 
     log "Website updated"
 }

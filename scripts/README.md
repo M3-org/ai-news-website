@@ -250,20 +250,20 @@ Sends rich Discord notifications after pipeline completion, with optional publis
 
 ### `publish_m3tv.py` — Website Publisher (Step 8)
 
-Updates the M3TV website (`m3org.com/tv`) with new episode data. Upserts into `cronjob-episodes.json` and `gallery.json`, then commits and pushes.
+Updates the M3TV website (`m3org.com/tv`) from canonical metadata in `episodes/published/`. Can sync all Cron Job episode cards into `cronjob-episodes.json` and `gallery.json`, then commit and push.
 
 ```bash
-# Requires --website-repo or WEBSITE_REPO env var
-python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --push
+# Full sync from canonical source dir (recommended)
+python3 scripts/publish_m3tv.py --source-dir=episodes/published --sync-all --website-repo=/path/to/website --push
 
-# Using env var (recommended for automation)
-WEBSITE_REPO=/path/to/website python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --push
+# Targeted update for one date
+python3 scripts/publish_m3tv.py --episode-date=2026-02-23 --source-dir=episodes/published --website-repo=/path/to/website
 
 # Preview changes without writing
-python3 scripts/publish_m3tv.py --episode-date=2026-02-02 --website-repo=/path/to/website --dry-run
+python3 scripts/publish_m3tv.py --source-dir=episodes/published --sync-all --website-repo=/path/to/website --dry-run
 ```
 
-**Inputs:** Episode date, website repo path (via `--website-repo` or `WEBSITE_REPO` env var), optional `--metadata-json` override
+**Inputs:** Website repo path (via `--website-repo` or `WEBSITE_REPO` env var), canonical source dir (`--source-dir`, default `episodes/published`), optional `--episode-date` and `--metadata-json` override
 **Outputs:** Updated `tv/data/cronjob-episodes.json` and `tv/gallery.json` in the website repo
 
 ---

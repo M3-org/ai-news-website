@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
-"""Publish latest Cron Job episode metadata into m3org.com/tv and deploy via git push."""
+"""Publish Cron Job episode metadata into m3org.com/tv and deploy via git push."""
 
 from __future__ import annotations
 
 import argparse
-import glob
 import json
 import os
 import re
@@ -15,17 +14,21 @@ from typing import Any, Dict, Optional
 # Load .env file if present
 try:
     from dotenv import load_dotenv
+
     load_dotenv()
 except ImportError:
     pass  # dotenv not required if env vars set directly
 
 
+DATE_PREFIX_RE = re.compile(r"^(?P<date>\d{4}-\d{2}-\d{2})_")
+
+
 def extract_youtube_id(value: str) -> Optional[str]:
     if not value:
         return None
-    m = re.search(r"(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})", value)
-    if m:
-        return m.group(1)
+    match = re.search(r"(?:v=|youtu\.be/)([A-Za-z0-9_-]{11})", value)
+    if match:
+        return match.group(1)
     if re.fullmatch(r"[A-Za-z0-9_-]{11}", value):
         return value
     return None
@@ -45,39 +48,172 @@ def write_json(path: Path, data: Any, dry_run: bool) -> None:
         f.write("\n")
 
 
-def find_metadata_file(episodes_dir: Path, episode_date: str, override: Optional[Path]) -> Path:
+def resolve_path(raw_path: str, base_dir: Path) -> Path:
+    path = Path(raw_path)
+    if path.is_absolute():
+        return path
+    return (base_dir / path).resolve()
+
+
+def parse_date_from_name(path: Path) -> Optional[str]:
+    match = DATE_PREFIX_RE.match(path.name)
+    return match.group("date") if match else None
+
+
+def parse_date_from_source_session_log(metadata: Dict[str, Any]) -> Optional[str]:
+    session_log = str(metadata.get("_source", {}).get("session_log", "")).strip()
+    if not session_log:
+        return None
+    return parse_date_from_name(Path(session_log))
+
+
+def collect_metadata_files(
+    source_dir: Path,
+    episode_date: Optional[str],
+    override: Optional[Path],
+    sync_all: bool,
+) -> list[Path]:
     if override:
         if not override.exists():
             raise FileNotFoundError(f"metadata file not found: {override}")
-        return override
+        return [override]
 
-    pattern = str(episodes_dir / f"{episode_date}_*_youtube_metadata*.json")
-    candidates = sorted(glob.glob(pattern))
+    if not source_dir.exists():
+        raise FileNotFoundError(f"source directory not found: {source_dir}")
+
+    if sync_all or not episode_date:
+        candidates = sorted(source_dir.glob("*_youtube_metadata*.json"))
+        if not candidates:
+            raise FileNotFoundError(f"no metadata JSON found in {source_dir}")
+        return candidates
+
+    pattern = f"{episode_date}_*_youtube_metadata*.json"
+    candidates = sorted(source_dir.glob(pattern))
     if not candidates:
-        raise FileNotFoundError(f"no metadata JSON found for date {episode_date}: {pattern}")
+        raise FileNotFoundError(f"no metadata JSON found for date {episode_date} in {source_dir}")
 
-    # Use latest mtime if multiple candidates.
-    candidates.sort(key=lambda p: Path(p).stat().st_mtime, reverse=True)
-    return Path(candidates[0])
-
-
-def normalize_title(raw_title: str) -> str:
-    title = raw_title.strip()
-    title = re.sub(r"\s+\|\s*.*$", "", title)
-    title = re.sub(r"\s*-\s*Cron\s*Job\s*$", "", title, flags=re.IGNORECASE)
-    if not title.lower().startswith("cron job"):
-        title = f"Cron Job: {title}"
-    return title
+    # Use latest mtime if multiple candidates for the same date.
+    candidates.sort(key=lambda p: p.stat().st_mtime, reverse=True)
+    return [candidates[0]]
 
 
-def upsert_episode_data(data: Dict[str, Any], episode_date: str, payload: Dict[str, str]) -> bool:
+def resolve_video_id(
+    metadata: Dict[str, Any],
+    episode_date: str,
+    source_dir: Path,
+    episodes_dir: Path,
+) -> Optional[str]:
+    video_id = extract_youtube_id(str(metadata.get("video_id", "")))
+    if video_id:
+        return video_id
+
+    video_id = extract_youtube_id(str(metadata.get("url", "")))
+    if video_id:
+        return video_id
+
+    # Fallback: pipeline state in source dir, then root episodes dir.
+    candidate_states = [
+        source_dir / f"{episode_date}_pipeline_state.json",
+        episodes_dir / f"{episode_date}_pipeline_state.json",
+    ]
+
+    for state_path in candidate_states:
+        if not state_path.exists():
+            continue
+        try:
+            state = load_json(state_path)
+        except Exception:
+            continue
+
+        video_id = extract_youtube_id(str(state.get("youtube_video_id", "")))
+        if video_id:
+            return video_id
+
+        video_id = extract_youtube_id(str(state.get("youtube_url", "")))
+        if video_id:
+            return video_id
+
+    return None
+
+
+def build_payload(
+    metadata: Dict[str, Any],
+    metadata_file: Path,
+    episode_date: str,
+    source_dir: Path,
+    episodes_dir: Path,
+) -> Dict[str, str]:
+    raw_title = str(metadata.get("title", "")).strip()
+    source_show = str(metadata.get("_source", {}).get("show_name", "")).strip()
+
+    if not raw_title:
+        raise RuntimeError(f"metadata missing title: {metadata_file}")
+    if "cron" not in raw_title.lower() and "cron" not in source_show.lower():
+        raise RuntimeError(f"metadata does not look like Cron Job episode: {metadata_file}")
+
+    video_id = resolve_video_id(metadata, episode_date, source_dir, episodes_dir)
+    if not video_id:
+        raise RuntimeError(f"unable to extract YouTube video ID from {metadata_file}")
+
+    return {
+        "id": video_id,
+        "title": raw_title,
+        "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
+        "url": f"https://www.youtube.com/watch?v={video_id}",
+    }
+
+
+def collect_episode_payloads(
+    metadata_files: list[Path],
+    explicit_date: Optional[str],
+    source_dir: Path,
+    episodes_dir: Path,
+) -> Dict[str, Dict[str, str]]:
+    payloads: Dict[str, Dict[str, str]] = {}
+    mtimes_by_date: Dict[str, float] = {}
+
+    for metadata_file in metadata_files:
+        metadata = load_json(metadata_file)
+
+        episode_date = parse_date_from_name(metadata_file)
+        if not episode_date:
+            episode_date = parse_date_from_source_session_log(metadata)
+        if not episode_date and explicit_date:
+            episode_date = explicit_date
+        if not episode_date:
+            raise RuntimeError(f"unable to determine episode date for {metadata_file}")
+
+        payload = build_payload(metadata, metadata_file, episode_date, source_dir, episodes_dir)
+
+        file_mtime = metadata_file.stat().st_mtime
+        if episode_date in payloads and file_mtime <= mtimes_by_date[episode_date]:
+            continue
+        if episode_date in payloads and file_mtime > mtimes_by_date[episode_date]:
+            print(f"Warning: duplicate metadata for {episode_date}; using latest file {metadata_file.name}")
+
+        payloads[episode_date] = payload
+        mtimes_by_date[episode_date] = file_mtime
+
+    return payloads
+
+
+def build_episode_data(payloads: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
+    return {date: {"en": payloads[date]} for date in sorted(payloads.keys())}
+
+
+def upsert_episode_data(
+    current: Dict[str, Any],
+    payloads: Dict[str, Dict[str, str]],
+) -> bool:
     changed = False
-    if episode_date not in data:
-        data[episode_date] = {}
-        changed = True
-    if data[episode_date].get("en") != payload:
-        data[episode_date]["en"] = payload
-        changed = True
+    for episode_date in sorted(payloads.keys()):
+        payload = payloads[episode_date]
+        if episode_date not in current:
+            current[episode_date] = {}
+            changed = True
+        if current[episode_date].get("en") != payload:
+            current[episode_date]["en"] = payload
+            changed = True
     return changed
 
 
@@ -104,9 +240,48 @@ def upsert_gallery_item(gallery: Dict[str, Any], payload: Dict[str, str], episod
             items[target_idx] = desired
         return changed
 
-    insert_at = next((i for i, it in enumerate(items) if it.get("show") == "cronjob"), 0)
+    insert_at = next((i for i, item in enumerate(items) if item.get("show") == "cronjob"), 0)
     items.insert(insert_at, desired)
     return True
+
+
+def upsert_gallery_data(gallery: Dict[str, Any], payloads: Dict[str, Dict[str, str]]) -> bool:
+    changed = False
+    for episode_date in sorted(payloads.keys()):
+        changed = upsert_gallery_item(gallery, payloads[episode_date], episode_date) or changed
+    return changed
+
+
+def sync_gallery_data(gallery: Dict[str, Any], payloads: Dict[str, Dict[str, str]]) -> bool:
+    old_items = list(gallery["items"])
+
+    episode_cards = []
+    for episode_date in sorted(payloads.keys(), reverse=True):
+        payload = payloads[episode_date]
+        episode_cards.append(
+            {
+                "show": "cronjob",
+                "youtube": payload["id"],
+                "title": payload["title"],
+                "thumbnail": payload["thumbnail"],
+                "label": episode_date,
+                "description": "Weekly Cron Job episode",
+            }
+        )
+
+    filtered_items = [
+        item
+        for item in old_items
+        if not (item.get("show") == "cronjob" and item.get("youtube"))
+    ]
+
+    insert_at = next((i for i, item in enumerate(filtered_items) if item.get("show") == "cronjob"), 0)
+    new_items = filtered_items[:insert_at] + episode_cards + filtered_items[insert_at:]
+
+    if new_items != old_items:
+        gallery["items"] = new_items
+        return True
+    return False
 
 
 def run_git(repo: Path, args: list[str], check: bool = True) -> subprocess.CompletedProcess:
@@ -115,10 +290,19 @@ def run_git(repo: Path, args: list[str], check: bool = True) -> subprocess.Compl
 
 def main() -> int:
     parser = argparse.ArgumentParser(description="Publish Cron Job episode updates to m3org website")
-    parser.add_argument("--episode-date", required=True, help="Episode date YYYY-MM-DD")
-    parser.add_argument("--website-repo", default=os.environ.get("WEBSITE_REPO"),
-                        help="Path to website repo (or set WEBSITE_REPO env var)")
+    parser.add_argument("--episode-date", help="Episode date YYYY-MM-DD (optional; used for targeted updates)")
+    parser.add_argument(
+        "--source-dir",
+        default="episodes/published",
+        help="Source directory containing canonical *_youtube_metadata.json files",
+    )
+    parser.add_argument(
+        "--website-repo",
+        default=os.environ.get("WEBSITE_REPO"),
+        help="Path to website repo (or set WEBSITE_REPO env var)",
+    )
     parser.add_argument("--metadata-json", help="Override metadata JSON path")
+    parser.add_argument("--sync-all", action="store_true", help="Rebuild all Cron Job website entries from source-dir")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
     parser.add_argument("--push", action="store_true", help="Commit and push website repo changes")
     parser.add_argument("--no-push", action="store_true", help="Do not push even if --push provided")
@@ -129,38 +313,30 @@ def main() -> int:
 
     project_dir = Path(__file__).resolve().parents[1]
     episodes_dir = project_dir / "episodes"
+    source_dir = resolve_path(args.source_dir, project_dir)
     website_repo = Path(args.website_repo)
     tv_dir = website_repo / "tv"
     episodes_path = tv_dir / "data" / "cronjob-episodes.json"
     gallery_path = tv_dir / "gallery.json"
 
-    metadata_file = find_metadata_file(
-        episodes_dir,
-        args.episode_date,
-        Path(args.metadata_json) if args.metadata_json else None,
+    metadata_override = resolve_path(args.metadata_json, project_dir) if args.metadata_json else None
+    sync_all = args.sync_all or (args.episode_date is None and metadata_override is None)
+
+    metadata_files = collect_metadata_files(
+        source_dir=source_dir,
+        episode_date=args.episode_date,
+        override=metadata_override,
+        sync_all=sync_all,
     )
-    metadata = load_json(metadata_file)
 
-    raw_title = metadata.get("title", "").strip()
-    source_show = str(metadata.get("_source", {}).get("show_name", "")).strip()
-    if not raw_title:
-        raise RuntimeError(f"metadata missing title: {metadata_file}")
-    if "cron" not in raw_title.lower() and "cron" not in source_show.lower():
-        raise RuntimeError(f"metadata does not look like Cron Job episode: {metadata_file}")
-
-    video_id = extract_youtube_id(str(metadata.get("video_id", "")))
-    if not video_id:
-        video_id = extract_youtube_id(str(metadata.get("url", "")))
-    if not video_id:
-        raise RuntimeError(f"unable to extract YouTube video ID from {metadata_file}")
-
-    title = normalize_title(raw_title)
-    payload = {
-        "id": video_id,
-        "title": title,
-        "thumbnail": f"https://i.ytimg.com/vi/{video_id}/hqdefault.jpg",
-        "url": f"https://www.youtube.com/watch?v={video_id}",
-    }
+    payloads = collect_episode_payloads(
+        metadata_files=metadata_files,
+        explicit_date=args.episode_date,
+        source_dir=source_dir,
+        episodes_dir=episodes_dir,
+    )
+    if not payloads:
+        raise RuntimeError("no valid episode payloads were generated")
 
     episodes_data: Dict[str, Any] = {}
     if episodes_path.exists():
@@ -168,8 +344,15 @@ def main() -> int:
 
     gallery_data = load_json(gallery_path)
 
-    changed_episodes = upsert_episode_data(episodes_data, args.episode_date, payload)
-    changed_gallery = upsert_gallery_item(gallery_data, payload, args.episode_date)
+    if sync_all:
+        desired_episodes_data = build_episode_data(payloads)
+        changed_episodes = episodes_data != desired_episodes_data
+        if changed_episodes:
+            episodes_data = desired_episodes_data
+        changed_gallery = sync_gallery_data(gallery_data, payloads)
+    else:
+        changed_episodes = upsert_episode_data(episodes_data, payloads)
+        changed_gallery = upsert_gallery_data(gallery_data, payloads)
 
     if not changed_episodes and not changed_gallery:
         print("No website data changes detected.")
@@ -202,7 +385,9 @@ def main() -> int:
 
         run_git(website_repo, ["config", "user.email", "github-actions[bot]@users.noreply.github.com"])
         run_git(website_repo, ["config", "user.name", "github-actions[bot]"])
-        run_git(website_repo, ["commit", "-m", f"Cron Job weekly update: {args.episode_date}"])
+
+        commit_date = args.episode_date or sorted(payloads.keys())[-1]
+        run_git(website_repo, ["commit", "-m", f"Cron Job weekly update: {commit_date}"])
         run_git(website_repo, ["push", "origin", "main"])
         print("Committed and pushed website updates.")
 
