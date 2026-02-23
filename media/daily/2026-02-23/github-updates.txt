@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city center stands the main "Runtime Tower" (multi-language support core), surrounded by three specialized Development Labs (Rust, Python, TS). The "Legacy Archive"—a vacated, partially demolished structure—marks code deletions. A "Migration Plaza" buffer area indicates transition paths now closed off. Broad "Optimization Avenues" channel efficient data flow between labs and the Runtime Tower. The "Modernization District" delineates these elements, ringed by green zones symbolizing system rejuvenation. Labels: Runtime Tower, Rust Lab, Python Lab, TS Lab, Legacy Archive, Migration Plaza, Optimization Avenue, Modernization District.
+
+CONTENT CONTEXT:
+Development is centered on the transition to v2.0.0, involving significant code deletions of legacy migration paths and optimizing the runtime for multi-language support (Rust, Python, TS).
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
