@@ -21,6 +21,7 @@ import argparse
 import asyncio
 import json
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -52,12 +53,48 @@ def _has_publish_role(interaction: discord.Interaction, role_id: int | None) -> 
 class PublishView(discord.ui.View):
     """Two-button view: Publish (green) and Cancel (red)."""
 
-    def __init__(self, video_id: str, timeout: float = 86400, role_id: int | None = None, content: str = ""):
+    def __init__(
+        self,
+        video_id: str,
+        timeout: float = 86400,
+        role_id: int | None = None,
+        content: str = "",
+        website_args: dict | None = None,
+    ):
         super().__init__(timeout=timeout)
         self.video_id = video_id
         self.role_id = role_id
         self.content = content  # original message content for edits
         self.result = None  # "published", "cancelled", or None (timeout)
+        self.website_args = website_args  # args for publish_m3tv.py
+
+    async def _run_website_publish(self) -> subprocess.CompletedProcess | None:
+        """Run publish_m3tv.py to push episode data to the website repo."""
+        if not self.website_args:
+            return None
+        args = self.website_args
+        if not args.get("website_repo"):
+            print("WARNING: No website_repo configured; skipping website publish")
+            return None
+
+        cmd = [
+            sys.executable, "scripts/publish_m3tv.py",
+            "--episode-date", args["episode_date"],
+            "--source-dir", args["source_dir"],
+            "--website-repo", args["website_repo"],
+            "--sync-all", "--push",
+        ]
+        print(f"Running website publish: {' '.join(cmd)}")
+        loop = asyncio.get_running_loop()
+        result = await loop.run_in_executor(
+            None,
+            lambda: subprocess.run(cmd, capture_output=True, text=True),
+        )
+        if result.returncode != 0:
+            print(f"publish_m3tv.py failed (rc={result.returncode}):\n{result.stderr}")
+        else:
+            print("Website publish succeeded")
+        return result
 
     @discord.ui.button(label="Publish", style=discord.ButtonStyle.green)
     async def publish_btn(
@@ -72,17 +109,27 @@ class PublishView(discord.ui.View):
         await interaction.response.defer()
         try:
             publish(self.video_id, "public")
-            self.result = "published"
-            self._disable_all()
-            await interaction.edit_original_response(
-                content=self.content + f"\n**Published** by {interaction.user.mention}",
-                view=self,
-            )
         except Exception as e:
             await interaction.followup.send(
                 f"Publish failed: {e}", ephemeral=True
             )
             return
+
+        # YouTube is now public — update website
+        status_parts = [f"\n**Published** by {interaction.user.mention}"]
+        wp_result = await self._run_website_publish()
+        if wp_result and wp_result.returncode != 0:
+            status_parts.append(
+                f"\n:warning: YouTube published but website update failed:"
+                f"\n```\n{wp_result.stderr[:500]}\n```"
+            )
+
+        self.result = "published"
+        self._disable_all()
+        await interaction.edit_original_response(
+            content=self.content + "".join(status_parts),
+            view=self,
+        )
         self.stop()
 
     @discord.ui.button(label="Cancel", style=discord.ButtonStyle.red)
@@ -108,6 +155,8 @@ class PublishView(discord.ui.View):
         try:
             publish(self.video_id, "public")
             self.result = "published"
+            # Also trigger website publish on auto-approve
+            await self._run_website_publish()
         except Exception:
             self.result = "timeout_failed"
 
@@ -193,6 +242,7 @@ async def run(
     channel_id: int,
     timeout: float,
     role_id: int | None = None,
+    website_args: dict | None = None,
 ):
     intents = discord.Intents.default()
     client = discord.Client(intents=intents)
@@ -227,7 +277,13 @@ async def run(
         # Message 2: YouTube URL (native preview) + Publish/Cancel buttons
         msg = None
         view = (
-            PublishView(video_id=video_id, timeout=timeout, role_id=role_id, content=yt_url)
+            PublishView(
+                video_id=video_id,
+                timeout=timeout,
+                role_id=role_id,
+                content=yt_url,
+                website_args=website_args,
+            )
             if video_id
             else None
         )
@@ -290,6 +346,19 @@ def main():
         default=int(os.environ.get("DISCORD_PUBLISH_ROLE_ID", "0")) or None,
         help="Discord role ID required to click Publish/Cancel",
     )
+    parser.add_argument(
+        "--publish-source-dir",
+        help="Source directory for publish_m3tv.py (episodes/published)",
+    )
+    parser.add_argument(
+        "--episode-date",
+        help="Episode date YYYY-MM-DD for publish_m3tv.py",
+    )
+    parser.add_argument(
+        "--website-repo",
+        default=os.environ.get("WEBSITE_REPO"),
+        help="Path to website repo for publish_m3tv.py",
+    )
     args = parser.parse_args()
 
     with open(args.state) as f:
@@ -299,7 +368,16 @@ def main():
         print("ERROR: --channel-id or DISCORD_NOTIFY_CHANNEL_ID required")
         sys.exit(1)
 
-    asyncio.run(run(state, args.trailer, args.channel_id, args.timeout, args.role_id))
+    # Build website publish args if provided
+    website_args = None
+    if args.publish_source_dir and args.episode_date:
+        website_args = {
+            "source_dir": args.publish_source_dir,
+            "episode_date": args.episode_date,
+            "website_repo": args.website_repo or "",
+        }
+
+    asyncio.run(run(state, args.trailer, args.channel_id, args.timeout, args.role_id, website_args))
 
 
 if __name__ == "__main__":

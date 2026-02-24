@@ -65,6 +65,7 @@ DRY_RUN=false
 FROM_STEP=1
 SKIP_RECORD=false
 DATE_OVERRIDE=""
+FORCE_RERECORD=false
 
 for arg in "$@"; do
     case "$arg" in
@@ -81,6 +82,9 @@ for arg in "$@"; do
         --date=*)
             DATE_OVERRIDE="${arg#*=}"
             ;;
+        --force-rerecord)
+            FORCE_RERECORD=true
+            ;;
         --help|-h)
             echo "Usage: $0 [OPTIONS]"
             echo ""
@@ -89,6 +93,7 @@ for arg in "$@"; do
             echo "  --from-step=N      Resume from step N (1-9)"
             echo "  --skip-record      Skip recording, use latest existing episode"
             echo "  --date=YYYY-MM-DD  Override episode date"
+            echo "  --force-rerecord   Clean up old episode (YouTube, playlist, website) and re-record"
             echo "  --help             Show this help"
             echo ""
             echo "Steps:"
@@ -99,8 +104,8 @@ for arg in "$@"; do
             echo "  5. Generate trailer config (LLM)"
             echo "  6. Render trailer via Remotion"
             echo "  7. Generate manifest + Upload to CDN"
-            echo "  8. Update website"
-            echo "  9. Notify (Discord + desktop)"
+            echo "  8. Stage for publish"
+            echo "  9. Notify (Discord + desktop; Publish triggers website update)"
             exit 0
             ;;
         *)
@@ -253,6 +258,131 @@ for k, v in s.items():
     if v and not os.environ.get(k.upper()):
         print(f'{k.upper()}={shlex.quote(str(v))}')
 ")"
+}
+
+# ============================================================================
+# Force re-record cleanup
+# ============================================================================
+
+_cleanup_old_episode() {
+    local date_str="${EPISODE_DATE:-${DATE_OVERRIDE:-}}"
+    if [[ -z "$date_str" ]]; then
+        log "ERROR: --force-rerecord requires --date=YYYY-MM-DD or a resolvable episode date"
+        return 1
+    fi
+
+    log "========================================"
+    log "Force re-record: cleaning up $date_str"
+    log "========================================"
+
+    # --- Resolve old video_id from pipeline state or metadata ---
+    local old_video_id=""
+    local state_file="${OUTPUT_DIR}/${date_str}_pipeline_state.json"
+    local published_state="${OUTPUT_DIR}/published/${date_str}_pipeline_state.json"
+
+    for sf in "$state_file" "$published_state"; do
+        if [[ -f "$sf" && -z "$old_video_id" ]]; then
+            old_video_id=$(python3 -c "
+import json
+with open('$sf') as f:
+    s = json.load(f)
+print(s.get('youtube_video_id', ''))" 2>/dev/null || true)
+        fi
+    done
+
+    # Fallback: check metadata JSONs
+    if [[ -z "$old_video_id" ]]; then
+        local meta_file
+        meta_file=$(ls -t "${OUTPUT_DIR}/${date_str}"_*_youtube_metadata.json "${OUTPUT_DIR}/published/${date_str}"_*_youtube_metadata.json 2>/dev/null | head -1 || true)
+        if [[ -n "$meta_file" ]]; then
+            old_video_id=$(python3 -c "
+import json
+with open('$meta_file') as f:
+    d = json.load(f)
+print(d.get('video_id', ''))" 2>/dev/null || true)
+        fi
+    fi
+
+    # --- YouTube cleanup ---
+    if [[ -n "$old_video_id" ]]; then
+        log "Old video ID: $old_video_id"
+
+        if [[ "$DRY_RUN" == "true" ]]; then
+            log "[DRY RUN] Would set $old_video_id to private"
+        else
+            log "Setting $old_video_id to private..."
+            python3 scripts/youtube_upload.py --visibility private --video "$old_video_id" || \
+                log "WARNING: Failed to set video to private (may already be private)"
+        fi
+
+        local playlist_id="${YOUTUBE_PLAYLIST_ID:-}"
+        if [[ -n "$playlist_id" ]]; then
+            if [[ "$DRY_RUN" == "true" ]]; then
+                log "[DRY RUN] Would remove $old_video_id from playlist $playlist_id"
+            else
+                log "Removing $old_video_id from playlist $playlist_id..."
+                python3 scripts/youtube_upload.py --remove-from-playlist "$playlist_id" --video "$old_video_id" || \
+                    log "WARNING: Failed to remove from playlist (may already be removed)"
+            fi
+        fi
+    else
+        log "No old video ID found — skipping YouTube cleanup"
+    fi
+
+    # --- Website unpublish ---
+    local website_repo="${WEBSITE_REPO:-}"
+    if [[ -n "$website_repo" ]]; then
+        if [[ "$DRY_RUN" == "true" ]]; then
+            log "[DRY RUN] Would unpublish $date_str from website"
+            python3 scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
+                --website-repo "$website_repo" --dry-run || true
+        else
+            log "Unpublishing $date_str from website..."
+            python3 scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
+                --website-repo "$website_repo" --push || \
+                log "WARNING: Website unpublish failed (may not have been published)"
+        fi
+    else
+        log "WEBSITE_REPO not set — skipping website unpublish"
+    fi
+
+    # --- Move local files to trash ---
+    local trash_dir="${OUTPUT_DIR}/trash"
+    mkdir -p "$trash_dir"
+
+    local moved=0
+    for pattern in \
+        "${OUTPUT_DIR}/${date_str}_"*.mp4 \
+        "${OUTPUT_DIR}/${date_str}_"*_session-log.json \
+        "${OUTPUT_DIR}/${date_str}_"*_youtube_metadata.json \
+        "${OUTPUT_DIR}/${date_str}_"*_suggestions.json \
+        "${OUTPUT_DIR}/${date_str}_pipeline_state.json" \
+        "${OUTPUT_DIR}/published/${date_str}_"*_youtube_metadata.json \
+        "${OUTPUT_DIR}/published/${date_str}_pipeline_state.json"
+    do
+        # shellcheck disable=SC2086
+        for f in $pattern; do
+            if [[ -f "$f" ]]; then
+                if [[ "$DRY_RUN" == "true" ]]; then
+                    log "[DRY RUN] Would move to trash: $f"
+                else
+                    mv "$f" "$trash_dir/"
+                    log "Moved to trash: $(basename "$f")"
+                fi
+                moved=$((moved + 1))
+            fi
+        done
+    done
+
+    if [[ "$moved" -eq 0 ]]; then
+        log "No local files found for $date_str to clean up"
+    fi
+
+    # Clear in-memory state so the pipeline starts fresh
+    YOUTUBE_URL="" YOUTUBE_VIDEO_ID="" CDN_TRAILER_URL=""
+    SESSION_LOG="" VIDEO_FILE="" METADATA_JSON="" TRAILER_CONFIG=""
+
+    log "Cleanup complete for $date_str"
 }
 
 # ============================================================================
@@ -526,13 +656,13 @@ except: pass" 2>/dev/null) || true
     _save_state
 }
 
-step_8_update_website() {
+step_8_stage_for_publish() {
     local date_str
     date_str="${EPISODE_DATE:-$(date '+%Y-%m-%d')}"
     local publish_source_dir="${OUTPUT_DIR}/published"
     local state_file
 
-    log "Updating website for date: $date_str"
+    log "Staging episode for publish: $date_str"
 
     mkdir -p "$publish_source_dir"
 
@@ -567,13 +697,10 @@ step_8_update_website() {
         log "Synced pipeline state to publish source: $(basename "$state_file")"
     fi
 
-    python3 scripts/publish_m3tv.py \
-        --episode-date="$date_str" \
-        --source-dir="$publish_source_dir" \
-        --sync-all \
-        --push
-
-    log "Website updated"
+    # Website publish is now triggered by Discord approval (step 9).
+    # We only stage files here — publish_m3tv.py runs after human clicks "Publish".
+    export PUBLISH_SOURCE_DIR="$publish_source_dir"
+    log "Episode staged for publish (awaiting Discord approval)"
 }
 
 step_9_notify() {
@@ -582,6 +709,7 @@ step_9_notify() {
     local duration_min=$(( duration / 60 ))
     local duration_sec=$(( duration % 60 ))
     local title="${EPISODE_TITLE:-Cron Job Episode}"
+    local publish_source_dir="${PUBLISH_SOURCE_DIR:-${OUTPUT_DIR}/published}"
 
     log "Pipeline completed in ${duration_min}m ${duration_sec}s"
     log "Episode: $title"
@@ -595,6 +723,7 @@ step_9_notify() {
     _save_state
 
     # Discord bot notification (background — waits for publish button)
+    # The bot now also triggers publish_m3tv.py when "Publish" is clicked.
     local state_file="$(_state_file)"
     local trailer_file="${TRAILER_DIR}/${date_str}_trailer.mp4"
 
@@ -605,6 +734,11 @@ step_9_notify() {
         )
         [[ -n "${DISCORD_PUBLISH_ROLE_ID:-}" ]] && bot_args+=(--role-id "$DISCORD_PUBLISH_ROLE_ID")
         [[ -f "$trailer_file" ]] && bot_args+=(--trailer "$trailer_file")
+
+        # Pass website publish args so the bot can trigger publish_m3tv.py on approval
+        bot_args+=(--publish-source-dir "$publish_source_dir")
+        bot_args+=(--episode-date "$date_str")
+        [[ -n "${WEBSITE_REPO:-}" ]] && bot_args+=(--website-repo "$WEBSITE_REPO")
 
         log "Launching Discord notification bot..."
         nohup python3 scripts/discord_notify.py "${bot_args[@]}" \
@@ -715,6 +849,7 @@ main() {
     log "Dry run: $DRY_RUN"
     log "From step: $FROM_STEP"
     log "Skip record: $SKIP_RECORD"
+    [[ "$FORCE_RERECORD" == "true" ]] && log "Force re-record: YES"
     [[ -n "$DATE_OVERRIDE" ]] && log "Date override: $DATE_OVERRIDE"
 
     if [[ -n "$DATE_OVERRIDE" ]]; then
@@ -736,6 +871,11 @@ main() {
         else
             log "Episode date: $EPISODE_DATE (${EPISODE_TITLE:-unknown})"
         fi
+    fi
+
+    # Force re-record: clean up old episode before proceeding
+    if [[ "$FORCE_RERECORD" == "true" ]]; then
+        _cleanup_old_episode || exit 1
     fi
 
     # If resuming, try to find existing files and restore state
@@ -771,7 +911,7 @@ if vid and not os.environ.get('YOUTUBE_VIDEO_ID'):
     run_step 5 "Generate trailer config"   step_5_generate_trailer  || exit 1
     run_step 6 "Render trailer"            step_6_render_trailer    || exit 1
     run_step 7 "Upload to CDN"             step_7_cdn_upload        || exit 1
-    run_step 8 "Update website"            step_8_update_website    || exit 1
+    run_step 8 "Stage for publish"          step_8_stage_for_publish || exit 1
     run_step 9 "Notify"                    step_9_notify            || true
 
     log "========================================"

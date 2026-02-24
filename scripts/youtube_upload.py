@@ -251,6 +251,38 @@ def add_video_to_playlist(youtube, video_id, playlist_id):
         return None
 
 
+def remove_from_playlist(youtube, video_id, playlist_id):
+    """
+    Removes a video from a specified playlist by finding and deleting its playlist item.
+    """
+    print(f"Searching for video {video_id} in playlist {playlist_id}...")
+    try:
+        # List playlist items to find the one matching our video_id
+        request = youtube.playlistItems().list(
+            part="id,snippet",
+            playlistId=playlist_id,
+            maxResults=50,
+        )
+        while request:
+            response = request.execute()
+            for item in response.get("items", []):
+                if item["snippet"]["resourceId"]["videoId"] == video_id:
+                    playlist_item_id = item["id"]
+                    youtube.playlistItems().delete(id=playlist_item_id).execute()
+                    print(f"Removed video {video_id} from playlist (item ID: {playlist_item_id})")
+                    return True
+            request = youtube.playlistItems().list_next(request, response)
+
+        print(f"Video {video_id} not found in playlist {playlist_id}")
+        return False
+    except HttpError as e:
+        print(f"HTTP error {e.resp.status} while removing from playlist:\n{e.content}")
+        return False
+    except Exception as e:
+        print(f"Error removing from playlist: {e}")
+        return False
+
+
 def initialize_upload(youtube, args):
     """
     Initializes and performs the video upload process.
@@ -489,7 +521,9 @@ def main():
     parser.add_argument("--video",
                         help="YouTube video ID or URL (for --visibility)")
     parser.add_argument("--from-state",
-                        help="Read video_id from pipeline state JSON (for --visibility)")                        
+                        help="Read video_id from pipeline state JSON (for --visibility)")
+    parser.add_argument("--remove-from-playlist",
+                        help="Remove --video from this playlist ID")
     parser.add_argument("--client-secrets",
                         default=os.environ.get('YOUTUBE_CLIENT_SECRETS_PATH', DEFAULT_CLIENT_SECRETS_FILE),
                         help=f"Path to client_secrets.json. Defaults to '{DEFAULT_CLIENT_SECRETS_FILE}' or YOUTUBE_CLIENT_SECRETS_PATH env var.")
@@ -522,6 +556,19 @@ def main():
         status = result.get("status", {}).get("privacyStatus", "unknown")
         print(f"{video_id} -> {status}")
         return
+
+    # Shortcut mode: remove a video from a playlist
+    if args.remove_from_playlist:
+        video_id = args.video
+        if args.from_state:
+            with open(args.from_state) as f:
+                state = json.load(f)
+            video_id = state.get("youtube_video_id", video_id)
+        if not video_id:
+            parser.error("--remove-from-playlist requires --video VIDEO_ID or --from-state")
+        youtube = get_authenticated_service(args)
+        success = remove_from_playlist(youtube, video_id, args.remove_from_playlist)
+        sys.exit(0 if success else 1)
 
     # Load metadata from session log if specified (generates metadata on-the-fly)
     if args.from_session_log:

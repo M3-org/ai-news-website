@@ -220,10 +220,19 @@ def upsert_episode_data(
 def upsert_gallery_item(gallery: Dict[str, Any], payload: Dict[str, str], episode_date: str) -> bool:
     items = gallery["items"]
     target_idx = None
+
+    # Primary: match by date (handles re-recording with new video_id)
     for idx, item in enumerate(items):
-        if item.get("show") == "cronjob" and item.get("youtube") == payload["id"]:
+        if item.get("show") == "cronjob" and item.get("label") == episode_date:
             target_idx = idx
             break
+
+    # Fallback: match by video_id (backward compat)
+    if target_idx is None:
+        for idx, item in enumerate(items):
+            if item.get("show") == "cronjob" and item.get("youtube") == payload["id"]:
+                target_idx = idx
+                break
 
     desired = {
         "show": "cronjob",
@@ -288,6 +297,94 @@ def run_git(repo: Path, args: list[str], check: bool = True) -> subprocess.Compl
     return subprocess.run(["git", "-C", str(repo), *args], capture_output=True, text=True, check=check)
 
 
+def unpublish_episode(
+    episode_date: str,
+    website_repo: Path,
+    dry_run: bool,
+    push: bool,
+) -> int:
+    """Remove an episode by date from website JSON files."""
+    tv_dir = website_repo / "tv"
+    episodes_path = tv_dir / "data" / "cronjob-episodes.json"
+    gallery_path = tv_dir / "gallery.json"
+
+    changed_episodes = False
+    changed_gallery = False
+    removed_video_id = None
+
+    # Remove from cronjob-episodes.json
+    if episodes_path.exists():
+        episodes_data = load_json(episodes_path)
+        if episode_date in episodes_data:
+            # Capture video_id before removal for playlist cleanup
+            en_data = episodes_data[episode_date].get("en", {})
+            removed_video_id = en_data.get("id")
+            del episodes_data[episode_date]
+            changed_episodes = True
+            print(f"Removed {episode_date} from {episodes_path}")
+        else:
+            print(f"Date {episode_date} not found in {episodes_path}")
+    else:
+        print(f"Episodes file not found: {episodes_path}")
+
+    # Remove from gallery.json
+    if gallery_path.exists():
+        gallery_data = load_json(gallery_path)
+        items = gallery_data.get("items", [])
+        original_len = len(items)
+        gallery_data["items"] = [
+            item for item in items
+            if not (item.get("show") == "cronjob" and item.get("label") == episode_date)
+        ]
+        if len(gallery_data["items"]) < original_len:
+            changed_gallery = True
+            print(f"Removed {episode_date} gallery entry from {gallery_path}")
+        else:
+            print(f"Date {episode_date} not found in gallery items")
+    else:
+        print(f"Gallery file not found: {gallery_path}")
+
+    if not changed_episodes and not changed_gallery:
+        print("Nothing to unpublish.")
+        return 0
+
+    if dry_run:
+        print("[DRY RUN] Would remove:")
+        if changed_episodes:
+            print(f"  - {episode_date} from {episodes_path}")
+        if changed_gallery:
+            print(f"  - {episode_date} gallery entry from {gallery_path}")
+        if removed_video_id:
+            print(f"  - YouTube video ID for playlist cleanup: {removed_video_id}")
+        return 0
+
+    if changed_episodes:
+        write_json(episodes_path, episodes_data, dry_run=False)
+    if changed_gallery:
+        write_json(gallery_path, gallery_data, dry_run=False)
+
+    if push:
+        run_git(website_repo, ["add", "tv/data/cronjob-episodes.json", "tv/gallery.json"])
+        diff = run_git(website_repo, ["diff", "--cached", "--quiet"], check=False)
+        if diff.returncode == 0:
+            print("No staged changes after git add; skipping commit.")
+            return 0
+        run_git(website_repo, ["config", "user.email", "github-actions[bot]@users.noreply.github.com"])
+        run_git(website_repo, ["config", "user.name", "github-actions[bot]"])
+        run_git(website_repo, ["commit", "-m", f"Unpublish Cron Job episode: {episode_date}"])
+        run_git(website_repo, ["push", "origin", "main"])
+        print(f"Unpublished and pushed for {episode_date}.")
+
+    if removed_video_id:
+        print(f"Note: YouTube video {removed_video_id} may need manual playlist/privacy cleanup.")
+        print(f"  uv run python scripts/youtube_upload.py --visibility private --video {removed_video_id}")
+        playlist_id = os.environ.get("YOUTUBE_PLAYLIST_ID", "")
+        if playlist_id:
+            print(f"  uv run python scripts/youtube_upload.py --remove-from-playlist {playlist_id} --video {removed_video_id}")
+
+    return 0
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description="Publish Cron Job episode updates to m3org website")
     parser.add_argument("--episode-date", help="Episode date YYYY-MM-DD (optional; used for targeted updates)")
@@ -303,6 +400,7 @@ def main() -> int:
     )
     parser.add_argument("--metadata-json", help="Override metadata JSON path")
     parser.add_argument("--sync-all", action="store_true", help="Rebuild all Cron Job website entries from source-dir")
+    parser.add_argument("--unpublish", action="store_true", help="Remove episode by --episode-date from website")
     parser.add_argument("--dry-run", action="store_true", help="Preview changes without writing")
     parser.add_argument("--push", action="store_true", help="Commit and push website repo changes")
     parser.add_argument("--no-push", action="store_true", help="Do not push even if --push provided")
@@ -310,6 +408,16 @@ def main() -> int:
 
     if not args.website_repo:
         parser.error("--website-repo is required (or set WEBSITE_REPO env var)")
+
+    if args.unpublish:
+        if not args.episode_date:
+            parser.error("--unpublish requires --episode-date")
+        return unpublish_episode(
+            episode_date=args.episode_date,
+            website_repo=Path(args.website_repo),
+            dry_run=args.dry_run,
+            push=args.push and not args.no_push,
+        )
 
     project_dir = Path(__file__).resolve().parents[1]
     episodes_dir = project_dir / "episodes"
