@@ -1,6 +1,7 @@
 import React from "react";
 import {
   AbsoluteFill,
+  getRemotionEnvironment,
   interpolate,
   useCurrentFrame,
   useVideoConfig,
@@ -83,23 +84,29 @@ export const Clip: React.FC<ClipProps> = ({
   // Calculate video start frame from seconds
   const videoStartFrame = Math.floor((startSec || 0) * fps);
 
-  // Resolve video path - use staticFile for relative paths (served from public/)
-  // For absolute paths, extract the relative path after the project root
+  // Resolve video path - use proxy in studio, full-res when rendering
+  const isRendering = getRemotionEnvironment().isRendering;
+
   const getVideoUrl = (src: string | undefined) => {
     if (!src) return undefined;
 
-    // If it's an absolute path, try to extract relative path
+    // Extract relative path from absolute paths
+    let relativePath = src;
     if (src.startsWith("/")) {
-      // Look for episodes/ in the path and use that as relative
       const episodesMatch = src.match(/episodes\/[^/]+\.mp4$/);
       if (episodesMatch) {
-        return staticFile(episodesMatch[0]);
+        relativePath = episodesMatch[0];
+      } else {
+        return undefined;
       }
-      return undefined;
     }
 
-    // Already relative path (e.g., "episodes/video.mp4")
-    return staticFile(src);
+    // In studio: swap to proxy. When rendering: use full-res original.
+    if (!isRendering) {
+      relativePath = relativePath.replace(/\.mp4$/, "_proxy.mp4");
+    }
+
+    return staticFile(relativePath);
   };
 
   const videoUrl = getVideoUrl(videoSrc);

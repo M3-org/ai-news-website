@@ -1,7 +1,9 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   interpolate,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
@@ -60,6 +62,8 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
         opacity,
       }}
     >
+      {/* Intro boot sound */}
+      <Audio src={staticFile("introBoot.mp3")} />
       {/* Background grid effect */}
       <div
         style={{
