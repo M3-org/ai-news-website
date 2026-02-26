@@ -4,9 +4,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: Split frame: Left side—Eliza, eyes wide, illuminated by golden light amidst monitors flickering with ElizaOS.News redesign and glitching Spartan/Milady installers; Right side—Peepo, contemplative in foggy haze, reaches toward ethereal MoltBridge code and a glowing Security Oracle API, world in chiaroscuro contrast.
+SCENE: Eliza stands at a frost-edged workstation, neon code flickering across her face; Peepo leans in beside her, reflecting determination and weary hope. Amid scattered digital blueprints, golden-hour light slices through frosted glass, casting long shadows across tangled wires—a single moment of resolve in their wintry cyberpunk lab.
 
-ART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.
+ART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

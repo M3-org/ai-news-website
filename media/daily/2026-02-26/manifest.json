@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-26T11:36:00.080259+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-26.json",
+  "facts_date": "2026-02-26",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-26",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "elizaOS is undergoing a major strategic pivot toward immediate revenue generation and profitability, coinciding with critical version control challenges in the main repository and the release of competing frameworks like Nous Research's Hermes Agent.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands alone at a snow-dusted city intersection, neon lights flickering on her contemplative face. Behind glass windows, code streams and financial graphs reflect urgent change; in the distance, a glowing billboard teases Hermes Agent. Long golden-hour shadows stretch across drifting winter fog.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands alone at a snow-dusted city intersection, neon lights flickering on her contemplative face. Behind glass windows, code streams and financial graphs reflect urgent change; in the distance, a glowing billboard teases Hermes Agent. Long golden-hour shadows stretch across drifting winter fog.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.66,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "The framework is shifting toward a multi-language ecosystem (Rust, Python, TypeScript) and database refactoring to improve long-term system architecture.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Ecosystem  \n2. Main sections: Programming Languages, Database Refactoring, System Architecture Improvements  \n3. Key icons/visuals: Language symbols (Rust, Python, TypeScript), database icon, architecture/blueprint icon, arrows connecting elements  \n4. Suggested section headers: \"Multi-Language Ecosystem\", \"Database Refactoring\", \"Future-Ready Architecture\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Ecosystem  \n2. Main sections: Programming Languages, Database Refactoring, System Architecture Improvements  \n3. Key icons/visuals: Language symbols (Rust, Python, TypeScript), database icon, architecture/blueprint icon, arrows connecting elements  \n4. Suggested section headers: \"Multi-Language Ecosystem\", \"Database Refactoring\", \"Future-Ready Architecture\"\n\nCONTENT CONTEXT:\nThe framework is shifting toward a multi-language ecosystem (Rust, Python, TypeScript) and database refactoring to improve long-term system architecture.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 37.38,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "council",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Analysis of the Hermes Agent framework release and resolution of critical version control issues regarding the develop branch containing 2.0.0 code. Strategic pivot toward profitability and revenue-generating products due to financial constraints. Focus on shipping immediate working products.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands at a frost-edged workstation, neon code flickering across her face; Peepo leans in beside her, reflecting determination and weary hope. Amid scattered digital blueprints, golden-hour light slices through frosted glass, casting long shadows across tangled wires\u2014a single moment of resolve in their wintry cyberpunk lab.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza stands at a frost-edged workstation, neon code flickering across her face; Peepo leans in beside her, reflecting determination and weary hope. Amid scattered digital blueprints, golden-hour light slices through frosted glass, casting long shadows across tangled wires\u2014a single moment of resolve in their wintry cyberpunk lab.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.09,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "spartan",
+        "eliza",
+        "marc"
+      ],
+      "content_context": "The shift from traditional development standups to small, fixed-budget venture teams signals a critical transition from R&D to commercial sustainability. The launch of Python-based frameworks like Hermes Agent highlights the increasing competition in the agentic AI space, requiring elizaOS to demonstrate long-term stability and value.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In a frost-dusted city alley bathed in neon gold, Spartan stands divided from Eliza and Marc by a splash of directional light; tension and hope crackle between them, mirrored in luminous screens and scattered project plans\u2014winter air holding their breath as the world shifts outside.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: In a frost-dusted city alley bathed in neon gold, Spartan stands divided from Eliza and Marc by a splash of directional light; tension and hope crackle between them, mirrored in luminous screens and scattered project plans\u2014winter air holding their breath as the world shifts outside.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Acquisition offers have been received but rejected in favor of achieving organic profitability for better valuation.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three floating panels: \u201cAcquisition Offers\u201d (status: Rejected, glowing red border), \u201cOrganic Profitability\u201d (progress gauge, cyan arc showing current level), \u201cValuation Target\u201d (numeric goal, magenta highlights). Data flow lines: orange connection from \u201cOrganic Profitability\u201d to \u201cValuation Target\u201d (showing impact), dashed cyan line from \u201cAcquisition Offers\u201d to \u201cOrganic Profitability\u201d (depicting strategic decision). All panels feature holographic depth, hovering readouts, and pulsing accent rings in cyan, magenta, and orange.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three floating panels: \u201cAcquisition Offers\u201d (status: Rejected, glowing red border), \u201cOrganic Profitability\u201d (progress gauge, cyan arc showing current level), \u201cValuation Target\u201d (numeric goal, magenta highlights). Data flow lines: orange connection from \u201cOrganic Profitability\u201d to \u201cValuation Target\u201d (showing impact), dashed cyan line from \u201cAcquisition Offers\u201d to \u201cOrganic Profitability\u201d (depicting strategic decision). All panels feature holographic depth, hovering readouts, and pulsing accent rings in cyan, magenta, and orange.\n\nCONTENT CONTEXT:\nAcquisition offers have been received but rejected in favor of achieving organic profitability for better valuation.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 37.78,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ElizaOS"
+    ],
+    "entity_count": 1,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-26/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 166.0
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-26/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-26/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-26/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-26/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-26/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-26/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-26/strategic-insights.png"
+  }
+}
