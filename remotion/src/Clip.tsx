@@ -16,6 +16,10 @@ interface ClipProps {
   total: number;
   videoSrc?: string;
   startSec?: number;
+  /** Frames used for enter transition — audio fades in over this. */
+  enterFrames?: number;
+  /** Frames used for exit transition — audio fades out over this. */
+  exitFrames?: number;
 }
 
 // Actor color mapping
@@ -55,9 +59,54 @@ export const Clip: React.FC<ClipProps> = ({
   total,
   videoSrc,
   startSec,
+  enterFrames = 0,
+  exitFrames = 0,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
+
+  const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
+
+  const inEnter = enterFrames > 0 && frame < enterFrames;
+  // Trailer extends each clip by `exitFrames`, and next clip enters `exitFrames`
+  // before nominal end. This frame is where overlap actually starts.
+  const overlapStartFrame =
+    exitFrames > 0
+      ? Math.max(0, durationInFrames - exitFrames * 2)
+      : durationInFrames;
+  const inExit = exitFrames > 0 && frame >= overlapStartFrame;
+
+  const enterProgress = inEnter ? clamp01(frame / enterFrames) : 1;
+  const exitProgress = inExit
+    ? clamp01((frame - overlapStartFrame) / exitFrames)
+    : 0;
+
+  // Force a true crossfade at clip level so overlap always blends visually.
+  let videoOpacity = 1;
+  if (inEnter) {
+    videoOpacity = Math.min(videoOpacity, enterProgress);
+  }
+  if (inExit) {
+    videoOpacity = Math.min(videoOpacity, 1 - exitProgress);
+  }
+
+  // Simple audio fade-in/out for cleaner handoffs.
+  const AUDIO_FADE_IN_FRAMES = 4;
+  const AUDIO_FADE_OUT_FRAMES = 10;
+  const exitAudioWindow =
+    exitFrames > 0 ? Math.min(exitFrames, AUDIO_FADE_OUT_FRAMES) : 0;
+  const enterAudioProgress = clamp01(frame / AUDIO_FADE_IN_FRAMES);
+  const exitAudioProgress =
+    inExit && exitAudioWindow > 0
+      ? clamp01((frame - overlapStartFrame) / exitAudioWindow)
+      : 0;
+
+  let volume = 1;
+  // Fast fade-in at clip start.
+  volume *= enterAudioProgress;
+  if (inExit && exitAudioWindow > 0) {
+    volume *= 1 - exitAudioProgress;
+  }
 
   const actorColor = getActorColor(actor);
   const actorName = formatActorName(actor);
@@ -124,17 +173,19 @@ export const Clip: React.FC<ClipProps> = ({
           <OffthreadVideo
             src={videoUrl}
             startFrom={videoStartFrame}
+            volume={volume}
             style={{
               width: "100%",
               height: "100%",
               objectFit: "cover",
+              opacity: videoOpacity,
             }}
           />
         </AbsoluteFill>
       )}
 
       {/* Fallback gradient when no video */}
-      {!videoSrc && (
+      {!videoUrl && (
         <AbsoluteFill
           style={{
             background: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)`,

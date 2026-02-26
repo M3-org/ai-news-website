@@ -3,14 +3,12 @@ import {
   AbsoluteFill,
   Sequence,
   useVideoConfig,
-  interpolate,
-  useCurrentFrame,
 } from "remotion";
 import { z } from "zod";
 import { TitleCard } from "./TitleCard";
 import { EndCard } from "./EndCard";
 import { Clip } from "./Clip";
-import { Flash, Glitch, ZoomPunch } from "./transitions";
+import { ClipTransition, OVERLAP_FRAMES } from "./transitions";
 
 // Schema for trailer configuration (matches Python output)
 const ClipSchema = z.object({
@@ -80,26 +78,6 @@ export const TrailerSchema = z.object({
 export type TrailerProps = z.infer<typeof TrailerSchema>;
 export type ClipData = z.infer<typeof ClipSchema>;
 
-// Transition component mapping
-const TransitionComponents: Record<
-  ClipData["transition"],
-  React.FC<{ durationInFrames: number }>
-> = {
-  "hard-cut": () => null, // No transition effect
-  "flash-white": ({ durationInFrames }) => (
-    <Flash color="white" durationInFrames={durationInFrames} />
-  ),
-  "flash-black": ({ durationInFrames }) => (
-    <Flash color="black" durationInFrames={durationInFrames} />
-  ),
-  "zoom-punch": ({ durationInFrames }) => (
-    <ZoomPunch durationInFrames={durationInFrames} />
-  ),
-  glitch: ({ durationInFrames }) => (
-    <Glitch durationInFrames={durationInFrames} />
-  ),
-};
-
 export type ModulationProps = z.infer<typeof ModulationSchema>;
 
 export const Trailer: React.FC<TrailerProps> = ({
@@ -111,37 +89,30 @@ export const Trailer: React.FC<TrailerProps> = ({
 }) => {
   const { fps } = useVideoConfig();
 
-  // Calculate timing
   const titleDuration = 2 * fps; // 2 seconds for title card
 
-  // Build sequence timeline
-  let currentFrame = 0;
-  const clipSequences: {
-    clip: ClipData;
-    from: number;
-    durationInFrames: number;
-  }[] = [];
+  // ---------------------------------------------------------------------------
+  // Build overlapping timeline
+  // Each clip's transition field defines how it ENTERS (overlapping the previous).
+  // The exit of clip[i] is driven by clip[i+1]'s transition type.
+  // During overlap, both clips render — ClipTransition drives the blend.
+  // ---------------------------------------------------------------------------
 
-  // Title card first
-  currentFrame = titleDuration;
-
-  // Add each clip with its transition
-  for (let i = 0; i < clips.length; i++) {
-    const clip = clips[i];
-    const clipDurationFrames = Math.ceil(clip.duration * fps);
-    const transitionFrames = Math.min(6, clipDurationFrames); // 6 frames (0.2s) for transition
-
-    clipSequences.push({
-      clip,
-      from: currentFrame,
-      durationInFrames: clipDurationFrames,
-    });
-
-    currentFrame += clipDurationFrames;
+  // Compute start positions (accounting for overlap pull-back)
+  const positions: number[] = [];
+  positions[0] = titleDuration;
+  for (let i = 1; i < clips.length; i++) {
+    const prevFrames = Math.ceil(clips[i - 1].duration * fps);
+    const overlap = OVERLAP_FRAMES[clips[i].transition] || 0;
+    positions[i] = positions[i - 1] + prevFrames - overlap;
   }
 
-  // End card
-  const endCardStart = currentFrame;
+  // End card position — after last clip's natural duration (no overlap)
+  const lastIdx = clips.length - 1;
+  const endCardStart =
+    clips.length > 0
+      ? positions[lastIdx] + Math.ceil(clips[lastIdx].duration * fps)
+      : titleDuration;
   const endCardDuration = Math.ceil(end_card.duration * fps);
 
   return (
@@ -156,32 +127,49 @@ export const Trailer: React.FC<TrailerProps> = ({
         <TitleCard title={title} subtitle={source_episode} modulation={modulation} />
       </Sequence>
 
-      {/* Clips with transitions */}
-      {clipSequences.map(({ clip, from, durationInFrames }, index) => {
-        const TransitionComponent = TransitionComponents[clip.transition];
-        const transitionFrames = 6; // Quick flash
+      {/* Clips — overlapping sequences with enter/exit transitions */}
+      {clips.map((clip, i) => {
+        const clipFrames = Math.ceil(clip.duration * fps);
+
+        // Enter: how this clip blends in over the previous
+        const enterType = i > 0 ? clip.transition : "hard-cut";
+        const enterFrames = i > 0 ? (OVERLAP_FRAMES[clip.transition] || 0) : 0;
+
+        // Exit: how this clip blends out for the next
+        const exitType =
+          i < clips.length - 1 ? clips[i + 1].transition : "hard-cut";
+        const exitOverlap =
+          i < clips.length - 1
+            ? (OVERLAP_FRAMES[clips[i + 1].transition] || 0)
+            : 0;
+
+        // Extend duration to cover the exit overlap (uses the "wasted" tail)
+        const totalFrames = clipFrames + exitOverlap;
 
         return (
-          <React.Fragment key={index}>
-            {/* Main clip content */}
-            <Sequence from={from} durationInFrames={durationInFrames}>
+          <Sequence
+            key={i}
+            from={positions[i]}
+            durationInFrames={totalFrames}
+          >
+            <ClipTransition
+              enterType={enterType}
+              exitType={exitType}
+              enterFrames={enterFrames}
+              exitFrames={exitOverlap}
+            >
               <Clip
                 text={clip.text}
                 actor={clip.actor}
-                index={index + 1}
+                index={i + 1}
                 total={clips.length}
                 videoSrc={clip.video_file}
                 startSec={clip.start_sec}
+                enterFrames={enterFrames}
+                exitFrames={exitOverlap}
               />
-            </Sequence>
-
-            {/* Transition overlay at start of clip */}
-            {clip.transition !== "hard-cut" && (
-              <Sequence from={from} durationInFrames={transitionFrames}>
-                <TransitionComponent durationInFrames={transitionFrames} />
-              </Sequence>
-            )}
-          </React.Fragment>
+            </ClipTransition>
+          </Sequence>
         );
       })}
 

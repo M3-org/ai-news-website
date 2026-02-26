@@ -1,5 +1,6 @@
 import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
+import { OVERLAP_FRAMES } from "./transitions";
 
 // Default props for Remotion Studio preview
 // When no video_file is provided, clips show text-only mode
@@ -126,13 +127,22 @@ const defaultProps: TrailerProps = {
 
 const FPS = 30;
 
-// Calculate total duration from props
+// Calculate total duration accounting for transition overlaps
 const calculateDurationInFrames = (props: TrailerProps): number => {
-  const titleDuration = 2; // 2 seconds for title card
-  const clipsDuration = props.clips.reduce((sum, c) => sum + c.duration, 0);
-  const endCardDuration = props.end_card.duration;
-  const totalSeconds = titleDuration + clipsDuration + endCardDuration;
-  return Math.ceil(totalSeconds * FPS);
+  const titleFrames = 2 * FPS;
+  const endCardFrames = Math.ceil(props.end_card.duration * FPS);
+
+  // Sum clip durations minus overlaps between them
+  let clipsFrames = 0;
+  for (let i = 0; i < props.clips.length; i++) {
+    clipsFrames += Math.ceil(props.clips[i].duration * FPS);
+    // Subtract overlap for all clips after the first
+    if (i > 0) {
+      clipsFrames -= OVERLAP_FRAMES[props.clips[i].transition] || 0;
+    }
+  }
+
+  return titleFrames + clipsFrames + endCardFrames;
 };
 
 export const RemotionRoot: React.FC = () => {
