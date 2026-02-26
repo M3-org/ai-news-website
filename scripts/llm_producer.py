@@ -41,7 +41,7 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "moonshotai/kimi-k2.5"
 
 # Trailer constants
-TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left"]
+TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left", "split"]
 
 # ============================================================================
 # System Prompts
@@ -100,6 +100,7 @@ TRANSITION GUIDE:
 - zoom-punch: aggressive zoom + shake. Best for exclamations, reactions, bold claims.
 - glitch: RGB split + flicker. Good for tech topics, AI, bugs, chaos.
 - side-scroll-left: anime-style horizontal whip scroll. Great for topic changes, new speakers, "meanwhile" moments.
+- split: screen splits showing both clips side-by-side, old desaturates, new expands. Good for contrasts, before/after, perspective shifts between speakers.
 
 IMPORTANT GUIDELINES:
 - Extract PARTIAL lines - just 4-12 words, the most dramatic part

@@ -249,11 +249,14 @@ export const Clip: React.FC<ClipProps> = ({
                 parts.push(nextStripped);
               } else break;
             }
-            capsGroups.push({
-              text: parts.join(" "),
-              startFrame: (words[groupStart].start - clipStartSec) * fps,
-              idx: groupStart,
-            });
+            // Skip stamps for long phrases — too much screen clutter
+            if (parts.length <= 3) {
+              capsGroups.push({
+                text: parts.join(" "),
+                startFrame: (words[groupStart].start - clipStartSec) * fps,
+                idx: groupStart,
+              });
+            }
           }
           i++;
         }
@@ -280,30 +283,29 @@ export const Clip: React.FC<ClipProps> = ({
               ? 1 - (localFrame - fadeStart) / 6
               : Math.min(1, localFrame / 1);
 
-          // Glitch phase: first 6 frames — RGB split, jitter, flicker
-          const GLITCH_FRAMES = 6;
+          // Glitch phase: first 10 frames — hard RGB split, violent jitter, blackouts
+          const GLITCH_FRAMES = 10;
           const inGlitch = localFrame < GLITCH_FRAMES;
           const glitchT = inGlitch ? 1 - localFrame / GLITCH_FRAMES : 0;
 
-          // Shake — stronger during glitch, subtle after
           let sx = 0;
           let sy = 0;
           if (inGlitch) {
-            sx = (random(`stmp-sx-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 14;
-            sy = (random(`stmp-sy-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 8;
+            sx = (random(`stmp-sx-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 30;
+            sy = (random(`stmp-sy-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 18;
           }
 
-          // RGB split offsets — decay with glitch
-          const rgbOff = inGlitch ? Math.round(glitchT * 10) : 0;
+          // RGB split — big offset
+          const rgbOff = inGlitch ? Math.round(glitchT * 25) : 0;
 
-          // Random opacity flicker during glitch
+          // Hard flicker — full blackouts during glitch
           const flickerOp = inGlitch
-            ? stampOpacity * (0.7 + random(`stmp-fl-${group.idx}-${frame}`) * 0.3)
+            ? stampOpacity * (random(`stmp-fl-${group.idx}-${frame}`) > 0.3 ? 1 : 0)
             : stampOpacity;
 
-          // Horizontal slice offset — random per-frame displacement
+          // Horizontal slice — massive displacement
           const sliceX = inGlitch
-            ? (random(`stmp-sl-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 20
+            ? (random(`stmp-sl-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 50
             : 0;
 
           // Break long phrases: max 2 words per line
@@ -340,7 +342,7 @@ export const Clip: React.FC<ClipProps> = ({
                   style={{
                     ...baseStyle,
                     color: "cyan",
-                    opacity: glitchT * 0.5,
+                    opacity: glitchT * 0.9,
                     transform: `translate(-50%, -50%) rotate(${rot}deg) scale(${stampScale}) translate(${sx - rgbOff + sliceX}px, ${sy}px)`,
                     mixBlendMode: "screen",
                   }}
@@ -354,7 +356,7 @@ export const Clip: React.FC<ClipProps> = ({
                   style={{
                     ...baseStyle,
                     color: "magenta",
-                    opacity: glitchT * 0.5,
+                    opacity: glitchT * 0.9,
                     transform: `translate(-50%, -50%) rotate(${rot}deg) scale(${stampScale}) translate(${sx + rgbOff + sliceX}px, ${sy}px)`,
                     mixBlendMode: "screen",
                   }}

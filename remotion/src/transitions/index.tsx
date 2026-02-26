@@ -13,11 +13,12 @@ import {
  */
 export const OVERLAP_FRAMES: Record<string, number> = {
   "hard-cut": 0,
-  "flash-white": 14,
-  "flash-black": 14,
-  "zoom-punch": 20,
-  "glitch": 18,
-  "side-scroll-left": 22,
+  "flash-white": 8,
+  "flash-black": 8,
+  "zoom-punch": 10,
+  "glitch": 12,
+  "side-scroll-left": 14,
+  "split": 28,
 };
 
 // ---------------------------------------------------------------------------
@@ -38,10 +39,9 @@ function shake(
  * Fast-start / slow-end ramp:
  * starts instantly, then eases out into the cut.
  */
-function animeRamp(t: number): number {
+function animeRamp(t: number, power = 4.8): number {
   const clamped = Math.max(0, Math.min(1, t));
-  // Very aggressive ease-out: big movement right at the start.
-  const eased = 1 - Math.pow(1 - clamped, 4.8);
+  const eased = 1 - Math.pow(1 - clamped, power);
   const kick = Math.sin(clamped * Math.PI) * 0.012 * (1 - clamped);
   return Math.max(0, Math.min(1, eased + kick));
 }
@@ -73,7 +73,7 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
   exitFrames,
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames, width } = useVideoConfig();
+  const { durationInFrames, width, height } = useVideoConfig();
 
   let opacity = 1;
   let scale = 1;
@@ -86,6 +86,7 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
   let overlayOpacity = 0;
   let showGlitch = false;
   let glitchIntensity = 0;
+  let clipPath: string | undefined;
   const sideScrollDistance = Math.round(width * 0.85);
 
   // Match Clip.tsx overlap timing: exit starts exitFrames*2 before end
@@ -99,51 +100,81 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
 
     switch (enterType) {
       case "flash-white": {
-        const e = Easing.out(Easing.exp)(t);
+        const e = animeRamp(t);
         opacity = e;
         brightness = 1 + (1 - e) * 2.5;
         overlayColor = "white";
-        overlayOpacity = (1 - Easing.out(Easing.cubic)(t)) * 0.9;
+        overlayOpacity = (1 - e) * 0.9;
         break;
       }
       case "flash-black": {
-        const e = Easing.out(Easing.exp)(t);
+        const e = animeRamp(t);
         opacity = e;
         brightness = 0.3 + e * 0.7;
         overlayColor = "black";
-        overlayOpacity = (1 - Easing.out(Easing.cubic)(t)) * 0.9;
+        overlayOpacity = (1 - e) * 0.9;
         break;
       }
       case "zoom-punch": {
-        const e = Easing.out(Easing.back(1.7))(t);
-        scale = 1.18 - 0.18 * e;
-        opacity = Easing.out(Easing.cubic)(t);
-        const s = shake(frame, "zp-enter", (1 - t) * 0.4);
+        const e = animeRamp(t);
+        scale = 1.25 - 0.25 * e;
+        opacity = e;
+        const s = shake(frame, "zp-enter", (1 - t) * 0.6);
         tx = s.x;
         ty = s.y;
         break;
       }
       case "glitch": {
+        // Violent digital corruption that stabilizes
         const e = Easing.out(Easing.cubic)(t);
-        // Noisy opacity — random flicker that stabilises
-        const noise = (random(`gl-en-op-${frame}`) - 0.5) * 0.6 * (1 - t);
-        opacity = Math.max(0, Math.min(1, e + noise));
-        const s = shake(frame, "gl-enter", (1 - t) * 0.9);
+        // Hard flicker — full blackouts in early frames
+        const flicker = random(`gl-en-fl-${frame}`);
+        const blackout = t < 0.3 && flicker < 0.35 ? 0 : 1;
+        const noise = (random(`gl-en-op-${frame}`) - 0.5) * 1.2 * (1 - t);
+        opacity = Math.max(0, Math.min(1, e + noise)) * blackout;
+        // Massive shake that decays
+        const s = shake(frame, "gl-enter", (1 - t) * 2.5);
         tx = s.x;
         ty = s.y;
+        // Random scale jitter
+        scale = 1 + (random(`gl-en-sc-${frame}`) - 0.5) * 0.15 * (1 - t);
+        // Color corruption
+        brightness = 1 + (random(`gl-en-br-${frame}`) - 0.3) * 1.5 * (1 - t);
         showGlitch = true;
-        glitchIntensity = 1 - t;
+        glitchIntensity = Math.min(1, (1 - t) * 1.8);
         break;
       }
       case "side-scroll-left": {
-        // Fast-start side-scroll with velocity blur + shake.
         const e = animeRamp(t);
-        const v = animeRampVelocity(t);
-        const s = shake(frame, "ss-enter", 0.1 + v * 0.28);
+        const s = shake(frame, "ss-enter", 0.1 + (1 - t) * 0.28);
         tx = (1 - e) * sideScrollDistance + s.x;
         ty = s.y * 0.6;
-        blurPx = 1.5 + v * 16;
         opacity = 0.85 + e * 0.15;
+        break;
+      }
+      case "split": {
+        // Enter: right half → hold split → expand fullscreen
+        // Phase 1 (0–0.3): slide in from right, crop to right half
+        // Phase 2 (0.3–0.7): hold the split
+        // Phase 3 (0.7–1): expand to fullscreen
+        const GAP_PX = 4;
+        const halfW = width / 2;
+        if (t < 0.3) {
+          // Slide in from right
+          const st = Easing.out(Easing.cubic)(t / 0.3);
+          const slideOff = (1 - st) * halfW;
+          tx = slideOff;
+          clipPath = `inset(0 0 0 ${halfW + GAP_PX / 2}px)`;
+          opacity = 0.6 + st * 0.4;
+        } else if (t < 0.7) {
+          // Hold in right half
+          clipPath = `inset(0 0 0 ${halfW + GAP_PX / 2}px)`;
+        } else {
+          // Expand to fullscreen
+          const et = Easing.out(Easing.cubic)((t - 0.7) / 0.3);
+          const leftInset = (halfW + GAP_PX / 2) * (1 - et);
+          clipPath = `inset(0 0 0 ${leftInset}px)`;
+        }
         break;
       }
     }
@@ -155,63 +186,89 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
     const ef = frame - exitStart;
     const t = Math.min(ef / exitWindow, 1); // 0 → 1
 
-    // Desaturate on most exits — keep side-scroll color intact.
+    // Desaturate on most exits — keep side-scroll/split color intact.
     saturate =
-      exitType === "hard-cut" || exitType === "side-scroll-left"
+      exitType === "hard-cut" || exitType === "side-scroll-left" || exitType === "split"
         ? 1
-        : 1 - Easing.in(Easing.cubic)(t);
+        : 1 - animeRamp(t);
 
     switch (exitType) {
       case "flash-white": {
-        const e = Easing.in(Easing.exp)(t);
+        const e = animeRamp(t);
         brightness = 1 + e * 3.5;
-        scale = 1 + e * 0.04;
+        scale = 1 + e * 0.06;
         overlayColor = "white";
-        overlayOpacity = Easing.in(Easing.cubic)(t);
-        const s = shake(frame, "fw-exit", e * 0.7);
+        overlayOpacity = e;
+        const s = shake(frame, "fw-exit", e * 1.0);
         tx = s.x;
         ty = s.y;
         break;
       }
       case "flash-black": {
-        const e = Easing.in(Easing.exp)(t);
+        const e = animeRamp(t);
         brightness = 1 - e * 0.85;
-        scale = 1 - e * 0.02;
+        scale = 1 - e * 0.03;
         overlayColor = "black";
-        overlayOpacity = Easing.in(Easing.cubic)(t);
-        const s = shake(frame, "fb-exit", e * 0.5);
+        overlayOpacity = e;
+        const s = shake(frame, "fb-exit", e * 0.7);
         tx = s.x;
         ty = s.y;
         break;
       }
       case "zoom-punch": {
-        const e = Easing.in(Easing.back(2.5))(t);
-        scale = 1 + e * 0.4;
-        opacity = 1 - Easing.in(Easing.cubic)(t);
-        const s = shake(frame, "zp-exit", e * 1.2);
+        const e = animeRamp(t);
+        scale = 1 + e * 0.5;
+        opacity = 1 - e;
+        const s = shake(frame, "zp-exit", e * 1.5);
         tx = s.x;
         ty = s.y;
         break;
       }
       case "glitch": {
+        // Clip tears apart — violent exit
         const e = Easing.in(Easing.cubic)(t);
-        const noise = (random(`gl-ex-op-${frame}`) - 0.5) * 0.5 * e;
-        opacity = Math.max(0, 1 - e + noise);
-        const s = shake(frame, "gl-exit", e * 1.3);
+        // Hard flicker + blackouts in final frames
+        const flicker = random(`gl-ex-fl-${frame}`);
+        const blackout = t > 0.7 && flicker < 0.4 ? 0 : 1;
+        const noise = (random(`gl-ex-op-${frame}`) - 0.5) * 1.0 * e;
+        opacity = Math.max(0, 1 - e + noise) * blackout;
+        // Massive shake ramps up
+        const s = shake(frame, "gl-exit", e * 3.0);
         tx = s.x;
         ty = s.y;
+        // Scale jitter
+        scale = 1 + (random(`gl-ex-sc-${frame}`) - 0.5) * 0.2 * e;
+        // Color blowout
+        brightness = 1 + (random(`gl-ex-br-${frame}`) - 0.3) * 2.0 * e;
         showGlitch = true;
-        glitchIntensity = e;
+        glitchIntensity = Math.min(1, e * 2.0);
         break;
       }
       case "side-scroll-left": {
         const e = animeRamp(t);
-        const v = animeRampVelocity(t);
-        const s = shake(frame, "ss-exit", 0.1 + v * 0.24);
+        const s = shake(frame, "ss-exit", 0.1 + t * 0.24);
         tx = -e * sideScrollDistance + s.x;
         ty = s.y * 0.6;
-        blurPx = 1.5 + v * 16;
         opacity = 1 - e * 0.08;
+        break;
+      }
+      case "split": {
+        // Exit window is exitFrames*2, but new clip only overlaps the
+        // second half (t >= 0.5). Don't clip until then or we get black.
+        const GAP_PX = 4;
+        const halfW = width / 2;
+        if (t < 0.5) {
+          // Pre-overlap: just desaturate, still fullscreen
+          saturate = 1 - Easing.out(Easing.cubic)(t / 0.5);
+        } else {
+          // Overlap: crop to left half
+          saturate = 0;
+          clipPath = `inset(0 ${halfW + GAP_PX / 2}px 0 0)`;
+          if (t > 0.8) {
+            // Fade out as new clip goes fullscreen
+            opacity = 1 - Easing.in(Easing.cubic)((t - 0.8) / 0.2);
+          }
+        }
         break;
       }
       case "hard-cut":
@@ -230,6 +287,7 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
     opacity,
     transform: `scale(${scale}) translate(${tx}px, ${ty}px)`,
     filter: filters.length > 0 ? filters.join(" ") : undefined,
+    clipPath,
   };
 
   return (
@@ -263,40 +321,49 @@ const GlitchOverlay: React.FC<{ frame: number; intensity: number }> = ({
   frame,
   intensity,
 }) => {
-  const bars = Array.from({ length: 6 }, (_, i) => {
+  // More bars, thicker, harder displacement
+  const bars = Array.from({ length: 14 }, (_, i) => {
     const seed = `gbar-${i}-${frame}`;
     return {
       y: random(seed + "-y") * 100,
-      height: random(seed + "-h") * 25 + 5,
-      offset: (random(seed + "-x") - 0.5) * 35 * intensity,
-      visible: random(seed + "-v") > 0.35,
-      alpha: random(seed + "-a") * 0.45 * intensity,
+      height: random(seed + "-h") * 60 + 8,
+      offset: (random(seed + "-x") - 0.5) * 120 * intensity,
+      visible: random(seed + "-v") > 0.2,
+      alpha: random(seed + "-a") * 0.8 * intensity,
+      color: random(seed + "-c") > 0.5 ? "cyan" : random(seed + "-c2") > 0.5 ? "magenta" : "white",
     };
   });
+
+  // Big horizontal slice — whole chunk of the frame displaced
+  const sliceY = random(`gslice-y-${frame}`) * 60 + 20; // 20-80%
+  const sliceH = random(`gslice-h-${frame}`) * 15 + 5; // 5-20%
+  const sliceOff = (random(`gslice-x-${frame}`) - 0.5) * 200 * intensity;
+
+  const rgbOff = intensity * 30;
 
   return (
     <AbsoluteFill
       style={{ zIndex: 100, overflow: "hidden", pointerEvents: "none" }}
     >
-      {/* RGB split */}
+      {/* RGB split — aggressive offset */}
       <AbsoluteFill
         style={{
           backgroundColor: "cyan",
-          opacity: 0.2 * intensity,
-          transform: `translateX(${intensity * 10}px)`,
+          opacity: 0.4 * intensity,
+          transform: `translateX(${rgbOff}px) translateY(${intensity * 4}px)`,
           mixBlendMode: "screen",
         }}
       />
       <AbsoluteFill
         style={{
           backgroundColor: "magenta",
-          opacity: 0.2 * intensity,
-          transform: `translateX(${-intensity * 10}px)`,
+          opacity: 0.4 * intensity,
+          transform: `translateX(${-rgbOff}px) translateY(${-intensity * 4}px)`,
           mixBlendMode: "screen",
         }}
       />
 
-      {/* Random displacement bars */}
+      {/* Displacement bars */}
       {bars.map((bar, i) =>
         bar.visible ? (
           <div
@@ -307,19 +374,46 @@ const GlitchOverlay: React.FC<{ frame: number; intensity: number }> = ({
               left: 0,
               right: 0,
               height: `${bar.height}px`,
-              backgroundColor: `rgba(255,255,255,${bar.alpha})`,
+              backgroundColor: bar.color,
+              opacity: bar.alpha,
               transform: `translateX(${bar.offset}px)`,
+              mixBlendMode: "screen",
             }}
           />
         ) : null,
       )}
 
-      {/* Scanlines */}
+      {/* Big horizontal slice displacement */}
+      {intensity > 0.3 && (
+        <div
+          style={{
+            position: "absolute",
+            top: `${sliceY}%`,
+            left: 0,
+            right: 0,
+            height: `${sliceH}%`,
+            backgroundColor: "rgba(0,0,0,0.6)",
+            transform: `translateX(${sliceOff}px)`,
+          }}
+        />
+      )}
+
+      {/* White noise flash */}
+      {random(`gnoise-${frame}`) > 0.6 && intensity > 0.4 && (
+        <AbsoluteFill
+          style={{
+            backgroundColor: "#fff",
+            opacity: random(`gnoise-op-${frame}`) * 0.3 * intensity,
+          }}
+        />
+      )}
+
+      {/* Scanlines — heavier */}
       <AbsoluteFill
         style={{
           backgroundImage:
-            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 4px)",
-          opacity: intensity * 0.5,
+            "repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.25) 2px, rgba(0,0,0,0.25) 4px)",
+          opacity: intensity * 0.8,
         }}
       />
     </AbsoluteFill>
