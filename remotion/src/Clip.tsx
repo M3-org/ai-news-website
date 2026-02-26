@@ -3,11 +3,18 @@ import {
   AbsoluteFill,
   getRemotionEnvironment,
   interpolate,
+  random,
   useCurrentFrame,
   useVideoConfig,
   OffthreadVideo,
   staticFile,
 } from "remotion";
+
+interface WordData {
+  word: string;
+  start: number; // absolute seconds in the source video
+  end: number;
+}
 
 interface ClipProps {
   text: string;
@@ -20,6 +27,8 @@ interface ClipProps {
   enterFrames?: number;
   /** Frames used for exit transition — audio fades out over this. */
   exitFrames?: number;
+  /** Per-word timing data for Max Payne 3 style reveal. */
+  words?: WordData[];
 }
 
 // Actor color mapping
@@ -61,6 +70,7 @@ export const Clip: React.FC<ClipProps> = ({
   startSec,
   enterFrames = 0,
   exitFrames = 0,
+  words,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -209,6 +219,166 @@ export const Clip: React.FC<ClipProps> = ({
         }}
       />
 
+      {/* Floating CAPS stamps — consecutive CAPS words grouped as one phrase */}
+      {(() => {
+        if (!words) return null;
+        // Yelling detection: if too many words are ALL CAPS, it's just
+        // the character's style — skip stamps so the screen isn't chaos
+        const totalWords = words.length;
+        const capsCount = words.filter((w) => {
+          const s = w.word.replace(/[^a-zA-Z]/g, "");
+          return s.length >= 2 && s === s.toUpperCase();
+        }).length;
+        if (totalWords > 0 && capsCount / totalWords > 0.4) return null;
+
+        // Group consecutive ALL CAPS words into phrases
+        const capsGroups: { text: string; startFrame: number; idx: number }[] = [];
+        const clipStartSec = startSec || 0;
+        let i = 0;
+        while (i < words.length) {
+          const stripped = words[i].word.replace(/[^a-zA-Z]/g, "");
+          const isCaps = stripped.length >= 2 && stripped === stripped.toUpperCase();
+          if (isCaps) {
+            const groupStart = i;
+            const parts: string[] = [stripped];
+            // Gather consecutive CAPS
+            while (i + 1 < words.length) {
+              const nextStripped = words[i + 1].word.replace(/[^a-zA-Z]/g, "");
+              if (nextStripped.length >= 2 && nextStripped === nextStripped.toUpperCase()) {
+                i++;
+                parts.push(nextStripped);
+              } else break;
+            }
+            capsGroups.push({
+              text: parts.join(" "),
+              startFrame: (words[groupStart].start - clipStartSec) * fps,
+              idx: groupStart,
+            });
+          }
+          i++;
+        }
+
+        const STAMP_LIFE = 24; // stay longer — ~0.8s at 30fps
+        return capsGroups.map((group) => {
+          const localFrame = frame - group.startFrame;
+          if (localFrame < 0 || localFrame > STAMP_LIFE) return null;
+
+          // Deterministic random position — upper 60% of screen, avoid edges
+          const px = random(`stamp-x-${group.idx}`) * 0.6 + 0.15;
+          const py = random(`stamp-y-${group.idx}`) * 0.4 + 0.08;
+          const rot = (random(`stamp-r-${group.idx}`) - 0.5) * 4;
+          const stampSize = 80 + random(`stamp-s-${group.idx}`) * 50;
+
+          // Slam in: scale 1.5→1 in 2 frames
+          const slamT = Math.min(1, localFrame / 2);
+          const stampScale = 1 + (1 - slamT) * 0.5;
+
+          // Fade out in last 6 frames
+          const fadeStart = STAMP_LIFE - 6;
+          const stampOpacity =
+            localFrame >= fadeStart
+              ? 1 - (localFrame - fadeStart) / 6
+              : Math.min(1, localFrame / 1);
+
+          // Glitch phase: first 6 frames — RGB split, jitter, flicker
+          const GLITCH_FRAMES = 6;
+          const inGlitch = localFrame < GLITCH_FRAMES;
+          const glitchT = inGlitch ? 1 - localFrame / GLITCH_FRAMES : 0;
+
+          // Shake — stronger during glitch, subtle after
+          let sx = 0;
+          let sy = 0;
+          if (inGlitch) {
+            sx = (random(`stmp-sx-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 14;
+            sy = (random(`stmp-sy-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 8;
+          }
+
+          // RGB split offsets — decay with glitch
+          const rgbOff = inGlitch ? Math.round(glitchT * 10) : 0;
+
+          // Random opacity flicker during glitch
+          const flickerOp = inGlitch
+            ? stampOpacity * (0.7 + random(`stmp-fl-${group.idx}-${frame}`) * 0.3)
+            : stampOpacity;
+
+          // Horizontal slice offset — random per-frame displacement
+          const sliceX = inGlitch
+            ? (random(`stmp-sl-${group.idx}-${frame}`) - 0.5) * 2 * glitchT * 20
+            : 0;
+
+          // Break long phrases: max 2 words per line
+          const phraseWords = group.text.split(" ");
+          const lines: string[] = [];
+          for (let li = 0; li < phraseWords.length; li += 2) {
+            lines.push(phraseWords.slice(li, li + 2).join(" "));
+          }
+          const stampContent = lines.map((line, li) => (
+            <React.Fragment key={li}>
+              {line}
+              {li < lines.length - 1 && <br />}
+            </React.Fragment>
+          ));
+
+          const baseStyle: React.CSSProperties = {
+            position: "absolute",
+            left: `${px * 100}%`,
+            top: `${py * 100}%`,
+            fontSize: stampSize,
+            fontWeight: 900,
+            fontStyle: "italic",
+            letterSpacing: "4px",
+            pointerEvents: "none",
+            textAlign: "center",
+            lineHeight: 1.05,
+          };
+
+          return (
+            <React.Fragment key={`stamp-${group.idx}`}>
+              {/* Cyan ghost — offset left */}
+              {rgbOff > 0 && (
+                <div
+                  style={{
+                    ...baseStyle,
+                    color: "cyan",
+                    opacity: glitchT * 0.5,
+                    transform: `translate(-50%, -50%) rotate(${rot}deg) scale(${stampScale}) translate(${sx - rgbOff + sliceX}px, ${sy}px)`,
+                    mixBlendMode: "screen",
+                  }}
+                >
+                  {stampContent}
+                </div>
+              )}
+              {/* Magenta ghost — offset right */}
+              {rgbOff > 0 && (
+                <div
+                  style={{
+                    ...baseStyle,
+                    color: "magenta",
+                    opacity: glitchT * 0.5,
+                    transform: `translate(-50%, -50%) rotate(${rot}deg) scale(${stampScale}) translate(${sx + rgbOff + sliceX}px, ${sy}px)`,
+                    mixBlendMode: "screen",
+                  }}
+                >
+                  {stampContent}
+                </div>
+              )}
+              {/* Main white text */}
+              <div
+                style={{
+                  ...baseStyle,
+                  color: "#fff",
+                  opacity: flickerOp,
+                  transform: `translate(-50%, -50%) rotate(${rot}deg) scale(${stampScale}) translate(${sx + sliceX}px, ${sy}px)`,
+                  textShadow: `0 4px 30px rgba(0,0,0,0.9), 0 0 20px ${actorColor}40`,
+                }}
+              >
+                {stampContent}
+              </div>
+            </React.Fragment>
+          );
+        });
+      })()}
+
       {/* Actor indicator - top left */}
       <div
         style={{
@@ -243,7 +413,7 @@ export const Clip: React.FC<ClipProps> = ({
         </span>
       </div>
 
-      {/* Main quote text — scales from screen center, 150% faster than video */}
+      {/* Main quote text — word-by-word reveal synced to speech */}
       <div
         style={{
           position: "absolute",
@@ -266,7 +436,133 @@ export const Clip: React.FC<ClipProps> = ({
             maxWidth: 1600,
           }}
         >
-          "{text}"
+          "
+          {words && words.length > 0
+            ? words.map((w, idx) => {
+                // Convert absolute word time to clip-local frame
+                const clipStartSec = startSec || 0;
+                const wordStartFrame = (w.start - clipStartSec) * fps;
+                const wordEndFrame = (w.end - clipStartSec) * fps;
+
+                // Word states: unseen → speaking → spoken
+                const isSpeaking =
+                  frame >= wordStartFrame && frame < wordEndFrame;
+                const isUnseen = frame < wordStartFrame;
+                const framesSinceStart = frame - wordStartFrame;
+
+                // Detect ALL CAPS words (strip punctuation for check)
+                const stripped = w.word.replace(/[^a-zA-Z]/g, "");
+                const isCaps =
+                  stripped.length >= 2 &&
+                  stripped === stripped.toUpperCase();
+
+                // --- CAPS WORD: flash + micro shake ---
+                if (isCaps) {
+                  const FLASH_FRAMES = 3;
+                  const SHAKE_FRAMES = 6;
+                  const SETTLE_FRAMES = 5;
+
+                  let wordOpacity: number;
+                  let wordColor: string;
+                  let wordScale: number;
+                  let shakeX = 0;
+                  let shakeY = 0;
+                  let textShadowExtra = "";
+
+                  if (isUnseen) {
+                    wordOpacity = 0;
+                    wordColor = "#fff";
+                    wordScale = 1;
+                  } else {
+                    wordOpacity = 1;
+
+                    // Flash: bright white burst that fades to actor color
+                    const flashT = Math.min(1, framesSinceStart / FLASH_FRAMES);
+                    const flashBrightness = 1 - flashT;
+                    wordColor = flashT < 1
+                      ? `color-mix(in srgb, #fff ${Math.round(flashBrightness * 100)}%, ${actorColor})`
+                      : isSpeaking
+                        ? actorColor
+                        : `color-mix(in srgb, ${actorColor} ${Math.round(Math.max(0, 1 - (framesSinceStart - (wordEndFrame - wordStartFrame)) / 10) * 100)}%, #fff)`;
+
+                    // Glow on flash
+                    if (flashT < 1) {
+                      textShadowExtra = `, 0 0 ${20 + flashBrightness * 40}px ${actorColor}, 0 0 ${10 + flashBrightness * 20}px #fff`;
+                    }
+
+                    // Scale: big punch 1.3→1 over settle
+                    const scaleT = Math.min(1, framesSinceStart / SETTLE_FRAMES);
+                    wordScale = 1 + (1 - scaleT) * 0.3;
+
+                    // Micro shake: random jitter that decays
+                    if (framesSinceStart < SHAKE_FRAMES) {
+                      const shakeIntensity = 1 - framesSinceStart / SHAKE_FRAMES;
+                      shakeX = (random(`caps-sx-${idx}-${frame}`) - 0.5) * 2 * shakeIntensity * 6;
+                      shakeY = (random(`caps-sy-${idx}-${frame}`) - 0.5) * 2 * shakeIntensity * 4;
+                    }
+                  }
+
+                  return (
+                    <span
+                      key={idx}
+                      style={{
+                        display: "inline-block",
+                        opacity: wordOpacity,
+                        color: wordColor,
+                        transform: `scale(${wordScale}) translate(${shakeX}px, ${shakeY}px)`,
+                        transformOrigin: "center bottom",
+                        textShadow: `0 4px 20px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)${textShadowExtra}`,
+                      }}
+                    >
+                      {w.word}
+                      {idx < words.length - 1 ? "\u00A0" : ""}
+                    </span>
+                  );
+                }
+
+                // --- Normal word: simple reveal ---
+                const revealT = isUnseen
+                  ? 0
+                  : Math.min(1, framesSinceStart / 4);
+                const wordScale = 1 + (1 - revealT) * 0.15;
+
+                let wordOpacity: number;
+                let wordColor: string;
+                if (isUnseen) {
+                  wordOpacity = 0;
+                  wordColor = "rgba(255,255,255,0.3)";
+                } else if (isSpeaking) {
+                  wordOpacity = 1;
+                  wordColor = actorColor;
+                } else {
+                  const fadeT = Math.min(
+                    1,
+                    (frame - wordEndFrame) / 10,
+                  );
+                  wordOpacity = 1;
+                  wordColor = `color-mix(in srgb, ${actorColor} ${Math.round((1 - fadeT) * 100)}%, #fff)`;
+                }
+
+                return (
+                  <span
+                    key={idx}
+                    style={{
+                      display: "inline-block",
+                      opacity: wordOpacity,
+                      color: wordColor,
+                      transform: revealT < 1
+                        ? `scale(${wordScale})`
+                        : undefined,
+                      transformOrigin: "center bottom",
+                    }}
+                  >
+                    {w.word}
+                    {idx < words.length - 1 ? "\u00A0" : ""}
+                  </span>
+                );
+              })
+            : text}
+          "
         </p>
       </div>
 

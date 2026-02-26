@@ -11,6 +11,12 @@ import { Clip } from "./Clip";
 import { ClipTransition, OVERLAP_FRAMES } from "./transitions";
 
 // Schema for trailer configuration (matches Python output)
+const WordSchema = z.object({
+  word: z.string(),
+  start: z.number(),
+  end: z.number(),
+});
+
 const ClipSchema = z.object({
   source: z.string(),
   scene: z.number(),
@@ -32,6 +38,7 @@ const ClipSchema = z.object({
   duration: z.number(),
   actor: z.string(),
   video_file: z.string().optional(),
+  words: z.array(WordSchema).optional(),
 });
 
 const EndCardSchema = z.object({
@@ -168,6 +175,7 @@ export const Trailer: React.FC<TrailerProps> = ({
                 startSec={clip.start_sec}
                 enterFrames={enterFrames}
                 exitFrames={exitOverlap}
+                words={clip.words}
               />
             </ClipTransition>
           </Sequence>

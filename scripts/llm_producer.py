@@ -608,6 +608,7 @@ class TrailerClip:
     duration: float = 0.0          # Clip duration
     actor: str = ""                # Speaker
     video_file: str = ""           # Path to source video file
+    words: list = field(default_factory=list)  # Per-word timing [{word, start, end}]
 
 
 @dataclass
@@ -652,7 +653,8 @@ def extract_partial_line(dialogue: dict, start_word: int, end_word: int) -> dict
         "text": text,
         "startSec": start_sec,
         "endSec": end_sec,
-        "duration": end_sec - start_sec
+        "duration": end_sec - start_sec,
+        "words": [{"word": w["word"], "start": w["start"], "end": w["end"]} for w in partial_words]
     }
 
 
@@ -725,7 +727,8 @@ def resolve_clips(raw_clips: list[dict], session_log: dict, session_log_path: Pa
             end_sec=partial["endSec"],
             duration=partial["duration"],
             actor=dialogue.get("actor", ""),
-            video_file=video_file
+            video_file=video_file,
+            words=partial.get("words", [])
         )
         resolved.append(clip)
 

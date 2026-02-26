@@ -2,6 +2,18 @@ import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
 import { OVERLAP_FRAMES } from "./transitions";
 
+// Generate evenly-spaced word timing from text and clip boundaries (for preview only)
+const syntheticWords = (text: string, startSec: number, endSec: number) => {
+  const parts = text.split(" ");
+  const dur = endSec - startSec;
+  const gap = dur / parts.length;
+  return parts.map((word, i) => ({
+    word,
+    start: +(startSec + i * gap).toFixed(3),
+    end: +(startSec + (i + 1) * gap - 0.02).toFixed(3),
+  }));
+};
+
 // Default props for Remotion Studio preview
 // When no video_file is provided, clips show text-only mode
 const defaultProps: TrailerProps = {
@@ -24,6 +36,7 @@ const defaultProps: TrailerProps = {
       duration: 3.576,
       actor: "eliza",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("Today we have an AI agent that secretly joined our Discord and then", 24.886, 28.462),
     },
     {
       source: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go_session-log.json",
@@ -39,6 +52,7 @@ const defaultProps: TrailerProps = {
       duration: 4.528,
       actor: "jin",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("Wait- an AI was just HANGING OUT in Discord pretending to be a PERSON?! That's", 82.083, 86.611),
     },
     {
       source: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go_session-log.json",
@@ -54,6 +68,7 @@ const defaultProps: TrailerProps = {
       duration: 3.971,
       actor: "jin",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("A RUGPULL DETECTOR for AI agents! We're living in a world where robots", 169.38, 173.351),
     },
     {
       source: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go_session-log.json",
@@ -69,6 +84,7 @@ const defaultProps: TrailerProps = {
       duration: 3.785,
       actor: "jin",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("And it has a ONE MILLION token context window in beta! A MILLION", 197.546, 201.331),
     },
     {
       source: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go_session-log.json",
@@ -84,6 +100,7 @@ const defaultProps: TrailerProps = {
       duration: 4.296,
       actor: "peepo",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("Fam, ElizaOS market cap is sitting at 10 million. DOWN from almost 3 BILLION. That's", 309.557, 313.853),
     },
     {
       source: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go_session-log.json",
@@ -99,6 +116,7 @@ const defaultProps: TrailerProps = {
       duration: 6.316,
       actor: "jin",
       video_file: "episodes/2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go.mp4",
+      words: syntheticWords("And I'm Jin saying HAPPY ONE MONTH ANNIVERSARY Cron Job! March is coming, Milady NFTs", 844.04, 850.356),
     },
   ],
   end_card: {
