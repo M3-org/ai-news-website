@@ -9,6 +9,7 @@ import { useRef, useMemo } from "react";
 import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, useVideoConfig, useCurrentFrame, staticFile, Audio } from "remotion";
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import { EffectComposer, Vignette, ChromaticAberration, Noise, ToneMapping, Bloom } from "@react-three/postprocessing";
 import { ToneMappingMode, BlendFunction } from "postprocessing";
 import { Vector2, AnimationClip, PerspectiveCamera as THREEPerspectiveCamera } from "three";
@@ -252,10 +253,17 @@ const CameraShake = ({
   shakeX: number;
   shakeY: number;
 }) => {
-  // Apply shake offset to camera position
-  if (cameraRef.current) {
-    cameraRef.current.position.x += shakeX;
-    cameraRef.current.position.y += shakeY;
-  }
+  const prevShakeRef = useRef({ x: 0, y: 0 });
+
+  // Remove last shake first, then apply current shake to prevent stacking in concurrent renders.
+  useFrame(() => {
+    const camera = cameraRef.current;
+    if (!camera) return;
+    camera.position.x += shakeX - prevShakeRef.current.x;
+    camera.position.y += shakeY - prevShakeRef.current.y;
+    prevShakeRef.current.x = shakeX;
+    prevShakeRef.current.y = shakeY;
+  });
+
   return null;
 };

@@ -6,6 +6,7 @@ import { useRef, useMemo, useEffect } from "react";
 import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, useVideoConfig, useCurrentFrame, staticFile } from "remotion";
 import { useGLTF, useTexture, PerspectiveCamera } from "@react-three/drei";
+import { useFrame } from "@react-three/fiber";
 import {
   EffectComposer,
   Vignette,
@@ -122,10 +123,18 @@ const CameraShake = ({
   shakeX: number;
   shakeY: number;
 }) => {
-  if (cameraRef.current) {
-    cameraRef.current.position.x += shakeX;
-    cameraRef.current.position.y += shakeY;
-  }
+  const prevShakeRef = useRef({ x: 0, y: 0 });
+
+  // Remove last shake first, then apply current shake to prevent stacking in concurrent renders.
+  useFrame(() => {
+    const camera = cameraRef.current;
+    if (!camera) return;
+    camera.position.x += shakeX - prevShakeRef.current.x;
+    camera.position.y += shakeY - prevShakeRef.current.y;
+    prevShakeRef.current.x = shakeX;
+    prevShakeRef.current.y = shakeY;
+  });
+
   return null;
 };
 

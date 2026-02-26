@@ -5,14 +5,9 @@
  * each frame. Uses the same pattern as `custom` effects in useEffector.ts:
  * no AnimationMixer, just interpolant.evaluate(t) → write to object.
  */
-import { useMemo, useRef } from "react";
+import { useMemo } from "react";
 import { useCurrentFrame, useVideoConfig } from "remotion";
 import type { AnimationClip, PerspectiveCamera } from "three";
-import { Vector3 } from "three";
-
-/** Scratch vectors for velocity computation */
-const _prevPos = new Vector3();
-const _currPos = new Vector3();
 
 interface TrackBinding {
   property: "position" | "quaternion" | "fov";
@@ -50,9 +45,6 @@ export function useCameraAnimation({
   const frame = useCurrentFrame();
   const { fps: configFps } = useVideoConfig();
   const fps = fpsProp ?? configFps;
-
-  // Track previous position for velocity calculation
-  const prevPosRef = useRef<{ x: number; y: number; z: number } | null>(null);
 
   // Build interpolants for camera tracks once
   const bindings = useMemo(() => {
@@ -103,44 +95,48 @@ export function useCameraAnimation({
 
   const camera = cameraRef.current;
 
-  // Store previous position before applying new one
-  _prevPos.copy(camera.position);
-
   // Track current FOV (default to camera's current FOV if no animation)
   let currentFov = camera.fov;
+  let velocity = 0;
 
   // Apply camera animation
   for (const { duration, tracks } of bindings) {
     // Time in seconds, clamped to animation duration
-    const t = Math.min((frame / fps), duration);
+    const t = Math.min(frame / fps, duration);
+    const prevT = Math.max(0, Math.min((frame - 1) / fps, duration));
 
     for (const { property, interpolant } of tracks) {
-      interpolant.evaluate(t);
-      const buf = interpolant.resultBuffer;
-
       if (property === "position") {
-        camera.position.set(buf[0], buf[1], buf[2]);
+        const prevBuf = interpolant.evaluate(prevT);
+        const px = prevBuf[0];
+        const py = prevBuf[1];
+        const pz = prevBuf[2];
+
+        const buf = interpolant.evaluate(t);
+        const cx = buf[0];
+        const cy = buf[1];
+        const cz = buf[2];
+
+        camera.position.set(cx, cy, cz);
+
+        // Deterministic per-frame velocity: independent from render order/concurrency.
+        const dx = cx - px;
+        const dy = cy - py;
+        const dz = cz - pz;
+        velocity = Math.sqrt(dx * dx + dy * dy + dz * dz);
       } else if (property === "quaternion") {
+        interpolant.evaluate(t);
+        const buf = interpolant.resultBuffer;
         camera.quaternion.set(buf[0], buf[1], buf[2], buf[3]);
       } else if (property === "fov") {
+        interpolant.evaluate(t);
+        const buf = interpolant.resultBuffer;
         currentFov = buf[0];
         camera.fov = currentFov;
         camera.updateProjectionMatrix();
       }
     }
   }
-
-  // Compute velocity (distance moved this frame)
-  _currPos.copy(camera.position);
-  let velocity = 0;
-
-  if (prevPosRef.current) {
-    _prevPos.set(prevPosRef.current.x, prevPosRef.current.y, prevPosRef.current.z);
-    velocity = _currPos.distanceTo(_prevPos);
-  }
-
-  // Store current position for next frame
-  prevPosRef.current = { x: camera.position.x, y: camera.position.y, z: camera.position.z };
 
   return { velocity, fov: currentFov, hasAnimation: true };
 }

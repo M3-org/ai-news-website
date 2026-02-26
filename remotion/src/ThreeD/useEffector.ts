@@ -9,7 +9,7 @@
  */
 import { useMemo } from "react";
 import { useThree } from "@react-three/fiber";
-import { useCurrentFrame, interpolate } from "remotion";
+import { getRemotionEnvironment, useCurrentFrame, interpolate } from "remotion";
 import { MathUtils, Mesh, MeshStandardMaterial, MeshBasicMaterial, ShaderMaterial, Box3, Vector3, Quaternion, Color, AnimationClip } from "three";
 import type { Object3D } from "three";
 import {
@@ -179,6 +179,7 @@ export function useEffector({
   const camera = useThree((s) => s.camera);
   const scene = useThree((s) => s.scene);
   const frame = useCurrentFrame();
+  const isRendering = getRemotionEnvironment().isRendering;
 
   const effectableGroups: EffectableGroup[] = useMemo(
     () => findEffectableGroups(nodes, effectMap),
@@ -565,13 +566,22 @@ export function useEffector({
         case "burn":
           targets.forEach((child) => {
             const weight = multiWeight(child, o);
-            // weight ≤ 0 → object outside effector field. Skip material swap so the
-            // original material stays visible (burn shader at threshold=0 discards all pixels).
-            if (weight <= 0) return;
             const bIntensity = o.burnIntensity ?? 3;
+
             child.traverse((obj) => {
               if ((obj as Mesh).isMesh) {
                 const mesh = obj as Mesh;
+
+                // If outside effector field, reset to original material (burn shader discards all at threshold=0)
+                if (weight <= 0) {
+                  if (mesh.userData._burnMaterial && mesh.material === mesh.userData._burnMaterial) {
+                    if (mesh.userData._originalMaterial) {
+                      mesh.material = mesh.userData._originalMaterial;
+                    }
+                  }
+                  return;
+                }
+
                 if (!mesh.userData._burnMaterial) {
                   mesh.userData._originalMaterial = mesh.userData._originalMaterial ?? mesh.material;
                   const origMat = mesh.userData._originalMaterial as MeshStandardMaterial | MeshBasicMaterial;
@@ -621,12 +631,12 @@ export function useEffector({
 
         // --- Hologram (Y-axis scan, trigger-based) ---
         case "hologram":
-          applyHologram(targets, effectorPos, frame, o, config, false, multiWeight, effectorSources);
+          applyHologram(targets, effectorPos, frame, o, config, false, multiWeight, effectorSources, isRendering);
           break;
 
         // --- holoReveal (absolute Z-axis scan for transitions) ---
         case "holoReveal":
-          applyHologram(targets, effectorPos, frame, o, config, true, multiWeight, effectorSources);
+          applyHologram(targets, effectorPos, frame, o, config, true, multiWeight, effectorSources, isRendering);
           break;
 
         // --- LookAt (slerp toward camera based on weight) ---
@@ -730,6 +740,7 @@ function applyHologram(
   zMode: boolean,
   weightFn: (object: Object3D, overrides: EffectOverrides) => number,
   extraSources: EffectorSource[],
+  isRendering: boolean,
 ) {
   const hIntensity = o.holoIntensity ?? 4;
   const hColor = o.holoColor ?? "#88ccff";
@@ -738,6 +749,11 @@ function applyHologram(
   const hStart = o.holoStart as number | undefined;
   const hModulated = o.holoModulated ?? false;
   const hReverse = o.holoReverse ?? false;
+  // Spatial trigger latching is order-dependent, which can stutter when
+  // Remotion renders frames out-of-order. For holoReveal, default to
+  // a deterministic time sweep in render unless explicitly overridden.
+  const effectiveHStart =
+    isRendering && zMode && !hModulated && hStart === undefined ? 0 : hStart;
 
   // Reverse gets its own prefix so entrance and exit don't share
   // material instances or trigger keys on the same meshes.
@@ -788,8 +804,18 @@ function applyHologram(
           const weight = weightFn(child, o as EffectOverrides);
           const range = maxVal - minVal;
           scanVal = minVal + weight * (range * 1.2);
+        } else if (effectiveHStart !== undefined) {
+          // === DETERMINISTIC TIME MODE (Stateless) ===
+          // Fixes out-of-order rendering stuttering in Remotion
+          const hideVal = minVal - 1;
+          if (frame < effectiveHStart) {
+            scanVal = hideVal;
+          } else {
+            const elapsed = frame - effectiveHStart;
+            scanVal = minVal + elapsed * hSpeed;
+          }
         } else {
-          // === TRIGGER MODE: one-shot latch, scan keeps going once triggered ===
+          // === SPATIAL TRIGGER MODE: one-shot latch ===
           const tfKey = `${prefix}TriggerFrame`;
 
           // Scrub guard
@@ -799,22 +825,20 @@ function applyHologram(
 
           // Check trigger (only if not already triggered — latch)
           if (child.userData[tfKey] === undefined) {
-            let triggered: boolean;
-            if (hStart !== undefined) {
-              triggered = frame >= hStart;
-            } else {
-              child.getWorldPosition(_triggerPos);
-              triggered = _triggerPos.distanceTo(effectorPos) <= hTrigger;
-              if (!triggered) {
-                for (const src of extraSources) {
-                  src.object.getWorldPosition(_srcPos);
-                  if (_triggerPos.distanceTo(_srcPos) <= hTrigger) {
-                    triggered = true;
-                    break;
-                  }
+            let triggered = false;
+            child.getWorldPosition(_triggerPos);
+            triggered = _triggerPos.distanceTo(effectorPos) <= hTrigger;
+            if (!triggered) {
+              for (const src of extraSources) {
+                src.object.getWorldPosition(_srcPos);
+                if (_triggerPos.distanceTo(_srcPos) <= hTrigger) {
+                  triggered = true;
+                  break;
                 }
               }
             }
+            // If we jump forward in time during rendering, this latch is technically inexact,
+            // but for spatial triggers it's the only cheap way. Use hStart or hModulated for perfect sync.
             if (triggered) child.userData[tfKey] = frame;
           }
 
@@ -832,9 +856,13 @@ function applyHologram(
         holoMat.uniforms.u_reverse.value = hReverse ? 1.0 : 0.0;
 
         if (hReverse) {
-          // Exit mode — only apply once triggered (before trigger, don't touch material)
+          // Exit mode — only apply once triggered
           if (scanVal <= minVal - 1) {
-            // Not triggered yet — leave material as-is so entrance/other effects work
+            // Not triggered yet — reset to original material if we previously mutated it
+            // This fixes the stuttering caused by out-of-order rendering in Remotion
+            if (mesh.material === holoMat && mesh.userData._originalMaterial) {
+              mesh.material = mesh.userData._originalMaterial;
+            }
             return;
           }
           holoMat.uniforms.u_scanY.value = scanVal;
