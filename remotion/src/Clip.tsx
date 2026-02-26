@@ -8,6 +8,7 @@ import {
   useVideoConfig,
   OffthreadVideo,
   staticFile,
+  Easing,
 } from "remotion";
 
 interface WordData {
@@ -122,10 +123,9 @@ export const Clip: React.FC<ClipProps> = ({
   const actorColor = getActorColor(actor);
   const actorName = formatActorName(actor);
 
-  // Entry animation - quick punch
-  const entryScale = interpolate(frame, [0, 4], [1.05, 1], {
-    extrapolateRight: "clamp",
-  });
+  // Entry animation - massive quick punch
+  const entryProgress = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
+  const entryScale = 1.15 - 0.15 * Easing.bezier(0.1, 1, 0, 1)(entryProgress);
 
   // Parallax: text scales 150% faster than video from center — closer = faster
   const videoParallax = interpolate(frame, [0, durationInFrames], [1, 1.06], {
@@ -272,9 +272,9 @@ export const Clip: React.FC<ClipProps> = ({
           const rot = (random(`stamp-r-${group.idx}`) - 0.5) * 4;
           const stampSize = 80 + random(`stamp-s-${group.idx}`) * 50;
 
-          // Slam in: scale 1.5→1 in 2 frames
-          const slamT = Math.min(1, localFrame / 2);
-          const stampScale = 1 + (1 - slamT) * 0.5;
+          // Slam in: scale 3.5→1 in 4 frames with dopamine whip
+          const slamT = Easing.bezier(0.1, 1, 0, 1)(Math.min(1, localFrame / 4));
+          const stampScale = 1 + (1 - slamT) * 2.5;
 
           // Fade out in last 6 frames
           const fadeStart = STAMP_LIFE - 6;
@@ -492,9 +492,10 @@ export const Clip: React.FC<ClipProps> = ({
                       textShadowExtra = `, 0 0 ${20 + flashBrightness * 40}px ${actorColor}, 0 0 ${10 + flashBrightness * 20}px #fff`;
                     }
 
-                    // Scale: big punch 1.3→1 over settle
-                    const scaleT = Math.min(1, framesSinceStart / SETTLE_FRAMES);
-                    wordScale = 1 + (1 - scaleT) * 0.3;
+                    // Scale: massive punch 2.5→1 over settle with snap curve
+                    const scaleProgress = Math.min(1, framesSinceStart / SETTLE_FRAMES);
+                    const scaleT = Easing.bezier(0.1, 1, 0, 1)(scaleProgress);
+                    wordScale = 1 + (1 - scaleT) * 1.5;
 
                     // Micro shake: random jitter that decays
                     if (framesSinceStart < SHAKE_FRAMES) {
@@ -522,11 +523,10 @@ export const Clip: React.FC<ClipProps> = ({
                   );
                 }
 
-                // --- Normal word: simple reveal ---
-                const revealT = isUnseen
-                  ? 0
-                  : Math.min(1, framesSinceStart / 4);
-                const wordScale = 1 + (1 - revealT) * 0.15;
+                // --- Normal word: hype dopamine reveal ---
+                const revealProgress = isUnseen ? 0 : Math.min(1, framesSinceStart / 6);
+                const revealT = Easing.bezier(0.1, 1, 0, 1)(revealProgress);
+                const wordScale = 1 + (1 - revealT) * 0.8;
 
                 let wordOpacity: number;
                 let wordColor: string;

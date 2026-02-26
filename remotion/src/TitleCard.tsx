@@ -6,6 +6,7 @@ import {
   staticFile,
   useCurrentFrame,
   useVideoConfig,
+  Easing,
 } from "remotion";
 import { ThreeDBackground } from "./ThreeDBackground";
 import type { ModulationProps } from "./Trailer";
@@ -41,10 +42,9 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulatio
     extrapolateRight: "clamp",
   });
 
-  // Scale punch on entry
-  const scale = interpolate(frame, [0, fps * 0.2], [1.1, 1], {
-    extrapolateRight: "clamp",
-  });
+  // Scale punch on entry (massive whip)
+  const scaleProgress = interpolate(frame, [0, fps * 0.4], [0, 1], { extrapolateRight: "clamp" });
+  const scale = 1.3 - 0.3 * Easing.bezier(0.1, 1, 0, 1)(scaleProgress);
 
   // Glowing pulse effect
   const glowIntensity = interpolate(

@@ -36,14 +36,11 @@ function shake(
 }
 
 /**
- * Fast-start / slow-end ramp:
- * starts instantly, then eases out into the cut.
+ * Dopamine Ramp: massive initial whip that smoothly coasts into place.
+ * Standard high-energy TikTok edit curve (bezier 0.1, 1, 0, 1).
  */
-function animeRamp(t: number, power = 4.8): number {
-  const clamped = Math.max(0, Math.min(1, t));
-  const eased = 1 - Math.pow(1 - clamped, power);
-  const kick = Math.sin(clamped * Math.PI) * 0.012 * (1 - clamped);
-  return Math.max(0, Math.min(1, eased + kick));
+function animeRamp(t: number): number {
+  return Easing.bezier(0.1, 1, 0, 1)(Math.max(0, Math.min(1, t)));
 }
 
 function animeRampVelocity(t: number): number {
@@ -117,9 +114,9 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
       }
       case "zoom-punch": {
         const e = animeRamp(t);
-        scale = 1.25 - 0.25 * e;
+        scale = 1.8 - 0.8 * e;
         opacity = e;
-        const s = shake(frame, "zp-enter", (1 - t) * 0.6);
+        const s = shake(frame, "zp-enter", (1 - t) * 1.5);
         tx = s.x;
         ty = s.y;
         break;
@@ -145,11 +142,14 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         break;
       }
       case "side-scroll-left": {
-        const e = animeRamp(t);
-        const s = shake(frame, "ss-enter", 0.1 + (1 - t) * 0.28);
+        // Slightly softer bezier so you can actually perceive the motion
+        const e = Easing.bezier(0.25, 1, 0.35, 1)(t);
+        const s = shake(frame, "ss-enter", 0.2 + (1 - t) * 0.8);
         tx = (1 - e) * sideScrollDistance + s.x;
-        ty = s.y * 0.6;
-        opacity = 0.85 + e * 0.15;
+        ty = s.y * 1.0;
+        opacity = 0.5 + e * 0.5;
+        // Gentle stretch effect instead of a massive one
+        scale = 1 + (1 - e) * 0.08;
         break;
       }
       case "split": {
@@ -217,9 +217,9 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
       }
       case "zoom-punch": {
         const e = animeRamp(t);
-        scale = 1 + e * 0.5;
+        scale = 1 + e * 1.5;
         opacity = 1 - e;
-        const s = shake(frame, "zp-exit", e * 1.5);
+        const s = shake(frame, "zp-exit", e * 2.5);
         tx = s.x;
         ty = s.y;
         break;
@@ -245,11 +245,13 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         break;
       }
       case "side-scroll-left": {
-        const e = animeRamp(t);
-        const s = shake(frame, "ss-exit", 0.1 + t * 0.24);
+        // Slightly softer bezier so you can actually perceive the motion
+        const e = Easing.bezier(0.25, 1, 0.35, 1)(t);
+        const s = shake(frame, "ss-exit", 0.2 + t * 0.8);
         tx = -e * sideScrollDistance + s.x;
-        ty = s.y * 0.6;
-        opacity = 1 - e * 0.08;
+        ty = s.y * 1.0;
+        opacity = 1 - e * 0.2;
+        scale = 1 + e * 0.08;
         break;
       }
       case "split": {
