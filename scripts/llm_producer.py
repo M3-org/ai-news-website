@@ -41,7 +41,7 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "moonshotai/kimi-k2.5"
 
 # Trailer constants
-TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch"]
+TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left"]
 
 # ============================================================================
 # System Prompts
@@ -90,8 +90,16 @@ For each clip, provide:
 - dialogue_num: dialogue index (the "i" field)
 - start_word: word index where the partial line STARTS (0-indexed into words array)
 - end_word: word index where the partial line ENDS (0-indexed, inclusive)
-- transition: one of "hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch"
+- transition: one of "hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left"
 - rationale: why this moment hooks viewers (1 sentence)
+
+TRANSITION GUIDE:
+- hard-cut: instant switch, no effect. Use sparingly for shock cuts.
+- flash-white: bright flash between clips. Good for hype/energy moments.
+- flash-black: dark flash. Good for dramatic or ominous moments.
+- zoom-punch: aggressive zoom + shake. Best for exclamations, reactions, bold claims.
+- glitch: RGB split + flicker. Good for tech topics, AI, bugs, chaos.
+- side-scroll-left: anime-style horizontal whip scroll. Great for topic changes, new speakers, "meanwhile" moments.
 
 IMPORTANT GUIDELINES:
 - Extract PARTIAL lines - just 4-12 words, the most dramatic part

@@ -17,6 +17,7 @@ export const OVERLAP_FRAMES: Record<string, number> = {
   "flash-black": 14,
   "zoom-punch": 20,
   "glitch": 18,
+  "side-scroll-left": 22,
 };
 
 // ---------------------------------------------------------------------------
@@ -31,6 +32,25 @@ function shake(
   const x = (random(seed + "-x-" + frame) - 0.5) * 2 * intensity * 18;
   const y = (random(seed + "-y-" + frame) - 0.5) * 2 * intensity * 12;
   return { x, y };
+}
+
+/**
+ * Fast-start / slow-end ramp:
+ * starts instantly, then eases out into the cut.
+ */
+function animeRamp(t: number): number {
+  const clamped = Math.max(0, Math.min(1, t));
+  // Very aggressive ease-out: big movement right at the start.
+  const eased = 1 - Math.pow(1 - clamped, 4.8);
+  const kick = Math.sin(clamped * Math.PI) * 0.012 * (1 - clamped);
+  return Math.max(0, Math.min(1, eased + kick));
+}
+
+function animeRampVelocity(t: number): number {
+  const dt = 0.015;
+  const prev = Math.max(0, t - dt);
+  const v = (animeRamp(t) - animeRamp(prev)) / dt;
+  return Math.max(0, Math.min(1, v));
 }
 
 // ---------------------------------------------------------------------------
@@ -53,7 +73,7 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
   exitFrames,
 }) => {
   const frame = useCurrentFrame();
-  const { durationInFrames } = useVideoConfig();
+  const { durationInFrames, width } = useVideoConfig();
 
   let opacity = 1;
   let scale = 1;
@@ -61,12 +81,15 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
   let ty = 0;
   let brightness = 1;
   let saturate = 1; // 1 = normal, 0 = full grayscale
+  let blurPx = 0;
   let overlayColor: string | null = null;
   let overlayOpacity = 0;
   let showGlitch = false;
   let glitchIntensity = 0;
+  const sideScrollDistance = Math.round(width * 0.85);
 
-  const exitStart = durationInFrames - exitFrames;
+  // Match Clip.tsx overlap timing: exit starts exitFrames*2 before end
+  const exitStart = exitFrames > 0 ? Math.max(0, durationInFrames - exitFrames * 2) : durationInFrames;
   const inExit = exitFrames > 0 && frame >= exitStart;
   const inEnter = enterFrames > 0 && frame < enterFrames;
 
@@ -112,16 +135,31 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         glitchIntensity = 1 - t;
         break;
       }
+      case "side-scroll-left": {
+        // Fast-start side-scroll with velocity blur + shake.
+        const e = animeRamp(t);
+        const v = animeRampVelocity(t);
+        const s = shake(frame, "ss-enter", 0.1 + v * 0.28);
+        tx = (1 - e) * sideScrollDistance + s.x;
+        ty = s.y * 0.6;
+        blurPx = 1.5 + v * 16;
+        opacity = 0.85 + e * 0.15;
+        break;
+      }
     }
   }
 
   // ===== EXIT =====
   if (inExit) {
+    const exitWindow = exitFrames * 2;
     const ef = frame - exitStart;
-    const t = Math.min(ef / exitFrames, 1); // 0 → 1
+    const t = Math.min(ef / exitWindow, 1); // 0 → 1
 
-    // Desaturate on all exits — color drains as clip leaves
-    saturate = 1 - Easing.in(Easing.cubic)(t);
+    // Desaturate on most exits — keep side-scroll color intact.
+    saturate =
+      exitType === "hard-cut" || exitType === "side-scroll-left"
+        ? 1
+        : 1 - Easing.in(Easing.cubic)(t);
 
     switch (exitType) {
       case "flash-white": {
@@ -166,6 +204,16 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         glitchIntensity = e;
         break;
       }
+      case "side-scroll-left": {
+        const e = animeRamp(t);
+        const v = animeRampVelocity(t);
+        const s = shake(frame, "ss-exit", 0.1 + v * 0.24);
+        tx = -e * sideScrollDistance + s.x;
+        ty = s.y * 0.6;
+        blurPx = 1.5 + v * 16;
+        opacity = 1 - e * 0.08;
+        break;
+      }
       case "hard-cut":
       default:
         saturate = 1; // no desaturate on hard cut
@@ -176,6 +224,7 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
   const filters: string[] = [];
   if (brightness !== 1) filters.push(`brightness(${brightness})`);
   if (saturate !== 1) filters.push(`saturate(${saturate})`);
+  if (blurPx > 0.01) filters.push(`blur(${blurPx}px)`);
 
   const style: React.CSSProperties = {
     opacity,

@@ -92,7 +92,8 @@ export const Clip: React.FC<ClipProps> = ({
 
   // Simple audio fade-in/out for cleaner handoffs.
   const AUDIO_FADE_IN_FRAMES = 4;
-  const AUDIO_FADE_OUT_FRAMES = 10;
+  // Slightly longer tail while keeping fade start anchored at overlapStartFrame.
+  const AUDIO_FADE_OUT_FRAMES = 14;
   const exitAudioWindow =
     exitFrames > 0 ? Math.min(exitFrames, AUDIO_FADE_OUT_FRAMES) : 0;
   const enterAudioProgress = clamp01(frame / AUDIO_FADE_IN_FRAMES);
@@ -113,6 +114,14 @@ export const Clip: React.FC<ClipProps> = ({
 
   // Entry animation - quick punch
   const entryScale = interpolate(frame, [0, 4], [1.05, 1], {
+    extrapolateRight: "clamp",
+  });
+
+  // Parallax: text scales 150% faster than video from center — closer = faster
+  const videoParallax = interpolate(frame, [0, durationInFrames], [1, 1.06], {
+    extrapolateRight: "clamp",
+  });
+  const textParallax = interpolate(frame, [0, durationInFrames], [1, 1.07], {
     extrapolateRight: "clamp",
   });
 
@@ -167,9 +176,9 @@ export const Clip: React.FC<ClipProps> = ({
         transform: `scale(${entryScale})`,
       }}
     >
-      {/* Video background - FULL visibility */}
+      {/* Video background — slow zoom for parallax depth */}
       {videoUrl && (
-        <AbsoluteFill>
+        <AbsoluteFill style={{ transform: `scale(${videoParallax})`, overflow: "hidden" }}>
           <OffthreadVideo
             src={videoUrl}
             startFrom={videoStartFrame}
@@ -234,14 +243,15 @@ export const Clip: React.FC<ClipProps> = ({
         </span>
       </div>
 
-      {/* Main quote text - larger, more prominent */}
+      {/* Main quote text — scales from screen center, 150% faster than video */}
       <div
         style={{
           position: "absolute",
-          left: 50,
+          left: 80,
           right: 50,
           bottom: 140,
-          transform: `translateY(${textSlide}px)`,
+          transform: `translateY(${textSlide}px) scale(${textParallax})`,
+          transformOrigin: "center center",
           opacity: textOpacity,
         }}
       >

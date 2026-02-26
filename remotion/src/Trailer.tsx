@@ -23,6 +23,7 @@ const ClipSchema = z.object({
     "flash-black",
     "zoom-punch",
     "glitch",
+    "side-scroll-left",
   ]),
   rationale: z.string(),
   text: z.string(),
