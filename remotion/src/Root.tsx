@@ -107,6 +107,21 @@ const defaultProps: TrailerProps = {
   },
   source_episode: "2026-02-23_Cron-Job_One-Month-Down-Agi-To-Go",
   generated_at: "2026-02-26T00:00:00Z",
+  modulation: {
+    glbFile: "Modulation_GLBs/cron_red.glb",
+    effectMap: {},
+    effectorInnerRadius: 1,
+    effectorOuterRadius: 8.6,
+    effectorStrength: 1,
+    rotationAxis: "z",
+    fisheyeStrength: -0.15,
+    fisheyeAudioMod: 0,
+    fisheyeZoom: 1,
+    audioFile: "",
+    audioShakeIntensity: 0.05,
+    audioShakeBass: 0.2,
+    opacity: 1,
+  },
 };
 
 const FPS = 30;

@@ -7,13 +7,16 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { ThreeDBackground } from "./ThreeDBackground";
+import type { ModulationProps } from "./Trailer";
 
 interface TitleCardProps {
   title: string;
   subtitle?: string;
+  modulation?: ModulationProps;
 }
 
-export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
+export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulation }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -56,24 +59,35 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
   return (
     <AbsoluteFill
       style={{
-        background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%)",
         justifyContent: "center",
         alignItems: "center",
         opacity,
       }}
     >
+      {/* 3D animated background */}
+      <ThreeDBackground
+        glbFile={modulation?.glbFile}
+        effectMap={modulation?.effectMap as any}
+        effectorInnerRadius={modulation?.effectorInnerRadius}
+        effectorOuterRadius={modulation?.effectorOuterRadius}
+        effectorStrength={modulation?.effectorStrength}
+        rotationAxis={modulation?.rotationAxis}
+        fisheyeStrength={modulation?.fisheyeStrength}
+        fisheyeAudioMod={modulation?.fisheyeAudioMod}
+        fisheyeZoom={modulation?.fisheyeZoom}
+        audioFile={modulation?.audioFile}
+        audioShakeIntensity={modulation?.audioShakeIntensity}
+        audioShakeBass={modulation?.audioShakeBass}
+        opacity={modulation?.opacity ?? 1}
+      />
+
       {/* Intro boot sound */}
       <Audio src={staticFile("introBoot.mp3")} />
-      {/* Background grid effect */}
-      <div
+
+      {/* Dark overlay for text readability */}
+      <AbsoluteFill
         style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), " +
-            "linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-          opacity: 0.5,
+          background: "radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)",
         }}
       />
 

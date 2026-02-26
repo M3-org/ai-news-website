@@ -41,6 +41,29 @@ const EndCardSchema = z.object({
   duration: z.number(),
 });
 
+const ModulationSchema = z.object({
+  /** GLB file in public/ for 3D background. */
+  glbFile: z.string().default("Modulation_GLBs/cron_red.glb"),
+  /** Effect assignments — object names → effect lists or override objects. */
+  effectMap: z.record(z.string(), z.union([
+    z.array(z.string()),
+    z.record(z.string(), z.any()),
+  ])).default({}),
+  effectorInnerRadius: z.number().step(0.1).default(5),
+  effectorOuterRadius: z.number().step(0.1).default(25),
+  effectorStrength: z.number().step(0.01).default(1),
+  rotationAxis: z.enum(["x", "y", "z"]).default("z"),
+  fisheyeStrength: z.number().step(0.01).default(-0.15),
+  fisheyeAudioMod: z.number().step(0.01).default(0),
+  fisheyeZoom: z.number().step(0.01).default(1),
+  /** Audio file in public/ for sound-reactive shake. Empty = disabled. */
+  audioFile: z.string().default(""),
+  audioShakeIntensity: z.number().step(0.01).default(0.05),
+  audioShakeBass: z.number().step(0.01).default(0.2),
+  /** Opacity of the 3D layer (0-1). */
+  opacity: z.number().min(0).max(1).step(0.01).default(1),
+});
+
 export const TrailerSchema = z.object({
   type: z.literal("trailer"),
   duration: z.number(),
@@ -50,6 +73,8 @@ export const TrailerSchema = z.object({
   end_card: EndCardSchema,
   source_episode: z.string(),
   generated_at: z.string(),
+  /** 3D background modulation params — overridable from Studio. */
+  modulation: ModulationSchema.default({}),
 });
 
 export type TrailerProps = z.infer<typeof TrailerSchema>;
@@ -75,11 +100,14 @@ const TransitionComponents: Record<
   ),
 };
 
+export type ModulationProps = z.infer<typeof ModulationSchema>;
+
 export const Trailer: React.FC<TrailerProps> = ({
   title,
   clips,
   end_card,
   source_episode,
+  modulation,
 }) => {
   const { fps } = useVideoConfig();
 
@@ -125,7 +153,7 @@ export const Trailer: React.FC<TrailerProps> = ({
     >
       {/* Title Card */}
       <Sequence from={0} durationInFrames={titleDuration}>
-        <TitleCard title={title} subtitle={source_episode} />
+        <TitleCard title={title} subtitle={source_episode} modulation={modulation} />
       </Sequence>
 
       {/* Clips with transitions */}
@@ -159,7 +187,7 @@ export const Trailer: React.FC<TrailerProps> = ({
 
       {/* End Card */}
       <Sequence from={endCardStart} durationInFrames={endCardDuration}>
-        <EndCard text={end_card.text} subtext={end_card.subtext} />
+        <EndCard text={end_card.text} subtext={end_card.subtext} modulation={modulation} />
       </Sequence>
     </AbsoluteFill>
   );
