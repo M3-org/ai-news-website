@@ -9,6 +9,7 @@ import {
   OffthreadVideo,
   staticFile,
   Easing,
+  spring,
 } from "remotion";
 
 interface WordData {
@@ -127,10 +128,63 @@ export const Clip: React.FC<ClipProps> = ({
   const entryProgress = interpolate(frame, [0, 10], [0, 1], { extrapolateRight: "clamp" });
   const entryScale = 1.15 - 0.15 * Easing.bezier(0.1, 1, 0, 1)(entryProgress);
 
+  // Yelling detection: if too many words are ALL CAPS, it's just the character's style
+  const totalWords = words ? words.length : 0;
+  const capsCount = words ? words.filter((w) => {
+    const s = w.word.replace(/[^a-zA-Z]/g, "");
+    return s.length >= 2 && s === s.toUpperCase();
+  }).length : 0;
+  const isYelling = totalWords > 0 && capsCount / totalWords > 0.4;
+
+  // Find start frames of consecutive CAPS groups to ensure we only shake the screen ONCE per phrase
+  const capsGroupStarts: number[] = [];
+  if (words && !isYelling) {
+    let i = 0;
+    while (i < words.length) {
+      const stripped = words[i].word.replace(/[^a-zA-Z]/g, "");
+      if (stripped.length >= 2 && stripped === stripped.toUpperCase()) {
+        capsGroupStarts.push(words[i].start);
+        while (i + 1 < words.length) {
+          const nextStripped = words[i + 1].word.replace(/[^a-zA-Z]/g, "");
+          if (nextStripped.length >= 2 && nextStripped === nextStripped.toUpperCase()) {
+            i++;
+          } else break;
+        }
+      }
+      i++;
+    }
+  }
+
+  // Audio-reactive pulse only at the START of an ALL-CAPS group
+  let pulseIntensity = 0;
+  if (!isYelling) {
+    const clipStartSec = startSec || 0;
+    for (const groupStartSec of capsGroupStarts) {
+      const groupStartFrame = (groupStartSec - clipStartSec) * fps;
+      if (frame >= groupStartFrame && frame < groupStartFrame + 6) {
+         pulseIntensity = Math.max(pulseIntensity, 1 - (frame - groupStartFrame) / 6);
+      }
+    }
+  }
+
+  // Continuous handheld camera drift
+  const driftX = Math.sin(frame / 20) * 12 + Math.cos(frame / 35) * 8;
+  const driftY = Math.cos(frame / 25) * 12 + Math.sin(frame / 40) * 8;
+
+  const pulseShakeX = (random(`bg-px-${frame}`) - 0.5) * 2 * pulseIntensity * 15;
+  const pulseShakeY = (random(`bg-py-${frame}`) - 0.5) * 2 * pulseIntensity * 10;
+
+  // Combine parallax, drift, and pulse
+  const finalTx = driftX + pulseShakeX;
+  const finalTy = driftY + pulseShakeY;
+
   // Parallax: text scales 150% faster than video from center — closer = faster
-  const videoParallax = interpolate(frame, [0, durationInFrames], [1, 1.06], {
+  // Scale starts slightly larger to hide edges during drift/shake
+  const videoParallax = interpolate(frame, [0, durationInFrames], [1.05, 1.11], {
     extrapolateRight: "clamp",
   });
+  const finalVideoScale = videoParallax + pulseIntensity * 0.08;
+
   const textParallax = interpolate(frame, [0, durationInFrames], [1, 1.07], {
     extrapolateRight: "clamp",
   });
@@ -146,8 +200,15 @@ export const Clip: React.FC<ClipProps> = ({
     extrapolateRight: "clamp",
   });
 
-  // Progress indicator
-  const progress = index / total;
+  // Progress indicator with spring physics
+  const prevProgress = (index - 1) / total;
+  const targetProgress = index / total;
+  const springProgress = spring({
+    frame,
+    fps,
+    config: { damping: 14, stiffness: 120, mass: 0.5 },
+  });
+  const progress = interpolate(springProgress, [0, 1], [prevProgress, targetProgress]);
 
   // Calculate video start frame from seconds
   const videoStartFrame = Math.floor((startSec || 0) * fps);
@@ -186,9 +247,13 @@ export const Clip: React.FC<ClipProps> = ({
         transform: `scale(${entryScale})`,
       }}
     >
-      {/* Video background — slow zoom for parallax depth */}
+      {/* Video background — slow zoom, handheld drift, and audio pulses */}
       {videoUrl && (
-        <AbsoluteFill style={{ transform: `scale(${videoParallax})`, overflow: "hidden" }}>
+        <AbsoluteFill style={{ 
+          transform: `translate(${finalTx}px, ${finalTy}px) scale(${finalVideoScale})`, 
+          overflow: "hidden",
+          transformOrigin: "center center"
+        }}>
           <OffthreadVideo
             src={videoUrl}
             startFrom={videoStartFrame}
@@ -208,6 +273,8 @@ export const Clip: React.FC<ClipProps> = ({
         <AbsoluteFill
           style={{
             background: `linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)`,
+            transform: `translate(${finalTx}px, ${finalTy}px) scale(${finalVideoScale})`,
+            transformOrigin: "center center"
           }}
         />
       )}
@@ -221,15 +288,7 @@ export const Clip: React.FC<ClipProps> = ({
 
       {/* Floating CAPS stamps — consecutive CAPS words grouped as one phrase */}
       {(() => {
-        if (!words) return null;
-        // Yelling detection: if too many words are ALL CAPS, it's just
-        // the character's style — skip stamps so the screen isn't chaos
-        const totalWords = words.length;
-        const capsCount = words.filter((w) => {
-          const s = w.word.replace(/[^a-zA-Z]/g, "");
-          return s.length >= 2 && s === s.toUpperCase();
-        }).length;
-        if (totalWords > 0 && capsCount / totalWords > 0.4) return null;
+        if (!words || isYelling) return null;
 
         // Group consecutive ALL CAPS words into phrases
         const capsGroups: { text: string; startFrame: number; idx: number }[] = [];
@@ -455,6 +514,7 @@ export const Clip: React.FC<ClipProps> = ({
                 // Detect ALL CAPS words (strip punctuation for check)
                 const stripped = w.word.replace(/[^a-zA-Z]/g, "");
                 const isCaps =
+                  !isYelling &&
                   stripped.length >= 2 &&
                   stripped === stripped.toUpperCase();
 

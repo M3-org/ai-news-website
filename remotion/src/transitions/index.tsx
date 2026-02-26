@@ -119,6 +119,9 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         const s = shake(frame, "zp-enter", (1 - t) * 1.5);
         tx = s.x;
         ty = s.y;
+        // Inject a quick burst of Chromatic Aberration (RGB split)
+        showGlitch = true;
+        glitchIntensity = (1 - t) * 0.5;
         break;
       }
       case "glitch": {
@@ -222,6 +225,9 @@ export const ClipTransition: React.FC<ClipTransitionProps> = ({
         const s = shake(frame, "zp-exit", e * 2.5);
         tx = s.x;
         ty = s.y;
+        // Inject Chromatic Aberration (RGB split) on the exit snap
+        showGlitch = true;
+        glitchIntensity = e * 0.6;
         break;
       }
       case "glitch": {
