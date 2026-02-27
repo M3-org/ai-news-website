@@ -1,0 +1,32 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Ecosystem  
+2. Main sections or categories to visualize:  
+   - Fomolt Platform  
+   - Eliza Agents  
+   - Base Network  
+   - USDC Usage & Paymasters  
+3. Key icons or visual elements needed:  
+   - Platform symbol (dashboard or puzzle)  
+   - Agent (robot head or user icon)  
+   - Blockchain/network (connected nodes)  
+   - USDC coin  
+   - Paymaster/payment flow arrow  
+4. Suggested section headers:  
+   - What is Fomolt?  
+   - How Eliza Agents Operate  
+   - Powered by Base  
+   - Gas Payments with USDC & Paymasters
+
+CONTENT CONTEXT:
+Introduction of 'fomolt', an agentic trading platform for Eliza agents on Base, utilizing USDC for gas via paymasters.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
