@@ -136,19 +136,25 @@ export const Clip: React.FC<ClipProps> = ({
   }).length : 0;
   const isYelling = totalWords > 0 && capsCount / totalWords > 0.4;
 
-  // Find start frames of consecutive CAPS groups to ensure we only shake the screen ONCE per phrase
+  // Find start frames of SINGLE CAPS words to ensure we only shake the screen for isolated hits
   const capsGroupStarts: number[] = [];
   if (words && !isYelling) {
     let i = 0;
     while (i < words.length) {
       const stripped = words[i].word.replace(/[^a-zA-Z]/g, "");
       if (stripped.length >= 2 && stripped === stripped.toUpperCase()) {
-        capsGroupStarts.push(words[i].start);
+        const startSec = words[i].start;
+        let groupLength = 1;
         while (i + 1 < words.length) {
           const nextStripped = words[i + 1].word.replace(/[^a-zA-Z]/g, "");
           if (nextStripped.length >= 2 && nextStripped === nextStripped.toUpperCase()) {
             i++;
+            groupLength++;
           } else break;
+        }
+        // Only shake camera for single isolated ALL-CAPS words
+        if (groupLength === 1) {
+          capsGroupStarts.push(startSec);
         }
       }
       i++;
@@ -167,12 +173,13 @@ export const Clip: React.FC<ClipProps> = ({
     }
   }
 
-  // Continuous handheld camera drift
-  const driftX = Math.sin(frame / 20) * 12 + Math.cos(frame / 35) * 8;
-  const driftY = Math.cos(frame / 25) * 12 + Math.sin(frame / 40) * 8;
+  // Continuous handheld camera drift (dampened)
+  const driftX = Math.sin(frame / 20) * 4 + Math.cos(frame / 35) * 2;
+  const driftY = Math.cos(frame / 25) * 4 + Math.sin(frame / 40) * 2;
 
-  const pulseShakeX = (random(`bg-px-${frame}`) - 0.5) * 2 * pulseIntensity * 15;
-  const pulseShakeY = (random(`bg-py-${frame}`) - 0.5) * 2 * pulseIntensity * 10;
+  // Dampened audio-reactive shake (ultra subtle)
+  const pulseShakeX = (random(`bg-px-${frame}`) - 0.5) * 2 * pulseIntensity * 1.0;
+  const pulseShakeY = (random(`bg-py-${frame}`) - 0.5) * 2 * pulseIntensity * 0.75;
 
   // Combine parallax, drift, and pulse
   const finalTx = driftX + pulseShakeX;
@@ -185,9 +192,8 @@ export const Clip: React.FC<ClipProps> = ({
   });
   const finalVideoScale = videoParallax + pulseIntensity * 0.08;
 
-  const textParallax = interpolate(frame, [0, durationInFrames], [1, 1.07], {
-    extrapolateRight: "clamp",
-  });
+  // Static subtitles (no parallax)
+  const textParallax = 1;
 
   // Text reveal animation - delayed slightly so video is visible first
   const textOpacity = interpolate(frame, [4, 10], [0, 1], {
@@ -216,7 +222,7 @@ export const Clip: React.FC<ClipProps> = ({
   // Resolve video path - use proxy in studio, full-res when rendering
   const isRendering = getRemotionEnvironment().isRendering;
 
-  const getVideoUrl = (src: string | undefined) => {
+  const resolveVideoPath = (src: string | undefined) => {
     if (!src) return undefined;
 
     // Extract relative path from absolute paths
@@ -229,16 +235,17 @@ export const Clip: React.FC<ClipProps> = ({
         return undefined;
       }
     }
-
-    // In studio: swap to proxy. When rendering: use full-res original.
-    if (!isRendering) {
-      relativePath = relativePath.replace(/\.mp4$/, "_proxy.mp4");
-    }
-
-    return staticFile(relativePath);
+    return relativePath;
   };
 
-  const videoUrl = getVideoUrl(videoSrc);
+  const basePath = resolveVideoPath(videoSrc);
+  const proxyPath = basePath?.replace(/\.mp4$/, "_proxy.mp4");
+
+  // In studio: try proxy first, fall back to full-res. When rendering: always full-res.
+  const [useProxy, setUseProxy] = React.useState(!isRendering);
+  const videoUrl = basePath
+    ? staticFile(useProxy && proxyPath ? proxyPath : basePath)
+    : undefined;
 
   return (
     <AbsoluteFill
@@ -258,6 +265,9 @@ export const Clip: React.FC<ClipProps> = ({
             src={videoUrl}
             startFrom={videoStartFrame}
             volume={volume}
+            onError={() => {
+              if (useProxy) setUseProxy(false);
+            }}
             style={{
               width: "100%",
               height: "100%",
@@ -308,8 +318,8 @@ export const Clip: React.FC<ClipProps> = ({
                 parts.push(nextStripped);
               } else break;
             }
-            // Skip stamps for long phrases — too much screen clutter
-            if (parts.length <= 3) {
+            // Only stamp single ALL-CAPS words — no phrases
+            if (parts.length === 1) {
               capsGroups.push({
                 text: parts.join(" "),
                 startFrame: (words[groupStart].start - clipStartSec) * fps,
