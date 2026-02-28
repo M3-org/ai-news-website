@@ -10,6 +10,7 @@ import {
   staticFile,
   Easing,
   spring,
+  Img,
 } from "remotion";
 
 interface WordData {
@@ -43,6 +44,16 @@ const ACTOR_COLORS: Record<string, string> = {
   peepo: "#84CC16", // Lime
   danger_man: "#F97316", // Orange red
   default: "#6B7280", // Gray
+};
+
+const ACTOR_FOLDERS: Record<string, { folder: string, count: number }> = {
+  eliza: { folder: "eliza", count: 17 },
+  marc: { folder: "marc", count: 15 },
+  peepo: { folder: "peepo", count: 10 },
+  danger_man: { folder: "shaw", count: 15 },
+  shaw: { folder: "shaw", count: 15 },
+  sparty: { folder: "spartan", count: 15 },
+  spartan: { folder: "spartan", count: 15 },
 };
 
 const getActorColor = (actor: string): string => {
@@ -246,6 +257,35 @@ export const Clip: React.FC<ClipProps> = ({
   const videoUrl = basePath
     ? staticFile(useProxy && proxyPath ? proxyPath : basePath)
     : undefined;
+
+  // Swaggy Thumbnail logic
+  const actorFolderInfo = ACTOR_FOLDERS[actor.toLowerCase()];
+  
+  // Calculate how many hits have occurred so far to drive the thumbnail swap
+  let hitCount = 0;
+  let timeSinceLastHit = 9999;
+  if (!isYelling) {
+    const clipStartSec = startSec || 0;
+    for (const groupStartSec of capsGroupStarts) {
+      const groupStartFrame = (groupStartSec - clipStartSec) * fps;
+      if (frame >= groupStartFrame) {
+         hitCount++;
+         timeSinceLastHit = frame - groupStartFrame;
+      }
+    }
+  }
+
+  // Determine which image to show based on the clip index + hit count so it's deterministic but changes every hit
+  let currentImageIndex = 1;
+  let showThumbnail = false;
+  let thumbUrl = "";
+  if (actorFolderInfo) {
+    showThumbnail = true;
+    // Randomize the starting image based on the clip index so every clip starts different
+    const seedOffset = Math.floor(random(`thumb-start-${index}`) * actorFolderInfo.count);
+    currentImageIndex = ((seedOffset + hitCount) % actorFolderInfo.count) + 1;
+    thumbUrl = staticFile(`characters/${actorFolderInfo.folder}/${currentImageIndex}.png`);
+  }
 
   return (
     <AbsoluteFill
@@ -484,11 +524,53 @@ export const Clip: React.FC<ClipProps> = ({
         </span>
       </div>
 
+      {/* Swaggy Thumbnail — character portrait that glitches on hits */}
+      {showThumbnail && (
+        <div
+          style={{
+            position: "absolute",
+            left: 20,
+            bottom: 30, // anchored to bottom left
+            width: 320,
+            height: 600,
+            display: "flex",
+            alignItems: "flex-end",
+            justifyContent: "flex-start",
+            opacity: textOpacity,
+            zIndex: 10,
+            pointerEvents: "none",
+          }}
+        >
+          <Img
+            src={thumbUrl}
+            style={{
+              maxHeight: "100%",
+              maxWidth: "100%",
+              objectFit: "contain",
+              transformOrigin: "bottom left",
+              transform: (() => {
+                const isHitAnim = timeSinceLastHit < 8;
+                const hitAnimProgress = isHitAnim ? timeSinceLastHit / 8 : 1;
+                const hitScale = isHitAnim ? 1.15 - 0.15 * Easing.bezier(0.1, 1, 0, 1)(hitAnimProgress) : 1;
+                const hitRot = isHitAnim ? (random(`thumb-rot-${hitCount}`) - 0.5) * 6 * (1 - hitAnimProgress) : 0;
+                return `scale(${hitScale}) rotate(${hitRot}deg)`;
+              })(),
+              filter: (() => {
+                const isHitAnim = timeSinceLastHit < 8;
+                const hitAnimProgress = isHitAnim ? timeSinceLastHit / 8 : 1;
+                const brightness = isHitAnim ? 1 + (1 - hitAnimProgress) * 0.8 : 1;
+                return `brightness(${brightness}) drop-shadow(0px 0px 20px ${actorColor}80)`;
+              })(),
+            }}
+          />
+        </div>
+      )}
+
       {/* Main quote text — word-by-word reveal synced to speech */}
       <div
         style={{
           position: "absolute",
-          left: 80,
+          left: showThumbnail ? 360 : 80,
           right: 50,
           bottom: 140,
           transform: `translateY(${textSlide}px) scale(${textParallax})`,
