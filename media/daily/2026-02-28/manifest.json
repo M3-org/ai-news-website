@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-02-28T11:14:15.430442+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-02-28.json",
+  "facts_date": "2026-02-28",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-02-28",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is managing a complex transition to version 2.0.0, characterized by frequent breaking changes and plugin instability in version 1.7.2. Despite these technical hurdles, the ecosystem is expanding into regulated industries with new autonomous credit-building tools and cross-platform automation.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A gloved hand (Eliza) delicately swaps an intricate circuit module labeled \u201c2.0.0\u201d into a gleaming console; broken plugin shards scatter below. Through the frosted window behind, city lights flicker awake against deep blue dusk\u2014Eliza\u2019s eyes, reflected in glass, burn with discovery beneath the focused winter spotlight.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: A gloved hand (Eliza) delicately swaps an intricate circuit module labeled \u201c2.0.0\u201d into a gleaming console; broken plugin shards scatter below. Through the frosted window behind, city lights flicker awake against deep blue dusk\u2014Eliza\u2019s eyes, reflected in glass, burn with discovery beneath the focused winter spotlight.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.16,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Consolidating the v2.0.0 runtime while maintaining a legacy 1.x branch for stability during the alpha transition. Expanding integration capabilities with WhatsApp, Gmail, and N8N workflow engines to increase agent utility.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "The isometric tech city centers on a dual-tower complex: one high-rise (v2.0.0 Runtime) symbolizing innovation, flanked by a sturdy, lower annex (Legacy 1.x Branch) for stability. A data boulevard interlinks both towers. On the city perimeter, Integration Pavilions (WhatsApp, Gmail, N8N Workflow Hubs) rise along an \u201cIntegration District,\u201d each connected by arterial data bridges to the runtime complex. The \u201cStability Zone\u201d houses the legacy annex, while the \u201cExpansion Quarter\u201d encompasses growing integration structures. Clear elevated skywalks visualize data flow: Runtime\u2194Legacy\u2194Integration Pavilions. Labels: v2.0.0, 1.x, WhatsApp Pavilion, Gmail Hub, N8N Tower.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: The isometric tech city centers on a dual-tower complex: one high-rise (v2.0.0 Runtime) symbolizing innovation, flanked by a sturdy, lower annex (Legacy 1.x Branch) for stability. A data boulevard interlinks both towers. On the city perimeter, Integration Pavilions (WhatsApp, Gmail, N8N Workflow Hubs) rise along an \u201cIntegration District,\u201d each connected by arterial data bridges to the runtime complex. The \u201cStability Zone\u201d houses the legacy annex, while the \u201cExpansion Quarter\u201d encompasses growing integration structures. Clear elevated skywalks visualize data flow: Runtime\u2194Legacy\u2194Integration Pavilions. Labels: v2.0.0, 1.x, WhatsApp Pavilion, Gmail Hub, N8N Tower.\n\nCONTENT CONTEXT:\nConsolidating the v2.0.0 runtime while maintaining a legacy 1.x branch for stability during the alpha transition. Expanding integration capabilities with WhatsApp, Gmail, and N8N workflow engines to increase agent utility.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.09,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Focus on the release of the Credit Building plugin and discussions on its regulatory compliance. Troubleshooting Twitter input issues. Extensive debate over ElizaOS vs OpenClaw for production use. Discussion of autonomous implementation methods (plugin-autonomous vs built-in v2 system). Maintainers monitoring 'plugin creep' in PR #6531 and tracking the increase in external contributor activity.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In cool twilight, peepo\u2019s finger hovers over a glowing \"Activate Credit Plugin\" button on a laptop, Eliza\u2019s silhouette studies regulatory documents in the background. City lights shimmer through frosted glass, code reflected in peepo\u2019s eyes; drama illuminates a tangle of plugin icons and debate notes.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: In cool twilight, peepo\u2019s finger hovers over a glowing \"Activate Credit Plugin\" button on a laptop, Eliza\u2019s silhouette studies regulatory documents in the background. City lights shimmer through frosted glass, code reflected in peepo\u2019s eyes; drama illuminates a tangle of plugin icons and debate notes.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza",
+        "marc",
+        "spartan"
+      ],
+      "content_context": "The launch of the credit-builder plugin highlights a shift from speculative trading agents to real-world utility agents handling regulated documentation (FCRA/ECOA). The project is currently struggling with 'version entropy,' where breaking changes in v2 alpha are alienating users of the 1.x stable branch.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In winter twilight, Eliza\u2019s hand, mid-air, hovers above Spartan\u2019s glowing interface\u2014reflected city lights flicker on her face. Marc, in focus beside her, holds up tangled plugin code, shadows deepening the lines of thought. All three are locked in a silent realization\u2014the breakthrough glimmers between them.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: In winter twilight, Eliza\u2019s hand, mid-air, hovers above Spartan\u2019s glowing interface\u2014reflected city lights flicker on her face. Marc, in focus beside her, holds up tangled plugin code, shadows deepening the lines of thought. All three are locked in a silent realization\u2014the breakthrough glimmers between them.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 43.11,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Analysis of Nous Research's Hermes Agent framework shows it utilizes trajectory compression, a feature of potential interest for token budget optimization. Mubyn, an AI COO for SMEs, announced a token launch for March 2, positioning itself as a bilingual business OS on Base.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In cool twilight, a close-up reveals Marc\u2019s gloved hand holding a compressed digital map, its blue glow reflecting in Spartan\u2019s keen eyes; behind them, city lights spark alive through frost-laced glass, a moment of silent discovery spotlighted in dramatic winter stillness.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: In cool twilight, a close-up reveals Marc\u2019s gloved hand holding a compressed digital map, its blue glow reflecting in Spartan\u2019s keen eyes; behind them, city lights spark alive through frost-laced glass, a moment of silent discovery spotlighted in dramatic winter stillness.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.7,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "Twitter",
+      "WhatsApp"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "Twitter",
+      "WhatsApp"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-02-28/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 163.23
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-28/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-02-28/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-02-28/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-02-28/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-02-28/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-02-28/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-02-28/strategic-insights.png"
+  }
+}

@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: The isometric tech city centers on a dual-tower complex: one high-rise (v2.0.0 Runtime) symbolizing innovation, flanked by a sturdy, lower annex (Legacy 1.x Branch) for stability. A data boulevard interlinks both towers. On the city perimeter, Integration Pavilions (WhatsApp, Gmail, N8N Workflow Hubs) rise along an “Integration District,” each connected by arterial data bridges to the runtime complex. The “Stability Zone” houses the legacy annex, while the “Expansion Quarter” encompasses growing integration structures. Clear elevated skywalks visualize data flow: Runtime↔Legacy↔Integration Pavilions. Labels: v2.0.0, 1.x, WhatsApp Pavilion, Gmail Hub, N8N Tower.
+
+CONTENT CONTEXT:
+Consolidating the v2.0.0 runtime while maintaining a legacy 1.x branch for stability during the alpha transition. Expanding integration capabilities with WhatsApp, Gmail, and N8N workflow engines to increase agent utility.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
