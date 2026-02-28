@@ -3,6 +3,8 @@ import {
   AbsoluteFill,
   Sequence,
   useVideoConfig,
+  Audio,
+  staticFile,
 } from "remotion";
 import { z } from "zod";
 import { TitleCard } from "./TitleCard";
@@ -131,6 +133,23 @@ export const Trailer: React.FC<TrailerProps> = ({
         fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
       }}
     >
+      {/* Main Soundtrack - Loops under title and clips */}
+      <Sequence from={0} durationInFrames={endCardStart}>
+        <Audio 
+          src={staticFile("soundtrack.mp3")} 
+          volume={0.30} 
+          loop 
+        />
+      </Sequence>
+
+      {/* Outro Music - Hits exactly on the end card */}
+      <Sequence from={endCardStart} durationInFrames={endCardDuration}>
+        <Audio 
+          src={staticFile("outro.mp3")} 
+          volume={1.0} 
+        />
+      </Sequence>
+
       {/* Title Card */}
       <Sequence from={0} durationInFrames={titleDuration}>
         <TitleCard title={title} subtitle={source_episode} modulation={modulation} />
