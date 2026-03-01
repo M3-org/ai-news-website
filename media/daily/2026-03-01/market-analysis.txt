@@ -1,12 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Specific data points or categories: Community sentiment (Building Year), Year (2026), Recovery, Jeju network launch  
-3. Flow/relationship direction: Community sentiment (2026) → Jeju network launch → Recovery  
-4. Suggested section headers: "Community Sentiment 2026," "Key Recovery Driver," "Outcome: Recovery"
+2. Data points: ai16z (token), outdated model analysis, $elizaOS (active token)  
+3. Flow/relationship: ai16z leads to outdated analysis; clarification arrow redirects focus to $elizaOS as active  
+4. Section headers: Token Identification, Model Analysis Status, Active Token Clarification
 
 CONTENT CONTEXT:
-Community sentiment reflects a 'building year' mindset for 2026, with recovery tied to the launch of the Jeju network.
+Identification of ai16z as an interesting token despite outdated model analysis; clarification that $elizaOS is the active token.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
