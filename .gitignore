@@ -47,3 +47,4 @@ remotion/public/
 
 # Local trailer exports
 trailers/
+.claude/

@@ -41,7 +41,7 @@ OPENROUTER_API_URL = "https://openrouter.ai/api/v1/chat/completions"
 DEFAULT_MODEL = "moonshotai/kimi-k2.5"
 
 # Trailer constants
-TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch"]
+TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left", "split"]
 
 # ============================================================================
 # System Prompts
@@ -90,8 +90,17 @@ For each clip, provide:
 - dialogue_num: dialogue index (the "i" field)
 - start_word: word index where the partial line STARTS (0-indexed into words array)
 - end_word: word index where the partial line ENDS (0-indexed, inclusive)
-- transition: one of "hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch"
+- transition: one of "hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left"
 - rationale: why this moment hooks viewers (1 sentence)
+
+TRANSITION GUIDE:
+- hard-cut: instant switch, no effect. Use sparingly for shock cuts.
+- flash-white: bright flash between clips. Good for hype/energy moments.
+- flash-black: dark flash. Good for dramatic or ominous moments.
+- zoom-punch: aggressive zoom + shake. Best for exclamations, reactions, bold claims.
+- glitch: RGB split + flicker. Good for tech topics, AI, bugs, chaos.
+- side-scroll-left: anime-style horizontal whip scroll. Great for topic changes, new speakers, "meanwhile" moments.
+- split: screen splits showing both clips side-by-side, old desaturates, new expands. Good for contrasts, before/after, perspective shifts between speakers.
 
 IMPORTANT GUIDELINES:
 - Extract PARTIAL lines - just 4-12 words, the most dramatic part
@@ -600,6 +609,7 @@ class TrailerClip:
     duration: float = 0.0          # Clip duration
     actor: str = ""                # Speaker
     video_file: str = ""           # Path to source video file
+    words: list = field(default_factory=list)  # Per-word timing [{word, start, end}]
 
 
 @dataclass
@@ -644,7 +654,8 @@ def extract_partial_line(dialogue: dict, start_word: int, end_word: int) -> dict
         "text": text,
         "startSec": start_sec,
         "endSec": end_sec,
-        "duration": end_sec - start_sec
+        "duration": end_sec - start_sec,
+        "words": [{"word": w["word"], "start": w["start"], "end": w["end"]} for w in partial_words]
     }
 
 
@@ -717,7 +728,8 @@ def resolve_clips(raw_clips: list[dict], session_log: dict, session_log_path: Pa
             end_sec=partial["endSec"],
             duration=partial["duration"],
             actor=dialogue.get("actor", ""),
-            video_file=video_file
+            video_file=video_file,
+            words=partial.get("words", [])
         )
         resolved.append(clip)
 

@@ -1,17 +1,24 @@
 import React from "react";
 import {
   AbsoluteFill,
+  Audio,
   interpolate,
   useCurrentFrame,
   useVideoConfig,
+  Easing,
 } from "remotion";
+import { resolveAsset } from "./resolveAsset";
+import { ThreeDBackground } from "./ThreeDBackground";
+import type { ModulationProps } from "./Trailer";
 
 interface TitleCardProps {
   title: string;
   subtitle?: string;
+  modulation?: ModulationProps;
+  introBoot?: string;
 }
 
-export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
+export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulation, introBoot }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -36,10 +43,9 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
     extrapolateRight: "clamp",
   });
 
-  // Scale punch on entry
-  const scale = interpolate(frame, [0, fps * 0.2], [1.1, 1], {
-    extrapolateRight: "clamp",
-  });
+  // Scale punch on entry (massive whip)
+  const scaleProgress = interpolate(frame, [0, fps * 0.4], [0, 1], { extrapolateRight: "clamp" });
+  const scale = 1.3 - 0.3 * Easing.bezier(0.1, 1, 0, 1)(scaleProgress);
 
   // Glowing pulse effect
   const glowIntensity = interpolate(
@@ -54,22 +60,35 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle }) => {
   return (
     <AbsoluteFill
       style={{
-        background: "linear-gradient(180deg, #0a0a0a 0%, #1a1a2e 100%)",
         justifyContent: "center",
         alignItems: "center",
         opacity,
       }}
     >
-      {/* Background grid effect */}
-      <div
+      {/* 3D animated background */}
+      <ThreeDBackground
+        glbFile={modulation?.glbFile}
+        effectMap={modulation?.effectMap as any}
+        effectorInnerRadius={modulation?.effectorInnerRadius}
+        effectorOuterRadius={modulation?.effectorOuterRadius}
+        effectorStrength={modulation?.effectorStrength}
+        rotationAxis={modulation?.rotationAxis}
+        fisheyeStrength={modulation?.fisheyeStrength}
+        fisheyeAudioMod={modulation?.fisheyeAudioMod}
+        fisheyeZoom={modulation?.fisheyeZoom}
+        audioFile={modulation?.audioFile}
+        audioShakeIntensity={modulation?.audioShakeIntensity}
+        audioShakeBass={modulation?.audioShakeBass}
+        opacity={modulation?.opacity ?? 1}
+      />
+
+      {/* Intro boot sound */}
+      {introBoot && <Audio src={resolveAsset(introBoot)} />}
+
+      {/* Dark overlay for text readability */}
+      <AbsoluteFill
         style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), " +
-            "linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)",
-          backgroundSize: "50px 50px",
-          opacity: 0.5,
+          background: "radial-gradient(ellipse at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%)",
         }}
       />
 

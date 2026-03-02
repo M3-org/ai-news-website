@@ -5,13 +5,16 @@ import {
   useCurrentFrame,
   useVideoConfig,
 } from "remotion";
+import { ThreeDBackground } from "./ThreeDBackground";
+import type { ModulationProps } from "./Trailer";
 
 interface EndCardProps {
   text: string;
   subtext: string;
+  modulation?: ModulationProps;
 }
 
-export const EndCard: React.FC<EndCardProps> = ({ text, subtext }) => {
+export const EndCard: React.FC<EndCardProps> = ({ text, subtext, modulation }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -44,21 +47,32 @@ export const EndCard: React.FC<EndCardProps> = ({ text, subtext }) => {
   return (
     <AbsoluteFill
       style={{
-        background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%)",
         justifyContent: "center",
         alignItems: "center",
         opacity: fadeIn,
       }}
     >
-      {/* Radial glow background */}
-      <div
+      {/* 3D animated background */}
+      <ThreeDBackground
+        glbFile={modulation?.glbFile}
+        effectMap={modulation?.effectMap as any}
+        effectorInnerRadius={modulation?.effectorInnerRadius}
+        effectorOuterRadius={modulation?.effectorOuterRadius}
+        effectorStrength={modulation?.effectorStrength}
+        rotationAxis={modulation?.rotationAxis}
+        fisheyeStrength={modulation?.fisheyeStrength}
+        fisheyeAudioMod={modulation?.fisheyeAudioMod}
+        fisheyeZoom={modulation?.fisheyeZoom}
+        audioFile={modulation?.audioFile}
+        audioShakeIntensity={modulation?.audioShakeIntensity}
+        audioShakeBass={modulation?.audioShakeBass}
+        opacity={modulation?.opacity ?? 1}
+      />
+
+      {/* Dark overlay for text readability */}
+      <AbsoluteFill
         style={{
-          position: "absolute",
-          width: 600,
-          height: 600,
-          borderRadius: "50%",
-          background: "radial-gradient(circle, rgba(255, 100, 100, 0.15) 0%, transparent 70%)",
-          filter: "blur(40px)",
+          background: "radial-gradient(ellipse at center, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.75) 100%)",
         }}
       />
 
