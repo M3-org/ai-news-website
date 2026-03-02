@@ -2,10 +2,11 @@
  * ThreeDBackground — Wraps the Modulation GLB scene as a fullscreen background layer.
  * Used by TitleCard and EndCard for dynamic 3D intro/outro visuals.
  */
-import { useRef, useMemo, useEffect } from "react";
+import { useRef, useMemo } from "react";
 import { ThreeCanvas } from "@remotion/three";
-import { AbsoluteFill, useVideoConfig, useCurrentFrame, staticFile } from "remotion";
-import { useGLTF, useTexture, PerspectiveCamera } from "@react-three/drei";
+import { AbsoluteFill, useVideoConfig, useCurrentFrame } from "remotion";
+import { useGLTF, PerspectiveCamera } from "@react-three/drei";
+import { resolveAsset } from "./resolveAsset";
 import { useFrame } from "@react-three/fiber";
 import {
   EffectComposer,
@@ -20,10 +21,6 @@ import {
   Vector2,
   AnimationClip,
   PerspectiveCamera as THREEPerspectiveCamera,
-  Mesh,
-  MeshStandardMaterial,
-  SRGBColorSpace,
-  Texture,
 } from "three";
 import type { EffectorConfig, EffectMap } from "./ThreeD/Effector";
 import { useEffector } from "./ThreeD/useEffector";
@@ -33,10 +30,6 @@ import { useAudioShake } from "./ThreeD/useAudioShake";
 
 interface ThreeDBackgroundProps {
   glbFile?: string;
-  /** Lightmap texture path in public/ — auto-derived from glbFile if not set.
-   *  e.g. "Modulation_GLBs/lightmaps/cron_red_lightmap.jpg" */
-  lightmapFile?: string;
-  lightmapIntensity?: number;
   effectMap?: EffectMap;
   audioFile?: string;
   /** Opacity of the 3D layer (0-1). Allows text to overlay cleanly. */
@@ -55,8 +48,6 @@ interface ThreeDBackgroundProps {
 
 const GlbModel = ({
   url,
-  lightmapUrl,
-  lightmapIntensity = 1.0,
   effectorConfig,
   rotationAxis,
   effectMap,
@@ -64,8 +55,6 @@ const GlbModel = ({
   onCameraUpdate,
 }: {
   url: string;
-  lightmapUrl?: string;
-  lightmapIntensity?: number;
   effectorConfig: EffectorConfig;
   rotationAxis: "x" | "y" | "z";
   effectMap?: EffectMap;
@@ -73,27 +62,6 @@ const GlbModel = ({
   onCameraUpdate?: (velocity: number, fov: number) => void;
 }) => {
   const { scene, nodes, animations } = useGLTF(url);
-
-  // Load lightmap atlas if explicitly provided
-  const lightmap = lightmapUrl ? useTexture(lightmapUrl) : null;
-
-  // Assign lightmap to all meshes that have UV2 (TEXCOORD_1)
-  useEffect(() => {
-    if (!lightmap) return;
-    lightmap.flipY = false; // glTF convention
-    lightmap.colorSpace = SRGBColorSpace;
-    scene.traverse((child) => {
-      if (
-        child instanceof Mesh &&
-        child.geometry.attributes.uv2 &&
-        child.material instanceof MeshStandardMaterial
-      ) {
-        child.material.lightMap = lightmap as Texture;
-        child.material.lightMapIntensity = lightmapIntensity;
-        child.material.needsUpdate = true;
-      }
-    });
-  }, [scene, lightmap, lightmapIntensity]);
 
   const { velocity, fov } = useCameraAnimation({
     animations: animations as AnimationClip[],
@@ -140,8 +108,6 @@ const CameraShake = ({
 
 export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   glbFile = "Modulation_GLBs/ClankTank.glb",
-  lightmapFile,
-  lightmapIntensity = 1.0,
   effectMap = {},
   audioFile = "",
   opacity = 1,
@@ -161,12 +127,6 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   const cameraRef = useRef<THREEPerspectiveCamera | null>(null);
   const velocityRef = useRef(0);
   const caRef = useRef(new Vector2(0, 0));
-
-  // Only resolve lightmap if explicitly provided — no auto-derive
-  const resolvedLightmap = useMemo(() => {
-    if (!lightmapFile) return undefined;
-    return staticFile(lightmapFile);
-  }, [lightmapFile]);
 
   const mergedEffectMap = useMemo(() => ({ ...effectMap }) as EffectMap, [effectMap]);
 
@@ -217,9 +177,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
         />
 
         <GlbModel
-          url={staticFile(glbFile)}
-          lightmapUrl={resolvedLightmap}
-          lightmapIntensity={lightmapIntensity}
+          url={resolveAsset(glbFile)}
           effectorConfig={effectorConfig}
           rotationAxis={rotationAxis}
           effectMap={mergedEffectMap}

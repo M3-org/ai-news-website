@@ -3,11 +3,11 @@ import {
   AbsoluteFill,
   Audio,
   interpolate,
-  staticFile,
   useCurrentFrame,
   useVideoConfig,
   Easing,
 } from "remotion";
+import { resolveAsset } from "./resolveAsset";
 import { ThreeDBackground } from "./ThreeDBackground";
 import type { ModulationProps } from "./Trailer";
 
@@ -15,9 +15,10 @@ interface TitleCardProps {
   title: string;
   subtitle?: string;
   modulation?: ModulationProps;
+  introBoot?: string;
 }
 
-export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulation }) => {
+export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulation, introBoot }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
 
@@ -82,7 +83,7 @@ export const TitleCard: React.FC<TitleCardProps> = ({ title, subtitle, modulatio
       />
 
       {/* Intro boot sound */}
-      <Audio src={staticFile("introBoot.mp3")} />
+      {introBoot && <Audio src={resolveAsset(introBoot)} />}
 
       {/* Dark overlay for text readability */}
       <AbsoluteFill

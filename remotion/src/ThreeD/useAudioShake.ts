@@ -6,7 +6,8 @@
  * in GlbScene.tsx for sound-reactive camera motion.
  */
 import { useState, useEffect, useRef } from "react";
-import { useCurrentFrame, useVideoConfig, staticFile, delayRender, continueRender } from "remotion";
+import { useCurrentFrame, useVideoConfig, delayRender, continueRender } from "remotion";
+import { resolveAsset } from "../resolveAsset";
 import { getAudioData, visualizeAudio } from "@remotion/media-utils";
 import type { AudioData } from "@remotion/media-utils";
 
@@ -48,7 +49,7 @@ export function useAudioShake({
     const handle = delayRender("Loading audio for shake analysis");
     handleRef.current = handle;
 
-    getAudioData(staticFile(audioFile))
+    getAudioData(resolveAsset(audioFile))
       .then((data) => {
         setAudioData(data);
         continueRender(handle);

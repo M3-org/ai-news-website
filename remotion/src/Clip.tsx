@@ -7,11 +7,11 @@ import {
   useCurrentFrame,
   useVideoConfig,
   OffthreadVideo,
-  staticFile,
   Easing,
   spring,
   Img,
 } from "remotion";
+import { resolveAsset } from "./resolveAsset";
 
 interface WordData {
   word: string;
@@ -32,6 +32,8 @@ interface ClipProps {
   exitFrames?: number;
   /** Per-word timing data for Max Payne 3 style reveal. */
   words?: WordData[];
+  /** Base directory for character thumbnail PNGs. */
+  thumbnailDir?: string;
 }
 
 // Actor color mapping
@@ -84,6 +86,7 @@ export const Clip: React.FC<ClipProps> = ({
   enterFrames = 0,
   exitFrames = 0,
   words,
+  thumbnailDir,
 }) => {
   const frame = useCurrentFrame();
   const { fps, durationInFrames } = useVideoConfig();
@@ -255,7 +258,7 @@ export const Clip: React.FC<ClipProps> = ({
   // In studio: try proxy first, fall back to full-res. When rendering: always full-res.
   const [useProxy, setUseProxy] = React.useState(!isRendering);
   const videoUrl = basePath
-    ? staticFile(useProxy && proxyPath ? proxyPath : basePath)
+    ? resolveAsset(useProxy && proxyPath ? proxyPath : basePath)
     : undefined;
 
   // Swaggy Thumbnail logic
@@ -279,12 +282,18 @@ export const Clip: React.FC<ClipProps> = ({
   let currentImageIndex = 1;
   let showThumbnail = false;
   let thumbUrl = "";
-  if (actorFolderInfo) {
+  if (actorFolderInfo && thumbnailDir) {
     showThumbnail = true;
     // Randomize the starting image based on the clip index so every clip starts different
     const seedOffset = Math.floor(random(`thumb-start-${index}`) * actorFolderInfo.count);
     currentImageIndex = ((seedOffset + hitCount) % actorFolderInfo.count) + 1;
-    thumbUrl = staticFile(`characters/${actorFolderInfo.folder}/${currentImageIndex}.png`);
+    const thumbPath = `${actorFolderInfo.folder}/${currentImageIndex}.png`;
+    // Absolute thumbnailDir (headless) vs relative (Studio)
+    if (thumbnailDir.startsWith("/") || /^[A-Z]:/i.test(thumbnailDir)) {
+      thumbUrl = `${thumbnailDir}/${thumbPath}`;
+    } else {
+      thumbUrl = resolveAsset(`${thumbnailDir}/${thumbPath}`);
+    }
   }
 
   // TikTok-style text chunking: group words into small phrases (max 4 words or until punctuation)

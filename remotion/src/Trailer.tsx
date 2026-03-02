@@ -4,9 +4,9 @@ import {
   Sequence,
   useVideoConfig,
   Audio,
-  staticFile,
 } from "remotion";
 import { z } from "zod";
+import { resolveAsset } from "./resolveAsset";
 import { TitleCard } from "./TitleCard";
 import { EndCard } from "./EndCard";
 import { Clip } from "./Clip";
@@ -78,6 +78,14 @@ export const TrailerSchema = z.object({
   duration: z.number(),
   title: z.string(),
   music: z.string(),
+  /** Soundtrack audio file path (absolute or relative to public/). Loops under clips. */
+  soundtrack: z.string().optional(),
+  /** Outro audio file path (absolute or relative to public/). Plays on end card. */
+  outro: z.string().optional(),
+  /** Intro boot sound path (absolute or relative to public/). Plays on title card. */
+  introBoot: z.string().optional(),
+  /** Base directory for character thumbnail PNGs (absolute or relative to public/). */
+  thumbnailDir: z.string().optional(),
   clips: z.array(ClipSchema),
   end_card: EndCardSchema,
   source_episode: z.string(),
@@ -97,6 +105,10 @@ export const Trailer: React.FC<TrailerProps> = ({
   end_card,
   source_episode,
   modulation,
+  soundtrack,
+  outro,
+  introBoot,
+  thumbnailDir,
 }) => {
   const { fps } = useVideoConfig();
 
@@ -134,25 +146,29 @@ export const Trailer: React.FC<TrailerProps> = ({
       }}
     >
       {/* Main Soundtrack - Loops under title and clips */}
-      <Sequence from={0} durationInFrames={endCardStart}>
-        <Audio 
-          src={staticFile("soundtrack.mp3")} 
-          volume={0.30} 
-          loop 
-        />
-      </Sequence>
+      {soundtrack && (
+        <Sequence from={0} durationInFrames={endCardStart}>
+          <Audio
+            src={resolveAsset(soundtrack)}
+            volume={0.30}
+            loop
+          />
+        </Sequence>
+      )}
 
       {/* Outro Music - Hits exactly on the end card */}
-      <Sequence from={endCardStart} durationInFrames={endCardDuration}>
-        <Audio 
-          src={staticFile("outro.mp3")} 
-          volume={1.0} 
-        />
-      </Sequence>
+      {outro && (
+        <Sequence from={endCardStart} durationInFrames={endCardDuration}>
+          <Audio
+            src={resolveAsset(outro)}
+            volume={1.0}
+          />
+        </Sequence>
+      )}
 
       {/* Title Card */}
       <Sequence from={0} durationInFrames={titleDuration}>
-        <TitleCard title={title} subtitle={source_episode} modulation={modulation} />
+        <TitleCard title={title} subtitle={source_episode} modulation={modulation} introBoot={introBoot} />
       </Sequence>
 
       {/* Clips — overlapping sequences with enter/exit transitions */}
@@ -196,6 +212,7 @@ export const Trailer: React.FC<TrailerProps> = ({
                 enterFrames={enterFrames}
                 exitFrames={exitOverlap}
                 words={clip.words}
+                thumbnailDir={thumbnailDir}
               />
             </ClipTransition>
           </Sequence>
