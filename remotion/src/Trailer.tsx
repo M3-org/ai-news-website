@@ -3,16 +3,22 @@ import {
   AbsoluteFill,
   Sequence,
   useVideoConfig,
-  interpolate,
-  useCurrentFrame,
+  Audio,
 } from "remotion";
 import { z } from "zod";
+import { resolveAsset } from "./resolveAsset";
 import { TitleCard } from "./TitleCard";
 import { EndCard } from "./EndCard";
 import { Clip } from "./Clip";
-import { Flash, Glitch, ZoomPunch } from "./transitions";
+import { ClipTransition, OVERLAP_FRAMES } from "./transitions";
 
 // Schema for trailer configuration (matches Python output)
+const WordSchema = z.object({
+  word: z.string(),
+  start: z.number(),
+  end: z.number(),
+});
+
 const ClipSchema = z.object({
   source: z.string(),
   scene: z.number(),
@@ -25,6 +31,8 @@ const ClipSchema = z.object({
     "flash-black",
     "zoom-punch",
     "glitch",
+    "side-scroll-left",
+    "split",
   ]),
   rationale: z.string(),
   text: z.string(),
@@ -33,6 +41,7 @@ const ClipSchema = z.object({
   duration: z.number(),
   actor: z.string(),
   video_file: z.string().optional(),
+  words: z.array(WordSchema).optional(),
 });
 
 const EndCardSchema = z.object({
@@ -41,79 +50,92 @@ const EndCardSchema = z.object({
   duration: z.number(),
 });
 
+const ModulationSchema = z.object({
+  /** GLB file in public/ for 3D background. */
+  glbFile: z.string().default("Modulation_GLBs/cron_red.glb"),
+  /** Effect assignments — object names → effect lists or override objects. */
+  effectMap: z.record(z.string(), z.union([
+    z.array(z.string()),
+    z.record(z.string(), z.any()),
+  ])).default({}),
+  effectorInnerRadius: z.number().step(0.1).default(5),
+  effectorOuterRadius: z.number().step(0.1).default(25),
+  effectorStrength: z.number().step(0.01).default(1),
+  rotationAxis: z.enum(["x", "y", "z"]).default("z"),
+  fisheyeStrength: z.number().step(0.01).default(-0.15),
+  fisheyeAudioMod: z.number().step(0.01).default(0),
+  fisheyeZoom: z.number().step(0.01).default(1),
+  /** Audio file in public/ for sound-reactive shake. Empty = disabled. */
+  audioFile: z.string().default(""),
+  audioShakeIntensity: z.number().step(0.01).default(0.05),
+  audioShakeBass: z.number().step(0.01).default(0.2),
+  /** Opacity of the 3D layer (0-1). */
+  opacity: z.number().min(0).max(1).step(0.01).default(1),
+});
+
 export const TrailerSchema = z.object({
   type: z.literal("trailer"),
   duration: z.number(),
   title: z.string(),
   music: z.string(),
+  /** Soundtrack audio file path (absolute or relative to public/). Loops under clips. */
+  soundtrack: z.string().optional(),
+  /** Outro audio file path (absolute or relative to public/). Plays on end card. */
+  outro: z.string().optional(),
+  /** Intro boot sound path (absolute or relative to public/). Plays on title card. */
+  introBoot: z.string().optional(),
+  /** Base directory for character thumbnail PNGs (absolute or relative to public/). */
+  thumbnailDir: z.string().optional(),
   clips: z.array(ClipSchema),
   end_card: EndCardSchema,
   source_episode: z.string(),
   generated_at: z.string(),
+  /** 3D background modulation params — overridable from Studio. */
+  modulation: ModulationSchema.default({}),
 });
 
 export type TrailerProps = z.infer<typeof TrailerSchema>;
 export type ClipData = z.infer<typeof ClipSchema>;
 
-// Transition component mapping
-const TransitionComponents: Record<
-  ClipData["transition"],
-  React.FC<{ durationInFrames: number }>
-> = {
-  "hard-cut": () => null, // No transition effect
-  "flash-white": ({ durationInFrames }) => (
-    <Flash color="white" durationInFrames={durationInFrames} />
-  ),
-  "flash-black": ({ durationInFrames }) => (
-    <Flash color="black" durationInFrames={durationInFrames} />
-  ),
-  "zoom-punch": ({ durationInFrames }) => (
-    <ZoomPunch durationInFrames={durationInFrames} />
-  ),
-  glitch: ({ durationInFrames }) => (
-    <Glitch durationInFrames={durationInFrames} />
-  ),
-};
+export type ModulationProps = z.infer<typeof ModulationSchema>;
 
 export const Trailer: React.FC<TrailerProps> = ({
   title,
   clips,
   end_card,
   source_episode,
+  modulation,
+  soundtrack,
+  outro,
+  introBoot,
+  thumbnailDir,
 }) => {
   const { fps } = useVideoConfig();
 
-  // Calculate timing
   const titleDuration = 2 * fps; // 2 seconds for title card
 
-  // Build sequence timeline
-  let currentFrame = 0;
-  const clipSequences: {
-    clip: ClipData;
-    from: number;
-    durationInFrames: number;
-  }[] = [];
+  // ---------------------------------------------------------------------------
+  // Build overlapping timeline
+  // Each clip's transition field defines how it ENTERS (overlapping the previous).
+  // The exit of clip[i] is driven by clip[i+1]'s transition type.
+  // During overlap, both clips render — ClipTransition drives the blend.
+  // ---------------------------------------------------------------------------
 
-  // Title card first
-  currentFrame = titleDuration;
-
-  // Add each clip with its transition
-  for (let i = 0; i < clips.length; i++) {
-    const clip = clips[i];
-    const clipDurationFrames = Math.ceil(clip.duration * fps);
-    const transitionFrames = Math.min(6, clipDurationFrames); // 6 frames (0.2s) for transition
-
-    clipSequences.push({
-      clip,
-      from: currentFrame,
-      durationInFrames: clipDurationFrames,
-    });
-
-    currentFrame += clipDurationFrames;
+  // Compute start positions (accounting for overlap pull-back)
+  const positions: number[] = [];
+  positions[0] = titleDuration;
+  for (let i = 1; i < clips.length; i++) {
+    const prevFrames = Math.ceil(clips[i - 1].duration * fps);
+    const overlap = OVERLAP_FRAMES[clips[i].transition] || 0;
+    positions[i] = positions[i - 1] + prevFrames - overlap;
   }
 
-  // End card
-  const endCardStart = currentFrame;
+  // End card position — after last clip's natural duration (no overlap)
+  const lastIdx = clips.length - 1;
+  const endCardStart =
+    clips.length > 0
+      ? positions[lastIdx] + Math.ceil(clips[lastIdx].duration * fps)
+      : titleDuration;
   const endCardDuration = Math.ceil(end_card.duration * fps);
 
   return (
@@ -123,43 +145,83 @@ export const Trailer: React.FC<TrailerProps> = ({
         fontFamily: "'Inter', 'Helvetica Neue', sans-serif",
       }}
     >
+      {/* Main Soundtrack - Loops under title and clips */}
+      {soundtrack && (
+        <Sequence from={0} durationInFrames={endCardStart}>
+          <Audio
+            src={resolveAsset(soundtrack)}
+            volume={0.30}
+            loop
+          />
+        </Sequence>
+      )}
+
+      {/* Outro Music - Hits exactly on the end card */}
+      {outro && (
+        <Sequence from={endCardStart} durationInFrames={endCardDuration}>
+          <Audio
+            src={resolveAsset(outro)}
+            volume={1.0}
+          />
+        </Sequence>
+      )}
+
       {/* Title Card */}
       <Sequence from={0} durationInFrames={titleDuration}>
-        <TitleCard title={title} subtitle={source_episode} />
+        <TitleCard title={title} subtitle={source_episode} modulation={modulation} introBoot={introBoot} />
       </Sequence>
 
-      {/* Clips with transitions */}
-      {clipSequences.map(({ clip, from, durationInFrames }, index) => {
-        const TransitionComponent = TransitionComponents[clip.transition];
-        const transitionFrames = 6; // Quick flash
+      {/* Clips — overlapping sequences with enter/exit transitions */}
+      {clips.map((clip, i) => {
+        const clipFrames = Math.ceil(clip.duration * fps);
+
+        // Enter: how this clip blends in over the previous
+        const enterType = i > 0 ? clip.transition : "hard-cut";
+        const enterFrames = i > 0 ? (OVERLAP_FRAMES[clip.transition] || 0) : 0;
+
+        // Exit: how this clip blends out for the next
+        const exitType =
+          i < clips.length - 1 ? clips[i + 1].transition : "hard-cut";
+        const exitOverlap =
+          i < clips.length - 1
+            ? (OVERLAP_FRAMES[clips[i + 1].transition] || 0)
+            : 0;
+
+        // Extend duration to cover the exit overlap (uses the "wasted" tail)
+        const totalFrames = clipFrames + exitOverlap;
 
         return (
-          <React.Fragment key={index}>
-            {/* Main clip content */}
-            <Sequence from={from} durationInFrames={durationInFrames}>
+          <Sequence
+            key={i}
+            from={positions[i]}
+            durationInFrames={totalFrames}
+          >
+            <ClipTransition
+              enterType={enterType}
+              exitType={exitType}
+              enterFrames={enterFrames}
+              exitFrames={exitOverlap}
+            >
               <Clip
                 text={clip.text}
                 actor={clip.actor}
-                index={index + 1}
+                index={i + 1}
                 total={clips.length}
                 videoSrc={clip.video_file}
                 startSec={clip.start_sec}
+                enterFrames={enterFrames}
+                exitFrames={exitOverlap}
+                words={clip.words}
+                thumbnailDir={thumbnailDir}
               />
-            </Sequence>
-
-            {/* Transition overlay at start of clip */}
-            {clip.transition !== "hard-cut" && (
-              <Sequence from={from} durationInFrames={transitionFrames}>
-                <TransitionComponent durationInFrames={transitionFrames} />
-              </Sequence>
-            )}
-          </React.Fragment>
+            </ClipTransition>
+          </Sequence>
         );
       })}
 
       {/* End Card */}
       <Sequence from={endCardStart} durationInFrames={endCardDuration}>
-        <EndCard text={end_card.text} subtext={end_card.subtext} />
+        <EndCard text={end_card.text} subtext={end_card.subtext} modulation={modulation} />
       </Sequence>
     </AbsoluteFill>
   );

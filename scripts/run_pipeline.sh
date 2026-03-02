@@ -458,6 +458,12 @@ step_1_record() {
         "${ep_url}"
 
     log "Recording complete: $VIDEO_FILE"
+
+    # Generate proxy for Remotion Studio preview
+    log "Generating proxy video for studio preview..."
+    bash scripts/generate_proxy.sh "$VIDEO_FILE" || \
+        log "WARNING: Proxy generation failed (non-fatal)"
+
     _save_state
 }
 
