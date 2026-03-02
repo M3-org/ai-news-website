@@ -1,0 +1,33 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Main metric panels:  
+- "Prediction Market Adoption Rate"  
+- "Polymarket Integration Status"  
+- "Verifiable Oracle Data Volume"  
+
+Key indicators/gauges:  
+- Live market participation gauge  
+- Oracle verification integrity meter  
+- Integration uptime/status badge  
+
+Connection lines/data flows:  
+- Animated cyan data lines from "Polymarket Integration" to "Prediction Market Adoption"  
+- Pulsating magenta arcs from "Oracle Data Volume" to both main panels  
+
+Color accents:  
+- Cyan for data/integrations  
+- Magenta for oracle metrics  
+- Orange for status alerts
+
+CONTENT CONTEXT:
+ElizaOS is expanding into prediction markets via Polymarket and Verifiable Oracle Thesis integrations.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

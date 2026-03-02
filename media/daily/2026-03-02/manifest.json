@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-02T11:31:01.656770+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-03-02.json",
+  "facts_date": "2026-03-02",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-03-02",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is transitioning toward a v2.0 beta launch with a focus on automation plugins and decentralized identity, while the community manages ongoing security challenges from scam bots and the closure of token migration.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza stands in a quiet garden at dawn, surrounded by blooming code-flowers and tangled security vines. Soft pink-orange light seeps through mist, hinting at new pathways where community figures tend digital saplings\u2014hope and vigilance etched in every gesture amidst fading scam-bot shadows.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza stands in a quiet garden at dawn, surrounded by blooming code-flowers and tangled security vines. Soft pink-orange light seeps through mist, hinting at new pathways where community figures tend digital saplings\u2014hope and vigilance etched in every gesture amidst fading scam-bot shadows.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 59.1,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Focus on stabilizing the core framework for beta launch, including clearing functional blockers and expanding messaging integrations for WhatsApp and Gmail.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza sits in a sunlit workspace surrounded by blooming plants and scattered code notes, hands poised over her laptop, light from a dawn-tinted window touching her focused face as web diagrams for WhatsApp and Gmail integrations unfurl beside her\u2014calm resolve in a time of renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza sits in a sunlit workspace surrounded by blooming plants and scattered code notes, hands poised over her laptop, light from a dawn-tinted window touching her focused face as web diagrams for WhatsApp and Gmail integrations unfurl beside her\u2014calm resolve in a time of renewal.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.89,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Discussions centered on the end of token migration, reporting broken plugins in v1.7.2, and warnings against pervasive scam bots targeting newcomers. Introduction of a high-level AI systems developer specializing in healthcare and finance fraud detection; presentation of the zeitgaist VPS orchestration project.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, dawn breaks with soft pink-gold light as Eliza and Peepo huddle over a glowing console amid sprouts and scattered plugin tools; distant screens flash scam warnings, while a new figure\u2014focused, hopeful\u2014arrives, briefcase in hand, a VPS server diagram blooming like fresh spring shoots nearby.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: From above, dawn breaks with soft pink-gold light as Eliza and Peepo huddle over a glowing console amid sprouts and scattered plugin tools; distant screens flash scam warnings, while a new figure\u2014focused, hopeful\u2014arrives, briefcase in hand, a VPS server diagram blooming like fresh spring shoots nearby.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.37,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "The presence of three different autonomous implementations (v2.0 builtin, plugin-autonomous, and Milady/OpenClaw) suggests a need for architectural convergence. Transitioning from social-only agents to regulated industry tools (FCRA compliance, certified mail) increases the legal risk profile for the ecosystem.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, a lone spartan stands at a crossroads framed by intricate, branching paths\u2014each textured with fresh spring foliage and hints of emerging tech artifacts. Dawn\u2019s soft orange-pink horizon casts long, contemplative shadows, capturing a moment of decision and quiet resilience amid new growth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: From above, a lone spartan stands at a crossroads framed by intricate, branching paths\u2014each textured with fresh spring foliage and hints of emerging tech artifacts. Dawn\u2019s soft orange-pink horizon casts long, contemplative shadows, capturing a moment of decision and quiet resilience amid new growth.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.28,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "ElizaOS is expanding into prediction markets via Polymarket and Verifiable Oracle Thesis integrations.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Main metric panels:  \n- \"Prediction Market Adoption Rate\"  \n- \"Polymarket Integration Status\"  \n- \"Verifiable Oracle Data Volume\"  \n\nKey indicators/gauges:  \n- Live market participation gauge  \n- Oracle verification integrity meter  \n- Integration uptime/status badge  \n\nConnection lines/data flows:  \n- Animated cyan data lines from \"Polymarket Integration\" to \"Prediction Market Adoption\"  \n- Pulsating magenta arcs from \"Oracle Data Volume\" to both main panels  \n\nColor accents:  \n- Cyan for data/integrations  \n- Magenta for oracle metrics  \n- Orange for status alerts",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Main metric panels:  \n- \"Prediction Market Adoption Rate\"  \n- \"Polymarket Integration Status\"  \n- \"Verifiable Oracle Data Volume\"  \n\nKey indicators/gauges:  \n- Live market participation gauge  \n- Oracle verification integrity meter  \n- Integration uptime/status badge  \n\nConnection lines/data flows:  \n- Animated cyan data lines from \"Polymarket Integration\" to \"Prediction Market Adoption\"  \n- Pulsating magenta arcs from \"Oracle Data Volume\" to both main panels  \n\nColor accents:  \n- Cyan for data/integrations  \n- Magenta for oracle metrics  \n- Orange for status alerts\n\nCONTENT CONTEXT:\nElizaOS is expanding into prediction markets via Polymarket and Verifiable Oracle Thesis integrations.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 36.68,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "WhatsApp"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "WhatsApp"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-02/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 180.44
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-02/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-02/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-03-02/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-03-02/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-03-02/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-03-02/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-03-02/strategic-insights.png"
+  }
+}
