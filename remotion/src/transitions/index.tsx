@@ -427,11 +427,3 @@ const GlitchOverlay: React.FC<{ frame: number; intensity: number }> = ({
     </AbsoluteFill>
   );
 };
-
-// Legacy exports — kept so nothing breaks if imported elsewhere
-export const Flash: React.FC<{
-  color: "white" | "black";
-  durationInFrames: number;
-}> = () => null;
-export const Glitch: React.FC<{ durationInFrames: number }> = () => null;
-export const ZoomPunch: React.FC<{ durationInFrames: number }> = () => null;

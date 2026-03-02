@@ -287,6 +287,37 @@ export const Clip: React.FC<ClipProps> = ({
     thumbUrl = staticFile(`characters/${actorFolderInfo.folder}/${currentImageIndex}.png`);
   }
 
+  // TikTok-style text chunking: group words into small phrases (max 4 words or until punctuation)
+  const wordsWithChunks = React.useMemo(() => {
+    if (!words) return [];
+    let currentChunkIdx = 0;
+    let wordsInCurrentChunk = 0;
+    return words.map((w, idx) => {
+      const hasPunctuation = /[.,?!]/.test(w.word);
+      const result = { ...w, chunkIndex: currentChunkIdx, originalIndex: idx };
+      wordsInCurrentChunk++;
+      if (wordsInCurrentChunk >= 4 || hasPunctuation) {
+        currentChunkIdx++;
+        wordsInCurrentChunk = 0;
+      }
+      return result;
+    });
+  }, [words]);
+
+  let activeChunk = 0;
+  if (wordsWithChunks.length > 0) {
+    const clipStartSec = startSec || 0;
+    let currentWord = wordsWithChunks[0];
+    for (const w of wordsWithChunks) {
+      if (frame >= (w.start - clipStartSec) * fps) {
+        currentWord = w;
+      } else {
+        break;
+      }
+    }
+    activeChunk = currentWord.chunkIndex;
+  }
+
   return (
     <AbsoluteFill
       style={{
@@ -566,13 +597,17 @@ export const Clip: React.FC<ClipProps> = ({
         </div>
       )}
 
-      {/* Main quote text — word-by-word reveal synced to speech */}
+      {/* Main quote text — TikTok style word chunks synced to speech */}
       <div
         style={{
           position: "absolute",
           left: showThumbnail ? 360 : 80,
-          right: 50,
+          right: showThumbnail ? 80 : 50,
           bottom: 140,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          flexWrap: "wrap",
           transform: `translateY(${textSlide}px) scale(${textParallax})`,
           transformOrigin: "center center",
           opacity: textOpacity,
@@ -580,18 +615,21 @@ export const Clip: React.FC<ClipProps> = ({
       >
         <p
           style={{
-            fontSize: 56,
+            fontSize: 84, // Slightly bigger text for CapCut style
             fontWeight: 800,
             color: "#fff",
             lineHeight: 1.15,
             margin: 0,
             textShadow: "0 4px 20px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)",
-            maxWidth: 1600,
+            textAlign: "center",
+            width: "100%",
           }}
         >
-          "
-          {words && words.length > 0
-            ? words.map((w, idx) => {
+          {wordsWithChunks && wordsWithChunks.length > 0
+            ? wordsWithChunks.map((w) => {
+                if (w.chunkIndex !== activeChunk) return null;
+                const idx = w.originalIndex;
+                
                 // Convert absolute word time to clip-local frame
                 const clipStartSec = startSec || 0;
                 const wordStartFrame = (w.start - clipStartSec) * fps;
@@ -670,7 +708,7 @@ export const Clip: React.FC<ClipProps> = ({
                       }}
                     >
                       {w.word}
-                      {idx < words.length - 1 ? "\u00A0" : ""}
+                      {idx < wordsWithChunks.length - 1 ? "\u00A0" : ""}
                     </span>
                   );
                 }
@@ -711,12 +749,11 @@ export const Clip: React.FC<ClipProps> = ({
                     }}
                   >
                     {w.word}
-                    {idx < words.length - 1 ? "\u00A0" : ""}
+                    {idx < wordsWithChunks.length - 1 ? "\u00A0" : ""}
                   </span>
                 );
               })
             : text}
-          "
         </p>
       </div>
 

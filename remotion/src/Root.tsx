@@ -2,18 +2,6 @@ import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
 import { OVERLAP_FRAMES } from "./transitions";
 
-// Generate evenly-spaced word timing from text and clip boundaries (for preview only)
-const syntheticWords = (text: string, startSec: number, endSec: number) => {
-  const parts = text.split(" ");
-  const dur = endSec - startSec;
-  const gap = dur / parts.length;
-  return parts.map((word, i) => ({
-    word,
-    start: +(startSec + i * gap).toFixed(3),
-    end: +(startSec + (i + 1) * gap - 0.02).toFixed(3),
-  }));
-};
-
 // Default props for Remotion Studio preview
 // When no video_file is provided, clips show text-only mode
 const defaultProps: TrailerProps = {
