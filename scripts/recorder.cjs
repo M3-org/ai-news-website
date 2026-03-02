@@ -1482,6 +1482,7 @@ Options:
   --date=<YYYY-MM-DD>           Override date for filenames
   --show=<name>                 Show name for filename (default: Show)
   --list=<path>                 Path to list file for date mapping
+  --recording-mode=<N>          Append ?recordingMode=N to URL (outputs to episodes/no-music/ by default)
   --help                        Show this help
 
 Output files:
@@ -1519,8 +1520,11 @@ Examples:
   const muteAudio = args.includes('--mute');
   const verbose = !args.includes('--quiet');
   const url = args.find(arg => !arg.startsWith('--')) || '';
+  const recordingMode = args.find(arg => arg.startsWith('--recording-mode='))?.split('=')[1] || '';
   const waitTime = parseInt(args.find(arg => arg.startsWith('--wait='))?.split('=')[1] || String(TIMING.WAIT_DEFAULT_TIMEOUT_MS), 10);
-  const outputDir = args.find(arg => arg.startsWith('--output='))?.split('=')[1] || './episodes';
+  const hasExplicitOutput = args.some(arg => arg.startsWith('--output='));
+  const outputDir = args.find(arg => arg.startsWith('--output='))?.split('=')[1]
+    || (recordingMode ? './episodes/no-music' : './episodes');
   const chromePath = args.find(arg => arg.startsWith('--chrome-path='))?.split('=')[1] || '';
   const outputFormat = args.find(arg => arg.startsWith('--format='))?.split('=')[1] || 'webm';
   const stopRecordingAt = args.find(arg => arg.startsWith('--stop-recording-at='))?.split('=')[1] || 'end_postcredits';
@@ -1530,6 +1534,13 @@ Examples:
   const dateOverride = args.find(arg => arg.startsWith('--date='))?.split('=')[1] || '';
   const showName = args.find(arg => arg.startsWith('--show='))?.split('=')[1] || 'Show';
   const listPath = args.find(arg => arg.startsWith('--list='))?.split('=')[1];
+
+  // Append recordingMode query param if set
+  let finalUrl = url;
+  if (recordingMode) {
+    const separator = url.includes('?') ? '&' : '?';
+    finalUrl = `${url}${separator}recordingMode=${recordingMode}`;
+  }
 
   // Build base name
   const slug = getEpisodeSlug(url);
@@ -1566,7 +1577,7 @@ Examples:
   }
 
   return {
-    url,
+    url: finalUrl,
     options: {
       headless,
       record: !noRecord,

@@ -66,6 +66,7 @@ FROM_STEP=1
 SKIP_RECORD=false
 DATE_OVERRIDE=""
 FORCE_RERECORD=false
+RECORDING_MODE=""
 
 for arg in "$@"; do
     case "$arg" in
@@ -85,6 +86,9 @@ for arg in "$@"; do
         --force-rerecord)
             FORCE_RERECORD=true
             ;;
+        --recording-mode=*)
+            RECORDING_MODE="${arg#*=}"
+            ;;
         --help|-h)
             echo "Usage: $0 [OPTIONS]"
             echo ""
@@ -94,6 +98,7 @@ for arg in "$@"; do
             echo "  --skip-record      Skip recording, use latest existing episode"
             echo "  --date=YYYY-MM-DD  Override episode date"
             echo "  --force-rerecord   Clean up old episode (YouTube, playlist, website) and re-record"
+            echo "  --recording-mode=N Append ?recordingMode=N to URL, save to episodes/no-music/"
             echo "  --help             Show this help"
             echo ""
             echo "Steps:"
@@ -114,6 +119,11 @@ for arg in "$@"; do
             ;;
     esac
 done
+
+# Override output dir when recording-mode is set
+if [[ -n "$RECORDING_MODE" ]]; then
+    OUTPUT_DIR="./episodes/no-music"
+fi
 
 # ============================================================================
 # Logging & Notifications
@@ -444,6 +454,7 @@ step_1_record() {
         --show="${SHOW_NAME}" \
         --output="${OUTPUT_DIR}" \
         --stop-recording-at=end_postcredits \
+        ${RECORDING_MODE:+--recording-mode="${RECORDING_MODE}"} \
         "${ep_url}"
 
     log "Recording complete: $VIDEO_FILE"
