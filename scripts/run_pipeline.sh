@@ -610,6 +610,14 @@ step_7_cdn_upload() {
     date_str="${EPISODE_DATE:-$(date '+%Y-%m-%d')}"
     local clips_dir="${OUTPUT_DIR}/clips"
     local remote_base="cronjob/${date_str}"
+    local episode_base=""
+    local manifest_path=""
+    local manifest_to_upload=""
+    local filtered_manifest_path=""
+
+    if [[ -n "$SESSION_LOG" ]]; then
+        episode_base=$(basename "$SESSION_LOG" | sed 's/_session-log\.json$//')
+    fi
 
     # Generate manifest if clips exist
     if [[ -d "$clips_dir" ]] && ls "$clips_dir"/*.mp4 &>/dev/null 2>&1; then
@@ -624,10 +632,53 @@ step_7_cdn_upload() {
         fi
         python3 scripts/generate_manifest.py "${manifest_args[@]}"
 
+        manifest_path="${clips_dir}/manifest.json"
+        manifest_to_upload="$manifest_path"
+
+        # Filter to current episode clips only, so old clips in episodes/clips are not re-uploaded.
+        if [[ -n "$episode_base" && -f "$manifest_path" ]]; then
+            filtered_manifest_path="${clips_dir}/manifest_${episode_base}_upload.json"
+            local filtered_count=""
+            if filtered_count=$(python3 - "$manifest_path" "$filtered_manifest_path" "$episode_base" <<'PYEOF'
+import json
+import sys
+
+manifest_path, output_path, prefix = sys.argv[1:4]
+with open(manifest_path, "r", encoding="utf-8") as f:
+    manifest = json.load(f)
+
+files = manifest.get("files", [])
+filtered = [entry for entry in files if entry.get("filename", "").startswith(prefix + "_")]
+manifest["files"] = filtered
+
+with open(output_path, "w", encoding="utf-8") as f:
+    json.dump(manifest, f, indent=2, ensure_ascii=False)
+
+print(len(filtered))
+PYEOF
+); then
+                manifest_to_upload="$filtered_manifest_path"
+                log "Filtered clip manifest to episode prefix '${episode_base}': ${filtered_count} file(s)"
+                if [[ "$filtered_count" -eq 0 ]]; then
+                    log "No clips found for current episode prefix in clips directory, skipping clip upload"
+                    rm -f "$filtered_manifest_path"
+                    manifest_to_upload=""
+                fi
+            else
+                log "WARNING: Failed to filter clip manifest; falling back to full manifest upload"
+                manifest_to_upload="$manifest_path"
+            fi
+        fi
+
         log "Uploading clips to CDN..."
-        python3 scripts/cdn_upload.py \
-            --manifest "${clips_dir}/manifest.json" \
-            --remote "${remote_base}/clips/"
+        if [[ -n "$manifest_to_upload" ]]; then
+            python3 scripts/cdn_upload.py \
+                --manifest "$manifest_to_upload" \
+                --remote "${remote_base}/clips/"
+        fi
+        if [[ -n "$filtered_manifest_path" && -f "$filtered_manifest_path" ]]; then
+            rm -f "$filtered_manifest_path"
+        fi
     else
         log "No clips found, skipping clip upload"
     fi
