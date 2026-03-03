@@ -1,4 +1,5 @@
-episodes/
+episodes/*.mp4
+episodes/*.json
 node_modules
 .env
 *.meta
@@ -42,8 +43,11 @@ knowledge
 # Local archival storage (non-source artifacts)
 archive/
 
-# Remotion-generated/public symlinked assets (local only)
-remotion/public/
+# Remotion public: ignore symlinks, allow tracked assets (mp3, GLBs)
+remotion/public/characters
+remotion/public/episodes
+!remotion/public/*.mp3
+!remotion/public/**/*.glb
 
 # Local trailer exports (under episodes/)
 episodes/trailers/
