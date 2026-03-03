@@ -1,0 +1,25 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process Flow  
+2. Main sections:  
+   - Clear Functional Blockers  
+   - Enhance Agent Reach  
+   - Implement Decentralized Identity  
+3. Key icons: Warning/Barrier (blockers), Chat/Envelope (WhatsApp/Gmail), Decentralized/ID badge  
+4. Suggested section headers:  
+   - Remove Functional Blockers  
+   - Expand Communication Channels  
+   - Adopt Decentralized Identity Standards
+
+CONTENT CONTEXT:
+Focus on clearing functional blockers for beta launch, improving agent reach via WhatsApp/Gmail, and implementing decentralized identity standards.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
