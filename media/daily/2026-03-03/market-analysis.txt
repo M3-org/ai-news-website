@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Benchmark Comparison  
+2. Main sections: Venice VVV Tokenomics, User Adoption Metrics, Airdrop Strategy, Influence on ElizaOS Project Design  
+3. Key icons: Token, user/group, percentage/airdrop, benchmarking arrow, blueprint/design  
+4. Suggested section headers:  
+- Venice VVV Tokenomics Highlights  
+- User Growth: 1M+ Users  
+- 50% Airdrop Distribution  
+- Benchmarking for ElizaOS Projects
+
+CONTENT CONTEXT:
+Venice VVV tokenomics success (1M+ users, 50% airdrop) is being used as a benchmark for future ElizaOS-related project designs.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
