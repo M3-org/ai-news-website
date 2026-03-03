@@ -8,7 +8,7 @@ Merged from analyze_clips.py and generate_trailer.py. Uses OpenRouter LLMs to:
 
 Usage:
     python3 scripts/llm_producer.py clips episodes/*_session-log.json [--extract] [--dry-run]
-    python3 scripts/llm_producer.py trailer episodes/*_session-log.json [--output=trailers/] [--manual] [--dry-run]
+    python3 scripts/llm_producer.py trailer episodes/*_session-log.json [--output=episodes/trailers/] [--manual] [--dry-run]
 """
 
 import argparse
@@ -619,11 +619,17 @@ class TrailerConfig:
     duration: float = 0.0
     title: str = "Coming up on Cron Job..."
     music: str = "dramatic-hit.mp3"
+    soundtrack: str = "soundtrack.mp3"
+    introBoot: str = "introBoot.mp3"
+    outro: str = "outro.mp3"
     clips: list = field(default_factory=list)
     end_card: dict = field(default_factory=lambda: {
         "text": "Cron Job",
         "subtext": "New episodes weekly",
         "duration": 2
+    })
+    modulation: dict = field(default_factory=lambda: {
+        "glbFile": "Modulation_GLBs/cron_red.glb"
     })
     source_episode: str = ""
     generated_at: str = ""
@@ -677,7 +683,18 @@ def find_dialogue(session_log: dict, scene_num: int, dialogue_num: int) -> Optio
 
 
 def find_trailer_video_file(session_log: dict, session_log_path: Path) -> str:
-    """Find the video file for a session-log (trailer version, checks session-log field first)."""
+    """Find video file, preferring no-music version for cleaner trailers."""
+    base = session_log_path.stem.replace("_session-log", "")
+
+    # Prefer no-music version (cleaner for trailer cutting)
+    no_music_dir = session_log_path.parent.parent / "no-music"
+    if no_music_dir.exists():
+        for pattern in [f"{base}.mp4", f"{base}_fps30.mp4"]:
+            candidate = no_music_dir / pattern
+            if candidate.exists():
+                return str(candidate)
+
+    # Fall back to session-log's video_file field, then same-dir search
     video_file = session_log.get("video_file", "")
     if video_file:
         video_path = session_log_path.parent / video_file
@@ -964,7 +981,7 @@ def cmd_trailer(args):
     print("Next steps:")
     print("  1. Review/edit the trailer_config.json file")
     print("  2. Run: cd remotion && npm run build")
-    print("  3. Run: npx remotion render Trailer --props=../trailers/<config>.json")
+    print("  3. Run: npx remotion render Trailer --props=../episodes/trailers/<config>.json")
     print("=" * 60)
 
 
@@ -1013,8 +1030,8 @@ def main():
         help="Show detailed output")
     trailer_parser.add_argument("--model", default=DEFAULT_MODEL,
         help=f"OpenRouter model to use (default: {DEFAULT_MODEL})")
-    trailer_parser.add_argument("--output", "-o", default="trailers",
-        help="Output directory for trailer configs (default: trailers)")
+    trailer_parser.add_argument("--output", "-o", default="episodes/trailers",
+        help="Output directory for trailer configs (default: episodes/trailers)")
 
     args = parser.parse_args()
 

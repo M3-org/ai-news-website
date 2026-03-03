@@ -459,6 +459,11 @@ Examples:
         help="Re-upload files even if they may already exist"
     )
     parser.add_argument(
+        "--force", "-f",
+        action="store_true",
+        help="Force overwrite: re-upload all files and ignore max-size limit"
+    )
+    parser.add_argument(
         "--max-size",
         type=float,
         default=DEFAULT_MAX_SIZE_MB,
@@ -504,6 +509,11 @@ Examples:
         print(f"Storage Host: {config['storage_host']}")
         print(f"CDN URL: {config['cdn_url']}")
         print()
+
+    # --force implies --no-skip-existing and removes max-size limit
+    if args.force:
+        args.no_skip_existing = True
+        args.max_size = float('inf')
 
     skip_existing = not args.no_skip_existing
     results = []

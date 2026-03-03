@@ -4,10 +4,18 @@ import argparse
 import httplib2
 import os
 import random
+import shutil
+import subprocess
 import sys
 import time
 import json # For loading .env.json if used
 import urllib.request
+
+try:
+    from PIL import Image, ImageOps
+    PIL_AVAILABLE = True
+except ImportError:
+    PIL_AVAILABLE = False
 
 # The google-api-python-client and oauth2client libraries are typically installed via pip
 # For example: pip install google-api-python-client google-auth-oauthlib google-auth-httplib2
@@ -36,6 +44,10 @@ httplib2.RETRIES = 1
 MAX_RETRIES = 10
 RETRIABLE_EXCEPTIONS = (httplib2.HttpLib2Error, IOError) # Simplified for modern httplib2
 RETRIABLE_STATUS_CODES = [500, 502, 503, 504]
+
+THUMBNAIL_MAX_BYTES_DEFAULT = 2 * 1024 * 1024
+THUMBNAIL_TARGET_FORMAT = "jpg"
+THUMBNAIL_RETRY_ON_FAIL = True
 
 
 def load_env_vars(env_path='.env.json'):
@@ -330,13 +342,22 @@ def initialize_upload(youtube, args):
     if video_id and args.thumbnail_file:
         if os.path.exists(args.thumbnail_file):
             try:
-                print(f"\n--- Uploading Thumbnail ---")
-                print(f"Thumbnail: {args.thumbnail_file} for video ID: {video_id}")
-                youtube.thumbnails().set(
-                    videoId=video_id,
-                    media_body=MediaFileUpload(args.thumbnail_file)
-                ).execute()
-                print("Thumbnail successfully uploaded.")
+                thumb_size = os.path.getsize(args.thumbnail_file)
+                max_thumb_size = THUMBNAIL_MAX_BYTES_DEFAULT
+                if thumb_size > max_thumb_size:
+                    print(
+                        f"\nWARNING: Thumbnail too large for YouTube API ({thumb_size} bytes > {max_thumb_size} bytes). "
+                        "Skipping thumbnail upload."
+                    )
+                else:
+                    print(f"\n--- Uploading Thumbnail ---")
+                    print(f"Thumbnail: {args.thumbnail_file} for video ID: {video_id}")
+                    print(f"Thumbnail size: {thumb_size} bytes")
+                    youtube.thumbnails().set(
+                        videoId=video_id,
+                        media_body=MediaFileUpload(args.thumbnail_file)
+                    ).execute()
+                    print("Thumbnail successfully uploaded.")
             except HttpError as e:
                 print(f"An HTTP error {e.resp.status} occurred while uploading thumbnail:\n{e.content}")
             except Exception as e:
@@ -453,6 +474,106 @@ def load_metadata_from_session_log(session_log_file, options=None):
         sys.exit(1)
 
 
+def _project_dir() -> str:
+    return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+def _thumbnail_dir(output_dir=None) -> str:
+    if output_dir:
+        return output_dir
+    return os.path.join(_project_dir(), 'episodes', 'thumbnails')
+
+
+def _thumbnail_base_name(video_file: str | None) -> str:
+    if video_file:
+        return os.path.splitext(os.path.basename(video_file))[0]
+    return f"thumbnail_{int(time.time())}"
+
+
+def _is_url(value: str) -> bool:
+    return value.startswith("http://") or value.startswith("https://")
+
+
+def _safe_remove(path: str) -> None:
+    try:
+        if path and os.path.exists(path):
+            os.remove(path)
+    except Exception:
+        pass
+
+
+def _run_command(cmd: list[str], check: bool = True) -> bool:
+    try:
+        subprocess.run(cmd, check=check, capture_output=True)
+        return True
+    except subprocess.CalledProcessError as e:
+        stderr = e.stderr.decode("utf-8", errors="ignore") if e.stderr else str(e)
+        print(f"Warning: Command failed: {' '.join(cmd)}")
+        if stderr:
+            print(stderr[:400])
+        return False
+    except FileNotFoundError:
+        print(f"Warning: Command not found: {cmd[0]}")
+        return False
+
+
+def _parse_resize(resize: str | None) -> tuple[int, int] | None:
+    """Parse ImageMagick-style resize strings like '1280x1280>'."""
+    if not resize:
+        return None
+    clean = resize.strip().rstrip(">")
+    if "x" not in clean:
+        return None
+    w, h = clean.split("x", 1)
+    try:
+        return int(w), int(h)
+    except ValueError:
+        return None
+
+
+def resolve_session_log_path_from_metadata(metadata: dict, metadata_json_path: str | None = None) -> str | None:
+    """Resolve session log path stored in metadata['_source']['session_log']."""
+    source = metadata.get("_source", {}) if isinstance(metadata, dict) else {}
+    session_log = source.get("session_log", "")
+    if not session_log:
+        return None
+
+    candidates = [session_log]
+    if metadata_json_path:
+        json_dir = os.path.dirname(os.path.abspath(metadata_json_path))
+        candidates.append(os.path.join(json_dir, session_log))
+    candidates.append(os.path.join(_project_dir(), session_log.lstrip("./")))
+
+    for candidate in candidates:
+        if candidate and os.path.exists(candidate):
+            return os.path.abspath(candidate)
+    return None
+
+
+def episode_image_from_session_log(session_log_path: str) -> str | None:
+    """Extract thumbnail source from session-log episode.image (fallback: image_thumb)."""
+    if not session_log_path or not os.path.exists(session_log_path):
+        return None
+
+    try:
+        with open(session_log_path, "r", encoding="utf-8") as f:
+            session = json.load(f)
+    except Exception as e:
+        print(f"Warning: Could not read session log for thumbnail source: {e}")
+        return None
+
+    episode = session.get("episode", {})
+    image = episode.get("image") or episode.get("image_thumb")
+    if not image:
+        return None
+
+    if _is_url(image) or os.path.isabs(image):
+        return image
+
+    # Relative local path: resolve relative to session log directory.
+    return os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(session_log_path)), image))
+
+
 def download_thumbnail_from_url(url, output_dir=None, base_name=None):
     """Download thumbnail from URL to local file.
 
@@ -467,10 +588,7 @@ def download_thumbnail_from_url(url, output_dir=None, base_name=None):
         # Determine extension from URL
         ext = os.path.splitext(url.split('?')[0])[1] or '.jpg'
 
-        # Use episodes/thumbnails/ as default directory
-        if output_dir is None:
-            project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            output_dir = os.path.join(project_dir, 'episodes', 'thumbnails')
+        output_dir = _thumbnail_dir(output_dir)
 
         os.makedirs(output_dir, exist_ok=True)
 
@@ -495,6 +613,237 @@ def download_thumbnail_from_url(url, output_dir=None, base_name=None):
     except Exception as e:
         print(f"Warning: Failed to download thumbnail from URL: {e}")
         return None
+
+
+def _convert_optimize_jpg(source_path: str, output_path: str, quality: int, resize: str | None = None) -> bool:
+    """Convert image to JPG and optimize in-place."""
+    if PIL_AVAILABLE:
+        try:
+            with Image.open(source_path) as img:
+                img = ImageOps.exif_transpose(img)
+
+                size_limit = _parse_resize(resize)
+                if size_limit:
+                    # Keep aspect ratio while fitting within max dimensions.
+                    img.thumbnail(size_limit, Image.Resampling.LANCZOS)
+
+                # Flatten transparency to white before JPEG conversion.
+                if img.mode in ("RGBA", "LA") or (img.mode == "P" and "transparency" in img.info):
+                    base = Image.new("RGB", img.size, (255, 255, 255))
+                    alpha = img.convert("RGBA")
+                    base.paste(alpha, mask=alpha.split()[-1])
+                    img = base
+                else:
+                    img = img.convert("RGB")
+
+                img.save(
+                    output_path,
+                    format="JPEG",
+                    quality=quality,
+                    optimize=True,
+                    progressive=True,
+                )
+        except Exception as e:
+            print(f"Warning: Pillow thumbnail conversion failed, falling back to ImageMagick: {e}")
+        else:
+            if shutil.which("jpegoptim"):
+                _run_command([
+                    "jpegoptim",
+                    "--strip-all",
+                    f"--max={quality}",
+                    "--all-progressive",
+                    output_path,
+                ], check=False)
+            return os.path.exists(output_path)
+
+    # Fallback path when Pillow is unavailable or conversion fails.
+    imagemagick_cmd = shutil.which("magick")
+    legacy_convert_cmd = shutil.which("convert")
+    if not imagemagick_cmd and not legacy_convert_cmd:
+        if not PIL_AVAILABLE:
+            print("Warning: Pillow not installed and ImageMagick command not found ('magick' or 'convert')")
+        else:
+            print("Warning: ImageMagick command not found ('magick' or 'convert')")
+        return False
+
+    if imagemagick_cmd:
+        cmd = [imagemagick_cmd, source_path]
+    else:
+        cmd = [legacy_convert_cmd, source_path]
+
+    cmd.extend([
+        "-auto-orient",
+        "-strip",
+        "-colorspace", "sRGB",
+        "-background", "white",
+        "-alpha", "remove",
+        "-alpha", "off",
+    ])
+    if resize:
+        cmd.extend(["-resize", resize])
+    cmd.extend([
+        "-sampling-factor", "4:2:0",
+        "-interlace", "Plane",
+        "-quality", str(quality),
+        output_path,
+    ])
+
+    if not _run_command(cmd):
+        return False
+
+    if shutil.which("jpegoptim"):
+        _run_command([
+            "jpegoptim",
+            "--strip-all",
+            f"--max={quality}",
+            "--all-progressive",
+            output_path,
+        ], check=False)
+
+    return os.path.exists(output_path)
+
+
+def prepare_thumbnail_file(
+    source: str,
+    video_file: str | None,
+    max_bytes: int = THUMBNAIL_MAX_BYTES_DEFAULT,
+    target_format: str = THUMBNAIL_TARGET_FORMAT,
+    retry_on_fail: bool = THUMBNAIL_RETRY_ON_FAIL,
+    output_dir: str | None = None,
+) -> str | None:
+    """
+    Prepare thumbnail for YouTube upload.
+
+    Strategy:
+      1) Resolve source (URL/local)
+      2) Convert to JPG
+      3) Optimize and enforce max size
+      4) Retry once with stronger compression/resize
+    """
+    if not source:
+        return None
+
+    target_format = (target_format or THUMBNAIL_TARGET_FORMAT).lower()
+    if target_format not in ("jpg", "jpeg"):
+        print(f"Warning: Unsupported thumbnail target format '{target_format}', using jpg")
+        target_format = "jpg"
+
+    output_dir = _thumbnail_dir(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
+
+    base_name = _thumbnail_base_name(video_file)
+    output_path = os.path.join(output_dir, f"{base_name}.jpg")
+
+    downloaded_source = None
+    source_path = source
+    if _is_url(source):
+        downloaded_source = download_thumbnail_from_url(source, output_dir=output_dir, base_name=f"{base_name}_source")
+        if not downloaded_source:
+            return None
+        source_path = downloaded_source
+    elif not os.path.exists(source_path):
+        print(f"Warning: Thumbnail source file not found: {source_path}")
+        return None
+
+    print(f"Preparing thumbnail from source: {source_path}")
+
+    first_ok = _convert_optimize_jpg(source_path, output_path, quality=88, resize=None)
+    if not first_ok:
+        _safe_remove(downloaded_source)
+        return None
+
+    size_bytes = os.path.getsize(output_path)
+    print(f"Prepared thumbnail: {output_path} ({size_bytes} bytes)")
+    if size_bytes <= max_bytes:
+        _safe_remove(downloaded_source)
+        return output_path
+
+    print(f"Warning: Thumbnail is too large ({size_bytes} bytes > {max_bytes} bytes)")
+
+    if retry_on_fail:
+        print("Retrying thumbnail optimization with stronger compression...")
+        retry_ok = _convert_optimize_jpg(source_path, output_path, quality=72, resize="1280x1280>")
+        if retry_ok:
+            size_bytes = os.path.getsize(output_path)
+            print(f"Retry thumbnail: {output_path} ({size_bytes} bytes)")
+            if size_bytes <= max_bytes:
+                _safe_remove(downloaded_source)
+                return output_path
+            print(f"Warning: Thumbnail still exceeds limit after retry ({size_bytes} bytes)")
+
+    _safe_remove(downloaded_source)
+    return None
+
+
+def configure_thumbnail_for_upload(args, metadata: dict | None = None, session_log_path: str | None = None):
+    """
+    Resolve + prepare thumbnail for upload.
+
+    Priority:
+      1) Explicit --thumbnail-file (or env-derived arg)
+      2) episode.image from session log
+      3) metadata.thumbnail_url fallback
+    """
+    retry = THUMBNAIL_RETRY_ON_FAIL
+    max_bytes = THUMBNAIL_MAX_BYTES_DEFAULT
+    target_format = THUMBNAIL_TARGET_FORMAT
+
+    # Explicit thumbnail file/source always wins.
+    if args.thumbnail_file:
+        prepared = prepare_thumbnail_file(
+            args.thumbnail_file,
+            video_file=args.video_file,
+            max_bytes=max_bytes,
+            target_format=target_format,
+            retry_on_fail=retry,
+        )
+        if prepared:
+            args.thumbnail_file = prepared
+        elif os.path.exists(args.thumbnail_file) and os.path.getsize(args.thumbnail_file) <= max_bytes:
+            print(f"Using existing thumbnail without conversion: {args.thumbnail_file}")
+        else:
+            print("Warning: Explicit thumbnail could not be prepared within size constraints; skipping thumbnail upload")
+            args.thumbnail_file = None
+        return
+
+    sources = []
+    if session_log_path:
+        session_source = episode_image_from_session_log(session_log_path)
+        if session_source:
+            sources.append(("session log", session_source))
+
+    if metadata:
+        fallback_file = metadata.get("thumbnail_file")
+        fallback_url = metadata.get("thumbnail_url")
+        if fallback_file:
+            sources.append(("metadata file", fallback_file))
+        if fallback_url:
+            sources.append(("metadata url", fallback_url))
+
+    if not sources:
+        return
+
+    attempted = set()
+    for label, source in sources:
+        key = (label, source)
+        if key in attempted:
+            continue
+        attempted.add(key)
+
+        print(f"Using thumbnail source from {label}: {source}")
+        prepared = prepare_thumbnail_file(
+            source,
+            video_file=args.video_file,
+            max_bytes=max_bytes,
+            target_format=target_format,
+            retry_on_fail=retry,
+        )
+        if prepared:
+            args.thumbnail_file = prepared
+            return
+
+    print("Warning: Could not prepare thumbnail from any source; continuing without thumbnail upload")
+    args.thumbnail_file = None
 
 
 def main():
@@ -532,6 +881,8 @@ def main():
                         help=f"Path to store/load OAuth2 credentials for local interactive runs. Defaults to '{DEFAULT_CREDENTIALS_FILE}' or YOUTUBE_CREDENTIALS_LOCAL_PATH env var.")
     
     args = parser.parse_args()
+    metadata = None
+    resolved_session_log = None
 
     # Shortcut mode: change visibility of an existing video
     if args.visibility:
@@ -572,6 +923,7 @@ def main():
 
     # Load metadata from session log if specified (generates metadata on-the-fly)
     if args.from_session_log:
+        resolved_session_log = os.path.abspath(args.from_session_log)
         session_log_options = {
             'playlist_id': args.playlist_id,
             'privacy': args.privacy_status,
@@ -592,24 +944,13 @@ def main():
             args.category_id = metadata['category_id']
         if 'privacy_status' in metadata and args.privacy_status == os.environ.get('YOUTUBE_PRIVACY_STATUS', "private"):
             args.privacy_status = metadata['privacy_status']
-        if 'thumbnail_file' in metadata and not args.thumbnail_file:
-            args.thumbnail_file = metadata['thumbnail_file']
         if 'playlist_id' in metadata and not args.playlist_id:
             args.playlist_id = metadata['playlist_id']
-
-        # Auto-download thumbnail from URL if thumbnail_file not set
-        if 'thumbnail_url' in metadata and not args.thumbnail_file:
-            # Derive base_name from video file (e.g., "2026-02-02_Cron-Job_Workflow-Revolution")
-            base_name = None
-            if args.video_file:
-                base_name = os.path.splitext(os.path.basename(args.video_file))[0]
-            downloaded = download_thumbnail_from_url(metadata['thumbnail_url'], base_name=base_name)
-            if downloaded:
-                args.thumbnail_file = downloaded
 
     # Load metadata from JSON if specified
     elif args.from_json:
         metadata = load_metadata_from_json(args.from_json)
+        resolved_session_log = resolve_session_log_path_from_metadata(metadata, args.from_json)
         
         # Map JSON fields to args, only if not explicitly set via command line
         if 'video_file' in metadata and not args.video_file:
@@ -624,20 +965,11 @@ def main():
             args.category_id = metadata['category_id']
         if 'privacy_status' in metadata and args.privacy_status == os.environ.get('YOUTUBE_PRIVACY_STATUS', "private"):
             args.privacy_status = metadata['privacy_status']
-        if 'thumbnail_file' in metadata and not args.thumbnail_file:
-            args.thumbnail_file = metadata['thumbnail_file']
         if 'playlist_id' in metadata and not args.playlist_id:
             args.playlist_id = metadata['playlist_id']
 
-        # Auto-download thumbnail from URL if thumbnail_file not set
-        if 'thumbnail_url' in metadata and not args.thumbnail_file:
-            # Derive base_name from video file (e.g., "2026-02-02_Cron-Job_Workflow-Revolution")
-            base_name = None
-            if args.video_file:
-                base_name = os.path.splitext(os.path.basename(args.video_file))[0]
-            downloaded = download_thumbnail_from_url(metadata['thumbnail_url'], base_name=base_name)
-            if downloaded:
-                args.thumbnail_file = downloaded
+    # Always prepare thumbnail before validation/upload.
+    configure_thumbnail_for_upload(args, metadata=metadata, session_log_path=resolved_session_log)
 
     # Validate playlist ID if provided
     if args.playlist_id:

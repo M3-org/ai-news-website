@@ -45,6 +45,6 @@ archive/
 # Remotion-generated/public symlinked assets (local only)
 remotion/public/
 
-# Local trailer exports
-trailers/
+# Local trailer exports (under episodes/)
+episodes/trailers/
 .claude/

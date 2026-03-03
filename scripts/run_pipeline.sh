@@ -48,7 +48,7 @@ SHOW_NAME="Cron-Job"
 API_URL="https://shmotime.com/wp-json/shmotime/v1/get-latest-episode?show_id=${SHOW_ID}"
 OUTPUT_DIR="./episodes"
 LOG_DIR="./logs"
-TRAILER_DIR="./trailers"
+TRAILER_DIR="./episodes/trailers"
 DISCORD_WEBHOOK="${ALERT_WEBHOOK_URL:-}"
 
 # Pipeline state (exported so child processes / inline Python can read them)
@@ -83,7 +83,7 @@ for arg in "$@"; do
         --date=*)
             DATE_OVERRIDE="${arg#*=}"
             ;;
-        --force-rerecord)
+        -f|--force)
             FORCE_RERECORD=true
             ;;
         --recording-mode=*)
@@ -97,7 +97,7 @@ for arg in "$@"; do
             echo "  --from-step=N      Resume from step N (1-9)"
             echo "  --skip-record      Skip recording, use latest existing episode"
             echo "  --date=YYYY-MM-DD  Override episode date"
-            echo "  --force-rerecord   Clean up old episode (YouTube, playlist, website) and re-record"
+            echo "  -f, --force        Clean up old episode (YouTube, playlist, website) and re-record"
             echo "  --recording-mode=N Append ?recordingMode=N to URL, save to episodes/no-music/"
             echo "  --help             Show this help"
             echo ""
@@ -208,6 +208,12 @@ run_step() {
         return 0
     fi
 
+    # Auto-skip YouTube steps when --recording-mode is set (trailer-only recording)
+    if [[ -n "$RECORDING_MODE" && ("$step_num" == 2 || "$step_num" == 3) ]]; then
+        log "SKIP Step ${step_num}: ${step_name} (recording-mode, no YouTube)"
+        return 0
+    fi
+
     log "========================================"
     log "Step ${step_num}: ${step_name}"
     log "========================================"
@@ -277,7 +283,7 @@ for k, v in s.items():
 _cleanup_old_episode() {
     local date_str="${EPISODE_DATE:-${DATE_OVERRIDE:-}}"
     if [[ -z "$date_str" ]]; then
-        log "ERROR: --force-rerecord requires --date=YYYY-MM-DD or a resolvable episode date"
+        log "ERROR: --force requires --date=YYYY-MM-DD or a resolvable episode date"
         return 1
     fi
 
@@ -465,6 +471,28 @@ step_1_record() {
         log "WARNING: Proxy generation failed (non-fatal)"
 
     _save_state
+
+    # Second pass: record no-music version for trailer cutting
+    # Skip if --recording-mode is already set (user is doing a manual recording-mode run)
+    if [[ -z "$RECORDING_MODE" ]]; then
+        local no_music_dir="./episodes/no-music"
+        local no_music_file="${no_music_dir}/${output_base}.mp4"
+
+        if [[ -f "$no_music_file" ]]; then
+            log "No-music version already recorded: $no_music_file"
+        else
+            log "Recording no-music version for trailer..."
+            mkdir -p "$no_music_dir"
+            node scripts/recorder.cjs \
+                --headless --quiet \
+                --date="${ep_date}" --show="${SHOW_NAME}" \
+                --output="${no_music_dir}" \
+                --stop-recording-at=end_postcredits \
+                --recording-mode=1 \
+                "${ep_url}"
+            log "No-music recording complete: $no_music_file"
+        fi
+    fi
 }
 
 step_2_generate_metadata() {
@@ -596,15 +624,36 @@ step_6_render_trailer() {
     log "Config: $TRAILER_CONFIG"
     log "Output: $trailer_output"
 
-    (cd remotion && npx remotion render \
+    # Back up existing trailer so a failed render doesn't leave a stale file
+    local trailer_backup=""
+    if [[ -f "$trailer_output" ]]; then
+        trailer_backup="${trailer_output}.bak"
+        mv "$trailer_output" "$trailer_backup"
+    fi
+
+    if ! (cd remotion && npx remotion render \
         --props "../${TRAILER_CONFIG}" \
+        --gl=angle \
         Trailer \
-        "../${trailer_output}")
+        "../${trailer_output}"); then
+        log "ERROR: Remotion render failed"
+        # Restore backup if render failed
+        if [[ -n "$trailer_backup" && -f "$trailer_backup" ]]; then
+            mv "$trailer_backup" "$trailer_output"
+            log "Restored previous trailer from backup"
+        fi
+        return 1
+    fi
+
+    # Clean up backup on success
+    if [[ -n "$trailer_backup" && -f "$trailer_backup" ]]; then
+        rm -f "$trailer_backup"
+    fi
 
     if [[ -f "$trailer_output" ]]; then
         log "Trailer rendered: $trailer_output"
     else
-        log "WARNING: Trailer output not found"
+        log "WARNING: Trailer output not found after successful render"
         return 1
     fi
 }
@@ -698,7 +747,7 @@ PYEOF
         cdn_result=$(python3 scripts/cdn_upload.py \
             "$trailer_file" \
             --remote "${remote_base}/trailers/" \
-            --json 2>&1) || true
+            --force --json 2>&1) || true
 
         # Try to extract URL from JSON response
         if [[ -n "$cdn_result" ]]; then
