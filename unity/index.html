@@ -155,14 +155,15 @@
   <section class="relative steel min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Fullscreen trailer video as background -->
     <video
+      id="hero-bg-video"
       class="absolute inset-0 w-full h-full object-cover z-0"
-      src="media/trailer.mp4"
+      src="../media/trailer.mp4"
       muted
       autoplay
       loop
       playsinline
-      loading="lazy"
-      poster="media/15.jpg"
+      preload="auto"
+      poster="../media/15.jpg"
       tabindex="-1"
       aria-hidden="true"
     ></video>
@@ -1113,8 +1114,32 @@
       document.body.classList.add('overflow-hidden');
     }
 
+    function setupHeroBackgroundVideo() {
+      const heroBgVideo = document.getElementById('hero-bg-video');
+      if (!heroBgVideo) return;
+
+      const tryPlay = () => {
+        heroBgVideo.muted = true;
+        heroBgVideo.defaultMuted = true;
+        const playPromise = heroBgVideo.play();
+        if (playPromise && typeof playPromise.catch === 'function') {
+          playPromise.catch(() => {});
+        }
+      };
+
+      heroBgVideo.loop = true;
+      heroBgVideo.addEventListener('canplay', tryPlay, { once: true });
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden && heroBgVideo.paused) {
+          tryPlay();
+        }
+      });
+      tryPlay();
+    }
+
     // Add event listener for hero trailer button
     document.addEventListener('DOMContentLoaded', function() {
+      setupHeroBackgroundVideo();
       const heroTrailerBtn = document.getElementById('hero-trailer-btn');
       if (heroTrailerBtn) {
         heroTrailerBtn.addEventListener('click', openHeroTrailerModal);
