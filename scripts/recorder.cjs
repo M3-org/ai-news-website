@@ -1602,6 +1602,8 @@ Examples:
   };
 }
 
+let recorder;
+
 async function main() {
   const { url, options, waitTime } = parseArgs();
 
@@ -1612,7 +1614,7 @@ async function main() {
   console.log(`Stop at: ${options.stopRecordingAt}`);
   console.log('Features: speak_start word-level timestamps enabled');
 
-  const recorder = new ShmotimeRecorder(options);
+  recorder = new ShmotimeRecorder(options);
 
   try {
     await recorder.initialize();
@@ -1644,9 +1646,22 @@ async function main() {
   }
 }
 
+async function shutdown(signal) {
+  console.log(`\nReceived ${signal}, cleaning up...`);
+  if (recorder) {
+    try { await recorder.close(); } catch {}
+  }
+  process.exit(signal === 'SIGINT' ? 130 : 143);
+}
+process.on('SIGINT', () => shutdown('SIGINT'));
+process.on('SIGTERM', () => shutdown('SIGTERM'));
+
 if (require.main === module) {
-  main().catch(error => {
+  main().catch(async (error) => {
     console.error(`Fatal: ${error.message}`);
+    if (recorder) {
+      try { await recorder.close(); } catch {}
+    }
     process.exit(1);
   });
 }

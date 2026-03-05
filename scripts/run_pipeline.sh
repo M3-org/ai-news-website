@@ -26,6 +26,12 @@
 
 set -euo pipefail
 
+# Kill any orphaned headless browser processes on exit
+cleanup_browsers() {
+    pkill -P $$ -f 'chrome-headless-shell' 2>/dev/null || true
+}
+trap cleanup_browsers EXIT
+
 # ============================================================================
 # Setup
 # ============================================================================
