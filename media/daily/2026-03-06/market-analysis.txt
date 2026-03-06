@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three holographic panels float: “Tokenomics Performance,” “Inference Market Share,” and “Competitor Index.” Each contains glowing gauges—Morpheus and Venice metrics shown as pulsating magenta and cyan arcs. Orange data flows connect the panels, highlighting correlation and competitor advantage. Thin cyan lines branch to miniature hologram stat-charts, dynamically updating with rival performance. Neon-orange outlines accent panel borders; subtle magenta pulses signal data surges.
+
+CONTENT CONTEXT:
+Venice and Morpheus are cited as primary competitors with superior tokenomics or inference market share.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

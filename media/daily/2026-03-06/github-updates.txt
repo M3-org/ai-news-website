@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Specific data points or categories: Project Phase, Priorities (User Onboarding, Platform Stability, Technical Blocker Resolution), Major Beta Release  
+3. Flow/relationship direction: Sequential flow from Project Phase → Priorities (branching into three parallel tracks) → Convergence at Major Beta Release  
+4. Suggested section headers: "Current Project Phase," "Key Priorities," "Release Milestone"
+
+CONTENT CONTEXT:
+The project is in a high-velocity phase prioritizing user onboarding, platform stability, and clearing technical blockers for a major beta release.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality

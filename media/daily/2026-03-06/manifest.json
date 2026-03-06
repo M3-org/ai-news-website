@@ -1,0 +1,136 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-06T11:23:30.719167+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-03-06.json",
+  "facts_date": "2026-03-06",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-03-06",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS ecosystem is preparing for its official beta launch with a focus on infrastructure stability and expanding agent reach through major integrations like WhatsApp and Gmail. Simultaneously, the community is navigating significant concerns regarding token legitimacy across multiple chains and the official status of the Ruby token.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands in silhouette, poised and thoughtful, a single sprout in hand. Behind her, a sweeping golden sky hints at dawn; cool blue light falls from above, casting gentle shadows. Minimal lines suggest shifting networks, symbolizing change, uncertainty, and hope for renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands in silhouette, poised and thoughtful, a single sprout in hand. Behind her, a sweeping golden sky hints at dawn; cool blue light falls from above, casting gentle shadows. Minimal lines suggest shifting networks, symbolizing change, uncertainty, and hope for renewal.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "dataviz",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "The project is in a high-velocity phase prioritizing user onboarding, platform stability, and clearing technical blockers for a major beta release.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Specific data points or categories: Project Phase, Priorities (User Onboarding, Platform Stability, Technical Blocker Resolution), Major Beta Release  \n3. Flow/relationship direction: Sequential flow from Project Phase \u2192 Priorities (branching into three parallel tracks) \u2192 Convergence at Major Beta Release  \n4. Suggested section headers: \"Current Project Phase,\" \"Key Priorities,\" \"Release Milestone\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Specific data points or categories: Project Phase, Priorities (User Onboarding, Platform Stability, Technical Blocker Resolution), Major Beta Release  \n3. Flow/relationship direction: Sequential flow from Project Phase \u2192 Priorities (branching into three parallel tracks) \u2192 Convergence at Major Beta Release  \n4. Suggested section headers: \"Current Project Phase,\" \"Key Priorities,\" \"Release Milestone\"\n\nCONTENT CONTEXT:\nThe project is in a high-velocity phase prioritizing user onboarding, platform stability, and clearing technical blockers for a major beta release.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 23.74,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "comic_panel",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Discussion focused on documentation progress and repository management, specifically the Mintlify auto-docs and PR organization. Debates occurred over ai16z token performance, the unofficial status of the Ruby token, and comparative analysis with competitors like Venice and Morpheus. Technical discussions regarding reply action optimization and a business inquiry from Coin Post Media.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands in silhouette, peepo at her side, both gazing upward where cool blue light silhouettes their forms against a soft, minimal gradient. Behind them, budding spring branches and faint golden rays hint at renewal, while distant, swirling icons suggest documentation and tokens hovering in the cinematic dusk.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza stands in silhouette, peepo at her side, both gazing upward where cool blue light silhouettes their forms against a soft, minimal gradient. Behind them, budding spring branches and faint golden rays hint at renewal, while distant, swirling icons suggest documentation and tokens hovering in the cinematic dusk.\n\nART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.3,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "marc",
+        "spartan"
+      ],
+      "content_context": "The proliferation of unofficial tokens on SOL and BSC is creating significant brand confusion and safety concerns for participants. Integration with Gmail, WhatsApp, and N8N shifts ElizaOS from a niche tool to a general-purpose automation framework.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A solitary silhouette\u2014Eliza stands center, resolve etched in her posture, flanked by Marc and Spartan\u2019s shadows. Cool blue light rains down as golden hour\u2019s warmth breaks through above, fresh green shoots at their feet. An air of cautious optimism as new beginnings combat swirling uncertainties behind them.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A solitary silhouette\u2014Eliza stands center, resolve etched in her posture, flanked by Marc and Spartan\u2019s shadows. Cool blue light rains down as golden hour\u2019s warmth breaks through above, fresh green shoots at their feet. An air of cautious optimism as new beginnings combat swirling uncertainties behind them.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.73,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Venice and Morpheus are cited as primary competitors with superior tokenomics or inference market share.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three holographic panels float: \u201cTokenomics Performance,\u201d \u201cInference Market Share,\u201d and \u201cCompetitor Index.\u201d Each contains glowing gauges\u2014Morpheus and Venice metrics shown as pulsating magenta and cyan arcs. Orange data flows connect the panels, highlighting correlation and competitor advantage. Thin cyan lines branch to miniature hologram stat-charts, dynamically updating with rival performance. Neon-orange outlines accent panel borders; subtle magenta pulses signal data surges.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three holographic panels float: \u201cTokenomics Performance,\u201d \u201cInference Market Share,\u201d and \u201cCompetitor Index.\u201d Each contains glowing gauges\u2014Morpheus and Venice metrics shown as pulsating magenta and cyan arcs. Orange data flows connect the panels, highlighting correlation and competitor advantage. Thin cyan lines branch to miniature hologram stat-charts, dynamically updating with rival performance. Neon-orange outlines accent panel borders; subtle magenta pulses signal data surges.\n\nCONTENT CONTEXT:\nVenice and Morpheus are cited as primary competitors with superior tokenomics or inference market share.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 46.69,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "BSC",
+      "ElizaOS",
+      "Solana",
+      "WhatsApp"
+    ],
+    "entities_found": [
+      "ai16z",
+      "Binance Smart Chain",
+      "ElizaOS",
+      "SOL",
+      "WhatsApp"
+    ],
+    "entity_count": 5,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-06/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 156.63
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-06/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-06/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-03-06/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-03-06/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-03-06/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-03-06/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-03-06/strategic-insights.png"
+  }
+}
