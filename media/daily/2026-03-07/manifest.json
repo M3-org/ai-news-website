@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-07T11:15:12.114797+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-03-07.json",
+  "facts_date": "2026-03-07",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-03-07",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The community is focused on enhancing agent accountability through on-chain audit trails and credit line primitives, while managing ongoing token migration disputes and infrastructure autoscaling. Strategic development is shifting toward 'AI Town' virtual environments and improving verifiable agent identities on Solana.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza\u2019s hand hovers over a glowing on-chain audit trail displayed on her tablet, cool blue twilight filtering through city windows behind her. Sprouts push from a cracked mug nearby, hinting at renewal amid code-scattered notes\u2014her tense gaze reflecting digital disputes and emerging city lights.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza\u2019s hand hovers over a glowing on-chain audit trail displayed on her tablet, cool blue twilight filtering through city windows behind her. Sprouts push from a cracked mug nearby, hinting at renewal amid code-scattered notes\u2014her tense gaze reflecting digital disputes and emerging city lights.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.27,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "shaw"
+      ],
+      "content_context": "Focus on clearing functional blockers for beta launch, including dashboard bugs and multi-channel integrations (WhatsApp, Gmail).",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A close-up of Shaw\u2019s tense hands hovering over a glowing laptop keyboard, bug reports and integration diagrams scattered across a desk sprouting with tiny budding plants, cool twilight city lights flickering beyond the window, blue ambient light illuminating determined concentration amidst the chaos.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n\nSCENE: A close-up of Shaw\u2019s tense hands hovering over a glowing laptop keyboard, bug reports and integration diagrams scattered across a desk sprouting with tiny budding plants, cool twilight city lights flickering beyond the window, blue ambient light illuminating determined concentration amidst the chaos.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.7,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Discussions centered on token migration transparency, community activity levels, and the introduction of credit line primitives for agent payments. Business networking inquiries from based.bid and security warnings regarding potential scams.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A close-up of Peepo\u2019s hand clutching a digital ledger, its screen reflecting Eliza\u2019s narrowed eyes; seedling sprouts push through sidewalk cracks nearby, city lights blink on in the blue twilight, casting cool shadows over urgent scribbles and tense, unsettled faces in the background.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: A close-up of Peepo\u2019s hand clutching a digital ledger, its screen reflecting Eliza\u2019s narrowed eyes; seedling sprouts push through sidewalk cracks nearby, city lights blink on in the blue twilight, casting cool shadows over urgent scribbles and tense, unsettled faces in the background.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.08,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "spartan",
+        "eliza",
+        "marc"
+      ],
+      "content_context": "Emerging focus on agent credit lines and audit trails suggests a shift toward production-ready agents requiring financial and legal compliance safeguards. Multiple projects (Aivilization, elizatown, Babylon-themed town) indicate a growing trend in immersive agent environments for user engagement and alpha discovery.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A close-up of Spartan's hand, tense, gripping a glowing credit ledger as Eliza and Marc exchange wary glances behind\u2014a luminous audit trail weaves through budding plants on a desk, city lights flickering through rain-splashed glass, blue twilight bathing the room in suspenseful clarity.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: A close-up of Spartan's hand, tense, gripping a glowing credit ledger as Eliza and Marc exchange wary glances behind\u2014a luminous audit trail weaves through budding plants on a desk, city lights flickering through rain-splashed glass, blue twilight bathing the room in suspenseful clarity.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.14,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "infographic",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "ElizaOS has exhibited stablecoin-like price behavior for a 10-day period, indicating a temporary stabilization in market dynamics. Competitors like Venice and Morpheus are noted for structured tokenomics and high inference spend.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Infographic type: Comparison\n\nMain sections or categories to visualize:\n1. ElizaOS Price Behavior\n2. Competitor Overview (Venice, Morpheus)\n3. Key Differentiators (Stability, Tokenomics, Spend)\n\nKey icons or visual elements needed:\n- Stablecoin symbol\n- Timeline/calendar for 10-day period\n- Comparison chart\n- Tokenomics diagram\n- Currency/inference spend icons\n\nSuggested section headers:\n- ElizaOS: Temporary Price Stabilization\n- Competitors: Venice & Morpheus\n- Key Differentiators",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Infographic type: Comparison\n\nMain sections or categories to visualize:\n1. ElizaOS Price Behavior\n2. Competitor Overview (Venice, Morpheus)\n3. Key Differentiators (Stability, Tokenomics, Spend)\n\nKey icons or visual elements needed:\n- Stablecoin symbol\n- Timeline/calendar for 10-day period\n- Comparison chart\n- Tokenomics diagram\n- Currency/inference spend icons\n\nSuggested section headers:\n- ElizaOS: Temporary Price Stabilization\n- Competitors: Venice & Morpheus\n- Key Differentiators\n\nCONTENT CONTEXT:\nElizaOS has exhibited stablecoin-like price behavior for a 10-day period, indicating a temporary stabilization in market dynamics. Competitors like Venice and Morpheus are noted for structured tokenomics and high inference spend.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 48.99,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "Solana",
+      "WhatsApp"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "SOL",
+      "WhatsApp"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-07/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 163.31
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-07/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-07/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-03-07/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-03-07/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-03-07/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-03-07/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-03-07/strategic-insights.png"
+  }
+}
