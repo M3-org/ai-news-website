@@ -1,0 +1,36 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections:  
+   - Functional Blockers  
+   - Dashboard Improvements  
+   - Text Limit Removal  
+   - Decentralized Identity Integration  
+   - SAID Protocol Implementation  
+   - Core Framework & Plugin Registry  
+3. Key icons/visual elements:  
+   - Bug/issue icon  
+   - Dashboard graphic  
+   - Text/document icon  
+   - Decentralized identity/lock symbol  
+   - Protocol/chain link graphic  
+   - Plugin/module blocks  
+4. Suggested section headers:  
+   - Clear Functional Blockers  
+   - Optimize Dashboard  
+   - Remove Text Limits  
+   - Integrate Decentralized Identity  
+   - Implement SAID Protocol
+
+CONTENT CONTEXT:
+Focus on clearing functional blockers for the official beta launch, including dashboard bug fixes and removing text limits. Integration of decentralized identity standards through the SAID Protocol across the core framework and plugin registry.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

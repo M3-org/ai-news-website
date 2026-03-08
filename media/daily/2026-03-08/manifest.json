@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-03-08T11:16:06.805859+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-03-08.json",
+  "facts_date": "2026-03-08",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-03-08",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS community is currently experiencing high tension due to the token hitting all-time lows, causing the team to pivot from technical development to community management and transparency efforts. Despite the market downturn, development continues on the Spartan Degen AI and a universal cloud autoscaling solution for agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In a sunlit meadow bursting with new growth, Eliza stands silhouetted atop a winding path, facing a distant crossroads where community figures and technical blueprints intertwine with budding spring blossoms\u2014her form haloed by midday light, symbolizing a determined journey through transformation amid adversity.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: In a sunlit meadow bursting with new growth, Eliza stands silhouetted atop a winding path, facing a distant crossroads where community figures and technical blueprints intertwine with budding spring blossoms\u2014her form haloed by midday light, symbolizing a determined journey through transformation amid adversity.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 35.33,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Focus on clearing functional blockers for the official beta launch, including dashboard bug fixes and removing text limits. Integration of decentralized identity standards through the SAID Protocol across the core framework and plugin registry.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Process flow  \n2. Main sections:  \n   - Functional Blockers  \n   - Dashboard Improvements  \n   - Text Limit Removal  \n   - Decentralized Identity Integration  \n   - SAID Protocol Implementation  \n   - Core Framework & Plugin Registry  \n3. Key icons/visual elements:  \n   - Bug/issue icon  \n   - Dashboard graphic  \n   - Text/document icon  \n   - Decentralized identity/lock symbol  \n   - Protocol/chain link graphic  \n   - Plugin/module blocks  \n4. Suggested section headers:  \n   - Clear Functional Blockers  \n   - Optimize Dashboard  \n   - Remove Text Limits  \n   - Integrate Decentralized Identity  \n   - Implement SAID Protocol",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process flow  \n2. Main sections:  \n   - Functional Blockers  \n   - Dashboard Improvements  \n   - Text Limit Removal  \n   - Decentralized Identity Integration  \n   - SAID Protocol Implementation  \n   - Core Framework & Plugin Registry  \n3. Key icons/visual elements:  \n   - Bug/issue icon  \n   - Dashboard graphic  \n   - Text/document icon  \n   - Decentralized identity/lock symbol  \n   - Protocol/chain link graphic  \n   - Plugin/module blocks  \n4. Suggested section headers:  \n   - Clear Functional Blockers  \n   - Optimize Dashboard  \n   - Remove Text Limits  \n   - Integrate Decentralized Identity  \n   - Implement SAID Protocol\n\nCONTENT CONTEXT:\nFocus on clearing functional blockers for the official beta launch, including dashboard bug fixes and removing text limits. Integration of decentralized identity standards through the SAID Protocol across the core framework and plugin registry.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.02,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "council",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Heavy focus on token price depression and team commitment. Overlapped with clarifications on project status (Spartan Degen AI, Cloud) and the non-existence of a legitimate Milady token. Low technical activity; discussions primarily focused on a new xproof plugin and a proposed agent-to-vendor credit line mechanism.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Peepo stride along a winding path through fields of young, luminous sprouts, distant skyline dotted with neural clouds and cryptic symbols. Tokens fall like faded petals at their feet, while sunlit halos suggest perseverance; towering, half-built structures hint at ongoing, uncertain projects on the horizon.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza and Peepo stride along a winding path through fields of young, luminous sprouts, distant skyline dotted with neural clouds and cryptic symbols. Tokens fall like faded petals at their feet, while sunlit halos suggest perseverance; towering, half-built structures hint at ongoing, uncertain projects on the horizon.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "spartan",
+        "marc",
+        "eliza"
+      ],
+      "content_context": "There is a significant disconnect between the team's internal development progress and the community's perception based on token price.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Spartan, Marc, and Eliza stand atop a vibrant hillside path, overlooking a sprawling valley where wildflowers bloom\u2014far below, distant crowds watch a token-shaped balloon drift uncertainly, while the trio, backlit and haloed by midday sun, stride purposefully toward a flourishing new horizon.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Spartan, Marc, and Eliza stand atop a vibrant hillside path, overlooking a sprawling valley where wildflowers bloom\u2014far below, distant crowds watch a token-shaped balloon drift uncertainly, while the trio, backlit and haloed by midday sun, stride purposefully toward a flourishing new horizon.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.87,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "The ELIZAOS token has exhibited 'stablecoin-like' price behavior for 10 days before reaching new all-time lows.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Marc and Spartan traverse a sunlit meadow bordered by budding trees, ELIZAOS tokens sprouting from the earth; halos of light outline their forms, symbolizing hope and uncertainty as new growth contrasts with distant shadows, capturing a pivotal moment in their journey of transformation amidst revival and decline.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Marc and Spartan traverse a sunlit meadow bordered by budding trees, ELIZAOS tokens sprouting from the earth; halos of light outline their forms, symbolizing hope and uncertainty as new growth contrasts with distant shadows, capturing a pivotal moment in their journey of transformation amidst revival and decline.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.62,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-03-08/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 146.95
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-08/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-03-08/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-03-08/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-03-08/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-03-08/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-03-08/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-03-08/strategic-insights.png"
+  }
+}
