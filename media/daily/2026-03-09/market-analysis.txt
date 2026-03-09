@@ -1,12 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Data points: ai16z (token), outdated model analysis, $elizaOS (active token)  
-3. Flow/relationship: ai16z leads to outdated analysis; clarification arrow redirects focus to $elizaOS as active  
-4. Section headers: Token Identification, Model Analysis Status, Active Token Clarification
+VISUALIZATION TYPE: 1. Visualization type: Timeline with Event Markers  
+2. Data points: ELIZAOS token price (y-axis), time period (x-axis), all-time low points, volume of Discord messages  
+3. Flow: Chronological decline in token price, spikes in Discord debate volume aligned with price drops  
+4. Suggested section headers: "Token Price Trend," "Community Reaction," "Correlation of Price and Discussion Volume"
 
 CONTENT CONTEXT:
-Identification of ai16z as an interesting token despite outdated model analysis; clarification that $elizaOS is the active token.
+ELIZAOS token reached new all-time lows during this period, triggering significant discord debate.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
