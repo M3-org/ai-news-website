@@ -3,6 +3,8 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '30 12 * * *'   # Daily 12:30 UTC — after knowledge pipeline + poster gen
   workflow_dispatch:
 
 permissions:
