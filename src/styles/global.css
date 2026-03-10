@@ -64,9 +64,21 @@ a {
   justify-content: space-between;
 }
 
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
 .footer-brand {
   font-weight: 600;
   opacity: 0.5;
+}
+
+.footer-ai-note {
+  font-size: 0.72rem;
+  opacity: 0.35;
+  font-style: italic;
 }
 
 .footer-by {
@@ -103,6 +115,10 @@ a {
     flex-direction: column;
     gap: 0.75rem;
     text-align: center;
+  }
+
+  .footer-left {
+    align-items: center;
   }
   .footer-links {
     flex-wrap: wrap;

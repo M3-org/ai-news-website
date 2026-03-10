@@ -54,7 +54,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
   <slot />
   <footer class="site-footer">
     <div class="footer-inner">
-      <a href="https://www.m3org.com/tv/" target="_blank" rel="noopener" class="footer-brand">elizaOS News <span class="footer-by">by M3TV</span></a>
+      <div class="footer-left">
+        <a href="https://www.m3org.com/tv/" target="_blank" rel="noopener" class="footer-brand">elizaOS News <span class="footer-by">by M3TV</span></a>
+        <span class="footer-ai-note">AI-generated content</span>
+      </div>
       <div class="footer-links">
         <a href="/rss/feed.xml" target="_blank">RSS</a>
         <a href="https://www.youtube.com/playlist?list=PLp5K4ceh2pR0NIQEo_J1TR8fBHXRQm6MS" target="_blank" rel="noopener">YouTube</a>
@@ -68,6 +71,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       </div>
     </div>
   </footer>
+
 </body>
 </html>
 
