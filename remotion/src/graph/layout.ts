@@ -81,6 +81,12 @@ function degToRad(deg: number): number {
   return (deg * Math.PI) / 180;
 }
 
+/** Deterministic pseudo-random from integer seed (0–1). */
+function hash(seed: number): number {
+  const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
+}
+
 function pointOnCircle(cx: number, cy: number, radius: number, angleRad: number): NodePos {
   // Angle 0 = up (12 o'clock), clockwise positive
   return {
@@ -136,9 +142,16 @@ export function computeGraphLayout(props: DailyCardProps): GraphLayout {
     const startAngle = angleRad - totalSpread / 2;
     const step = count > 1 ? totalSpread / (count - 1) : 0;
 
+    const si = SECTIONS.indexOf(sec);
     for (let i = 0; i < count; i++) {
-      const itemAngle = startAngle + step * i;
-      const itemPos = pointOnCircle(topicPos.x, topicPos.y, ITEM_RADIUS, itemAngle);
+      // Small jitter to break the perfect arc
+      const h1 = hash(si * 97 + i * 13 + 1);
+      const h2 = hash(si * 97 + i * 13 + 2);
+      const angleJitter = (h1 - 0.5) * degToRad(8);   // ±4°
+      const radiusJitter = 1 + (h2 - 0.5) * 0.18;     // ±9%
+
+      const itemAngle = startAngle + step * i + angleJitter;
+      const itemPos = pointOnCircle(topicPos.x, topicPos.y, ITEM_RADIUS * radiusJitter, itemAngle);
 
       const cl: ContentLayout = {
         pos: itemPos,
