@@ -20,7 +20,9 @@ import {
   DATE_FRAMES,
   computeTotalFrames,
 } from "./timing";
-import { GraphCanvas, buildGraphTimeline, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
+import { GraphCanvas, buildGraphTimeline, resolveGraphCamera, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
+import { ThreeDBackground } from "./ThreeDBackground";
+import { CANVAS_SIZE } from "./graph/layout";
 
 export type { Item, DailyCardProps };
 
@@ -35,6 +37,7 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
   const totalFrames = computeTotalFrames(props);
   const timeline = useMemo(() => buildGraphTimeline(props), [props]);
   const brandColor = getTopicColorForFrame(props, frame, timeline);
+  const graphCam = resolveGraphCamera(frame, timeline).cam;
 
   // HUD elements fade in after opening + date splash
   const hudStart = OPENING_FRAMES + DATE_FRAMES;
@@ -56,6 +59,17 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
 
   return (
     <AbsoluteFill style={{ backgroundColor: "#0a0612" }}>
+      {/* 3D modulation background */}
+      <ThreeDBackground
+        glbFile="Modulation_GLBs/cron_red.glb"
+        opacity={0.25}
+        effectorStrength={1}
+        rotationAxis="z"
+        fisheyeStrength={-0.1}
+        graphCamera={graphCam}
+        graphCameraCenter={CANVAS_SIZE / 2}
+      />
+
       {/* Graph view — the main visual */}
       <GraphCanvas props={props} />
 

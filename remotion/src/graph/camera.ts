@@ -36,7 +36,7 @@ export const ZOOM = {
   /** Full graph overview */
   overview: 0.22,
   /** Center hub, shows nearby topic labels */
-  hub: 0.65,
+  hub: 1.0,
   /** Focused on a topic node + its children visible */
   topic: 0.52,
   /** Zoomed into a specific content card */

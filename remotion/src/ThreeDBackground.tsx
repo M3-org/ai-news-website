@@ -28,6 +28,13 @@ import { useCameraAnimation } from "./ThreeD/useCameraAnimation";
 import { Fisheye } from "./ThreeD/Fisheye";
 import { useAudioShake } from "./ThreeD/useAudioShake";
 
+/** External 2D camera from the graph view (canvas coords + zoom). */
+export interface GraphCamera {
+  x: number;
+  y: number;
+  zoom: number;
+}
+
 interface ThreeDBackgroundProps {
   glbFile?: string;
   effectMap?: EffectMap;
@@ -44,6 +51,10 @@ interface ThreeDBackgroundProps {
   fisheyeZoom?: number;
   audioShakeIntensity?: number;
   audioShakeBass?: number;
+  /** When provided, drives the 3D camera from the graph's 2D camera instead of GLB animation. */
+  graphCamera?: GraphCamera;
+  /** Center of the graph canvas in canvas coords (default 2500). */
+  graphCameraCenter?: number;
 }
 
 const GlbModel = ({
@@ -80,6 +91,36 @@ const GlbModel = ({
   });
 
   return <primitive object={scene} scale={1} rotation={[0, 0, 0]} />;
+};
+
+/**
+ * Overrides the 3D camera with the graph's 2D camera.
+ * Runs in useFrame so it overwrites useCameraAnimation (which runs during render).
+ */
+const GraphCameraSync = ({
+  cameraRef,
+  graphCamera,
+  center,
+}: {
+  cameraRef: React.RefObject<THREEPerspectiveCamera | null>;
+  graphCamera: GraphCamera;
+  center: number;
+}) => {
+  useFrame(() => {
+    const camera = cameraRef.current;
+    if (!camera) return;
+
+    // Map 2D canvas coords → 3D position (subtle lateral drift + Z from zoom)
+    const lateralScale = 0.002;
+    camera.position.x = (graphCamera.x - center) * lateralScale;
+    camera.position.y = -(graphCamera.y - center) * lateralScale + 3;
+    camera.position.z = 10 + (1 - graphCamera.zoom) * 5;
+
+    // Face straight forward — no rotation, pure 2D panning
+    camera.quaternion.set(0, 0, 0, 1);
+  });
+
+  return null;
 };
 
 const CameraShake = ({
@@ -120,6 +161,8 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   fisheyeZoom = 1,
   audioShakeIntensity = 0.05,
   audioShakeBass = 0.2,
+  graphCamera,
+  graphCameraCenter = 2500,
 }) => {
   const { width, height } = useVideoConfig();
   const frame = useCurrentFrame();
@@ -186,6 +229,15 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
             velocityRef.current = v;
           }}
         />
+
+        {/* Graph camera sync — overrides GLB camera when provided */}
+        {graphCamera && (
+          <GraphCameraSync
+            cameraRef={cameraRef}
+            graphCamera={graphCamera}
+            center={graphCameraCenter}
+          />
+        )}
 
         <CameraShake
           cameraRef={cameraRef}
