@@ -217,7 +217,7 @@ def main():
                 dest = remotion_public / dest_name
                 shutil.copy(candidate, dest)
                 staged_images[key] = dest_name  # relative → staticFile() in Remotion
-                print(f"  Staged {key}: {candidate} → {dest}")
+                print(f"  Staged {key}: {candidate} -> {dest}")
                 staged = True
                 break
         if not staged:
