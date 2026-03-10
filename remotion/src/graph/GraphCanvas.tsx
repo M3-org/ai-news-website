@@ -253,6 +253,34 @@ function contentCameraWeightAtFrame(frame: number, seg: Seg): number {
   return segmentWeightAtFrame(frame, seg, 0.42, 22);
 }
 
+function categoryZoomOutAtFrame(frame: number, segs: Seg[]): number {
+  let zoomOut = 0;
+
+  for (let i = 0; i < segs.length - 1; i++) {
+    const fromSeg = segs[i];
+    const toSeg = segs[i + 1];
+    if (fromSeg.topicIdx < 0 || toSeg.topicIdx < 0) continue;
+    if (fromSeg.topicIdx === toSeg.topicIdx) continue;
+
+    const switchFrame = toSeg.from;
+    const leadIn = Math.min(16, Math.max(8, Math.round(fromSeg.dur * 0.28)));
+    const leadOut = 18;
+
+    let local = 0;
+    if (frame >= switchFrame - leadIn && frame < switchFrame) {
+      local = smoothstep01((frame - (switchFrame - leadIn)) / leadIn);
+    } else if (frame >= switchFrame && frame <= switchFrame + leadOut) {
+      local = 1 - smoothstep01((frame - switchFrame) / leadOut);
+    }
+
+    if (local > zoomOut) {
+      zoomOut = local;
+    }
+  }
+
+  return zoomOut;
+}
+
 function hexToRgb(hex: string): { r: number; g: number; b: number } {
   const normalized = hex.replace("#", "");
   const full =
@@ -358,7 +386,7 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
 
     const anchorX = topic.pos.x * 0.28 + content.pos.x * 0.72;
     const anchorY = topic.pos.y * 0.28 + content.pos.y * 0.72;
-    const anchorZoom = (ZOOM.topic + 0.04) * 0.32 + (ZOOM.content + 0.06) * 0.68;
+    const anchorZoom = (ZOOM.topic + 0.04) * 0.18 + (ZOOM.content + 0.18) * 0.82;
 
     contentX += anchorX * w;
     contentY += anchorY * w;
@@ -376,10 +404,13 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
   const contentInfluence = smoothstep01(
     clamp01(contentWeight / (topicWeight * 0.9 + 1e-6)),
   );
+  const zoomInfluence = smoothstep01(
+    clamp01(contentWeight / (topicWeight * 0.62 + 1e-6)),
+  );
   let targetX = topicTargetX + (contentTargetX - topicTargetX) * contentInfluence;
   let targetY = topicTargetY + (contentTargetY - topicTargetY) * contentInfluence;
   let targetZoom =
-    topicTargetZoom + (contentTargetZoom - topicTargetZoom) * contentInfluence;
+    topicTargetZoom + (contentTargetZoom - topicTargetZoom) * zoomInfluence;
 
   const roamScale = 1 - contentInfluence * 0.62;
   const driftX =
@@ -389,11 +420,12 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
     (Math.cos(frame * 0.009) * 26 + Math.cos(frame * 0.013 + 0.8) * 12) *
     roamScale;
   const zoomBreath = Math.sin(frame * 0.005 + 0.6) * 0.004 * roamScale;
+  const transitionZoomOut = categoryZoomOutAtFrame(frame, segs) * 0.11;
 
   const dynamicCam: CameraTarget = {
     x: targetX + driftX,
     y: targetY + driftY,
-    zoom: Math.max(ZOOM.topic + 0.02, targetZoom + zoomBreath),
+    zoom: Math.max(ZOOM.topic - 0.08, targetZoom + zoomBreath - transitionZoomOut),
   };
 
   return {
@@ -543,8 +575,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             willChange: "transform",
           }}
         >
-          <DotGrid />
-
+          <DotGrid cam={cam} />
           {/* Phase 1: Lines + dots draw first (frame 0+) */}
           <ConnectionLines layout={layout} buildStartFrame={0} expandFactor={expandFactor} />
 
