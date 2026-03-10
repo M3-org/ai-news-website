@@ -55,8 +55,11 @@ uv run python scripts/llm_producer.py trailer episodes/*_session-log.json
 ### Daily Briefing Card
 
 ```bash
-# 1. Generate props JSON from a facts file
-uv run python scripts/generate_daily_card.py knowledge/the-council/facts/$(date +%Y-%m-%d).json --out /tmp/daily-card-props.json --out-timing /tmp/daily-card-timing.json
+# 1. Generate props JSON — no local knowledge clone needed, fetches from GitHub
+uv run python scripts/generate_daily_card.py https://raw.githubusercontent.com/elizaOS/knowledge/main/the-council/facts/$(date +%Y-%m-%d).json --out /tmp/daily-card-props.json --out-timing /tmp/daily-card-timing.json
+
+# Or use a local knowledge clone if you have one
+uv run python scripts/generate_daily_card.py knowledge/the-council/facts/$(date +%Y-%m-%d).json --out /tmp/daily-card-props.json
 
 # Inspect images dict in the output
 uv run python -c "import json; p=json.load(open('/tmp/daily-card-props.json')); print(p['images'])"
@@ -95,7 +98,7 @@ Run daily after poster generation (which runs at 11:00 UTC). Generates props and
 
 ```bash
 # 11:30 UTC — 30 min after posters are generated
-30 11 * * * D=$(date +\%Y-\%m-\%d); cd /path/to/ai-news-website && uv run python scripts/generate_daily_card.py knowledge/the-council/facts/$D.json --out /tmp/daily-card-$D-props.json && cd remotion && npx remotion render DailyCard --props=/tmp/daily-card-$D-props.json --output=/tmp/daily-card-$D.mp4 >> /path/to/ai-news-website/logs/daily-card.log 2>&1
+30 11 * * * D=$(date +\%Y-\%m-\%d); cd /path/to/ai-news-website && uv run python scripts/generate_daily_card.py https://raw.githubusercontent.com/elizaOS/knowledge/main/the-council/facts/$D.json --out /tmp/daily-card-$D-props.json && cd remotion && npx remotion render DailyCard --props=/tmp/daily-card-$D-props.json --output=/tmp/daily-card-$D.mp4 >> /path/to/ai-news-website/logs/daily-card.log 2>&1
 ```
 
 The script stages local poster images into `remotion/public/` (falling back to CDN URLs if not present), so renders work with or without locally generated images.
