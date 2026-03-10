@@ -178,8 +178,15 @@ export const RemotionRoot: React.FC = () => {
             { primary: "Is the diversification into side-projects diluting focus on ElizaOS core infrastructure?", secondary: "Strategic Focus", avatar_url: "characters/spartan/2.png" },
             { primary: "Should ElizaOS prioritize the Agent-to-Vendor Credit Line primitive as a core reliability feature?", secondary: "Agent Autonomy", avatar_url: "characters/peepo/2.png" },
           ],
-          poster_url: "https://elizaos.news/media/daily/2026-03-09/poster.png",
+          poster_url: "daily-card-overall.png",
           site_url: "elizaos.news/daily/2026-03-09",
+          images: {
+            overall: "daily-card-overall.png",
+            github: "daily-card-github.png",
+            discord: "daily-card-discord.png",
+            market: "daily-card-market.png",
+            strategic: "daily-card-strategic.png",
+          },
         } satisfies DailyCardProps}
       />
     </>
