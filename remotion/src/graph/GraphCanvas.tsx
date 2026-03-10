@@ -15,7 +15,7 @@
  *   Active content nodes magnetize the camera slightly toward them.
  */
 import React, { useMemo } from "react";
-import { interpolate, useCurrentFrame } from "remotion";
+import { Easing, interpolate, useCurrentFrame } from "remotion";
 import { CANVAS_SIZE, computeGraphLayout, type GraphLayout, type NodePos } from "./layout";
 import {
   interpolateCamera,
@@ -366,7 +366,7 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
     if (w < 0.001) continue;
     topicX += topic.pos.x * w;
     topicY += topic.pos.y * w;
-    topicZoom += (ZOOM.topic + 0.05) * w;
+    topicZoom += (ZOOM.topic + 0.25) * w;
     topicWeight += w;
   }
   // Content nodes pull the camera inside the topic without snapping to cards.
@@ -395,7 +395,7 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
   }
   let topicTargetX = topicWeight > 0 ? topicX / topicWeight : activeTopic?.pos.x ?? layout.center.x;
   let topicTargetY = topicWeight > 0 ? topicY / topicWeight : activeTopic?.pos.y ?? layout.center.y;
-  let topicTargetZoom = topicWeight > 0 ? topicZoom / topicWeight : activeTopic ? ZOOM.topic + 0.05 : ZOOM.hub + 0.02;
+  let topicTargetZoom = topicWeight > 0 ? topicZoom / topicWeight : activeTopic ? ZOOM.topic + 0.25 : ZOOM.hub + 0.02;
 
   const contentTargetX = contentWeight > 0 ? contentX / contentWeight : topicTargetX;
   const contentTargetY = contentWeight > 0 ? contentY / contentWeight : topicTargetY;
@@ -574,6 +574,87 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
     }
   }
 
+  // ── Reveal FX computations ──────────────────────────────────────────────────
+
+  // Grid ignition wave — radial front of bright dots expanding from center
+  const ignitionProgress = interpolate(frame, [4, SCAN_FRAMES], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: RAMP_EASE,
+  });
+  const ignitionIntensity = interpolate(
+    frame,
+    [4, 14, SCAN_FRAMES - 6, SCAN_FRAMES + 6],
+    [0, 0.9, 0.7, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
+
+  // Shockwave ring 1 — fast expanding ring from center
+  const sw1 = interpolate(frame, [6, 40], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: RAMP_EASE,
+  });
+  const sw1Op = interpolate(frame, [6, 10, 32, 40], [0, 0.7, 0.25, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  // Shockwave ring 2 — staggered
+  const sw2 = interpolate(frame, [16, 48], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: RAMP_EASE,
+  });
+  const sw2Op = interpolate(frame, [16, 20, 40, 48], [0, 0.5, 0.18, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  // Center energy buildup — intensifying glow that feeds into the flash
+  const centerEnergy = interpolate(frame, [0, SCAN_FRAMES - 4], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.in(Easing.cubic),
+  });
+  const centerEnergyOp = interpolate(frame, [4, 14, SCAN_FRAMES - 4, SCAN_FRAMES + 5], [0, 0.6, 1, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  // Big reveal flash (viewport-space) — screen whiteout at transition
+  const flashOp = interpolate(
+    frame,
+    [SCAN_FRAMES - 2, SCAN_FRAMES + 2, SCAN_FRAMES + 6, SCAN_FRAMES + FADE_OUT_FRAMES + 10],
+    [0, 0.9, 0.5, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
+
+  // Lens flare cross (viewport-space)
+  const flareOp = interpolate(
+    frame,
+    [SCAN_FRAMES - 1, SCAN_FRAMES + 3, SCAN_FRAMES + FADE_OUT_FRAMES + 14],
+    [0, 0.65, 0],
+    { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
+  );
+
+  // Scan bar — horizontal line sweeping down during scan
+  const scanBarY = interpolate(frame, [0, SCAN_FRAMES], [0, 1080], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+  const scanBarOp = interpolate(frame, [0, 4, SCAN_FRAMES - 4, SCAN_FRAMES], [0, 0.4, 0.3, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  // Aftermath ring — soft residual wavefront after flash
+  const afterStart = SCAN_FRAMES + 2;
+  const afterEnd = SCAN_FRAMES + FADE_OUT_FRAMES + 22;
+  const afterProgress = interpolate(frame, [afterStart, afterEnd], [0, 1], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic),
+  });
+  const afterOp = interpolate(frame, [afterStart, afterStart + 4, afterEnd - 8, afterEnd], [0, 0.35, 0.12, 0], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp",
+  });
+
+  // Animated vignette — starts tight (tunnel vision), opens to normal
+  const vigInner = interpolate(frame, [0, SCAN_FRAMES + FADE_OUT_FRAMES], [20, 40], {
+    extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: Easing.out(Easing.cubic),
+  });
+
+  // Glitch jitter — sharp micro-jumps during scan on specific frame patterns
+  const glitchActive = !textVisible && (frame % 17 < 2 || frame % 23 < 1);
+  const glitchX = glitchActive ? Math.sin(frame * 127.1) * 2.4 : 0;
+  const glitchY = glitchActive ? Math.cos(frame * 311.7) * 1.8 : 0;
+
   return (
     <div
       style={{
@@ -599,11 +680,72 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             height: CANVAS_SIZE,
             position: "absolute",
             transformOrigin: "0 0",
-            transform: `translate(${translateX + shakeX}px, ${translateY + shakeY}px) scale(${camScale})`,
+            transform: `translate(${translateX + shakeX + glitchX}px, ${translateY + shakeY + glitchY}px) scale(${camScale})`,
             willChange: "transform",
           }}
         >
-          <DotGrid cam={cam} glows={glowSpots} />
+          <DotGrid cam={cam} glows={glowSpots} ignition={ignitionProgress} ignitionIntensity={ignitionIntensity} />
+
+          {/* ── Reveal FX: Canvas-space ── */}
+
+          {/* Center energy buildup — growing glow that feeds into flash */}
+          {centerEnergyOp > 0.01 && (
+            <div
+              style={{
+                position: "absolute",
+                left: layout.center.x - 600,
+                top: layout.center.y - 600,
+                width: 1200,
+                height: 1200,
+                borderRadius: "50%",
+                background: `radial-gradient(circle, rgba(255,138,0,${(0.12 + centerEnergy * 0.38).toFixed(3)}) 0%, rgba(255,138,0,${(0.04 + centerEnergy * 0.14).toFixed(3)}) 30%, transparent 60%)`,
+                filter: `blur(${20 + centerEnergy * 50}px)`,
+                opacity: centerEnergyOp,
+                pointerEvents: "none",
+              }}
+            />
+          )}
+
+          {/* Shockwave ring 1 */}
+          {sw1Op > 0.01 && (
+            <div
+              style={{
+                position: "absolute",
+                left: layout.center.x - 2200,
+                top: layout.center.y - 2200,
+                width: 4400,
+                height: 4400,
+                borderRadius: "50%",
+                border: "2.5px solid #FF8A00",
+                boxShadow: "0 0 24px #FF8A0050, 0 0 60px #FF8A0025, inset 0 0 24px #FF8A0015",
+                transform: `scale(${sw1})`,
+                transformOrigin: "center center",
+                opacity: sw1Op,
+                pointerEvents: "none",
+              }}
+            />
+          )}
+
+          {/* Shockwave ring 2 */}
+          {sw2Op > 0.01 && (
+            <div
+              style={{
+                position: "absolute",
+                left: layout.center.x - 2200,
+                top: layout.center.y - 2200,
+                width: 4400,
+                height: 4400,
+                borderRadius: "50%",
+                border: "1.5px solid #FF8A00",
+                boxShadow: "0 0 18px #FF8A0040, 0 0 40px #FF8A0018",
+                transform: `scale(${sw2})`,
+                transformOrigin: "center center",
+                opacity: sw2Op,
+                pointerEvents: "none",
+              }}
+            />
+          )}
+
           {/* Phase 1: Lines + dots draw first (frame 0+) */}
           <ConnectionLines layout={layout} buildStartFrame={0} expandFactor={expandFactor} />
 
@@ -671,13 +813,103 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
         </div>
       </div>
 
-      {/* Vignette overlay — fixed to viewport */}
+      {/* ── Reveal FX: Viewport-space ── */}
+
+      {/* Big reveal flash — screen whiteout at transition */}
+      {flashOp > 0.01 && (
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,200,120,0.5) 25%, rgba(255,138,0,0.2) 50%, transparent 70%)",
+            opacity: flashOp,
+            mixBlendMode: "screen",
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      {/* Lens flare cross */}
+      {flareOp > 0.01 && (
+        <>
+          <div
+            style={{
+              position: "absolute",
+              top: "50%",
+              left: 0,
+              right: 0,
+              height: 3,
+              transform: "translateY(-50%)",
+              background: "linear-gradient(90deg, transparent 5%, rgba(255,180,80,0.5) 25%, rgba(255,255,255,0.85) 46%, rgba(255,255,255,0.85) 54%, rgba(255,180,80,0.5) 75%, transparent 95%)",
+              opacity: flareOp,
+              filter: "blur(4px)",
+              mixBlendMode: "screen",
+              pointerEvents: "none",
+            }}
+          />
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              bottom: 0,
+              left: "50%",
+              width: 2,
+              transform: "translateX(-50%)",
+              background: "linear-gradient(180deg, transparent 10%, rgba(255,180,80,0.35) 30%, rgba(255,255,255,0.6) 47%, rgba(255,255,255,0.6) 53%, rgba(255,180,80,0.35) 70%, transparent 90%)",
+              opacity: flareOp * 0.5,
+              filter: "blur(3px)",
+              mixBlendMode: "screen",
+              pointerEvents: "none",
+            }}
+          />
+        </>
+      )}
+
+      {/* Scan bar — horizontal sweep line */}
+      {scanBarOp > 0.01 && (
+        <div
+          style={{
+            position: "absolute",
+            left: 0,
+            right: 0,
+            top: scanBarY - 2,
+            height: 4,
+            background: "linear-gradient(90deg, transparent 0%, rgba(255,138,0,0.5) 20%, rgba(255,255,255,0.7) 50%, rgba(255,138,0,0.5) 80%, transparent 100%)",
+            boxShadow: "0 0 20px rgba(255,138,0,0.4), 0 0 60px rgba(255,138,0,0.15)",
+            opacity: scanBarOp,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      {/* Aftermath ring — residual wavefront after flash */}
+      {afterOp > 0.01 && (
+        <div
+          style={{
+            position: "absolute",
+            left: "50%",
+            top: "50%",
+            width: 2400,
+            height: 2400,
+            marginLeft: -1200,
+            marginTop: -1200,
+            borderRadius: "50%",
+            border: "2px solid rgba(255,200,120,0.5)",
+            boxShadow: "0 0 30px rgba(255,138,0,0.2), 0 0 80px rgba(255,138,0,0.08)",
+            transform: `scale(${afterProgress})`,
+            transformOrigin: "center center",
+            opacity: afterOp,
+            pointerEvents: "none",
+          }}
+        />
+      )}
+
+      {/* Vignette overlay — animated tight during reveal, opens to normal */}
       <div
         style={{
           position: "absolute",
           inset: 0,
-          background:
-            "radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%)",
+          background: `radial-gradient(ellipse at center, transparent ${vigInner}%, rgba(0, 0, 0, 0.7) 100%)`,
           pointerEvents: "none",
         }}
       />
@@ -686,4 +918,4 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
 };
 
 // Re-export for use in DailyCard
-export { buildGraphTimeline, type GraphTimeline, OPENING_FRAMES };
+export { buildGraphTimeline, resolveGraphCamera, type GraphTimeline, OPENING_FRAMES };
