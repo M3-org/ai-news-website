@@ -13,6 +13,13 @@ Weekly AI news covering ElizaOS development, token economics, and ecosystem upda
 - **Source:** [Shmotime](https://shmotime.com)
 - **Show ID:** 5296
 
+### Daily Briefing Card
+Short-form daily video (up to 90s, 1080×1080) generated from the [elizaOS/knowledge](https://github.com/elizaOS/knowledge) facts for each day. Covers key facts, GitHub PRs, Discord highlights, user feedback, and The Council focus. Rendered with Remotion.
+
+- **Composition:** `DailyCard` in `remotion/`
+- **Props generator:** `scripts/generate_daily_card.py`
+- **Output:** square MP4 suitable for social/Discord posting
+
 ## YouTube Playlists
 
 - [English](https://www.youtube.com/playlist?list=PLp5K4ceh2pR0hfdu4bUoNKCeqYm0n78Xx)
@@ -33,16 +40,32 @@ pip install google-auth google-auth-oauthlib google-api-python-client python-dot
 # Or run individual steps:
 
 # Generate YouTube metadata with chapters
-python3 scripts/youtube_metadata.py episodes/2026-02-02_Cron-Job_*_session-log.json
+uv run python scripts/youtube_metadata.py episodes/2026-02-02_Cron-Job_*_session-log.json
 
 # Upload to YouTube
-python3 scripts/youtube_upload.py --from-json episodes/2026-02-02_*_youtube_metadata.json
+uv run python scripts/youtube_upload.py --from-json episodes/2026-02-02_*_youtube_metadata.json
 
 # Analyze clips via LLM
-python3 scripts/llm_producer.py clips episodes/*_session-log.json
+uv run python scripts/llm_producer.py clips episodes/*_session-log.json
 
 # Generate trailer config via LLM
-python3 scripts/llm_producer.py trailer episodes/*_session-log.json
+uv run python scripts/llm_producer.py trailer episodes/*_session-log.json
+```
+
+### Daily Briefing Card
+
+```bash
+# 1. Generate props JSON from a facts file
+uv run python scripts/generate_daily_card.py knowledge/the-council/facts/$(date +%Y-%m-%d).json --out /tmp/daily-card-props.json --out-timing /tmp/daily-card-timing.json
+
+# Inspect images dict in the output
+uv run python -c "import json; p=json.load(open('/tmp/daily-card-props.json')); print(p['images'])"
+
+# 2. Preview in Remotion Studio (select DailyCard composition)
+cd remotion && npm run dev
+
+# 3. Render to video
+cd remotion && npx remotion render DailyCard --props=/tmp/daily-card-props.json --output=/tmp/daily-card-$(date +%Y-%m-%d).mp4
 ```
 
 ## Pipeline Overview
@@ -65,6 +88,17 @@ Add this one-liner to your crontab to run the weekly pipeline every Sunday at 02
 ```bash
 (crontab -l 2>/dev/null; echo "15 2 * * 0 cd $(pwd) && ./scripts/run_pipeline.sh >> logs/pipeline.log 2>&1") | crontab -
 ```
+
+### Local Cron Job (Daily Briefing Card)
+
+Run daily after poster generation (which runs at 11:00 UTC). Generates props and renders the DailyCard video:
+
+```bash
+# 11:30 UTC — 30 min after posters are generated
+30 11 * * * D=$(date +\%Y-\%m-\%d); cd /path/to/ai-news-website && uv run python scripts/generate_daily_card.py knowledge/the-council/facts/$D.json --out /tmp/daily-card-$D-props.json && cd remotion && npx remotion render DailyCard --props=/tmp/daily-card-$D-props.json --output=/tmp/daily-card-$D.mp4 >> /path/to/ai-news-website/logs/daily-card.log 2>&1
+```
+
+The script stages local poster images into `remotion/public/` (falling back to CDN URLs if not present), so renders work with or without locally generated images.
 
 ### GitHub Actions (Daily poster generation)
 
@@ -99,6 +133,7 @@ Set these at: **Settings → Secrets and variables → Actions → New repositor
 | `scripts/llm_producer.py trailer` | LLM-based trailer config generator for Remotion |
 | `scripts/generate_manifest.py` | Generate manifest with provenance for clips; `--metadata-json` to link YouTube URL |
 | `scripts/posters/illustrate.py` | Generate social media posters from knowledge repo facts |
+| `scripts/generate_daily_card.py` | Generate Remotion DailyCard props JSON from a facts file; `--out-timing` for segment breakdown |
 | `scripts/generate-rss.py` | Generate RSS feeds for daily facts and council notes |
 
 ### Publishing

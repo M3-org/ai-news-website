@@ -199,17 +199,17 @@ def main():
             staged_images[key] = None  # will be resolved below
 
     # Second pass: fill in CDN URLs for missing images, falling back to overall
-    overall_val = staged_images.get("overall") or f"https://elizaos.news/media/daily/{date}/overall.png"
+    overall_val = staged_images.get("overall") or f"{SITE_BASE}/media/daily/{date}/overall.png"
     for key, (src_file, _) in IMAGE_MAP.items():
         if staged_images[key] is None:
-            cdn_url = f"https://elizaos.news/media/daily/{date}/{src_file}"
+            cdn_url = f"{SITE_BASE}/media/daily/{date}/{src_file}"
             # Use CDN if it's not overall (overall already handled above)
             # For category images: use CDN URL; if unsure, fall back to overall
             staged_images[key] = cdn_url if key != "overall" else overall_val
             print(f"  {key}: local not found, using CDN URL {staged_images[key]}")
 
     poster_url = staged_images["overall"]
-    site_url = "elizaos.news"
+    site_url = SITE_BASE.removeprefix("https://")
 
     props = {
         "date": date,
