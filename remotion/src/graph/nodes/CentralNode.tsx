@@ -16,6 +16,7 @@ interface CentralNodeProps {
   date: string;
   focus: number;
   appearFrame: number;
+  revealFrame: number;
   textVisible: boolean;
   scanOpacity: number;
 }
@@ -25,6 +26,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
   date,
   focus,
   appearFrame,
+  revealFrame,
   textVisible,
   scanOpacity,
 }) => {
@@ -66,8 +68,25 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
     ? appearOpacity
     : appearOpacity * scanOpacity;
 
+  // Flare and Flash effects right at revealFrame
+  const framesSinceReveal = frame - revealFrame;
+  const inRevealPhase = framesSinceReveal >= 0 && framesSinceReveal < 20;
+  
+  // A rapid explosion of scale when the text appears
+  const flareScale = inRevealPhase ? interpolate(framesSinceReveal, [0, 4, 15], [1, 1.25, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  }) : 1;
+
+  // Blinding white flash overlay on the node
+  const flashOpacity = inRevealPhase ? interpolate(framesSinceReveal, [0, 2, 10], [0, 1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  }) : 0;
+
   const glowPulse = 0.5 + 0.25 * Math.sin(frame * 0.04);
-  const glowSize = 35 + focus * 25;
+  const glowSize = 35 + focus * 25 + (inRevealPhase ? flashOpacity * 100 : 0);
 
   // Pulsing ring during scan
   const ringPulse = Math.sin(frame * 0.08) * 0.5 + 0.5;
@@ -81,7 +100,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
         width: 260,
         height: 260,
         opacity: nodeOpacity,
-        transform: `scale(${scaleSpring}) translateY(${appearLift}px)`,
+        transform: `scale(${scaleSpring * flareScale}) translateY(${appearLift}px)`,
         transformOrigin: "center center",
       }}
     >
@@ -91,7 +110,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
           position: "absolute",
           inset: -30,
           borderRadius: "50%",
-          background: `radial-gradient(circle, ${ORANGE}${Math.round(glowPulse * 50).toString(16).padStart(2, "0")} 0%, transparent 65%)`,
+          background: `radial-gradient(circle, ${ORANGE}${Math.round(Math.min(1, glowPulse + flashOpacity) * 50).toString(16).padStart(2, "0")} 0%, transparent 65%)`,
           filter: `blur(${glowSize}px)`,
         }}
       />
@@ -120,8 +139,23 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
           alignItems: "center",
           justifyContent: "center",
           gap: 8,
+          position: "relative",
+          overflow: "hidden",
         }}
       >
+        {/* Flash Overlay */}
+        {flashOpacity > 0 && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              backgroundColor: "#FFF",
+              opacity: flashOpacity,
+              zIndex: 10,
+              mixBlendMode: "screen",
+            }}
+          />
+        )}
         {/* Scan dot — visible only during scan */}
         <div
           style={{
@@ -143,7 +177,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
               fontWeight: 700,
               color: "#fff",
               margin: 0,
-              fontFamily: "sans-serif",
+              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "2px",
               textAlign: "center",
               textShadow: `0 0 15px ${ORANGE}40`,
@@ -156,7 +190,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
               fontSize: 17,
               color: ORANGE,
               margin: "4px 0",
-              fontFamily: "sans-serif",
+              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "4px",
               textTransform: "uppercase",
               textAlign: "center",
@@ -170,7 +204,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
               fontSize: 18,
               color: "rgba(255,255,255,0.6)",
               margin: "8px 0 0",
-              fontFamily: "sans-serif",
+              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "1px",
               textAlign: "center",
             }}

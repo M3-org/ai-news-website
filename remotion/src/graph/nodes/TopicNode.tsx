@@ -18,8 +18,6 @@ interface TopicNodeProps {
   appearFrame: number;
   textVisible: boolean;
   scanOpacity: number;
-  /** This topic's chapter card is currently showing */
-  active?: boolean;
 }
 
 export const TopicNode: React.FC<TopicNodeProps> = ({
@@ -32,7 +30,6 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
   appearFrame,
   textVisible,
   scanOpacity,
-  active = false,
 }) => {
   const frame = useCurrentFrame();
   const localFrame = Math.max(0, frame - appearFrame);
@@ -139,6 +136,10 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
         {/* Small color dot — always visible, acts as scan indicator */}
         <div
           style={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
             width: 8,
             height: 8,
             borderRadius: "50%",
@@ -155,7 +156,7 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
               fontWeight: 700,
               color,
               margin: 0,
-              fontFamily: "sans-serif",
+              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
               letterSpacing: "3px",
               textTransform: "uppercase",
               textShadow: `0 0 12px ${color}60`,

@@ -24,9 +24,6 @@ export interface CameraKeyframe {
 
 // ── Constants ────────────────────────────────────────────────────────────────
 
-/** Frames used for camera travel between keyframes */
-export const CAMERA_TRAVEL_FRAMES = 25;
-
 /** Aggressive ramp — shoots up fast, settles slowly. Used for opening zoom. */
 export const RAMP_EASE = Easing.bezier(0.0, 0.9, 0.1, 1.0);
 
