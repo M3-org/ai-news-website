@@ -27,9 +27,11 @@ export interface CameraKeyframe {
 /** Frames used for camera travel between keyframes */
 export const CAMERA_TRAVEL_FRAMES = 25;
 
-/** Aggressive ramp — shoots up fast, settles slowly. Used for all transitions. */
+/** Aggressive ramp — shoots up fast, settles slowly. Used for opening zoom. */
 export const RAMP_EASE = Easing.bezier(0.0, 0.9, 0.1, 1.0);
-const CAMERA_EASE = RAMP_EASE;
+
+/** Floaty ease — smooth glide in and out. Used for camera travel between nodes. */
+const CAMERA_EASE = Easing.bezier(0.25, 0.1, 0.25, 1.0);
 
 // ── Zoom presets ─────────────────────────────────────────────────────────────
 
@@ -37,7 +39,7 @@ export const ZOOM = {
   /** Full graph overview */
   overview: 0.22,
   /** Center hub, shows nearby topic labels */
-  hub: 0.42,
+  hub: 0.65,
   /** Focused on a topic node + its children visible */
   topic: 0.52,
   /** Zoomed into a specific content card */
@@ -77,24 +79,43 @@ export function interpolateCamera(
   frame: number,
   keyframes: CameraKeyframe[],
 ): CameraTarget {
-  if (keyframes.length === 0) {
+  // Normalize to prevent glitches from duplicate-frame keyframes:
+  // sort by frame and keep the last keyframe when frames collide.
+  const normalized = keyframes
+    .slice()
+    .sort((a, b) => a.frame - b.frame)
+    .reduce<CameraKeyframe[]>((acc, kf) => {
+      if (acc.length === 0) {
+        acc.push(kf);
+        return acc;
+      }
+      const last = acc[acc.length - 1];
+      if (last.frame === kf.frame) {
+        acc[acc.length - 1] = kf;
+      } else {
+        acc.push(kf);
+      }
+      return acc;
+    }, []);
+
+  if (normalized.length === 0) {
     return { x: 0, y: 0, zoom: 1 };
   }
 
   // Before first keyframe — snap to first
-  if (frame <= keyframes[0].frame) {
-    return keyframes[0].target;
+  if (frame <= normalized[0].frame) {
+    return normalized[0].target;
   }
 
   // After last keyframe — snap to last
-  if (frame >= keyframes[keyframes.length - 1].frame) {
-    return keyframes[keyframes.length - 1].target;
+  if (frame >= normalized[normalized.length - 1].frame) {
+    return normalized[normalized.length - 1].target;
   }
 
   // Find the two keyframes we're between
-  for (let i = 0; i < keyframes.length - 1; i++) {
-    const curr = keyframes[i];
-    const next = keyframes[i + 1];
+  for (let i = 0; i < normalized.length - 1; i++) {
+    const curr = normalized[i];
+    const next = normalized[i + 1];
 
     if (frame >= curr.frame && frame <= next.frame) {
       const t = interpolate(
@@ -107,7 +128,7 @@ export function interpolateCamera(
     }
   }
 
-  return keyframes[keyframes.length - 1].target;
+  return normalized[normalized.length - 1].target;
 }
 
 /**

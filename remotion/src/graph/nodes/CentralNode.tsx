@@ -5,7 +5,7 @@
  * After zoom-in: text appears with ramp ease.
  */
 import React from "react";
-import { interpolate, spring, useCurrentFrame } from "remotion";
+import { Easing, interpolate, spring, useCurrentFrame } from "remotion";
 import type { NodePos } from "../layout";
 import { RAMP_EASE } from "../camera";
 
@@ -31,24 +31,39 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
   const frame = useCurrentFrame();
   const localFrame = Math.max(0, frame - appearFrame);
 
-  const scaleSpring = spring({
+  const appearSpring = spring({
     frame: localFrame,
     fps: 30,
-    config: { damping: 18, stiffness: 160 },
-    from: 0.5,
+    config: { damping: 20, stiffness: 80, mass: 0.95 },
+    from: 0,
     to: 1,
   });
-  const appearOpacity = interpolate(localFrame, [0, 12], [0, 1], {
+  const scaleSpring = interpolate(appearSpring, [0, 1], [0.9, 1], {
+    extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: RAMP_EASE,
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearLift = interpolate(appearSpring, [0, 1], [12, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearOpacity = interpolate(localFrame, [0, 18], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
   });
 
   const textOpacity = textVisible
-    ? interpolate(localFrame, [0, 20], [0, 1], { extrapolateRight: "clamp", easing: RAMP_EASE })
+    ? interpolate(localFrame, [5, 24], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: RAMP_EASE,
+      })
     : 0;
 
   const nodeOpacity = textVisible
-    ? appearOpacity * (0.3 + focus * 0.7)
+    ? appearOpacity
     : appearOpacity * scanOpacity;
 
   const glowPulse = 0.5 + 0.25 * Math.sin(frame * 0.04);
@@ -66,7 +81,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
         width: 260,
         height: 260,
         opacity: nodeOpacity,
-        transform: `scale(${scaleSpring})`,
+        transform: `scale(${scaleSpring}) translateY(${appearLift}px)`,
         transformOrigin: "center center",
       }}
     >

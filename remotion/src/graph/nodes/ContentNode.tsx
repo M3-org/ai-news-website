@@ -2,23 +2,30 @@
  * ContentNode — A content card on the graph (PR, Discord update, fact, etc.)
  *
  * During scan phase: glowing colored outline with subtle inner fill.
- * After zoom-in: content appears with ramp ease.
+ * After zoom-in: content appears.
+ * When active: scales up, reveals section background image behind text.
  */
 import React from "react";
-import { Img, interpolate, spring, useCurrentFrame } from "remotion";
+import { Easing, Img, interpolate, spring, useCurrentFrame } from "remotion";
 import { resolveAsset } from "../../resolveAsset";
 import type { Item } from "../../timing";
 import type { NodePos } from "../layout";
-import { RAMP_EASE } from "../camera";
 
 interface ContentNodeProps {
   pos: NodePos;
   item: Item;
   color: string;
   focus: number;
+  energy: number;
   appearFrame: number;
   textVisible: boolean;
   scanOpacity: number;
+  /** This content node is currently being narrated */
+  active: boolean;
+  /** This node belongs to the currently active topic */
+  inActiveTopic: boolean;
+  /** Section background image URL */
+  sectionImage: string;
 }
 
 function cardFontSize(text: string): number {
@@ -31,44 +38,84 @@ function cardFontSize(text: string): number {
 
 const CARD_W = 360;
 const CARD_H = 220;
+const ACTIVE_SCALE = 1.35;
 
 export const ContentNode: React.FC<ContentNodeProps> = ({
   pos,
   item,
   color,
   focus,
+  energy,
   appearFrame,
   textVisible,
   scanOpacity,
+  active,
+  inActiveTopic,
+  sectionImage,
 }) => {
   const frame = useCurrentFrame();
   const localFrame = Math.max(0, frame - appearFrame);
+  const emphasis = Math.max(0, Math.min(1, energy));
 
-  const scaleSpring = spring({
+  const appearSpring = spring({
     frame: localFrame,
     fps: 30,
-    config: { damping: 18, stiffness: 160 },
-    from: 0.4,
+    config: { damping: 18, stiffness: 55, mass: 0.9 },
+    from: 0,
     to: 1,
   });
-  const appearOpacity = interpolate(localFrame, [0, 12], [0, 1], {
+  const scaleSpring = interpolate(appearSpring, [0, 1], [0.86, 1], {
+    extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: RAMP_EASE,
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearLift = interpolate(appearSpring, [0, 1], [18, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearOpacity = interpolate(localFrame, [0, 18], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
   });
 
-  const breathe = Math.sin(frame * 0.02 + pos.y * 0.008) * 2.5;
+  // Floaty multi-axis drift — each card gets unique phase from position
+  // Increase drift slightly if active to make it feel more unsettled
+  const floatMultiplier = 1 + emphasis * 1.1;
+  const floatX = Math.sin(frame * 0.015 + pos.x * 0.004) * 5 * floatMultiplier;
+  const floatY = Math.cos(frame * 0.02 + pos.y * 0.006) * 6 * floatMultiplier;
+  const floatRot = Math.sin(frame * 0.01 + pos.y * 0.003) * 1.0 * floatMultiplier;
   const hasAvatar = !!(item.avatar_url || item.initials);
-  const focusScale = 1 + focus * 0.08;
 
   const textOpacity = textVisible
-    ? interpolate(localFrame, [0, 18], [0, 1], { extrapolateRight: "clamp", easing: RAMP_EASE })
+    ? interpolate(localFrame, [4, 24], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: Easing.out(Easing.cubic),
+      })
     : 0;
 
+  const activeScale = 1 + (ACTIVE_SCALE - 1) * emphasis;
+  const imgOpacity = 0.08 + emphasis * 0.46;
+  const bgScale = 1.08 + emphasis * 0.1;
+  const bgOffsetX = (-floatX * 1.15) + Math.sin(frame * 0.01 + pos.x * 0.002) * 10 * emphasis;
+  const bgOffsetY = (-floatY * 1.15) + Math.cos(frame * 0.012 + pos.y * 0.002) * 8 * emphasis;
+  const textLift = -12 * emphasis;
+  const textScale = 1 + emphasis * 0.05;
+  const secondaryLift = -7 * emphasis;
+  const titleShadow = 0.35 + emphasis * 0.55;
+
+  // Nodes in active topic but not the active card stay visible but dimmer
+  const topicDim = inActiveTopic && !active ? 0.68 : 1;
+
   const nodeOpacity = textVisible
-    ? appearOpacity * (0.15 + focus * 0.85)
+    ? appearOpacity * (0.18 + focus * 0.62 + emphasis * 0.2) * topicDim
     : appearOpacity * scanOpacity;
 
-  const borderAlpha = textVisible ? (focus > 0.5 ? "bb" : "55") : "44";
+  // Brighter border when active
+  const borderAlpha = emphasis > 0.78 ? "ff" : textVisible ? (focus > 0.5 ? "bb" : "55") : "44";
+  const glowIntensity = 12 + focus * 14 + emphasis * 24;
 
   return (
     <div
@@ -79,8 +126,9 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
         width: CARD_W,
         height: CARD_H,
         opacity: nodeOpacity,
-        transform: `scale(${scaleSpring * focusScale}) translateY(${breathe}px)`,
+        transform: `scale(${scaleSpring * activeScale}) translate(${floatX}px, ${floatY + appearLift}px) rotate(${floatRot + emphasis * 1.15}deg)`,
         transformOrigin: "center center",
+        zIndex: active ? 10 : inActiveTopic ? 6 : 1,
       }}
     >
       {/* Glow behind card */}
@@ -89,8 +137,8 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
           position: "absolute",
           inset: -12,
           borderRadius: 20,
-          background: `radial-gradient(ellipse, ${color}${focus > 0.3 ? "25" : "12"} 0%, transparent 70%)`,
-          filter: `blur(${12 + focus * 18}px)`,
+          background: `radial-gradient(ellipse, ${color}${emphasis > 0.72 ? "40" : focus > 0.3 ? "25" : "12"} 0%, transparent 70%)`,
+          filter: `blur(${glowIntensity}px)`,
         }}
       />
       {/* Card */}
@@ -99,9 +147,15 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
           width: CARD_W,
           height: CARD_H,
           borderRadius: 14,
-          border: `1.5px solid ${color}${borderAlpha}`,
-          backgroundColor: `rgba(12, 16, 28, ${0.92 + focus * 0.05})`,
-          boxShadow: `0 0 ${8 + focus * 16}px ${color}15, inset 0 0 ${15 + focus * 10}px ${color}06`,
+          border: `${1.5 + emphasis * 1.2}px solid ${color}${borderAlpha}`,
+          background: `linear-gradient(180deg, rgba(16,21,36,${0.96 - emphasis * 0.18}) 0%, rgba(8,12,22,0.96) 100%)`,
+          boxShadow: `0 0 ${8 + focus * 10 + emphasis * 26}px ${color}${Math.round(21 + emphasis * 27)
+            .toString(16)
+            .padStart(2, "0")}, 0 0 ${6 + emphasis * 18}px ${color}${Math.round(10 + emphasis * 16)
+            .toString(16)
+            .padStart(2, "0")}, inset 0 0 ${15 + focus * 8 + emphasis * 18}px ${color}${Math.round(6 + emphasis * 10)
+            .toString(16)
+            .padStart(2, "0")}`,
           display: "flex",
           flexDirection: "column",
           padding: 20,
@@ -109,17 +163,58 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
           position: "relative",
         }}
       >
+        {/* Background image — revealed when active */}
+        {sectionImage && (
+          <div
+            style={{
+              position: "absolute",
+              inset: 0,
+              borderRadius: 14,
+              overflow: "hidden",
+              opacity: imgOpacity,
+            }}
+          >
+            <Img
+              src={resolveAsset(sectionImage)}
+              style={{
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+                transform: `translate(${bgOffsetX}px, ${bgOffsetY}px) scale(${bgScale})`,
+                filter: `brightness(${0.5 + emphasis * 0.08}) saturate(${1.15 + emphasis * 0.2})`,
+              }}
+            />
+            <div
+              style={{
+                position: "absolute",
+                inset: 0,
+                background: `linear-gradient(180deg, rgba(6,10,18,${0.3 - emphasis * 0.08}) 0%, rgba(6,10,18,0.72) 100%)`,
+              }}
+            />
+          </div>
+        )}
+
         {/* Color accent bar */}
         <div
           style={{
             position: "absolute",
             top: 0,
             left: 0,
-            width: 4,
+            width: 4 + emphasis * 2,
             height: "100%",
             backgroundColor: color,
             borderRadius: "14px 0 0 14px",
-            boxShadow: `0 0 10px ${color}60`,
+            boxShadow: `0 0 ${10 + emphasis * 18}px ${color}60`,
+          }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(135deg, ${color}${Math.round(14 + emphasis * 22)
+              .toString(16)
+              .padStart(2, "0")} 0%, transparent 45%, transparent 100%)`,
+            pointerEvents: "none",
           }}
         />
 
@@ -140,7 +235,7 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
         />
 
         {/* Content — hidden during scan */}
-        <div style={{ display: "flex", gap: 14, flex: 1, paddingLeft: 8, opacity: textOpacity }}>
+        <div style={{ display: "flex", gap: 14, flex: 1, paddingLeft: 8, opacity: textOpacity, position: "relative", zIndex: 1 }}>
           {hasAvatar && (
             <div style={{ flexShrink: 0, paddingTop: 2 }}>
               {item.avatar_url ? (
@@ -184,8 +279,11 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",
+              position: "relative",
+              transform: `translateY(${textLift}px) scale(${textScale})`,
             }}
           >
+            {/* Base text */}
             <p
               style={{
                 fontSize: cardFontSize(item.primary),
@@ -197,6 +295,7 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
                 WebkitLineClamp: 5,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
+                textShadow: `0 1px ${Math.round(6 + emphasis * 8)}px rgba(0,0,0,${titleShadow})`,
               }}
             >
               {item.primary}
@@ -209,6 +308,8 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
                   margin: "8px 0 0",
                   fontFamily: "sans-serif",
                   letterSpacing: "0.5px",
+                  textShadow: `0 1px ${Math.round(3 + emphasis * 5)}px rgba(0,0,0,${0.35 + emphasis * 0.25})`,
+                  transform: `translateY(${secondaryLift}px)`,
                 }}
               >
                 {item.secondary}

@@ -13,16 +13,14 @@ import {
   interpolate,
   staticFile,
   useCurrentFrame,
-  useVideoConfig,
 } from "remotion";
 import {
   Item,
   DailyCardProps,
-  DailyCardImages,
   DATE_FRAMES,
   computeTotalFrames,
 } from "./timing";
-import { GraphCanvas, OPENING_FRAMES } from "./graph/GraphCanvas";
+import { GraphCanvas, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
 
 export type { Item, DailyCardProps };
 
@@ -33,9 +31,9 @@ const ORANGE = "#FF8A00";
 export const DailyCard: React.FC<DailyCardProps> = (props) => {
   const { date, site_url } = props;
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   const totalFrames = computeTotalFrames(props);
+  const brandColor = getTopicColorForFrame(props, frame);
 
   // HUD elements fade in after opening + date splash
   const hudStart = OPENING_FRAMES + DATE_FRAMES;
@@ -72,7 +70,7 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
           gap: 14,
         }}
       >
-        <div style={{ width: 4, height: 44, backgroundColor: ORANGE, flexShrink: 0 }} />
+        <div style={{ width: 4, height: 44, backgroundColor: brandColor, boxShadow: `0 0 14px ${brandColor}66`, flexShrink: 0 }} />
         <div>
           <p
             style={{
@@ -89,11 +87,12 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
           <p
             style={{
               fontSize: 14,
-              color: ORANGE,
+              color: brandColor,
               margin: 0,
               letterSpacing: "3px",
               textTransform: "uppercase",
               fontFamily: "sans-serif",
+              textShadow: `0 0 16px ${brandColor}55`,
             }}
           >
             ElizaOS Daily
