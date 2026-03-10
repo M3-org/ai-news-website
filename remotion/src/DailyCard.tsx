@@ -55,7 +55,7 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
   });
 
   return (
-    <AbsoluteFill style={{ backgroundColor: "#0a0e17" }}>
+    <AbsoluteFill style={{ backgroundColor: "#0a0612" }}>
       {/* Graph view — the main visual */}
       <GraphCanvas props={props} />
 
@@ -136,7 +136,7 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
             alignItems: "center",
             justifyContent: "center",
             opacity: outroOpacity * outroFade,
-            background: "radial-gradient(ellipse at center, rgba(10,14,23,0.85) 0%, rgba(10,14,23,0.5) 100%)",
+            background: "radial-gradient(ellipse at center, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.5) 100%)",
           }}
         >
           <p

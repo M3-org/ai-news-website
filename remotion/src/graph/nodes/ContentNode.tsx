@@ -224,7 +224,7 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
               style={{
                 position: "absolute",
                 inset: 0,
-                background: `linear-gradient(180deg, rgba(6,10,18,${0.3 - emphasis * 0.08}) 0%, rgba(6,10,18,0.72) 100%)`,
+                background: `linear-gradient(180deg, rgba(0,0,0,${0.3 - emphasis * 0.08}) 0%, rgba(0,0,0,0.72) 100%)`,
               }}
             />
           </div>
@@ -352,7 +352,7 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    background: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.14) 0%, ${color}20 38%, rgba(6,10,18,0.86) 100%)`,
+                    background: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.14) 0%, ${color}20 38%, rgba(0,0,0,0.86) 100%)`,
                     fontSize: 18,
                     fontWeight: 700,
                     color,

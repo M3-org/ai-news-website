@@ -26,7 +26,7 @@ import {
   type CameraKeyframe,
   type CameraTarget,
 } from "./camera";
-import { DotGrid } from "./DotGrid";
+import { DotGrid, type GlowSpot } from "./DotGrid";
 import { ConnectionLines } from "./ConnectionLines";
 import { CentralNode } from "./nodes/CentralNode";
 import { TopicNode } from "./nodes/TopicNode";
@@ -557,6 +557,23 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
     };
   };
 
+  // Build glow spots from active content nodes
+  const glowSpots: GlowSpot[] = [];
+  for (const topic of layout.topics) {
+    for (let ci = 0; ci < topic.items.length; ci++) {
+      const content = topic.items[ci];
+      const energy = Math.max(
+        0,
+        ...segs
+          .filter((seg) => seg.topicIdx === layout.topics.indexOf(topic) && seg.contentIdx === ci)
+          .map((seg) => segmentEmphasisAtFrame(frame, seg, 14, 20)),
+      );
+      if (energy > 0.05) {
+        glowSpots.push({ pos: content.pos, color: topic.color, intensity: energy });
+      }
+    }
+  }
+
   return (
     <div
       style={{
@@ -586,7 +603,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             willChange: "transform",
           }}
         >
-          <DotGrid cam={cam} />
+          <DotGrid cam={cam} glows={glowSpots} />
           {/* Phase 1: Lines + dots draw first (frame 0+) */}
           <ConnectionLines layout={layout} buildStartFrame={0} expandFactor={expandFactor} />
 
@@ -660,7 +677,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
           position: "absolute",
           inset: 0,
           background:
-            "radial-gradient(ellipse at center, transparent 40%, rgba(10, 14, 23, 0.6) 100%)",
+            "radial-gradient(ellipse at center, transparent 40%, rgba(0, 0, 0, 0.6) 100%)",
           pointerEvents: "none",
         }}
       />
