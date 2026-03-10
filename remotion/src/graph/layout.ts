@@ -13,9 +13,10 @@ import type { DailyCardProps, Item } from "../timing";
 export const CANVAS_SIZE = 5000;
 export const CENTER = CANVAS_SIZE / 2; // 2500
 
-const TOPIC_RADIUS = 1600; // center -> topic node distance
-const ITEM_RADIUS = 800; // topic -> content node distance
-const ITEM_SPREAD_DEG = 50; // base degrees between sibling items
+const TOPIC_RADIUS = 1600;  // center → topic node distance
+const ITEM_RADIUS = 800;    // topic → content node distance
+const ITEM_SPREAD_DEG = 38; // degrees between sibling items
+const ITEM_MAX_SPREAD_DEG = 150; // max total arc for all items
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -49,7 +50,7 @@ export interface GraphLayout {
   allContent: ContentLayout[];
 }
 
-// ── Colors (duplicated from DailyCard to keep layout independent) ────────────
+// ── Colors ───────────────────────────────────────────────────────────────────
 
 const ORANGE = "#FF8A00";
 const GREEN  = "#4ADE80";
@@ -57,46 +58,21 @@ const BLUE   = "#60A5FA";
 const PINK   = "#F472B6";
 const PURPLE = "#A78BFA";
 
-// ── Section definitions ──────────────────────────────────────────────────────
+// ── Section definitions (just key, label, color, angle — no overrides) ──────
 
 interface SectionDef {
   key: SectionKey;
   label: string;
   color: string;
   angleDeg: number; // degrees clockwise from 12 o'clock
-  itemAngleDeg?: number;
-  itemRadius?: number;
-  itemSpreadDeg?: number;
-  itemMaxSpreadDeg?: number;
 }
 
 const SECTIONS: SectionDef[] = [
-  { key: "key_facts",  label: "Key Facts",    color: ORANGE, angleDeg: 270 },
-  { key: "github_prs", label: "Development",  color: GREEN,  angleDeg: 342 },
-  {
-    key: "discord",
-    label: "Community",
-    color: BLUE,
-    angleDeg: 54,
-    // Community sits on the right edge, so fan its cards back inward
-    // instead of sending the whole branch further off-screen to the right.
-    itemAngleDeg: 336,
-    itemRadius: 900,
-    itemSpreadDeg: 36,
-    itemMaxSpreadDeg: 132,
-  },
-  { key: "feedback",   label: "Feedback",      color: PINK,   angleDeg: 126 },
-  {
-    key: "council",
-    label: "The Council",
-    color: PURPLE,
-    angleDeg: 198,
-    // Aim the council branch back toward the graph center.
-    itemAngleDeg: 18,
-    itemRadius: 980,
-    itemSpreadDeg: 20,
-    itemMaxSpreadDeg: 96,
-  },
+  { key: "key_facts",  label: "Key Facts",   color: ORANGE, angleDeg: 270 },
+  { key: "github_prs", label: "Development", color: GREEN,  angleDeg: 342 },
+  { key: "discord",    label: "Community",   color: BLUE,   angleDeg: 54  },
+  { key: "feedback",   label: "Feedback",    color: PINK,   angleDeg: 126 },
+  { key: "council",    label: "The Council", color: PURPLE, angleDeg: 198 },
 ];
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -142,6 +118,9 @@ export function computeGraphLayout(props: DailyCardProps): GraphLayout {
   const topics: TopicLayout[] = [];
   const allContent: ContentLayout[] = [];
 
+  const spreadRad = degToRad(ITEM_SPREAD_DEG);
+  const maxSpreadRad = degToRad(ITEM_MAX_SPREAD_DEG);
+
   for (const sec of SECTIONS) {
     const items = getItemsForSection(props, sec.key);
     if (items.length === 0 && sec.key !== "council") continue;
@@ -151,17 +130,15 @@ export function computeGraphLayout(props: DailyCardProps): GraphLayout {
 
     const contentLayouts: ContentLayout[] = [];
     const count = items.length;
-    const fanAngle = degToRad(sec.itemAngleDeg ?? sec.angleDeg);
-    const baseRadius = sec.itemRadius ?? ITEM_RADIUS;
-    const spreadRad = degToRad(sec.itemSpreadDeg ?? ITEM_SPREAD_DEG);
-    const maxSpreadRad = degToRad(sec.itemMaxSpreadDeg ?? 120);
+
+    // Fan items outward from topic in the same direction as topic→center line
     const totalSpread = Math.min(spreadRad * Math.max(0, count - 1), maxSpreadRad);
-    const startAngle = fanAngle - totalSpread / 2;
+    const startAngle = angleRad - totalSpread / 2;
     const step = count > 1 ? totalSpread / (count - 1) : 0;
 
     for (let i = 0; i < count; i++) {
       const itemAngle = startAngle + step * i;
-      const itemPos = pointOnCircle(topicPos.x, topicPos.y, baseRadius, itemAngle);
+      const itemPos = pointOnCircle(topicPos.x, topicPos.y, ITEM_RADIUS, itemAngle);
 
       const cl: ContentLayout = {
         pos: itemPos,
