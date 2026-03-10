@@ -36,6 +36,8 @@ export interface DailyCardProps {
 export const DATE_FRAMES = 60;
 export const CHAPTER_FRAMES = 45;
 export const OUTRO_FRAMES = 120;
+/** Opening sequence: scan reveal + fade + aggressive zoom-in */
+export const OPENING_FRAMES = 80; // 50 scan + 12 fade + 18 zoom
 export const MAX_FRAMES = 2700; // 90s at 30fps
 
 /** Compute per-item frame duration from word count.
@@ -48,7 +50,7 @@ export function wordFrames(text: string): number {
 /** Internal: sum all segment durations applying the given scale to content items. */
 function computeTotalFramesScaled(props: DailyCardProps, scale: number): number {
   const wf = (text: string) => Math.round(wordFrames(text) * scale);
-  let total = DATE_FRAMES;
+  let total = OPENING_FRAMES + DATE_FRAMES;
   total += wf(props.headline); // intro
 
   if (props.key_facts.length > 0) {
