@@ -2,24 +2,52 @@
 """
 Generate Remotion DailyCard props JSON from a facts JSON file.
 
-Usage:
-    uv run python scripts/generate_daily_card.py knowledge/the-council/facts/2026-03-09.json \
-      --out /tmp/daily-card-props.json --out-timing /tmp/daily-card-timing.json
+Accepts a local path or a GitHub raw URL — no local knowledge clone required:
+
+    uv run python scripts/generate_daily_card.py https://raw.githubusercontent.com/elizaOS/knowledge/main/the-council/facts/2026-03-09.json --out /tmp/daily-card-props.json
+
+Or a local path if you have the knowledge repo:
+
+    uv run python scripts/generate_daily_card.py knowledge/the-council/facts/2026-03-09.json --out /tmp/daily-card-props.json
 """
 
 import argparse
 import json
 import shutil
 import sys
+import urllib.request
+import urllib.error
 from pathlib import Path
 
 SITE_BASE = "https://elizaos.news"
+KNOWLEDGE_GITHUB = "https://raw.githubusercontent.com/elizaOS/knowledge/main"
 MAX_HEADLINE = 160
 MAX_ITEMS = 3
 FPS = 30
 DATE_FRAMES = 60
 CHAPTER_FRAMES = 45
 OUTRO_FRAMES = 120
+
+
+def load_json(source: str) -> dict:
+    """Load JSON from a local file path or an http(s) URL."""
+    if source.startswith("http://") or source.startswith("https://"):
+        with urllib.request.urlopen(source) as resp:
+            return json.loads(resp.read())
+    path = Path(source)
+    if not path.exists():
+        print(f"ERROR: facts file not found: {path}", file=sys.stderr)
+        sys.exit(1)
+    with open(path) as f:
+        return json.load(f)
+
+
+def council_source(facts_source: str, date: str) -> str | None:
+    """Derive the council_briefing source (URL or path) from the facts source."""
+    if facts_source.startswith("http://") or facts_source.startswith("https://"):
+        return f"{KNOWLEDGE_GITHUB}/the-council/council_briefing/{date}.json"
+    path = Path(facts_source).parent.parent / "council_briefing" / f"{date}.json"
+    return str(path) if path.exists() else None
 
 
 def word_frames(text: str) -> int:
@@ -71,15 +99,8 @@ def main():
                         help="Output path for timing JSON (optional)")
     args = parser.parse_args()
 
-    facts_path = Path(args.facts)
-    if not facts_path.exists():
-        print(f"ERROR: facts file not found: {facts_path}", file=sys.stderr)
-        sys.exit(1)
-
-    with open(facts_path) as f:
-        facts = json.load(f)
-
-    date = facts.get("briefing_date", facts_path.stem)
+    facts = load_json(args.facts)
+    date = facts.get("briefing_date", Path(args.facts).stem)
     headline = facts.get("overall_summary", "ElizaOS Daily Briefing")[:MAX_HEADLINE]
 
     cats = facts.get("categories", {})
@@ -124,15 +145,19 @@ def main():
         for f in feedback_raw[:MAX_ITEMS]
     ]
 
-    # Council sections — from council_briefing/{date}.json
+    # Council sections — from council_briefing/{date}.json (local or GitHub)
     council_focus = ""
     council_topics = []
     council_questions = []
 
-    council_path = facts_path.parent.parent / "council_briefing" / f"{date}.json"
-    if council_path.exists():
-        with open(council_path) as f:
-            briefing = json.load(f)
+    council_src = council_source(args.facts, date)
+    if council_src:
+        try:
+            briefing = load_json(council_src)
+        except (urllib.error.HTTPError, urllib.error.URLError, FileNotFoundError):
+            council_src = None
+
+    if council_src:
 
         council_focus = briefing.get("daily_focus", "")
 
@@ -157,7 +182,7 @@ def main():
         print(f"  council_questions: {len(council_questions)} items")
     else:
         # Fallback: use strategic_insights from facts as council_topics
-        print(f"  council_briefing not found at {council_path}, using strategic_insights fallback")
+        print(f"  council_briefing not found, using strategic_insights fallback")
         insights_raw = cats.get("strategic_insights", [])
         for i, s in enumerate(insights_raw[:MAX_ITEMS]):
             council_topics.append({
