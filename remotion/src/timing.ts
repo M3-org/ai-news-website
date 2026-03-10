@@ -34,7 +34,7 @@ export interface DailyCardProps {
 }
 
 export const DATE_FRAMES = 60;
-export const CHAPTER_FRAMES = 45;
+export const CHAPTER_FRAMES = 75;
 export const OUTRO_FRAMES = 120;
 /** Opening sequence: scan reveal + fade + aggressive zoom-in */
 export const OPENING_FRAMES = 80; // 50 scan + 12 fade + 18 zoom
