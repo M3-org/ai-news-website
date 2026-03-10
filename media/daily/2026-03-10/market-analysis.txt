@@ -1,0 +1,21 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three holographic floating panels:  
+1. "Token Price" - main metric, animated digits dropping, cyan glow  
+2. "Community Sentiment" - gauge with orange-to-red arc, fluctuating based on anxiety level  
+3. "Team Engagement" - pulse gauge, low/freezing at magenta  
+
+Dynamic connection lines flow from "Token Price" to "Community Sentiment" and "Team Engagement," pulsing magenta-orange when sentiment worsens. Data nodes flicker along paths. Accents: cyan (price), magenta (engagement), orange (sentiment), overlays with digital noise and light distortion for a cyberpunk vibe.
+
+CONTENT CONTEXT:
+ELIZAOS token reached new all-time lows, leading to community anxiety and accusations of team disinterest.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
