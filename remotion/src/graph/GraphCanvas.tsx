@@ -384,9 +384,9 @@ function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGra
     const w = contentCameraWeightAtFrame(frame, seg);
     if (w < 0.001) continue;
 
-    const anchorX = topic.pos.x * 0.28 + content.pos.x * 0.72;
-    const anchorY = topic.pos.y * 0.28 + content.pos.y * 0.72;
-    const anchorZoom = (ZOOM.topic + 0.04) * 0.18 + (ZOOM.content + 0.18) * 0.82;
+    const anchorX = topic.pos.x * 0.18 + content.pos.x * 0.82;
+    const anchorY = topic.pos.y * 0.18 + content.pos.y * 0.82;
+    const anchorZoom = ZOOM.topic + 0.3;
 
     contentX += anchorX * w;
     contentY += anchorY * w;
