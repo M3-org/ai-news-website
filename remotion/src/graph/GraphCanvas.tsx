@@ -7,9 +7,15 @@
  *   2. Nodes fade out briefly
  *   3. Aggressive ramp zoom into center "ElizaOS Daily" hub
  *   4. Text becomes visible — content phase begins
+ *
+ * Content phase:
+ *   Camera floats around each topic's area while content nodes
+ *   activate one-by-one (scale up + show background image).
+ *   Between sections, camera zooms out to mid-overview then into next topic.
+ *   Active content nodes magnetize the camera slightly toward them.
  */
 import React, { useMemo } from "react";
-import { interpolate, useCurrentFrame, Easing } from "remotion";
+import { interpolate, useCurrentFrame } from "remotion";
 import { CANVAS_SIZE, computeGraphLayout, type GraphLayout, type NodePos } from "./layout";
 import {
   interpolateCamera,
@@ -25,7 +31,7 @@ import { ConnectionLines } from "./ConnectionLines";
 import { CentralNode } from "./nodes/CentralNode";
 import { TopicNode } from "./nodes/TopicNode";
 import { ContentNode } from "./nodes/ContentNode";
-import type { DailyCardProps, Item } from "../timing";
+import type { DailyCardProps, DailyCardImages, Item } from "../timing";
 import { DATE_FRAMES, CHAPTER_FRAMES, OUTRO_FRAMES, OPENING_FRAMES, wordFrames, computeScaleFactor } from "../timing";
 
 // ── Opening timing ───────────────────────────────────────────────────────────
@@ -34,8 +40,6 @@ import { DATE_FRAMES, CHAPTER_FRAMES, OUTRO_FRAMES, OPENING_FRAMES, wordFrames, 
 const SCAN_FRAMES = 50;
 /** Frames for nodes to fade out after scan */
 const FADE_OUT_FRAMES = 12;
-/** Frame at which text becomes visible (after zoom lands) */
-const TEXT_APPEAR_FRAME = OPENING_FRAMES;
 
 // ── Segment types ────────────────────────────────────────────────────────────
 
@@ -60,6 +64,17 @@ interface Seg {
   contentIdx: number;
 }
 
+// ── Image mapping ────────────────────────────────────────────────────────────
+
+function imageForTopic(topicKey: string, images: DailyCardImages): string {
+  if (topicKey === "github_prs") return images.github;
+  if (topicKey === "discord") return images.discord;
+  if (topicKey === "feedback") return images.discord;
+  if (topicKey === "key_facts") return images.market;
+  if (topicKey === "council") return images.strategic;
+  return images.overall;
+}
+
 // ── Build segments + camera keyframes ────────────────────────────────────────
 
 interface GraphTimeline {
@@ -81,9 +96,7 @@ function buildGraphTimeline(props: DailyCardProps): GraphTimeline {
   const topicByKey = (key: string) => layout.topics.findIndex((t) => t.key === key);
 
   // ── Opening: scan overview ──
-  // Camera starts at overview, holds during scan
   keyframes.push({ frame: 0, target: targetNode(layout.center, ZOOM.overview) });
-  // After scan + fade, aggressive ramp zoom into hub
   keyframes.push({ frame: SCAN_FRAMES + FADE_OUT_FRAMES, target: targetNode(layout.center, ZOOM.overview) });
   keyframes.push({ frame: OPENING_FRAMES, target: targetNode(layout.center, ZOOM.hub) });
 
@@ -98,103 +111,326 @@ function buildGraphTimeline(props: DailyCardProps): GraphTimeline {
   keyframes.push({ frame: cursor, target: targetNode(layout.center, ZOOM.hub - 0.05) });
   cursor += introDur;
 
-  // ── Key Facts ──
-  const kfIdx = topicByKey("key_facts");
-  if (kfIdx >= 0) {
-    const topic = layout.topics[kfIdx];
-    segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: kfIdx, contentIdx: -1 });
+  // ── Helper: build a topic section with travel transition ──
+  function buildTopicSection(
+    topicKey: string,
+    items: { primary: string }[],
+    segTypes: SegType[],
+  ) {
+    const idx = topicByKey(topicKey);
+    if (idx < 0) return;
+    const topic = layout.topics[idx];
+
+    // Chapter title — camera arrives at topic area
+    segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: idx, contentIdx: -1 });
     keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
     cursor += CHAPTER_FRAMES;
-    for (let i = 0; i < props.key_facts.length; i++) {
-      const dur = wf(props.key_facts[i]);
-      segs.push({ from: cursor, dur, type: "key_fact", topicIdx: kfIdx, contentIdx: i });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[i].pos, ZOOM.content) });
+
+    // All content items — camera stays floating in topic area
+    const sectionStart = cursor;
+    let sectionDur = 0;
+    for (let i = 0; i < items.length; i++) {
+      const dur = wf(items[i].primary);
+      const segType = segTypes[Math.min(i, segTypes.length - 1)];
+      segs.push({ from: cursor, dur, type: segType, topicIdx: idx, contentIdx: i });
+      sectionDur += dur;
       cursor += dur;
     }
+
+    // Camera holds at topic area for entire content section
+    if (sectionDur > 0) {
+      keyframes.push({ frame: sectionStart, target: targetNode(topic.pos, ZOOM.topic) });
+      keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
+    }
   }
+
+  // ── Key Facts ──
+  buildTopicSection("key_facts", props.key_facts.map((f) => ({ primary: f })), ["key_fact"]);
 
   // ── Development (GitHub PRs) ──
-  const ghIdx = topicByKey("github_prs");
-  if (ghIdx >= 0) {
-    const topic = layout.topics[ghIdx];
-    segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: ghIdx, contentIdx: -1 });
-    keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
-    cursor += CHAPTER_FRAMES;
-    for (let i = 0; i < props.github_prs.length; i++) {
-      const dur = wf(props.github_prs[i].primary);
-      segs.push({ from: cursor, dur, type: "github_pr", topicIdx: ghIdx, contentIdx: i });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[i].pos, ZOOM.content) });
-      cursor += dur;
-    }
-  }
+  buildTopicSection("github_prs", props.github_prs, ["github_pr"]);
 
   // ── Community (Discord) ──
-  const dcIdx = topicByKey("discord");
-  if (dcIdx >= 0) {
-    const topic = layout.topics[dcIdx];
-    segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: dcIdx, contentIdx: -1 });
-    keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
-    cursor += CHAPTER_FRAMES;
-    for (let i = 0; i < props.discord_updates.length; i++) {
-      const dur = wf(props.discord_updates[i].primary);
-      segs.push({ from: cursor, dur, type: "discord", topicIdx: dcIdx, contentIdx: i });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[i].pos, ZOOM.content) });
-      cursor += dur;
-    }
-  }
+  buildTopicSection("discord", props.discord_updates, ["discord"]);
 
   // ── Feedback ──
-  const fbIdx = topicByKey("feedback");
-  if (fbIdx >= 0) {
-    const topic = layout.topics[fbIdx];
-    segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: fbIdx, contentIdx: -1 });
-    keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
-    cursor += CHAPTER_FRAMES;
-    for (let i = 0; i < props.user_feedback.length; i++) {
-      const dur = wf(props.user_feedback[i].primary);
-      segs.push({ from: cursor, dur, type: "feedback", topicIdx: fbIdx, contentIdx: i });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[i].pos, ZOOM.content) });
-      cursor += dur;
-    }
-  }
+  buildTopicSection("feedback", props.user_feedback, ["feedback"]);
 
   // ── Council ──
   const coIdx = topicByKey("council");
   if (coIdx >= 0) {
     const topic = layout.topics[coIdx];
+
     segs.push({ from: cursor, dur: CHAPTER_FRAMES, type: "chapter", topicIdx: coIdx, contentIdx: -1 });
     keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
     cursor += CHAPTER_FRAMES;
 
+    const sectionStart = cursor;
     let contentI = 0;
     if (props.council_focus) {
       const dur = wf(props.council_focus);
       segs.push({ from: cursor, dur, type: "council_focus", topicIdx: coIdx, contentIdx: contentI });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[contentI].pos, ZOOM.content) });
       cursor += dur;
       contentI++;
     }
     for (const t of props.council_topics) {
       const dur = wf(t.primary);
       segs.push({ from: cursor, dur, type: "council_topic", topicIdx: coIdx, contentIdx: contentI });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[contentI].pos, ZOOM.content) });
       cursor += dur;
       contentI++;
     }
     for (const q of props.council_questions) {
       const dur = wf(q.primary);
       segs.push({ from: cursor, dur, type: "council_question", topicIdx: coIdx, contentIdx: contentI });
-      keyframes.push({ frame: cursor, target: targetNode(topic.items[contentI].pos, ZOOM.content) });
       cursor += dur;
       contentI++;
     }
+    if (cursor > sectionStart) {
+      keyframes.push({ frame: sectionStart, target: targetNode(topic.pos, ZOOM.topic) });
+      keyframes.push({ frame: cursor, target: targetNode(topic.pos, ZOOM.topic) });
+    }
   }
 
-  // ── Outro ──
+  // ── Outro: zoom out with travel feel ──
   segs.push({ from: cursor, dur: OUTRO_FRAMES, type: "outro", topicIdx: -1, contentIdx: -1 });
-  keyframes.push({ frame: cursor, target: targetNode(layout.center, ZOOM.overview) });
+  // Gradual pull-out to overview
+  keyframes.push({ frame: cursor, target: targetNode(layout.center, ZOOM.hub - 0.05) });
+  keyframes.push({ frame: cursor + 40, target: targetNode(layout.center, 0.34) });
+  keyframes.push({ frame: cursor + 80, target: targetNode(layout.center, ZOOM.overview) });
 
   return { segs, keyframes, totalFrames: cursor + OUTRO_FRAMES, layout };
+}
+
+// ── Active segment lookup ───────────────────────────────────────────────────
+
+function findActiveSeg(frame: number, segs: Seg[]): Seg | null {
+  for (const seg of segs) {
+    if (frame >= seg.from && frame < seg.from + seg.dur) {
+      return seg;
+    }
+  }
+  return null;
+}
+
+function segmentWeightAtFrame(
+  frame: number,
+  seg: Seg,
+  softness: number,
+  minSigma: number,
+): number {
+  const mid = seg.from + seg.dur / 2;
+  const sigma = Math.max(minSigma, seg.dur * softness);
+  const u = (frame - mid) / sigma;
+  return Math.exp(-0.5 * u * u);
+}
+
+function smoothstep01(v: number): number {
+  const x = Math.max(0, Math.min(1, v));
+  return x * x * (3 - 2 * x);
+}
+
+function clamp(v: number, min: number, max: number): number {
+  return Math.max(min, Math.min(max, v));
+}
+
+function clamp01(v: number): number {
+  return clamp(v, 0, 1);
+}
+
+function segmentEmphasisAtFrame(
+  frame: number,
+  seg: Seg,
+  riseFrames: number,
+  fallFrames: number,
+): number {
+  const enter = smoothstep01((frame - seg.from) / riseFrames);
+  const exitStart = seg.from + seg.dur - fallFrames;
+  const exit = 1 - smoothstep01((frame - exitStart) / fallFrames);
+  return Math.max(0, Math.min(1, enter * exit));
+}
+
+function contentCameraWeightAtFrame(frame: number, seg: Seg): number {
+  return segmentWeightAtFrame(frame, seg, 0.42, 22);
+}
+
+function hexToRgb(hex: string): { r: number; g: number; b: number } {
+  const normalized = hex.replace("#", "");
+  const full =
+    normalized.length === 3
+      ? normalized
+          .split("")
+          .map((c) => c + c)
+          .join("")
+      : normalized;
+  return {
+    r: Number.parseInt(full.slice(0, 2), 16),
+    g: Number.parseInt(full.slice(2, 4), 16),
+    b: Number.parseInt(full.slice(4, 6), 16),
+  };
+}
+
+function rgbToHex(r: number, g: number, b: number): string {
+  const toHex = (n: number) => Math.round(Math.max(0, Math.min(255, n))).toString(16).padStart(2, "0");
+  return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+}
+
+export function getTopicColorForFrame(props: DailyCardProps, frame: number): string {
+  const timeline = buildGraphTimeline(props);
+  let r = 0;
+  let g = 0;
+  let b = 0;
+  let total = 0;
+
+  for (const seg of timeline.segs) {
+    if (seg.topicIdx < 0) continue;
+    const topic = timeline.layout.topics[seg.topicIdx];
+    if (!topic) continue;
+    const weight = segmentWeightAtFrame(frame, seg, 0.58, 34);
+    if (weight < 0.001) continue;
+    const rgb = hexToRgb(topic.color);
+    r += rgb.r * weight;
+    g += rgb.g * weight;
+    b += rgb.b * weight;
+    total += weight;
+  }
+
+  if (total <= 0) {
+    const activeSeg = findActiveSeg(frame, timeline.segs);
+    if (activeSeg && activeSeg.topicIdx >= 0) {
+      return timeline.layout.topics[activeSeg.topicIdx]?.color ?? "#FF8A00";
+    }
+    return "#FF8A00";
+  }
+
+  return rgbToHex(r / total, g / total, b / total);
+}
+
+interface ResolvedGraphCamera {
+  cam: CameraTarget;
+  dynamicBlend: number;
+}
+
+function resolveGraphCamera(frame: number, timeline: GraphTimeline): ResolvedGraphCamera {
+  const { layout, keyframes, segs, totalFrames } = timeline;
+  const baseCam = interpolateCamera(frame, keyframes);
+  const activeSeg = findActiveSeg(frame, segs);
+  const activeTopicIdx = activeSeg?.topicIdx ?? -1;
+  const activeTopic = activeTopicIdx >= 0 ? layout.topics[activeTopicIdx] : null;
+
+  const firstChapter = segs.find((s) => s.type === "chapter");
+  const outroSeg = segs.find((s) => s.type === "outro");
+  const dynamicStart = firstChapter?.from ?? OPENING_FRAMES + DATE_FRAMES;
+  const dynamicEnd = outroSeg?.from ?? totalFrames - OUTRO_FRAMES;
+  const enterDynamic = smoothstep01((frame - (dynamicStart - 18)) / 36);
+  const leaveDynamic = 1 - smoothstep01((frame - (dynamicEnd - 20)) / 40);
+  const dynamicBlend = clamp01(enterDynamic * leaveDynamic);
+
+  // Broad topic attractor keeps the camera hovering around the current section.
+  let topicX = 0;
+  let topicY = 0;
+  let topicZoom = 0;
+  let topicWeight = 0;
+  for (const seg of segs) {
+    if (seg.type !== "chapter") continue;
+    const topic = layout.topics[seg.topicIdx];
+    if (!topic) continue;
+    const w = segmentWeightAtFrame(frame, seg, 0.9, 34);
+    if (w < 0.001) continue;
+    topicX += topic.pos.x * w;
+    topicY += topic.pos.y * w;
+    topicZoom += (ZOOM.topic + 0.05) * w;
+    topicWeight += w;
+  }
+  // Content nodes pull the camera inside the topic without snapping to cards.
+  let contentX = 0;
+  let contentY = 0;
+  let contentZoom = 0;
+  let contentWeight = 0;
+  for (const seg of segs) {
+    if (seg.contentIdx < 0) continue;
+    const topic = layout.topics[seg.topicIdx];
+    if (!topic) continue;
+    const content = topic.items[seg.contentIdx];
+    if (!content) continue;
+
+    const w = contentCameraWeightAtFrame(frame, seg);
+    if (w < 0.001) continue;
+
+    const anchorX = topic.pos.x * 0.28 + content.pos.x * 0.72;
+    const anchorY = topic.pos.y * 0.28 + content.pos.y * 0.72;
+    const anchorZoom = (ZOOM.topic + 0.04) * 0.32 + (ZOOM.content + 0.06) * 0.68;
+
+    contentX += anchorX * w;
+    contentY += anchorY * w;
+    contentZoom += anchorZoom * w;
+    contentWeight += w;
+  }
+  let topicTargetX = topicWeight > 0 ? topicX / topicWeight : activeTopic?.pos.x ?? layout.center.x;
+  let topicTargetY = topicWeight > 0 ? topicY / topicWeight : activeTopic?.pos.y ?? layout.center.y;
+  let topicTargetZoom = topicWeight > 0 ? topicZoom / topicWeight : activeTopic ? ZOOM.topic + 0.05 : ZOOM.hub + 0.02;
+
+  const contentTargetX = contentWeight > 0 ? contentX / contentWeight : topicTargetX;
+  const contentTargetY = contentWeight > 0 ? contentY / contentWeight : topicTargetY;
+  const contentTargetZoom = contentWeight > 0 ? contentZoom / contentWeight : topicTargetZoom;
+
+  const contentInfluence = smoothstep01(
+    clamp01(contentWeight / (topicWeight * 0.9 + 1e-6)),
+  );
+  let targetX = topicTargetX + (contentTargetX - topicTargetX) * contentInfluence;
+  let targetY = topicTargetY + (contentTargetY - topicTargetY) * contentInfluence;
+  let targetZoom =
+    topicTargetZoom + (contentTargetZoom - topicTargetZoom) * contentInfluence;
+
+  const roamScale = 1 - contentInfluence * 0.62;
+  const driftX =
+    (Math.sin(frame * 0.0075) * 34 + Math.sin(frame * 0.016 + 1.2) * 14) *
+    roamScale;
+  const driftY =
+    (Math.cos(frame * 0.009) * 26 + Math.cos(frame * 0.013 + 0.8) * 12) *
+    roamScale;
+  const zoomBreath = Math.sin(frame * 0.005 + 0.6) * 0.004 * roamScale;
+
+  const dynamicCam: CameraTarget = {
+    x: targetX + driftX,
+    y: targetY + driftY,
+    zoom: Math.max(ZOOM.topic + 0.02, targetZoom + zoomBreath),
+  };
+
+  return {
+    cam: {
+      x: baseCam.x + (dynamicCam.x - baseCam.x) * dynamicBlend,
+      y: baseCam.y + (dynamicCam.y - baseCam.y) * dynamicBlend,
+      zoom: baseCam.zoom + (dynamicCam.zoom - baseCam.zoom) * dynamicBlend,
+    },
+    dynamicBlend,
+  };
+}
+
+function sampleCameraRoll(
+  frame: number,
+  timeline: GraphTimeline,
+  resolved: ResolvedGraphCamera,
+  viewportSize: number,
+): number {
+  const transforms = [
+    cameraTransform(resolved.cam, viewportSize),
+    cameraTransform(resolveGraphCamera(frame - 1, timeline).cam, viewportSize),
+    cameraTransform(resolveGraphCamera(frame - 2, timeline).cam, viewportSize),
+    cameraTransform(resolveGraphCamera(frame - 3, timeline).cam, viewportSize),
+  ];
+
+  const velocityWeights = [0.54, 0.29, 0.17];
+  let motionX = 0;
+  let motionY = 0;
+  for (let i = 0; i < velocityWeights.length; i++) {
+    motionX += (transforms[i].translateX - transforms[i + 1].translateX) * velocityWeights[i];
+    motionY += (transforms[i].translateY - transforms[i + 1].translateY) * velocityWeights[i];
+  }
+
+  const rollFromPan = -motionX * 0.018;
+  const rollFromLift = motionY * 0.006;
+  const roll = (rollFromPan + rollFromLift) * resolved.dynamicBlend;
+  return clamp(roll, -1.1, 1.1);
 }
 
 // ── Focus computation ────────────────────────────────────────────────────────
@@ -221,20 +457,31 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
   const frame = useCurrentFrame();
 
   const timeline = useMemo(() => buildGraphTimeline(props), [props]);
-  const { layout, keyframes } = timeline;
+  const { layout, segs } = timeline;
 
-  const cam = interpolateCamera(frame, keyframes);
+  // Resolve images
+  const images: DailyCardImages = props.images ?? {
+    overall: props.poster_url,
+    github: props.poster_url,
+    discord: props.poster_url,
+    market: props.poster_url,
+    strategic: props.poster_url,
+  };
+
+  // Active segment
+  const activeSeg = findActiveSeg(frame, segs);
+  const activeTopicIdx = activeSeg?.topicIdx ?? -1;
+  const activeContentIdx = activeSeg?.contentIdx ?? -1;
+
+  const resolvedCamera = resolveGraphCamera(frame, timeline);
+  const cam = resolvedCamera.cam;
   const { translateX, translateY, scale: camScale } = cameraTransform(cam, 1080);
+  const camRoll = sampleCameraRoll(frame, timeline, resolvedCamera, 1080);
 
   // ── Opening phase logic ──
 
-  // During scan (0 → SCAN_FRAMES): nodes appear, no text
-  // Fade out (SCAN_FRAMES → SCAN_FRAMES + FADE_OUT_FRAMES): nodes dim
-  // Zoom in (→ OPENING_FRAMES): aggressive ramp into center, then text on
+  const textVisible = frame >= SCAN_FRAMES + FADE_OUT_FRAMES;
 
-  const textVisible = frame >= TEXT_APPEAR_FRAME;
-
-  // Scan progress: 0→1 during scan phase (nodes expand outward from center)
   const scanProgress = interpolate(
     frame,
     [0, SCAN_FRAMES],
@@ -242,25 +489,21 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
     { extrapolateLeft: "clamp", extrapolateRight: "clamp", easing: RAMP_EASE },
   );
 
-  // Scan node visibility: appear during scan, fade out, come back after zoom
   const scanNodeOpacity = interpolate(
     frame,
     [
-      0,                              // start invisible
-      6,                              // quickly appear
-      SCAN_FRAMES,                    // fully visible at scan end
-      SCAN_FRAMES + FADE_OUT_FRAMES,  // fade out
-      OPENING_FRAMES - 4,             // still faded
-      OPENING_FRAMES + 8,             // come back with ramp
+      0,
+      6,
+      SCAN_FRAMES,
+      SCAN_FRAMES + FADE_OUT_FRAMES - 2,
+      SCAN_FRAMES + FADE_OUT_FRAMES,
     ],
-    [0, 0.8, 0.9, 0.03, 0.03, 1],
+    [0, 0.8, 0.9, 0.03, 1],
     { extrapolateLeft: "clamp", extrapolateRight: "clamp" },
   );
 
-  // During scan, nodes expand from center. After scan, they're at final positions.
   const expandFactor = textVisible ? 1 : scanProgress;
 
-  /** Compute position with scan expansion — nodes radiate out from center */
   const expandedPos = (pos: NodePos): NodePos => {
     if (expandFactor >= 1) return pos;
     const dx = pos.x - layout.center.x;
@@ -280,62 +523,94 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
         position: "relative",
       }}
     >
-      {/* Canvas — transformed by camera */}
       <div
         style={{
-          width: CANVAS_SIZE,
-          height: CANVAS_SIZE,
           position: "absolute",
-          transformOrigin: "0 0",
-          transform: `translate(${translateX}px, ${translateY}px) scale(${camScale})`,
+          inset: 0,
+          transformOrigin: "center center",
+          transform: `rotate(${camRoll}deg)`,
           willChange: "transform",
         }}
       >
-        <DotGrid />
+        {/* Canvas — transformed by camera */}
+        <div
+          style={{
+            width: CANVAS_SIZE,
+            height: CANVAS_SIZE,
+            position: "absolute",
+            transformOrigin: "0 0",
+            transform: `translate(${translateX}px, ${translateY}px) scale(${camScale})`,
+            willChange: "transform",
+          }}
+        >
+          <DotGrid />
 
-        {/* Phase 1: Lines + dots draw first (frame 0+) */}
-        <ConnectionLines layout={layout} buildStartFrame={0} expandFactor={expandFactor} />
+          {/* Phase 1: Lines + dots draw first (frame 0+) */}
+          <ConnectionLines layout={layout} buildStartFrame={0} expandFactor={expandFactor} />
 
-        {/* Phase 2: Central hub appears after lines start reaching out (frame 12+) */}
-        <CentralNode
-          pos={layout.center}
-          date={props.date}
-          focus={nodeFocus(layout.center, cam)}
-          appearFrame={12}
-          textVisible={textVisible}
-          scanOpacity={scanNodeOpacity}
-        />
-
-        {/* Phase 3: Topic boxes pop in after their connection line lands (frame 20+) */}
-        {layout.topics.map((topic, ti) => (
-          <TopicNode
-            key={topic.key}
-            pos={expandedPos(topic.pos)}
-            label={topic.label}
-            color={topic.color}
-            itemCount={topic.items.length}
-            focus={nodeFocus(topic.pos, cam)}
-            appearFrame={20 + ti * 5}
+          {/* Phase 2: Central hub appears after lines start reaching out (frame 12+) */}
+          <CentralNode
+            pos={layout.center}
+            date={props.date}
+            focus={nodeFocus(layout.center, cam)}
+            appearFrame={12}
             textVisible={textVisible}
             scanOpacity={scanNodeOpacity}
           />
-        ))}
 
-        {/* Phase 4: Content cards pop in last (frame 30+) */}
-        {layout.topics.map((topic, ti) =>
-          topic.items.map((content, ci) => (
-            <ContentNode
-              key={`${topic.key}-${ci}`}
-              pos={expandedPos(content.pos)}
-              item={content.item}
+          {/* Phase 3: Topic boxes pop in after their connection line lands (frame 20+) */}
+          {layout.topics.map((topic, ti) => (
+            <TopicNode
+              key={topic.key}
+              pos={expandedPos(topic.pos)}
+              label={topic.label}
               color={topic.color}
-              focus={nodeFocus(content.pos, cam)}
-              appearFrame={30 + ti * 4 + ci * 3}
+              itemCount={topic.items.length}
+              focus={nodeFocus(topic.pos, cam)}
+              energy={Math.max(
+                0,
+                ...segs
+                  .filter((seg) => seg.topicIdx === ti && seg.type === "chapter")
+                  .map((seg) => segmentEmphasisAtFrame(frame, seg, 12, 14)),
+              )}
+              appearFrame={20 + ti * 5}
               textVisible={textVisible}
               scanOpacity={scanNodeOpacity}
+              active={activeTopicIdx === ti && activeContentIdx === -1}
             />
-          )),
-        )}
+          ))}
+
+          {/* Phase 4: Content cards pop in last (frame 30+) */}
+          {layout.topics.map((topic, ti) =>
+            topic.items.map((content, ci) => {
+              const isActive = activeTopicIdx === ti && activeContentIdx === ci;
+              const isInActiveTopic = activeTopicIdx === ti;
+              const sectionImage = imageForTopic(topic.key, images);
+
+              return (
+                <ContentNode
+                  key={`${topic.key}-${ci}`}
+                  pos={expandedPos(content.pos)}
+                  item={content.item}
+                  color={topic.color}
+                  focus={nodeFocus(content.pos, cam)}
+                  energy={Math.max(
+                    0,
+                    ...segs
+                      .filter((seg) => seg.topicIdx === ti && seg.contentIdx === ci)
+                      .map((seg) => segmentEmphasisAtFrame(frame, seg, 14, 20)),
+                  )}
+                  appearFrame={30 + ti * 4 + ci * 3}
+                  textVisible={textVisible}
+                  scanOpacity={scanNodeOpacity}
+                  active={isActive}
+                  inActiveTopic={isInActiveTopic}
+                  sectionImage={sectionImage}
+                />
+              );
+            }),
+          )}
+        </div>
       </div>
 
       {/* Vignette overlay — fixed to viewport */}

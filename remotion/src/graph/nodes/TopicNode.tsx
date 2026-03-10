@@ -5,9 +5,8 @@
  * After zoom-in: label and count appear with ramp ease.
  */
 import React from "react";
-import { interpolate, spring, useCurrentFrame } from "remotion";
+import { Easing, interpolate, spring, useCurrentFrame } from "remotion";
 import type { NodePos } from "../layout";
-import { RAMP_EASE } from "../camera";
 
 interface TopicNodeProps {
   pos: NodePos;
@@ -15,9 +14,12 @@ interface TopicNodeProps {
   color: string;
   itemCount: number;
   focus: number;
+  energy: number;
   appearFrame: number;
   textVisible: boolean;
   scanOpacity: number;
+  /** This topic's chapter card is currently showing */
+  active?: boolean;
 }
 
 export const TopicNode: React.FC<TopicNodeProps> = ({
@@ -26,37 +28,62 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
   color,
   itemCount,
   focus,
+  energy,
   appearFrame,
   textVisible,
   scanOpacity,
+  active = false,
 }) => {
   const frame = useCurrentFrame();
   const localFrame = Math.max(0, frame - appearFrame);
+  const emphasis = Math.max(0, Math.min(1, energy));
 
-  const scaleSpring = spring({
+  const appearSpring = spring({
     frame: localFrame,
     fps: 30,
-    config: { damping: 18, stiffness: 160 },
-    from: 0.3,
+    config: { damping: 18, stiffness: 58, mass: 0.9 },
+    from: 0,
     to: 1,
   });
-  const appearOpacity = interpolate(localFrame, [0, 10], [0, 1], {
+  const scaleSpring = interpolate(appearSpring, [0, 1], [0.88, 1], {
+    extrapolateLeft: "clamp",
     extrapolateRight: "clamp",
-    easing: RAMP_EASE,
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearLift = interpolate(appearSpring, [0, 1], [16, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const appearOpacity = interpolate(localFrame, [0, 18], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
   });
 
-  const breathe = Math.sin(frame * 0.025 + pos.x * 0.01) * 3;
+  // Floaty multi-axis drift
+  const floatX = Math.sin(frame * 0.018 + pos.x * 0.005) * 4;
+  const floatY = Math.cos(frame * 0.022 + pos.y * 0.007) * 5;
+  const floatRot = Math.sin(frame * 0.012 + pos.x * 0.003) * 0.8;
 
   const textOpacity = textVisible
-    ? interpolate(localFrame, [0, 18], [0, 1], { extrapolateRight: "clamp", easing: RAMP_EASE })
+    ? interpolate(localFrame, [4, 24], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: Easing.out(Easing.cubic),
+      })
     : 0;
 
   const nodeOpacity = textVisible
-    ? appearOpacity * (0.25 + focus * 0.75)
+    ? appearOpacity * (0.22 + focus * 0.58 + emphasis * 0.2)
     : appearOpacity * scanOpacity;
 
-  const glowSize = 15 + focus * 30;
-  const borderAlpha = textVisible ? (focus > 0.3 ? "cc" : "88") : "66";
+  const glowSize = 15 + focus * 22 + emphasis * 22;
+  const borderAlpha = emphasis > 0.75 ? "ff" : textVisible ? (focus > 0.3 ? "cc" : "88") : "66";
+  const textLift = -10 * emphasis;
+  const labelScale = 1 + emphasis * 0.08;
+  const orbitX = Math.sin(frame * 0.014 + pos.y * 0.002) * 6 * emphasis;
+  const orbitY = Math.cos(frame * 0.017 + pos.x * 0.002) * 4 * emphasis;
 
   return (
     <div
@@ -67,7 +94,7 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
         width: 220,
         height: 120,
         opacity: nodeOpacity,
-        transform: `scale(${scaleSpring}) translateY(${breathe}px)`,
+        transform: `scale(${scaleSpring * (1 + emphasis * 0.14)}) translate(${floatX + orbitX}px, ${floatY + orbitY + appearLift}px) rotate(${floatRot + emphasis * 0.6}deg)`,
         transformOrigin: "center center",
       }}
     >
@@ -88,15 +115,27 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
           height: 120,
           borderRadius: 16,
           border: `2px solid ${color}${borderAlpha}`,
-          backgroundColor: `rgba(12, 16, 28, 0.95)`,
-          boxShadow: `0 0 ${12 + focus * 20}px ${color}20, inset 0 0 ${20 + focus * 15}px ${color}08`,
+          background: `linear-gradient(180deg, rgba(18,24,40,${0.98 - emphasis * 0.08}) 0%, rgba(10,14,26,0.96) 100%)`,
+          boxShadow: `0 0 ${12 + focus * 12 + emphasis * 16}px ${color}20, inset 0 0 ${20 + focus * 10 + emphasis * 12}px ${color}08`,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
           gap: 8,
+          overflow: "hidden",
+          position: "relative",
         }}
       >
+        <div
+          style={{
+            position: "absolute",
+            inset: 0,
+            background: `linear-gradient(135deg, ${color}${Math.round(32 + emphasis * 24)
+              .toString(16)
+              .padStart(2, "0")} 0%, transparent 40%, transparent 100%)`,
+            opacity: 0.55,
+          }}
+        />
         {/* Small color dot — always visible, acts as scan indicator */}
         <div
           style={{
@@ -109,7 +148,7 @@ export const TopicNode: React.FC<TopicNodeProps> = ({
           }}
         />
         {/* Text — hidden during scan */}
-        <div style={{ opacity: textOpacity, textAlign: "center" }}>
+        <div style={{ opacity: textOpacity, textAlign: "center", transform: `translateY(${textLift}px) scale(${labelScale})`, position: "relative", zIndex: 1 }}>
           <p
             style={{
               fontSize: 18,

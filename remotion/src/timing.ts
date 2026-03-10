@@ -69,7 +69,7 @@ function computeTotalFramesScaled(props: DailyCardProps, scale: number): number 
     total += CHAPTER_FRAMES;
     for (const fb of props.user_feedback) total += wf(fb.primary);
   }
-  // Council: always include chapter card
+  // Council
   total += CHAPTER_FRAMES;
   if (props.council_focus) total += wf(props.council_focus);
   for (const t of props.council_topics) total += wf(t.primary);
