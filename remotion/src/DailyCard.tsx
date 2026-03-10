@@ -6,7 +6,7 @@
  * The Council), each with content card children. The camera pans and zooms
  * between nodes as the video progresses.
  */
-import React from "react";
+import React, { useMemo } from "react";
 import {
   AbsoluteFill,
   Audio,
@@ -20,7 +20,7 @@ import {
   DATE_FRAMES,
   computeTotalFrames,
 } from "./timing";
-import { GraphCanvas, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
+import { GraphCanvas, buildGraphTimeline, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
 
 export type { Item, DailyCardProps };
 
@@ -33,7 +33,8 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
   const frame = useCurrentFrame();
 
   const totalFrames = computeTotalFrames(props);
-  const brandColor = getTopicColorForFrame(props, frame);
+  const timeline = useMemo(() => buildGraphTimeline(props), [props]);
+  const brandColor = getTopicColorForFrame(props, frame, timeline);
 
   // HUD elements fade in after opening + date splash
   const hudStart = OPENING_FRAMES + DATE_FRAMES;

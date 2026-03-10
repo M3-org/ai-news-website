@@ -302,8 +302,8 @@ function rgbToHex(r: number, g: number, b: number): string {
   return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
 }
 
-export function getTopicColorForFrame(props: DailyCardProps, frame: number): string {
-  const timeline = buildGraphTimeline(props);
+export function getTopicColorForFrame(props: DailyCardProps, frame: number, cachedTimeline?: GraphTimeline): string {
+  const timeline = cachedTimeline ?? buildGraphTimeline(props);
   let r = 0;
   let g = 0;
   let b = 0;
@@ -510,6 +510,17 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
   const { translateX, translateY, scale: camScale } = cameraTransform(cam, 1080);
   const camRoll = sampleCameraRoll(frame, timeline, resolvedCamera, 1080);
 
+  // Microshake — fast sub-pixel vibration for mechanical/alive feel
+  // 3 overlapping irrational-ratio frequencies per axis so they never sync
+  const shakeX =
+    Math.sin(frame * 0.73 + 1.1) * 0.4 +
+    Math.sin(frame * 0.47 + 2.8) * 0.28 +
+    Math.cos(frame * 1.13 + 0.5) * 0.18;
+  const shakeY =
+    Math.cos(frame * 0.67 + 0.7) * 0.35 +
+    Math.sin(frame * 0.53 + 3.2) * 0.24 +
+    Math.cos(frame * 0.97 + 1.8) * 0.16;
+
   // ── Opening phase logic ──
 
   const textVisible = frame >= SCAN_FRAMES + FADE_OUT_FRAMES;
@@ -571,7 +582,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             height: CANVAS_SIZE,
             position: "absolute",
             transformOrigin: "0 0",
-            transform: `translate(${translateX}px, ${translateY}px) scale(${camScale})`,
+            transform: `translate(${translateX + shakeX}px, ${translateY + shakeY}px) scale(${camScale})`,
             willChange: "transform",
           }}
         >
@@ -585,10 +596,10 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             date={props.date}
             focus={nodeFocus(layout.center, cam)}
             appearFrame={12}
+            revealFrame={SCAN_FRAMES + FADE_OUT_FRAMES}
             textVisible={textVisible}
             scanOpacity={scanNodeOpacity}
           />
-
           {/* Phase 3: Topic boxes pop in after their connection line lands (frame 20+) */}
           {layout.topics.map((topic, ti) => (
             <TopicNode
@@ -607,7 +618,6 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
               appearFrame={20 + ti * 5}
               textVisible={textVisible}
               scanOpacity={scanNodeOpacity}
-              active={activeTopicIdx === ti && activeContentIdx === -1}
             />
           ))}
 

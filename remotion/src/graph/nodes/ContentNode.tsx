@@ -39,6 +39,7 @@ function cardFontSize(text: string): number {
 const CARD_W = 360;
 const CARD_H = 220;
 const ACTIVE_SCALE = 1.35;
+const AVATAR_SIZE = 52;
 
 export const ContentNode: React.FC<ContentNodeProps> = ({
   pos,
@@ -87,6 +88,41 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
   const floatY = Math.cos(frame * 0.02 + pos.y * 0.006) * 6 * floatMultiplier;
   const floatRot = Math.sin(frame * 0.01 + pos.y * 0.003) * 1.0 * floatMultiplier;
   const hasAvatar = !!(item.avatar_url || item.initials);
+  const avatarSpring = spring({
+    frame: Math.max(0, localFrame - 2),
+    fps: 30,
+    config: { damping: 13, stiffness: 150, mass: 0.72 },
+    from: 0,
+    to: 1,
+  });
+  const avatarScale = interpolate(avatarSpring, [0, 1], [0.56, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.back(1.6)),
+  });
+  const avatarLift = interpolate(avatarSpring, [0, 1], [20, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const avatarOpacity = interpolate(localFrame, [2, 14], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
+  const avatarBob = Math.cos(frame * 0.021 + pos.y * 0.005) * (0.8 + emphasis * 1.4);
+  const avatarTilt = Math.sin(frame * 0.018 + pos.x * 0.003) * (0.9 + emphasis * 1.1);
+  const avatarFlashIn = interpolate(localFrame, [4, 10], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const avatarFlashOut = interpolate(localFrame, [10, 20], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+  });
+  const avatarFlash = Math.max(0, Math.min(avatarFlashIn, avatarFlashOut));
+  const avatarRingScale = 0.88 + avatarSpring * 0.26 + emphasis * 0.08;
+  const avatarGlow = 14 + focus * 12 + emphasis * 20;
 
   const textOpacity = textVisible
     ? interpolate(localFrame, [4, 24], [0, 1], {
@@ -237,30 +273,86 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
         {/* Content — hidden during scan */}
         <div style={{ display: "flex", gap: 14, flex: 1, paddingLeft: 8, opacity: textOpacity, position: "relative", zIndex: 1 }}>
           {hasAvatar && (
-            <div style={{ flexShrink: 0, paddingTop: 2 }}>
+            <div style={{ flexShrink: 0, paddingTop: 0 }}>
+              <div
+                style={{
+                  position: "relative",
+                  width: 60,
+                  height: 60,
+                  opacity: avatarOpacity,
+                  transform: `translateY(${avatarLift + avatarBob}px) scale(${avatarScale}) rotate(${avatarTilt}deg)`,
+                  transformOrigin: "center center",
+                }}
+              >
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: -9,
+                    borderRadius: "50%",
+                    background: `radial-gradient(circle, ${color}${Math.round(34 + emphasis * 40)
+                      .toString(16)
+                      .padStart(2, "0")} 0%, transparent 72%)`,
+                    filter: `blur(${avatarGlow}px)`,
+                    opacity: 0.56,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: -3,
+                    borderRadius: "50%",
+                    border: `1.5px solid ${color}${Math.round(128 + emphasis * 70)
+                      .toString(16)
+                      .padStart(2, "0")}`,
+                    transform: `scale(${avatarRingScale})`,
+                    opacity: 0.68 + emphasis * 0.18,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    borderRadius: "50%",
+                    background: `linear-gradient(145deg, rgba(255,255,255,${0.18 + avatarFlash * 0.24}) 0%, transparent 44%, ${color}${Math.round(10 + emphasis * 18)
+                      .toString(16)
+                      .padStart(2, "0")} 100%)`,
+                    opacity: 0.7,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    left: 4,
+                    top: 4,
+                    width: AVATAR_SIZE,
+                    height: AVATAR_SIZE,
+                    borderRadius: "50%",
+                    overflow: "hidden",
+                    border: `2px solid ${color}`,
+                    boxShadow: `0 0 ${10 + emphasis * 14}px ${color}66, inset 0 0 ${8 + emphasis * 8}px rgba(255,255,255,0.12)`,
+                    background: `${color}18`,
+                  }}
+                >
               {item.avatar_url ? (
                 <Img
                   src={resolveAsset(item.avatar_url)}
                   style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "50%",
+                    width: AVATAR_SIZE,
+                    height: AVATAR_SIZE,
                     objectFit: "cover",
                     objectPosition: "top center",
-                    border: `2px solid ${color}`,
+                    filter: `saturate(${1.04 + emphasis * 0.12}) brightness(${0.96 + emphasis * 0.06})`,
                   }}
                 />
               ) : (
                 <div
                   style={{
-                    width: 48,
-                    height: 48,
-                    borderRadius: "50%",
-                    border: `2px solid ${color}`,
+                    width: AVATAR_SIZE,
+                    height: AVATAR_SIZE,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    backgroundColor: `${color}22`,
+                    background: `radial-gradient(circle at 30% 30%, rgba(255,255,255,0.14) 0%, ${color}20 38%, rgba(6,10,18,0.86) 100%)`,
                     fontSize: 18,
                     fontWeight: 700,
                     color,
@@ -270,6 +362,21 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
                   {item.initials ?? "?"}
                 </div>
               )}
+                </div>
+                <div
+                  style={{
+                    position: "absolute",
+                    width: 16,
+                    height: 16,
+                    right: 6,
+                    top: 2,
+                    borderRadius: "50%",
+                    background: `radial-gradient(circle, rgba(255,255,255,${0.52 + avatarFlash * 0.26}) 0%, rgba(255,255,255,0) 72%)`,
+                    mixBlendMode: "screen",
+                    opacity: 0.68,
+                  }}
+                />
+              </div>
             </div>
           )}
 
@@ -290,7 +397,9 @@ export const ContentNode: React.FC<ContentNodeProps> = ({
                 color: "#fff",
                 margin: 0,
                 lineHeight: 1.35,
-                fontFamily: "Georgia, serif",
+                fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+                fontWeight: 600,
+                letterSpacing: "-0.5px",
                 display: "-webkit-box",
                 WebkitLineClamp: 5,
                 WebkitBoxOrient: "vertical",

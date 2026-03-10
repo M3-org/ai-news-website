@@ -13,9 +13,9 @@ import type { DailyCardProps, Item } from "../timing";
 export const CANVAS_SIZE = 5000;
 export const CENTER = CANVAS_SIZE / 2; // 2500
 
-const TOPIC_RADIUS = 1600;  // center → topic node distance
-const ITEM_RADIUS = 800;   // topic → content node distance
-const ITEM_SPREAD_DEG = 50; // max degrees between sibling items
+const TOPIC_RADIUS = 1600; // center -> topic node distance
+const ITEM_RADIUS = 800; // topic -> content node distance
+const ITEM_SPREAD_DEG = 50; // base degrees between sibling items
 
 // ── Types ────────────────────────────────────────────────────────────────────
 
@@ -64,14 +64,39 @@ interface SectionDef {
   label: string;
   color: string;
   angleDeg: number; // degrees clockwise from 12 o'clock
+  itemAngleDeg?: number;
+  itemRadius?: number;
+  itemSpreadDeg?: number;
+  itemMaxSpreadDeg?: number;
 }
 
 const SECTIONS: SectionDef[] = [
   { key: "key_facts",  label: "Key Facts",    color: ORANGE, angleDeg: 270 },
   { key: "github_prs", label: "Development",  color: GREEN,  angleDeg: 342 },
-  { key: "discord",    label: "Community",     color: BLUE,   angleDeg: 54  },
+  {
+    key: "discord",
+    label: "Community",
+    color: BLUE,
+    angleDeg: 54,
+    // Community sits on the right edge, so fan its cards back inward
+    // instead of sending the whole branch further off-screen to the right.
+    itemAngleDeg: 336,
+    itemRadius: 900,
+    itemSpreadDeg: 36,
+    itemMaxSpreadDeg: 132,
+  },
   { key: "feedback",   label: "Feedback",      color: PINK,   angleDeg: 126 },
-  { key: "council",    label: "The Council",   color: PURPLE, angleDeg: 198 },
+  {
+    key: "council",
+    label: "The Council",
+    color: PURPLE,
+    angleDeg: 198,
+    // Aim the council branch back toward the graph center.
+    itemAngleDeg: 18,
+    itemRadius: 980,
+    itemSpreadDeg: 20,
+    itemMaxSpreadDeg: 96,
+  },
 ];
 
 // ── Helpers ──────────────────────────────────────────────────────────────────
@@ -126,16 +151,17 @@ export function computeGraphLayout(props: DailyCardProps): GraphLayout {
 
     const contentLayouts: ContentLayout[] = [];
     const count = items.length;
+    const fanAngle = degToRad(sec.itemAngleDeg ?? sec.angleDeg);
+    const baseRadius = sec.itemRadius ?? ITEM_RADIUS;
+    const spreadRad = degToRad(sec.itemSpreadDeg ?? ITEM_SPREAD_DEG);
+    const maxSpreadRad = degToRad(sec.itemMaxSpreadDeg ?? 120);
+    const totalSpread = Math.min(spreadRad * Math.max(0, count - 1), maxSpreadRad);
+    const startAngle = fanAngle - totalSpread / 2;
+    const step = count > 1 ? totalSpread / (count - 1) : 0;
 
-    // Fan items out around the topic's outward direction
     for (let i = 0; i < count; i++) {
-      const spreadRad = degToRad(ITEM_SPREAD_DEG);
-      const totalSpread = Math.min(spreadRad * (count - 1), degToRad(120));
-      const startAngle = angleRad - totalSpread / 2;
-      const step = count > 1 ? totalSpread / (count - 1) : 0;
       const itemAngle = startAngle + step * i;
-
-      const itemPos = pointOnCircle(topicPos.x, topicPos.y, ITEM_RADIUS, itemAngle);
+      const itemPos = pointOnCircle(topicPos.x, topicPos.y, baseRadius, itemAngle);
 
       const cl: ContentLayout = {
         pos: itemPos,
