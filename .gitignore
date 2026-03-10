@@ -1,5 +1,4 @@
-episodes/*.mp4
-episodes/*.json
+episodes/
 node_modules
 .env
 *.meta
@@ -46,9 +45,17 @@ archive/
 # Remotion public: ignore symlinks, allow tracked assets (mp3, GLBs)
 remotion/public/characters
 remotion/public/episodes
+remotion/public/daily-card-poster.png
+remotion/public/daily-card-*.png
 !remotion/public/*.mp3
+remotion/public/DnB12.mp3
+remotion/public/BreakingNews2_final.mp3
 !remotion/public/**/*.glb
 
 # Local trailer exports (under episodes/)
 episodes/trailers/
 .claude/
+
+# Local working directories (not source)
+media/data/
+media/samples/

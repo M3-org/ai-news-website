@@ -13,9 +13,6 @@ import shutil
 import sys
 from pathlib import Path
 
-import urllib.request
-import urllib.error
-
 SITE_BASE = "https://elizaos.news"
 MAX_HEADLINE = 160
 MAX_ITEMS = 3
@@ -40,19 +37,18 @@ def council_avatar(index: int) -> str:
     return f"characters/{char}/{PROFILE_IMG[char]}.png"
 
 
+IMAGE_MAP = {
+    "overall":   ("overall.png",           "daily-card-overall.png"),
+    "github":    ("github-updates.png",    "daily-card-github.png"),
+    "discord":   ("discord-updates.png",   "daily-card-discord.png"),
+    "market":    ("market-analysis.png",   "daily-card-market.png"),
+    "strategic": ("strategic-insights.png","daily-card-strategic.png"),
+}
+
+
 def briefing_date_focus_fallback(facts: dict) -> str:
     """Use overall_summary as council focus when no council_briefing file exists."""
     return facts.get("overall_summary", "")[:300]
-
-
-def _url_exists(url: str) -> bool:
-    """Quick HEAD check — returns True if URL responds with 2xx."""
-    try:
-        req = urllib.request.Request(url, method="HEAD")
-        with urllib.request.urlopen(req, timeout=5) as resp:
-            return resp.status < 400
-    except Exception:
-        return False
 
 
 def initials(name: str) -> str:
@@ -178,14 +174,6 @@ def main():
     #   2. CDN URL (constructed from date) — no validation, used as-is
     #   3. Fall back to overall image (local staged or CDN)
 
-    IMAGE_MAP = {
-        "overall":   ("overall.png",           "daily-card-overall.png"),
-        "github":    ("github-updates.png",    "daily-card-github.png"),
-        "discord":   ("discord-updates.png",   "daily-card-discord.png"),
-        "market":    ("market-analysis.png",   "daily-card-market.png"),
-        "strategic": ("strategic-insights.png","daily-card-strategic.png"),
-    }
-
     remotion_public = Path("remotion/public")
     remotion_public.mkdir(parents=True, exist_ok=True)
 
@@ -221,14 +209,6 @@ def main():
             print(f"  {key}: local not found, using CDN URL {staged_images[key]}")
 
     poster_url = staged_images["overall"]
-    images_props = {
-        "overall":   staged_images["overall"],
-        "github":    staged_images["github"],
-        "discord":   staged_images["discord"],
-        "market":    staged_images["market"],
-        "strategic": staged_images["strategic"],
-    }
-
     site_url = "elizaos.news"
 
     props = {
@@ -243,7 +223,7 @@ def main():
         "council_questions": council_questions,
         "poster_url": poster_url,
         "site_url": site_url,
-        "images": images_props,
+        "images": staged_images,
     }
 
     out_path = Path(args.out)
@@ -259,11 +239,11 @@ def main():
     print(f"  discord:    {len(discord_updates)} items")
     print(f"  feedback:   {len(user_feedback)} items")
     print(f"  poster_url: {poster_url}")
-    print(f"  images:     overall={images_props['overall']}")
-    print(f"              github={images_props['github']}")
-    print(f"              discord={images_props['discord']}")
-    print(f"              market={images_props['market']}")
-    print(f"              strategic={images_props['strategic']}")
+    print(f"  images:     overall={staged_images['overall']}")
+    print(f"              github={staged_images['github']}")
+    print(f"              discord={staged_images['discord']}")
+    print(f"              market={staged_images['market']}")
+    print(f"              strategic={staged_images['strategic']}")
 
     # ── Timing JSON ──────────────────────────────────────────────────────────
     if args.out_timing:

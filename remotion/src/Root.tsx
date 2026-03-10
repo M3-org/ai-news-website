@@ -1,5 +1,7 @@
 import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
+import { DailyCard } from "./DailyCard";
+import { DailyCardProps, computeTotalFrames } from "./timing";
 import { OVERLAP_FRAMES } from "./transitions";
 
 // Default props for Remotion Studio preview
@@ -128,6 +130,57 @@ export const RemotionRoot: React.FC = () => {
         height={1080}
         schema={TrailerSchema}
         defaultProps={defaultProps}
+      />
+      {/* Daily news briefing card — 1080×1080 square, duration computed from content */}
+      <Composition
+        id="DailyCard"
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        component={DailyCard as any}
+        calculateMetadata={({ props }) => ({
+          durationInFrames: computeTotalFrames(props as DailyCardProps),
+          fps: 30,
+          width: 1080,
+          height: 1080,
+        })}
+        fps={30}
+        width={1080}
+        height={1080}
+        defaultProps={{
+          date: "2026-03-09",
+          headline: "ElizaOS ecosystem accelerates with new agent deployments and community milestones.",
+          key_facts: [
+            "Agent framework reaches 10k GitHub stars",
+            "New plugin architecture ships in v1.8",
+            "Community treasury vote passes with 94% approval",
+          ],
+          github_prs: [
+            { primary: "feat: add multi-agent coordination protocol", secondary: "@shakkernerd", avatar_url: "https://github.com/shakkernerd.png?size=64" },
+            { primary: "fix: memory leak in embedding pipeline", secondary: "@wtfsayo", avatar_url: "https://github.com/wtfsayo.png?size=64" },
+            { primary: "chore: upgrade to latest model adapters", secondary: "@lalalune", avatar_url: "https://github.com/lalalune.png?size=64" },
+          ],
+          discord_updates: [
+            { primary: "Plugin ecosystem growing with 40+ community extensions", secondary: "#development", initials: "DV" },
+            { primary: "New governance proposal hits quorum in 6 hours", secondary: "#governance", initials: "GV" },
+            { primary: "Weekly builder call recap now in docs", secondary: "#announcements", initials: "WB" },
+          ],
+          user_feedback: [
+            { primary: "Onboarding flow is smoother with new wizard UI", secondary: "positive" },
+            { primary: "Docs need more examples for custom plugins", secondary: "constructive" },
+            { primary: "Agent response latency improved significantly", secondary: "positive" },
+          ],
+          council_focus: "The project is navigating a critical trust deficit as community anxiety over token performance intersects with perceived team attrition and delayed technical milestones.",
+          council_topics: [
+            { primary: "Core members removing ElizaOS from social bios has triggered FUD requiring immediate leadership transparency.", secondary: "Operational Continuity & Trust Recovery", avatar_url: "characters/eliza/1.png" },
+            { primary: "Agent-to-vendor credit lines and pre-trade risk scoring indicate a shift toward financially-autonomous agent operations.", secondary: "Agent Autonomy & Risk Infrastructure", avatar_url: "characters/shaw/9.png" },
+          ],
+          council_questions: [
+            { primary: "How should the Council address the perceived 'exit' of key contributors to stabilize community sentiment?", secondary: "Operational Continuity", avatar_url: "characters/marc/13.png" },
+            { primary: "Is the diversification into side-projects diluting focus on ElizaOS core infrastructure?", secondary: "Strategic Focus", avatar_url: "characters/spartan/2.png" },
+            { primary: "Should ElizaOS prioritize the Agent-to-Vendor Credit Line primitive as a core reliability feature?", secondary: "Agent Autonomy", avatar_url: "characters/peepo/2.png" },
+          ],
+          poster_url: "https://elizaos.news/media/daily/2026-03-09/poster.png",
+          site_url: "elizaos.news/daily/2026-03-09",
+        } satisfies DailyCardProps}
       />
     </>
   );

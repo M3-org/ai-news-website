@@ -881,9 +881,7 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
           both brand bar area and main content area are readable). */}
       <AbsoluteFill
         style={{
-          background: bgSpans.length > 0
-            ? "linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.68) 20%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.80) 80%, rgba(0,0,0,0.92) 100%)"
-            : "linear-gradient(135deg, #0a0a0a 0%, #1a1008 50%, #0a0a0a 100%)",
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.68) 20%, rgba(0,0,0,0.65) 55%, rgba(0,0,0,0.80) 80%, rgba(0,0,0,0.92) 100%)",
           opacity: gradientOpacity,
         }}
       />

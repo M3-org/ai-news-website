@@ -45,10 +45,6 @@ export function wordFrames(text: string): number {
   return Math.min(210, Math.max(90, words * 6 + 45));
 }
 
-export function wordFramesScaled(text: string, scale: number): number {
-  return Math.round(wordFrames(text) * scale);
-}
-
 /** Internal: sum all segment durations applying the given scale to content items. */
 function computeTotalFramesScaled(props: DailyCardProps, scale: number): number {
   const wf = (text: string) => Math.round(wordFrames(text) * scale);
