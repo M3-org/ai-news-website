@@ -1,7 +1,8 @@
 import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
 import { DailyCard } from "./DailyCard";
-import { DailyCardProps, computeTotalFrames } from "./timing";
+import { DailyCardProps, DailyCardSchema, computeTotalFrames, DEFAULT_FADER_CONFIG } from "./timing";
+import type { z } from "zod";
 import { OVERLAP_FRAMES } from "./transitions";
 
 // Default props for Remotion Studio preview
@@ -136,6 +137,7 @@ export const RemotionRoot: React.FC = () => {
         id="DailyCard"
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         component={DailyCard as any}
+        schema={DailyCardSchema}
         calculateMetadata={({ props }) => ({
           durationInFrames: computeTotalFrames(props as DailyCardProps),
           fps: 30,
@@ -180,6 +182,27 @@ export const RemotionRoot: React.FC = () => {
           ],
           poster_url: "daily-card-overall.png",
           site_url: "elizaos.news/daily/2026-03-09",
+          fader_intro: {
+            ...DEFAULT_FADER_CONFIG,
+            glbFile: "Modulation_GLBs/eliza_reveal.glb",
+            opacity: 0.4,
+            custom: true,
+            fadeInFrames: 0,
+            fadeOutFrames: 60,
+          },
+          fader_key_facts: { ...DEFAULT_FADER_CONFIG },
+          fader_github_prs: { ...DEFAULT_FADER_CONFIG },
+          fader_discord: { ...DEFAULT_FADER_CONFIG },
+          fader_feedback: { ...DEFAULT_FADER_CONFIG },
+          fader_council: { ...DEFAULT_FADER_CONFIG },
+          fader_outro: {
+            ...DEFAULT_FADER_CONFIG,
+            glbFile: "Modulation_GLBs/cron_red.glb",
+            opacity: 0.3,
+            custom: true,
+            fadeInFrames: 60,
+            fadeOutFrames: 0,
+          },
           images: {
             overall: "daily-card-overall.png",
             github: "daily-card-github.png",
@@ -187,7 +210,7 @@ export const RemotionRoot: React.FC = () => {
             market: "daily-card-market.png",
             strategic: "daily-card-strategic.png",
           },
-        } satisfies DailyCardProps}
+        } satisfies z.input<typeof DailyCardSchema>}
       />
     </>
   );

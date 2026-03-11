@@ -2,6 +2,77 @@
  * Shared timing utilities for DailyCard composition.
  * Importable from DailyCard.tsx (rendering) and Root.tsx (calculateMetadata).
  */
+import { z } from "zod";
+
+const ItemSchema = z.object({
+  primary: z.string(),
+  secondary: z.string().optional(),
+  avatar_url: z.string().optional(),
+  initials: z.string().optional(),
+});
+
+const DailyCardImagesSchema = z.object({
+  overall: z.string(),
+  github: z.string(),
+  discord: z.string(),
+  market: z.string(),
+  strategic: z.string(),
+});
+
+export const FaderConfigSchema = z.object({
+  glbFile: z.string().default("Modulation_GLBs/cron_red.glb"),
+  opacity: z.number().min(0).max(1).step(0.01).default(0.4),
+  sceneScale: z.number().step(0.1).default(1),
+  sceneOffsetX: z.number().step(0.1).default(0),
+  sceneOffsetY: z.number().step(0.1).default(0),
+  sceneOffsetZ: z.number().step(0.1).default(0),
+  cameraYOffset: z.number().step(0.5).default(15),
+
+  custom: z.boolean().default(true),
+  useStandardAnimation: z.boolean().default(false),
+  animationLoop: z.boolean().default(true),
+  startFrame: z.number().step(1).default(0),
+
+  rimGlow: z.boolean().default(false),
+  rimColor: z.string().default("#ffffff"),
+  rimIntensity: z.number().step(0.1).default(2),
+  rimPower: z.number().step(0.1).default(2),
+
+  effectorInnerRadius: z.number().step(0.1).default(5),
+  effectorOuterRadius: z.number().step(0.1).default(25),
+  effectorStrength: z.number().step(0.01).default(1),
+  rotationAxis: z.enum(["x", "y", "z"]).default("z"),
+
+  fadeInFrames: z.number().step(1).default(30),
+  fadeOutFrames: z.number().step(1).default(30),
+});
+
+export type FaderConfig = z.infer<typeof FaderConfigSchema>;
+/** Pre-parsed default — all fields filled in. Use in defaultProps to avoid Studio crashes. */
+export const DEFAULT_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({});
+export type FaderSceneKey = "intro" | "key_facts" | "github_prs" | "discord" | "feedback" | "council" | "outro";
+
+export const DailyCardSchema = z.object({
+  date: z.string(),
+  headline: z.string(),
+  poster_url: z.string(),
+  site_url: z.string(),
+  key_facts: z.array(z.string()),
+  github_prs: z.array(ItemSchema),
+  discord_updates: z.array(ItemSchema),
+  user_feedback: z.array(ItemSchema),
+  council_focus: z.string(),
+  council_topics: z.array(ItemSchema),
+  council_questions: z.array(ItemSchema),
+  images: DailyCardImagesSchema.optional(),
+  fader_intro: FaderConfigSchema.default({}),
+  fader_key_facts: FaderConfigSchema.default({}),
+  fader_github_prs: FaderConfigSchema.default({}),
+  fader_discord: FaderConfigSchema.default({}),
+  fader_feedback: FaderConfigSchema.default({}),
+  fader_council: FaderConfigSchema.default({}),
+  fader_outro: FaderConfigSchema.default({}),
+});
 
 export interface Item {
   primary: string;
@@ -31,13 +102,21 @@ export interface DailyCardProps {
   council_topics: Item[];
   council_questions: Item[];
   images?: DailyCardImages;
+  /** Per-scene 3D background config — exposed for interactive Remotion Studio tuning */
+  fader_intro: FaderConfig;
+  fader_key_facts: FaderConfig;
+  fader_github_prs: FaderConfig;
+  fader_discord: FaderConfig;
+  fader_feedback: FaderConfig;
+  fader_council: FaderConfig;
+  fader_outro: FaderConfig;
 }
 
-export const DATE_FRAMES = 60;
-export const CHAPTER_FRAMES = 75;
+export const DATE_FRAMES = 40;
+export const CHAPTER_FRAMES = 55;
 export const OUTRO_FRAMES = 120;
 /** Opening sequence: scan reveal + fade + aggressive zoom-in */
-export const OPENING_FRAMES = 80; // 50 scan + 12 fade + 18 zoom
+export const OPENING_FRAMES = 55; // 35 scan + 8 fade + 12 zoom
 export const MAX_FRAMES = 2700; // 90s at 30fps
 
 /** Compute per-item frame duration from word count.
@@ -81,8 +160,15 @@ function computeTotalFramesScaled(props: DailyCardProps, scale: number): number 
 
 /** Scale factor to cap total duration at MAX_FRAMES (90s). Returns 1.0 if already within cap. */
 export function computeScaleFactor(props: DailyCardProps): number {
+  const fixedFrames = computeTotalFramesScaled(props, 0);
   const raw = computeTotalFramesScaled(props, 1.0);
-  return raw > MAX_FRAMES ? MAX_FRAMES / raw : 1.0;
+  const scalableFrames = raw - fixedFrames;
+
+  if (raw <= MAX_FRAMES || scalableFrames <= 0) {
+    return 1.0;
+  }
+
+  return Math.max(0, (MAX_FRAMES - fixedFrames) / scalableFrames);
 }
 
 /** Sum all segment durations, capped at MAX_FRAMES (90s). */
