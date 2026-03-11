@@ -20,8 +20,12 @@ import { ToneMappingMode, BlendFunction } from "postprocessing";
 import {
   Vector2,
   AnimationClip,
+  AnimationMixer,
+  Mesh,
   PerspectiveCamera as THREEPerspectiveCamera,
 } from "three";
+import type { MeshStandardMaterial } from "three";
+import { createRimMaterial } from "./ThreeD/RimMaterial";
 import type { EffectorConfig, EffectMap } from "./ThreeD/Effector";
 import { useEffector } from "./ThreeD/useEffector";
 import { useCameraAnimation } from "./ThreeD/useCameraAnimation";
@@ -55,6 +59,28 @@ interface ThreeDBackgroundProps {
   graphCamera?: GraphCamera;
   /** Center of the graph canvas in canvas coords (default 2500). */
   graphCameraCenter?: number;
+  /** Use standard Three.js AnimationMixer instead of the effector system. */
+  useStandardAnimation?: boolean;
+  /** Uniform scale for the entire GLB scene (default 1). */
+  sceneScale?: number;
+  /** Play GLB animation once instead of looping (default false). */
+  animationLoop?: boolean;
+  /** Apply rim glow shader to all meshes (default false). */
+  rimGlow?: boolean;
+  /** Rim glow color (default "#ffffff"). */
+  rimColor?: string;
+  /** Rim brightness — values > 1 trigger Bloom (default 2). */
+  rimIntensity?: number;
+  /** Fresnel exponent — higher = thinner rim (default 2). */
+  rimPower?: number;
+  /** Custom GLB — skip all material/effect overrides, play as-is with original materials. */
+  custom?: boolean;
+  /** Frame offset — animation starts from 0 at this video frame (for scene-timed GLBs). */
+  startFrame?: number;
+  /** Scene position offset [x, y, z] — moves the entire GLB in 3D space (default [0,0,0]). */
+  sceneOffset?: [number, number, number];
+  /** Camera Y offset when using graphCamera (default 15). */
+  cameraYOffset?: number;
 }
 
 const GlbModel = ({
@@ -94,6 +120,117 @@ const GlbModel = ({
 };
 
 /**
+ * SimpleGlbModel — Standard Three.js AnimationMixer playback.
+ * Frame-accurate: sets mixer time from Remotion's frame, no real-time clock.
+ */
+const SimpleGlbModel = ({
+  url,
+  sceneScale = 1,
+  loop = true,
+  startFrame = 0,
+  rimGlow = false,
+  rimColor = "#ffffff",
+  rimIntensity = 2,
+  rimPower = 2,
+  offset = [0, 0, 0] as [number, number, number],
+}: {
+  url: string;
+  sceneScale?: number;
+  loop?: boolean;
+  startFrame?: number;
+  rimGlow?: boolean;
+  rimColor?: string;
+  rimIntensity?: number;
+  rimPower?: number;
+  offset?: [number, number, number];
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const { scene, animations } = useGLTF(url);
+
+  // Apply rim glow material to all meshes
+  useMemo(() => {
+    if (!rimGlow) return;
+    scene.traverse((child) => {
+      if (!(child instanceof Mesh)) return;
+      const orig = child.material as MeshStandardMaterial;
+      const hasAlpha = orig.transparent || (orig.opacity != null && orig.opacity < 1) || !!orig.alphaMap || orig.alphaTest > 0;
+      const rim = createRimMaterial({
+        baseColor: orig.color ?? "#aaaaaa",
+        emissiveColor: orig.emissive ?? "#000000",
+        emissiveIntensity: orig.emissiveIntensity ?? 0,
+        map: orig.map ?? null,
+        opacity: orig.opacity ?? 1,
+        transparent: hasAlpha,
+        alphaTest: orig.alphaTest ?? 0,
+        rimColor,
+        rimIntensity,
+        rimPower,
+      });
+      rim.uniforms.u_weight.value = 1.0;
+      child.material = rim;
+    });
+  }, [scene, rimGlow, rimColor, rimIntensity, rimPower]);
+
+  const { mixer, maxDuration } = useMemo(() => {
+    const m = new AnimationMixer(scene);
+    let dur = 0;
+    for (const clip of animations) {
+      m.clipAction(clip).play();
+      dur = Math.max(dur, clip.duration);
+    }
+    return { mixer: m, maxDuration: dur };
+  }, [scene, animations]);
+
+  // Clamp time to clip duration for non-looping mode (hold last frame)
+  const time = Math.max(0, frame - startFrame) / fps;
+  const clampedTime =
+    maxDuration > 0 ? Math.min(time, Math.max(0, maxDuration - 0.001)) : 0;
+  mixer.setTime(loop ? time : clampedTime);
+
+  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
+};
+
+/**
+ * CustomGlbModel — Plays the GLB exactly as-is. No material overrides, no rim glow.
+ * For GLBs with baked custom properties and internal modulation.
+ */
+const CustomGlbModel = ({
+  url,
+  sceneScale = 1,
+  loop = true,
+  startFrame = 0,
+  offset = [0, 0, 0] as [number, number, number],
+}: {
+  url: string;
+  sceneScale?: number;
+  loop?: boolean;
+  startFrame?: number;
+  offset?: [number, number, number];
+}) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
+  const { scene, animations } = useGLTF(url);
+
+  const { mixer, maxDuration } = useMemo(() => {
+    const m = new AnimationMixer(scene);
+    let dur = 0;
+    for (const clip of animations) {
+      m.clipAction(clip).play();
+      dur = Math.max(dur, clip.duration);
+    }
+    return { mixer: m, maxDuration: dur };
+  }, [scene, animations]);
+
+  const time = Math.max(0, frame - startFrame) / fps;
+  const clampedTime =
+    maxDuration > 0 ? Math.min(time, Math.max(0, maxDuration - 0.001)) : 0;
+  mixer.setTime(loop ? time : clampedTime);
+
+  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
+};
+
+/**
  * Overrides the 3D camera with the graph's 2D camera.
  * Runs in useFrame so it overwrites useCameraAnimation (which runs during render).
  */
@@ -101,10 +238,12 @@ const GraphCameraSync = ({
   cameraRef,
   graphCamera,
   center,
+  yOffset = 15,
 }: {
   cameraRef: React.RefObject<THREEPerspectiveCamera | null>;
   graphCamera: GraphCamera;
   center: number;
+  yOffset?: number;
 }) => {
   useFrame(() => {
     const camera = cameraRef.current;
@@ -113,7 +252,7 @@ const GraphCameraSync = ({
     // Map 2D canvas coords → 3D position (subtle lateral drift + Z from zoom)
     const lateralScale = 0.002;
     camera.position.x = (graphCamera.x - center) * lateralScale;
-    camera.position.y = -(graphCamera.y - center) * lateralScale + 3;
+    camera.position.y = -(graphCamera.y - center) * lateralScale + yOffset;
     camera.position.z = 10 + (1 - graphCamera.zoom) * 5;
 
     // Face straight forward — no rotation, pure 2D panning
@@ -163,6 +302,17 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   audioShakeBass = 0.2,
   graphCamera,
   graphCameraCenter = 2500,
+  useStandardAnimation = false,
+  sceneScale = 1,
+  animationLoop = true,
+  rimGlow = false,
+  rimColor = "#ffffff",
+  rimIntensity = 2,
+  rimPower = 2,
+  custom = false,
+  startFrame = 0,
+  sceneOffset = [0, 0, 0] as [number, number, number],
+  cameraYOffset = 15,
 }) => {
   const { width, height } = useVideoConfig();
   const frame = useCurrentFrame();
@@ -219,16 +369,22 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
           intensity={1}
         />
 
-        <GlbModel
-          url={resolveAsset(glbFile)}
-          effectorConfig={effectorConfig}
-          rotationAxis={rotationAxis}
-          effectMap={mergedEffectMap}
-          cameraRef={cameraRef}
-          onCameraUpdate={(v) => {
-            velocityRef.current = v;
-          }}
-        />
+        {custom ? (
+          <CustomGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loop={animationLoop} startFrame={startFrame} offset={sceneOffset} />
+        ) : useStandardAnimation ? (
+          <SimpleGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loop={animationLoop} startFrame={startFrame} rimGlow={rimGlow} rimColor={rimColor} rimIntensity={rimIntensity} rimPower={rimPower} offset={sceneOffset} />
+        ) : (
+          <GlbModel
+            url={resolveAsset(glbFile)}
+            effectorConfig={effectorConfig}
+            rotationAxis={rotationAxis}
+            effectMap={mergedEffectMap}
+            cameraRef={cameraRef}
+            onCameraUpdate={(v) => {
+              velocityRef.current = v;
+            }}
+          />
+        )}
 
         {/* Graph camera sync — overrides GLB camera when provided */}
         {graphCamera && (
@@ -236,6 +392,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
             cameraRef={cameraRef}
             graphCamera={graphCamera}
             center={graphCameraCenter}
+            yOffset={cameraYOffset}
           />
         )}
 

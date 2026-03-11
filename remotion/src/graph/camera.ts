@@ -36,11 +36,11 @@ export const ZOOM = {
   /** Full graph overview */
   overview: 0.22,
   /** Center hub, shows nearby topic labels */
-  hub: 1.0,
+  hub: 1.7,
   /** Focused on a topic node + its children visible */
-  topic: 0.52,
+  topic: 0.7,
   /** Zoomed into a specific content card */
-  content: 0.72,
+  content: 0.85,
 } as const;
 
 // ── Camera math ──────────────────────────────────────────────────────────────

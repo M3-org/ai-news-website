@@ -37,9 +37,9 @@ import { DATE_FRAMES, CHAPTER_FRAMES, OUTRO_FRAMES, OPENING_FRAMES, wordFrames, 
 // ── Opening timing ───────────────────────────────────────────────────────────
 
 /** Frames for the scan/reveal phase (nodes appear, no text) */
-const SCAN_FRAMES = 50;
+const SCAN_FRAMES = 35;
 /** Frames for nodes to fade out after scan */
-const FADE_OUT_FRAMES = 12;
+const FADE_OUT_FRAMES = 8;
 
 // ── Segment types ────────────────────────────────────────────────────────────
 
@@ -918,4 +918,4 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
 };
 
 // Re-export for use in DailyCard
-export { buildGraphTimeline, resolveGraphCamera, type GraphTimeline, OPENING_FRAMES };
+export { buildGraphTimeline, resolveGraphCamera, type GraphTimeline, type Seg, OPENING_FRAMES };
