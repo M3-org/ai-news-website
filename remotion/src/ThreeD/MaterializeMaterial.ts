@@ -6,7 +6,7 @@
  * A hot glowing edge appears at the dissolve boundary.
  * Samples the original material's texture so objects keep their look.
  */
-import { ShaderMaterial, DoubleSide, Vector3, Color, Texture } from "three";
+import { ShaderMaterial, DoubleSide, Vector3, Color, Texture, type Side } from "three";
 
 const vertexShader = /* glsl */ `
 #include <skinning_pars_vertex>
@@ -46,6 +46,9 @@ uniform float u_rimPower;
 uniform float u_burnIntensity;
 uniform sampler2D u_map;
 uniform bool u_hasMap;
+uniform float u_opacity;
+uniform float u_alphaTest;
+uniform float u_unlit;
 // Composited rim glow (from "rim" effect token)
 uniform vec3 u_rimGlowColor;
 uniform float u_rimGlowIntensity;
@@ -96,19 +99,31 @@ void main() {
   float edgeDist = u_threshold - n;
   float edge = 1.0 - smoothstep(0.0, u_edgeWidth, edgeDist);
 
+  vec4 texel = u_hasMap ? texture2D(u_map, v_uv) : vec4(1.0);
+  float alpha = texel.a * u_opacity;
+  if (alpha < u_alphaTest) discard;
+
   // Base color — sample original texture if available, otherwise use flat color + emissive
   vec3 base;
   if (u_hasMap) {
-    vec3 texel = texture2D(u_map, v_uv).rgb;
-    base = texel * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    if (u_unlit > 0.5) {
+      base = texel.rgb * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    } else {
+      vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
+      float diffuse = 0.4 + 0.6 * max(dot(v_normal, lightDir), 0.0);
+      base = texel.rgb * diffuse + u_emissiveColor * u_emissiveIntensity;
+    }
   } else {
-    // No texture — apply simple lighting + emissive for prebaked
-    vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
-    float diffuse = 0.4 + 0.6 * max(dot(v_normal, lightDir), 0.0);
-    vec3 viewDir = normalize(v_viewPos);
-    float rimDot = 1.0 - max(dot(normalize(v_normal), viewDir), 0.0);
-    float rim = pow(rimDot, u_rimPower) * 0.5;
-    base = u_baseColor * diffuse + u_baseColor * rim + u_emissiveColor * u_emissiveIntensity;
+    if (u_unlit > 0.5) {
+      base = u_baseColor + u_emissiveColor * u_emissiveIntensity;
+    } else {
+      vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
+      float diffuse = 0.4 + 0.6 * max(dot(v_normal, lightDir), 0.0);
+      vec3 viewDir = normalize(v_viewPos);
+      float rimDot = 1.0 - max(dot(normalize(v_normal), viewDir), 0.0);
+      float rim = pow(rimDot, u_rimPower) * 0.5;
+      base = u_baseColor * diffuse + u_baseColor * rim + u_emissiveColor * u_emissiveIntensity;
+    }
   }
 
   vec3 color = base;
@@ -124,7 +139,7 @@ void main() {
     color += u_rimGlowColor * rgRim * u_rimGlowIntensity * u_rimGlowWeight;
   }
 
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(color, alpha);
 }
 `;
 
@@ -138,6 +153,11 @@ export interface MaterializeOptions {
   rimPower?: number;
   burnIntensity?: number;
   map?: Texture | null;
+  opacity?: number;
+  transparent?: boolean;
+  alphaTest?: number;
+  side?: Side;
+  unlit?: boolean;
 }
 
 export function createMaterializeMaterial(opts: MaterializeOptions = {}): ShaderMaterial {
@@ -148,6 +168,9 @@ export function createMaterializeMaterial(opts: MaterializeOptions = {}): Shader
   const edgeWidth = Math.max(1e-4, opts.edgeWidth ?? 0.08);
   const noiseScale = Math.max(1e-4, opts.noiseScale ?? 6.0);
   const rimPower = Math.max(1e-4, opts.rimPower ?? 3.0);
+  const opacity = opts.opacity ?? 1.0;
+  const alphaTest = opts.alphaTest ?? 0.0;
+  const isTransparent = opts.transparent ?? (opacity < 1.0 || alphaTest > 0);
 
   return new ShaderMaterial({
     uniforms: {
@@ -162,6 +185,9 @@ export function createMaterializeMaterial(opts: MaterializeOptions = {}): Shader
       u_burnIntensity: { value: opts.burnIntensity ?? 3.0 },
       u_map: { value: opts.map ?? null },
       u_hasMap: { value: hasMap },
+      u_opacity: { value: opacity },
+      u_alphaTest: { value: alphaTest },
+      u_unlit: { value: opts.unlit ? 1.0 : 0.0 },
       u_rimGlowColor: { value: new Vector3(1, 1, 1) },
       u_rimGlowIntensity: { value: 0.0 },
       u_rimGlowPower: { value: 2.0 },
@@ -169,7 +195,7 @@ export function createMaterializeMaterial(opts: MaterializeOptions = {}): Shader
     },
     vertexShader,
     fragmentShader,
-    side: DoubleSide,
-    transparent: false,
+    side: opts.side ?? DoubleSide,
+    transparent: isTransparent,
   });
 }
