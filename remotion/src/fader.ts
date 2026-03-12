@@ -23,6 +23,10 @@ export interface ActiveFaderScene {
   sceneFrom: number;
 }
 
+// Warm-mount GLBs before the visible fade-in starts so late transform/init
+// frames are hidden behind 0 opacity instead of flashing at authored origin.
+const GLB_WARMUP_FRAMES = 12;
+
 const SECTION_KEY_TO_FADER: Record<SectionKey, FaderSceneKey> = {
   key_facts: "key_facts",
   github_prs: "github_prs",
@@ -88,29 +92,57 @@ export function resolveActiveFaderScenes(
     const config = configs[bound.key];
     if (!config) continue;
 
-    const visibleFrom = bound.from - config.fadeInFrames;
+    const isStartScene = bound.from === 0;
+    const visibleFrom = isStartScene ? 0 : bound.from - config.fadeInFrames;
+    const mountFrom = isStartScene ? 0 : visibleFrom - GLB_WARMUP_FRAMES;
     const visibleTo = bound.to;
-    if (frame < visibleFrom || frame >= visibleTo) {
+    if (frame < mountFrom || frame >= visibleTo) {
       continue;
     }
 
-    const fadeInEnvelope =
-      config.fadeInFrames > 0 && frame < bound.from
-        ? (frame - visibleFrom) / config.fadeInFrames
-        : 1;
-    const fadeOutStart = bound.to - config.fadeOutFrames;
-    const fadeOutEnvelope =
-      config.fadeOutFrames > 0 && frame >= fadeOutStart
-        ? (bound.to - frame) / config.fadeOutFrames
-        : 1;
+    const computedOpacity =
+      isStartScene
+        ? (() => {
+            const introFadeStart = GLB_WARMUP_FRAMES;
+            const introFadeEnd = introFadeStart + config.fadeInFrames;
+            const fadeInEnvelope =
+              frame < introFadeStart
+                ? 0
+                : config.fadeInFrames > 0 && frame < introFadeEnd
+                  ? (frame - introFadeStart) / config.fadeInFrames
+                  : 1;
+            const fadeOutStart = bound.to - config.fadeOutFrames;
+            const fadeOutEnvelope =
+              config.fadeOutFrames > 0 && frame >= fadeOutStart
+                ? (bound.to - frame) / config.fadeOutFrames
+                : 1;
+            const envelope = Math.max(
+              0,
+              Math.min(1, Math.min(fadeInEnvelope, fadeOutEnvelope)),
+            );
+            return config.opacity * envelope;
+          })()
+        : frame < visibleFrom
+        ? 0
+        : (() => {
+            const fadeInEnvelope =
+              config.fadeInFrames > 0 && frame < bound.from
+                ? (frame - visibleFrom) / config.fadeInFrames
+                : 1;
+            const fadeOutStart = bound.to - config.fadeOutFrames;
+            const fadeOutEnvelope =
+              config.fadeOutFrames > 0 && frame >= fadeOutStart
+                ? (bound.to - frame) / config.fadeOutFrames
+                : 1;
 
-    const envelope = Math.max(
-      0,
-      Math.min(1, Math.min(fadeInEnvelope, fadeOutEnvelope)),
-    );
-    const computedOpacity = config.opacity * envelope;
+            const envelope = Math.max(
+              0,
+              Math.min(1, Math.min(fadeInEnvelope, fadeOutEnvelope)),
+            );
+            return config.opacity * envelope;
+          })();
 
-    if (computedOpacity >= 0.005) {
+    if ((isStartScene && frame < GLB_WARMUP_FRAMES) || frame < visibleFrom || computedOpacity >= 0.005) {
       results.push({
         config,
         computedOpacity,

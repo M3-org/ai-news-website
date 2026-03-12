@@ -24,6 +24,10 @@ import {
   wordFrames,
   type FaderConfig,
   type FaderSceneKey,
+  DEFAULT_FADER_CONFIG,
+  DEFAULT_INTRO_FADER_CONFIG,
+  DEFAULT_KEY_FACTS_FADER_CONFIG,
+  DEFAULT_COUNCIL_FADER_CONFIG,
 } from "./timing";
 import { GraphCanvas, buildGraphTimeline, resolveGraphCamera, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
 import { GLBFader } from "./GLBFader";
@@ -45,15 +49,15 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
   const brandColor = getTopicColorForFrame(props, frame, timeline);
   const graphCam = resolveGraphCamera(frame, timeline).cam;
 
-  // Build fader configs record from props
+  // Build fader configs record from props (fall back to tuned defaults if schema hasn't parsed yet)
   const faderConfigs = useMemo<Record<FaderSceneKey, FaderConfig>>(() => ({
-    intro: props.fader_intro,
-    key_facts: props.fader_key_facts,
-    github_prs: props.fader_github_prs,
-    discord: props.fader_discord,
-    feedback: props.fader_feedback,
-    council: props.fader_council,
-    outro: props.fader_outro,
+    intro: props.fader_intro ?? DEFAULT_INTRO_FADER_CONFIG,
+    key_facts: props.fader_key_facts ?? DEFAULT_KEY_FACTS_FADER_CONFIG,
+    github_prs: props.fader_github_prs ?? DEFAULT_FADER_CONFIG,
+    discord: props.fader_discord ?? DEFAULT_FADER_CONFIG,
+    feedback: props.fader_feedback ?? DEFAULT_FADER_CONFIG,
+    council: props.fader_council ?? DEFAULT_COUNCIL_FADER_CONFIG,
+    outro: props.fader_outro ?? DEFAULT_FADER_CONFIG,
   }), [props.fader_intro, props.fader_key_facts, props.fader_github_prs, props.fader_discord, props.fader_feedback, props.fader_council, props.fader_outro]);
 
   const sceneBounds = useMemo(() => buildFaderSceneBounds(timeline), [timeline]);

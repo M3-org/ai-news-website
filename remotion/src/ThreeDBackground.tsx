@@ -25,8 +25,10 @@ import {
   Mesh,
   MeshBasicMaterial,
   MeshStandardMaterial,
+  Object3D,
   PerspectiveCamera as THREEPerspectiveCamera,
 } from "three";
+import { clone as cloneSkeleton } from "three/examples/jsm/utils/SkeletonUtils.js";
 import { createRimMaterial } from "./ThreeD/RimMaterial";
 import type { EffectorConfig, EffectMap } from "./ThreeD/Effector";
 import { useEffector } from "./ThreeD/useEffector";
@@ -39,6 +41,14 @@ export interface GraphCamera {
   x: number;
   y: number;
   zoom: number;
+}
+
+function buildNodeMap(root: Object3D): Record<string, Object3D> {
+  const result: Record<string, Object3D> = {};
+  root.traverse((obj) => {
+    if (obj.name) result[obj.name] = obj;
+  });
+  return result;
 }
 
 interface ThreeDBackgroundProps {
@@ -120,7 +130,9 @@ const GlbModel = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const { scene, nodes, animations } = useGLTF(url);
+  const { scene: sourceScene, animations } = useGLTF(url);
+  const scene = useMemo(() => cloneSkeleton(sourceScene), [sourceScene]);
+  const nodes = useMemo(() => buildNodeMap(scene), [scene]);
 
   const { velocity, fov } = useCameraAnimation({
     animations: animations as AnimationClip[],
@@ -161,12 +173,11 @@ const GlbModel = ({
   const time = Math.max(0, frame - startFrame) / fps;
   mixer.setTime(resolveLoopTime(time, maxDuration, loopMode));
 
-  // Apply transforms imperatively so the very first frame is correct (no flash).
-  scene.scale.setScalar(sceneScale);
-  scene.rotation.set(0, 0, 0);
-  scene.position.set(offset[0], offset[1], offset[2]);
-
-  return <primitive object={scene} />;
+  return (
+    <group scale={sceneScale} position={offset}>
+      <primitive object={scene} />
+    </group>
+  );
 };
 
 function useRimGlowMaterial(
@@ -285,7 +296,8 @@ const SimpleGlbModel = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const { scene, animations } = useGLTF(url);
+  const { scene: sourceScene, animations } = useGLTF(url);
+  const scene = useMemo(() => cloneSkeleton(sourceScene), [sourceScene]);
 
   useRimGlowMaterial(scene, rimGlow, rimColor, rimIntensity, rimPower);
 
@@ -303,11 +315,11 @@ const SimpleGlbModel = ({
   const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
   mixer.setTime(resolvedTime);
 
-  scene.scale.setScalar(sceneScale);
-  scene.rotation.set(0, 0, 0);
-  scene.position.set(offset[0], offset[1], offset[2]);
-
-  return <primitive object={scene} />;
+  return (
+    <group scale={sceneScale} position={offset}>
+      <primitive object={scene} />
+    </group>
+  );
 };
 
 /**
@@ -337,7 +349,8 @@ const CustomGlbModel = ({
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
-  const { scene, animations } = useGLTF(url);
+  const { scene: sourceScene, animations } = useGLTF(url);
+  const scene = useMemo(() => cloneSkeleton(sourceScene), [sourceScene]);
 
   useRimGlowMaterial(scene, rimGlow, rimColor, rimIntensity, rimPower);
 
@@ -355,11 +368,11 @@ const CustomGlbModel = ({
   const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
   mixer.setTime(resolvedTime);
 
-  scene.scale.setScalar(sceneScale);
-  scene.rotation.set(0, 0, 0);
-  scene.position.set(offset[0], offset[1], offset[2]);
-
-  return <primitive object={scene} />;
+  return (
+    <group scale={sceneScale} position={offset}>
+      <primitive object={scene} />
+    </group>
+  );
 };
 
 /**
