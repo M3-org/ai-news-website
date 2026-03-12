@@ -71,7 +71,7 @@ function imageForTopic(topicKey: string, images: DailyCardImages): string {
   if (topicKey === "discord") return images.discord;
   if (topicKey === "feedback") return images.discord;
   if (topicKey === "key_facts") return images.market;
-  if (topicKey === "council") return images.strategic;
+  if (topicKey === "council") return "";
   return images.overall;
 }
 
