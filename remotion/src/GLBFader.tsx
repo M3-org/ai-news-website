@@ -52,6 +52,7 @@ export const GLBFader: React.FC<GLBFaderProps> = ({
           rotationAxis={scene.config.rotationAxis}
           effectorReveal={scene.config.effectorReveal}
           effectorRevealFrames={scene.config.effectorRevealFrames}
+          effectorRevealPower={scene.config.effectorRevealPower}
           graphCamera={graphCamera}
           graphCameraCenter={graphCameraCenter}
         />
