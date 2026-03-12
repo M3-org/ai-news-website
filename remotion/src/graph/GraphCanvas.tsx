@@ -507,7 +507,12 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
 
   const resolvedCamera = resolveGraphCamera(frame, timeline);
   const cam = resolvedCamera.cam;
-  const { translateX, translateY, scale: camScale } = cameraTransform(cam, 1080);
+  const visualCam: CameraTarget = {
+    x: cam.x,
+    y: cam.y,
+    zoom: cam.zoom * 1.16,
+  };
+  const { translateX, translateY, scale: camScale } = cameraTransform(visualCam, 1080);
   const camRoll = sampleCameraRoll(frame, timeline, resolvedCamera, 1080);
 
   // Microshake — fast sub-pixel vibration for mechanical/alive feel
@@ -651,9 +656,9 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
   });
 
   // Glitch jitter — sharp micro-jumps during scan on specific frame patterns
-  const glitchActive = !textVisible && (frame % 17 < 2 || frame % 23 < 1);
-  const glitchX = glitchActive ? Math.sin(frame * 127.1) * 2.4 : 0;
-  const glitchY = glitchActive ? Math.cos(frame * 311.7) * 1.8 : 0;
+  const glitchActive = !textVisible && frame % 29 === 0;
+  const glitchX = glitchActive ? Math.sin(frame * 127.1) * 1.1 : 0;
+  const glitchY = glitchActive ? Math.cos(frame * 311.7) * 0.8 : 0;
 
   return (
     <div
@@ -684,7 +689,12 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             willChange: "transform",
           }}
         >
-          <DotGrid cam={cam} glows={glowSpots} ignition={ignitionProgress} ignitionIntensity={ignitionIntensity} />
+          <DotGrid
+            cam={visualCam}
+            glows={glowSpots}
+            ignition={ignitionProgress}
+            ignitionIntensity={ignitionIntensity * 0.62}
+          />
 
           {/* ── Reveal FX: Canvas-space ── */}
 
@@ -693,14 +703,14 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             <div
               style={{
                 position: "absolute",
-                left: layout.center.x - 600,
-                top: layout.center.y - 600,
-                width: 1200,
-                height: 1200,
+                left: layout.center.x - 360,
+                top: layout.center.y - 360,
+                width: 720,
+                height: 720,
                 borderRadius: "50%",
-                background: `radial-gradient(circle, rgba(255,138,0,${(0.12 + centerEnergy * 0.38).toFixed(3)}) 0%, rgba(255,138,0,${(0.04 + centerEnergy * 0.14).toFixed(3)}) 30%, transparent 60%)`,
-                filter: `blur(${20 + centerEnergy * 50}px)`,
-                opacity: centerEnergyOp,
+                background: `radial-gradient(circle, rgba(255,138,0,${(0.06 + centerEnergy * 0.16).toFixed(3)}) 0%, rgba(255,138,0,${(0.02 + centerEnergy * 0.05).toFixed(3)}) 36%, transparent 66%)`,
+                filter: `blur(${8 + centerEnergy * 14}px)`,
+                opacity: centerEnergyOp * 0.52,
                 pointerEvents: "none",
               }}
             />
@@ -711,36 +721,15 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             <div
               style={{
                 position: "absolute",
-                left: layout.center.x - 2200,
-                top: layout.center.y - 2200,
-                width: 4400,
-                height: 4400,
+                left: layout.center.x - 1600,
+                top: layout.center.y - 1600,
+                width: 3200,
+                height: 3200,
                 borderRadius: "50%",
-                border: "2.5px solid #FF8A00",
-                boxShadow: "0 0 24px #FF8A0050, 0 0 60px #FF8A0025, inset 0 0 24px #FF8A0015",
+                border: "1.5px solid rgba(255,138,0,0.5)",
                 transform: `scale(${sw1})`,
                 transformOrigin: "center center",
-                opacity: sw1Op,
-                pointerEvents: "none",
-              }}
-            />
-          )}
-
-          {/* Shockwave ring 2 */}
-          {sw2Op > 0.01 && (
-            <div
-              style={{
-                position: "absolute",
-                left: layout.center.x - 2200,
-                top: layout.center.y - 2200,
-                width: 4400,
-                height: 4400,
-                borderRadius: "50%",
-                border: "1.5px solid #FF8A00",
-                boxShadow: "0 0 18px #FF8A0040, 0 0 40px #FF8A0018",
-                transform: `scale(${sw2})`,
-                transformOrigin: "center center",
-                opacity: sw2Op,
+                opacity: sw1Op * 0.45,
                 pointerEvents: "none",
               }}
             />
@@ -753,7 +742,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
           <CentralNode
             pos={layout.center}
             date={props.date}
-            focus={nodeFocus(layout.center, cam)}
+            focus={nodeFocus(layout.center, visualCam)}
             appearFrame={12}
             revealFrame={SCAN_FRAMES + FADE_OUT_FRAMES}
             textVisible={textVisible}
@@ -767,7 +756,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
               label={topic.label}
               color={topic.color}
               itemCount={topic.items.length}
-              focus={nodeFocus(topic.pos, cam)}
+              focus={nodeFocus(topic.pos, visualCam)}
               energy={Math.max(
                 0,
                 ...segs
@@ -793,7 +782,7 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
                   pos={expandedPos(content.pos)}
                   item={content.item}
                   color={topic.color}
-                  focus={nodeFocus(content.pos, cam)}
+                  focus={nodeFocus(content.pos, visualCam)}
                   energy={Math.max(
                     0,
                     ...segs
@@ -821,8 +810,8 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
           style={{
             position: "absolute",
             inset: 0,
-            background: "radial-gradient(circle, rgba(255,255,255,0.95) 0%, rgba(255,200,120,0.5) 25%, rgba(255,138,0,0.2) 50%, transparent 70%)",
-            opacity: flashOp,
+            background: "radial-gradient(circle, rgba(255,255,255,0.52) 0%, rgba(255,200,120,0.18) 24%, transparent 58%)",
+            opacity: flashOp * 0.4,
             mixBlendMode: "screen",
             pointerEvents: "none",
           }}
@@ -831,38 +820,20 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
 
       {/* Lens flare cross */}
       {flareOp > 0.01 && (
-        <>
-          <div
-            style={{
-              position: "absolute",
-              top: "50%",
-              left: 0,
-              right: 0,
-              height: 3,
-              transform: "translateY(-50%)",
-              background: "linear-gradient(90deg, transparent 5%, rgba(255,180,80,0.5) 25%, rgba(255,255,255,0.85) 46%, rgba(255,255,255,0.85) 54%, rgba(255,180,80,0.5) 75%, transparent 95%)",
-              opacity: flareOp,
-              filter: "blur(4px)",
-              mixBlendMode: "screen",
-              pointerEvents: "none",
-            }}
-          />
-          <div
-            style={{
-              position: "absolute",
-              top: 0,
-              bottom: 0,
-              left: "50%",
-              width: 2,
-              transform: "translateX(-50%)",
-              background: "linear-gradient(180deg, transparent 10%, rgba(255,180,80,0.35) 30%, rgba(255,255,255,0.6) 47%, rgba(255,255,255,0.6) 53%, rgba(255,180,80,0.35) 70%, transparent 90%)",
-              opacity: flareOp * 0.5,
-              filter: "blur(3px)",
-              mixBlendMode: "screen",
-              pointerEvents: "none",
-            }}
-          />
-        </>
+        <div
+          style={{
+            position: "absolute",
+            top: "50%",
+            left: 0,
+            right: 0,
+            height: 1,
+            transform: "translateY(-50%)",
+            background: "linear-gradient(90deg, transparent 12%, rgba(255,180,80,0.22) 30%, rgba(255,255,255,0.52) 50%, rgba(255,180,80,0.22) 70%, transparent 88%)",
+            opacity: flareOp * 0.35,
+            mixBlendMode: "screen",
+            pointerEvents: "none",
+          }}
+        />
       )}
 
       {/* Scan bar — horizontal sweep line */}
@@ -873,32 +844,9 @@ export const GraphCanvas: React.FC<GraphCanvasProps> = ({ props }) => {
             left: 0,
             right: 0,
             top: scanBarY - 2,
-            height: 4,
-            background: "linear-gradient(90deg, transparent 0%, rgba(255,138,0,0.5) 20%, rgba(255,255,255,0.7) 50%, rgba(255,138,0,0.5) 80%, transparent 100%)",
-            boxShadow: "0 0 20px rgba(255,138,0,0.4), 0 0 60px rgba(255,138,0,0.15)",
-            opacity: scanBarOp,
-            pointerEvents: "none",
-          }}
-        />
-      )}
-
-      {/* Aftermath ring — residual wavefront after flash */}
-      {afterOp > 0.01 && (
-        <div
-          style={{
-            position: "absolute",
-            left: "50%",
-            top: "50%",
-            width: 2400,
-            height: 2400,
-            marginLeft: -1200,
-            marginTop: -1200,
-            borderRadius: "50%",
-            border: "2px solid rgba(255,200,120,0.5)",
-            boxShadow: "0 0 30px rgba(255,138,0,0.2), 0 0 80px rgba(255,138,0,0.08)",
-            transform: `scale(${afterProgress})`,
-            transformOrigin: "center center",
-            opacity: afterOp,
+            height: 2,
+            background: "linear-gradient(90deg, transparent 8%, rgba(255,138,0,0.22) 24%, rgba(255,255,255,0.38) 50%, rgba(255,138,0,0.22) 76%, transparent 92%)",
+            opacity: scanBarOp * 0.45,
             pointerEvents: "none",
           }}
         />
