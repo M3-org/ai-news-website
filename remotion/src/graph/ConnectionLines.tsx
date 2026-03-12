@@ -44,6 +44,111 @@ function expandPos(pos: NodePos, center: NodePos, factor: number): NodePos {
   return { x: center.x + dx * factor, y: center.y + dy * factor };
 }
 
+function renderSynapsePulse(
+  key: string,
+  d: string,
+  len: number,
+  progress: number,
+  opacity: number,
+  color: string,
+  width: number,
+) {
+  return (
+    <React.Fragment key={key}>
+      <path
+        d={d}
+        stroke={color}
+        strokeWidth={width + 7}
+        fill="none"
+        opacity={opacity * 0.28}
+        strokeDasharray={`48 ${len}`}
+        strokeDashoffset={progress}
+        filter="url(#glow-synapse-wide)"
+        strokeLinecap="round"
+      />
+      <path
+        d={d}
+        stroke="#FF9A2F"
+        strokeWidth={width + 3.5}
+        fill="none"
+        opacity={opacity * 0.65}
+        strokeDasharray={`22 ${len}`}
+        strokeDashoffset={progress + 2}
+        filter="url(#glow-amber)"
+        strokeLinecap="round"
+      />
+      <path
+        d={d}
+        stroke="#FFFFFF"
+        strokeWidth={width + 0.8}
+        fill="none"
+        opacity={opacity}
+        strokeDasharray={`10 ${len}`}
+        strokeDashoffset={progress + 5}
+        filter="url(#glow-white)"
+        strokeLinecap="round"
+      />
+    </React.Fragment>
+  );
+}
+
+function renderSynapseShimmer(
+  key: string,
+  d: string,
+  len: number,
+  opacity: number,
+  color: string,
+  filterId: string,
+  dashOffset: number,
+  width: number,
+) {
+  return (
+    <React.Fragment key={key}>
+      <path
+        d={d}
+        stroke={color}
+        strokeWidth={width + 3}
+        fill="none"
+        opacity={opacity * 0.16}
+        strokeDasharray={`26 ${len}`}
+        strokeDashoffset={dashOffset * 0.55}
+        filter={`url(#glow-${filterId})`}
+        strokeLinecap="round"
+      />
+      <path
+        d={d}
+        stroke="#9FE9FF"
+        strokeWidth={width + 0.6}
+        fill="none"
+        opacity={opacity * 0.4}
+        strokeDasharray={`12 ${len}`}
+        strokeDashoffset={dashOffset}
+        filter="url(#glow-white)"
+        strokeLinecap="round"
+      />
+    </React.Fragment>
+  );
+}
+
+function activationEnvelope(
+  frame: number,
+  start: number,
+  attack = 6,
+  decay = 18,
+) {
+  const rise = interpolate(frame, [start, start + attack], [0, 1], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.cubic),
+  });
+  const fall = interpolate(frame, [start + attack, start + attack + decay], [1, 0], {
+    extrapolateLeft: "clamp",
+    extrapolateRight: "clamp",
+    easing: Easing.out(Easing.quad),
+  });
+  return rise * fall;
+}
+
 export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
   layout,
   buildStartFrame,
@@ -51,6 +156,7 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
 }) => {
   const frame = useCurrentFrame();
   const lines: React.ReactNode[] = [];
+  const shimmers: React.ReactNode[] = [];
   const pulses: React.ReactNode[] = [];
   const dots: React.ReactNode[] = [];
   let lineIdx = 0;
@@ -116,37 +222,57 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
       />,
     );
 
+    const topicDotDelay = ctDelay + 10;
+    const topicActivation = activationEnvelope(frame, topicDotDelay, 7, 22);
+    const topicLineLive = interpolate(frame, [topicDotDelay - 2, topicDotDelay + 10], [0, 1], {
+      extrapolateLeft: "clamp",
+      extrapolateRight: "clamp",
+      easing: Easing.out(Easing.cubic),
+    });
+
+    shimmers.push(
+      renderSynapseShimmer(
+        `ct-shimmer-${ti}`,
+        d,
+        ctLen,
+        ctOpacity * topicLineLive * (0.55 + 0.45 * topicActivation + 0.25 * Math.sin(frame * 0.025 + ti * 0.9)),
+        topic.color,
+        topic.key,
+        -frame * 1.4 - ti * 18,
+        1.8,
+      ),
+    );
+
     // Energy packet travelling along Center → Topic line
-    const packetDelay = ctDelay + 15;
-    const packetProgress = interpolate(frame, [packetDelay, packetDelay + 30], [ctLen, -30], {
+    const packetDelay = topicDotDelay;
+    const ctPulseCycle = 84;
+    const ctPulseTravel = 42;
+    const ctPulseFrame = Math.max(0, frame - packetDelay) % ctPulseCycle;
+    const packetProgress = interpolate(ctPulseFrame, [0, ctPulseTravel], [ctLen + 30, -48], {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
       easing: Easing.bezier(0.4, 0, 0.2, 1),
     });
-    const packetOpacity = interpolate(frame, [packetDelay, packetDelay + 5, packetDelay + 25, packetDelay + 30], [0, 1, 1, 0], {
+    const packetOpacity = interpolate(ctPulseFrame, [0, 5, 28, ctPulseTravel], [0, 1, 1, 0], {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
     });
 
-    if (frame >= packetDelay && frame <= packetDelay + 30) {
+    if (frame >= packetDelay) {
       pulses.push(
-        <path
-          key={`ct-pulse-${ti}`}
-          d={d}
-          stroke="#FFFFFF"
-          strokeWidth={4}
-          fill="none"
-          opacity={packetOpacity * 0.8}
-          strokeDasharray={`15 ${ctLen}`}
-          strokeDashoffset={packetProgress}
-          filter="url(#glow-white)"
-          strokeLinecap="round"
-        />
+        renderSynapsePulse(
+          `ct-pulse-${ti}`,
+          d,
+          ctLen,
+          packetProgress,
+          packetOpacity * (0.72 + topicActivation * 0.95),
+          topic.color,
+          3.4,
+        ),
       );
     }
 
     // Topic endpoint dot — appears as line arrives
-    const topicDotDelay = ctDelay + 10;
     const topicDotOpacity = interpolate(frame, [topicDotDelay, topicDotDelay + 8], [0, 1], {
       extrapolateLeft: "clamp",
       extrapolateRight: "clamp",
@@ -205,37 +331,57 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
         />,
       );
 
+      const contentDotDelay = tcDelay + 8;
+      const contentActivation = activationEnvelope(frame, contentDotDelay, 6, 18);
+      const contentLineLive = interpolate(frame, [contentDotDelay - 2, contentDotDelay + 9], [0, 1], {
+        extrapolateLeft: "clamp",
+        extrapolateRight: "clamp",
+        easing: Easing.out(Easing.cubic),
+      });
+
+      shimmers.push(
+        renderSynapseShimmer(
+          `tc-shimmer-${ti}-${ci}`,
+          tcD,
+          tcLen,
+          tcOpacity * contentLineLive * (0.65 + 0.55 * contentActivation + 0.4 * Math.sin(frame * 0.03 + lineIdx * 0.7)),
+          topic.color,
+          topic.key,
+          -frame * 2.2 - lineIdx * 19,
+          1.45,
+        ),
+      );
+
       // Energy packet travelling along Topic → Content line
-      const cPacketDelay = tcDelay + 10;
-      const cPacketProgress = interpolate(frame, [cPacketDelay, cPacketDelay + 25], [tcLen, -20], {
+      const cPacketDelay = contentDotDelay;
+      const cPulseCycle = 64;
+      const cPulseTravel = 34;
+      const cPulseFrame = Math.max(0, frame - cPacketDelay) % cPulseCycle;
+      const cPacketProgress = interpolate(cPulseFrame, [0, cPulseTravel], [tcLen + 20, -28], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
         easing: Easing.bezier(0.4, 0, 0.2, 1),
       });
-      const cPacketOpacity = interpolate(frame, [cPacketDelay, cPacketDelay + 4, cPacketDelay + 20, cPacketDelay + 25], [0, 1, 1, 0], {
+      const cPacketOpacity = interpolate(cPulseFrame, [0, 4, 22, cPulseTravel], [0, 1, 1, 0], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
       });
 
-      if (frame >= cPacketDelay && frame <= cPacketDelay + 25) {
+      if (frame >= cPacketDelay) {
         pulses.push(
-          <path
-            key={`tc-pulse-${ti}-${ci}`}
-            d={tcD}
-            stroke="#FFFFFF"
-            strokeWidth={2.5}
-            fill="none"
-            opacity={cPacketOpacity * 0.6}
-            strokeDasharray={`10 ${tcLen}`}
-            strokeDashoffset={cPacketProgress}
-            filter="url(#glow-white)"
-            strokeLinecap="round"
-          />
+          renderSynapsePulse(
+            `tc-pulse-${ti}-${ci}`,
+            tcD,
+            tcLen,
+            cPacketProgress,
+            cPacketOpacity * (0.7 + contentActivation),
+            topic.color,
+            2.6,
+          ),
         );
       }
 
       // Content endpoint dot
-      const contentDotDelay = tcDelay + 8;
       const contentDotOpacity = interpolate(frame, [contentDotDelay, contentDotDelay + 6], [0, 1], {
         extrapolateLeft: "clamp",
         extrapolateRight: "clamp",
@@ -271,6 +417,14 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
           <feGaussianBlur stdDeviation="3" result="blur" />
           <feComposite in="SourceGraphic" in2="blur" operator="over" />
         </filter>
+        <filter id="glow-amber" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
+        <filter id="glow-synapse-wide" x="-60%" y="-60%" width="220%" height="220%">
+          <feGaussianBlur stdDeviation="10" result="blur" />
+          <feComposite in="SourceGraphic" in2="blur" operator="over" />
+        </filter>
         {/* Orange glow for central hub */}
         <filter id="glow-orange" x="-50%" y="-50%" width="200%" height="200%">
           <feGaussianBlur stdDeviation="4" result="blur" />
@@ -291,6 +445,7 @@ export const ConnectionLines: React.FC<ConnectionLinesProps> = ({
         ))}
       </defs>
       {lines}
+      {shimmers}
       {pulses}
       {dots}
     </svg>
