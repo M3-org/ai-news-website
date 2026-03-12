@@ -32,8 +32,7 @@ export const FaderConfigSchema = z.object({
   cameraYOffset: z.number().step(0.5).default(15),
   fov: z.number().min(1).max(180).step(1).default(50),
 
-  custom: z.boolean().default(true),
-  useStandardAnimation: z.boolean().default(false),
+  mode: z.enum(["custom", "standard", "modulation"]).default("custom"),
   loopMode: z.enum(["none", "loop", "pingpong"]).default("loop"),
   startFrame: z.number().step(1).default(0),
 
