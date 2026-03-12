@@ -91,6 +91,8 @@ interface ThreeDBackgroundProps {
   effectorReveal?: boolean;
   /** Duration of effector reveal in frames (default 60). */
   effectorRevealFrames?: number;
+  /** Power curve for reveal easing — <1 fast start, 1 linear, >1 slow start (default 1). */
+  effectorRevealPower?: number;
 }
 
 const GlbModel = ({
@@ -405,6 +407,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   fov = 50,
   effectorReveal = false,
   effectorRevealFrames = 60,
+  effectorRevealPower = 1,
 }) => {
   const { width, height } = useVideoConfig();
   const frame = useCurrentFrame();
@@ -423,7 +426,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   const revealT = effectorReveal && effectorRevealFrames > 0
     ? Math.min(1, Math.max(0, (frame - startFrame) / effectorRevealFrames))
     : 1;
-  const revealEase = revealT * revealT * (3 - 2 * revealT); // smoothstep
+  const revealEase = Math.pow(revealT, effectorRevealPower);
 
   const effectorConfig: EffectorConfig = {
     innerRadius: effectorInnerRadius * revealEase,

@@ -48,6 +48,7 @@ export const FaderConfigSchema = z.object({
   rotationAxis: z.enum(["x", "y", "z"]).default("z"),
   effectorReveal: z.boolean().default(false),
   effectorRevealFrames: z.number().step(1).default(60),
+  effectorRevealPower: z.number().min(0.1).max(5).step(0.1).default(1),
 
   fadeInFrames: z.number().step(1).default(30),
   fadeOutFrames: z.number().step(1).default(30),
