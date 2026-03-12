@@ -63,7 +63,32 @@ const DEFAULT_INTRO_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   cameraYOffset: 15,
   rimGlow: true,
   rimColor: "#FF8A00",
-  animationLoop: false,
+  loopMode: "none",
+  opacity: 0.4,
+  mode: "custom",
+  fadeInFrames: 0,
+  fadeOutFrames: 60,
+});
+const DEFAULT_KEY_FACTS_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+  glbFile: "Modulation_GLBs/cron_bg.glb",
+  opacity: 0.04,
+  sceneScale: 4,
+  sceneOffsetX: -0.8,
+  sceneOffsetY: 8.9,
+  sceneOffsetZ: 3.5,
+  sceneRotationY: 32,
+});
+const DEFAULT_COUNCIL_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+  glbFile: "Modulation_GLBs/clanktank_bg.glb",
+  opacity: 0.85,
+  sceneOffsetX: 0.2,
+  sceneOffsetY: 8.5,
+  sceneOffsetZ: 4.9,
+  sceneRotationY: 41,
+  mode: "modulation",
+  loopMode: "pingpong",
+  effectorOuterRadius: 35,
+  effectorReveal: true,
 });
 /** Pre-parsed default — all fields filled in. Use in defaultProps to avoid Studio crashes. */
 export const DEFAULT_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({});
@@ -83,11 +108,11 @@ export const DailyCardSchema = z.object({
   council_questions: z.array(ItemSchema),
   images: DailyCardImagesSchema.optional(),
   fader_intro: FaderConfigSchema.default(DEFAULT_INTRO_FADER_CONFIG),
-  fader_key_facts: FaderConfigSchema.default({}),
+  fader_key_facts: FaderConfigSchema.default(DEFAULT_KEY_FACTS_FADER_CONFIG),
   fader_github_prs: FaderConfigSchema.default({}),
   fader_discord: FaderConfigSchema.default({}),
   fader_feedback: FaderConfigSchema.default({}),
-  fader_council: FaderConfigSchema.default({}),
+  fader_council: FaderConfigSchema.default(DEFAULT_COUNCIL_FADER_CONFIG),
   fader_outro: FaderConfigSchema.default({}),
 });
 

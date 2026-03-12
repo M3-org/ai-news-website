@@ -229,6 +229,15 @@ function smoothstep01(v: number): number {
   return x * x * (3 - 2 * x);
 }
 
+function aggressiveSCurve01(v: number): number {
+  const x = clamp01(v);
+  const strength = 8.5;
+  const sigmoid = (t: number) => 1 / (1 + Math.exp(-strength * (t - 0.5)));
+  const low = sigmoid(0);
+  const high = sigmoid(1);
+  return (sigmoid(x) - low) / (high - low);
+}
+
 function clamp(v: number, min: number, max: number): number {
   return Math.max(min, Math.min(max, v));
 }
@@ -243,10 +252,10 @@ function segmentEmphasisAtFrame(
   riseFrames: number,
   fallFrames: number,
 ): number {
-  const enter = smoothstep01((frame - seg.from) / riseFrames);
+  const enter = aggressiveSCurve01((frame - seg.from) / Math.max(1, riseFrames));
   const exitStart = seg.from + seg.dur - fallFrames;
-  const exit = 1 - smoothstep01((frame - exitStart) / fallFrames);
-  return Math.max(0, Math.min(1, enter * exit));
+  const exit = 1 - aggressiveSCurve01((frame - exitStart) / Math.max(1, fallFrames));
+  return clamp01(enter * exit);
 }
 
 function contentCameraWeightAtFrame(frame: number, seg: Seg): number {
