@@ -2,7 +2,7 @@
  * ThreeDBackground — Wraps the Modulation GLB scene as a fullscreen background layer.
  * Used by TitleCard and EndCard for dynamic 3D intro/outro visuals.
  */
-import { useRef, useMemo } from "react";
+import { useEffect, useRef, useMemo } from "react";
 import { ThreeCanvas } from "@remotion/three";
 import { AbsoluteFill, useVideoConfig, useCurrentFrame } from "remotion";
 import { useGLTF, PerspectiveCamera } from "@react-three/drei";
@@ -18,13 +18,15 @@ import {
 } from "@react-three/postprocessing";
 import { ToneMappingMode, BlendFunction } from "postprocessing";
 import {
+  Color,
   Vector2,
   AnimationClip,
   AnimationMixer,
   Mesh,
+  MeshBasicMaterial,
+  MeshStandardMaterial,
   PerspectiveCamera as THREEPerspectiveCamera,
 } from "three";
-import type { MeshStandardMaterial } from "three";
 import { createRimMaterial } from "./ThreeD/RimMaterial";
 import type { EffectorConfig, EffectMap } from "./ThreeD/Effector";
 import { useEffector } from "./ThreeD/useEffector";
@@ -64,7 +66,7 @@ interface ThreeDBackgroundProps {
   /** Uniform scale for the entire GLB scene (default 1). */
   sceneScale?: number;
   /** Play GLB animation once instead of looping (default false). */
-  animationLoop?: boolean;
+  loopMode?: "none" | "loop" | "pingpong";
   /** Apply rim glow shader to all meshes (default false). */
   rimGlow?: boolean;
   /** Rim glow color (default "#ffffff"). */
@@ -79,8 +81,16 @@ interface ThreeDBackgroundProps {
   startFrame?: number;
   /** Scene position offset [x, y, z] — moves the entire GLB in 3D space (default [0,0,0]). */
   sceneOffset?: [number, number, number];
+  /** Scene rotation [x, y, z] in degrees (default [0,0,0]). */
+  sceneRotation?: [number, number, number];
   /** Camera Y offset when using graphCamera (default 15). */
   cameraYOffset?: number;
+  /** Camera field of view in degrees (default 50). */
+  fov?: number;
+  /** Animate effector radius from 0 to configured value (default false). */
+  effectorReveal?: boolean;
+  /** Duration of effector reveal in frames (default 60). */
+  effectorRevealFrames?: number;
 }
 
 const GlbModel = ({
@@ -90,6 +100,8 @@ const GlbModel = ({
   effectMap,
   cameraRef,
   onCameraUpdate,
+  sceneScale = 1,
+  offset = [0, 0, 0] as [number, number, number],
 }: {
   url: string;
   effectorConfig: EffectorConfig;
@@ -97,6 +109,8 @@ const GlbModel = ({
   effectMap?: EffectMap;
   cameraRef: React.RefObject<THREEPerspectiveCamera | null>;
   onCameraUpdate?: (velocity: number, fov: number) => void;
+  sceneScale?: number;
+  offset?: [number, number, number];
 }) => {
   const { scene, nodes, animations } = useGLTF(url);
 
@@ -116,8 +130,97 @@ const GlbModel = ({
     gltfScene: scene,
   });
 
-  return <primitive object={scene} scale={1} rotation={[0, 0, 0]} />;
+  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
 };
+
+function useRimGlowMaterial(
+  scene: object & { traverse: (cb: (obj: unknown) => void) => void },
+  rimGlow: boolean,
+  rimColor: string,
+  rimIntensity: number,
+  rimPower: number,
+) {
+  useEffect(() => {
+    scene.traverse((child) => {
+      if (!(child instanceof Mesh)) return;
+      if (Array.isArray(child.material)) return;
+
+      const mesh = child as Mesh;
+      const currentMaterial = mesh.material as MeshStandardMaterial | MeshBasicMaterial;
+
+      if (!mesh.userData._rimOriginalMaterial) {
+        mesh.userData._rimOriginalMaterial = currentMaterial;
+      }
+
+      const orig = mesh.userData._rimOriginalMaterial as MeshStandardMaterial | MeshBasicMaterial;
+
+      if (!rimGlow) {
+        mesh.material = orig;
+        return;
+      }
+
+      if (!mesh.userData._rimMaterial) {
+        const hasAlpha =
+          orig.transparent ||
+          (orig.opacity != null && orig.opacity < 1) ||
+          ("alphaMap" in orig && !!orig.alphaMap) ||
+          ("alphaTest" in orig && orig.alphaTest > 0);
+
+        const emissive =
+          orig instanceof MeshStandardMaterial
+            ? orig.emissive
+            : "#000000";
+        const emissiveIntensity =
+          orig instanceof MeshStandardMaterial
+            ? orig.emissiveIntensity
+            : 0;
+
+        mesh.userData._rimMaterial = createRimMaterial({
+          baseColor: orig.color ?? "#aaaaaa",
+          emissiveColor: emissive,
+          emissiveIntensity,
+          map: "map" in orig ? orig.map ?? null : null,
+          opacity: orig.opacity ?? 1,
+          transparent: hasAlpha,
+          alphaTest: "alphaTest" in orig ? orig.alphaTest ?? 0 : 0,
+          rimColor,
+          rimIntensity,
+          rimPower,
+        });
+      }
+
+      const rimMat = mesh.userData._rimMaterial;
+      const rimCol = new Color(rimColor);
+      rimMat.uniforms.u_weight.value = 1.0;
+      rimMat.uniforms.u_rimIntensity.value = rimIntensity;
+      rimMat.uniforms.u_rimPower.value = Math.max(1e-4, rimPower);
+      rimMat.uniforms.u_rimColor.value.set(rimCol.r, rimCol.g, rimCol.b);
+      mesh.material = rimMat;
+    });
+
+    return () => {
+      scene.traverse((child) => {
+        if (!(child instanceof Mesh)) return;
+        if (Array.isArray(child.material)) return;
+        if (child.userData._rimOriginalMaterial) {
+          child.material = child.userData._rimOriginalMaterial;
+        }
+      });
+    };
+  }, [scene, rimGlow, rimColor, rimIntensity, rimPower]);
+}
+
+/** Resolve animation time based on loop mode. */
+function resolveLoopTime(time: number, maxDuration: number, mode: "none" | "loop" | "pingpong"): number {
+  if (maxDuration <= 0) return 0;
+  if (mode === "none") return Math.min(time, Math.max(0, maxDuration - 0.001));
+  if (mode === "loop") return time; // AnimationMixer loops by default
+  // pingpong: bounce back and forth
+  const cycle = time / maxDuration;
+  const isReverse = Math.floor(cycle) % 2 === 1;
+  const frac = cycle - Math.floor(cycle);
+  return (isReverse ? 1 - frac : frac) * maxDuration;
+}
 
 /**
  * SimpleGlbModel — Standard Three.js AnimationMixer playback.
@@ -126,7 +229,7 @@ const GlbModel = ({
 const SimpleGlbModel = ({
   url,
   sceneScale = 1,
-  loop = true,
+  loopMode = "loop",
   startFrame = 0,
   rimGlow = false,
   rimColor = "#ffffff",
@@ -136,7 +239,7 @@ const SimpleGlbModel = ({
 }: {
   url: string;
   sceneScale?: number;
-  loop?: boolean;
+  loopMode?: "none" | "loop" | "pingpong";
   startFrame?: number;
   rimGlow?: boolean;
   rimColor?: string;
@@ -148,29 +251,7 @@ const SimpleGlbModel = ({
   const { fps } = useVideoConfig();
   const { scene, animations } = useGLTF(url);
 
-  // Apply rim glow material to all meshes
-  useMemo(() => {
-    if (!rimGlow) return;
-    scene.traverse((child) => {
-      if (!(child instanceof Mesh)) return;
-      const orig = child.material as MeshStandardMaterial;
-      const hasAlpha = orig.transparent || (orig.opacity != null && orig.opacity < 1) || !!orig.alphaMap || orig.alphaTest > 0;
-      const rim = createRimMaterial({
-        baseColor: orig.color ?? "#aaaaaa",
-        emissiveColor: orig.emissive ?? "#000000",
-        emissiveIntensity: orig.emissiveIntensity ?? 0,
-        map: orig.map ?? null,
-        opacity: orig.opacity ?? 1,
-        transparent: hasAlpha,
-        alphaTest: orig.alphaTest ?? 0,
-        rimColor,
-        rimIntensity,
-        rimPower,
-      });
-      rim.uniforms.u_weight.value = 1.0;
-      child.material = rim;
-    });
-  }, [scene, rimGlow, rimColor, rimIntensity, rimPower]);
+  useRimGlowMaterial(scene, rimGlow, rimColor, rimIntensity, rimPower);
 
   const { mixer, maxDuration } = useMemo(() => {
     const m = new AnimationMixer(scene);
@@ -182,11 +263,9 @@ const SimpleGlbModel = ({
     return { mixer: m, maxDuration: dur };
   }, [scene, animations]);
 
-  // Clamp time to clip duration for non-looping mode (hold last frame)
   const time = Math.max(0, frame - startFrame) / fps;
-  const clampedTime =
-    maxDuration > 0 ? Math.min(time, Math.max(0, maxDuration - 0.001)) : 0;
-  mixer.setTime(loop ? time : clampedTime);
+  const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
+  mixer.setTime(resolvedTime);
 
   return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
 };
@@ -198,19 +277,29 @@ const SimpleGlbModel = ({
 const CustomGlbModel = ({
   url,
   sceneScale = 1,
-  loop = true,
+  loopMode = "loop",
   startFrame = 0,
+  rimGlow = false,
+  rimColor = "#ffffff",
+  rimIntensity = 2,
+  rimPower = 2,
   offset = [0, 0, 0] as [number, number, number],
 }: {
   url: string;
   sceneScale?: number;
-  loop?: boolean;
+  loopMode?: "none" | "loop" | "pingpong";
   startFrame?: number;
+  rimGlow?: boolean;
+  rimColor?: string;
+  rimIntensity?: number;
+  rimPower?: number;
   offset?: [number, number, number];
 }) => {
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const { scene, animations } = useGLTF(url);
+
+  useRimGlowMaterial(scene, rimGlow, rimColor, rimIntensity, rimPower);
 
   const { mixer, maxDuration } = useMemo(() => {
     const m = new AnimationMixer(scene);
@@ -223,9 +312,8 @@ const CustomGlbModel = ({
   }, [scene, animations]);
 
   const time = Math.max(0, frame - startFrame) / fps;
-  const clampedTime =
-    maxDuration > 0 ? Math.min(time, Math.max(0, maxDuration - 0.001)) : 0;
-  mixer.setTime(loop ? time : clampedTime);
+  const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
+  mixer.setTime(resolvedTime);
 
   return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
 };
@@ -249,7 +337,7 @@ const GraphCameraSync = ({
     const camera = cameraRef.current;
     if (!camera) return;
 
-    // Map 2D canvas coords → 3D position (subtle lateral drift + Z from zoom)
+    // Map 2D canvas coords -> 3D position with subtle background drift.
     const lateralScale = 0.002;
     camera.position.x = (graphCamera.x - center) * lateralScale;
     camera.position.y = -(graphCamera.y - center) * lateralScale + yOffset;
@@ -304,7 +392,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   graphCameraCenter = 2500,
   useStandardAnimation = false,
   sceneScale = 1,
-  animationLoop = true,
+  loopMode = "loop",
   rimGlow = false,
   rimColor = "#ffffff",
   rimIntensity = 2,
@@ -312,7 +400,11 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   custom = false,
   startFrame = 0,
   sceneOffset = [0, 0, 0] as [number, number, number],
+  sceneRotation = [0, 0, 0] as [number, number, number],
   cameraYOffset = 15,
+  fov = 50,
+  effectorReveal = false,
+  effectorRevealFrames = 60,
 }) => {
   const { width, height } = useVideoConfig();
   const frame = useCurrentFrame();
@@ -322,10 +414,20 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
   const caRef = useRef(new Vector2(0, 0));
 
   const mergedEffectMap = useMemo(() => ({ ...effectMap }) as EffectMap, [effectMap]);
+  const rotRad: [number, number, number] = [
+    sceneRotation[0] * Math.PI / 180,
+    sceneRotation[1] * Math.PI / 180,
+    sceneRotation[2] * Math.PI / 180,
+  ];
+
+  const revealT = effectorReveal && effectorRevealFrames > 0
+    ? Math.min(1, Math.max(0, (frame - startFrame) / effectorRevealFrames))
+    : 1;
+  const revealEase = revealT * revealT * (3 - 2 * revealT); // smoothstep
 
   const effectorConfig: EffectorConfig = {
-    innerRadius: effectorInnerRadius,
-    outerRadius: effectorOuterRadius,
+    innerRadius: effectorInnerRadius * revealEase,
+    outerRadius: effectorOuterRadius * revealEase,
     strength: effectorStrength,
   };
 
@@ -357,7 +459,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
           ref={cameraRef}
           makeDefault
           position={[0, 0, 10]}
-          fov={50}
+          fov={fov}
         />
 
         <ambientLight intensity={0.5} />
@@ -369,22 +471,26 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
           intensity={1}
         />
 
-        {custom ? (
-          <CustomGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loop={animationLoop} startFrame={startFrame} offset={sceneOffset} />
-        ) : useStandardAnimation ? (
-          <SimpleGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loop={animationLoop} startFrame={startFrame} rimGlow={rimGlow} rimColor={rimColor} rimIntensity={rimIntensity} rimPower={rimPower} offset={sceneOffset} />
-        ) : (
-          <GlbModel
-            url={resolveAsset(glbFile)}
-            effectorConfig={effectorConfig}
-            rotationAxis={rotationAxis}
-            effectMap={mergedEffectMap}
-            cameraRef={cameraRef}
-            onCameraUpdate={(v) => {
-              velocityRef.current = v;
-            }}
-          />
-        )}
+        <group rotation={rotRad}>
+          {custom ? (
+            <CustomGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loopMode={loopMode} startFrame={startFrame} rimGlow={rimGlow} rimColor={rimColor} rimIntensity={rimIntensity} rimPower={rimPower} offset={sceneOffset} />
+          ) : useStandardAnimation ? (
+            <SimpleGlbModel url={resolveAsset(glbFile)} sceneScale={sceneScale} loopMode={loopMode} startFrame={startFrame} rimGlow={rimGlow} rimColor={rimColor} rimIntensity={rimIntensity} rimPower={rimPower} offset={sceneOffset} />
+          ) : (
+            <GlbModel
+              url={resolveAsset(glbFile)}
+              effectorConfig={effectorConfig}
+              rotationAxis={rotationAxis}
+              effectMap={mergedEffectMap}
+              cameraRef={cameraRef}
+              sceneScale={sceneScale}
+              offset={sceneOffset}
+              onCameraUpdate={(v) => {
+                velocityRef.current = v;
+              }}
+            />
+          )}
+        </group>
 
         {/* Graph camera sync — overrides GLB camera when provided */}
         {graphCamera && (

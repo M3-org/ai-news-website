@@ -7,6 +7,7 @@
  */
 import type { GraphTimeline, Seg } from "./graph/GraphCanvas";
 import type { FaderConfig, FaderSceneKey } from "./timing";
+import { CHAPTER_FRAMES } from "./timing";
 import type { SectionKey } from "./graph/layout";
 
 export interface FaderSceneBounds {
@@ -48,7 +49,8 @@ export function buildFaderSceneBounds(timeline: GraphTimeline): FaderSceneBounds
   const firstChapterFrom = chapters.length > 0 ? chapters[0].from : outroFrom;
   bounds.push({ key: "intro", from: 0, to: firstChapterFrom });
 
-  // Topic scenes from chapters
+  // Topic scenes from chapters — delayed by CHAPTER_FRAMES so the GLB
+  // fades in after the camera has arrived, not while it's still traveling.
   for (let i = 0; i < chapters.length; i++) {
     const ch = chapters[i];
     const topic = layout.topics[ch.topicIdx];
@@ -56,7 +58,7 @@ export function buildFaderSceneBounds(timeline: GraphTimeline): FaderSceneBounds
     const faderKey = SECTION_KEY_TO_FADER[topic.key];
     if (!faderKey) continue;
     const nextFrom = i < chapters.length - 1 ? chapters[i + 1].from : outroFrom;
-    bounds.push({ key: faderKey, from: ch.from, to: nextFrom });
+    bounds.push({ key: faderKey, from: ch.from + CHAPTER_FRAMES, to: nextFrom });
   }
 
   // Outro: outro seg -> end
@@ -69,7 +71,7 @@ export function buildFaderSceneBounds(timeline: GraphTimeline): FaderSceneBounds
  * Returns 0-2 active scenes for the current frame with crossfade opacity.
  *
  * At scene boundary B:
- *   - Outgoing: opacity ramps 1->0 over [B, B + fadeOutFrames]
+ *   - Outgoing: opacity ramps 1->0 over [B - fadeOutFrames, B]
  *   - Incoming: opacity ramps 0->1 over [B - fadeInFrames, B]
  *   - computedOpacity = config.opacity * fadeEnvelope
  *
@@ -87,28 +89,25 @@ export function resolveActiveFaderScenes(
     if (!config) continue;
 
     const visibleFrom = bound.from - config.fadeInFrames;
-    const visibleTo = bound.to + config.fadeOutFrames;
+    const visibleTo = bound.to;
     if (frame < visibleFrom || frame >= visibleTo) {
       continue;
     }
 
-    let envelope = 0;
+    const fadeInEnvelope =
+      config.fadeInFrames > 0 && frame < bound.from
+        ? (frame - visibleFrom) / config.fadeInFrames
+        : 1;
+    const fadeOutStart = bound.to - config.fadeOutFrames;
+    const fadeOutEnvelope =
+      config.fadeOutFrames > 0 && frame >= fadeOutStart
+        ? (bound.to - frame) / config.fadeOutFrames
+        : 1;
 
-    if (frame < bound.from) {
-      envelope =
-        config.fadeInFrames > 0
-          ? (frame - visibleFrom) / config.fadeInFrames
-          : 0;
-    } else if (frame >= bound.to) {
-      envelope =
-        config.fadeOutFrames > 0
-          ? (visibleTo - frame) / config.fadeOutFrames
-          : 0;
-    } else {
-      envelope = 1;
-    }
-
-    envelope = Math.max(0, Math.min(1, envelope));
+    const envelope = Math.max(
+      0,
+      Math.min(1, Math.min(fadeInEnvelope, fadeOutEnvelope)),
+    );
     const computedOpacity = config.opacity * envelope;
 
     if (computedOpacity >= 0.005) {

@@ -20,17 +20,21 @@ const DailyCardImagesSchema = z.object({
 });
 
 export const FaderConfigSchema = z.object({
-  glbFile: z.string().default("Modulation_GLBs/cron_red.glb"),
+  glbFile: z.string().default(""),
   opacity: z.number().min(0).max(1).step(0.01).default(0.4),
   sceneScale: z.number().step(0.1).default(1),
   sceneOffsetX: z.number().step(0.1).default(0),
   sceneOffsetY: z.number().step(0.1).default(0),
   sceneOffsetZ: z.number().step(0.1).default(0),
+  sceneRotationX: z.number().step(1).default(0),
+  sceneRotationY: z.number().step(1).default(0),
+  sceneRotationZ: z.number().step(1).default(0),
   cameraYOffset: z.number().step(0.5).default(15),
+  fov: z.number().min(1).max(180).step(1).default(50),
 
   custom: z.boolean().default(true),
   useStandardAnimation: z.boolean().default(false),
-  animationLoop: z.boolean().default(true),
+  loopMode: z.enum(["none", "loop", "pingpong"]).default("loop"),
   startFrame: z.number().step(1).default(0),
 
   rimGlow: z.boolean().default(false),
@@ -42,12 +46,25 @@ export const FaderConfigSchema = z.object({
   effectorOuterRadius: z.number().step(0.1).default(25),
   effectorStrength: z.number().step(0.01).default(1),
   rotationAxis: z.enum(["x", "y", "z"]).default("z"),
+  effectorReveal: z.boolean().default(false),
+  effectorRevealFrames: z.number().step(1).default(60),
 
   fadeInFrames: z.number().step(1).default(30),
   fadeOutFrames: z.number().step(1).default(30),
 });
 
 export type FaderConfig = z.infer<typeof FaderConfigSchema>;
+const DEFAULT_INTRO_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+  glbFile: "Modulation_GLBs/eliza_reveal.glb",
+  sceneScale: 1.7,
+  sceneOffsetX: 0.3,
+  sceneOffsetY: 5.3,
+  sceneOffsetZ: 2.3,
+  cameraYOffset: 15,
+  rimGlow: true,
+  rimColor: "#FF8A00",
+  animationLoop: false,
+});
 /** Pre-parsed default — all fields filled in. Use in defaultProps to avoid Studio crashes. */
 export const DEFAULT_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({});
 export type FaderSceneKey = "intro" | "key_facts" | "github_prs" | "discord" | "feedback" | "council" | "outro";
@@ -65,7 +82,7 @@ export const DailyCardSchema = z.object({
   council_topics: z.array(ItemSchema),
   council_questions: z.array(ItemSchema),
   images: DailyCardImagesSchema.optional(),
-  fader_intro: FaderConfigSchema.default({}),
+  fader_intro: FaderConfigSchema.default(DEFAULT_INTRO_FADER_CONFIG),
   fader_key_facts: FaderConfigSchema.default({}),
   fader_github_prs: FaderConfigSchema.default({}),
   fader_discord: FaderConfigSchema.default({}),

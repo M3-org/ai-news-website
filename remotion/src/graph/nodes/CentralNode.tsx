@@ -1,16 +1,24 @@
 /**
  * CentralNode — The "ElizaOS Daily" hub at the center of the graph.
  *
- * Skeuomorphic watch face design with arc text, tick marks, and rotating bezels.
+ * 3D animated sphere with orbiting lines, inspired by
+ * https://discourse.threejs.org/t/splines-curves-wrapped-around-sphere/61792
  */
-import React from "react";
-import { Easing, interpolate, spring, useCurrentFrame } from "remotion";
+import React, { useRef, useMemo } from "react";
+import { ThreeCanvas } from "@remotion/three";
+import { Easing, interpolate, random, spring, useCurrentFrame } from "remotion";
+import { useFrame } from "@react-three/fiber";
+import { PerspectiveCamera } from "@react-three/drei";
+import * as THREE from "three";
 import type { NodePos } from "../layout";
 import { RAMP_EASE } from "../camera";
 
 const ORANGE = "#FF8A00";
 const SIZE = 420;
 const HALF = SIZE / 2;
+
+const LINE_VERTICES = 20;
+const LINE_COUNT = 200;
 
 interface CentralNodeProps {
   pos: NodePos;
@@ -22,76 +30,105 @@ interface CentralNodeProps {
   scanOpacity: number;
 }
 
-/** Generate tick marks around the circle */
-function Ticks({ count, r, length, width, color, opacity }: {
-  count: number; r: number; length: number; width: number; color: string; opacity: number;
-}) {
-  const ticks = [];
-  for (let i = 0; i < count; i++) {
-    const angle = (i / count) * 360;
-    ticks.push(
-      <line
-        key={i}
-        x1={HALF}
-        y1={HALF - r}
-        x2={HALF}
-        y2={HALF - r + length}
-        stroke={color}
-        strokeWidth={width}
-        opacity={i % (count / 12) === 0 ? opacity * 1.5 : opacity}
-        transform={`rotate(${angle} ${HALF} ${HALF})`}
-      />
-    );
-  }
-  return <>{ticks}</>;
+/** Compute a point on an animated spherical path */
+function spherePath(
+  v: THREE.Vector3,
+  buf: THREE.BufferAttribute,
+  t: number,
+  i: number,
+  rnd: number,
+  r: number,
+) {
+  t += 10 * rnd;
+  let a = (0.1 + 3 * rnd) * Math.sin(t + 13 * rnd) + 0.2 * rnd * Math.cos(13.2 * t + 3);
+  const b = (3 - 3 * rnd) * Math.cos(t) + 2 * rnd * Math.cos(4.5 * t - 17 * rnd);
+  a = 0.7 * a + Math.PI / 2;
+  v.setFromSphericalCoords(r, a, b);
+  buf.setXYZ(i, v.x, v.y, v.z);
 }
 
-/** Text along an arc path */
-function ArcText({ text, r, startAngle, letterSpacing, fontSize, color, opacity, id }: {
-  text: string; r: number; startAngle: number; letterSpacing: number;
-  fontSize: number; color: string; opacity: number; id: string;
-}) {
-  const circumference = 2 * Math.PI * r;
-  const arcLength = text.length * letterSpacing;
-  const arcAngle = (arcLength / circumference) * 360;
-  const actualStart = startAngle - arcAngle / 2;
+/** Three.js scene: animated sphere with orbiting lines */
+const SphereScene: React.FC = () => {
+  const frame = useCurrentFrame();
+  const frameRef = useRef(0);
+  frameRef.current = frame;
+
+  const v = useMemo(() => new THREE.Vector3(), []);
+
+  const { lines, lineRnds } = useMemo(() => {
+    const color = new THREE.Color();
+    const colors: number[] = [];
+    const colors2: number[] = [];
+
+    for (let i = 0; i < LINE_VERTICES; i++) {
+      // Orange hue (0.08) with bright tips
+      color.setHSL(0.08, 1, 1 - Math.abs(2 * i / (LINE_VERTICES - 1) - 1) + 0.05);
+      if (i % 19 === 0) color.setHSL(0.08, 1, 1);
+      colors.push(color.r, color.g, color.b);
+      // Accent lines: deep red-orange
+      color.setHSL(0.02, 1, 0.5);
+      colors2.push(color.r, color.g, color.b);
+    }
+
+    const material = new THREE.LineBasicMaterial({ vertexColors: true });
+    const rnds: number[] = [];
+    const lineObjs: THREE.Line[] = [];
+
+    for (let j = 0; j < LINE_COUNT; j++) {
+      const rnd = 0.2 + 1.2 * random("sphere-line-" + j);
+      rnds.push(rnd);
+
+      const geo = new THREE.BufferGeometry();
+      geo.setAttribute("position", new THREE.Float32BufferAttribute(new Float32Array(LINE_VERTICES * 3), 3));
+      geo.setAttribute("color", new THREE.Float32BufferAttribute(
+        new Float32Array(j % 15 ? colors : colors2), 3,
+      ));
+
+      lineObjs.push(new THREE.Line(geo, material));
+    }
+
+    return { lines: lineObjs, lineRnds: rnds };
+  }, []);
+
+  // Update line positions and rotations each render
+  useFrame(() => {
+    const t = frameRef.current / 150;
+
+    for (let j = 0; j < LINE_COUNT; j++) {
+      const line = lines[j];
+      const posAttr = line.geometry.getAttribute("position") as THREE.BufferAttribute;
+      const rnd = lineRnds[j];
+
+      for (let i = 0; i < LINE_VERTICES; i++) {
+        const r = j % 15 ? 2 : 4 * Math.sin(i / 10);
+        spherePath(v, posAttr, t - i / 70, i, rnd, r);
+      }
+      posAttr.needsUpdate = true;
+
+      line.rotation.set(
+        t / 2.6 + rnd,
+        t / 2.44 - 10 * rnd,
+        t / 2.34,
+      );
+    }
+  });
 
   return (
     <>
-      <defs>
-        <path
-          id={id}
-          d={`M ${HALF},${HALF} m ${-r},0 a ${r},${r} 0 1,1 ${r * 2},0 a ${r},${r} 0 1,1 ${-r * 2},0`}
-          fill="none"
-        />
-      </defs>
-      <text
-        fill={color}
-        fontSize={fontSize}
-        fontFamily='"Helvetica Neue", Helvetica, Arial, sans-serif'
-        fontWeight={600}
-        letterSpacing={letterSpacing}
-        opacity={opacity}
-      >
-        <textPath
-          href={`#${id}`}
-          startOffset={`${(actualStart / 360) * circumference}px`}
-        >
-          {text}
-        </textPath>
-      </text>
+      <PerspectiveCamera makeDefault position={[0, 0, 9]} fov={30} />
+      <spotLight position={[0, 0, 8]} intensity={-750} color="#ff9040" />
+      <spotLight position={[0, 0, 10]} intensity={1200} color="#ffa050" />
+
+      {/* Animated lines (no solid sphere — CSS gradient background instead) */}
+      {lines.map((line, j) => (
+        <primitive key={j} object={line} />
+      ))}
     </>
   );
-}
+};
 
 export const CentralNode: React.FC<CentralNodeProps> = ({
-  pos,
-  date,
-  focus,
-  appearFrame,
-  revealFrame,
-  textVisible,
-  scanOpacity,
+  pos, date, focus, appearFrame, revealFrame, textVisible, scanOpacity,
 }) => {
   const frame = useCurrentFrame();
   const localFrame = Math.max(0, frame - appearFrame);
@@ -136,10 +173,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
   const glowSize = 40 + focus * 30 + (inRevealPhase ? flashOpacity * 120 : 0);
   const ringPulse = Math.sin(frame * 0.08) * 0.5 + 0.5;
 
-  // Bezel rotations
-  const bezelOuter = frame * 0.15;
-  const bezelInner = frame * -0.25;
-  const secondHand = frame * 6; // full rotation every 2 seconds
+  const SPHERE_SIZE = SIZE - 48; // inset 24 each side
 
   return (
     <div
@@ -154,7 +188,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
         transformOrigin: "center center",
       }}
     >
-      {/* Glow layers */}
+      {/* Glow */}
       <div
         style={{
           position: "absolute",
@@ -178,99 +212,22 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
         />
       )}
 
-      {/* SVG watch face */}
-      <svg
-        width={SIZE}
-        height={SIZE}
-        viewBox={`0 0 ${SIZE} ${SIZE}`}
-        style={{ position: "absolute", top: 0, left: 0 }}
-      >
-        {/* Outer bezel — rotating tick marks */}
-        <g transform={`rotate(${bezelOuter} ${HALF} ${HALF})`} opacity={textVisible ? 0.5 : 0.2}>
-          <Ticks count={60} r={HALF - 6} length={10} width={1} color={ORANGE} opacity={0.5} />
-          <Ticks count={12} r={HALF - 6} length={18} width={2} color={ORANGE} opacity={0.9} />
-        </g>
-
-        {/* Inner bezel — counter-rotating fine ticks */}
-        <g transform={`rotate(${bezelInner} ${HALF} ${HALF})`} opacity={textVisible ? 0.3 : 0.12}>
-          <Ticks count={120} r={HALF - 30} length={6} width={0.5} color="#ffffff" opacity={0.3} />
-        </g>
-
-        {/* Outer ring */}
-        <circle
-          cx={HALF} cy={HALF} r={HALF - 3}
-          fill="none"
-          stroke={ORANGE}
-          strokeWidth={1.5}
-          opacity={textVisible ? 0.8 : 0.4}
-        />
-        {/* Secondary ring */}
-        <circle
-          cx={HALF} cy={HALF} r={HALF - 24}
-          fill="none"
-          stroke={ORANGE}
-          strokeWidth={0.5}
-          opacity={0.25}
-          strokeDasharray="4 8"
-        />
-
-        {/* Arc text — "ELIZAOS" along the top */}
-        <g opacity={textOpacity * 0.7}>
-          <ArcText
-            text="E L I Z A O S"
-            r={HALF - 44}
-            startAngle={90}
-            letterSpacing={14}
-            fontSize={11}
-            color="rgba(255,255,255,0.5)"
-            opacity={1}
-            id="arc-top"
-          />
-        </g>
-
-        {/* Arc text — date along the bottom */}
-        <g opacity={textOpacity * 0.5} transform={`scale(1,-1) translate(0,${-SIZE})`}>
-          <ArcText
-            text={`\u2022  ${date}  \u2022`}
-            r={HALF - 44}
-            startAngle={90}
-            letterSpacing={10}
-            fontSize={10}
-            color="rgba(255,255,255,0.45)"
-            opacity={1}
-            id="arc-bottom"
-          />
-        </g>
-
-        {/* Second hand — thin sweeping line */}
-        <g opacity={textVisible ? 0.35 : 0.15}>
-          <line
-            x1={HALF} y1={HALF}
-            x2={HALF} y2={HALF - HALF + 50}
-            stroke={ORANGE}
-            strokeWidth={1}
-            transform={`rotate(${secondHand} ${HALF} ${HALF})`}
-            strokeLinecap="round"
-          />
-          {/* Center pivot dot */}
-          <circle cx={HALF} cy={HALF} r={3} fill={ORANGE} opacity={0.8} />
-          <circle cx={HALF} cy={HALF} r={6} fill="none" stroke={ORANGE} strokeWidth={0.5} opacity={0.4} />
-        </g>
-      </svg>
-
-      {/* Watch face background */}
+      {/* 3D Splines */}
       <div
         style={{
           position: "absolute",
           inset: 24,
           borderRadius: "50%",
-          background: `radial-gradient(circle at 42% 38%, rgba(28,34,52,0.97) 0%, rgba(12,16,28,0.99) 45%, rgba(4,6,14,1) 100%)`,
-          boxShadow: `inset 0 0 40px rgba(0,0,0,0.6), inset 0 0 15px ${ORANGE}06`,
-          zIndex: -1,
+          overflow: "hidden",
+          opacity: 0.35,
         }}
-      />
+      >
+        <ThreeCanvas width={SPHERE_SIZE} height={SPHERE_SIZE}>
+          <SphereScene />
+        </ThreeCanvas>
+      </div>
 
-      {/* Flash Overlay */}
+      {/* Flash overlay */}
       {flashOpacity > 0 && (
         <div
           style={{
@@ -335,7 +292,7 @@ export const CentralNode: React.FC<CentralNodeProps> = ({
             margin: "4px 0 0",
             fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
             letterSpacing: "6px",
-            textTransform: "uppercase",
+            textTransform: "uppercase" as const,
             textAlign: "center",
             textShadow: `0 0 14px ${ORANGE}60`,
           }}
