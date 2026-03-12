@@ -217,8 +217,15 @@ export const RemotionRoot: React.FC = () => {
           fader_council: {
             ...DEFAULT_FADER_CONFIG,
             glbFile: "Modulation_GLBs/clanktank_bg.glb",
-            opacity: 0.3,
-            mode: "custom",
+            opacity: 0.85,
+            sceneOffsetX: 0.2,
+            sceneOffsetY: 8.5,
+            sceneOffsetZ: 4.9,
+            sceneRotationY: 41,
+            mode: "modulation",
+            loopMode: "pingpong",
+            effectorOuterRadius: 35,
+            effectorReveal: true,
           },
           fader_outro: { ...DEFAULT_FADER_CONFIG },
           images: {
