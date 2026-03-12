@@ -194,7 +194,7 @@ export const RemotionRoot: React.FC = () => {
             rimColor: "#FF8A00",
             loopMode: "none",
             opacity: 0.4,
-            custom: true,
+            mode: "custom",
             fadeInFrames: 0,
             fadeOutFrames: 60,
           },
@@ -218,7 +218,7 @@ export const RemotionRoot: React.FC = () => {
             ...DEFAULT_FADER_CONFIG,
             glbFile: "Modulation_GLBs/clanktank_bg.glb",
             opacity: 0.3,
-            custom: true,
+            mode: "custom",
           },
           fader_outro: { ...DEFAULT_FADER_CONFIG },
           images: {

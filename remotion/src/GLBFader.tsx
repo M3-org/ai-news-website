@@ -38,8 +38,8 @@ export const GLBFader: React.FC<GLBFaderProps> = ({
           sceneRotation={[scene.config.sceneRotationX, scene.config.sceneRotationY, scene.config.sceneRotationZ]}
           cameraYOffset={scene.config.cameraYOffset}
           fov={scene.config.fov}
-          custom={scene.config.custom}
-          useStandardAnimation={scene.config.useStandardAnimation}
+          custom={scene.config.mode === "custom"}
+          useStandardAnimation={scene.config.mode === "standard"}
           loopMode={scene.config.loopMode}
           startFrame={scene.sceneFrom + scene.config.startFrame}
           rimGlow={scene.config.rimGlow}

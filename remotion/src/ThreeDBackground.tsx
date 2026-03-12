@@ -104,6 +104,8 @@ const GlbModel = ({
   onCameraUpdate,
   sceneScale = 1,
   offset = [0, 0, 0] as [number, number, number],
+  loopMode = "loop",
+  startFrame = 0,
 }: {
   url: string;
   effectorConfig: EffectorConfig;
@@ -113,7 +115,11 @@ const GlbModel = ({
   onCameraUpdate?: (velocity: number, fov: number) => void;
   sceneScale?: number;
   offset?: [number, number, number];
+  loopMode?: "none" | "loop" | "pingpong";
+  startFrame?: number;
 }) => {
+  const frame = useCurrentFrame();
+  const { fps } = useVideoConfig();
   const { scene, nodes, animations } = useGLTF(url);
 
   const { velocity, fov } = useCameraAnimation({
@@ -131,6 +137,21 @@ const GlbModel = ({
     animations,
     gltfScene: scene,
   });
+
+  // Run AnimationMixer alongside effector so character animations inside
+  // the GLB play their standard baked animations (loop/pingpong/once).
+  const { mixer, maxDuration } = useMemo(() => {
+    const m = new AnimationMixer(scene);
+    let dur = 0;
+    for (const clip of animations) {
+      m.clipAction(clip).play();
+      dur = Math.max(dur, clip.duration);
+    }
+    return { mixer: m, maxDuration: dur };
+  }, [scene, animations]);
+
+  const time = Math.max(0, frame - startFrame) / fps;
+  mixer.setTime(resolveLoopTime(time, maxDuration, loopMode));
 
   return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
 };
@@ -488,6 +509,8 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
               cameraRef={cameraRef}
               sceneScale={sceneScale}
               offset={sceneOffset}
+              loopMode={loopMode}
+              startFrame={startFrame}
               onCameraUpdate={(v) => {
                 velocityRef.current = v;
               }}
