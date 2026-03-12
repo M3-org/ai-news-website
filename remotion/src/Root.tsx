@@ -1,7 +1,7 @@
 import { Composition } from "remotion";
 import { Trailer, TrailerSchema, TrailerProps } from "./Trailer";
 import { DailyCard } from "./DailyCard";
-import { DailyCardProps, DailyCardSchema, computeTotalFrames, DEFAULT_FADER_CONFIG } from "./timing";
+import { DailyCardProps, DailyCardSchema, computeTotalFrames } from "./timing";
 import type { z } from "zod";
 import { OVERLAP_FRAMES } from "./transitions";
 
@@ -182,50 +182,6 @@ export const RemotionRoot: React.FC = () => {
           ],
           poster_url: "daily-card-overall.png",
           site_url: "elizaos.news/daily/2026-03-09",
-          fader_intro: {
-            ...DEFAULT_FADER_CONFIG,
-            glbFile: "Modulation_GLBs/eliza_reveal.glb",
-            sceneScale: 1.7,
-            sceneOffsetX: 0.3,
-            sceneOffsetY: 5.3,
-            sceneOffsetZ: 2.3,
-            cameraYOffset: 15,
-            rimGlow: true,
-            rimColor: "#FF8A00",
-            loopMode: "none",
-            opacity: 0.4,
-            mode: "custom",
-            fadeInFrames: 0,
-            fadeOutFrames: 60,
-          },
-          fader_key_facts: {
-            ...DEFAULT_FADER_CONFIG,
-            glbFile: "Modulation_GLBs/cron_bg.glb",
-            opacity: 0.19,
-            sceneScale: 4,
-            sceneOffsetX: -3.8,
-            sceneOffsetY: 10.5,
-            mode: "custom",
-            loopMode: "pingpong",
-          },
-          fader_github_prs: { ...DEFAULT_FADER_CONFIG },
-          fader_discord: { ...DEFAULT_FADER_CONFIG },
-          fader_feedback: { ...DEFAULT_FADER_CONFIG },
-          fader_council: {
-            ...DEFAULT_FADER_CONFIG,
-            glbFile: "Modulation_GLBs/clanktank_bg.glb",
-            opacity: 0.5,
-            sceneOffsetX: -1.7,
-            sceneOffsetY: 9.7,
-            sceneOffsetZ: 5.8,
-            sceneRotationY: 22,
-            fov: 63,
-            mode: "modulation",
-            loopMode: "pingpong",
-            effectorOuterRadius: 35,
-            effectorReveal: true,
-          },
-          fader_outro: { ...DEFAULT_FADER_CONFIG },
           images: {
             overall: "daily-card-overall.png",
             github: "daily-card-github.png",

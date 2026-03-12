@@ -54,7 +54,7 @@ export const FaderConfigSchema = z.object({
 });
 
 export type FaderConfig = z.infer<typeof FaderConfigSchema>;
-const DEFAULT_INTRO_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+export const DEFAULT_INTRO_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   glbFile: "Modulation_GLBs/eliza_reveal.glb",
   sceneScale: 1.7,
   sceneOffsetX: 0.3,
@@ -66,10 +66,10 @@ const DEFAULT_INTRO_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   loopMode: "none",
   opacity: 0.4,
   mode: "custom",
-  fadeInFrames: 0,
+  fadeInFrames: 12,
   fadeOutFrames: 60,
 });
-const DEFAULT_KEY_FACTS_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+export const DEFAULT_KEY_FACTS_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   glbFile: "Modulation_GLBs/cron_bg.glb",
   opacity: 0.19,
   sceneScale: 4,
@@ -80,7 +80,7 @@ const DEFAULT_KEY_FACTS_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   mode: "custom",
   loopMode: "pingpong",
 });
-const DEFAULT_COUNCIL_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
+export const DEFAULT_COUNCIL_FADER_CONFIG: FaderConfig = FaderConfigSchema.parse({
   glbFile: "Modulation_GLBs/clanktank_bg.glb",
   opacity: 0.5,
   sceneOffsetX: -1.7,
