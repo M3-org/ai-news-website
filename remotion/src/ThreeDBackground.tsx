@@ -161,7 +161,12 @@ const GlbModel = ({
   const time = Math.max(0, frame - startFrame) / fps;
   mixer.setTime(resolveLoopTime(time, maxDuration, loopMode));
 
-  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
+  // Apply transforms imperatively so the very first frame is correct (no flash).
+  scene.scale.setScalar(sceneScale);
+  scene.rotation.set(0, 0, 0);
+  scene.position.set(offset[0], offset[1], offset[2]);
+
+  return <primitive object={scene} />;
 };
 
 function useRimGlowMaterial(
@@ -298,7 +303,11 @@ const SimpleGlbModel = ({
   const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
   mixer.setTime(resolvedTime);
 
-  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
+  scene.scale.setScalar(sceneScale);
+  scene.rotation.set(0, 0, 0);
+  scene.position.set(offset[0], offset[1], offset[2]);
+
+  return <primitive object={scene} />;
 };
 
 /**
@@ -346,7 +355,11 @@ const CustomGlbModel = ({
   const resolvedTime = resolveLoopTime(time, maxDuration, loopMode);
   mixer.setTime(resolvedTime);
 
-  return <primitive object={scene} scale={sceneScale} rotation={[0, 0, 0]} position={offset as any} />;
+  scene.scale.setScalar(sceneScale);
+  scene.rotation.set(0, 0, 0);
+  scene.position.set(offset[0], offset[1], offset[2]);
+
+  return <primitive object={scene} />;
 };
 
 /**
@@ -495,6 +508,7 @@ export const ThreeDBackground: React.FC<ThreeDBackgroundProps> = ({
         />
 
         <ambientLight intensity={0.5} />
+        <directionalLight position={[5, 10, 7]} intensity={1.5} />
         <pointLight position={[10, 10, 10]} intensity={1.5} />
         <spotLight
           position={[-10, 10, 10]}
