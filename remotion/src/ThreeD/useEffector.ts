@@ -210,7 +210,7 @@ export function useEffector({
   effectMap,
   animations,
   gltfScene,
-}: UseEffectorOptions): void {
+}: UseEffectorOptions): Set<string> {
   const camera = useThree((s) => s.camera);
   const scene = useThree((s) => s.scene);
   const frame = useCurrentFrame();
@@ -342,6 +342,31 @@ export function useEffector({
 
     return bindings.size > 0 ? bindings : null;
   }, [effectorSources, effectableGroups, animations, gltfScene]);
+
+  // Precise set of object names managed by the effector (for external filtering).
+  // Includes: resetSet targets, Phase 1.5 track targets, Phase 1.5b track targets, Camera.
+  const managedNames = useMemo(() => {
+    const names = new Set<string>();
+    for (const { group, overrides, effectTypes } of effectableGroups) {
+      for (const t of getTargets(group, overrides.deep)) { if (t.name) names.add(t.name); }
+      if (effectTypes.includes("flock")) {
+        group.traverse((obj) => { if ((obj as Mesh).isMesh && obj.name) names.add(obj.name); });
+      }
+    }
+    for (const src of effectorSources) { if (src.object.name) names.add(src.object.name); }
+    if (animBindings) {
+      for (const [, clips] of animBindings) {
+        for (const { tracks } of clips) { for (const { target } of tracks) { if (target.name) names.add(target.name); } }
+      }
+    }
+    if (effectorAnimBindings) {
+      for (const [, clips] of effectorAnimBindings) {
+        for (const { tracks } of clips) { for (const { target } of tracks) { if (target.name) names.add(target.name); } }
+      }
+    }
+    names.add("Camera");
+    return names;
+  }, [effectableGroups, effectorSources, animBindings, effectorAnimBindings]);
 
   scene.updateMatrixWorld(true);
   const effectorPos = getCameraWorldPosition(camera);
@@ -765,6 +790,8 @@ export function useEffector({
       });
     }
   }
+
+  return managedNames;
 }
 
 /**

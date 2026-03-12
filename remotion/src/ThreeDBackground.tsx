@@ -29,7 +29,6 @@ import {
 } from "three";
 import { createRimMaterial } from "./ThreeD/RimMaterial";
 import type { EffectorConfig, EffectMap } from "./ThreeD/Effector";
-import { findEffectableGroups, findEffectorSources } from "./ThreeD/Effector";
 import { useEffector } from "./ThreeD/useEffector";
 import { useCameraAnimation } from "./ThreeD/useCameraAnimation";
 import { Fisheye } from "./ThreeD/Fisheye";
@@ -130,7 +129,9 @@ const GlbModel = ({
 
   if (onCameraUpdate) onCameraUpdate(velocity, fov);
 
-  useEffector({
+  // useEffector returns the precise set of object names it manages
+  // (reset targets, Phase 1.5 anim targets, effector sources, Camera).
+  const managedNames = useEffector({
     nodes,
     config: effectorConfig,
     rotationAxis,
@@ -138,20 +139,6 @@ const GlbModel = ({
     animations,
     gltfScene: scene,
   });
-
-  // Character animation: play ONLY tracks for objects NOT managed by the
-  // effector (avoids overwriting Phase 1.5 track sampling for modulation objects).
-  const managedNames = useMemo(() => {
-    const names = new Set<string>();
-    for (const eg of findEffectableGroups(nodes, effectMap)) {
-      eg.group.traverse((obj) => { if (obj.name) names.add(obj.name); });
-    }
-    for (const src of findEffectorSources(nodes)) {
-      src.object.traverse((obj) => { if (obj.name) names.add(obj.name); });
-    }
-    names.add("Camera");
-    return names;
-  }, [nodes, effectMap]);
 
   const { mixer, maxDuration } = useMemo(() => {
     const m = new AnimationMixer(scene);
