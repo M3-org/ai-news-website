@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Data points: Babylon Market Launch (50,000 users), News Ticker Introduced, Phishing Scam Detection (Fake Support Bots), User Security Threat (Seed Phrase Requests)  
+3. Flow/relationship direction: Sequential progression from launch → feature introduction → scam identification → user risk  
+4. Suggested section headers:  
+   - User Adoption Milestone  
+   - Ecosystem Features  
+   - Security Threats Identified  
+   - Phishing Scam Details
+
+CONTENT CONTEXT:
+Babylon Market successfully launched to its first 50,000 users and introduced an ecosystem news ticker. Identification of phishing scams involving fake support bots requesting seed phrases for token migration.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality

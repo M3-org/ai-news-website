@@ -1,0 +1,34 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Process flow
+
+Main sections or categories to visualize:
+1. v2.0.0 Architecture Core
+2. Prompt Batching
+3. Serverless Compatibility
+4. Plugin Initialization Race Condition Resolution
+
+Key icons or visual elements needed:
+- Architecture/network diagram
+- Batching or stack symbol
+- Cloud/serverless icon
+- Gear/checkmark for issue resolution
+
+Suggested section headers:
+- Core Architecture
+- Efficient Prompt Batching
+- Serverless Ready
+- Reliable Plugin Initialization
+
+CONTENT CONTEXT:
+Development is centered on the v2.0.0 architecture, focusing on prompt batching, serverless compatibility, and resolving plugin initialization race conditions.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
