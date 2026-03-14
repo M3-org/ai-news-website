@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-import httplib2
 import os
 import random
 import shutil
@@ -39,10 +38,9 @@ YOUTUBE_UPLOAD_SCOPE = "https://www.googleapis.com/auth/youtube"
 YOUTUBE_API_SERVICE_NAME = "youtube"
 YOUTUBE_API_VERSION = "v3"
 
-# Retry logic (can be kept as is from the original sample)
-httplib2.RETRIES = 1
+# Retry logic
 MAX_RETRIES = 10
-RETRIABLE_EXCEPTIONS = (httplib2.HttpLib2Error, IOError) # Simplified for modern httplib2
+RETRIABLE_EXCEPTIONS = (IOError,)
 RETRIABLE_STATUS_CODES = [500, 502, 503, 504]
 
 THUMBNAIL_MAX_BYTES_DEFAULT = 2 * 1024 * 1024

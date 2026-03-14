@@ -333,7 +333,7 @@ print(d.get('video_id', ''))" 2>/dev/null || true)
             log "[DRY RUN] Would set $old_video_id to private"
         else
             log "Setting $old_video_id to private..."
-            python3 scripts/youtube_upload.py --visibility private --video "$old_video_id" || \
+            uv run python scripts/youtube_upload.py --visibility private --video "$old_video_id" || \
                 log "WARNING: Failed to set video to private (may already be private)"
         fi
 
@@ -343,7 +343,7 @@ print(d.get('video_id', ''))" 2>/dev/null || true)
                 log "[DRY RUN] Would remove $old_video_id from playlist $playlist_id"
             else
                 log "Removing $old_video_id from playlist $playlist_id..."
-                python3 scripts/youtube_upload.py --remove-from-playlist "$playlist_id" --video "$old_video_id" || \
+                uv run python scripts/youtube_upload.py --remove-from-playlist "$playlist_id" --video "$old_video_id" || \
                     log "WARNING: Failed to remove from playlist (may already be removed)"
             fi
         fi
@@ -356,11 +356,11 @@ print(d.get('video_id', ''))" 2>/dev/null || true)
     if [[ -n "$website_repo" ]]; then
         if [[ "$DRY_RUN" == "true" ]]; then
             log "[DRY RUN] Would unpublish $date_str from website"
-            python3 scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
+            uv run python scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
                 --website-repo "$website_repo" --dry-run || true
         else
             log "Unpublishing $date_str from website..."
-            python3 scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
+            uv run python scripts/publish_m3tv.py --unpublish --episode-date "$date_str" \
                 --website-repo "$website_repo" --push || \
                 log "WARNING: Website unpublish failed (may not have been published)"
         fi
@@ -516,7 +516,7 @@ step_2_generate_metadata() {
         playlist_arg="--playlist-id=${YOUTUBE_PLAYLIST_ID}"
     fi
 
-    python3 scripts/youtube_metadata.py "$SESSION_LOG" \
+    uv run python scripts/youtube_metadata.py "$SESSION_LOG" \
         --privacy unlisted \
         --download-thumb \
         ${playlist_arg:+"$playlist_arg"}
@@ -546,7 +546,7 @@ step_3_upload_youtube() {
 
     log "Uploading to YouTube from: $(basename "$METADATA_JSON")"
 
-    if ! python3 scripts/youtube_upload.py --from-json "$METADATA_JSON"; then
+    if ! uv run python scripts/youtube_upload.py --from-json "$METADATA_JSON"; then
         log "ERROR: YouTube upload command failed"
         return 1
     fi
@@ -583,7 +583,7 @@ step_4_analyze_clips() {
 
     log "Analyzing clips from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/llm_producer.py clips "$SESSION_LOG" --extract
+    uv run python scripts/llm_producer.py clips "$SESSION_LOG" --extract
 
     log "Clip analysis complete"
 }
@@ -598,7 +598,7 @@ step_5_generate_trailer() {
 
     log "Generating trailer config from: $(basename "$SESSION_LOG")"
 
-    python3 scripts/llm_producer.py trailer "$SESSION_LOG" --output="$TRAILER_DIR"
+    uv run python scripts/llm_producer.py trailer "$SESSION_LOG" --output="$TRAILER_DIR"
 
     # Find the generated config
     local base
@@ -691,7 +691,7 @@ step_7_cdn_upload() {
         if [[ -n "$METADATA_JSON" && -f "$METADATA_JSON" ]]; then
             manifest_args+=(--metadata-json "$METADATA_JSON")
         fi
-        python3 scripts/generate_manifest.py "${manifest_args[@]}"
+        uv run python scripts/generate_manifest.py "${manifest_args[@]}"
 
         manifest_path="${clips_dir}/manifest.json"
         manifest_to_upload="$manifest_path"
@@ -733,7 +733,7 @@ PYEOF
 
         log "Uploading clips to CDN..."
         if [[ -n "$manifest_to_upload" ]]; then
-            python3 scripts/cdn_upload.py \
+            uv run python scripts/cdn_upload.py \
                 --manifest "$manifest_to_upload" \
                 --remote "${remote_base}/clips/"
         fi
@@ -750,7 +750,7 @@ PYEOF
         log "Uploading trailer to CDN..."
 
         local cdn_result
-        cdn_result=$(python3 scripts/cdn_upload.py \
+        cdn_result=$(uv run python scripts/cdn_upload.py \
             "$trailer_file" \
             --remote "${remote_base}/trailers/" \
             --force --json 2>&1) || true
@@ -864,7 +864,7 @@ step_9_notify() {
         [[ -n "${WEBSITE_REPO:-}" ]] && bot_args+=(--website-repo "$WEBSITE_REPO")
 
         log "Launching Discord notification bot..."
-        nohup python3 scripts/discord_notify.py "${bot_args[@]}" \
+        nohup uv run python scripts/discord_notify.py "${bot_args[@]}" \
             >> "${LOG_DIR}/discord_notify_${date_str}.log" 2>&1 &
         log "Discord bot PID: $! (log: discord_notify_${date_str}.log)"
     fi
