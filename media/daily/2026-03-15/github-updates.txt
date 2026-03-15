@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: In the isometric city, the **Core Infrastructure Tower** anchors the downtown district, surrounded by sleek **Runtime Refactoring Labs**. Adjacent, **Database Overhaul Vaults** form a fortified data district. Skywalks (data flow) connect the Labs to the Vaults and Tower, symbolizing optimized process streams. The city’s power grid, **Stability Conduits**, radiates from the Infrastructure Tower, weaving through all structures. Labels: Core Infrastructure, Runtime Refactoring, Database Overhaul, Stability Conduits.
+
+CONTENT CONTEXT:
+Consolidating core infrastructure through runtime refactoring and database overhauls to stabilize for beta release.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

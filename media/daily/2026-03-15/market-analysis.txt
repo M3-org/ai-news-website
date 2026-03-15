@@ -1,0 +1,33 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Timeline with comparison elements  
+Main sections or categories to visualize:  
+1. Launch of OpenClaw-related tools  
+2. Stock price surge (MiniMax, Zhipu AI)  
+3. Emergence of fake support bot scam  
+4. User risk—seed phrase phishing  
+
+Key icons or visual elements needed:  
+- Stock chart arrows  
+- Company logos or ticker symbols  
+- Bot/scam warning icon  
+- Phishing/seed phrase lock  
+
+Suggested section headers:  
+1. OpenClaw Tool Launch  
+2. Market Reaction: Stock Surge  
+3. Scam Alert: Fake Support Bots  
+4. Protect Your Seed Phrase
+
+CONTENT CONTEXT:
+Stock prices for HK-listed MiniMax and Zhipu AI surged following the launch of OpenClaw-related tools. A fake support bot scam is targeting migration-seeking users via a colabdesk site requesting seed phrases.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
