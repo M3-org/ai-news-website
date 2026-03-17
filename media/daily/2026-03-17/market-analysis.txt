@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Dashboard  
+2. Data points: Percentage of elizaOS supply in limbo (54%), unmigrated ai16z tokens, MiniMax stock surge, Zhipu AI stock surge, impact of OpenClaw-compatible tool launches  
+3. Relationship direction: Unmigrated ai16z tokens → elizaOS supply in limbo; OpenClaw-compatible launches → Stock surges (MiniMax, Zhipu AI)  
+4. Suggested section headers: Token Migration Status, Stock Market Reactions, Key Influencing Events
+
+CONTENT CONTEXT:
+Migration analytics suggest a high percentage (approx. 54%) of the elizaOS supply remains in limbo due to unmigrated ai16z tokens. Stock surges for MiniMax and Zhipu AI in Hong Kong following the launch of OpenClaw-compatible tools.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
