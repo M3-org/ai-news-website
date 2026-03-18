@@ -1,0 +1,20 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: HOLOGRAPHIC UI ELEMENTS:  
+1. Main panels: "ELIZA Token Price" (center), "AI Crypto Index Performance" (left), "Performance Delta" (right).  
+2. Key indicators: Trend line gauges for ELIZA price vs. AI Crypto Index; percentage lag gauge; rate-of-change meter.  
+3. Connection lines: Animated data streams from AI Crypto Index panel to Performance Delta, and from ELIZA Token Price to Performance Delta.  
+4. Color accents: Cyan for AI Crypto metrics, magenta for ELIZA metrics, orange highlighting the negative lag on the delta gauge.
+
+CONTENT CONTEXT:
+ELIZA token price performance is lagging behind the broader AI crypto ecosystem pump.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
