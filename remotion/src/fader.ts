@@ -5,7 +5,7 @@
  * then resolve which GLB scenes are active at any given frame
  * (with crossfade opacity envelopes).
  */
-import type { GraphTimeline, Seg } from "./graph/GraphCanvas";
+import type { GraphTimeline, Seg } from "./graph/timeline";
 import type { FaderConfig, FaderSceneKey } from "./timing";
 import { CHAPTER_FRAMES } from "./timing";
 import type { SectionKey } from "./graph/layout";
