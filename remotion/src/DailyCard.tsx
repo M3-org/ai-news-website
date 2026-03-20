@@ -19,6 +19,7 @@ import {
   Item,
   DailyCardProps,
   DATE_FRAMES,
+  OPENING_FRAMES,
   computeTotalFrames,
   computeScaleFactor,
   wordFrames,
@@ -29,7 +30,8 @@ import {
   DEFAULT_KEY_FACTS_FADER_CONFIG,
   DEFAULT_COUNCIL_FADER_CONFIG,
 } from "./timing";
-import { GraphCanvas, buildGraphTimeline, resolveGraphCamera, OPENING_FRAMES, getTopicColorForFrame } from "./graph/GraphCanvas";
+import { GraphCanvas, resolveGraphCamera, getTopicColorForFrame } from "./graph/GraphCanvas";
+import { buildGraphTimeline } from "./graph/timeline";
 import { GLBFader } from "./GLBFader";
 import { buildFaderSceneBounds } from "./fader";
 import { CANVAS_SIZE } from "./graph/layout";
