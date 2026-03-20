@@ -8,7 +8,7 @@
  * Below/behind the scan: object visible (hologram → real texture transition).
  * Above/ahead of scan: discarded. Leading edge glows for Bloom.
  */
-import { ShaderMaterial, DoubleSide, Vector3, Color, Texture } from "three";
+import { ShaderMaterial, DoubleSide, Vector3, Color, Texture, type Side } from "three";
 
 const vertexShader = /* glsl */ `
 #include <skinning_pars_vertex>
@@ -50,6 +50,9 @@ uniform bool u_hasMap;
 uniform vec3 u_baseColor;
 uniform vec3 u_emissiveColor;
 uniform float u_emissiveIntensity;
+uniform float u_opacity;
+uniform float u_alphaTest;
+uniform float u_unlit;
 uniform float u_fresnelPower;
 uniform vec3 u_fresnelColor;
 uniform float u_fresnelIntensity;
@@ -97,16 +100,28 @@ void main() {
   lines = smoothstep(0.0, 0.05, lines);
   float lineFade = mix(u_lineAlpha, 1.0, reveal);
 
+  vec4 texel = u_hasMap ? texture2D(u_map, v_uv) : vec4(1.0);
+  float alpha = texel.a * u_opacity;
+  if (alpha < u_alphaTest) discard;
+
   // Original texture / base color + emissive for prebaked scenes
   vec3 base;
   if (u_hasMap) {
-    vec3 texel = texture2D(u_map, v_uv).rgb;
-    // Tint by emissive color (prebaked: emissive white = pass-through, colored = tint)
-    base = texel * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    if (u_unlit > 0.5) {
+      base = texel.rgb * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    } else {
+      vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
+      float diffuse = 0.3 + 0.7 * max(dot(v_normal, lightDir), 0.0);
+      base = texel.rgb * diffuse + u_emissiveColor * u_emissiveIntensity;
+    }
   } else {
-    vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
-    float diffuse = 0.3 + 0.7 * max(dot(v_normal, lightDir), 0.0);
-    base = u_baseColor * diffuse + u_emissiveColor * u_emissiveIntensity;
+    if (u_unlit > 0.5) {
+      base = u_baseColor + u_emissiveColor * u_emissiveIntensity;
+    } else {
+      vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
+      float diffuse = 0.3 + 0.7 * max(dot(v_normal, lightDir), 0.0);
+      base = u_baseColor * diffuse + u_emissiveColor * u_emissiveIntensity;
+    }
   }
 
   // Hologram tint — blue-shifted version of base
@@ -138,7 +153,7 @@ void main() {
   // Fade: blend everything back to pure base texture before material swap
   color = mix(color, base, u_fade);
 
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(color, alpha);
 }
 `;
 
@@ -161,6 +176,11 @@ export interface HologramOptions {
   maxY?: number;
   /** If true, scan sweeps along world Z instead of world Y (for holoReveal). */
   useZ?: boolean;
+  opacity?: number;
+  transparent?: boolean;
+  alphaTest?: number;
+  side?: Side;
+  unlit?: boolean;
 }
 
 export function createHologramMaterial(opts: HologramOptions = {}): ShaderMaterial {
@@ -172,6 +192,9 @@ export function createHologramMaterial(opts: HologramOptions = {}): ShaderMateri
   const scanWidth = Math.max(1e-4, opts.scanWidth ?? 0.06);
   const lineSpacing = Math.max(1e-4, opts.lineSpacing ?? 0.03);
   const revealWidth = Math.max(1e-4, opts.revealWidth ?? 0.5);
+  const opacity = opts.opacity ?? 1.0;
+  const alphaTest = opts.alphaTest ?? 0.0;
+  const isTransparent = opts.transparent ?? (opacity < 1.0 || alphaTest > 0);
 
   return new ShaderMaterial({
     uniforms: {
@@ -188,6 +211,9 @@ export function createHologramMaterial(opts: HologramOptions = {}): ShaderMateri
       u_baseColor: { value: new Vector3(baseColor.r, baseColor.g, baseColor.b) },
       u_emissiveColor: { value: new Vector3(emissiveColor.r, emissiveColor.g, emissiveColor.b) },
       u_emissiveIntensity: { value: opts.emissiveIntensity ?? 0.0 },
+      u_opacity: { value: opacity },
+      u_alphaTest: { value: alphaTest },
+      u_unlit: { value: opts.unlit ? 1.0 : 0.0 },
       u_fresnelPower: { value: opts.fresnelPower ?? 2.0 },
       u_fresnelColor: { value: new Vector3(fresnelColor.r, fresnelColor.g, fresnelColor.b) },
       u_fresnelIntensity: { value: opts.fresnelIntensity ?? 1.5 },
@@ -202,7 +228,7 @@ export function createHologramMaterial(opts: HologramOptions = {}): ShaderMateri
     },
     vertexShader,
     fragmentShader,
-    side: DoubleSide,
-    transparent: false,
+    side: opts.side ?? DoubleSide,
+    transparent: isTransparent,
   });
 }

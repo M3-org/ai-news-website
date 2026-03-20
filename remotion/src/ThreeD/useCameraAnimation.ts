@@ -81,7 +81,7 @@ export function useCameraAnimation({
     }
 
     if (result.length === 0) {
-      console.warn("[useCameraAnimation] No camera animation found in GLTF.");
+      // No camera animation in this GLB — expected for most scenes
       return null;
     }
 

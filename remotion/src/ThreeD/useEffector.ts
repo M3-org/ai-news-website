@@ -103,6 +103,41 @@ function getBaseMap(mat: MeshStandardMaterial | MeshBasicMaterial) {
   return (mat instanceof MeshStandardMaterial ? mat.emissiveMap : null) ?? mat.map ?? null;
 }
 
+interface MaterialProfile {
+  baseColor: string;
+  emissiveColor: string;
+  emissiveIntensity: number;
+  map: ReturnType<typeof getBaseMap>;
+  opacity: number;
+  transparent: boolean;
+  alphaTest: number;
+  side: MeshStandardMaterial["side"] | MeshBasicMaterial["side"];
+  unlit: boolean;
+}
+
+function getMaterialProfile(mat: MeshStandardMaterial | MeshBasicMaterial): MaterialProfile {
+  const emissive = getEmissive(mat);
+  const preferredMap =
+    mat.map ?? (mat instanceof MeshStandardMaterial ? mat.emissiveMap ?? null : null);
+
+  return {
+    baseColor: getBaseColor(mat),
+    emissiveColor: emissive.color,
+    emissiveIntensity: emissive.intensity,
+    map: preferredMap,
+    opacity: mat.opacity ?? 1,
+    transparent:
+      Boolean(mat.transparent) ||
+      (mat.opacity != null && mat.opacity < 1) ||
+      (mat.alphaTest ?? 0) > 0,
+    alphaTest: mat.alphaTest ?? 0,
+    side: mat.side,
+    unlit:
+      mat instanceof MeshBasicMaterial ||
+      (mat instanceof MeshStandardMaterial && !!mat.emissiveMap && !mat.map),
+  };
+}
+
 /** Get targets for a group based on deep setting */
 function getTargets(group: Object3D, deep: number | undefined): Object3D[] {
   if (deep === 0) return [group];
@@ -175,7 +210,7 @@ export function useEffector({
   effectMap,
   animations,
   gltfScene,
-}: UseEffectorOptions): void {
+}: UseEffectorOptions): Set<string> {
   const camera = useThree((s) => s.camera);
   const scene = useThree((s) => s.scene);
   const frame = useCurrentFrame();
@@ -307,6 +342,31 @@ export function useEffector({
 
     return bindings.size > 0 ? bindings : null;
   }, [effectorSources, effectableGroups, animations, gltfScene]);
+
+  // Precise set of object names managed by the effector (for external filtering).
+  // Includes: resetSet targets, Phase 1.5 track targets, Phase 1.5b track targets, Camera.
+  const managedNames = useMemo(() => {
+    const names = new Set<string>();
+    for (const { group, overrides, effectTypes } of effectableGroups) {
+      for (const t of getTargets(group, overrides.deep)) { if (t.name) names.add(t.name); }
+      if (effectTypes.includes("flock")) {
+        group.traverse((obj) => { if ((obj as Mesh).isMesh && obj.name) names.add(obj.name); });
+      }
+    }
+    for (const src of effectorSources) { if (src.object.name) names.add(src.object.name); }
+    if (animBindings) {
+      for (const [, clips] of animBindings) {
+        for (const { tracks } of clips) { for (const { target } of tracks) { if (target.name) names.add(target.name); } }
+      }
+    }
+    if (effectorAnimBindings) {
+      for (const [, clips] of effectorAnimBindings) {
+        for (const { tracks } of clips) { for (const { target } of tracks) { if (target.name) names.add(target.name); } }
+      }
+    }
+    names.add("Camera");
+    return names;
+  }, [effectableGroups, effectorSources, animBindings, effectorAnimBindings]);
 
   scene.updateMatrixWorld(true);
   const effectorPos = getCameraWorldPosition(camera);
@@ -572,27 +632,25 @@ export function useEffector({
               if ((obj as Mesh).isMesh) {
                 const mesh = obj as Mesh;
 
-                // If outside effector field, reset to original material (burn shader discards all at threshold=0)
-                if (weight <= 0) {
-                  if (mesh.userData._burnMaterial && mesh.material === mesh.userData._burnMaterial) {
-                    if (mesh.userData._originalMaterial) {
-                      mesh.material = mesh.userData._originalMaterial;
-                    }
-                  }
-                  return;
-                }
-
                 if (!mesh.userData._burnMaterial) {
                   mesh.userData._originalMaterial = mesh.userData._originalMaterial ?? mesh.material;
                   const origMat = mesh.userData._originalMaterial as MeshStandardMaterial | MeshBasicMaterial;
-                  const em = getEmissive(origMat);
+                  const profile = getMaterialProfile(origMat);
                   mesh.userData._burnMaterial = createMaterializeMaterial({
-                    burnIntensity: bIntensity, map: getBaseMap(origMat), baseColor: getBaseColor(origMat),
-                    emissiveColor: em.color, emissiveIntensity: em.intensity,
+                    burnIntensity: bIntensity,
+                    map: profile.map,
+                    baseColor: profile.baseColor,
+                    emissiveColor: profile.emissiveColor,
+                    emissiveIntensity: profile.emissiveIntensity,
+                    opacity: profile.opacity,
+                    transparent: profile.transparent,
+                    alphaTest: profile.alphaTest,
+                    side: profile.side,
+                    unlit: profile.unlit,
                   });
                 }
                 const burnMat = mesh.userData._burnMaterial as ShaderMaterial;
-                burnMat.uniforms.u_threshold.value = weight;
+                burnMat.uniforms.u_threshold.value = Math.max(0, Math.min(1, weight));
                 burnMat.uniforms.u_burnIntensity.value = bIntensity;
                 mesh.material = burnMat;
               }
@@ -691,11 +749,18 @@ export function useEffector({
               if (!mesh.userData._rimMaterial) {
                 mesh.userData._originalMaterial = mesh.userData._originalMaterial ?? mesh.material;
                 const origMat = mesh.userData._originalMaterial as MeshStandardMaterial | MeshBasicMaterial;
-                const em = getEmissive(origMat);
+                const profile = getMaterialProfile(origMat);
                 mesh.userData._rimMaterial = createRimMaterial({
-                  rimColor: o.rimColor ?? "#ffffff", rimIntensity: rIntensity, rimPower: rPower,
-                  map: getBaseMap(origMat), baseColor: getBaseColor(origMat),
-                  emissiveColor: em.color, emissiveIntensity: em.intensity,
+                  rimColor: o.rimColor ?? "#ffffff",
+                  rimIntensity: rIntensity,
+                  rimPower: rPower,
+                  map: profile.map,
+                  baseColor: profile.baseColor,
+                  emissiveColor: profile.emissiveColor,
+                  emissiveIntensity: profile.emissiveIntensity,
+                  opacity: profile.opacity,
+                  transparent: profile.transparent,
+                  alphaTest: profile.alphaTest,
                 });
               }
               const rimMat = mesh.userData._rimMaterial as ShaderMaterial;
@@ -725,6 +790,8 @@ export function useEffector({
       });
     }
   }
+
+  return managedNames;
 }
 
 /**
@@ -779,15 +846,22 @@ function applyHologram(
           mesh.userData._originalMaterial = mesh.userData._originalMaterial ?? mesh.material;
           const box = new Box3().setFromObject(mesh);
           const origMat = mesh.userData._originalMaterial as MeshStandardMaterial | MeshBasicMaterial;
+          const profile = getMaterialProfile(origMat);
           // Y-mode uses Y bounds, Z-mode uses Z bounds
           const lo = zMode ? box.min.z : box.min.y;
           const hi = zMode ? box.max.z : box.max.y;
-          const em = getEmissive(origMat);
           mesh.userData[matKey] = createHologramMaterial({
             minY: lo, maxY: hi,
             scanIntensity: hIntensity, scanColor: hColor,
-            map: getBaseMap(origMat), baseColor: getBaseColor(origMat),
-            emissiveColor: em.color, emissiveIntensity: em.intensity,
+            map: profile.map,
+            baseColor: profile.baseColor,
+            emissiveColor: profile.emissiveColor,
+            emissiveIntensity: profile.emissiveIntensity,
+            opacity: profile.opacity,
+            transparent: profile.transparent,
+            alphaTest: profile.alphaTest,
+            side: profile.side,
+            unlit: profile.unlit,
             useZ: zMode,
           });
           mesh.userData[minKey] = lo;

@@ -33,6 +33,7 @@ void main() {
 const fragmentShader = /* glsl */ `
 uniform sampler2D u_map;
 uniform bool u_hasMap;
+uniform float u_opacity;
 uniform vec3 u_baseColor;
 uniform vec3 u_emissiveColor;
 uniform float u_emissiveIntensity;
@@ -40,6 +41,7 @@ uniform vec3 u_rimColor;
 uniform float u_rimIntensity;
 uniform float u_rimPower;
 uniform float u_weight;
+uniform float u_alphaTest;
 
 varying vec3 v_normal;
 varying vec3 v_viewPos;
@@ -48,14 +50,19 @@ varying vec2 v_uv;
 void main() {
   // Base color / texture + emissive for prebaked scenes
   vec3 base;
+  float alpha = u_opacity;
   if (u_hasMap) {
-    vec3 texel = texture2D(u_map, v_uv).rgb;
-    base = texel * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    vec4 texel = texture2D(u_map, v_uv);
+    base = texel.rgb * max(u_emissiveColor * u_emissiveIntensity, vec3(1.0));
+    alpha *= texel.a;
   } else {
     vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));
     float diffuse = 0.3 + 0.7 * max(dot(normalize(v_normal), lightDir), 0.0);
     base = u_baseColor * diffuse + u_emissiveColor * u_emissiveIntensity;
   }
+
+  // Alpha cutoff (GLTF MASK mode)
+  if (alpha < u_alphaTest) discard;
 
   // Fresnel rim — edges glow, center stays clean
   vec3 viewDir = normalize(v_viewPos);
@@ -65,7 +72,7 @@ void main() {
   // Rim glow scaled by effector weight — pushes past 1.0 for Bloom
   vec3 color = base + u_rimColor * rim * u_rimIntensity * u_weight;
 
-  gl_FragColor = vec4(color, 1.0);
+  gl_FragColor = vec4(color, alpha);
 }
 `;
 
@@ -80,6 +87,12 @@ export interface RimOptions {
   /** Fresnel exponent — higher = thinner rim (default 2). */
   rimPower?: number;
   map?: Texture | null;
+  /** Material opacity 0-1 (default 1). Values < 1 enable transparency. */
+  opacity?: number;
+  /** Force transparency on (e.g. when base texture has alpha channel). */
+  transparent?: boolean;
+  /** Alpha cutoff threshold for cutout transparency (GLTF MASK mode). */
+  alphaTest?: number;
 }
 
 export function createRimMaterial(opts: RimOptions = {}): ShaderMaterial {
@@ -88,11 +101,15 @@ export function createRimMaterial(opts: RimOptions = {}): ShaderMaterial {
   const rimColor = new Color(opts.rimColor ?? "#ffffff");
   const hasMap = !!opts.map;
   const rimPower = Math.max(1e-4, opts.rimPower ?? 2.0);
+  const opacity = opts.opacity ?? 1.0;
+  const alphaTest = opts.alphaTest ?? 0;
+  const isTransparent = opts.transparent ?? (opacity < 1.0 || alphaTest > 0);
 
   return new ShaderMaterial({
     uniforms: {
       u_map: { value: opts.map ?? null },
       u_hasMap: { value: hasMap },
+      u_opacity: { value: opacity },
       u_baseColor: { value: new Vector3(baseColor.r, baseColor.g, baseColor.b) },
       u_emissiveColor: { value: new Vector3(emissiveColor.r, emissiveColor.g, emissiveColor.b) },
       u_emissiveIntensity: { value: opts.emissiveIntensity ?? 0.0 },
@@ -100,10 +117,11 @@ export function createRimMaterial(opts: RimOptions = {}): ShaderMaterial {
       u_rimIntensity: { value: opts.rimIntensity ?? 2.0 },
       u_rimPower: { value: rimPower },
       u_weight: { value: 0.0 },
+      u_alphaTest: { value: alphaTest },
     },
     vertexShader,
     fragmentShader,
     side: DoubleSide,
-    transparent: false,
+    transparent: isTransparent,
   });
 }
