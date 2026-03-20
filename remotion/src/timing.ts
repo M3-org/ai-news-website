@@ -205,6 +205,7 @@ function computeTotalFramesScaled(props: DailyCardProps, scale: number): number 
 
 /** Scale factor to cap total duration at MAX_FRAMES (90s). Returns 1.0 if already within cap. */
 export function computeScaleFactor(props: DailyCardProps): number {
+  // scale=0 zeroes all word-based durations, leaving only fixed structural frames
   const fixedFrames = computeTotalFramesScaled(props, 0);
   const raw = computeTotalFramesScaled(props, 1.0);
   const scalableFrames = raw - fixedFrames;
