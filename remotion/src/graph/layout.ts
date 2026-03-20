@@ -81,12 +81,10 @@ function degToRad(deg: number): number {
   return (deg * Math.PI) / 180;
 }
 
-/** Deterministic pseudo-random from integer seed (0–1). Mulberry32-based. */
+/** Deterministic pseudo-random from integer seed (0–1). */
 function hash(seed: number): number {
-  let t = (seed + 0x6D2B79F5) | 0;
-  t = Math.imul(t ^ (t >>> 15), t | 1);
-  t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
-  return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  const x = Math.sin(seed * 127.1 + 311.7) * 43758.5453;
+  return x - Math.floor(x);
 }
 
 function pointOnCircle(cx: number, cy: number, radius: number, angleRad: number): NodePos {

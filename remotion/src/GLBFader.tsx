@@ -4,7 +4,7 @@
  * Thin wrapper that resolves which GLB scenes are active at the current frame
  * and passes through all config fields to ThreeDBackground.
  */
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useCurrentFrame } from "remotion";
 import { useGLTF } from "@react-three/drei";
 import { ThreeDBackground, type GraphCamera } from "./ThreeDBackground";
@@ -30,7 +30,7 @@ export const GLBFader: React.FC<GLBFaderProps> = ({
     () => Object.values(configs).map((c) => c.glbFile).filter(Boolean),
     [configs],
   );
-  useEffect(() => { for (const url of glbUrls) useGLTF.preload(resolveAsset(url)); }, [glbUrls]);
+  useMemo(() => { for (const url of glbUrls) useGLTF.preload(resolveAsset(url)); }, [glbUrls]);
 
   const frame = useCurrentFrame();
   const activeScenes = resolveActiveFaderScenes(frame, sceneBounds, configs);
