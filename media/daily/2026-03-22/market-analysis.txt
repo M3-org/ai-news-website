@@ -1,0 +1,20 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Main metric panels: "Token Price Recovery Rate", "Broader Market Index", "Babylon Launch Impact".  
+Key indicators: Recovery Rate Gauge (magenta), Market Performance Bar (cyan), Launch Event Pulse (orange).  
+Connection lines: Animated data flows between "Babylon Launch Impact" to both recovery rate and market index panels.  
+Color accents: Neon cyan for data flows, magenta for recovery trends, orange for launch-related spikes.  
+All panels float as semi-transparent holograms with dynamic overlays, radiating pulsing edges when metrics shift.
+
+CONTENT CONTEXT:
+Token price recovery is lagging behind the broader market, even post-Babylon launch.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
