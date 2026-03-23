@@ -1,0 +1,22 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections: Beta Launch Focus, Clearing Dashboard Blockers, Refining AI Conversation Styles  
+3. Key icons/elements: Target/focus icon, warning/blocker symbol, dashboard graphic, chat bubble with AI or robot  
+4. Suggested section headers:  
+   - Beta Launch Stability  
+   - Resolving Dashboard Blockers  
+   - Enhancing AI Conversations
+
+CONTENT CONTEXT:
+Focus shifted toward beta launch stability, clearing functional blockers in the dashboard and refining AI conversational styles.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

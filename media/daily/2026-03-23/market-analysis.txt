@@ -1,0 +1,31 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Cause-and-effect flowchart  
+2. Main sections or categories to visualize:  
+   - Trigger event (Trump token launch)  
+   - Market reaction (market-wide selloff)  
+   - Impacted entity (AI16Z)  
+   - Outcome (AI16Z recovery rates affected)  
+3. Key icons or visual elements needed:  
+   - Token/coin icon for Trump token  
+   - Downward market/graph icon for selloff  
+   - Company logo or abstract for AI16Z  
+   - Percentage or recovery rate meter  
+4. Suggested section headers:  
+   - Trigger Event  
+   - Market Selloff  
+   - Impact on AI16Z  
+   - Recovery Rate Consequences
+
+CONTENT CONTEXT:
+High market-wide selloff triggered by Trump token launch impacted AI16Z recovery rates.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
