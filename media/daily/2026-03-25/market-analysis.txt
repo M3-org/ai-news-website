@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Line chart overlaid with event annotations  
+2. Specific data points or categories to show: Eliza token price (Y-axis) over time (X-axis), highlighting 20-30% price pumps and subsequent drops to new all-time lows; annotated points for BitMart listing team contact  
+3. Flow/relationship direction: Chronological (left to right, time progression); annotation of external interest during pattern  
+4. Suggested section headers: "Eliza Token Price Cycles" / "Pump and Drop Patterns" / "External Exchange Interest"
+
+CONTENT CONTEXT:
+Eliza token price pattern identified as recurring 20-30% pumps followed by drops to new all-time lows. BitMart's listing team has reached out for business cooperation discussions.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
