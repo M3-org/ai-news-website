@@ -1,0 +1,30 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Main metric panels:  
+— Current Token Price (central, large)  
+— 24h % Change  
+— All-Time Low Indicator  
+— Pump Cycle Frequency (gauge)  
+Key indicators:  
+— Volatility Meter (bar arc)  
+— Dump Alert (flashing badge)  
+Connection lines:  
+— Animated data flows from Pump Cycle gauge to Price and All-Time Low panels  
+— Thin neon connectors between 24h % Change and Volatility Meter  
+Color accents:  
+— Cyan for price data  
+— Magenta for alerts and cycles  
+— Orange highlighting new lows
+
+CONTENT CONTEXT:
+Eliza token exhibiting 'pump and dump' cycles with consistent moves to new all-time lows.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
