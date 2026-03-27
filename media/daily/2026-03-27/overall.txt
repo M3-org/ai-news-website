@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Eliza stands in sharp silhouette atop a sprouting hill, arms outstretched between conflicting pathways marked “Milady,” “Babylon,” and “Hyperscape.” Behind her, a radiant spring sky crackles with tension—fractured by jagged beams. Angry crowds and lush new buds line the foreground, caught in backlit halos.
+SCENE: From above, Eliza stands in a sunlit, blossoming field where vast, interconnected cloud structures, glowing with spring greens and golds, converge into a single, sleek hub; shimmering blockchain networks and decision nodes radiate outward, casting long, hopeful shadows under a dawn-pink sky.
 
-ART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

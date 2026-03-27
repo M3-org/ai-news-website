@@ -1,21 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: Infographic type: Timeline/Trend Chart  
-Main sections or categories:  
-1. Previous High  
-2. Progressive Decline  
-3. Current All-Time Lows  
-Key icons or visual elements needed:  
-- Line graph showing price drop  
-- Tokens/coins symbol  
-- Downward arrow indicators  
-Suggested section headers:  
-- Peak Value  
-- Downward Trend  
-- Current Record Low
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections or categories: "Relief Pump," "Dump," "New All-Time Low"  
+3. Key icons or visual elements needed: Upward arrow (pump), downward arrow (dump), warning/alert icon (new low)  
+4. Suggested section headers: "Relief Pump (20-30%)," "Sharp Dump," "New All-Time Low"
 
 CONTENT CONTEXT:
-Reports of elizaOS token hitting continuous all-time lows and a 90% drop from previous highs.
+Eliza token performance shows a pattern of 20-30% relief pumps followed by dumps to new all-time lows.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
