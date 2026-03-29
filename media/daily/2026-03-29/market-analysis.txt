@@ -1,15 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Line chart with threshold indicator  
-2. Data points/categories: Eliza token price over time, all-time low ($9), CoinMarketCap rank over time, top 1000 threshold  
-3. Flow/relationship direction: Timeline progression showing price drop correlating with loss of ranking  
-4. Suggested section headers:  
-   - Eliza Token Price Trend  
-   - CoinMarketCap Ranking Change  
-   - Correlation Between Price and Rank
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Specific data points or categories to show: BitDelta exchange, Due Diligence Process, Community Support, AI16Z Token Listing  
+3. Flow/relationship direction: Sequential flow from BitDelta exchange → Due Diligence → Community Support → AI16Z Token Listing  
+4. Suggested section headers: Exchange Initiative, Verification Stage, Community Approval, Token Listing Outcome
 
 CONTENT CONTEXT:
-Eliza token hit new all-time lows in the $9 range, dropping out of the top 1000 on CoinMarketCap.
+BitDelta exchange is moving forward with a listing for the community's legacy AI16Z token after successful due diligence.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
