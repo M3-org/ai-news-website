@@ -1,0 +1,21 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: **Three main holographic panels**:  
+1. **Agent Hosting Costs:** Dynamic gauge displaying $7.20–$21.60/month (cyan glow).  
+2. **AI Agent Benchmark:** Vertical bar showing retail-level expense comparison (magenta accent).  
+3. **SAID Protocol Status:** Badge-style panel with “Verified: FREE Digital Passport” (orange highlight).
+
+**Connection lines** link Hosting Costs to Benchmark and SAID Protocol, indicating flow from operational expense to authentication benefits. Animated data streams (cyan to magenta gradients) emphasize real-time updates. Color accents: cyan (costs/panels), magenta (comparison), orange (protocol/security).
+
+CONTENT CONTEXT:
+Milady app agent hosting costs were calculated at $7.20 to $21.60 per month, providing a benchmark for retail-level AI agent operating expenses. Introduction of the SAID Protocol on Solana provides a free, verifiable 'digital passport' system for agents.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
