@@ -1,24 +1,25 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Infographic type: Cause-and-effect flowchart  
+VISUALIZATION TYPE: 1. Infographic type: Timeline + Comparison  
 2. Main sections or categories to visualize:  
-   - Trigger event (Trump token launch)  
-   - Market reaction (market-wide selloff)  
-   - Impacted entity (AI16Z)  
-   - Outcome (AI16Z recovery rates affected)  
+   - Initial Market Cap & Supply  
+   - Final Market Cap & Supply  
+   - Change in Market Cap  
+   - Change in Token Supply  
+   - Implication/Insight  
 3. Key icons or visual elements needed:  
-   - Token/coin icon for Trump token  
-   - Downward market/graph icon for selloff  
-   - Company logo or abstract for AI16Z  
-   - Percentage or recovery rate meter  
+   - Line graph or bar chart (for market cap drop)  
+   - Arrow or delta symbol (for change indicators)  
+   - Token/supply icon  
+   - Percentage or “x” multiplier symbols  
 4. Suggested section headers:  
-   - Trigger Event  
-   - Market Selloff  
-   - Impact on AI16Z  
-   - Recovery Rate Consequences
+   - Before: $2B Market Cap  
+   - After: $6M Market Cap  
+   - 10x Token Supply Increase  
+   - Key Impact/Takeaway
 
 CONTENT CONTEXT:
-High market-wide selloff triggered by Trump token launch impacted AI16Z recovery rates.
+Transition of AI16z token market cap from 2B to 6M and a 10x supply increase.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
