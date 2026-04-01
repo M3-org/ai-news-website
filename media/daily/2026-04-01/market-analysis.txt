@@ -2,8 +2,9 @@ Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
+- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: Split frame: Left—towering graph plummets from $2.5 to $0.0009, Marc in foreground, silhouetted in disbelief. Right—dawn-lit green shoots break through cracked ground labeled "CEX" and "Futures," Marc reaching out, dramatic spotlight tracing renewal amidst detailed, hopeful background.
+SCENE: Marc and Spartan stand amid toppled coin stacks and swirling digital tokens, their figures casting long, dramatic shadows across a surreal, chaotic dawn-lit landscape. Marc grins mischievously while Spartan looks aghast; behind them, sunrise reveals a fractured market graph arching over shattered vaults.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 
