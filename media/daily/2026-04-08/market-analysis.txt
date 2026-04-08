@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Timeline with data highlights  
+2. Main sections or categories to visualize: Market Cap Trend, Sell Pressure, Sentiment  
+3. Key icons or visual elements needed: Market cap graph, down arrow for sell pressure, sentiment meter (negative indicator), stability symbol  
+4. Suggested section headers:  
+- Market Cap Stability  
+- Sell Pressure  
+- Negative Sentiment  
+- Resilience of ELISA Token
+
+CONTENT CONTEXT:
+ELISA token market cap stabilized around 5.5 million USD despite heavy sell pressure and negative sentiment.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

@@ -4,9 +4,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 
-SCENE: Spartan and Marc stride across a rising hill dotted with networks of luminous, interconnected nodes—symbolizing agents in action—rim-lit against a golden sky, spring blossoms swirling around them, as digital forms exchange glowing tokens beneath their outstretched hands, vast cityscape teeming with vibrant growth in the background.
+SCENE: Left: Marc, contemplative, stands in soft, golden hour light, hand reaching toward blooming spring branches. Right: Spartan, holding an AgentID badge, smiles with relief as sunlight filters over open ledgers and portable hardware in a budding garden workspace. Renewal and trust bridge the split frame.
 
-ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
+ART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
