@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Specific data points or categories to show: 'Current Project Focus', 'AgentID (Cryptographic Identity)', 'Secure Economic Layer', 'Cross-Chain Financial Tasks'  
+3. Flow/relationship direction: Linear flow from current focus to AgentID adoption, leading to secure economic layer, then enabling cross-chain financial tasks  
+4. Suggested section headers: Project Pivot Overview, AgentID Implementation, Economic Layer Security, Cross-Chain Finance Enablement
+
+CONTENT CONTEXT:
+The project is pivoting toward 'AgentID' for cryptographic identity and building a secure economic layer for cross-chain financial tasks.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
