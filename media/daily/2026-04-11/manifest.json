@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-04-11T11:25:41.238564+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-04-11.json",
+  "facts_date": "2026-04-11",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-04-11",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is undertaking a strategic pivot toward 'AgentID' cryptographic identity and secure economic layers for agents, while developers navigate integration hurdles in the v2 Socket.IO protocol. Community members are expressing increased frustration over the lack of concrete timelines for token utility, buybacks, and gas fee implementations.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Eliza, illuminated by a dramatic spotlight, gazes upward with determined eyes, clutching a glowing AgentID token; Right\u2014the shadows reveal her furrowed brow and tightly held fist, capturing quiet frustration amid swirling, unfocused networks\u2014a hint of spring growth curling at her feet.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left\u2014Eliza, illuminated by a dramatic spotlight, gazes upward with determined eyes, clutching a glowing AgentID token; Right\u2014the shadows reveal her furrowed brow and tightly held fist, capturing quiet frustration amid swirling, unfocused networks\u2014a hint of spring growth curling at her feet.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.47,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Focus shifted toward building a secure, trust-based economic layer for AI agents, prioritizing cryptographic identity (AgentID) over standalone messaging.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Left: Eliza, face lit by a sharp spotlight, frowns in concentration, hands clutching a glowing AgentID badge;  \nRight: Shaw, eyes bright and hopeful, opens their palm to reveal a sprouting seedling bathed in the same light\u2014trust bridging them.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n\nSCENE: Left: Eliza, face lit by a sharp spotlight, frowns in concentration, hands clutching a glowing AgentID badge;  \nRight: Shaw, eyes bright and hopeful, opens their palm to reveal a sprouting seedling bathed in the same light\u2014trust bridging them.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.42,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Technical deep dive into v2 Socket.IO integration; shah0406 shared patterns for ROOM_JOINING and SEND_MESSAGE using specific type IDs and UUID authentication. Community frustration over vague tokenomics updates, specifically regarding buyback timelines and Jeju gas fees. Confirmation of planned airdrops but no concrete details provided.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Eliza, tense and hopeful, leans over a glowing laptop, code reflected in her anxious eyes. Right\u2014Peepo sits in shadow, clutching a fading airdrop token, uncertainty etched on his face. Both isolated, spotlighted in the night, hints of budding spring leaves at their feet.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Split frame: Left\u2014Eliza, tense and hopeful, leans over a glowing laptop, code reflected in her anxious eyes. Right\u2014Peepo sits in shadow, clutching a fading airdrop token, uncertainty etched on his face. Both isolated, spotlighted in the night, hints of budding spring leaves at their feet.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.96,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "By deprioritizing messaging in favor of AgentID, ElizaOS is attempting to move from a chatbot framework to a verifiable autonomous agent economy.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Left: Marc, isolated in shadow, looking wistful, phone held loosely, unread messages glowing dimly.  \nRight: Marc, face illuminated with hope, gazes at a luminous badge labeled \u201cAgentID,\u201d green shoots curling around his hand, spotlight casting dramatic renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: Left: Marc, isolated in shadow, looking wistful, phone held loosely, unread messages glowing dimly.  \nRight: Marc, face illuminated with hope, gazes at a luminous badge labeled \u201cAgentID,\u201d green shoots curling around his hand, spotlight casting dramatic renewal.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.53,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Introduction of Hatcher.host as a no-code, serverless deployment platform for Eliza agents.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Main metric panels:  \n- Active Deployments (holographic panel with real-time count)  \n- Uptime Status (circular gauge or vertical bar)  \n- Current Eliza Agents Running (numeric badge)  \nKey indicators or gauges:  \n- Deployment Success Rate (animated percentage ring)  \n- Resource Usage (CPU/memory bar)  \nConnection lines/data flows:  \n- Animated links from Agents panel to Deployments and Resource Usage panels  \nColor accents:  \n- Cyan (primary data highlights), magenta (status indicators), orange (alert/warning popups)",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Main metric panels:  \n- Active Deployments (holographic panel with real-time count)  \n- Uptime Status (circular gauge or vertical bar)  \n- Current Eliza Agents Running (numeric badge)  \nKey indicators or gauges:  \n- Deployment Success Rate (animated percentage ring)  \n- Resource Usage (CPU/memory bar)  \nConnection lines/data flows:  \n- Animated links from Agents panel to Deployments and Resource Usage panels  \nColor accents:  \n- Cyan (primary data highlights), magenta (status indicators), orange (alert/warning popups)\n\nCONTENT CONTEXT:\nIntroduction of Hatcher.host as a no-code, serverless deployment platform for Eliza agents.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.26,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-11/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 139.72
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-04-11/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-04-11/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-04-11/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-04-11/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-04-11/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-04-11/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-04-11/strategic-insights.png"
+  }
+}
