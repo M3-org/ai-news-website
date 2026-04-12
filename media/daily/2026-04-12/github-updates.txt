@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections or categories: Project Evolution, AgentID Introduction, Capability-Based Authorization, Trust-Based Economic Layer  
+3. Key icons or visual elements needed: Messaging icon, user ID badge (AgentID), security/auth key (capabilities), economic network/trust graph  
+4. Suggested section headers:  
+   - From Messaging to Economic Layer  
+   - Introducing AgentID  
+   - Enabling Capability-Based Authorization  
+   - Building the Trust Economy
+
+CONTENT CONTEXT:
+The project is pivoting from simple messaging to a trust-based economic layer using 'AgentID' and capability-based authorization.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

@@ -1,0 +1,32 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Process flow
+
+Main sections or categories to visualize:
+1. What is Hatcher.host?
+2. Benefits of No-Code Serverless Deployment
+3. Steps to Deploy Eliza on Hatcher.host
+
+Key icons or visual elements needed:
+- Cloud/serverless symbol
+- Drag-and-drop or no-code icon
+- Chatbot (Eliza) representation
+- Arrow flow showing deployment steps
+
+Suggested section headers:
+- Introducing Hatcher.host
+- Why No-Code Serverless?
+- Deploying Eliza: 3 Simple Steps
+
+CONTENT CONTEXT:
+Introduction of Hatcher.host for no-code serverless Eliza deployments.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
