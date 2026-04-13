@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-04-13T11:59:34.887246+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-04-13.json",
+  "facts_date": "2026-04-13",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-04-13",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is strategically pivoting toward a trust-based economic layer for AI agents, centered on 'AgentID' and cryptographic identity, while development transitions from v2 maintenance to v3 architectural priorities. Significant work is underway on decentralized marketplaces and sub-second multi-chain token safety oracles.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split-frame: Left, Eliza stands under blossoming neon-lit trees, her reflection fractured in layered glass; she injects code into a luminous AgentID core. Right, digital shadows ripple outward\u2014decentralized marketplaces growing like spring vines, cryptographic tokens orbit, tense with the promise and peril of the new v3 dawn.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split-frame: Left, Eliza stands under blossoming neon-lit trees, her reflection fractured in layered glass; she injects code into a luminous AgentID core. Right, digital shadows ripple outward\u2014decentralized marketplaces growing like spring vines, cryptographic tokens orbit, tense with the promise and peril of the new v3 dawn.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 55.11,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "retro_terminal",
+      "characters": [
+        "shaw",
+        "eliza"
+      ],
+      "content_context": "The project is pivoting from simple messaging to a secure economic layer, focusing on 'AgentID' cryptographic identity and cross-chain financial capabilities.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left, Shaw angrily erases a simple chat diagram on a neon-lit whiteboard; Right, Eliza overlays glowing crypto-wallet and AgentID icons onto lush spring vines winding through digital blocks. Golden hour light slants in, casting long cinematic shadows, cyberpunk hues reflecting tension and transformation.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left, Shaw angrily erases a simple chat diagram on a neon-lit whiteboard; Right, Eliza overlays glowing crypto-wallet and AgentID icons onto lush spring vines winding through digital blocks. Golden hour light slants in, casting long cinematic shadows, cyberpunk hues reflecting tension and transformation.\n\nART STYLE: 80s computing aesthetic with green phosphor glow, CRT scan lines, and monospace elements. Nostalgic hacker atmosphere.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 32.33,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "collage",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Discussions centered on v2 Socket.IO implementation patterns and integration of local Qwen3.5 models via Nosana GPU. Community expressed frustration regarding the lack of clarity on buybacks and token utility, though airdrops were confirmed as planned.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Eliza and Peepo huddle over neon-lit monitors, tangled wires glowing as digital models swirl; Right\u2014restless community avatars loom amid blooming code-vines, casting long golden-hour shadows, tension etched in their faces as token symbols flicker uncertainly between their hands.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Split frame: Left\u2014Eliza and Peepo huddle over neon-lit monitors, tangled wires glowing as digital models swirl; Right\u2014restless community avatars loom amid blooming code-vines, casting long golden-hour shadows, tension etched in their faces as token symbols flicker uncertainly between their hands.\n\nART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.24,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "ukiyo_e",
+      "characters": [
+        "spartan",
+        "eliza",
+        "marc"
+      ],
+      "content_context": "ElizaOS is deprioritizing general-purpose messaging (closing XMTP issues) to become a specialized financial infrastructure for autonomous agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Left: Eliza stands firm, closing a glowing XMTP portal; digital messages scatter away. Right: Spartan and Marc, separated by neon-lit barriers, face a pulsing fintech core sprouting fresh circuit-vines\u2014new data growth tangling their connection. Neon-gold spring light splits the cyberpunk dusk, tension charging the air.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: Left: Eliza stands firm, closing a glowing XMTP portal; digital messages scatter away. Right: Spartan and Marc, separated by neon-lit barriers, face a pulsing fintech core sprouting fresh circuit-vines\u2014new data growth tangling their connection. Neon-gold spring light splits the cyberpunk dusk, tension charging the air.\n\nART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.68,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Introduction of the AIGEN Protocol and MAXIA marketplace suggests an emerging internal economy for ElizaOS agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left, Marc unveils glowing AIGEN Protocol schematics, spring vines curling around neon-lit screens. Right, Spartan clenches a digital coin, torn between opportunity and distrust, as new code pulses through ElizaOS agents in the midground. Golden hour light casts long shadows\u2014renewal and tension intertwine.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Split frame: Left, Marc unveils glowing AIGEN Protocol schematics, spring vines curling around neon-lit screens. Right, Spartan clenches a digital coin, torn between opportunity and distrust, as new code pulses through ElizaOS agents in the midground. Golden hour light casts long shadows\u2014renewal and tension intertwine.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 45.06,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "XMTP"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "XMTP"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-13/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 197.56
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-04-13/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-04-13/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-04-13/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-04-13/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-04-13/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-04-13/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-04-13/strategic-insights.png"
+  }
+}
