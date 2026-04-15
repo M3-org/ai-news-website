@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Holographic UI displays three main metric panels: “Agent Activity,” “Market Signal Strength,” and “Coordination Efficiency.” Key gauges include: agent count, signal volatility, and synchronization rate. Animated lines flow from Market Signal panel to the Agent Activity and Coordination Efficiency panels, showing real-time data influence. Cyan highlights signify active signal flows, magenta accentuates peaks in coordination efficiency, and orange pulses indicate shifts in market signals, creating a layered, dynamic HUD architecture.
+
+CONTENT CONTEXT:
+Introduction of the Agent Agora concept for coordinating agents via real-world market signals.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
