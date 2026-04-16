@@ -1,0 +1,31 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Ecosystem  
+2. Main sections or categories to visualize:  
+   - What is AIGEN Protocol  
+   - Economic Incentive Layer  
+   - Agent Tool Contribution  
+   - Benefits & Outcomes  
+3. Key icons or visual elements needed:  
+   - Protocol/network symbol  
+   - Currency/incentive icons  
+   - Tool/agent icons  
+   - Arrows or flow connectors  
+4. Suggested section headers:  
+   - Introducing AIGEN Protocol  
+   - How the Incentive Layer Works  
+   - Contributing Agent Tools  
+   - Key Benefits
+
+CONTENT CONTEXT:
+Introduction of the AIGEN Protocol as an economic incentive layer for agent tool contribution.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
