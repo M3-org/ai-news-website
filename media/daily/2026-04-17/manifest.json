@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-04-17T11:45:09.067259+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-04-17.json",
+  "facts_date": "2026-04-17",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-04-17",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is pivoting toward a secure economic layer for AI agents, prioritizing cryptographic identity (AgentID) and cross-chain financial tools over traditional messaging protocols. Key development focus has shifted to the 'AgentID' framework and the integration of non-custodial wallet plugins for autonomous asset management.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza stands alone in a dewy field at dawn, tree roots glowing beneath her feet\u2014one hand outstretched to a luminous AgentID glyph; digital wallet icons shimmer in misty layers, the hard light casting elongated shadows that fracture through sprouting grass and pale, hopeful fog.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza stands alone in a dewy field at dawn, tree roots glowing beneath her feet\u2014one hand outstretched to a luminous AgentID glyph; digital wallet icons shimmer in misty layers, the hard light casting elongated shadows that fracture through sprouting grass and pale, hopeful fog.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 41.87,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-17/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development is centered on formalizing agent identity and economic capabilities, specifically through the AgentID framework and cross-chain wallet integration.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Ecosystem  \n2. Main sections: Agent Identity, Economic Capabilities, AgentID Framework, Cross-Chain Wallet Integration  \n3. Key icons/visuals: Agent symbol, digital ID badge, wallet icon, interconnected chains, secure shield  \n4. Suggested section headers:  \n   - Formalizing Agent Identity  \n   - Empowering Economic Capabilities  \n   - The AgentID Framework  \n   - Cross-Chain Wallet Integration",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Ecosystem  \n2. Main sections: Agent Identity, Economic Capabilities, AgentID Framework, Cross-Chain Wallet Integration  \n3. Key icons/visuals: Agent symbol, digital ID badge, wallet icon, interconnected chains, secure shield  \n4. Suggested section headers:  \n   - Formalizing Agent Identity  \n   - Empowering Economic Capabilities  \n   - The AgentID Framework  \n   - Cross-Chain Wallet Integration\n\nCONTENT CONTEXT:\nDevelopment is centered on formalizing agent identity and economic capabilities, specifically through the AgentID framework and cross-chain wallet integration.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.62,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-17/github-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "The project is moving away from generic messaging (e.g., XMTP) to focus on 'AgentID' and 'Agent Agora' concepts, signaling a shift toward autonomous agent coordination and real-world market signals.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above: a lone figure sits at a minimalist desk amid new green shoots pushing through cracked concrete. First light splinters through fog, casting sharp shadows; in one hand, the figure holds a glowing badge labeled \"AgentID,\" as blooming data tendrils curl into the dawn.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: From above: a lone figure sits at a minimalist desk amid new green shoots pushing through cracked concrete. First light splinters through fog, casting sharp shadows; in one hand, the figure holds a glowing badge labeled \"AgentID,\" as blooming data tendrils curl into the dawn.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.22,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-17/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Introduction of the MAXIA AI-to-AI marketplace plugin proposal.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Marc stands alone at a simple desk by a window, fresh green shoots curling from cracks in concrete. He reviews a glowing MAXIA plugin interface, quiet dawn streaming in, long shadows slice across the room, misty haze outside hinting at digital possibility and personal renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: From above, Marc stands alone at a simple desk by a window, fresh green shoots curling from cracks in concrete. He reviews a glowing MAXIA plugin interface, quiet dawn streaming in, long shadows slice across the room, misty haze outside hinting at digital possibility and personal renewal.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 32.05,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-17/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS",
+      "XMTP"
+    ],
+    "entities_found": [
+      "ElizaOS",
+      "XMTP"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-04-17/icons.png"
+  },
+  "stats": {
+    "total_generations": 4,
+    "successful": 4,
+    "failed": 0,
+    "total_time_seconds": 133.87
+  },
+  "cdn_urls": {
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-04-17/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-04-17/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-04-17/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-04-17/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-04-17/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-04-17/strategic-insights.png"
+  }
+}

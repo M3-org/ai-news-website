@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: At dawn, silhouetted Spartan teammates gather around a stone table scattered with scrolls and glowing holographic credentials, collaborating intently beneath budding trees; soft backlight halos their forms and reflects on ancient armor, symbolizing fresh growth and unified purpose in establishing trusted connections.
+SCENE: From above: a lone figure sits at a minimalist desk amid new green shoots pushing through cracked concrete. First light splinters through fog, casting sharp shadows; in one hand, the figure holds a glowing badge labeled "AgentID," as blooming data tendrils curl into the dawn.
 
-ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
+ART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
