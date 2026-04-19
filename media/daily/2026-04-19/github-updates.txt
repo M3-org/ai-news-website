@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: In the tech city, a Central Plugin Tower oversees interconnected Plugin Depot Buildings, forming the Plugin Ecosystem District. Nearby, the NPM Release Control Hub anchors the Release Workflow Zone, linked by serialized Conveyor Bridges (representing job queues). Data flows in ordered streams along illuminated tracks, ensuring stepwise progression and preventing cross-traffic race conditions. Component labels: "Plugin Ecosystem," "NPM Release Hub," "Serialized Workflow Paths."
+
+CONTENT CONTEXT:
+Maintenance of the plugin ecosystem and stabilization of the NPM release workflow through serialized jobs to prevent race conditions.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
