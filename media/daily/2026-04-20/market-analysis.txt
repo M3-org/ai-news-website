@@ -1,25 +1,27 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: Infographic type: Process flow
+VISUALIZATION TYPE: Infographic type: Comparison
 
 Main sections or categories to visualize:
-1. What is Hatcher.host?
-2. Benefits of No-Code Serverless Deployment
-3. Steps to Deploy Eliza on Hatcher.host
+1. Ravedao Price Movements
+2. $degenai Price Movements
+3. Community Discussion Highlights
+4. Sentiment Analysis
 
 Key icons or visual elements needed:
-- Cloud/serverless symbol
-- Drag-and-drop or no-code icon
-- Chatbot (Eliza) representation
-- Arrow flow showing deployment steps
+- Line graphs for price trends
+- Chat bubbles for discussions
+- Emoji icons for sentiment (positive, neutral, negative)
+- Comparison arrows or split panel layout
 
 Suggested section headers:
-- Introducing Hatcher.host
-- Why No-Code Serverless?
-- Deploying Eliza: 3 Simple Steps
+- Ravedao Price Trends
+- $degenai Price Trends
+- What the Community is Saying
+- Overall Community Sentiment
 
 CONTENT CONTEXT:
-Introduction of Hatcher.host for no-code serverless Eliza deployments.
+Community discussion regarding price movements for Ravedao and $degenai.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
