@@ -1,0 +1,25 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Main panels:  
+- OpenClaw Usage Rate (holographic graph)  
+- Hermes Adoption Index (dynamic meter)  
+Key indicators:  
+- Core Technology Demand (central holo-gauge, animated pulse)  
+- Token-migration Relevance (warning icon: critical low)  
+Connections:  
+- Flow lines linking OpenClaw and Hermes to Demand, dim thread to Token-migration  
+Color accents:  
+- Cyan (primary metrics), Magenta (live data pulses), Orange (alerts and warnings)
+
+CONTENT CONTEXT:
+Core technology demand is validated by the usage of OpenClaw and Hermes despite the collapse of the token-migration narrative.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
