@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core stands the **Framework Fortress**, a fortified skyscraper symbolizing hardened security. Adjacent, the **Prompt Compression Tower** streamlines data, channeling minimized information through narrow data bridges. Encircling these are clusters of **Dependency Update Hubs**—modular modernist buildings, split into **TypeScript Plaza** and **Rust Row** districts. Elevated skyways denote secure, efficient flows between the fortress, tower, and update hubs. Each structure is labeled for transparency: *Framework Hardening*, *Prompt Optimization*, *TypeScript Updates*, *Rust Updates*. The city’s layout emphasizes defense, efficiency, and perpetual modernization across its architectural zones.
+
+CONTENT CONTEXT:
+Emphasis on framework hardening, reducing context window prompt bloat, and massive dependency updates across TypeScript and Rust environments.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
