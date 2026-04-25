@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: From above: a lone figure sits at a minimalist desk amid new green shoots pushing through cracked concrete. First light splinters through fog, casting sharp shadows; in one hand, the figure holds a glowing badge labeled "AgentID," as blooming data tendrils curl into the dawn.
+SCENE: At golden hour, a silhouette of a determined Spartan stands tall before a flourishing, freshly-sprouted field, coins drifting heavenward and dissolving into light, as a distant crowd watches with hope—symbolizing renewal, unity, and anticipation of transformative change.
 
-ART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.
+ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
