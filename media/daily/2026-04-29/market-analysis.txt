@@ -1,10 +1,10 @@
 Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
-- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
+- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 
-SCENE: Marc, standing alone in a sunlit field of fresh spring grass, gazes thoughtfully at a glowing token in his hand—shadowed sharply by the golden hour light; behind him, blurred silhouettes hint at digital chains looping into the distance, evoking growth, solitude, and anticipation.
+SCENE: Spartan and Marc stride across a blooming rooftop overlooking the city at blue hour, papers in hand. Light halos their silhouettes as they approach a glowing terminal labeled "ELIZA", petals swirling around them—an electrifying charge in the air marks a pivotal transition.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 
