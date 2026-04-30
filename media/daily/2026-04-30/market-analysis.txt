@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Specific data points or categories to show: Solana price decline, elizaOS ecosystem, ecosystem token performance, investor concerns  
+3. Flow/relationship direction: Solana price decline → elizaOS ecosystem → token performance → investor concerns  
+4. Suggested section headers: "Solana Price Movement", "elizaOS Ecosystem Impact", "Token Performance", "Investor Concerns"
+
+CONTENT CONTEXT:
+Solana's recent price decline was identified as a primary driver for concerns regarding elizaOS ecosystem token performance.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
