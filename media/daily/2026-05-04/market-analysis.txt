@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Comparative dashboard  
+2. Data points/categories: ElizaOS (open-source AI agent framework), Orbofi (consumer-facing competitor), Open-source vs. Proprietary, Framework vs. Consumer product  
+3. Flow/relationship direction: Comparison between ElizaOS and Orbofi across categories  
+4. Suggested section headers: "AI Agent Landscape," "Open-Source vs. Consumer-Facing," "Frameworks vs. Products," "ElizaOS Positioning"
+
+CONTENT CONTEXT:
+ElizaOS is positioning itself as the 'Linux' of AI agents (open-source framework) compared to consumer-facing competitors like Orbofi.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality

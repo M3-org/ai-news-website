@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-04T12:18:53.801063+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-04.json",
+  "facts_date": "2026-05-04",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-04",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS project is focused on foundational hardening and infrastructure modernization, including a transition to Clean Architecture and the launch of a new cross-platform secrets vault. Meanwhile, project leadership is managing significant community tension regarding token economics by emphasizing long-term product revenue over speculative price action.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza\u2019s hand rests on a laptop, screen aglow with intricate code; a sapling sprouts from a network cable coiled nearby. Sunlight cuts sharp lines across her determined face, shadows stretching toward a distant window, where fresh leaves catch golden hour\u2019s glow\u2014transformation in motion, tension and renewal intertwined.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza\u2019s hand rests on a laptop, screen aglow with intricate code; a sapling sprouts from a network cable coiled nearby. Sunlight cuts sharp lines across her determined face, shadows stretching toward a distant window, where fresh leaves catch golden hour\u2019s glow\u2014transformation in motion, tension and renewal intertwined.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 108.06,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development is centered on core stability, fixing authentication regressions (SIWE), and aligning the plugin ecosystem with ESM-first architecture.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city\u2019s heart rises the **Stability Tower** (core system), ringed by the **Authentication Gatehouse** (SIWE module) with visible reinforced conduits representing regression fixes. Nearby, a cluster of **Plugin Pavilions** form the **Ecosystem District**, interconnected by elevated ESM Skyways (signifying ESM-first architecture). Data flows radiate outward from the Stability Tower to each district, with the Gatehouse inline on major routes. All structures are labeled: \u201cCore Stability,\u201d \u201cAuthentication (SIWE),\u201d and \u201cPlugin Ecosystem (ESM),\u201d visually unified within the central \u201cSystem District.\u201d",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city\u2019s heart rises the **Stability Tower** (core system), ringed by the **Authentication Gatehouse** (SIWE module) with visible reinforced conduits representing regression fixes. Nearby, a cluster of **Plugin Pavilions** form the **Ecosystem District**, interconnected by elevated ESM Skyways (signifying ESM-first architecture). Data flows radiate outward from the Stability Tower to each district, with the Gatehouse inline on major routes. All structures are labeled: \u201cCore Stability,\u201d \u201cAuthentication (SIWE),\u201d and \u201cPlugin Ecosystem (ESM),\u201d visually unified within the central \u201cSystem District.\u201d\n\nCONTENT CONTEXT:\nDevelopment is centered on core stability, fixing authentication regressions (SIWE), and aligning the plugin ecosystem with ESM-first architecture.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 53.28,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "peepo"
+      ],
+      "content_context": "High-tension debate regarding ELIZAOS token price; Shaw emphasized that token holders are not traditional investors and revenue-generating products (Milady, Cloud) must precede buybacks. Technical discussions regarding server spam filters blocking URLs; established a workaround using backticks. Research shared on memory rot in AI agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In golden hour light, peepo\u2019s hand hovers over a glowing ELIZAOS token nestled among dewy grass, emerging from shadow. In the background, blurred monitors flicker with memory graphs and code, their screens casting sharp lines across peepo\u2019s thoughtful eyes\u2014hope and tension mingling in spring\u2019s renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: In golden hour light, peepo\u2019s hand hovers over a glowing ELIZAOS token nestled among dewy grass, emerging from shadow. In the background, blurred monitors flicker with memory graphs and code, their screens casting sharp lines across peepo\u2019s thoughtful eyes\u2014hope and tension mingling in spring\u2019s renewal.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 67.62,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza",
+        "spartan"
+      ],
+      "content_context": "Leadership is actively pivoting the community away from speculative investment toward a 'community of builders,' signaling a longer 8-year maturity timeline analogous to traditional IPOs. Successful integration of Eliza into a Unitree robot demonstrates the framework's readiness for physical robotics applications beyond digital bots.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Golden hour sunlight splits shadows across a fresh sprout breaking through cracked concrete\u2014foregrounded by Eliza\u2019s digital core glowing within a Spartan Unitree robot\u2019s chest, gears poised mid-motion. In the blurred background, distant figures architect a bridge out of blueprint scrolls, all bathed in spring\u2019s renewing light.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Golden hour sunlight splits shadows across a fresh sprout breaking through cracked concrete\u2014foregrounded by Eliza\u2019s digital core glowing within a Spartan Unitree robot\u2019s chest, gears poised mid-motion. In the blurred background, distant figures architect a bridge out of blueprint scrolls, all bathed in spring\u2019s renewing light.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.26,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "ElizaOS is positioning itself as the 'Linux' of AI agents (open-source framework) compared to consumer-facing competitors like Orbofi.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Comparative dashboard  \n2. Data points/categories: ElizaOS (open-source AI agent framework), Orbofi (consumer-facing competitor), Open-source vs. Proprietary, Framework vs. Consumer product  \n3. Flow/relationship direction: Comparison between ElizaOS and Orbofi across categories  \n4. Suggested section headers: \"AI Agent Landscape,\" \"Open-Source vs. Consumer-Facing,\" \"Frameworks vs. Products,\" \"ElizaOS Positioning\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Comparative dashboard  \n2. Data points/categories: ElizaOS (open-source AI agent framework), Orbofi (consumer-facing competitor), Open-source vs. Proprietary, Framework vs. Consumer product  \n3. Flow/relationship direction: Comparison between ElizaOS and Orbofi across categories  \n4. Suggested section headers: \"AI Agent Landscape,\" \"Open-Source vs. Consumer-Facing,\" \"Frameworks vs. Products,\" \"ElizaOS Positioning\"\n\nCONTENT CONTEXT:\nElizaOS is positioning itself as the 'Linux' of AI agents (open-source framework) compared to consumer-facing competitors like Orbofi.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.0,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-04/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 286.33
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-04/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-04/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-04/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-04/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-04/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-04/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-04/strategic-insights.png"
+  }
+}
