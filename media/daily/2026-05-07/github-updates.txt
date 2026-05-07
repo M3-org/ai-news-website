@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections or categories: Core Infrastructure Hardening, Linux Segfault Resolution, Monorepo Consolidation  
+3. Key icons or visual elements needed: Shield (security/hardening), Bug fix/tool (segfault resolution), Folder-stack (monorepo), Upward arrow (scaling/reliability)  
+4. Suggested section headers:  
+- Infrastructure Hardening  
+- Resolving Linux Segfaults  
+- Monorepo Consolidation  
+- Outcomes: Improved Reliability & Scaling
+
+CONTENT CONTEXT:
+The team focused on hardening core infrastructure, resolving Linux segfaults, and consolidating the monorepo architecture to improve reliability and scaling.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
