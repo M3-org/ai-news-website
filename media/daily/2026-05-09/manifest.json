@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-09T11:44:06.257817+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-09.json",
+  "facts_date": "2026-05-09",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-09",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "This week focused on foundational hardening of the core infrastructure, including repository consolidation and the launch of a cross-platform secrets vault. Development shifted toward improving security documentation for DeFi plugins and resolving critical authentication issues in cloud and social integrations.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, ELIZA stands atop a glowing, neon-lit core hub, networks branching outward; cityscapes pulse with fresh spring energy, digital vault bursts with light below, new green growth winding through circuitry, as twilight blue and cyberpunk glows flow across hardened infrastructure\u2014signaling massive renewal and security.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, ELIZA stands atop a glowing, neon-lit core hub, networks branching outward; cityscapes pulse with fresh spring energy, digital vault bursts with light below, new green growth winding through circuitry, as twilight blue and cyberpunk glows flow across hardened infrastructure\u2014signaling massive renewal and security.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.09,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "The project is currently undergoing 'Foundational Hardening,' focusing on ESM-first architecture alignment and resolving headless Linux environment crashes.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "A central **ESM Headquarters** (Enterprise System Management) tower anchors the city, with wide data boulevards leading to a cluster of **Core Service Hubs** for architecture alignment. Adjacent is the **Headless Ops Data Center**, featuring reinforced basement levels for crash resilience. These form the **Foundational District**. Flowing \u201cfiber\u201d roads link the Headquarters, Service Hubs, and Data Center, marked for \u201cESM,\u201d \u201cAlignment,\u201d and \u201cCrash Resolution.\u201d Clearly labeled plinths identify each building, all within the **Infrastructure Zone**, distinguishing them from future application and user-facing districts.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: A central **ESM Headquarters** (Enterprise System Management) tower anchors the city, with wide data boulevards leading to a cluster of **Core Service Hubs** for architecture alignment. Adjacent is the **Headless Ops Data Center**, featuring reinforced basement levels for crash resilience. These form the **Foundational District**. Flowing \u201cfiber\u201d roads link the Headquarters, Service Hubs, and Data Center, marked for \u201cESM,\u201d \u201cAlignment,\u201d and \u201cCrash Resolution.\u201d Clearly labeled plinths identify each building, all within the **Infrastructure Zone**, distinguishing them from future application and user-facing districts.\n\nCONTENT CONTEXT:\nThe project is currently undergoing 'Foundational Hardening,' focusing on ESM-first architecture alignment and resolving headless Linux environment crashes.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.46,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Technical discussions focused on a full-stack project showcase using Next.js 15 and RAG architecture. Market analysis of the ElizaOS coin suggested potential price manipulation due to a divergence in  Community members sought API endpoint receivers for IP-to-IP communication and discussed experience building autonomous blockchain agents using FastAPI.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, a neon-lit city pulses with electric spring greens and blues at blue hour; Eliza stands on a glowing rooftop garden, overlooking data streams and decentralized nodes blooming like flowers across the sprawling skyline, symbolizing vast tech scale and the awakening of new AI ecosystems.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, a neon-lit city pulses with electric spring greens and blues at blue hour; Eliza stands on a glowing rooftop garden, overlooking data streams and decentralized nodes blooming like flowers across the sprawling skyline, symbolizing vast tech scale and the awakening of new AI ecosystems.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.84,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The shift from Vercel to generic container solutions and the consolidation of ElizaCloud suggest a push toward leaner operational overhead.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza stands atop a neon-lit glass platform, vast container stacks stretching below in geometric patterns; city lights pulse through misty blue twilight, spring green vines climb steel beams, signaling bold transformation across the sprawling ElizaCloud hub.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza stands atop a neon-lit glass platform, vast container stacks stretching below in geometric patterns; city lights pulse through misty blue twilight, spring green vines climb steel beams, signaling bold transformation across the sprawling ElizaCloud hub.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.09,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "ElizaOS coin shows positive net fund flow every week since launch, yet prices continue to fall.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three main holographic panels: \"Net Fund Flow\" (dynamic upward bar chart), \"Price Trend\" (downward line graph), and \"Weeks Since Launch\" (progress ring). Key indicators: net flow percentage (cyan), price delta (magenta), and anomaly alert (orange pulse) linking fund inflow to price drop. Animated data flows connect fund flow to price trend, highlighting divergence with flashing orange arcs. Accents and highlights primarily in cyan for flows, magenta for price, orange for warnings.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three main holographic panels: \"Net Fund Flow\" (dynamic upward bar chart), \"Price Trend\" (downward line graph), and \"Weeks Since Launch\" (progress ring). Key indicators: net flow percentage (cyan), price delta (magenta), and anomaly alert (orange pulse) linking fund inflow to price drop. Animated data flows connect fund flow to price trend, highlighting divergence with flashing orange arcs. Accents and highlights primarily in cyan for flows, magenta for price, orange for warnings.\n\nCONTENT CONTEXT:\nElizaOS coin shows positive net fund flow every week since launch, yet prices continue to fall.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 32.81,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS",
+      "Twitter"
+    ],
+    "entities_found": [
+      "ElizaOS",
+      "Twitter"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-09/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 140.4
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-09/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-09/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-09/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-09/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-09/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-09/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-09/strategic-insights.png"
+  }
+}
