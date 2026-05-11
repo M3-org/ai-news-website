@@ -1,0 +1,15 @@
+Create an illustration for a tech news magazine.
+
+CHARACTERS (use reference sheet for exact appearance):
+- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous “DJ/tech-hacker” vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).
+
+SCENE: At night beneath cool blue overhead lights, Shaw stands amid a wide open workspace, surrounded by monitors and code streams. Fresh seedlings push through soil in the foreground, while lines of glowing servers recede into the background—capturing a breakthrough in unified, resilient software growth.
+
+ART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.
+
+REQUIREMENTS:
+- Characters must match reference sheet EXACTLY (colors, costume, features)
+- Dynamic composition suitable for editorial use
+- Professional quality illustration
+- No text or watermarks
+- Scene should feel natural and engaging

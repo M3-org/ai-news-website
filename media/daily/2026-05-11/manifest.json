@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-11T13:41:48.897144+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-11.json",
+  "facts_date": "2026-05-11",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-11",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS ecosystem is undergoing significant core hardening, highlighted by the migration of major plugins like Slack into the monorepo and the implementation of @elizaos/vault for secure, cross-platform secret management. Development focus has shifted toward cloud-native stability and automated workflow refinements despite emerging technical debt in authentication and database schema consistency.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Under pools of cool blue light in a high-tech workspace, Eliza stands at a glowing terminal, luminous code reflecting on her face; behind her, digital vines of code and icons (like Slack and Vault) twine upward, symbolizing robust growth amid renewal and breakthrough in the night.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Under pools of cool blue light in a high-tech workspace, Eliza stands at a glowing terminal, luminous code reflecting on her face; behind her, digital vines of code and icons (like Slack and Vault) twine upward, symbolizing robust growth amid renewal and breakthrough in the night.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 39.64,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "shaw"
+      ],
+      "content_context": "Consolidating plugins into the ESM-first monorepo and hardening the framework for reliable performance in headless and cloud environments.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "At night beneath cool blue overhead lights, Shaw stands amid a wide open workspace, surrounded by monitors and code streams. Fresh seedlings push through soil in the foreground, while lines of glowing servers recede into the background\u2014capturing a breakthrough in unified, resilient software growth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n\nSCENE: At night beneath cool blue overhead lights, Shaw stands amid a wide open workspace, surrounded by monitors and code streams. Fresh seedlings push through soil in the foreground, while lines of glowing servers recede into the background\u2014capturing a breakthrough in unified, resilient software growth.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.33,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Primarily social activity, greetings, and newcomer introductions. User rsn6958 introduced themselves as an AI full-stack dev focused on clean, production-ready code. Focused on the financial costs of running Twitter bots and security vigilance against scams. Odilitime reported a 90% drop in monthly operation costs (from $100 down to $10).",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Under a cool blue artificial glow in a nighttime tech hub, Eliza and Peepo stand at the foreground, hands extended in greeting to newcomer rsn6958. In the lively midground, Odilitime beams beside a display showing plummeting operation costs, while fresh digital seedlings sprout across the background screens.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Under a cool blue artificial glow in a nighttime tech hub, Eliza and Peepo stand at the foreground, hands extended in greeting to newcomer rsn6958. In the lively midground, Odilitime beams beside a display showing plummeting operation costs, while fresh digital seedlings sprout across the background screens.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.57,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "marc",
+        "eliza"
+      ],
+      "content_context": "Large-scale reduction in bot overhead (90% decrease) allows for higher-volume multi-agent deployments. Consolidating third-party plugins into the monorepo is creating temporary regressions in authentication and class hierarchy (e.g., duplicate MiladyClient classes).",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Under cool blue night lighting, Marc and Eliza stand in a luminous lab, facing vast displays of interconnected bots and code artifacts. In the foreground, glowing graphs plunge downward, symbolizing reduction; behind them, new green shoots emerge through circuitry, capturing the breakthrough in scaling and discovery amid technical flux.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Under cool blue night lighting, Marc and Eliza stand in a luminous lab, facing vast displays of interconnected bots and code artifacts. In the foreground, glowing graphs plunge downward, symbolizing reduction; behind them, new green shoots emerge through circuitry, capturing the breakthrough in scaling and discovery amid technical flux.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.4,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "ElizaOS coin shows positive net fund flow diverged from declining price action.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A moonlit innovation lab: Marc and Spartan stand at a glowing terminal, charts and digital coins floating holographically. Fresh spring leaves burst in foreground planters; city lights twinkle beyond glass walls. Blue overhead light and focused desk lamps cast crisp pools, highlighting their breakthrough discovery.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A moonlit innovation lab: Marc and Spartan stand at a glowing terminal, charts and digital coins floating holographically. Fresh spring leaves burst in foreground planters; city lights twinkle beyond glass walls. Blue overhead light and focused desk lamps cast crisp pools, highlighting their breakthrough discovery.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 32.48,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS",
+      "Slack",
+      "Twitter"
+    ],
+    "entities_found": [
+      "ElizaOS",
+      "Slack",
+      "Twitter"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-11/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 161.59
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-11/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-11/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-11/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-11/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-11/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-11/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-11/strategic-insights.png"
+  }
+}
