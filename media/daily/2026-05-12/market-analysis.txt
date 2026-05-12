@@ -1,0 +1,22 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Dual-axis dashboard  
+2. Data points/categories: Market Conditions (Favorable/Unfavorable), Presence of Catalyst (Yes/No), Expected Growth  
+3. Flow/relationship direction: Show how favorable market conditions relate to expected growth, with a separate axis illustrating the moderating effect of catalyst presence  
+4. Suggested section headers:  
+   - Market Conditions  
+   - Catalyst Presence  
+   - Growth Outlook
+
+CONTENT CONTEXT:
+Community members cite favorable market conditions but note a lack of a clear catalyst for growth.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
