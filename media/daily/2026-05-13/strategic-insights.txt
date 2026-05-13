@@ -4,9 +4,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 
-SCENE: Silhouettes of Spartan and Marc stand back-to-back, tense, facing opposite directions—one holding a shield emblazoned with “Eliza Cloud V3,” the other fending off swirling memecoin symbols—set against a soft, spring-green gradient sky, fresh shoots rising at their feet.
+SCENE: Spartan and Marc stride up a sloping path lined with budding trees, leaving behind a crumbling, monolithic server. Ahead, a sunrise lights a patchwork of small workshops, each buzzing with new growth, symbolizing accessible creation. Long shadows stretch behind, capturing the journey from collapse to renewal.
 
-ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
+ART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
