@@ -1,0 +1,34 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Ecosystem  
+2. Main sections or categories to visualize:  
+   - GODL Protocol Overview  
+   - Autonomous Agents  
+   - Gamified On-Chain Mining  
+   - Solana Blockchain Integration  
+   - Intersection & Outcomes  
+3. Key icons or visual elements needed:  
+   - Network/chain symbol  
+   - Robot/agent icon  
+   - Pickaxe/game element  
+   - Solana logo  
+   - Intersection/connection lines  
+4. Suggested section headers:  
+   - What is GODL Protocol?  
+   - Role of Autonomous Agents  
+   - Gamified On-Chain Mining  
+   - Solana Integration  
+   - Emerging Intersections & Impact
+
+CONTENT CONTEXT:
+Introduction of the GODL protocol suggests an increasing intersection between autonomous agents and gamified on-chain mining on Solana.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
