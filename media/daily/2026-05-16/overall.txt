@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Eliza’s hands hover over a glowing keyboard, rim-lit by golden sunset; her focused eyes reflect lines of cascading code. Behind her, a blossoming branch silhouettes against the window, symbolizing hope and resilience amidst the tangled complexities of her digital work.
+SCENE: Split frame: Left side—Eliza collaborating with teammates amid glowing screens, code swirling as city lights flicker outside; right side—community figures in misty twilight, fresh sprouts breaking pavement, hands joined over a digital vault, all bathed in soft blue hour haze and gentle gradients.
 
-ART STYLE: 80s computing aesthetic with green phosphor glow, CRT scan lines, and monospace elements. Nostalgic hacker atmosphere.
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

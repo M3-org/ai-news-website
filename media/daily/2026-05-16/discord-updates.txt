@@ -2,8 +2,9 @@ Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
+- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: Eliza’s focused hands hover over a glowing laptop, lines of code reflected in her determined eyes. Around her, spring leaves unfurl on tangled circuitry, light tracing her silhouette and casting golden shadows—symbolizing hope and growth amid technological challenge.
+SCENE: Split frame: Left, Eliza and Peepo exchange greetings and review project plans amid budding trees and emerging city lights; right, AI agents on digital screens finalize an escrow agreement, hazy twilight and soft gradients evoking fresh spring collaboration and renewal.
 
 ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 

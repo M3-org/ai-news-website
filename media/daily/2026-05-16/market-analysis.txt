@@ -1,15 +1,15 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Data points/categories: x402 routes, elizaOS, DegenAI, default payment methods, AI agent interactions, self-sustaining economy  
-3. Flow/relationship direction: From x402 routes → elizaOS/DegenAI (as payment methods) → enhanced AI agent interactions → self-sustaining economy  
+2. Data points/categories: Eliza-1 model series, Qwen3.5, H200 hardware  
+3. Flow/relationship direction: Eliza-1 model series → utilizes Qwen3.5 → optimized for H200 hardware  
 4. Suggested section headers:  
-   - Default Payment Method Transition  
-   - AI Agent Interaction Flows  
-   - Path to a Self-Sustaining Economy
+   - Eliza-1 Model Series  
+   - Powered by Qwen3.5  
+   - Optimized for H200 Hardware
 
 CONTENT CONTEXT:
-Introduction of elizaOS and DegenAI as default payment methods for x402 routes indicates an move toward a self-sustaining economy for AI agent interactions.
+Introduction of the Eliza-1 model series using Qwen3.5 hardware optimized for H200.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
