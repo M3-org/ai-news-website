@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: From above, a neon-lit city pulses with electric spring greens and blues at blue hour; Eliza stands on a glowing rooftop garden, overlooking data streams and decentralized nodes blooming like flowers across the sprawling skyline, symbolizing vast tech scale and the awakening of new AI ecosystems.
+SCENE: Eliza’s hand hovers over a glowing SME partnership contract, neon reflections tracing her fingers; through a nearby rain-specked window, city lights blur against rising saplings breaking asphalt—symbolic of transformation amid skepticism, code artifacts flickering on her tablet’s screen in the blue hour haze.
 
-ART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.
+ART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

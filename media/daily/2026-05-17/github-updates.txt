@@ -1,0 +1,34 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections or categories to visualize:  
+   - Foundational Hardening  
+   - Agent Runtime Stabilization  
+   - Headless Environment Compatibility  
+   - Plugin Interaction Standardization  
+   - ESM-First Architecture  
+3. Key icons or visual elements needed:  
+   - Shield (security/stability)  
+   - Gear (runtime/processing)  
+   - Browser crossed out (headless)  
+   - Puzzle piece (plugin)  
+   - Code block or ESM logo  
+4. Suggested section headers:  
+   - Strengthening the Foundation  
+   - Ensuring Stable Execution  
+   - Adapting for Headless Environments  
+   - Standardizing Plugin Interactions  
+   - Embracing ESM-First Architecture
+
+CONTENT CONTEXT:
+The project is undergoing foundational hardening, focusing on stabilizing the agent runtime for headless environments and standardizing plugin interactions via ESM-first architecture.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

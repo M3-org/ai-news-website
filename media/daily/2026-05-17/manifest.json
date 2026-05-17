@@ -1,0 +1,127 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-17T11:56:47.548141+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-17.json",
+  "facts_date": "2026-05-17",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-17",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The period was marked by the announcement of a major commercial partnership with Secure Blockchain Development Corp. and technical progress on specialized AI agent escrow protocols and model fine-tuning. However, community tension is rising regarding the unconfirmed release date for ElizaOS V3.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Close-up: Eliza\u2019s illuminated hand hovers over a translucent data blossom, neon-lit fingertips gently coaxing new shoots from digital soil; city skyline glows blue-violet beyond glass, rain-flecked, as cyberpunk lights bloom\u2014her journey and the stakes of transformation etched in every glowing nerve line.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Close-up: Eliza\u2019s illuminated hand hovers over a translucent data blossom, neon-lit fingertips gently coaxing new shoots from digital soil; city skyline glows blue-violet beyond glass, rain-flecked, as cyberpunk lights bloom\u2014her journey and the stakes of transformation etched in every glowing nerve line.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.96,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The project is undergoing foundational hardening, focusing on stabilizing the agent runtime for headless environments and standardizing plugin interactions via ESM-first architecture.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Process flow  \n2. Main sections or categories to visualize:  \n   - Foundational Hardening  \n   - Agent Runtime Stabilization  \n   - Headless Environment Compatibility  \n   - Plugin Interaction Standardization  \n   - ESM-First Architecture  \n3. Key icons or visual elements needed:  \n   - Shield (security/stability)  \n   - Gear (runtime/processing)  \n   - Browser crossed out (headless)  \n   - Puzzle piece (plugin)  \n   - Code block or ESM logo  \n4. Suggested section headers:  \n   - Strengthening the Foundation  \n   - Ensuring Stable Execution  \n   - Adapting for Headless Environments  \n   - Standardizing Plugin Interactions  \n   - Embracing ESM-First Architecture",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process flow  \n2. Main sections or categories to visualize:  \n   - Foundational Hardening  \n   - Agent Runtime Stabilization  \n   - Headless Environment Compatibility  \n   - Plugin Interaction Standardization  \n   - ESM-First Architecture  \n3. Key icons or visual elements needed:  \n   - Shield (security/stability)  \n   - Gear (runtime/processing)  \n   - Browser crossed out (headless)  \n   - Puzzle piece (plugin)  \n   - Code block or ESM logo  \n4. Suggested section headers:  \n   - Strengthening the Foundation  \n   - Ensuring Stable Execution  \n   - Adapting for Headless Environments  \n   - Standardizing Plugin Interactions  \n   - Embracing ESM-First Architecture\n\nCONTENT CONTEXT:\nThe project is undergoing foundational hardening, focusing on stabilizing the agent runtime for headless environments and standardizing plugin interactions via ESM-first architecture.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.78,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "council",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Focus was split between a commercial partnership for SME solutions and frustration over the V3 release timeline. Some users expressed skepticism regarding the formality of the new venture. Technical discussions regarding AI Agent Escrow protocols on Base and troubleshooting high Neynar API credit usage.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza\u2019s hand hovers over a glowing SME partnership contract, neon reflections tracing her fingers; through a nearby rain-specked window, city lights blur against rising saplings breaking asphalt\u2014symbolic of transformation amid skepticism, code artifacts flickering on her tablet\u2019s screen in the blue hour haze.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza\u2019s hand hovers over a glowing SME partnership contract, neon reflections tracing her fingers; through a nearby rain-specked window, city lights blur against rising saplings breaking asphalt\u2014symbolic of transformation amid skepticism, code artifacts flickering on her tablet\u2019s screen in the blue hour haze.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.66,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "eliza",
+        "spartan",
+        "marc"
+      ],
+      "content_context": "The partnership with Secure Blockchain Development Corp. signals a move from ElizaOS as a pure dev tool toward a commercial framework for small businesses. The introduction of a 'Pay or Burn' escrow protocol highlights a growing niche for trustless financial transactions between AI agents without human intervention.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A glowing, circuit-etched coin hovers between Eliza, Spartan, and Marc\u2014hands inches from it\u2014amid neon-lit sprouts pushing through cracked city pavement. Reflections of dynamic code shimmer on their faces; behind them, twilight skyscrapers pulse with spring-green cyberpunk energy, signifying the dawn of a transformative journey.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: A glowing, circuit-etched coin hovers between Eliza, Spartan, and Marc\u2014hands inches from it\u2014amid neon-lit sprouts pushing through cracked city pavement. Reflections of dynamic code shimmer on their faces; behind them, twilight skyscrapers pulse with spring-green cyberpunk energy, signifying the dawn of a transformative journey.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.99,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "A Canadian-listed entity is leveraging ElizaOS for agentic solutions targeting SMEs.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Holographic HUD displays three floating main panels: Company Status (entity metrics), ElizaOS Integration (usage & performance), and SME Outreach (engagement stats). Key indicators: Agent Deployment Rate (gauge), Uptime %, and SME Adoption (trend graph). Cyan data lines connect ElizaOS Integration panel to both metrics panels, with pulsing magenta pips signaling active flows. Orange accent rings highlight real-time metric changes on all panels.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Holographic HUD displays three floating main panels: Company Status (entity metrics), ElizaOS Integration (usage & performance), and SME Outreach (engagement stats). Key indicators: Agent Deployment Rate (gauge), Uptime %, and SME Adoption (trend graph). Cyan data lines connect ElizaOS Integration panel to both metrics panels, with pulsing magenta pips signaling active flows. Orange accent rings highlight real-time metric changes on all panels.\n\nCONTENT CONTEXT:\nA Canadian-listed entity is leveraging ElizaOS for agentic solutions targeting SMEs.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.78,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "Bun",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "Bun",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-17/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 141.27
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-17/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-17/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-17/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-17/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-17/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-17/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-17/strategic-insights.png"
+  }
+}
