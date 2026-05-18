@@ -1,12 +1,16 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Infographic type: Comparison  
-2. Main sections or categories: Net Fund Flow, Price Action  
-3. Key icons or visual elements needed: Upward arrow (for fund flow), Downward arrow (for price), Coin/crypto symbol  
-4. Suggested section headers: "Net Fund Flow: Positive Trend", "Price Action: Declining Trend"
+VISUALIZATION TYPE: 1. Infographic type: Trend Analysis / Ecosystem Overview  
+2. Main sections: AI-related Coins, Base Blockchain, Market Traction, Market Turnaround Potential  
+3. Key icons/visuals: Blockchain symbol, AI brain chip, upward trend arrow, coin/token icon  
+4. Suggested section headers:  
+   - AI Coins on Base  
+   - What is Base Blockchain?  
+   - Rising Market Traction  
+   - Signs of a Potential Turnaround
 
 CONTENT CONTEXT:
-ElizaOS coin shows positive net fund flow while price action is declining.
+AI-related coins on the Base blockchain are showing increased traction and potential for a market turnaround.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
