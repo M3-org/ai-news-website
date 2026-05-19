@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-19T13:52:12.120319+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-19.json",
+  "facts_date": "2026-05-19",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-19",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "May 19 saw a focus on core infrastructure hardening and cross-platform stability, particularly for Windows and ARM64 environments. Developer activity remains high with numerous technical demonstrations and the launch of the ElizaOS deploy CLI foundation.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "On a neon-lit city rooftop at twilight, Eliza stands amid blooming digital vines sprouting from glowing servers, watching flowing streams of code bridge glassy skyscrapers\u2014symbolizing resilient infrastructure and ElizaOS\u2019s dynamic, cross-platform transformation.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: On a neon-lit city rooftop at twilight, Eliza stands amid blooming digital vines sprouting from glowing servers, watching flowing streams of code bridge glassy skyscrapers\u2014symbolizing resilient infrastructure and ElizaOS\u2019s dynamic, cross-platform transformation.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.02,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Foundational hardening and cross-platform stability, emphasizing ESM-first architecture alignment and headless server reliability.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city\u2019s core, a robust **Fortress Data Center** anchors the **Foundation District**, symbolizing hardened security layers and resilient infrastructure. Adjacent, sleek **ESM Integration Towers** form the **Compatibility Zone**, representing cross-platform, ESM-first module alignment. Surrounding these, a grid of minimal **Headless Server Hubs** in the **Reliability Park** ensures stateless processing. Data flows as secure elevated skywalks, linking towers and hubs, marked with **\u201cHardened Pipeline\u201d** and **\u201cESM Channel\u201d** labels, showcasing seamless, fortified interoperability throughout the cityscape.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city\u2019s core, a robust **Fortress Data Center** anchors the **Foundation District**, symbolizing hardened security layers and resilient infrastructure. Adjacent, sleek **ESM Integration Towers** form the **Compatibility Zone**, representing cross-platform, ESM-first module alignment. Surrounding these, a grid of minimal **Headless Server Hubs** in the **Reliability Park** ensures stateless processing. Data flows as secure elevated skywalks, linking towers and hubs, marked with **\u201cHardened Pipeline\u201d** and **\u201cESM Channel\u201d** labels, showcasing seamless, fortified interoperability throughout the cityscape.\n\nCONTENT CONTEXT:\nFoundational hardening and cross-platform stability, emphasizing ESM-first architecture alignment and headless server reliability.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.9,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Focus on strategic partnerships and the introduction of the BYTE Protocol. High volume of developer networking and full-stack engineer introductions. Technical stack demonstrations including Next.js 15 and React 19 implementations with LangGraph and CrewAI agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Peepo stride through a neon-lit city plaza at blue hour, surrounded by holographic code streams and bustling groups of developers exchanging virtual handshakes. Towering screens display BYTE Protocol and tech demos, while fresh spring shoots erupt from pavement cracks\u2014symbolizing renewal and collaborative growth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza and Peepo stride through a neon-lit city plaza at blue hour, surrounded by holographic code streams and bustling groups of developers exchanging virtual handshakes. Towering screens display BYTE Protocol and tech demos, while fresh spring shoots erupt from pavement cracks\u2014symbolizing renewal and collaborative growth.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 23.94,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "The partnership with Secure Blockchain Development Corp suggests a shift toward targeting small and medium enterprises with ready-to-deploy agentic solutions.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A lone, resolute Spartan stands atop a neon-lit city terrace at blue hour, overlooking bustling blocks dotted with glowing tech hubs; tender green shoots burst through concrete cracks, symbolizing SME growth amid the cyberpunk renewal, city lights flickering beneath a luminous spring sky.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A lone, resolute Spartan stands atop a neon-lit city terrace at blue hour, overlooking bustling blocks dotted with glowing tech hubs; tender green shoots burst through concrete cracks, symbolizing SME growth amid the cyberpunk renewal, city lights flickering beneath a luminous spring sky.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 44.76,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Introduction of BYTE Protocol on Arbitrum for data settlement.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Marc and Spartan stride across a neon-lit smart cityscape, digital petals swirling in the twilight air, as glowing BYTE Protocol circuit paths unfurl beneath their feet\u2014Arbitrum\u2019s skyline awakening with spring-fresh energy and cyberpunk renewal.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Marc and Spartan stride across a neon-lit smart cityscape, digital petals swirling in the twilight air, as glowing BYTE Protocol circuit paths unfurl beneath their feet\u2014Arbitrum\u2019s skyline awakening with spring-fresh energy and cyberpunk renewal.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.06,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ElizaOS"
+    ],
+    "entity_count": 1,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-19/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 152.75
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-19/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-19/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-19/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-19/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-19/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-19/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-19/strategic-insights.png"
+  }
+}

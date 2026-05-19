@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: A moonlit innovation lab: Marc and Spartan stand at a glowing terminal, charts and digital coins floating holographically. Fresh spring leaves burst in foreground planters; city lights twinkle beyond glass walls. Blue overhead light and focused desk lamps cast crisp pools, highlighting their breakthrough discovery.
+SCENE: Marc and Spartan stride across a neon-lit smart cityscape, digital petals swirling in the twilight air, as glowing BYTE Protocol circuit paths unfurl beneath their feet—Arbitrum’s skyline awakening with spring-fresh energy and cyberpunk renewal.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 

@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core, a robust **Fortress Data Center** anchors the **Foundation District**, symbolizing hardened security layers and resilient infrastructure. Adjacent, sleek **ESM Integration Towers** form the **Compatibility Zone**, representing cross-platform, ESM-first module alignment. Surrounding these, a grid of minimal **Headless Server Hubs** in the **Reliability Park** ensures stateless processing. Data flows as secure elevated skywalks, linking towers and hubs, marked with **“Hardened Pipeline”** and **“ESM Channel”** labels, showcasing seamless, fortified interoperability throughout the cityscape.
+
+CONTENT CONTEXT:
+Foundational hardening and cross-platform stability, emphasizing ESM-first architecture alignment and headless server reliability.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
