@@ -1,15 +1,21 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Dual-axis dashboard  
-2. Data points/categories: Market Conditions (Favorable/Unfavorable), Presence of Catalyst (Yes/No), Expected Growth  
-3. Flow/relationship direction: Show how favorable market conditions relate to expected growth, with a separate axis illustrating the moderating effect of catalyst presence  
+VISUALIZATION TYPE: 1. Visualization type: Dashboard  
+2. Specific data points or categories:  
+   - Protocol Name (BYTE Protocol)  
+   - Function (Per-byte data settlement layer)  
+   - Platform (Arbitrum)  
+   - Testnet Activity (10k+ messages settled)  
+3. Flow/relationship direction:  
+   - BYTE Protocol → Arbitrum → Testnet messages settled  
 4. Suggested section headers:  
-   - Market Conditions  
-   - Catalyst Presence  
-   - Growth Outlook
+   - Protocol Overview  
+   - Settlement Functionality  
+   - Platform Integration  
+   - Testnet Metrics
 
 CONTENT CONTEXT:
-Community members cite favorable market conditions but note a lack of a clear catalyst for growth.
+Introduction of BYTE Protocol, a per-byte data settlement layer on Arbitrum with over 10k messages settled on testnet.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
