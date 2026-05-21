@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Holographic UI features three main panels: "Messages Settled" (displaying 10,000+ with upward trend gauge), "Developer Engagement Level" (pulse meter), and "Arbitrum Testnet Status" (activity indicator). Dynamic cyan and magenta arcs connect panels, showing data flow from "Messages Settled" to "Developer Engagement". Orange pulsing lines highlight active protocol links. Elements float, glow softly, and emit light trails, signaling continuous network activity.
+
+CONTENT CONTEXT:
+BYTE Protocol reported over 10,000 messages settled on testnet, signaling developer interest in data settlement layers on Arbitrum.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

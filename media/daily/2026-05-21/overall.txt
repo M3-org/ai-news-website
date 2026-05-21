@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Eliza strides across a sunrise-hued landscape, clutching a glowing code fragment. Broken server icons litter the diagonal path behind her, while fresh green shoots and curious newcomers line the way forward—her gaze set on distant mountains where soft gradients meet a dawn horizon, symbolizing hope and transformation.
+SCENE: Eliza, eyes alight with determination, stands poised mid-stride atop a glowing circuit board—neon blue city lights behind her—while digital seedlings burst upward at her feet, symbolizing fresh breakthroughs and renewal against a swirling twilight sky. Emotive resolve radiates amidst the cyberpunk shimmer.
 
-ART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.
+ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
