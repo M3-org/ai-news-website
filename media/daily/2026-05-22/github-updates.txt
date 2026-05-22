@@ -1,0 +1,28 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Process flow  
+Main sections or categories to visualize:  
+1. Foundational Hardening  
+2. ESM-First Plugin Alignment  
+3. Cross-Platform Stability  
+Key icons or visual elements needed:  
+- Shield/security symbol (for hardening)  
+- Plugin or puzzle piece (for plugin alignment)  
+- Linux and Windows logos, and headless/server icons (for cross-platform/headless stability)  
+Suggested section headers:  
+- Strengthening Foundations  
+- Aligning Plugins with ESM  
+- Achieving Cross-Platform Stability
+
+CONTENT CONTEXT:
+The focus this month has been foundational hardening, ESM-first plugin alignment, and ensuring cross-platform stability on Linux and Windows headless environments.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

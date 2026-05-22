@@ -1,27 +1,25 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Infographic type: Ecosystem  
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
 2. Main sections or categories to visualize:  
-   - GODL Protocol Overview  
-   - Autonomous Agents  
-   - Gamified On-Chain Mining  
-   - Solana Blockchain Integration  
-   - Intersection & Outcomes  
+   - Introduction to Centinel Risk Protocol  
+   - Integration with Base/Aave  
+   - Real-time Solvency Scoring Process  
+   - Benefits/Outcomes  
 3. Key icons or visual elements needed:  
-   - Network/chain symbol  
-   - Robot/agent icon  
-   - Pickaxe/game element  
-   - Solana logo  
-   - Intersection/connection lines  
+   - Plugin/module icon  
+   - Blockchain/Base/Aave logos  
+   - Real-time data/clock symbol  
+   - Solvency meter or score gauge  
+   - Benefits (shield, checkmark)  
 4. Suggested section headers:  
-   - What is GODL Protocol?  
-   - Role of Autonomous Agents  
-   - Gamified On-Chain Mining  
-   - Solana Integration  
-   - Emerging Intersections & Impact
+   - What is Centinel Risk Protocol?  
+   - How Integration Works  
+   - Real-Time Scoring Explained  
+   - Why It Matters
 
 CONTENT CONTEXT:
-Introduction of the GODL protocol suggests an increasing intersection between autonomous agents and gamified on-chain mining on Solana.
+Introduction of the Centinel Risk Protocol plugin for real-time solvency scoring on Base/Aave.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
