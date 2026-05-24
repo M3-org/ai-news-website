@@ -1,0 +1,22 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: In the isometric tech city:  
+- The central **Job Queue Tower** orchestrates agent lifecycle tasks, with flow bridges to the **Agent Housing Blocks** (agent management).  
+- Surrounding this, the **ESM Plugin District** features modular, interlinked labs (plugins), each labeled by function.  
+- Data pipelines (depicted as skywalks) direct tasks from Job Queue Tower through Agent Blocks and into Plugin Labs.  
+- The **Compatibility Nexus** oversees unified integration, linking back to the ESM District.  
+- Organizational zones: Core Scheduling (center), Plugin Ecosystem (outer district), Integration Hub (periphery).  
+Labels: "Job Queue Tower", "Agent Blocks", "ESM Plugin Labs", "Compatibility Nexus".
+
+CONTENT CONTEXT:
+Focus shifted toward architectural hardening, specifically moving agent lifecycle tasks to a dedicated job queue to prevent system bottlenecks. Major effort to align all plugins with an ESM-first architecture to ensure ecosystem compatibility and modularity.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

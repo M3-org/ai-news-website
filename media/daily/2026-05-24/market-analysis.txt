@@ -1,15 +1,16 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Data points/categories: Eliza-1 model series, Qwen3.5, H200 hardware  
-3. Flow/relationship direction: Eliza-1 model series → utilizes Qwen3.5 → optimized for H200 hardware  
+VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
+2. Specific data points or categories to show: Ecosystem token liquidity, ai16z (source), BSC (destination), total liquidity volume  
+3. Flow/relationship direction: Flow from ai16z to BSC, illustrating migration of liquidity  
 4. Suggested section headers:  
-   - Eliza-1 Model Series  
-   - Powered by Qwen3.5  
-   - Optimized for H200 Hardware
+   - "Ecosystem Token Liquidity Migration"  
+   - "Pre-Migration (ai16z)"  
+   - "Post-Migration Consolidation (BSC)"  
+   - "Total Liquidity Volume"
 
 CONTENT CONTEXT:
-Introduction of the Eliza-1 model series using Qwen3.5 hardware optimized for H200.
+Liquidity for the ecosystem token has consolidated on BSC after the migration from ai16z.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 

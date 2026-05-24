@@ -1,0 +1,131 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-05-24T11:58:33.120199+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-05-24.json",
+  "facts_date": "2026-05-24",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-05-24",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "elizaOS successfully released version 2.0.2, pivoting towards an 'Owner+Agent' identity model while hardening cloud and mobile infrastructure. Concurrently, community discussions centered on the closure of the Babylon project and the end of the ai16z-to-elizaOS token migration period.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left, Eliza stands before shedding leaves and fading blueprints labeled \"Babylon\" and \"ai16z tokens.\" Right, she steps onto vibrant new growth, digital roots sprawling from her feet\u2014her silhouette illuminated by gentle, overcast light, symbolizing transformation and emergent possibilities.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left, Eliza stands before shedding leaves and fading blueprints labeled \"Babylon\" and \"ai16z tokens.\" Right, she steps onto vibrant new growth, digital roots sprawling from her feet\u2014her silhouette illuminated by gentle, overcast light, symbolizing transformation and emergent possibilities.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Focus shifted toward architectural hardening, specifically moving agent lifecycle tasks to a dedicated job queue to prevent system bottlenecks. Major effort to align all plugins with an ESM-first architecture to ensure ecosystem compatibility and modularity.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "In the isometric tech city:  \n- The central **Job Queue Tower** orchestrates agent lifecycle tasks, with flow bridges to the **Agent Housing Blocks** (agent management).  \n- Surrounding this, the **ESM Plugin District** features modular, interlinked labs (plugins), each labeled by function.  \n- Data pipelines (depicted as skywalks) direct tasks from Job Queue Tower through Agent Blocks and into Plugin Labs.  \n- The **Compatibility Nexus** oversees unified integration, linking back to the ESM District.  \n- Organizational zones: Core Scheduling (center), Plugin Ecosystem (outer district), Integration Hub (periphery).  \nLabels: \"Job Queue Tower\", \"Agent Blocks\", \"ESM Plugin Labs\", \"Compatibility Nexus\".",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: In the isometric tech city:  \n- The central **Job Queue Tower** orchestrates agent lifecycle tasks, with flow bridges to the **Agent Housing Blocks** (agent management).  \n- Surrounding this, the **ESM Plugin District** features modular, interlinked labs (plugins), each labeled by function.  \n- Data pipelines (depicted as skywalks) direct tasks from Job Queue Tower through Agent Blocks and into Plugin Labs.  \n- The **Compatibility Nexus** oversees unified integration, linking back to the ESM District.  \n- Organizational zones: Core Scheduling (center), Plugin Ecosystem (outer district), Integration Hub (periphery).  \nLabels: \"Job Queue Tower\", \"Agent Blocks\", \"ESM Plugin Labs\", \"Compatibility Nexus\".\n\nCONTENT CONTEXT:\nFocus shifted toward architectural hardening, specifically moving agent lifecycle tasks to a dedicated job queue to prevent system bottlenecks. Major effort to align all plugins with an ESM-first architecture to ensure ecosystem compatibility and modularity.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 28.1,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Discussions focused on token liquidity on BSC, the termination of the ai16z migration, and security research regarding AI agents with direct wallet access. Technical deep dive into the difficulties of containerizing VoiceAI platforms, specifically regarding GPU orchestration for real-time inference.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Eliza stands amid tangled digital vines (representing AI agents), wallet icons glowing faintly, security warnings overhead. Right\u2014she steps onto a fresh, bright path flanked by blooming spring flowers, tokens swirling upward as VoiceAI containers and GPUs unfurl in gentle, renewed growth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left\u2014Eliza stands amid tangled digital vines (representing AI agents), wallet icons glowing faintly, security warnings overhead. Right\u2014she steps onto a fresh, bright path flanked by blooming spring flowers, tokens swirling upward as VoiceAI containers and GPUs unfurl in gentle, renewed growth.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.88,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "marc",
+        "eliza"
+      ],
+      "content_context": "By standardizing separate roles for users and agents, the framework is moving toward a professional-grade platform for SaaS-like agent integrations (Shopify, Calendly). The focus on Intel Lunar Lake and Vulkan optimization suggests a strategic push toward high-performance local AI agents on consumer laptops.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In a split frame, Marc adjusts gears on a laptop (left, cause), while Eliza steps onto a path sprouting digital leaves (right, effect); spring growth frames both sides, symbolic data streams flow between them, all beneath a soft, overcast sky with gentle gradients.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: In a split frame, Marc adjusts gears on a laptop (left, cause), while Eliza steps onto a path sprouting digital leaves (right, effect); spring growth frames both sides, symbolic data streams flow between them, all beneath a soft, overcast sky with gentle gradients.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.42,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "Liquidity for the ecosystem token has consolidated on BSC after the migration from ai16z.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Ecosystem token liquidity, ai16z (source), BSC (destination), total liquidity volume  \n3. Flow/relationship direction: Flow from ai16z to BSC, illustrating migration of liquidity  \n4. Suggested section headers:  \n   - \"Ecosystem Token Liquidity Migration\"  \n   - \"Pre-Migration (ai16z)\"  \n   - \"Post-Migration Consolidation (BSC)\"  \n   - \"Total Liquidity Volume\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Ecosystem token liquidity, ai16z (source), BSC (destination), total liquidity volume  \n3. Flow/relationship direction: Flow from ai16z to BSC, illustrating migration of liquidity  \n4. Suggested section headers:  \n   - \"Ecosystem Token Liquidity Migration\"  \n   - \"Pre-Migration (ai16z)\"  \n   - \"Post-Migration Consolidation (BSC)\"  \n   - \"Total Liquidity Volume\"\n\nCONTENT CONTEXT:\nLiquidity for the ecosystem token has consolidated on BSC after the migration from ai16z.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 23.96,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "BSC",
+      "ElizaOS",
+      "LocalAI"
+    ],
+    "entities_found": [
+      "ai16z",
+      "Binance Smart Chain",
+      "ElizaOS",
+      "LocalAI"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-05-24/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 127.51
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-24/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-05-24/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-05-24/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-05-24/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-05-24/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-05-24/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-05-24/strategic-insights.png"
+  }
+}
