@@ -1,0 +1,16 @@
+Create an illustration for a tech news magazine.
+
+CHARACTERS (use reference sheet for exact appearance):
+- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous “DJ/tech-hacker” vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).
+- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
+
+SCENE: Under a neon sky, Shaw and Eliza stand atop a vast digital cityscape—towering data nodes and vibrant circuit-veins burst with spring-green light. Everywhere, glowing connectors intertwine, the Owner+Agent iconography pulsing across structures, symbolizing the monumental new identity model shaping the landscape.
+
+ART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.
+
+REQUIREMENTS:
+- Characters must match reference sheet EXACTLY (colors, costume, features)
+- Dynamic composition suitable for editorial use
+- Professional quality illustration
+- No text or watermarks
+- Scene should feel natural and engaging

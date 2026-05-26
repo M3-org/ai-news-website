@@ -1,16 +1,20 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Infographic type: Trend Analysis / Ecosystem Overview  
-2. Main sections: AI-related Coins, Base Blockchain, Market Traction, Market Turnaround Potential  
-3. Key icons/visuals: Blockchain symbol, AI brain chip, upward trend arrow, coin/token icon  
+VISUALIZATION TYPE: 1. Infographic type: Process Flow  
+2. Main sections:  
+   - Institutional Accumulation  
+   - ETF Inflows  
+   - Price Momentum  
+   - Resistance Range (2.00–2.35)  
+3. Key icons/visuals: Building/briefcase (institutional), ETF document/arrow, graph/chart showing upward trend, resistance barrier/wall  
 4. Suggested section headers:  
-   - AI Coins on Base  
-   - What is Base Blockchain?  
-   - Rising Market Traction  
-   - Signs of a Potential Turnaround
+   - Institutional Buying Power  
+   - ETF Inflow Impact  
+   - Market Uplift  
+   - Approaching Resistance
 
 CONTENT CONTEXT:
-AI-related coins on the Base blockchain are showing increased traction and potential for a market turnaround.
+XRP institutional accumulation and ETF inflows are driving a push toward the 2.00-2.35 resistance range.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
