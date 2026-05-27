@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
+2. Main sections: Foundational Hardening, ESM-First Architecture, Cross-Platform Stability, Secure Secrets Management  
+3. Key icons/visual elements: Shield/security for hardening, module/blocks for ESM, device-chip for cross-platform, vault/lock for secrets  
+4. Suggested section headers:  
+   - Foundational Hardening Overview  
+   - ESM-First Alignment  
+   - Cross-Platform Stability (Lunar Lake NPU/GPU)  
+   - Secure Secrets Management
+
+CONTENT CONTEXT:
+The project is undergoing foundational hardening, focused on ESM-first architecture alignment, cross-platform stability (Intel Lunar Lake NPU/GPU), and secure secrets management via @elizaos/vault.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
