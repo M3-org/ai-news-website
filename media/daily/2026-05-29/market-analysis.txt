@@ -1,0 +1,21 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three floating holographic panels:  
+1. Prize Pool ($100K) – large cyan-lit numeric display  
+2. Active Domains – split magenta gauges for “Trading” and “Dev-Tools”  
+3. Agentic AI Activity – orange pulse indicator showing scale level
+
+Curved neon connection lines flow between Prize Pool and both domain gauges, with dynamic data pulses linking all three. Cyan and magenta accents highlight interactive edges; orange glows emphasize real-time metric changes.
+
+CONTENT CONTEXT:
+Mantle Network is incentivizing agentic AI at scale with a $100K prize pool centered on trading and dev-tools.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
