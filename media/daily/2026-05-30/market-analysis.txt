@@ -1,25 +1,17 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Infographic type: Process flow  
-2. Main sections or categories to visualize:  
-   - Introduction to Centinel Risk Protocol  
-   - Integration with Base/Aave  
-   - Real-time Solvency Scoring Process  
-   - Benefits/Outcomes  
-3. Key icons or visual elements needed:  
-   - Plugin/module icon  
-   - Blockchain/Base/Aave logos  
-   - Real-time data/clock symbol  
-   - Solvency meter or score gauge  
-   - Benefits (shield, checkmark)  
+2. Main sections: Mantle Network Initiatives, AI Agent Space, Hackathon Tracks  
+3. Key icons/visual elements: Network/cloud icon (Mantle Network), AI/robot icon (AI Agent Space), wallet icon (Agentic Wallets), upward graph or dollar sign icon (AI Trading), track/flag icon (Hackathon Tracks)  
 4. Suggested section headers:  
-   - What is Centinel Risk Protocol?  
-   - How Integration Works  
-   - Real-Time Scoring Explained  
-   - Why It Matters
+   - Mantle Network’s Strategic Focus  
+   - Expanding into AI Agent Space  
+   - Dedicated Hackathon Tracks  
+   - Agentic Wallets  
+   - AI Trading
 
 CONTENT CONTEXT:
-Introduction of the Centinel Risk Protocol plugin for real-time solvency scoring on Base/Aave.
+Mantle Network is aggressively targeting the AI agent space with specific hackathon tracks for Agentic Wallets and AI Trading.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 

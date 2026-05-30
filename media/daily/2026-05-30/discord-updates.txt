@@ -4,9 +4,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: In soft backlight, Eliza’s hand hovers over a glowing pizza-shaped badge on a holographic interface, Peepo reflected in the screen—both silhouetted, their shared focus on a “v2.0” icon pulsing gently. Around them: diffuse halos, muted tones evoke nostalgic anticipation, early adopter excitement in minimalist space.
+SCENE: Eliza and Peepo stand silhouetted atop a misty hill overlooking a glowing city, framed by budding spring trees. Laptops in hand, they gaze toward luminous skyscrapers and digital data streams rising like fresh shoots, as cool blue twilight and gentle fog suggest limitless potential and new beginnings.
 
-ART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.
+ART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
