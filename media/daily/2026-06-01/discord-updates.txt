@@ -1,0 +1,15 @@
+Create an illustration for a tech news magazine.
+
+CHARACTERS (use reference sheet for exact appearance):
+- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
+
+SCENE: Silhouette of peepo stepping onto a glowing path of floating screens and crypto tokens, golden light flaring from behind; blurred figures in the background gesture questions, illuminated by pools of neon amidst a dreamy, active night cityscape.
+
+ART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.
+
+REQUIREMENTS:
+- Characters must match reference sheet EXACTLY (colors, costume, features)
+- Dynamic composition suitable for editorial use
+- Professional quality illustration
+- No text or watermarks
+- Scene should feel natural and engaging

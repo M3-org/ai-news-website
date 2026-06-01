@@ -1,16 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
-2. Specific data points or categories to show: Ecosystem token liquidity, ai16z (source), BSC (destination), total liquidity volume  
-3. Flow/relationship direction: Flow from ai16z to BSC, illustrating migration of liquidity  
-4. Suggested section headers:  
-   - "Ecosystem Token Liquidity Migration"  
-   - "Pre-Migration (ai16z)"  
-   - "Post-Migration Consolidation (BSC)"  
-   - "Total Liquidity Volume"
+2. Specific data points or categories: Option price ranges (below 735, 735-740, above 741), dealer hedging actions (no-trade, hedging, long bias)  
+3. Flow/relationship direction: From option price ranges to corresponding dealer behavior  
+4. Suggested section headers: "Option Price Ranges," "Dealer Hedging Response," "No-Trade Zone," "Long Bias Threshold"
 
 CONTENT CONTEXT:
-Liquidity for the ecosystem token has consolidated on BSC after the migration from ai16z.
+0DTE options analysis shows dealer hedging behavior creating a 'no-trade zone' between 735-740, with a long bias only above 741.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
