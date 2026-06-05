@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: Peepo strides up a sunlit path lined with blossoming trees, clutching a laptop with glowing code on its screen; behind, closed lab doors drift in shadow while ahead, interconnected digital portfolios and vibrant AI motifs bloom amidst radiant, golden-hour rim lighting.
+SCENE: Split frame: Left, peepo at a sunrise-lit desk, reviewing code and network diagrams in cool dawn light; Right, peepo confidently shaking hands with another figure against a hazy, bustling cityscape, community banners and architectural silhouettes in warm horizon glow.
 
-ART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

@@ -4,9 +4,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous “DJ/tech-hacker” vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).
 
-SCENE: Eliza and Shaw stride up a sunlit, moss-covered stone path winding through a glowing grove, cradling luminous geometric cores; golden rim-light outlines them, roots twist and anchor cybernetic frameworks into rich earth, and distant trees shimmer—spring leaves unfurling in their wake.
+SCENE: Split frame: Left—Eliza, bathed in dawn’s blue haze, stares intently at her laptop as glowing cloud architecture diagrams shimmer above. Right—Shaw adjusts code on a towering, holographic agent, bathed in orange-pink light; between them, misty depth reveals rising structures, symbolizing change and personal resolve.
 
-ART STYLE: 80s computing aesthetic with green phosphor glow, CRT scan lines, and monospace elements. Nostalgic hacker atmosphere.
+ART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

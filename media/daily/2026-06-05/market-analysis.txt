@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Data points/categories: AI DePIN project, Collaboration Proposal, High Interest, $0.5B FDV  
+3. Flow/relationship direction: From "AI DePIN project" → "Collaboration Proposal" → "High Interest" (annotated with "$0.5B FDV")  
+4. Suggested section headers: Project Overview, Collaboration Status, Financial Metrics
+
+CONTENT CONTEXT:
+High-interest collaboration proposal from an AI DePIN project with 0.5B FDV.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
