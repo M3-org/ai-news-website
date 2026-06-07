@@ -1,0 +1,29 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Timeline with impact analysis  
+2. Main sections or categories:  
+   - Market Downturn Event  
+   - Immediate Effects  
+   - Ecosystem Concerns  
+3. Key icons or visual elements needed:  
+   - Calendar/date icon  
+   - Downward trend arrow  
+   - Alert/warning symbol  
+   - Network/ecosystem web  
+4. Suggested section headers:  
+   - "Market Downturn: 2026-06-05"  
+   - "Immediate Impact"  
+   - "Ecosystem Concerns & Volatility"
+
+CONTENT CONTEXT:
+Significant market downturn observed on 2026-06-05 leading to ecosystem-wide concerns about project survival and volatility.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
