@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city's heart rises the Cloud Infrastructure Tower, its central spire interconnected with skywalks. Surrounding it, Multi-Tenant Isolation Blocks—distinct, color-coded office complexes—encircle the core, demarcating tenant boundaries. Nearby, the Agent Orchestrator Control Hub stands fortified, with visible firewalls and redundancy wings. Data highways (arterial roads) facilitate segmented flows between all structures, with clearly labeled security checkpoints at each interface. The "Infrastructure District" contains these primary buildings, with large rooftop signage: "Cloud Core," "Tenant Zones," and "Agent Orchestrator."
+
+CONTENT CONTEXT:
+Development focused on maturing cloud infrastructure, ensuring multi-tenant isolation, and hardening the agent orchestrator for production use.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

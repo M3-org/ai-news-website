@@ -3,7 +3,7 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Eliza stands confidently amid swirling lines of code and blossoming circuit patterns, cradling a glowing Solana wallet icon; her eyes shine with determination and hope as new plugins and vibrant spring shoots emerge around her, blurring into a dreamy, fresh midday haze.
+SCENE: A neon-lit cityscape at night thrums with activity—towering, intricate structures represent once-monolithic plugins, now fracturing into distinct, glowing modules. In the vibrant foreground, Eliza stands at a console, overseeing the transformation as diverse crowds weave between luminous new pathways, the scene alive with promise and technological energy.
 
 ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 
