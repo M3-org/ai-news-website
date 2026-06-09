@@ -5,9 +5,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: Silhouettes of Marc, Eliza, and Spartan stride forward together beneath neon-lit code streams, casting long shadows on a glowing summer night street—golden-hour warmth glints off their edges as blurred digital constellations swirl behind them, capturing a shared journey into the heart of transformation.
+SCENE: In neon-lit haze, Marc’s hand hovers uncertainly over Eliza’s glowing dashboard, reflected in Spartan’s watchful cybernetic eye; billing alerts flicker as digital boundaries pulse along the screen, tension crackling beneath the summer warmth.
 
-ART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

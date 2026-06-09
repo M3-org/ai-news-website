@@ -1,0 +1,134 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-09T13:40:50.542897+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-09.json",
+  "facts_date": "2026-06-09",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-09",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development priority shifted toward stabilizing the Eliza Cloud Apps data plane and resolving P0 ingress and billing leaks. Parallel efforts were noted in community-led trading fraud detection tools and architectural audits of the Discord plugin.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A close-up of Eliza\u2019s tense hand gripping a neon-lit server rack panel, droplets of sweat catching the cyberpunk glow; behind her, hazy reflections flicker with urgent code, blurred figures in heated debate, summer air heavy with unresolved threats and digital vulnerability.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: A close-up of Eliza\u2019s tense hand gripping a neon-lit server rack panel, droplets of sweat catching the cyberpunk glow; behind her, hazy reflections flicker with urgent code, blurred figures in heated debate, summer air heavy with unresolved threats and digital vulnerability.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.75,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "dataviz",
+      "characters": [
+        "shaw"
+      ],
+      "content_context": "The project is currently focused on hardening cloud infrastructure, specifically addressing security isolation (PKCE), billing accuracy, and multi-tenant database reliability.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Data points/categories: Cloud Infrastructure Hardening, Security Isolation (PKCE), Billing Accuracy, Multi-Tenant Database Reliability  \n3. Flow/relationship direction: Central node (Cloud Infrastructure Hardening) branching to three focus areas  \n4. Suggested section headers:  \n   - Project Focus  \n   - Security Isolation  \n   - Billing Accuracy  \n   - Database Reliability",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Data points/categories: Cloud Infrastructure Hardening, Security Isolation (PKCE), Billing Accuracy, Multi-Tenant Database Reliability  \n3. Flow/relationship direction: Central node (Cloud Infrastructure Hardening) branching to three focus areas  \n4. Suggested section headers:  \n   - Project Focus  \n   - Security Isolation  \n   - Billing Accuracy  \n   - Database Reliability\n\nCONTENT CONTEXT:\nThe project is currently focused on hardening cloud infrastructure, specifically addressing security isolation (PKCE), billing accuracy, and multi-tenant database reliability.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.71,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "comic_panel",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Primarily recruitment and service offerings; doniyorv7503 offered specialized architecture audits and plugin development for a $45k USDT buyout. Technical discussions centered on Cabal-Hunter for Solana risk checking and benchmarking methodologies for trading agents to distinguish skill from luck.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Close-up: Eliza\u2019s tense fingertips hovering above a flickering neon-lit contract on a holographic table, $45k glowing in USDT font; Peepo\u2019s anxious reflection shimmers in the haze, code fragments and plugin icons blurred behind them, the air heavy with unspoken stakes.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Close-up: Eliza\u2019s tense fingertips hovering above a flickering neon-lit contract on a holographic table, $45k glowing in USDT font; Peepo\u2019s anxious reflection shimmers in the haze, code fragments and plugin icons blurred behind them, the air heavy with unspoken stakes.\n\nART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 23.76,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "editorial",
+      "characters": [
+        "marc",
+        "eliza",
+        "spartan"
+      ],
+      "content_context": "The launch of Eliza Cloud Apps marks a transition from a local developer framework to a production-grade SaaS infrastructure, necessitating stricter monitoring of billing and tenant isolation.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "In neon-lit haze, Marc\u2019s hand hovers uncertainly over Eliza\u2019s glowing dashboard, reflected in Spartan\u2019s watchful cybernetic eye; billing alerts flicker as digital boundaries pulse along the screen, tension crackling beneath the summer warmth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: In neon-lit haze, Marc\u2019s hand hovers uncertainly over Eliza\u2019s glowing dashboard, reflected in Spartan\u2019s watchful cybernetic eye; billing alerts flicker as digital boundaries pulse along the screen, tension crackling beneath the summer warmth.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 49.91,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "Increased demand for on-chain fund tracing and cabal detection in the Solana ecosystem.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Raised on-chain fund tracing requests, increased cabal detection activities, Solana ecosystem entities (users, funds, protocols)  \n3. Flow/relationship direction: From \u201cIncreased Demand\u201d to \u201cOn-Chain Fund Tracing\u201d and \u201cCabal Detection\u201d, then diverging to Solana ecosystem entities  \n4. Suggested section headers:  \n- Demand Drivers  \n- Fund Tracing Requests  \n- Cabal Detection Activities  \n- Impact on Solana Ecosystem",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Raised on-chain fund tracing requests, increased cabal detection activities, Solana ecosystem entities (users, funds, protocols)  \n3. Flow/relationship direction: From \u201cIncreased Demand\u201d to \u201cOn-Chain Fund Tracing\u201d and \u201cCabal Detection\u201d, then diverging to Solana ecosystem entities  \n4. Suggested section headers:  \n- Demand Drivers  \n- Fund Tracing Requests  \n- Cabal Detection Activities  \n- Impact on Solana Ecosystem\n\nCONTENT CONTEXT:\nIncreased demand for on-chain fund tracing and cabal detection in the Solana ecosystem.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 39.0,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "Discord",
+      "ElizaOS",
+      "Solana",
+      "Solana ecosystem",
+      "USDT"
+    ],
+    "entities_found": [
+      "Discord",
+      "ElizaOS",
+      "SOL",
+      "Solana",
+      "USDT"
+    ],
+    "entity_count": 5,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-09/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 170.22
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-09/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-09/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-09/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-09/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-09/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-09/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-09/strategic-insights.png"
+  }
+}

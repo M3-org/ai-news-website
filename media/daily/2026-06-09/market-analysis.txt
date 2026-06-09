@@ -1,12 +1,16 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
-2. Specific data points or categories: Option price ranges (below 735, 735-740, above 741), dealer hedging actions (no-trade, hedging, long bias)  
-3. Flow/relationship direction: From option price ranges to corresponding dealer behavior  
-4. Suggested section headers: "Option Price Ranges," "Dealer Hedging Response," "No-Trade Zone," "Long Bias Threshold"
+2. Specific data points or categories to show: Raised on-chain fund tracing requests, increased cabal detection activities, Solana ecosystem entities (users, funds, protocols)  
+3. Flow/relationship direction: From “Increased Demand” to “On-Chain Fund Tracing” and “Cabal Detection”, then diverging to Solana ecosystem entities  
+4. Suggested section headers:  
+- Demand Drivers  
+- Fund Tracing Requests  
+- Cabal Detection Activities  
+- Impact on Solana Ecosystem
 
 CONTENT CONTEXT:
-0DTE options analysis shows dealer hedging behavior creating a 'no-trade zone' between 735-740, with a long bias only above 741.
+Increased demand for on-chain fund tracing and cabal detection in the Solana ecosystem.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
