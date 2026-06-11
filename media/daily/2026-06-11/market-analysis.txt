@@ -1,0 +1,32 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Ecosystem
+
+Main sections or categories to visualize:
+1. TradFi Architectural Services
+2. Quantitative Backgrounds
+3. Community Integration
+
+Key icons or visual elements needed:
+- Building/architecture icon
+- Data/analytics chart icon
+- Community/network icon
+- Arrows indicating integration or synergy
+
+Suggested section headers:
+- TradFi-ready Architectural Services
+- Leveraging Quantitative Expertise
+- Strengthening the Community
+
+CONTENT CONTEXT:
+Introduction of TradFi-ready architectural services and quantitative backgrounds into the community.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

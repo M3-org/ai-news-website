@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Process flow  
+Main sections: Monolithic Architecture → Modular Architecture → Plugin-Based System  
+Key icons or visual elements needed: Monolithic server, modular blocks, plugin puzzle pieces, cloud symbol, arrows showing evolution  
+Suggested section headers:  
+1. Current State: Monolithic Architecture  
+2. Transition: Modularization  
+3. Future State: Plugin-Based System  
+4. Benefits: Reliability & Flexibility in Enterprise Cloud Hosting
+
+CONTENT CONTEXT:
+The project is shifting from a monolithic architecture toward a modular, plugin-based system to improve reliability and flexibility for enterprise cloud hosting.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
