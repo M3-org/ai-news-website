@@ -2,8 +2,9 @@ Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
+- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: Close-up on Marc’s hands exchanging digital tablets with another teammate, glowing Solana and DeFi icons reflected on their screens; rim-lit fingers, summer haze curling through sunlit space, pink dawn sky filtering foggy light, all charged with collaborative energy.
+SCENE: Amid a bustling summer night, Marc and Spartan stand side by side on a city rooftop, framed in glowing backlight. They gaze out over a neon-lit crowd below, faces illuminated by phone screens—connected yet contemplative, unified by the anticipation of Ruby Labs AI’s unveiling.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 
