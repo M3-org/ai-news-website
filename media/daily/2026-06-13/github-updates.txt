@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core stands the Eliza Cloud Apps Data Hub—a sleek, multi-tiered skyscraper. Adjoining it, the State Reconciliation Center (resolving orphaned state) is a low, server-stacked dome. Nearby, the CI/CD Automation Tower manages deployment workflows. Data highways (fiber bridges) connect the Data Hub to the Reconciliation Center and Automation Tower. The “Data Plane District” hosts these structures. PR #8400, #8398, and #8397 are labeled on digital billboards over each respective building. Zones are clearly delineated: core data, state management, and deployment automation.
+
+CONTENT CONTEXT:
+Development is centered on stabilizing the Eliza Cloud Apps data plane, resolving orphaned state entries, and automating deployment workflows via PRs #8400, #8398, and #8397.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

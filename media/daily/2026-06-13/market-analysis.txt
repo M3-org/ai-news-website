@@ -1,12 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Data points/categories: AI DePIN project, Collaboration Proposal, High Interest, $0.5B FDV  
-3. Flow/relationship direction: From "AI DePIN project" → "Collaboration Proposal" → "High Interest" (annotated with "$0.5B FDV")  
-4. Suggested section headers: Project Overview, Collaboration Status, Financial Metrics
+2. Data points/categories: Akash (hardware compute), peaq (decentralized backend), OpenAI, Google, Decentralized AI Backend Alternative  
+3. Flow direction: Akash + peaq → Decentralized AI Backend Alternative ← [versus] OpenAI/Google  
+4. Suggested section headers: "Current AI Backend Options", "Emerging Decentralized Alternatives", "Integration Pathways"
 
 CONTENT CONTEXT:
-High-interest collaboration proposal from an AI DePIN project with 0.5B FDV.
+Integration with Akash for hardware compute is being looked at alongside peaq to provide a fully decentralized AI backend alternative to OpenAI/Google.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
