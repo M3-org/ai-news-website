@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-14T12:57:56.823168+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-14.json",
+  "facts_date": "2026-06-14",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-14",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS completed major infrastructure milestones for the Cloud Apps data-plane while simultaneously facing community scrutiny over financial transparency and governance ties. Technical progress focuses on modular infrastructure-as-code deployments and the integration of world models and physical robotics ecosystems.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Close-up of Eliza\u2019s hands lit by a pool of bluish artificial light\u2014one hand hovers over a glowing circuit board, the other tightly clenched, knuckles white. Night haze and distant silhouettes evoke urgent late-summer intensity, personal resolve burning quietly amid swirling scrutiny.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Close-up of Eliza\u2019s hands lit by a pool of bluish artificial light\u2014one hand hovers over a glowing circuit board, the other tightly clenched, knuckles white. Night haze and distant silhouettes evoke urgent late-summer intensity, personal resolve burning quietly amid swirling scrutiny.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.87,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "dataviz",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Development focus shifted toward establishing a scalable and secure multi-tenant cloud foundation with automated database and hosting management.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Data points/categories: Development Focus, Scalable Cloud Foundation, Secure Architecture, Multi-Tenant Support, Automated Database Management, Automated Hosting Management  \n3. Flow direction: Sequential, showing progression from Development Focus to each specific goal/feature  \n4. Suggested section headers: Strategic Shift, Key Cloud Features, Automation Enhancements",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Data points/categories: Development Focus, Scalable Cloud Foundation, Secure Architecture, Multi-Tenant Support, Automated Database Management, Automated Hosting Management  \n3. Flow direction: Sequential, showing progression from Development Focus to each specific goal/feature  \n4. Suggested section headers: Strategic Shift, Key Cloud Features, Automation Enhancements\n\nCONTENT CONTEXT:\nDevelopment focus shifted toward establishing a scalable and secure multi-tenant cloud foundation with automated database and hosting management.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.79,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "comic_panel",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Substantial community concern regarding financial transparency and potential exit liquidity strategies involving Secure Blockchain Dev Corp. Moderator acknowledgment of scam bot issues. Technical discussions on implementing world models using Google Vertex/Genie and resolving version 1.7.2 update sticks by switching to the develop branch.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Under cool blue night lights, Eliza clutches her phone tightly, peering at peepo\u2014a glowing notification reflected in her anxious eyes\u2014while digital haze and blurred code swirl around them, isolating their moment of vulnerability amid vibrant, humming summer streets.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Under cool blue night lights, Eliza clutches her phone tightly, peering at peepo\u2014a glowing notification reflected in her anxious eyes\u2014while digital haze and blurred code swirl around them, isolating their moment of vulnerability amid vibrant, humming summer streets.\n\nART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 23.46,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The proposed peaq integration represents a pivot toward the 'Physical AI' narrative, moving beyond digital-only agents. The heavy reliance on the 'develop' branch over standard releases indicates a high-velocity but potentially unstable development cycle.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Close-up of Eliza\u2019s hand gripping a glowing circuit board, blue light pooling over her knuckles; summer haze blurs the bustling night city beyond, intimate and charged, as she contemplates the merging of physical and digital worlds.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Close-up of Eliza\u2019s hand gripping a glowing circuit board, blue light pooling over her knuckles; summer haze blurs the bustling night city beyond, intimate and charged, as she contemplates the merging of physical and digital worlds.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.79,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "High community awareness and documentation of circular fund flows and Canadian micro-cap rebranding strategies.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Holographic HUD displays three main metric panels:  \n1. Community Awareness Index (with neon cyan progress gauge)  \n2. Circular Fund Flows Documentation (holographic magenta ring chart)  \n3. Micro-Cap Rebranding Strategy Status (orange segmented bar)  \nPulsing connection lines flow between panels, illustrating data dependencies. Accent glows highlight key indicators, with animated datastreams linking metrics for real-time updates.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Holographic HUD displays three main metric panels:  \n1. Community Awareness Index (with neon cyan progress gauge)  \n2. Circular Fund Flows Documentation (holographic magenta ring chart)  \n3. Micro-Cap Rebranding Strategy Status (orange segmented bar)  \nPulsing connection lines flow between panels, illustrating data dependencies. Accent glows highlight key indicators, with animated datastreams linking metrics for real-time updates.\n\nCONTENT CONTEXT:\nHigh community awareness and documentation of circular fund flows and Canadian micro-cap rebranding strategies.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 37.9,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ElizaOS"
+    ],
+    "entity_count": 1,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-14/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 136.88
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-14/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-14/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-14/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-14/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-14/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-14/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-14/strategic-insights.png"
+  }
+}
