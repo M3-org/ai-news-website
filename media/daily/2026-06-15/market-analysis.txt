@@ -1,0 +1,36 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Infographic type: Comparison ecosystem
+
+Main sections or categories to visualize:
+1. Centralized AI Backends (e.g., OpenAI/Google)
+2. Decentralized AI Backends
+3. Akash Integration
+4. peaq Integration
+5. Strategic Shift Overview
+
+Key icons or visual elements needed:
+- Cloud/network icons for centralized and decentralized
+- Integration/connection symbols (e.g., puzzle pieces)
+- Arrows indicating transition/shift
+- Platform logos (Akash, peaq)
+
+Suggested section headers:
+- "Current Landscape: Centralized AI"
+- "Emergence of Decentralized AI"
+- "Role of Akash"
+- "Role of peaq"
+- "Strategic Shift in AI Infrastructure"
+
+CONTENT CONTEXT:
+Strategic shift toward Decentralized AI backends as an alternative to OpenAI/Google through Akash and peaq integrations.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
