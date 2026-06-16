@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 
-SCENE: Under neon-lit summer night skies, Spartan and Marc stand atop a skyscraper, gazing over a sprawling cityscape where market tickers flash crimson. Streams of people below move urgently, their faces illuminated by glowing screens—everyone navigating a shifting, cyberpunk financial world focused on resilience, not quick fortune.
+SCENE: Left: Spartan hunched over a glowing laptop, code and model diagrams illuminating his focused silhouette. Right: Marc stands by a sunlit window, device in hand, Vertex AI and Genie interfaces reflected softly in the glass—complex digital tools quietly reshaping their work and summer day.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 
