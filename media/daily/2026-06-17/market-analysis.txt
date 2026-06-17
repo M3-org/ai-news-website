@@ -1,16 +1,16 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
-2. Specific data points or categories to show: Raised on-chain fund tracing requests, increased cabal detection activities, Solana ecosystem entities (users, funds, protocols)  
-3. Flow/relationship direction: From “Increased Demand” to “On-Chain Fund Tracing” and “Cabal Detection”, then diverging to Solana ecosystem entities  
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Specific data points or categories to show: Detection of fraudulent activity, ai16z token migration process, Community intervention, Mitigation outcome  
+3. Flow/relationship direction: Linear flow from detection → token migration → community action → mitigation  
 4. Suggested section headers:  
-- Demand Drivers  
-- Fund Tracing Requests  
-- Cabal Detection Activities  
-- Impact on Solana Ecosystem
+- Fraud Detection  
+- Token Migration Process  
+- Community Response  
+- Outcome: Mitigation
 
 CONTENT CONTEXT:
-Increased demand for on-chain fund tracing and cabal detection in the Solana ecosystem.
+Active fraudulent activity regarding ai16z token migration was detected and mitigated by the community.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
