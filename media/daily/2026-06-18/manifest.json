@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-18T13:59:33.811710+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-18.json",
+  "facts_date": "2026-06-18",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-18",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS project has completed a major organizational milestone by consolidating all development work into a single repository and transitioning to a modular 'Cloud Apps' infrastructure. However, the community is actively debating the project's long-term open-source strategy and managing a surge in migration-related scam activity.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands silhouetted atop a rooftop at golden hour, neon-lit terminals glowing around her, gazing out over a bustling city veiled in cyberpunk haze\u2014caught between triumph and uncertainty as shifting clouds hint at unseen challenges ahead.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands silhouetted atop a rooftop at golden hour, neon-lit terminals glowing around her, gazing out over a bustling city veiled in cyberpunk haze\u2014caught between triumph and uncertainty as shifting clouds hint at unseen challenges ahead.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.51,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "shaw",
+        "eliza"
+      ],
+      "content_context": "The primary development focus is the stability and automation of the Eliza Cloud infrastructure, including per-tenant isolation and automated database management.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city\u2019s core, the Eliza Cloud Control Tower rises\u2014a sleek skyscraper embodying system orchestration and stability. Adjacent Data Warehouse Blocks handle automated database management, linked by elevated Data Pipeline Bridges. Surrounding the Tower, Tenant Districts are individual plots with secure, walled compounds for per-tenant isolation, each labeled by tenant. Automation Yards\u2014mechanized plazas\u2014connect the Tower to all districts. Clear, illuminated paths trace data flow through pipelines from the Control Tower, passing through Automation Yards before reaching each Tenant District and its managed Warehouse Block. Zones: Core (Control Tower), Automation Zone, Tenant Districts.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city\u2019s core, the Eliza Cloud Control Tower rises\u2014a sleek skyscraper embodying system orchestration and stability. Adjacent Data Warehouse Blocks handle automated database management, linked by elevated Data Pipeline Bridges. Surrounding the Tower, Tenant Districts are individual plots with secure, walled compounds for per-tenant isolation, each labeled by tenant. Automation Yards\u2014mechanized plazas\u2014connect the Tower to all districts. Clear, illuminated paths trace data flow through pipelines from the Control Tower, passing through Automation Yards before reaching each Tenant District and its managed Warehouse Block. Zones: Core (Control Tower), Automation Zone, Tenant Districts.\n\nCONTENT CONTEXT:\nThe primary development focus is the stability and automation of the Eliza Cloud infrastructure, including per-tenant isolation and automated database management.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.26,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Debate regarding the project's open-source strategy. Users questioned if fully open-sourcing everything is viable against larger competitors, with some suggesting a local-first or hybrid monetization  Heavy focus on moderation and spam management. The channel is currently facing multiple scam attempts involving fake airdrops and wallet purchases.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands in sharp silhouette atop city steps, neon haze swirling under golden hour skies, peepo clutched protectively. Scam alerts flicker on screens behind her\u2014a cinematic moment of determined vigilance amid chaotic debate, warm light casting long shadows through pulsing cyberpunk vibrancy.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza stands in sharp silhouette atop city steps, neon haze swirling under golden hour skies, peepo clutched protectively. Scam alerts flicker on screens behind her\u2014a cinematic moment of determined vigilance amid chaotic debate, warm light casting long shadows through pulsing cyberpunk vibrancy.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 34.98,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "spartan",
+        "eliza",
+        "marc"
+      ],
+      "content_context": "There is a growing tension between maintaining the project's open-source roots and the need for a sustainable monetization strategy to compete with centralized AI labs. Transitioning to a per-tenant isolated container model suggests the project is moving from a developer framework toward an enterprise-ready hosting platform.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A lone silhouette\u2014Marc\u2014stands atop a bustling rooftop, summer haze swirling with neon-glow; behind him, distant figures Spartan and Eliza confer amid glowing screens, golden hour light casting long shadows through cyberpunk fog, capturing Marc\u2019s silent struggle between open-source ideals and looming corporate ambition.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: A lone silhouette\u2014Marc\u2014stands atop a bustling rooftop, summer haze swirling with neon-glow; behind him, distant figures Spartan and Eliza confer amid glowing screens, golden hour light casting long shadows through cyberpunk fog, capturing Marc\u2019s silent struggle between open-source ideals and looming corporate ambition.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.21,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Competitors are moving toward hybrid models that monetize the latest AI weights while open-sourcing legacy versions.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three main holographic panels: \"Hybrid Monetization Models,\" \"Latest AI Weights Revenue,\" and \"Open-Source Legacy AI.\" Key gauges: \u201cCompetitor Adoption Rate,\u201d \u201cRevenue Growth,\u201d \u201cOpen-Source Engagement.\u201d Cyan-accented connection lines flow from \u201cLatest AI Weights Revenue\u201d to \u201cHybrid Monetization Models\u201d and from \u201cOpen-Source Legacy AI\u201d to \u201cCompetitor Adoption Rate.\u201d Use magenta for revenue surges, orange for open-source spikes, and cyan for neutral flow. All elements float as translucent layers with pulsating accents to indicate real-time data changes.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three main holographic panels: \"Hybrid Monetization Models,\" \"Latest AI Weights Revenue,\" and \"Open-Source Legacy AI.\" Key gauges: \u201cCompetitor Adoption Rate,\u201d \u201cRevenue Growth,\u201d \u201cOpen-Source Engagement.\u201d Cyan-accented connection lines flow from \u201cLatest AI Weights Revenue\u201d to \u201cHybrid Monetization Models\u201d and from \u201cOpen-Source Legacy AI\u201d to \u201cCompetitor Adoption Rate.\u201d Use magenta for revenue surges, orange for open-source spikes, and cyan for neutral flow. All elements float as translucent layers with pulsating accents to indicate real-time data changes.\n\nCONTENT CONTEXT:\nCompetitors are moving toward hybrid models that monetize the latest AI weights while open-sourcing legacy versions.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.9,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ElizaOS"
+    ],
+    "entity_count": 1,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-18/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 154.92
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-18/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-18/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-18/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-18/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-18/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-18/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-18/strategic-insights.png"
+  }
+}

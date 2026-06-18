@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three main holographic panels: "Hybrid Monetization Models," "Latest AI Weights Revenue," and "Open-Source Legacy AI." Key gauges: “Competitor Adoption Rate,” “Revenue Growth,” “Open-Source Engagement.” Cyan-accented connection lines flow from “Latest AI Weights Revenue” to “Hybrid Monetization Models” and from “Open-Source Legacy AI” to “Competitor Adoption Rate.” Use magenta for revenue surges, orange for open-source spikes, and cyan for neutral flow. All elements float as translucent layers with pulsating accents to indicate real-time data changes.
+
+CONTENT CONTEXT:
+Competitors are moving toward hybrid models that monetize the latest AI weights while open-sourcing legacy versions.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

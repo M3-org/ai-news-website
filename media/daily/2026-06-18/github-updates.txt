@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core, the Eliza Cloud Control Tower rises—a sleek skyscraper embodying system orchestration and stability. Adjacent Data Warehouse Blocks handle automated database management, linked by elevated Data Pipeline Bridges. Surrounding the Tower, Tenant Districts are individual plots with secure, walled compounds for per-tenant isolation, each labeled by tenant. Automation Yards—mechanized plazas—connect the Tower to all districts. Clear, illuminated paths trace data flow through pipelines from the Control Tower, passing through Automation Yards before reaching each Tenant District and its managed Warehouse Block. Zones: Core (Control Tower), Automation Zone, Tenant Districts.
+
+CONTENT CONTEXT:
+The primary development focus is the stability and automation of the Eliza Cloud infrastructure, including per-tenant isolation and automated database management.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
