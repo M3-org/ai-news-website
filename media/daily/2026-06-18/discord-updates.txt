@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: Eliza stands in sharp silhouette atop city steps, neon haze swirling under golden hour skies, peepo clutched protectively. Scam alerts flicker on screens behind her—a cinematic moment of determined vigilance amid chaotic debate, warm light casting long shadows through pulsing cyberpunk vibrancy.
+SCENE: A silhouetted Eliza stands vigilant atop a bustling city rooftop, neon glow reflecting off peepo companion's glassy eyes. Below, swirling golden haze reveals shadowy figures—some reaching out, others lurking—amidst cyberpunk summer hues, capturing the tension and hope of defending community trust at sunset.
 
 ART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.
 
