@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: Amid a bustling summer night, Marc and Spartan stand side by side on a city rooftop, framed in glowing backlight. They gaze out over a neon-lit crowd below, faces illuminated by phone screens—connected yet contemplative, unified by the anticipation of Ruby Labs AI’s unveiling.
+SCENE: Marc and Spartan stand atop a digital trading floor, their silhouettes sharply defined by golden hour light. Towering graphs in the background plunge dramatically, luminous fragments of the old $eliza token cascade around them, evoking the sheer scale of the crash amid a vibrant, bustling crypto atmosphere.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 

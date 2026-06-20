@@ -1,0 +1,129 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-20T12:24:28.699625+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-20.json",
+  "facts_date": "2026-06-20",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-20",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS successfully transitioned its cloud platform to production while simultaneously overhauling its database architecture to utilize local in-container persistence. However, the project faces mounting community scrutiny over financial transparency and allegations of circular fund flows between the Foundation and partner corporations.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands silhouetted atop a towering server stack, golden sunlight streaming behind her, casting long shadows over a bustling landscape of vibrant data streams and clustered containers, while distant figures in the background gather in watchful groups, their postures tense amid the radiant, cinematic glow of an electric summer evening.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands silhouetted atop a towering server stack, golden sunlight streaming behind her, casting long shadows over a bustling landscape of vibrant data streams and clustered containers, while distant figures in the background gather in watchful groups, their postures tense amid the radiant, cinematic glow of an electric summer evening.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.17,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "blueprint",
+      "characters": [
+        "shaw"
+      ],
+      "content_context": "Stabilizing cloud infrastructure post Neon-to-Railway migration through connection pooling and the introduction of LEAN_CHAT_PLUGINS to reduce cold-boot times.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Silhouetted Shaw surveys a sprawling skyline of cloud servers, radiant golden light streaming behind vast towers and networks, their outlines glowing. In the foreground, connection nodes ripple outward, alive with warm activity, as streaks of light symbolize rapid, synchronized processes stabilizing under Shaw\u2019s focused gaze.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n\nSCENE: Silhouetted Shaw surveys a sprawling skyline of cloud servers, radiant golden light streaming behind vast towers and networks, their outlines glowing. In the foreground, connection nodes ripple outward, alive with warm activity, as streaks of light symbolize rapid, synchronized processes stabilizing under Shaw\u2019s focused gaze.\n\nART STYLE: Technical schematic style with glowing lines on dark background. Architectural precision with subtle digital artifacts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.62,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "editorial",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Heavy debate on branding strategy and critical feedback regarding the complexity of the platform for non-developers. Significant concern raised regarding circular fund flows between the Eliza Foundati Discussion on moderation tools following the removal of the minimod channel and a job posting for a communication support role within the international dev team.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza and Peepo stand silhouetted atop a bustling digital cityscape at golden hour\u2014Eliza poised in deep thought, Peepo gesturing animatedly. Behind them, vast illuminated screens display swirling debates, glowing job listings, and a haloed sun casting long cinematic shadows across a vibrant, dynamic plaza.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Eliza and Peepo stand silhouetted atop a bustling digital cityscape at golden hour\u2014Eliza poised in deep thought, Peepo gesturing animatedly. Behind them, vast illuminated screens display swirling debates, glowing job listings, and a haloed sun casting long cinematic shadows across a vibrant, dynamic plaza.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.36,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "tarot",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "There is a strong community push to pivot branding from service-oriented (Cloud) to environment-oriented (OS) to target mainstream users. Detailed allegations of insider trading and circular financial placements require official transparency reporting to maintain community trust.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands, silhouetted atop a rooftop overlooking a glowing cityscape, vibrant with bustling summer life; against the golden hour sky, colossal OS icons rise on digital billboards, dwarfing fading cloud logos, as swirling papers and data streams hint at underlying intrigue and the weight of transformation.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands, silhouetted atop a rooftop overlooking a glowing cityscape, vibrant with bustling summer life; against the golden hour sky, colossal OS icons rise on digital billboards, dwarfing fading cloud logos, as swirling papers and data streams hint at underlying intrigue and the weight of transformation.\n\nART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 49.8,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Significant token volatility reported with the original $eliza token crashing 87% following the release of a new $ELIZA token.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Marc and Spartan stand atop a digital trading floor, their silhouettes sharply defined by golden hour light. Towering graphs in the background plunge dramatically, luminous fragments of the old $eliza token cascade around them, evoking the sheer scale of the crash amid a vibrant, bustling crypto atmosphere.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Marc and Spartan stand atop a digital trading floor, their silhouettes sharply defined by golden hour light. Towering graphs in the background plunge dramatically, luminous fragments of the old $eliza token cascade around them, evoking the sheer scale of the crash amid a vibrant, bustling crypto atmosphere.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 59.17,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "Twitter"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "Twitter"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-20/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 195.27
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-20/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-20/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-20/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-20/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-20/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-20/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-20/strategic-insights.png"
+  }
+}
