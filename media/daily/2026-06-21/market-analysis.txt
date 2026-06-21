@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
+2. Specific data points or categories to show: Original $eliza token value (before crash), launch event of new $ELIZA token, post-launch $eliza token value (87% decrease)  
+3. Flow/relationship direction: From original $eliza token → New $ELIZA token launch → Post-crash $eliza token value  
+4. Suggested section headers: "Original $eliza Token Value", "New $ELIZA Token Launch", "$eliza Token Value After 87% Crash"
+
+CONTENT CONTEXT:
+The original $eliza token experienced an 87% crash following the launch of a new $ELIZA token.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality
