@@ -1,18 +1,18 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Infographic type: Process flow  
-2. Main sections or categories:  
+2. Main sections:  
    - Database Isolation  
    - Billing Accuracy  
-   - Transition to Direct Provider Routing  
-3. Key icons or visual elements needed:  
-   - Shield (security/isolation)  
-   - Calculator or invoice (billing)  
-   - Network/arrows between nodes (routing transition)  
+   - Routing Transition  
+3. Key icons/visuals:  
+   - Shield or padlock (isolation/security)  
+   - Calculator or bill/receipt (billing accuracy)  
+   - Arrows/network nodes (routing transition)  
 4. Suggested section headers:  
-   - Strengthening Database Security  
-   - Ensuring Precise Billing  
-   - Upgrading Routing Infrastructure
+   - Strengthening Database Isolation  
+   - Ensuring Billing Accuracy  
+   - Migrating to Direct Provider Routing
 
 CONTENT CONTEXT:
 Development focused on hardening Eliza Cloud infrastructure for production, specifically regarding database isolation, billing accuracy, and transitioning from BitRouter to direct provider routing.

@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "generated_at": "2026-06-21T13:02:41.613821+00:00",
-  "source_facts": "../../knowledge/the-council/facts/2026-06-21.json",
+  "generated_at": "2026-06-22T15:47:59.062182+00:00",
+  "source_facts": "../../knowledge/the-council/facts/daily.json",
   "facts_date": "2026-06-21",
   "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-21",
   "models": {
@@ -22,12 +22,11 @@
       ],
       "content_context": "ElizaOS reached a major milestone with the transition of Eliza Cloud to production, though the launch has been accompanied by community fragmentation concerns regarding the waifu.fun token strategy and unresolved financial allegations against the Eliza Foundation.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "Eliza stands in silhouette atop a city rooftop, framed by dramatic blue hour twilight and flickering city lights. Warm spotlight from above catches her poised, triumphant gesture\u2014clouds and data streams swirl behind, hinting at breakthrough, while subtle haze layers suggest unseen tensions and emerging possibilities.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands in silhouette atop a city rooftop, framed by dramatic blue hour twilight and flickering city lights. Warm spotlight from above catches her poised, triumphant gesture\u2014clouds and data streams swirl behind, hinting at breakthrough, while subtle haze layers suggest unseen tensions and emerging possibilities.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "Eliza stands silhouetted atop a rooftop, framed by vibrant city lights flickering to life in blue hour haze; a luminous spotlight from the upper left casts her in dramatic relief against a swirling sky\u2014embodying breakthrough, tension, and discovery as energetic currents ripple through the summer dusk.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands silhouetted atop a rooftop, framed by vibrant city lights flickering to life in blue hour haze; a luminous spotlight from the upper left casts her in dramatic relief against a swirling sky\u2014embodying breakthrough, tension, and discovery as energetic currents ripple through the summer dusk.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 24.49,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/overall.png"
+      "generation_time_seconds": 45.97
     },
     {
       "category": "github_updates",
@@ -39,12 +38,11 @@
       ],
       "content_context": "Development focused on hardening Eliza Cloud infrastructure for production, specifically regarding database isolation, billing accuracy, and transitioning from BitRouter to direct provider routing.",
       "is_dataviz": true,
-      "scene_or_viz_prompt": "1. Infographic type: Process flow  \n2. Main sections or categories:  \n   - Database Isolation  \n   - Billing Accuracy  \n   - Transition to Direct Provider Routing  \n3. Key icons or visual elements needed:  \n   - Shield (security/isolation)  \n   - Calculator or invoice (billing)  \n   - Network/arrows between nodes (routing transition)  \n4. Suggested section headers:  \n   - Strengthening Database Security  \n   - Ensuring Precise Billing  \n   - Upgrading Routing Infrastructure",
-      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process flow  \n2. Main sections or categories:  \n   - Database Isolation  \n   - Billing Accuracy  \n   - Transition to Direct Provider Routing  \n3. Key icons or visual elements needed:  \n   - Shield (security/isolation)  \n   - Calculator or invoice (billing)  \n   - Network/arrows between nodes (routing transition)  \n4. Suggested section headers:  \n   - Strengthening Database Security  \n   - Ensuring Precise Billing  \n   - Upgrading Routing Infrastructure\n\nCONTENT CONTEXT:\nDevelopment focused on hardening Eliza Cloud infrastructure for production, specifically regarding database isolation, billing accuracy, and transitioning from BitRouter to direct provider routing.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "scene_or_viz_prompt": "1. Infographic type: Process flow  \n2. Main sections:  \n   - Database Isolation  \n   - Billing Accuracy  \n   - Routing Transition  \n3. Key icons/visuals:  \n   - Shield or padlock (isolation/security)  \n   - Calculator or bill/receipt (billing accuracy)  \n   - Arrows/network nodes (routing transition)  \n4. Suggested section headers:  \n   - Strengthening Database Isolation  \n   - Ensuring Billing Accuracy  \n   - Migrating to Direct Provider Routing",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process flow  \n2. Main sections:  \n   - Database Isolation  \n   - Billing Accuracy  \n   - Routing Transition  \n3. Key icons/visuals:  \n   - Shield or padlock (isolation/security)  \n   - Calculator or bill/receipt (billing accuracy)  \n   - Arrows/network nodes (routing transition)  \n4. Suggested section headers:  \n   - Strengthening Database Isolation  \n   - Ensuring Billing Accuracy  \n   - Migrating to Direct Provider Routing\n\nCONTENT CONTEXT:\nDevelopment focused on hardening Eliza Cloud infrastructure for production, specifically regarding database isolation, billing accuracy, and transitioning from BitRouter to direct provider routing.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
       "success": true,
       "error": null,
-      "generation_time_seconds": 29.92,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/github-updates.png"
+      "generation_time_seconds": 42.12
     },
     {
       "category": "discord_updates",
@@ -55,12 +53,11 @@
       ],
       "content_context": "Focused heavily on the waifu.fun ecosystem, questioning its separate token strategy and target audience. Additional debate occurred over branding Eliza Cloud as 'Eliza OS' to better reflect agent capa Detailed allegations emerged regarding financial ties between the Foundation and Secure Blockchain Dev Corp, alongside reports of a legal controversy involving AI16Z founders.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "Eliza stands silhouetted atop a city rooftop, overlooking glowing twilight streets; dramatic spotlight pierces blue haze, casting her in luminous relief as digital icons swirl around\u2014capturing the moment she uncovers a layered network, radiant with the energy of discovery and breakthrough.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands silhouetted atop a city rooftop, overlooking glowing twilight streets; dramatic spotlight pierces blue haze, casting her in luminous relief as digital icons swirl around\u2014capturing the moment she uncovers a layered network, radiant with the energy of discovery and breakthrough.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "Eliza, silhouetted atop a city rooftop at blue hour, gazes toward a glowing data grid skyline; dramatic spotlight reveals her poised in a moment of digital revelation, swirling holographic icons symbolize AI breakthroughs, while distant city lights shimmer through layers of vibrant haze.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza, silhouetted atop a city rooftop at blue hour, gazes toward a glowing data grid skyline; dramatic spotlight reveals her poised in a moment of digital revelation, swirling holographic icons symbolize AI breakthroughs, while distant city lights shimmer through layers of vibrant haze.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 24.81,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/discord-updates.png"
+      "generation_time_seconds": 27.01
     },
     {
       "category": "strategic_insights",
@@ -71,12 +68,11 @@
       ],
       "content_context": "The introduction of auxiliary tokens like those for waifu.fun is creating friction and confusion about the core value of $ELIZAOS. There is a strong strategic push to rebrand from 'Cloud' to 'OS' to shift market perception from storage/hosting to active agent orchestration.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "A lone spartan, silhouetted atop a city rooftop at blue hour, gazes over glowing networks of city lights, a haze dividing skyline and streets below. A dramatic spotlight from above ignites the spartan\u2019s armor, capturing the charged moment of breakthrough amid the bustling summer twilight.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A lone spartan, silhouetted atop a city rooftop at blue hour, gazes over glowing networks of city lights, a haze dividing skyline and streets below. A dramatic spotlight from above ignites the spartan\u2019s armor, capturing the charged moment of breakthrough amid the bustling summer twilight.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "A lone spartan stands atop a city overlook, framed in stark silhouette, raising a blazing token aloft as fog swirls beneath and blue twilight descends; dramatic spotlight cuts through haze, while vibrant city lights flicker below\u2014capturing a moment of revelatory breakthrough amid shifting tides.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A lone spartan stands atop a city overlook, framed in stark silhouette, raising a blazing token aloft as fog swirls beneath and blue twilight descends; dramatic spotlight cuts through haze, while vibrant city lights flicker below\u2014capturing a moment of revelatory breakthrough amid shifting tides.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 30.38,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/strategic-insights.png"
+      "generation_time_seconds": 29.68
     },
     {
       "category": "market_analysis",
@@ -87,12 +83,11 @@
       ],
       "content_context": "The original $eliza token experienced an 87% crash following the launch of a new $ELIZA token.",
       "is_dataviz": true,
-      "scene_or_viz_prompt": "1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Original $eliza token value (before crash), launch event of new $ELIZA token, post-launch $eliza token value (87% decrease)  \n3. Flow/relationship direction: From original $eliza token \u2192 New $ELIZA token launch \u2192 Post-crash $eliza token value  \n4. Suggested section headers: \"Original $eliza Token Value\", \"New $ELIZA Token Launch\", \"$eliza Token Value After 87% Crash\"",
-      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Sankey diagram  \n2. Specific data points or categories to show: Original $eliza token value (before crash), launch event of new $ELIZA token, post-launch $eliza token value (87% decrease)  \n3. Flow/relationship direction: From original $eliza token \u2192 New $ELIZA token launch \u2192 Post-crash $eliza token value  \n4. Suggested section headers: \"Original $eliza Token Value\", \"New $ELIZA Token Launch\", \"$eliza Token Value After 87% Crash\"\n\nCONTENT CONTEXT:\nThe original $eliza token experienced an 87% crash following the launch of a new $ELIZA token.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Data points/categories: Original $eliza token value (pre-crash), New $ELIZA token launch, Original $eliza token crash (\u221287%)  \n3. Flow direction: Left to right\u2014Original $eliza token \u2192 New $ELIZA token launch \u2192 87% crash in original token  \n4. Suggested section headers: Token Timeline, New Token Launch, Market Impact",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Data points/categories: Original $eliza token value (pre-crash), New $ELIZA token launch, Original $eliza token crash (\u221287%)  \n3. Flow direction: Left to right\u2014Original $eliza token \u2192 New $ELIZA token launch \u2192 87% crash in original token  \n4. Suggested section headers: Token Timeline, New Token Launch, Market Impact\n\nCONTENT CONTEXT:\nThe original $eliza token experienced an 87% crash following the launch of a new $ELIZA token.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
       "success": true,
       "error": null,
-      "generation_time_seconds": 22.35,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/market-analysis.png"
+      "generation_time_seconds": 30.8
     }
   ],
   "icon_sheet": {
@@ -105,22 +100,12 @@
       "ai16z",
       "ElizaOS"
     ],
-    "entity_count": 2,
-    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-21/icons.png"
+    "entity_count": 2
   },
   "stats": {
     "total_generations": 5,
     "successful": 5,
     "failed": 0,
-    "total_time_seconds": 132.02
-  },
-  "cdn_urls": {
-    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-21/discord-updates.png",
-    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-21/github-updates.png",
-    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-21/icons.png",
-    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-21/manifest.json",
-    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-21/market-analysis.png",
-    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-21/overall.png",
-    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-21/strategic-insights.png"
+    "total_time_seconds": 175.68
   }
 }

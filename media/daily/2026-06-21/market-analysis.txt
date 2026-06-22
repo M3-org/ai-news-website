@@ -1,9 +1,9 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Visualization type: Sankey diagram  
-2. Specific data points or categories to show: Original $eliza token value (before crash), launch event of new $ELIZA token, post-launch $eliza token value (87% decrease)  
-3. Flow/relationship direction: From original $eliza token → New $ELIZA token launch → Post-crash $eliza token value  
-4. Suggested section headers: "Original $eliza Token Value", "New $ELIZA Token Launch", "$eliza Token Value After 87% Crash"
+VISUALIZATION TYPE: 1. Visualization type: Flow chart  
+2. Data points/categories: Original $eliza token value (pre-crash), New $ELIZA token launch, Original $eliza token crash (−87%)  
+3. Flow direction: Left to right—Original $eliza token → New $ELIZA token launch → 87% crash in original token  
+4. Suggested section headers: Token Timeline, New Token Launch, Market Impact
 
 CONTENT CONTEXT:
 The original $eliza token experienced an 87% crash following the launch of a new $ELIZA token.
