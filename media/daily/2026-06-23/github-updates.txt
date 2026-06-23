@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core, a robust Central Operations Tower embodies direct-reply logic, radiating precise data exchanges to all districts via illuminated conduit bridges. Adjacent, a resilient Cloud Job Recovery Data Vault anchors the Recovery District, featuring redundant subterranean passageways for rapid restoration flows. The Web-Fetch Hub, with dual-stacked antenna arrays, dominates the Connectivity Plaza, overseeing simultaneous IPv4/6 request highways. Clearly marked: "Direct-Reply Tower," "Recovery Data Vault," and "Web-Fetch Hub." Data streams traverse suspended pathways, ensuring seamless communication. The city’s dense Infrastructure Core district prioritizes secure, streamlined processing and dependable network reconnection.
+
+CONTENT CONTEXT:
+Exclusive focus on infrastructure and core stability, specifically direct-reply logic, cloud job recovery, and web-fetch dual-stack configurations.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

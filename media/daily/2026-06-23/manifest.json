@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-23T13:39:31.345068+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-23.json",
+  "facts_date": "2026-06-23",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-23",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development activity on June 23 focused on core infrastructure stability and cloud job recovery, following a week marked by the successful production launch of the Eliza Cloud platform. Community discussions centered on token liquidity plans and clarifying the branding of the project as an operating system rather than a cloud service.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Eliza at sunrise, hands poised over a glowing console, digital clouds swirling behind her; Right\u2014community members in heated discussion, tokens and branding diagrams floating between them. Warm rim light ignites Eliza\u2019s silhouette, casting long, dramatic shadows across vibrant summer streets.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left\u2014Eliza at sunrise, hands poised over a glowing console, digital clouds swirling behind her; Right\u2014community members in heated discussion, tokens and branding diagrams floating between them. Warm rim light ignites Eliza\u2019s silhouette, casting long, dramatic shadows across vibrant summer streets.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 33.28,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "shaw",
+        "eliza"
+      ],
+      "content_context": "Exclusive focus on infrastructure and core stability, specifically direct-reply logic, cloud job recovery, and web-fetch dual-stack configurations.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city\u2019s core, a robust Central Operations Tower embodies direct-reply logic, radiating precise data exchanges to all districts via illuminated conduit bridges. Adjacent, a resilient Cloud Job Recovery Data Vault anchors the Recovery District, featuring redundant subterranean passageways for rapid restoration flows. The Web-Fetch Hub, with dual-stacked antenna arrays, dominates the Connectivity Plaza, overseeing simultaneous IPv4/6 request highways. Clearly marked: \"Direct-Reply Tower,\" \"Recovery Data Vault,\" and \"Web-Fetch Hub.\" Data streams traverse suspended pathways, ensuring seamless communication. The city\u2019s dense Infrastructure Core district prioritizes secure, streamlined processing and dependable network reconnection.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city\u2019s core, a robust Central Operations Tower embodies direct-reply logic, radiating precise data exchanges to all districts via illuminated conduit bridges. Adjacent, a resilient Cloud Job Recovery Data Vault anchors the Recovery District, featuring redundant subterranean passageways for rapid restoration flows. The Web-Fetch Hub, with dual-stacked antenna arrays, dominates the Connectivity Plaza, overseeing simultaneous IPv4/6 request highways. Clearly marked: \"Direct-Reply Tower,\" \"Recovery Data Vault,\" and \"Web-Fetch Hub.\" Data streams traverse suspended pathways, ensuring seamless communication. The city\u2019s dense Infrastructure Core district prioritizes secure, streamlined processing and dependable network reconnection.\n\nCONTENT CONTEXT:\nExclusive focus on infrastructure and core stability, specifically direct-reply logic, cloud job recovery, and web-fetch dual-stack configurations.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 44.11,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Discussions involved the Ruby Trivia launch, naming conventions (Eliza OS vs. Eliza Cloud), and significant on-chain wallet movements from early project wallets. Community raised concerns regarding the tokenomics of waifu.fun and why it uses a separate token from $ELIZAOS.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014Peepo and Eliza stand face-to-face, tension evident, vibrant summer festival banners overhead (Ruby Trivia); Right\u2014giant shadowy tokens drift above a glowing, dawn-lit ledger, while smaller coins ($ELIZAOS, waifu.fun) scatter below, Eliza glancing back in concern as Peepo gestures anxiously.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Left\u2014Peepo and Eliza stand face-to-face, tension evident, vibrant summer festival banners overhead (Ruby Trivia); Right\u2014giant shadowy tokens drift above a glowing, dawn-lit ledger, while smaller coins ($ELIZAOS, waifu.fun) scatter below, Eliza glancing back in concern as Peepo gestures anxiously.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 29.8,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "spartan",
+        "marc",
+        "eliza"
+      ],
+      "content_context": "The core development team remains distanced from the foundation regarding token management and liquidity provision. There is a strong push from within the community to rebrand from 'cloud' terminology to 'Operating System' to better define the framework's utility.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Left: Spartan, Marc, and Eliza (tense, backs partly to each other) in heated discussion with digital tokens hovering between them; Right: a vibrant crowd rallying around a glowing \u2018Operating System\u2019 banner, dawn light casting dramatic pink-orange highlights, city skyline silhouetted beyond.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Left: Spartan, Marc, and Eliza (tense, backs partly to each other) in heated discussion with digital tokens hovering between them; Right: a vibrant crowd rallying around a glowing \u2018Operating System\u2019 banner, dawn light casting dramatic pink-orange highlights, city skyline silhouetted beyond.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 39.4,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "infographic",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "Large token movement from Shaw's dormant wallet (1.02B tokens) after 8 months of inactivity.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Timeline  \n2. Main sections or categories to visualize:  \n   - Wallet dormancy period  \n   - Token amount  \n   - Duration of inactivity  \n   - Activation/movement event  \n3. Key icons or visual elements needed:  \n   - Wallet icon  \n   - Clock/calendar for periods  \n   - Token symbol  \n   - Arrow to indicate movement  \n4. Suggested section headers:  \n   - Dormant Wallet Status  \n   - 8 Months Inactive  \n   - 1.02 Billion Tokens Held  \n   - Recent Token Movement",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Timeline  \n2. Main sections or categories to visualize:  \n   - Wallet dormancy period  \n   - Token amount  \n   - Duration of inactivity  \n   - Activation/movement event  \n3. Key icons or visual elements needed:  \n   - Wallet icon  \n   - Clock/calendar for periods  \n   - Token symbol  \n   - Arrow to indicate movement  \n4. Suggested section headers:  \n   - Dormant Wallet Status  \n   - 8 Months Inactive  \n   - 1.02 Billion Tokens Held  \n   - Recent Token Movement\n\nCONTENT CONTEXT:\nLarge token movement from Shaw's dormant wallet (1.02B tokens) after 8 months of inactivity.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 56.19,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-23/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 202.85
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-23/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-23/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-23/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-23/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-23/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-23/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-23/strategic-insights.png"
+  }
+}
