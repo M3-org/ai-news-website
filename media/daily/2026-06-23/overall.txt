@@ -3,7 +3,7 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: Split frame: Left—Eliza at sunrise, hands poised over a glowing console, digital clouds swirling behind her; Right—community members in heated discussion, tokens and branding diagrams floating between them. Warm rim light ignites Eliza’s silhouette, casting long, dramatic shadows across vibrant summer streets.
+SCENE: Split frame: Left—Eliza, backlit in dawn glow, orchestrates glowing data streams around pulsing servers (foreground: focused gaze, tense hands). Right—community silhouettes debate amid swirling token icons and fragmented OS/cloud logos (midground), sunrise light casting elongated, ambiguous shadows across both worlds.
 
 ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
 
