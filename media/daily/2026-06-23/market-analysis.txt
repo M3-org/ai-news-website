@@ -1,9 +1,14 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Infographic type: Timeline  
-2. Main sections or categories to visualize: Wallet dormancy period, Date of last activity, Inactivity duration, Sudden large token movement, Number of tokens moved  
-3. Key icons or visual elements needed: Wallet icon, calendar/clock (for inactivity), arrow or motion icon (for movement), token symbol, numerical display  
-4. Suggested section headers: Wallet Dormancy, Duration of Inactivity, Recent Activity, Token Movement Details
+2. Main sections: Inactivity Period, Dormant Wallet Details, Token Movement Event, Amount Transferred, Time Since Last Activity  
+3. Key icons/visual elements: Calendar/clock (time), Locked wallet (dormant), Token/coin symbol, Arrow (transfer event), Number badge (token amount)  
+4. Suggested section headers:  
+   - 8 Months of Inactivity  
+   - Dormant Wallet Overview  
+   - Sudden Token Movement  
+   - 1.02B Tokens Transferred  
+   - Time Since Last Activity
 
 CONTENT CONTEXT:
 Large token movement from Shaw's dormant wallet (1.02B tokens) after 8 months of inactivity.

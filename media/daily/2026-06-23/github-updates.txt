@@ -1,6 +1,10 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: A fortified Data Center Tower anchors the city, symbolizing core stability, encircled by the Logic Gateway Hall (direct-reply logic hub). Two mirrored Cloud Rescue Domes (job recovery) stand on elevated platforms nearby, linked by redundant bridges. A dual-stacked Web Fetch Plaza—comprised of parallel, glass-arched fetch terminals—sits at the city’s edge facing the network highway. Structured conduits (data flow) connect all via overhead data tracks. The Infrastructure District encompasses all, ringed by secure gateways. Suggested labels: Core Stability, Direct-Reply Logic, Cloud Job Recovery, Web-Fetch Dual Stack.
+VISUALIZATION TYPE: In the isometric tech city:  
+- The "Core Stability Tower" anchors the Central Operations District, symbolizing direct-reply logic with robust foundational columns.  
+- "Recovery Cloud Hub" rises in the Resilience Zone, a cluster of dedicated server silos with soaring antennae for cloud job recovery.  
+- "Dual Gateway Plaza" straddles the Integration District, with twin arched terminals representing web-fetch dual-stack configurations.  
+- High-speed data conduits (elevated transparent bridges) connect all buildings, emphasizing fluid, bidirectional data flow and seamless failover links between zones. Labels: Core Stability Tower, Recovery Cloud Hub, Dual Gateway Plaza.
 
 CONTENT CONTEXT:
 Exclusive focus on infrastructure and core stability, specifically direct-reply logic, cloud job recovery, and web-fetch dual-stack configurations.
