@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Central holographic panel displays “elizaOS Ecosystem Valuation: $10M Target” in bold cyan. Secondary floating gauges: “Current Valuation” (dynamic bar, magenta), “Growth Rate” (circular percentage, orange). Thin neon connection lines link panels, with pulsing data flows between “Current Valuation” and “Growth Rate” gauges. Accents: primary elements in cyan, progress/milestones in magenta, alerts or surges in orange. Background grid faintly pulses for high-tech ambiance.
+
+CONTENT CONTEXT:
+Speculative community valuation targets of 10 million for the elizaOS ecosystem.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
