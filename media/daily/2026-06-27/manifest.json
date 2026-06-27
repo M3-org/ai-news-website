@@ -1,0 +1,130 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-06-27T12:05:17.556690+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-06-27.json",
+  "facts_date": "2026-06-27",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-27",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "elizaOS has completed a significant architectural migration to Gemma-based model tiers across all project platforms while simultaneously hardening its cloud deployment infrastructure. Despite technical progress, community sentiment is mixed due to a lack of updates regarding ongoing legal matters and a perceived slowdown in social media activity.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands at a glowing terminal, code swirling around her in luminous ribbons. Her outline blazes with golden rim light against a softly blurred, bustling workspace\u2014colleagues\u2019 silhouettes and summer greens fading into haze. The atmosphere pulses with breakthrough energy, yet her gaze is focused, contemplative.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands at a glowing terminal, code swirling around her in luminous ribbons. Her outline blazes with golden rim light against a softly blurred, bustling workspace\u2014colleagues\u2019 silhouettes and summer greens fading into haze. The atmosphere pulses with breakthrough energy, yet her gaze is focused, contemplative.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.96,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "retro_terminal",
+      "characters": [
+        "shaw"
+      ],
+      "content_context": "The development team focused on the 'Gemma 4' transition, cloud platform hardening (Product 2), and implementing mandatory testing gates to ensure a production-ready experience.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Shaw, mid-motion, studies glowing code on a tablet\u2014sunny summer light outlines their focused profile. Screens and servers blur behind, catching soft rim light. Dynamic diagonals frame Shaw in a breakthrough moment: discovery reflected in their determined gaze, the vibrant energy of progress palpable in the air.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n\nSCENE: Shaw, mid-motion, studies glowing code on a tablet\u2014sunny summer light outlines their focused profile. Screens and servers blur behind, catching soft rim light. Dynamic diagonals frame Shaw in a breakthrough moment: discovery reflected in their determined gaze, the vibrant energy of progress palpable in the air.\n\nART STYLE: 80s computing aesthetic with green phosphor glow, CRT scan lines, and monospace elements. Nostalgic hacker atmosphere.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 37.77,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "collage",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Discussions centered on Captain Shaw's technical progress vs. community anxiety over legal issues. Users suggested increasing update frequency on Twitter to reassure investors. Technical sharing included screenshots of photographs shared in the building agents development channel. Administrative requests were made for team contact information.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Peepo and Eliza lean over a laptop, faces aglow with discovery, a bright rim of light outlining them; on the screen, vivid technical screenshots spark excitement. Summer energy hums around them\u2014blurred figures bustle nearby\u2014while concern lingers in Eliza\u2019s contemplative gaze.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Peepo and Eliza lean over a laptop, faces aglow with discovery, a bright rim of light outlining them; on the screen, vivid technical screenshots spark excitement. Summer energy hums around them\u2014blurred figures bustle nearby\u2014while concern lingers in Eliza\u2019s contemplative gaze.\n\nART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.55,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "ukiyo_e",
+      "characters": [
+        "spartan",
+        "marc",
+        "eliza"
+      ],
+      "content_context": "The total pivot to Gemma-based models suggests a strategic move toward more efficient inference and better support for localized/mobile AI agents. While technical delivery is high, zero official responses to legal inquiries create a vulnerability for community trust and market sentiment.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Spartan, Marc, and Eliza huddle around a glowing tablet, faces illuminated by its rim lighting; data streams upward diagonally, slicing through the soft, overcast summer haze\u2014background blurs as their discovery crackles with energy amid vibrant yet subdued surroundings.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Spartan, Marc, and Eliza huddle around a glowing tablet, faces illuminated by its rim lighting; data streams upward diagonally, slicing through the soft, overcast summer haze\u2014background blurs as their discovery crackles with energy amid vibrant yet subdued surroundings.\n\nART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.19,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "infographic",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "Community sentiment fluctuates based on social media activity levels (Twitter) rather than technical GitHub commits.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Comparison  \n2. Main sections: Social Media Activity (Twitter), Technical Activity (GitHub), Community Sentiment  \n3. Key icons/visuals: Twitter logo, GitHub logo, sentiment meter or graph, arrows showing influence  \n4. Suggested section headers: \"Social Media Activity,\" \"Technical Development,\" \"Community Sentiment,\" \"What Drives Sentiment?\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Comparison  \n2. Main sections: Social Media Activity (Twitter), Technical Activity (GitHub), Community Sentiment  \n3. Key icons/visuals: Twitter logo, GitHub logo, sentiment meter or graph, arrows showing influence  \n4. Suggested section headers: \"Social Media Activity,\" \"Technical Development,\" \"Community Sentiment,\" \"What Drives Sentiment?\"\n\nCONTENT CONTEXT:\nCommunity sentiment fluctuates based on social media activity levels (Twitter) rather than technical GitHub commits.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.03,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS",
+      "GitHub",
+      "Twitter"
+    ],
+    "entities_found": [
+      "ElizaOS",
+      "GitHub",
+      "Twitter"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-27/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 145.63
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-27/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-27/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-27/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-27/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-27/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-27/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-27/strategic-insights.png"
+  }
+}
