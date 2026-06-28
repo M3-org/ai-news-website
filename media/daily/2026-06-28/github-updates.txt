@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: The isometric tech city features a central "Eliza Cloud Apps Tower" surrounded by a "Kernel Sandboxing Fortress" with thick walls, and a "Modular Plugin Hub" with interlocking annexes. "Testing Gates Pavilions" flank key pathways, forming a security belt. A sleek "Gemma 4 Datacenter" anchors the infrastructure district. Labeled skybridges channel data between the Cloud Tower, Sandboxing Fortress, and Plugin Hub, while dedicated lanes flow to Testing Gates and onward to Gemma 4, illustrating rigorous data validation and responsive processing across organized platform, security, and infrastructure zones.
+
+CONTENT CONTEXT:
+June development focused heavily on maturing the Eliza Cloud Apps platform, implementing kernel sandboxing, and transitioning to a modular plugin-based architecture. Infrastructure hardening through mandatory testing gates and migration to Gemma 4 for improved responsiveness.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
