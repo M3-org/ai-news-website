@@ -1,7 +1,7 @@
 {
   "version": "1.0",
-  "generated_at": "2026-06-28T12:13:11.722559+00:00",
-  "source_facts": "../../knowledge/the-council/facts/2026-06-28.json",
+  "generated_at": "2026-06-29T14:43:51.744019+00:00",
+  "source_facts": "../../knowledge/the-council/facts/daily.json",
   "facts_date": "2026-06-28",
   "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-06-28",
   "models": {
@@ -22,12 +22,11 @@
       ],
       "content_context": "Development on June 27 focused on the cloud-agent MVP and improving macOS desktop capabilities, while community discussions were marked by concerns regarding token communication authority and ongoing legal matters.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "From above, Eliza and her team cluster around glowing laptops on a rooftop, sunrise painting warm light across their workspace. Digital clouds swirl between them, symbolizing shared ideas, as dramatic dawn shadows stretch toward a horizon of collaboration and possibility.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza and her team cluster around glowing laptops on a rooftop, sunrise painting warm light across their workspace. Digital clouds swirl between them, symbolizing shared ideas, as dramatic dawn shadows stretch toward a horizon of collaboration and possibility.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "From above, Eliza and her team huddle over laptops and tablets on a sunlit terrace, pink dawn hues bathing their collaboration as digital code streams between them, casting long, interwoven shadows\u2014foreground alive with scribbled notes, backdrop hinting at distant cityscape and horizon.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza and her team huddle over laptops and tablets on a sunlit terrace, pink dawn hues bathing their collaboration as digital code streams between them, casting long, interwoven shadows\u2014foreground alive with scribbled notes, backdrop hinting at distant cityscape and horizon.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 25.56,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/overall.png"
+      "generation_time_seconds": 27.93
     },
     {
       "category": "github_updates",
@@ -38,12 +37,11 @@
       ],
       "content_context": "June development focused heavily on maturing the Eliza Cloud Apps platform, implementing kernel sandboxing, and transitioning to a modular plugin-based architecture. Infrastructure hardening through mandatory testing gates and migration to Gemma 4 for improved responsiveness.",
       "is_dataviz": true,
-      "scene_or_viz_prompt": "The isometric tech city features a central \"Eliza Cloud Apps Tower\" surrounded by a \"Kernel Sandboxing Fortress\" with thick walls, and a \"Modular Plugin Hub\" with interlocking annexes. \"Testing Gates Pavilions\" flank key pathways, forming a security belt. A sleek \"Gemma 4 Datacenter\" anchors the infrastructure district. Labeled skybridges channel data between the Cloud Tower, Sandboxing Fortress, and Plugin Hub, while dedicated lanes flow to Testing Gates and onward to Gemma 4, illustrating rigorous data validation and responsive processing across organized platform, security, and infrastructure zones.",
-      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: The isometric tech city features a central \"Eliza Cloud Apps Tower\" surrounded by a \"Kernel Sandboxing Fortress\" with thick walls, and a \"Modular Plugin Hub\" with interlocking annexes. \"Testing Gates Pavilions\" flank key pathways, forming a security belt. A sleek \"Gemma 4 Datacenter\" anchors the infrastructure district. Labeled skybridges channel data between the Cloud Tower, Sandboxing Fortress, and Plugin Hub, while dedicated lanes flow to Testing Gates and onward to Gemma 4, illustrating rigorous data validation and responsive processing across organized platform, security, and infrastructure zones.\n\nCONTENT CONTEXT:\nJune development focused heavily on maturing the Eliza Cloud Apps platform, implementing kernel sandboxing, and transitioning to a modular plugin-based architecture. Infrastructure hardening through mandatory testing gates and migration to Gemma 4 for improved responsiveness.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "scene_or_viz_prompt": "At the city\u2019s core stands the Eliza Cloud Apps Skyscraper, ringed by the Kernel Sandboxing Fortresses. Modular Plugin Towers rise nearby, connected via elevated Data Skybridges. The Testing Gate Arch marks entry to the hardened Infrastructure District, leading toward the responsive Gemma 4 Data Exchange Hub. Flowing pathways (labeled \u201cdata pipeline\u201d) link all major structures. Districts: Platform Center, Security Zone (sandboxes), Plugin Sector, Testing Corridor, and Responsiveness Row. Labels: \u201cCloud Platform,\u201d \u201cKernel Sandbox,\u201d \u201cPlugin Modules,\u201d \u201cTesting Gates,\u201d \u201cGemma 4.\u201d",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city\u2019s core stands the Eliza Cloud Apps Skyscraper, ringed by the Kernel Sandboxing Fortresses. Modular Plugin Towers rise nearby, connected via elevated Data Skybridges. The Testing Gate Arch marks entry to the hardened Infrastructure District, leading toward the responsive Gemma 4 Data Exchange Hub. Flowing pathways (labeled \u201cdata pipeline\u201d) link all major structures. Districts: Platform Center, Security Zone (sandboxes), Plugin Sector, Testing Corridor, and Responsiveness Row. Labels: \u201cCloud Platform,\u201d \u201cKernel Sandbox,\u201d \u201cPlugin Modules,\u201d \u201cTesting Gates,\u201d \u201cGemma 4.\u201d\n\nCONTENT CONTEXT:\nJune development focused heavily on maturing the Eliza Cloud Apps platform, implementing kernel sandboxing, and transitioning to a modular plugin-based architecture. Infrastructure hardening through mandatory testing gates and migration to Gemma 4 for improved responsiveness.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
       "success": true,
       "error": null,
-      "generation_time_seconds": 29.37,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/github-updates.png"
+      "generation_time_seconds": 29.93
     },
     {
       "category": "discord_updates",
@@ -55,12 +53,11 @@
       ],
       "content_context": "Introduction of a Senior AI Full-Stack Software Engineer looking to collaborate; concerns raised over token communication authority being restricted to Captain Shaw. Mixed sentiment regarding project viability; moderators de-escalated tensions while community members sought updates on legal status and token safety.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "From above, Eliza (confident Senior Engineer) and Peepo (curious community member) sit at a round table amidst scattered code, glowing tokens, and paperwork; moderators form a calming ring, spotlighted in warm dawn light, as distant shadows gather\u2014balancing tension and teamwork in a layered, vibrant workspace.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: From above, Eliza (confident Senior Engineer) and Peepo (curious community member) sit at a round table amidst scattered code, glowing tokens, and paperwork; moderators form a calming ring, spotlighted in warm dawn light, as distant shadows gather\u2014balancing tension and teamwork in a layered, vibrant workspace.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "From above, Eliza and Peepo huddle over a glowing laptop amid a diverse team, animated in discussion. Warm sunrise light casts long shadows; moderators gesture calmingly, while others pass digital tokens and documents, the dawn horizon hinting at hope and uncertainty.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: From above, Eliza and Peepo huddle over a glowing laptop amid a diverse team, animated in discussion. Warm sunrise light casts long shadows; moderators gesture calmingly, while others pass digital tokens and documents, the dawn horizon hinting at hope and uncertainty.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 29.56,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/discord-updates.png"
+      "generation_time_seconds": 26.38
     },
     {
       "category": "strategic_insights",
@@ -73,12 +70,11 @@
       ],
       "content_context": "By centralizing token communication authority personally with Captain Shaw, the project assumes high key-man risk for governance queries. The project is using GitHub activity as its primary proof-of-life to counter social media stagnancy.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "High above a glowing table scattered with laptops and documents, Spartan, Marc, and Eliza huddle together, collaborating intensely as sunrise spills pink-orange light across their workspace\u2014GitHub code glowing between them, radiating teamwork against a backdrop fading into long, dramatic dawn shadows.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: High above a glowing table scattered with laptops and documents, Spartan, Marc, and Eliza huddle together, collaborating intensely as sunrise spills pink-orange light across their workspace\u2014GitHub code glowing between them, radiating teamwork against a backdrop fading into long, dramatic dawn shadows.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "From above, Spartan, Marc, and Eliza huddle over a glowing table strewn with code, documents, and token symbols. Dawn's orange-pink light spills in, casting long shadows, while their focused collaboration radiates in the dramatic spotlight, emphasizing teamwork amid layered desks and monitors in a bustling workspace.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Spartan, Marc, and Eliza huddle over a glowing table strewn with code, documents, and token symbols. Dawn's orange-pink light spills in, casting long shadows, while their focused collaboration radiates in the dramatic spotlight, emphasizing teamwork amid layered desks and monitors in a bustling workspace.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 33.42,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/strategic-insights.png"
+      "generation_time_seconds": 29.08
     },
     {
       "category": "market_analysis",
@@ -90,12 +86,11 @@
       ],
       "content_context": "Community speculation predicts a potential 10 million valuation despite current lawsuits and social media silence.",
       "is_dataviz": false,
-      "scene_or_viz_prompt": "From above, Spartan and Marc huddle over blueprints at a sunrise-lit table, hands collaborating mid-discussion; legal documents and smartphones lie around, spotlight catching determined faces amid the warm, layered bustle of an awakening office, promising growth despite uncertainty.",
-      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: From above, Spartan and Marc huddle over blueprints at a sunrise-lit table, hands collaborating mid-discussion; legal documents and smartphones lie around, spotlight catching determined faces amid the warm, layered bustle of an awakening office, promising growth despite uncertainty.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "scene_or_viz_prompt": "From above, Spartan and Marc huddle over a glowing round table scattered with charts, their hands nearly touching as they plan. Around them, rising sun paints pink-orange streaks, casting long shadows; surrounding teams exchange ideas\u2014energy and unity ripple through the vibrant, bustling dawn environment.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n\nSCENE: From above, Spartan and Marc huddle over a glowing round table scattered with charts, their hands nearly touching as they plan. Around them, rising sun paints pink-orange streaks, casting long shadows; surrounding teams exchange ideas\u2014energy and unity ripple through the vibrant, bustling dawn environment.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
       "success": true,
       "error": null,
-      "generation_time_seconds": 34.16,
-      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/market-analysis.png"
+      "generation_time_seconds": 26.56
     }
   ],
   "icon_sheet": {
@@ -112,22 +107,12 @@
       "GitHub",
       "Twitter"
     ],
-    "entity_count": 4,
-    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-06-28/icons.png"
+    "entity_count": 4
   },
   "stats": {
     "total_generations": 5,
     "successful": 5,
     "failed": 0,
-    "total_time_seconds": 152.19
-  },
-  "cdn_urls": {
-    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-28/discord-updates.png",
-    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-06-28/github-updates.png",
-    "icons.png": "https://cdn.elizaos.news/media/daily/2026-06-28/icons.png",
-    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-06-28/manifest.json",
-    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-06-28/market-analysis.png",
-    "overall.png": "https://cdn.elizaos.news/media/daily/2026-06-28/overall.png",
-    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-06-28/strategic-insights.png"
+    "total_time_seconds": 139.95
   }
 }
