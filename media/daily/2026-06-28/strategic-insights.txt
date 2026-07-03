@@ -5,7 +5,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: From above, Spartan, Marc, and Eliza huddle around a glowing laptop atop a sunrise-lit rooftop, collaborating urgently as code streams illuminate their determined faces; around them, long dawn shadows stretch over scattered papers and devices, hinting at intense teamwork against the quiet, vibrant city below.
+SCENE: From above, Spartan, Marc, and Eliza huddle around Captain Shaw at a sunlit conference table, hands overlapping over a glowing token; computer screens flicker around them, horizon glowing pink-orange, casting long dawn shadows that stretch through layered desks and scattered GitHub printouts.
 
 ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 
