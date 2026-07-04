@@ -1,6 +1,6 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: At the city’s heart, the Eliza Cloud Apps Tower rises, surrounded by the Modular Plugin Pavilion—distinct modular blocks linked via elevated connectors. The Kernel Sandboxing Fortress anchors security, walled off yet bridged to the central hub. Nearby, a Testing Gates Checkpoint controls all inbound traffic. The Infrastructure District clusters robust Data Pipelines and the new Gemma 4 Operations Center, interconnected by illuminated data highways. Zones: Platform Core, Security Bastion, Plugin Village, QA Boulevard, Infrastructure Row. Labels: “Eliza Cloud Apps,” “Kernel Sandbox,” “Plugin Modules,” “Testing Gates,” “Gemma 4 Center.”
+VISUALIZATION TYPE: At the city center, the "Eliza Cloud Apps Tower" rises, connected by broad data boulevards to the "Kernel Sandboxing Fortress"—a secure citadel. Around these, a "Modular Plugin Arcade" forms a dynamic district of interconnected pavilions. "Testing Gatehouses" control entry into the "Infrastructure Security Zone," while a sleek "Gemma 4 Data Hub" anchors the responsiveness district. Data flows are visualized as illuminated sky bridges and subterranean conduits, linking each labeled building across specialized urban zones.
 
 CONTENT CONTEXT:
 June development focused heavily on maturing the Eliza Cloud Apps platform, implementing kernel sandboxing, and transitioning to a modular plugin-based architecture. Infrastructure hardening through mandatory testing gates and migration to Gemma 4 for improved responsiveness.
