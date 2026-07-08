@@ -1,0 +1,29 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Main metric panels:  
+- Current Eliza Token Price (large, central holographic gauge)  
+- Percentage Decline (vertical bar indicator)  
+- Industry Conflict Index (circular meter)  
+
+Key indicators/gauges:  
+- Market Sentiment Gauge  
+- High-profile Conflict Alerts (pulsing icons)  
+
+Connection lines/data flows:  
+- Dynamic arcs connecting Conflict Index to Price and Sentiment  
+- Flow lines from Alerts to Decline bar  
+
+Suggested color accents: Cyan (price), Magenta (conflict), Orange (alerts and negative trends)
+
+CONTENT CONTEXT:
+Dramatic Eliza token price decline described as 'billion to 0' attributed to conflicts with high-profile industry figures.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi

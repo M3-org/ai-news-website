@@ -1,0 +1,131 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-07-08T12:15:43.842627+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-07-08.json",
+  "facts_date": "2026-07-08",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-07-08",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "elizaOS is undergoing major architectural and structural shifts, including a migration away from the Ai16z platform and the dissolution of the Labs entity. Development remains active with significant focus on security hardening, monetization rails, and production-grade cloud infrastructure.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A lone silhouette of Eliza stands atop a rooftop at dawn, cityscape swirling below\u2014edges aglow in warm, golden rim light. Around her, abstract shards and blueprints drift, hinting at transformation and resolve. The horizon blushes pink-orange, capturing her poised determination amid sweeping change.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: A lone silhouette of Eliza stands atop a rooftop at dawn, cityscape swirling below\u2014edges aglow in warm, golden rim light. Around her, abstract shards and blueprints drift, hinting at transformation and resolve. The horizon blushes pink-orange, capturing her poised determination amid sweeping change.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 39.02,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Consolidation of core system architecture including the removal of technical debt through fallback-slop sweeps and the implementation of a fail-closed error policy.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "In the isometric tech city, a Central Operations Tower (core system) dominates the skyline, surrounded by a streamlined Utility Hall (fallback-slope sweeps) with clear access tunnels to the main tower. Outdated structures (technical debt) are marked as demolition sites. A Security Bastion (fail-closed error policy) guards key entry roads. Data flows through overhead pipelines between the Operations Tower, Utility Hall, and Security Bastion. Zones include the Modernized Core District (main system), Remediation Yards (debt removal), and the Perimeter Safeguard Zone. Buildings are labeled: Operations Tower, Utility Hall, Security Bastion, Demolition Sites.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: In the isometric tech city, a Central Operations Tower (core system) dominates the skyline, surrounded by a streamlined Utility Hall (fallback-slope sweeps) with clear access tunnels to the main tower. Outdated structures (technical debt) are marked as demolition sites. A Security Bastion (fail-closed error policy) guards key entry roads. Data flows through overhead pipelines between the Operations Tower, Utility Hall, and Security Bastion. Zones include the Modernized Core District (main system), Remediation Yards (debt removal), and the Perimeter Safeguard Zone. Buildings are labeled: Operations Tower, Utility Hall, Security Bastion, Demolition Sites.\n\nCONTENT CONTEXT:\nConsolidation of core system architecture including the removal of technical debt through fallback-slop sweeps and the implementation of a fail-closed error policy.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 56.05,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "peepo",
+        "eliza"
+      ],
+      "content_context": "Community discussed the strategy behind migrating away from the Ai16z platform and the transition to a foundation-led model after the dissolution of Labs.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Peepo and Eliza stand silhouetted at dawn atop a hill, overlooking a distant city as soft orange-pink light outlines their figures; documents and laptops at their feet, their postures reflect resolve, apprehension, and hope, with shadows cast long across the vibrant, awakening landscape below.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Peepo and Eliza stand silhouetted at dawn atop a hill, overlooking a distant city as soft orange-pink light outlines their figures; documents and laptops at their feet, their postures reflect resolve, apprehension, and hope, with shadows cast long across the vibrant, awakening landscape below.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.46,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "spartan",
+        "marc",
+        "eliza"
+      ],
+      "content_context": "The move from Ai16z and the reinforcement of the foundation indicates a strategic push toward autonomy and ecosystem-neutral growth.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Three silhouetted figures\u2014Spartan, Marc, and Eliza\u2014stand atop a hill at dawn, backs to the glowing horizon, faces lit in radiant outlines. Around them: a city scaffolded with cranes and networks, symbolizing new beginnings and quiet determination amid the vibrant, awakening summer world.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Three silhouetted figures\u2014Spartan, Marc, and Eliza\u2014stand atop a hill at dawn, backs to the glowing horizon, faces lit in radiant outlines. Around them: a city scaffolded with cranes and networks, symbolizing new beginnings and quiet determination amid the vibrant, awakening summer world.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.45,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "Dramatic Eliza token price decline described as 'billion to 0' attributed to conflicts with high-profile industry figures.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Main metric panels:  \n- Current Eliza Token Price (large, central holographic gauge)  \n- Percentage Decline (vertical bar indicator)  \n- Industry Conflict Index (circular meter)  \n\nKey indicators/gauges:  \n- Market Sentiment Gauge  \n- High-profile Conflict Alerts (pulsing icons)  \n\nConnection lines/data flows:  \n- Dynamic arcs connecting Conflict Index to Price and Sentiment  \n- Flow lines from Alerts to Decline bar  \n\nSuggested color accents: Cyan (price), Magenta (conflict), Orange (alerts and negative trends)",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Main metric panels:  \n- Current Eliza Token Price (large, central holographic gauge)  \n- Percentage Decline (vertical bar indicator)  \n- Industry Conflict Index (circular meter)  \n\nKey indicators/gauges:  \n- Market Sentiment Gauge  \n- High-profile Conflict Alerts (pulsing icons)  \n\nConnection lines/data flows:  \n- Dynamic arcs connecting Conflict Index to Price and Sentiment  \n- Flow lines from Alerts to Decline bar  \n\nSuggested color accents: Cyan (price), Magenta (conflict), Orange (alerts and negative trends)\n\nCONTENT CONTEXT:\nDramatic Eliza token price decline described as 'billion to 0' attributed to conflicts with high-profile industry figures.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.51,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS",
+      "Solana"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS",
+      "SOL"
+    ],
+    "entity_count": 3,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-07-08/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 172.6
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-07-08/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-07-08/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-07-08/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-07-08/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-07-08/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-07-08/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-07-08/strategic-insights.png"
+  }
+}
