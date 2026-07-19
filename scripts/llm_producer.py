@@ -43,6 +43,10 @@ DEFAULT_MODEL = "moonshotai/kimi-k2.5"
 # Trailer constants
 TRANSITIONS = ["hard-cut", "flash-white", "flash-black", "zoom-punch", "glitch", "side-scroll-left", "split"]
 
+# Minimum number of usable clips required to produce a trailer config.
+# Below this, abort with a clear error rather than write a degenerate config.
+MIN_TRAILER_CLIPS = 5
+
 # ============================================================================
 # System Prompts
 # ============================================================================
@@ -177,6 +181,11 @@ def compress_for_llm(session_log: dict, mode: str = "clips") -> dict:
             if not line:
                 continue
 
+            # Trailer mode requires word-level timing for partial selection.
+            # Skip dialogues without it so the LLM can't pick them.
+            if mode == "trailer" and not d.get("words"):
+                continue
+
             entry = {
                 "i": d.get("number", 0),
                 "t": format_time(d.get("startSec", 0)),
@@ -184,10 +193,8 @@ def compress_for_llm(session_log: dict, mode: str = "clips") -> dict:
                 "l": line
             }
 
-            # Trailer mode includes word count for partial selection
             if mode == "trailer":
-                words = d.get("words", [])
-                entry["w"] = len(words)
+                entry["w"] = len(d["words"])
 
             dialogue.append(entry)
 
@@ -635,32 +642,36 @@ class TrailerConfig:
     generated_at: str = ""
 
 
-def extract_partial_line(dialogue: dict, start_word: int, end_word: int) -> dict:
-    """Extract timing for partial line using word-level timestamps."""
+def extract_partial_line(dialogue: dict, start_word: int, end_word: int) -> Optional[dict]:
+    """Extract timing for partial line using word-level timestamps.
+
+    Returns None when the dialogue cannot be turned into a usable trailer clip.
+    The trailer pipeline needs word boundaries to extract 1–3 second partials,
+    so dialogues with an empty `words` array are unusable — there is no
+    meaningful fallback to dialogue-level timing for partial selection.
+    """
     words = dialogue.get("words", [])
+    if not words:
+        return None
 
     start_word = max(0, min(start_word, len(words) - 1))
     end_word = max(start_word, min(end_word, len(words) - 1))
-
-    if not words:
-        return {
-            "text": dialogue.get("line", ""),
-            "startSec": dialogue.get("startSec", 0),
-            "endSec": dialogue.get("endSec", 0),
-            "duration": dialogue.get("endSec", 0) - dialogue.get("startSec", 0)
-        }
 
     partial_words = words[start_word:end_word + 1]
     text = " ".join(w["word"] for w in partial_words)
 
     start_sec = partial_words[0]["start"]
     end_sec = partial_words[-1]["end"]
+    duration = end_sec - start_sec
+
+    if duration <= 0:
+        return None
 
     return {
         "text": text,
         "startSec": start_sec,
         "endSec": end_sec,
-        "duration": end_sec - start_sec,
+        "duration": duration,
         "words": [{"word": w["word"], "start": w["start"], "end": w["end"]} for w in partial_words]
     }
 
@@ -731,6 +742,10 @@ def resolve_clips(raw_clips: list[dict], session_log: dict, session_log_path: Pa
             end_word = len(words) - 1
 
         partial = extract_partial_line(dialogue, start_word, end_word)
+        if partial is None:
+            print(f"  Warning: Skipping scene {scene_num} dlg {dialogue_num} "
+                  f"({dialogue.get('actor', '?')}): no usable word-level timing")
+            continue
 
         clip = TrailerClip(
             source=str(session_log_path),
@@ -909,9 +924,19 @@ def generate_trailer_config(
 
     clips = resolve_clips(raw_clips, session_log, session_log_path)
 
-    if not clips:
-        print("Warning: No valid clips resolved")
-        return None
+    if len(clips) < MIN_TRAILER_CLIPS:
+        print(
+            f"\nERROR: Only {len(clips)} usable clip(s) resolved "
+            f"(need at least {MIN_TRAILER_CLIPS}).",
+            file=sys.stderr,
+        )
+        print(
+            "This usually means the session log is missing word-level "
+            "transcription for many dialogues. Re-check the recording / ASR "
+            "step before retrying.",
+            file=sys.stderr,
+        )
+        sys.exit(1)
 
     title_duration = 2.0
     end_card_duration = 2.0
