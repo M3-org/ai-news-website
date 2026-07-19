@@ -21,10 +21,10 @@ jobs:
 
     steps:
       - name: Checkout ai-news-website
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Checkout knowledge data
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: elizaOS/knowledge
           path: knowledge
@@ -37,7 +37,7 @@ jobs:
             ai-news/elizaos/json
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 

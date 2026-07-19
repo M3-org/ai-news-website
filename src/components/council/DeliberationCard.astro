@@ -13,7 +13,11 @@ const { keyPoints } = Astro.props;
       <div class="topic-badge">{point.topic}</div>
       <div class="summary-text">{point.summary}</div>
     </div>
-    {(point.deliberation_items || []).map(item => (
+    {/* Upstream briefing data occasionally nests malformed objects in
+        deliberation_items (e.g. 2026-06-16 contains a key-point object with no
+        question_id) — drop anything that isn't a real question so one bad item
+        can't fail the whole build. */}
+    {(point.deliberation_items || []).filter(item => typeof item?.question_id === 'string').map(item => (
       <div class="deliberation-card fade-in">
         <div class="deliberation-header">
           <div class="question-id">{item.question_id.toUpperCase()}</div>
