@@ -93,10 +93,18 @@ const calculateDurationInFrames = (props: TrailerProps): number => {
   // Sum clip durations minus overlaps between them
   let clipsFrames = 0;
   for (let i = 0; i < props.clips.length; i++) {
-    clipsFrames += Math.ceil(props.clips[i].duration * FPS);
+    const clip = props.clips[i];
+    if (!(clip.duration > 0)) {
+      throw new Error(
+        `Trailer clip ${i} (scene ${clip.scene} dlg ${clip.dialogue_num}) has ` +
+          `non-positive duration ${clip.duration}. The trailer config is malformed — ` +
+          `regenerate it with scripts/llm_producer.py trailer.`,
+      );
+    }
+    clipsFrames += Math.ceil(clip.duration * FPS);
     // Subtract overlap for all clips after the first
     if (i > 0) {
-      clipsFrames -= OVERLAP_FRAMES[props.clips[i].transition] || 0;
+      clipsFrames -= OVERLAP_FRAMES[clip.transition] || 0;
     }
   }
 

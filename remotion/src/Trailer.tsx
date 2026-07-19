@@ -38,7 +38,7 @@ const ClipSchema = z.object({
   text: z.string(),
   start_sec: z.number(),
   end_sec: z.number(),
-  duration: z.number(),
+  duration: z.number().positive(),
   actor: z.string(),
   video_file: z.string().optional(),
   words: z.array(WordSchema).optional(),
@@ -47,7 +47,7 @@ const ClipSchema = z.object({
 const EndCardSchema = z.object({
   text: z.string(),
   subtext: z.string(),
-  duration: z.number(),
+  duration: z.number().positive(),
 });
 
 const ModulationSchema = z.object({
