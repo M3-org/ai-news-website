@@ -10,7 +10,9 @@ interface Props {
 
 const { highlights, councilBriefing, date } = Astro.props;
 const hasDeliberation = (councilBriefing?.key_points?.length ?? 0) > 0;
-const rawHighlights = highlights?.highlights || [];
+// Drop malformed highlight entries (missing character) from upstream data —
+// `character` is dereferenced in several places below.
+const rawHighlights = (highlights?.highlights || []).filter(h => typeof h?.character === 'string');
 const hasColumnists = rawHighlights.length > 0 || hasDeliberation;
 // Fixed profile images per character
 const PROFILE_IMG: Record<string, number> = { eliza: 1, shaw: 9, marc: 13, spartan: 2, peepo: 2 };
