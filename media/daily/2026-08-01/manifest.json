@@ -1,0 +1,132 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-01T11:58:03.256002+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-08-01.json",
+  "facts_date": "2026-08-01",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-08-01",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development activity remains high with the release of ElizaOS v3 and new Solana trading plugins, though community communication gaps and recruitment spam have been noted. The project is focused on infrastructure hardening and expanding agent capabilities for household coordination.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split-frame scene: Left\u2014Eliza, sparks of digital code in hand, stands triumphant over an OS interface, radiating peak summer energy. Right\u2014a swirl of scattered plugin icons and message bubbles drifts, suggesting both energetic development and fractured communication, all isolated against a soft, overcast backdrop.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split-frame scene: Left\u2014Eliza, sparks of digital code in hand, stands triumphant over an OS interface, radiating peak summer energy. Right\u2014a swirl of scattered plugin icons and message bubbles drifts, suggesting both energetic development and fractured communication, all isolated against a soft, overcast backdrop.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.17,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "retro_terminal",
+      "characters": [
+        "shaw",
+        "eliza"
+      ],
+      "content_context": "Focus on hardening core infrastructure and resolving critical production bugs to ensure framework resilience. Development of monetization tools including influencer marketplaces and Stripe/OxaPay payment rails.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Shaw examines a glowing schematic of framework code (left), while Eliza connects digital nodes symbolizing payments and monetization (right). Both stand against a minimal, softly lit summer backdrop\u2014eyes alight in breakthrough realization, atmosphere charged with purposeful energy.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SHAW: Shaw is a playful, streetwear-coded cyberpunk kid/teen character with a mischievous \u201cDJ/tech-hacker\u201d vibe, often posing in expressive, performance-like gestures (shushing, hands up, stepping/dancing).\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: Shaw examines a glowing schematic of framework code (left), while Eliza connects digital nodes symbolizing payments and monetization (right). Both stand against a minimal, softly lit summer backdrop\u2014eyes alight in breakthrough realization, atmosphere charged with purposeful energy.\n\nART STYLE: 80s computing aesthetic with green phosphor glow, CRT scan lines, and monospace elements. Nostalgic hacker atmosphere.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.44,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "collage",
+      "characters": [
+        "peepo"
+      ],
+      "content_context": "Release of the pnllabs Solana trading plugin and associated smart money wallet audit results. Community frustration regarding the inactivity of official communication channels since May 2026, contrasted with active GitHub development.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: Left\u2014peepo triumphantly uncovers glowing code scrolls labeled \"Solana Plugin\" and \"Wallet Audit\"; Right\u2014peepo peers anxiously at a silent, dusty message board, vibrant GitHub icons glowing in the background. Pale summer light; muted, contemplative atmosphere.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: Split frame: Left\u2014peepo triumphantly uncovers glowing code scrolls labeled \"Solana Plugin\" and \"Wallet Audit\"; Right\u2014peepo peers anxiously at a silent, dusty message board, vibrant GitHub icons glowing in the background. Pale summer light; muted, contemplative atmosphere.\n\nART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.25,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "ukiyo_e",
+      "characters": [
+        "marc",
+        "eliza"
+      ],
+      "content_context": "There is a significant disconnect between rapid GitHub development and public-facing social presence, which is causing community uncertainty.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Split frame: On the left, Marc and Eliza intently study a glowing laptop screen filled with vibrant GitHub graphs; on the right, they stand isolated in a muted, empty social platform interface, expressions contemplative\u2014suggesting a moment of realization amid summer-toned, soft diffused light.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Split frame: On the left, Marc and Eliza intently study a glowing laptop screen filled with vibrant GitHub graphs; on the right, they stand isolated in a muted, empty social platform interface, expressions contemplative\u2014suggesting a moment of realization amid summer-toned, soft diffused light.\n\nART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 22.84,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "cyberpunk_hud",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "PnL Labs audit suggests 'smart money' wallets in the Solana ecosystem are significantly less profitable than perceived.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "Three main holographic panels:  \n1. **Smart Money Wallet Count** (numeric, fluctuating)  \n2. **Average Profitability (%)** (digital gauge, trending arrow)  \n3. **Perceived vs Actual Profit Gap** (bar comparison)\n\nKey indicators:  \n- Profitability gauge (radial, cyan accent)  \n- Alert icon (magenta) for significant discrepancies\n\nConnection lines:  \n- Data streams link Wallet Count to Profitability, and both to Profit Gap.  \n- Flowing animation indicates real-time data updates.\n\nColor accents:  \n- Cyan (metrics), Magenta (alerts/discrepancies), Orange (trend/arrows).",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: Three main holographic panels:  \n1. **Smart Money Wallet Count** (numeric, fluctuating)  \n2. **Average Profitability (%)** (digital gauge, trending arrow)  \n3. **Perceived vs Actual Profit Gap** (bar comparison)\n\nKey indicators:  \n- Profitability gauge (radial, cyan accent)  \n- Alert icon (magenta) for significant discrepancies\n\nConnection lines:  \n- Data streams link Wallet Count to Profitability, and both to Profit Gap.  \n- Flowing animation indicates real-time data updates.\n\nColor accents:  \n- Cyan (metrics), Magenta (alerts/discrepancies), Orange (trend/arrows).\n\nCONTENT CONTEXT:\nPnL Labs audit suggests 'smart money' wallets in the Solana ecosystem are significantly less profitable than perceived.\n\nSTYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 30.82,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "ElizaOS",
+      "GitHub",
+      "Solana",
+      "Solana ecosystem"
+    ],
+    "entities_found": [
+      "ElizaOS",
+      "GitHub",
+      "SOL",
+      "Solana"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-01/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 130.64
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-01/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-01/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-08-01/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-08-01/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-08-01/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-08-01/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-08-01/strategic-insights.png"
+  }
+}
