@@ -8,6 +8,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "sync": "git -C knowledge pull --ff-only origin main",
+    "broadsheet": "node scripts/broadsheet/render-pdf.cjs",
     "record": "node scripts/recorder.cjs",
     "pipeline": "./scripts/run_pipeline.sh",
     "clip": "npx ts-node scripts/clip.ts",
@@ -22,6 +23,7 @@
   "dependencies": {
     "@astrojs/react": "^4.0.0",
     "@astrojs/sitemap": "^3.7.0",
+    "@chenglou/pretext": "^0.0.8",
     "astro": "^5.0.0",
     "puppeteer-stream": "^3.0.22",
     "react": "^18.3.1",
@@ -32,6 +34,7 @@
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "glob": "^13.0.0",
+    "puppeteer": "^25.4.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.8.3"
   }

@@ -1,0 +1,211 @@
+---
+// Print-edition broadsheet — rendered to PDF by scripts/broadsheet/render-pdf.cjs.
+// Standalone page (no site chrome); layout is CSS multicol, with pretext
+// fitting the lead headline to exactly <=2 lines after fonts load.
+import '../../styles/broadsheet.css';
+import { getFacts, getCouncilBriefing, getAvailableDates, getPrintableDates } from '../../lib/data-loader';
+import { formatDateLong } from '../../lib/dates';
+
+export function getStaticPaths() {
+  // Only dates with real content — LLM error placeholders aren't worth printing.
+  return getPrintableDates().map(date => ({ params: { date } }));
+}
+
+const { date } = Astro.params;
+const facts = getFacts(date!);
+const councilBriefing = getCouncilBriefing(date!);
+
+if (!facts) {
+  return Astro.redirect('/');
+}
+
+const categories = facts.categories || ({} as any);
+const summary = facts.overall_summary || '';
+const headlineMatch = summary.match(/^(.+?[.!?])(?=\s|$)/);
+const leadHeadline = (headlineMatch ? headlineMatch[1] : summary.substring(0, 120)).trim();
+const leadBody = headlineMatch ? summary.substring(headlineMatch[0].length).trim() : '';
+
+const strategyText = (item: any) =>
+  item.insight || item.observation || item.analysis || item.summary || '';
+
+const issueNumber = getAvailableDates('facts').length;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>elizaOS News — Print Edition {date}</title>
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="broadsheet">
+    <header class="bs-masthead">
+      <h1>elizaOS News</h1>
+      <div class="bs-dateline">
+        <span>Print Edition</span>
+        <span>{formatDateLong(date!)}</span>
+        <span>No. {issueNumber}</span>
+      </div>
+    </header>
+
+    <section class="bs-lead">
+      <h2 class="bs-lead-headline" id="lead-headline">{leadHeadline}</h2>
+      <div class="bs-lead-body">
+        <img
+          class="bs-lead-poster"
+          src={`/media/daily/${date}/overall.png`}
+          alt=""
+          onerror="this.style.display='none'"
+        />
+        <p>{leadBody || summary}</p>
+      </div>
+    </section>
+
+    <main class="bs-columns">
+      {(facts.key_facts?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">Key Facts</h3>
+          <ol class="bs-facts-list">
+            {facts.key_facts.map(f => <li>{f}</li>)}
+          </ol>
+        </section>
+      )}
+
+      {councilBriefing?.daily_focus && (
+        <aside class="bs-council">
+          <h3 class="bs-section-title">The Council</h3>
+          <p class="bs-council-focus">{councilBriefing.daily_focus}</p>
+          {(councilBriefing.key_points || []).slice(0, 3).map(kp => (
+            <div class="bs-item">
+              <div class="bs-item-head">{kp.topic}</div>
+              <div>{kp.summary}</div>
+            </div>
+          ))}
+        </aside>
+      )}
+
+      {(categories.strategic_insights?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">Strategic Insights</h3>
+          {categories.strategic_insights.map((item: any) => (
+            <div class="bs-item">
+              {item.theme && <div class="bs-item-head">{item.theme}</div>}
+              <div>{strategyText(item)}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(categories.market_analysis?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">Market Analysis</h3>
+          {categories.market_analysis.map((item: any) => (
+            <div class="bs-item">
+              <div>{strategyText(item)}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(categories.twitter_news_highlights?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">X News</h3>
+          {categories.twitter_news_highlights.map((item: any) => (
+            <div class="bs-item">
+              <div>{item.claim}</div>
+              {item.source && <div class="bs-item-src">{item.source}</div>}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(categories.discord_updates?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">Discord Dispatch</h3>
+          {categories.discord_updates.map((item: any) => (
+            <div class="bs-item">
+              <div class="bs-item-head">#{String(item.channel || 'unknown').replace(/^#+/, '')}</div>
+              <div>{item.summary}</div>
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(categories.user_feedback?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">User Feedback</h3>
+          {categories.user_feedback.map((item: any) => (
+            <div class="bs-item">
+              <div>{item.feedback_summary}</div>
+              {item.sentiment && <div class="bs-item-src">{item.sentiment}</div>}
+            </div>
+          ))}
+        </section>
+      )}
+
+      {(facts.open_questions?.length ?? 0) > 0 && (
+        <section class="bs-section">
+          <h3 class="bs-section-title">Open Questions</h3>
+          <ol class="bs-facts-list">
+            {facts.open_questions.map(q => <li>{q}</li>)}
+          </ol>
+        </section>
+      )}
+    </main>
+
+    <footer class="bs-footer">
+      <span>elizaos.news/daily/{date}</span>
+      <span>AI-generated daily intelligence briefing — elizaOS ecosystem</span>
+    </footer>
+
+    <script>
+      // Fit the lead headline to the largest Playfair size making exactly <=2
+      // measured lines, then signal readiness to the PDF renderer via a data
+      // attribute it waits on. pretext requires the measuring font string to
+      // match the rendered CSS and be loaded first.
+      import { prepare, layout } from '@chenglou/pretext';
+
+      const FAMILY = '"Playfair Display"';
+      const done = () => {
+        document.documentElement.dataset.pretextDone = '1';
+      };
+
+      async function fitLeadHeadline() {
+        const el = document.getElementById('lead-headline');
+        if (!el) return done();
+        await document.fonts.load(`900 30px ${FAMILY}`, el.textContent || 'x');
+        await document.fonts.ready;
+        if (!document.fonts.check(`900 30px ${FAMILY}`)) {
+          console.error('Playfair Display not available; keeping CSS font size');
+          return done();
+        }
+        const text = (el.textContent || '').trim();
+        const maxWidth = el.clientWidth;
+        let lo = 24, hi = 72, best = 24;
+        while (lo <= hi) {
+          const mid = (lo + hi) >> 1;
+          const prepared = prepare(text, `900 ${mid}px ${FAMILY}`);
+          const { lineCount } = layout(prepared, maxWidth, Math.round(mid * 1.05));
+          if (lineCount > 0 && lineCount <= 2) {
+            best = mid;
+            lo = mid + 1;
+          } else {
+            hi = mid - 1;
+          }
+        }
+        el.style.fontSize = `${best}px`;
+        done();
+      }
+
+      fitLeadHeadline().catch((err) => {
+        console.error('pretext headline fit failed:', err);
+        done();
+      });
+    </script>
+  </body>
+</html>
