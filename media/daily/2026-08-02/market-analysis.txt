@@ -1,0 +1,29 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Comparison  
+2. Main sections or categories to visualize:  
+   - Total ‘Smart Money’ Wallets  
+   - Profitable Wallets  
+   - Unprofitable Wallets  
+3. Key icons or visual elements needed:  
+   - Wallet icon  
+   - Profit (up arrow, green)  
+   - Loss (down arrow, red)  
+   - Percentage indicators  
+4. Suggested section headers:  
+   - Overview  
+   - Profitable vs. Unprofitable Wallets  
+   - Key Insight: 50% Are Not Profitable
+
+CONTENT CONTEXT:
+PnL Labs audit finds that 50% of 'smart money' wallets are actually unprofitable.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

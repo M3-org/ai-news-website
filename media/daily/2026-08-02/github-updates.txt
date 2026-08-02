@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city’s core, a fortified Data Center Tower symbolizes hardened core infrastructure, encircled by a Firewall Bastion. Adjacent, Lifecycle Management Hubs stand as modular complexes with monitored access. A Pipeline Plaza, a series of streamlined glass arcades, links Development Studios to the main tower, representing CI/CD processes. Data flows as illuminated skyways—redesigning routes through Lifecycle and Pipeline zones before merging at a Central Operations Atrium. Districts are segmented as Infrastructure District (core), Lifecycle Zone (agent management), and DevOps Quarter (pipelines), with labels highlighting: "Core Infrastructure," "Agent Lifecycle," and "Dev Pipeline."
+
+CONTENT CONTEXT:
+Focus on hardening core infrastructure, resolving critical failures in agent lifecycle management, and streamlining development pipelines to ensure production reliability.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
