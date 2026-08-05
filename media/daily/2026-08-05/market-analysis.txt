@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: Three main holographic panels display token drawdowns: ElizaOS, Doge, Shib, and SUI, each showing current vs. peak value (% decline, bold numerals). Vertical arc gauges visualize drawdown percentage (highlight 87–90% in magenta). Animated connection lines link panels, with pulsing data flows illustrating comparative drops. Color accents: cyan highlights ElizaOS, magenta emphasizes the 87–90% danger zone, orange for alert indicators. Floating icons visualize trend arrows, with transparent overlays for historical vs. current position.
+
+CONTENT CONTEXT:
+Comparison of ElizaOS token decline to bear market drawdowns of Doge, Shib, and SUI (87-90% peaks).
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
