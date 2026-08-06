@@ -1,0 +1,31 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Timeline  
+2. Main sections:  
+   - Previous Token Status  
+   - Shaw’s Announcement  
+   - Immediate Price Drop  
+   - Current Market Cap  
+3. Key icons/visuals:  
+   - Token/coin symbol  
+   - Announcement/megaphone icon  
+   - Downward arrow or graph drop  
+   - Market cap numeric badge  
+4. Section headers:  
+   - Before Announcement  
+   - The Statement  
+   - Price Reaction  
+   - Market Cap Now
+
+CONTENT CONTEXT:
+The ElizaOS token price dropped 20% in one day, reaching a market cap of $2M, following Shaw's 'dead project' announcement.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality
