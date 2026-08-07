@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 - PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.
 
-SCENE: At dawn, Eliza and Peepo stand at opposite ends of an empty plaza, shadows stretching toward each other as heated debate silhouettes a crowd in the background. Warm backlight creates halos, fog blurs distant figures, and vibrant summer tones contrast the tension in their standoff.
+SCENE: A dawn-lit, hazy plaza: Eliza and Peepo stand silhouetted on opposite sides of a wide table strewn with papers—tense, neither speaking—while silent, shadowy figures linger in the background, the quiet punctuated only by the vibrant hues of a waking city.
 
 ART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.
 
