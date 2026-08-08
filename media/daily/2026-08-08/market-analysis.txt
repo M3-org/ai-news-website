@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Visualization type: Line chart with annotations  
+2. Data points: ElizaOS token market cap; previous market cap ($2.5M), 20% drop, new market cap ($2M); project abandonment announcement  
+3. Flow/relationship: Show market cap over time with a sharp decline aligned to announcement event  
+4. Section headers: "Market Cap Trend", "Impact of Project Abandonment", "Single-Day Value Change"
+
+CONTENT CONTEXT:
+ElizaOS token market cap fell to $2M after a 20% single-day drop following the project abandonment announcement.
+
+STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality

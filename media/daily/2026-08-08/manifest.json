@@ -1,0 +1,131 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-08T11:21:48.247982+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-08-08.json",
+  "facts_date": "2026-08-08",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-08-08",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The project is undergoing a fundamental pivot away from crypto-token speculation toward a consumer-focused AI operating system following the depletion of the foundation treasury and settlement of a $400k lawsuit. Simultaneously, the technical framework is being hardened with standardized Bun runtimes, Fish Audio streaming integration, and new security boundaries for system policies.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Eliza stands silhouetted atop a sprawling, half-constructed digital city, dramatic rim light outlining her as she surveys shifting structures\u2014streams of code and circuitry swirling beneath soft, overcast summer skies, the vast magnitude of transformation shrouded by atmospheric haze and vibrant, contemplative energy.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: Eliza stands silhouetted atop a sprawling, half-constructed digital city, dramatic rim light outlining her as she surveys shifting structures\u2014streams of code and circuitry swirling beneath soft, overcast summer skies, the vast magnitude of transformation shrouded by atmospheric haze and vibrant, contemplative energy.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.8,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "dataviz",
+      "characters": [
+        "eliza",
+        "shaw"
+      ],
+      "content_context": "Focus on hardening core infrastructure, pinning dependencies to Bun 1.3.14, and improving CI/CD pipeline reliability.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Specific data points or categories: Core Infrastructure Hardening, Dependency Pinning (Bun 1.3.14), CI/CD Pipeline Reliability  \n3. Flow/relationship direction: Parallel improvements feeding into Overall System Stability  \n4. Suggested section headers: Infrastructure Hardening, Dependency Management, CI/CD Reliability, Impact on Stability",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Specific data points or categories: Core Infrastructure Hardening, Dependency Pinning (Bun 1.3.14), CI/CD Pipeline Reliability  \n3. Flow/relationship direction: Parallel improvements feeding into Overall System Stability  \n4. Suggested section headers: Infrastructure Hardening, Dependency Management, CI/CD Reliability, Impact on Stability\n\nCONTENT CONTEXT:\nFocus on hardening core infrastructure, pinning dependencies to Bun 1.3.14, and improving CI/CD pipeline reliability.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 31.62,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "comic_panel",
+      "characters": [
+        "peepo"
+      ],
+      "content_context": "High-tension debate regarding the abandonment of the ElizaOS token. Shaw clarified his lack of financial stake and personal financial strain. Discussion pivoted to a new consumer app vision including  Technical discussion focused on deterministic O(1) calculators for impermanent loss in DeFi agents and the necessity of verifiable traces for audits. Strategic talk on governance, advising that future fundraising maintain centralized control with Shaw. Inference capital markets identified as a grow",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A lone peepo silhouette stands atop a vast digital cliff, dramatic rim light tracing its outline against a sprawling, hazy landscape of shifting graphs and tokens\u2014summer energy pulses as distant figures debate, all enveloped by soft, overcast light and layered atmospheric depth.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: A lone peepo silhouette stands atop a vast digital cliff, dramatic rim light tracing its outline against a sprawling, hazy landscape of shifting graphs and tokens\u2014summer energy pulses as distant figures debate, all enveloped by soft, overcast light and layered atmospheric depth.\n\nART STYLE: Dynamic manga/comic style with action lines, screen tones, and expressive poses. High energy with dramatic angles.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 21.92,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "editorial",
+      "characters": [
+        "spartan"
+      ],
+      "content_context": "The project is moving from a 'crypto-tool' identity to a 'Native AI OS' for mobile and compute platforms, aiming to hide Web3 complexities from users. GitHub activity indicates a strategic move toward extracting core components into standalone repositories to improve scalability.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "A towering Spartan silhouette stands atop a giant circuit board cliff, city-sized processors sprawling below, glowing rim-lit in summer haze. Buzzing figures swarm the landscape, blurred by fog, as luminous code streams arc overhead\u2014symbolizing monumental progress toward a new AI-driven frontier.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: A towering Spartan silhouette stands atop a giant circuit board cliff, city-sized processors sprawling below, glowing rim-lit in summer haze. Buzzing figures swarm the landscape, blurred by fog, as luminous code streams arc overhead\u2014symbolizing monumental progress toward a new AI-driven frontier.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.83,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "spartan",
+        "marc"
+      ],
+      "content_context": "ElizaOS token market cap fell to $2M after a 20% single-day drop following the project abandonment announcement.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Line chart with annotations  \n2. Data points: ElizaOS token market cap; previous market cap ($2.5M), 20% drop, new market cap ($2M); project abandonment announcement  \n3. Flow/relationship: Show market cap over time with a sharp decline aligned to announcement event  \n4. Section headers: \"Market Cap Trend\", \"Impact of Project Abandonment\", \"Single-Day Value Change\"",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Line chart with annotations  \n2. Data points: ElizaOS token market cap; previous market cap ($2.5M), 20% drop, new market cap ($2M); project abandonment announcement  \n3. Flow/relationship: Show market cap over time with a sharp decline aligned to announcement event  \n4. Section headers: \"Market Cap Trend\", \"Impact of Project Abandonment\", \"Single-Day Value Change\"\n\nCONTENT CONTEXT:\nElizaOS token market cap fell to $2M after a 20% single-day drop following the project abandonment announcement.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.16,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "Bun",
+      "ElizaOS",
+      "GitHub"
+    ],
+    "entities_found": [
+      "ai16z",
+      "Bun",
+      "ElizaOS",
+      "GitHub"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-08/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 128.47
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-08/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-08/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-08-08/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-08-08/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-08-08/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-08-08/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-08-08/strategic-insights.png"
+  }
+}
