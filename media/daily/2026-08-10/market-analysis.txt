@@ -1,0 +1,23 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Timeline with cause-effect flow  
+2. Main sections or categories: Lawsuit event, Financial constraint, Settlement, Impact on token support  
+3. Key icons or visual elements needed: Legal document/gavel, dollar sign/empty wallet, handshake/settlement, prohibition/crossed-out token  
+4. Suggested section headers:  
+   - "Burwick Lawsuit Initiated"  
+   - "Insufficient Defense Funds"  
+   - "Settlement for $400K"  
+   - "End of Foundation-Led Token Support"
+
+CONTENT CONTEXT:
+Settlement of the Burwick lawsuit for $400k (due to lack of funds for a $2M defense) has functionally ended foundation-led token support.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

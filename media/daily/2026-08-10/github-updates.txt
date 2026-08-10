@@ -1,22 +1,21 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: 1. Infographic type: Comparison  
+VISUALIZATION TYPE: 1. Infographic type: Process flow  
 2. Main sections or categories to visualize:  
-   - Total ‘Smart Money’ Wallets  
-   - Profitable Wallets  
-   - Unprofitable Wallets  
+   - Hardening CI/CD Pipelines  
+   - Pinning Dependencies (Bun 1.3.14)  
+   - Refactoring Monorepo (Post-Token Modular Architecture)  
 3. Key icons or visual elements needed:  
-   - Wallet icon  
-   - Profit (up arrow, green)  
-   - Loss (down arrow, red)  
-   - Percentage indicators  
+   - Shield/security icon  
+   - Package/dependency icon with version tag  
+   - Modular blocks/monorepo structure icon  
 4. Suggested section headers:  
-   - Overview  
-   - Profitable vs. Unprofitable Wallets  
-   - Key Insight: 50% Are Not Profitable
+   - Securing the Pipeline  
+   - Stable Dependencies  
+   - Modular Refactor
 
 CONTENT CONTEXT:
-PnL Labs audit finds that 50% of 'smart money' wallets are actually unprofitable.
+Concentrated effort on hardening CI/CD pipelines, pinning dependencies (Bun 1.3.14), and refactoring the monorepo for a post-token modular architecture.
 
 STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
 
