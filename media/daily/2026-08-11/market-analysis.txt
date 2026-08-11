@@ -4,7 +4,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: Close-up of Marc’s hand gripping a smartphone, PNL Labs wallet score glowing on screen; his tense knuckles and determined gaze reflected in the glass, harsh shadows slicing across sun-warmed skin, the world fading behind a soft, color-muted haze.
+SCENE: From above: Marc, tense and hunched over his laptop at a cluttered desk, illuminated by a warm spotlight, stares at nosediving token charts; in the background, a muted crowd (Spartan amongst them) debates and anxiously checks phones, soft summer light filtering through a hazy, overcast window.
 
 ART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.
 

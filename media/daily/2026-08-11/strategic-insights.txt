@@ -2,12 +2,12 @@ Create an illustration for a tech news magazine.
 
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
-- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
+- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: A single, weathered hand (Eliza) gripping a glowing, fragmented circuit board, harsh shadows slashing across knuckles; Marc’s reflection, blurred in the board’s chrome, Spartan numbers flickering on a leaderboard display behind; all against a muted, overcast backdrop, capturing tension and solemn resolve.
+SCENE: From above: Eliza stands, laptop in hand, gazing at a code-filled screen; Marc leans over her shoulder, tension and resolve on their faces. Spartan observes from the background amid scattered monitors and paperwork, the scene bathed in a contemplative, warm, diffused spotlight.
 
-ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
+ART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
