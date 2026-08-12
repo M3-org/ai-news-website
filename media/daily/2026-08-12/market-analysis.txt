@@ -1,12 +1,14 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Specific data points or categories to show: $10,000 monthly USDC pool; Contributor applications; Selection/approval process; Distribution of funds; Development outcomes  
-3. Flow/relationship direction: Linear flow from funding pool → contributors → allocation → outcomes  
-4. Suggested section headers: Funding Source, Contributor Engagement, Allocation Process, Development Impact
+2. Specific data points or categories: ElizaOS token, Bybit, MEXC, KuCoin, Delisting threat  
+3. Flow/relationship direction: ElizaOS token flows to each exchange; highlight a warning/alert flow from Bybit indicating delisting threat  
+4. Suggested section headers:  
+   - ElizaOS Token Exchange Listings  
+   - Delisting Risk Analysis
 
 CONTENT CONTEXT:
-Launch of a $10,000 monthly USDC contributor pool to incentivize development.
+ElizaOS token is currently listed on Bybit, MEXC, and KuCoin, but faces a delisting threat from Bybit.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 

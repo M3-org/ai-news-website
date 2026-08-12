@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: At the city center stands the Reliability Tower, a fortified skyscraper symbolizing system stability. Adjacent is the CI/CD Pipeline Terminal, a networked train station with conveyor belts channeling code toward Modular Architecture Blocks—sleek, interlocking structures in the Modular Innovation District. Broad data boulevards connect the Terminal to each Block, while a monitoring control center overlooks the flow. Zones include Core Stability District (Reliability Tower), Automation Square (CI/CD Terminal), and Modular District (Blocks). Labels: Reliability Tower, CI/CD Terminal, Module Block A/B/C, Monitoring Center, Data Boulevard.
+
+CONTENT CONTEXT:
+Development is currently prioritized on system reliability, CI/CD pipeline hardening, and shifting toward a modular architecture.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular

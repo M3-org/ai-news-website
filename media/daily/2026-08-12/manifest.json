@@ -1,0 +1,128 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-12T11:41:03.074712+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-08-12.json",
+  "facts_date": "2026-08-12",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-08-12",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "editorial",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "The ElizaOS project is experiencing a period of intense economic instability and community friction following disclosures regarding founder token liquidations and exchange delisting warnings. Simultaneously, technical development remains high-velocity with a successful transition of develop to main, emphasizing infrastructure hardening and the introduction of new voice capabilities.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza sits alone at a glowing workstation in a bustling, nocturnal workspace\u2014surrounded by scattered monitors, tense conversations, and a pinboard of urgent notes\u2014her face lit by a soft halo as vibrant city lights spill through the windows, mixing turmoil with determined focus.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza sits alone at a glowing workstation in a bustling, nocturnal workspace\u2014surrounded by scattered monitors, tense conversations, and a pinboard of urgent notes\u2014her face lit by a soft halo as vibrant city lights spill through the windows, mixing turmoil with determined focus.\n\nART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 21.75,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "isometric_city",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development is currently prioritized on system reliability, CI/CD pipeline hardening, and shifting toward a modular architecture.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "At the city center stands the Reliability Tower, a fortified skyscraper symbolizing system stability. Adjacent is the CI/CD Pipeline Terminal, a networked train station with conveyor belts channeling code toward Modular Architecture Blocks\u2014sleek, interlocking structures in the Modular Innovation District. Broad data boulevards connect the Terminal to each Block, while a monitoring control center overlooks the flow. Zones include Core Stability District (Reliability Tower), Automation Square (CI/CD Terminal), and Modular District (Blocks). Labels: Reliability Tower, CI/CD Terminal, Module Block A/B/C, Monitoring Center, Data Boulevard.",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: At the city center stands the Reliability Tower, a fortified skyscraper symbolizing system stability. Adjacent is the CI/CD Pipeline Terminal, a networked train station with conveyor belts channeling code toward Modular Architecture Blocks\u2014sleek, interlocking structures in the Modular Innovation District. Broad data boulevards connect the Terminal to each Block, while a monitoring control center overlooks the flow. Zones include Core Stability District (Reliability Tower), Automation Square (CI/CD Terminal), and Modular District (Blocks). Labels: Reliability Tower, CI/CD Terminal, Module Block A/B/C, Monitoring Center, Data Boulevard.\n\nCONTENT CONTEXT:\nDevelopment is currently prioritized on system reliability, CI/CD pipeline hardening, and shifting toward a modular architecture.\n\nSTYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 24.76,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "risograph",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Heavy speculation on the project's future and token utility. Discussions centered on Shaw's token sales, the Bybit delisting threat, and whether the proposed MetaDAO structure implies the end of the E Debates regarding exchange listings (Bybit, MEXC, KuCoin) and the implementation of real-world use cases like transportation AI agents.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above: Eliza and Peepo sit close at a glowing caf\u00e9 table, faces illuminated with anxious hope, surrounded by scattered documents, phone screens aglow with exchange charts\u2014outside, neon reflections ripple on wet pavement, as city lights blur with the summer night\u2019s restless energy.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: From above: Eliza and Peepo sit close at a glowing caf\u00e9 table, faces illuminated with anxious hope, surrounded by scattered documents, phone screens aglow with exchange charts\u2014outside, neon reflections ripple on wet pavement, as city lights blur with the summer night\u2019s restless energy.\n\nART STYLE: Textured screen print with halftone dots, grain, and 2-3 color separation. Raw zine aesthetic with visible printing imperfections.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 25.12,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza",
+        "marc",
+        "spartan"
+      ],
+      "content_context": "The shift toward MetaDAO and Shaw's pivot to open systems suggests the project may be moving toward an open-source engine model that lacks direct token utility. The Bybit ST tag creates an acute delisting risk that could trigger a liquidity cascade across other listed exchanges.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above: Eliza, Marc, and Spartan huddle over glowing monitors amid a bustling summer night office. Pools of artificial light illuminate anxious faces; scattered charts, open laptops, and messaging screens hint at urgent financial decisions and the looming uncertainty of change.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: From above: Eliza, Marc, and Spartan huddle over glowing monitors amid a bustling summer night office. Pools of artificial light illuminate anxious faces; scattered charts, open laptops, and messaging screens hint at urgent financial decisions and the looming uncertainty of change.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.99,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "dataviz",
+      "characters": [
+        "marc"
+      ],
+      "content_context": "ElizaOS token is currently listed on Bybit, MEXC, and KuCoin, but faces a delisting threat from Bybit.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Visualization type: Flow chart  \n2. Specific data points or categories: ElizaOS token, Bybit, MEXC, KuCoin, Delisting threat  \n3. Flow/relationship direction: ElizaOS token flows to each exchange; highlight a warning/alert flow from Bybit indicating delisting threat  \n4. Suggested section headers:  \n   - ElizaOS Token Exchange Listings  \n   - Delisting Risk Analysis",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Visualization type: Flow chart  \n2. Specific data points or categories: ElizaOS token, Bybit, MEXC, KuCoin, Delisting threat  \n3. Flow/relationship direction: ElizaOS token flows to each exchange; highlight a warning/alert flow from Bybit indicating delisting threat  \n4. Suggested section headers:  \n   - ElizaOS Token Exchange Listings  \n   - Delisting Risk Analysis\n\nCONTENT CONTEXT:\nElizaOS token is currently listed on Bybit, MEXC, and KuCoin, but faces a delisting threat from Bybit.\n\nSTYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, professional infographic, data visualization, clean vector design, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.57,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "ElizaOS"
+    ],
+    "entities_found": [
+      "ai16z",
+      "ElizaOS"
+    ],
+    "entity_count": 2,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-12/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 126.36
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-12/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-12/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-08-12/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-08-12/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-08-12/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-08-12/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-08-12/strategic-insights.png"
+  }
+}
