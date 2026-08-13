@@ -5,7 +5,7 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: From above: Eliza, Marc, and Spartan huddle over glowing monitors amid a bustling summer night office. Pools of artificial light illuminate anxious faces; scattered charts, open laptops, and messaging screens hint at urgent financial decisions and the looming uncertainty of change.
+SCENE: From above: Eliza, Marc, and Spartan huddle around glowing monitors in a bustling, neon-lit workspace, their faces tense and hopeful as cascading graphs and code streams reflect in pools of light, while the city’s summer night hum filters through an open window, capturing urgency and fragile optimism.
 
 ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 

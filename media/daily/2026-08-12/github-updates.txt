@@ -1,6 +1,6 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: At the city center stands the Reliability Tower, a fortified skyscraper symbolizing system stability. Adjacent is the CI/CD Pipeline Terminal, a networked train station with conveyor belts channeling code toward Modular Architecture Blocks—sleek, interlocking structures in the Modular Innovation District. Broad data boulevards connect the Terminal to each Block, while a monitoring control center overlooks the flow. Zones include Core Stability District (Reliability Tower), Automation Square (CI/CD Terminal), and Modular District (Blocks). Labels: Reliability Tower, CI/CD Terminal, Module Block A/B/C, Monitoring Center, Data Boulevard.
+VISUALIZATION TYPE: In the city center stands the **Reliability Core Tower**, flanked by robust **CI/CD Pipeline Factories** connected by automated conveyor bridges. Surrounding this, the **Modular Architecture District** features clustered **Module Blocks**—interchangeable, uniform buildings with skywalks. Data flows as illuminated roads between Module Blocks and the Core Tower, passing through CI/CD Factories. The city is organized in concentric zones: the Reliability Zone (core), the Automation Zone (middle, housing CI/CD), and the Modular Zone (outer edge), each labeled for clarity.
 
 CONTENT CONTEXT:
 Development is currently prioritized on system reliability, CI/CD pipeline hardening, and shifting toward a modular architecture.
