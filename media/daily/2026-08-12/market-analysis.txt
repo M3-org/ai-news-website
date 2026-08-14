@@ -1,12 +1,9 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Specific data points or categories: ElizaOS token, Bybit, MEXC, KuCoin, Delisting Threat  
-3. Flow/relationship direction: ElizaOS token connects to Bybit, MEXC, and KuCoin; an alert/branch from Bybit flows to "Delisting Threat"  
-4. Suggested section headers:  
-   - Token Listings  
-   - Exchange Status  
-   - Delisting Alert
+2. Data points: ElizaOS token, Bybit, MEXC, KuCoin, Delisting Threat  
+3. Flow/relationship direction: ElizaOS token flows to each exchange; highlight a risk path from Bybit to Delisting Threat  
+4. Suggested section headers: "Current Listings," "Exchange Status," "Delisting Risk"
 
 CONTENT CONTEXT:
 ElizaOS token is currently listed on Bybit, MEXC, and KuCoin, but faces a delisting threat from Bybit.
