@@ -1,0 +1,133 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-15T11:13:28.856152+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-08-15.json",
+  "facts_date": "2026-08-15",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-08-15",
+  "models": {
+    "image": "google/gemini-3-pro-image-preview",
+    "llm": "openai/gpt-4.1"
+  },
+  "options": {
+    "with_icons": true,
+    "dry_run": false
+  },
+  "generations": [
+    {
+      "category": "overall",
+      "output_file": "overall.png",
+      "style": "cinematic_anime",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "ElizaOS is undergoing a major strategic pivot away from the web3 token economy toward a web2 consumer adoption model while simultaneously hardening infrastructure through the consolidation of Eliza Cloud into eliza.app. Despite structural leadership transitions and community criticism of legacy tokenomics, technical development continues with new visual workflow tools and high-volume bug remediation.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza stands alone atop a glowing rooftop, gazing toward a hazy neon dawn as swirling crowds bustle below\u2014her silhouette radiates quiet resolve amid shifting digital billboards, vibrant cyber hues bathing determined faces in warm summer light, hinting at hope and uncertainty woven through the morning fog.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above, Eliza stands alone atop a glowing rooftop, gazing toward a hazy neon dawn as swirling crowds bustle below\u2014her silhouette radiates quiet resolve amid shifting digital billboards, vibrant cyber hues bathing determined faces in warm summer light, hinting at hope and uncertainty woven through the morning fog.\n\nART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 22.27,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/overall.png"
+    },
+    {
+      "category": "github_updates",
+      "output_file": "github-updates.png",
+      "style": "infographic",
+      "characters": [
+        "eliza"
+      ],
+      "content_context": "Development focused on hardening infrastructure, reducing agent cold-start times, and improving system security via new guards for media processing.",
+      "is_dataviz": true,
+      "scene_or_viz_prompt": "1. Infographic type: Process Flow  \n2. Main sections: Infrastructure Hardening, Cold-Start Optimization, Security Enhancements  \n3. Key icons: Shield/Lock (Security), Stopwatch/Speedometer (Cold-Start), Server/Data Center (Infrastructure)  \n4. Suggested section headers:  \n   - Strengthening Infrastructure  \n   - Accelerating Agent Startup  \n   - Enhancing Media Processing Security",
+      "full_prompt": "Create a professional data visualization for a tech news publication.\n\nVISUALIZATION TYPE: 1. Infographic type: Process Flow  \n2. Main sections: Infrastructure Hardening, Cold-Start Optimization, Security Enhancements  \n3. Key icons: Shield/Lock (Security), Stopwatch/Speedometer (Cold-Start), Server/Data Center (Infrastructure)  \n4. Suggested section headers:  \n   - Strengthening Infrastructure  \n   - Accelerating Agent Startup  \n   - Enhancing Media Processing Security\n\nCONTENT CONTEXT:\nDevelopment focused on hardening infrastructure, reducing agent cold-start times, and improving system security via new guards for media processing.\n\nSTYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.\n\nREQUIREMENTS:\n- Professional infographic/dashboard quality\n- Clean, polished vector aesthetic\n- Include section headers and labels where appropriate\n- Strategic use of color to highlight key insights\n- Editorial publication quality\n- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 22.22,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/github-updates.png"
+    },
+    {
+      "category": "discord_updates",
+      "output_file": "discord-updates.png",
+      "style": "council",
+      "characters": [
+        "eliza",
+        "peepo"
+      ],
+      "content_context": "Community calls for collaboration with the Zeroclaw ecosystem were announced. Concerns were raised regarding the lack of a Telegram channel and tokenomics flaws. Introduction of a high-skill AI engineer seeking opportunities and the sharing of paralens.ai, an EVM transaction analysis engine.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above, Eliza and Peepo stand atop a glowing rooftop, overlooking a bustling dawn-lit city. Neon reflections shimmer in the haze, their faces illuminated by holographic data streams\u2014hopeful yet uncertain\u2014surrounded by scattered digital messages and pleas for connection, community, and innovation.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n- PEEPO: Peepo is a cute, expressive frog-like cartoon character with a friendly, slightly goofy vibe, often posed in simple gestural stances as if reacting or presenting something.\n\nSCENE: From above, Eliza and Peepo stand atop a glowing rooftop, overlooking a bustling dawn-lit city. Neon reflections shimmer in the haze, their faces illuminated by holographic data streams\u2014hopeful yet uncertain\u2014surrounded by scattered digital messages and pleas for connection, community, and innovation.\n\nART STYLE: Features ElizaOS council characters in illustrated scenes. Expressive character interaction with stylized environment.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 22.53,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/discord-updates.png"
+    },
+    {
+      "category": "strategic_insights",
+      "output_file": "strategic-insights.png",
+      "style": "bauhaus",
+      "characters": [
+        "spartan",
+        "marc",
+        "eliza"
+      ],
+      "content_context": "The total exit from the token economy suggests the team believes sustainable growth is only possible through traditional startup funding and web2 adoption, following legal and financial drain from tok",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "From above: Spartan, Marc, and Eliza stand atop a rooftop at dawn, silhouetted against a neon-lit cityscape. Warm summer haze separates bustling street life below. They share a moment of bittersweet hope\u2014determined faces highlighted by long shadows, leaving glowing tokens behind as the world awakens.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.\n\nSCENE: From above: Spartan, Marc, and Eliza stand atop a rooftop at dawn, silhouetted against a neon-lit cityscape. Warm summer haze separates bustling street life below. They share a moment of bittersweet hope\u2014determined faces highlighted by long shadows, leaving glowing tokens behind as the world awakens.\n\nART STYLE: Geometric modernism with primary colors and dynamic diagonals. Industrial printing aesthetic with slight registration shifts.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 27.16,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/strategic-insights.png"
+    },
+    {
+      "category": "market_analysis",
+      "output_file": "market-analysis.png",
+      "style": "synthwave",
+      "characters": [
+        "marc",
+        "spartan"
+      ],
+      "content_context": "Token valuation reached $2.5B despite having only $5M in actual liquidity due to mintable token structures on daos.fun.",
+      "is_dataviz": false,
+      "scene_or_viz_prompt": "Bird\u2019s eye view: Marc and Spartan stand on a neon-lit rooftop, overlooking a glowing digital city bathed in dawn\u2019s soft pink-orange haze. Below, rivers of luminous tokens flow through foggy streets, their faces illuminated with awe and disbelief at the surreal, intangible abundance.",
+      "full_prompt": "Create an illustration for a tech news magazine.\n\nCHARACTERS (use reference sheet for exact appearance):\n- MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.\n- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge\u2014stoic, intimidating, and confrontational, posed like a veteran fighter who\u2019s survived heavy combat and augmentation.\n\nSCENE: Bird\u2019s eye view: Marc and Spartan stand on a neon-lit rooftop, overlooking a glowing digital city bathed in dawn\u2019s soft pink-orange haze. Below, rivers of luminous tokens flow through foggy streets, their faces illuminated with awe and disbelief at the surreal, intangible abundance.\n\nART STYLE: 80s retrofuturism with neon grids, chrome, and sunset gradients. VHS tracking artifacts and CRT glow.\n\nREQUIREMENTS:\n- Characters must match reference sheet EXACTLY (colors, costume, features)\n- Dynamic composition suitable for editorial use\n- Professional quality illustration\n- No text or watermarks\n- Scene should feel natural and engaging",
+      "success": true,
+      "error": null,
+      "generation_time_seconds": 26.51,
+      "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/market-analysis.png"
+    }
+  ],
+  "icon_sheet": {
+    "output_file": "icons.png",
+    "entities_requested": [
+      "AI16z token",
+      "EVM",
+      "ElizaOS",
+      "Telegram"
+    ],
+    "entities_found": [
+      "ai16z",
+      "EVM",
+      "ElizaOS",
+      "Telegram"
+    ],
+    "entity_count": 4,
+    "cdn_url": "https://cdn.elizaos.news/media/daily/2026-08-15/icons.png"
+  },
+  "stats": {
+    "total_generations": 5,
+    "successful": 5,
+    "failed": 0,
+    "total_time_seconds": 120.8
+  },
+  "cdn_urls": {
+    "discord-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-15/discord-updates.png",
+    "github-updates.png": "https://cdn.elizaos.news/media/daily/2026-08-15/github-updates.png",
+    "icons.png": "https://cdn.elizaos.news/media/daily/2026-08-15/icons.png",
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-08-15/manifest.json",
+    "market-analysis.png": "https://cdn.elizaos.news/media/daily/2026-08-15/market-analysis.png",
+    "overall.png": "https://cdn.elizaos.news/media/daily/2026-08-15/overall.png",
+    "strategic-insights.png": "https://cdn.elizaos.news/media/daily/2026-08-15/strategic-insights.png"
+  }
+}
