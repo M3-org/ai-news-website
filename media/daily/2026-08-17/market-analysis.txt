@@ -1,0 +1,22 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: HOLOGRAPHIC HUD shows:  
+1. A large central panel with “ELIZA Token Price” (numeric value, red highlight for 'low').  
+2. Viability Gauge (arc meter, fluctuating with sentiment, marked ‘stable’ to ‘critical’), pulsing orange.  
+3. “Community Sentiment” panel with trend arrow (cyan if rising, magenta if falling).  
+4. Animated connection lines: Price panel links to Sentiment and Viability Gauge.  
+5. Accents: cyan for healthy stats, magenta for warnings, orange for critical alerts.  
+Floating, semi-transparent panels interconnected by glowing data streams.
+
+CONTENT CONTEXT:
+Community reports indicate the ELIZA token is experiencing 'low price' levels, causing some members to question project viability.
+
+STYLE: Holographic heads-up display with neon metrics, glitch effects, and futuristic UI elements. Sci-fi interface aesthetic.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, cyberpunk HUD, holographic interface, neon glow, futuristic, sci-fi
