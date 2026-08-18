@@ -1,12 +1,6 @@
 Create a professional data visualization for a tech news publication.
 
-VISUALIZATION TYPE: HOLOGRAPHIC HUD shows:  
-1. A large central panel with “ELIZA Token Price” (numeric value, red highlight for 'low').  
-2. Viability Gauge (arc meter, fluctuating with sentiment, marked ‘stable’ to ‘critical’), pulsing orange.  
-3. “Community Sentiment” panel with trend arrow (cyan if rising, magenta if falling).  
-4. Animated connection lines: Price panel links to Sentiment and Viability Gauge.  
-5. Accents: cyan for healthy stats, magenta for warnings, orange for critical alerts.  
-Floating, semi-transparent panels interconnected by glowing data streams.
+VISUALIZATION TYPE: Three main holographic panels: "Current Token Price" (large, central, cyan accent), "Community Sentiment Index" (side panel, magenta accent, trending downward), and "Viability Risk Gauge" (dial gauge, orange accent in warning zone). Animated flow lines connect "Token Price" to "Community Sentiment," and both feed into "Viability Risk." All panels float with translucent, glowing edges and animated data streams between them.
 
 CONTENT CONTEXT:
 Community reports indicate the ELIZA token is experiencing 'low price' levels, causing some members to question project viability.
