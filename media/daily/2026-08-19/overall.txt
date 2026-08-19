@@ -3,9 +3,9 @@ Create an illustration for a tech news magazine.
 CHARACTERS (use reference sheet for exact appearance):
 - ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
 
-SCENE: From above: Eliza sits at a cluttered table ablaze with papers, laptop aglow. Around her, blurred figures lean in animated debate. Foreground: a document titled “Governance.” Backdrop: glowing exchange screens. Overhead, a soft, dramatic spotlight bathes Eliza’s intent expression in contemplative warmth.
+SCENE: Eliza, surrounded by a diverse team, gestures toward a luminous, interactive dashboard—Agent World Kit visuals glow as swirling blue haze parts around them, evoking dynamic movement. Summer vibrancy filters through diffused, overcast light, illuminating linked hands and concentrated faces amid softly layered, misty server racks.
 
-ART STYLE: Punk mixed-media aesthetic with halftone, torn paper, and glitch textures. Raw DIY energy with deliberate roughness.
+ART STYLE: Dramatic Makoto Shinkai / Ghibli style with atmospheric lighting and rich skies. Painterly backgrounds with emotional depth.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)

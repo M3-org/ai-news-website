@@ -5,9 +5,9 @@ CHARACTERS (use reference sheet for exact appearance):
 - MARC: Marc is a friendly, upbeat half-human/half-cyborg character with a confident, playful vibe, often posed as if presenting, explaining, or joking with the viewer.
 - SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
 
-SCENE: From above: Eliza stands, laptop in hand, gazing at a code-filled screen; Marc leans over her shoulder, tension and resolve on their faces. Spartan observes from the background amid scattered monitors and paperwork, the scene bathed in a contemplative, warm, diffused spotlight.
+SCENE: Eliza, Marc, and Spartan collaborate intensely around a digital workflow board, their figures leaning in along a sweeping diagonal. Cool blue light bathes the scene; summer haze drifts between focused faces, evoking both movement and purposeful teamwork beneath a contemplative, overcast sky.
 
-ART STYLE: Ukiyo-e style with bold outlines, flat colors, and wave/cloud patterns. Traditional woodgrain texture and hand-carved aesthetic.
+ART STYLE: Mystical Art Nouveau style with symbolic framing. Ornate hand-drawn linework with gilded imperfections.
 
 REQUIREMENTS:
 - Characters must match reference sheet EXACTLY (colors, costume, features)
