@@ -1,12 +1,12 @@
 Create a professional data visualization for a tech news publication.
 
 VISUALIZATION TYPE: 1. Visualization type: Flow chart  
-2. Data points: ElizaOS token, Bybit, MEXC, KuCoin, Delisting Threat  
-3. Flow/relationship direction: ElizaOS token flows to each exchange; highlight a risk path from Bybit to Delisting Threat  
-4. Suggested section headers: "Current Listings," "Exchange Status," "Delisting Risk"
+2. Specific data points or categories to show: Token Speculation → Core Product Metrics (with sub-metrics like User Retention, Engagement Rate, Revenue, Active Users)  
+3. Flow/relationship direction: Left (Token Speculation) to Right (Core Product Metrics and sub-metrics)  
+4. Suggested section headers: "Current Focus: Token Speculation", "Target Focus: Core Product Metrics", "Key Product Metrics"
 
 CONTENT CONTEXT:
-ElizaOS token is currently listed on Bybit, MEXC, and KuCoin, but faces a delisting threat from Bybit.
+Transition away from token speculation toward core product metrics.
 
 STYLE: Professional infographic/dashboard style - Sankey diagrams, charts, isometric data displays. Clean editorial quality.
 
