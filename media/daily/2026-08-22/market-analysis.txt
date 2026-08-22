@@ -1,0 +1,19 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: 1. Infographic type: Timeline  
+2. Main sections or categories to visualize: Token Delisting Date, Impact on Liquidity  
+3. Key icons or visual elements needed: Calendar/clock (for date), token/cryptocurrency symbol (for $ELIZAOS), warning/alert (for impact), droplet or wave (for liquidity decrease)  
+4. Suggested section headers: Delisting Announcement, Delisting Date (August 20, 2026), Expected Impact on Liquidity
+
+CONTENT CONTEXT:
+Bybit delisting of $ELIZAOS token on August 20, 2026, is expected to negatively impact liquidity.
+
+STYLE: Flat design icons, isometric elements, clean visual hierarchy with labels. Professional editorial clarity.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, modern infographic, flat design, isometric, professional, editorial quality

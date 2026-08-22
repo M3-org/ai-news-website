@@ -1,0 +1,16 @@
+Create a professional data visualization for a tech news publication.
+
+VISUALIZATION TYPE: The isometric city features a fortified Security Tower with thick walls at the center, representing the hardened framework. Adjacent, a high-rise Reliability Hub houses resilient cloud-native agent modules. Nearby, Resource Limit Silos regulate flow to prevent overload. Data highways (highlighted in neon) connect these buildings. The Security District clusters protective systems, while the Cloud Operations Zone houses scalability and reliability infrastructures. Labels: "Security Core," "Reliability Hub," "Resource Control Silos."
+
+CONTENT CONTEXT:
+Development effort is prioritized toward hardening the framework’s security, improving system reliability for cloud-native agents, and implementing resource limits to prevent exhaustion.
+
+STYLE: Clean isometric architecture with interconnected modular components and data flow paths. Miniature diorama feel.
+
+REQUIREMENTS:
+- Professional infographic/dashboard quality
+- Clean, polished vector aesthetic
+- Include section headers and labels where appropriate
+- Strategic use of color to highlight key insights
+- Editorial publication quality
+- Modern, sophisticated design, isometric city, tech architecture, clean vector, soft shadows, modular
