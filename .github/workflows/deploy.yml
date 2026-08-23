@@ -47,6 +47,12 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Must run before the Astro build: pages check media/og/ at build time
+      # to decide their og:image meta tags.
+      - name: Generate OG share cards
+        continue-on-error: true
+        run: node scripts/og-cards.cjs --limit 60
+
       - name: Build Astro site
         run: npm run build
 
@@ -57,6 +63,7 @@ jobs:
           cp -r media/daily dist/media/daily 2>/dev/null || true
           cp -r media/dashboards dist/media/dashboards 2>/dev/null || true
           cp -r rss/ dist/rss/ 2>/dev/null || true
+          cp -r media/og dist/media/og 2>/dev/null || true
           cp -r scripts/posters/characters/ dist/scripts/posters/characters/ 2>/dev/null || true
           mkdir -p dist/api/data
           cp knowledge/api/manifest.json dist/api/data/manifest.json 2>/dev/null || true

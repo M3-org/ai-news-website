@@ -11,7 +11,7 @@ import DevelopmentGrid from '../../components/daily/DevelopmentGrid.astro';
 import FullStories from '../../components/daily/FullStories.astro';
 import OpenQuestions from '../../components/daily/OpenQuestions.astro';
 import GitHubStatsBar from '../../components/daily/GitHubStatsBar.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate, getOgImagePath } from '../../lib/data-loader';
 
 export function getStaticPaths() {
   const dates = getAvailableDates('facts');
@@ -37,7 +37,7 @@ if (!facts) {
   return Astro.redirect('/');
 }
 
-const ogImage = `https://elizaos.news/media/daily/${date}/overall.png`;
+const ogImage = getOgImagePath(date!, 'daily') ?? `https://elizaos.news/media/daily/${date}/overall.png`;
 const description = facts.overall_summary?.substring(0, 160) || 'Daily Intelligence from the elizaOS Ecosystem';
 
 const categories = facts.categories || {} as any;

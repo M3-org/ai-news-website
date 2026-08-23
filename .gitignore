@@ -59,3 +59,6 @@ episodes/trailers/
 # Local working directories (not source)
 media/data/
 media/samples/
+
+# Generated OG share cards (regenerated each deploy by scripts/og-cards.cjs)
+media/og/
