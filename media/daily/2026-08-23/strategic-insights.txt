@@ -1,0 +1,16 @@
+Create an illustration for a tech news magazine.
+
+CHARACTERS (use reference sheet for exact appearance):
+- ELIZA: Eliza is a stylized 3D anime-like young woman with a confident, playful, slightly teasing vibe, often posing with expressive hand gestures as if presenting, reacting, or joking.
+- SPARTAN: A gritty, battle-hardened spartan/warrior type with a cybernetic edge—stoic, intimidating, and confrontational, posed like a veteran fighter who’s survived heavy combat and augmentation.
+
+SCENE: Eliza and Spartan stand atop a vast, layered digital cityscape, its glowing structures vanishing into haze. Diagonal shafts of blue light cut across, casting long pink-orange dawn shadows. Around them, swirling data flows and fragmented code shimmer, hinting at scale, movement, and the dawn of lasting AI identity.
+
+ART STYLE: Conceptual New Yorker/Monocle style with bold shapes and visual metaphors. Hand-crafted feel with visible brushstrokes.
+
+REQUIREMENTS:
+- Characters must match reference sheet EXACTLY (colors, costume, features)
+- Dynamic composition suitable for editorial use
+- Professional quality illustration
+- No text or watermarks
+- Scene should feel natural and engaging
