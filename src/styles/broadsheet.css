@@ -1,0 +1,147 @@
+/* Print-edition broadsheet — 11x17in (Tabloid) with 0.5in margins.
+   Designed for headless-Chrome page.pdf(); also usable via browser print. */
+
+@page {
+  size: 11in 17in;
+  margin: 0.5in;
+}
+
+.broadsheet {
+  --bs-ink: #121212;
+  --bs-faint: #6b6455;
+  --bs-rule: #121212;
+  font-family: 'IBM Plex Serif', Georgia, serif;
+  color: var(--bs-ink);
+  background: #fff;
+  font-size: 9.5pt;
+  line-height: 1.35;
+}
+
+@media screen {
+  /* Preview approximation on screen: page-width column on grey */
+  body:has(.broadsheet) { background: #888; }
+  .broadsheet {
+    width: 10in;
+    margin: 0.25in auto;
+    padding: 0.5in;
+    box-shadow: 0 2px 24px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* ── Masthead ── */
+.bs-masthead {
+  text-align: center;
+  border-bottom: 4px double var(--bs-rule);
+  padding-bottom: 10pt;
+  margin-bottom: 12pt;
+}
+.bs-masthead h1 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 44pt;
+  letter-spacing: 0.01em;
+  margin: 0;
+}
+.bs-masthead .bs-dateline {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 8pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-top: 1px solid var(--bs-rule);
+  margin-top: 8pt;
+  padding-top: 5pt;
+}
+
+/* ── Lead ── */
+.bs-lead {
+  border-bottom: 2px solid var(--bs-rule);
+  padding-bottom: 12pt;
+  margin-bottom: 12pt;
+}
+.bs-lead-headline {
+  font-family: 'Playfair Display', serif;
+  font-weight: 900;
+  font-size: 30px; /* pretext fit script overrides to exactly <=2 lines */
+  line-height: 1.05;
+  margin: 0 0 8pt;
+}
+.bs-lead-body {
+  columns: 3;
+  column-gap: 18pt;
+  column-rule: 1px solid #d8d2c4;
+  text-align: justify;
+  hyphens: auto;
+}
+.bs-lead-poster {
+  width: 100%;
+  margin: 0 0 8pt;
+  border: 1px solid var(--bs-rule);
+}
+
+/* ── Column flow ── */
+.bs-columns {
+  columns: 5;
+  column-gap: 16pt;
+  column-rule: 1px solid #d8d2c4;
+  text-align: justify;
+  hyphens: auto;
+}
+.bs-section {
+  break-inside: avoid;
+  margin-bottom: 12pt;
+}
+.bs-section-title {
+  font-family: 'Playfair Display', serif;
+  font-weight: 700;
+  font-size: 12pt;
+  border-bottom: 2px solid var(--bs-rule);
+  margin: 0 0 6pt;
+  padding-bottom: 2pt;
+  text-align: left;
+}
+.bs-item { margin-bottom: 6pt; }
+.bs-item-head {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 700;
+  font-size: 8.5pt;
+  text-align: left;
+}
+.bs-item-src {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7pt;
+  color: var(--bs-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.bs-facts-list {
+  margin: 0;
+  padding-left: 12pt;
+}
+.bs-facts-list li { margin-bottom: 4pt; }
+
+/* Council box */
+.bs-council {
+  border: 2px solid var(--bs-rule);
+  padding: 8pt;
+  break-inside: avoid;
+  margin-bottom: 12pt;
+}
+.bs-council .bs-section-title { border-bottom: 1px solid var(--bs-rule); }
+.bs-council-focus {
+  font-style: italic;
+  margin-bottom: 6pt;
+}
+
+/* ── Footer ── */
+.bs-footer {
+  border-top: 4px double var(--bs-rule);
+  margin-top: 14pt;
+  padding-top: 6pt;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7.5pt;
+  color: var(--bs-faint);
+  display: flex;
+  justify-content: space-between;
+}
