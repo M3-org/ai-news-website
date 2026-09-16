@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated_at": "2026-09-08T14:50:55.062827+00:00",
-  "source_facts": "../../knowledge/the-council/facts/2026-09-08.json",
-  "facts_date": "2026-09-08",
-  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-09-08",
+  "generated_at": "2026-09-16T15:15:42.244900+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-09-16.json",
+  "facts_date": "2026-09-16",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-09-16",
   "models": {
     "image": "google/gemini-3-pro-image-preview",
     "llm": "openai/gpt-4.1"
@@ -37,6 +37,6 @@
     "total_time_seconds": 1.64
   },
   "cdn_urls": {
-    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-09-08/manifest.json"
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-09-16/manifest.json"
   }
 }
