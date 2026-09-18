@@ -66,6 +66,11 @@ jobs:
           ls dist/media/daily/2026-02-16/ 2>/dev/null | head -5 || echo "  No 2026-02-16 images"
           ls dist/unity/ 2>/dev/null | head -5 || echo "  No unity"
 
+      # After asset copy so the PDFs land in the final dist/media/daily/ tree.
+      - name: Render broadsheet PDFs
+        continue-on-error: true
+        run: node scripts/broadsheet/render-pdf.cjs --days 7
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5
         with:
