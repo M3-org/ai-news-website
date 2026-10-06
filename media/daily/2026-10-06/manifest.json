@@ -1,9 +1,9 @@
 {
   "version": "1.0",
-  "generated_at": "2026-09-28T18:20:16.460029+00:00",
-  "source_facts": "../../knowledge/the-council/facts/2026-09-28.json",
-  "facts_date": "2026-09-28",
-  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-09-28",
+  "generated_at": "2026-10-06T17:01:52.422251+00:00",
+  "source_facts": "../../knowledge/the-council/facts/2026-10-06.json",
+  "facts_date": "2026-10-06",
+  "output_dir": "/home/runner/work/ai-news-website/ai-news-website/media/daily/2026-10-06",
   "models": {
     "image": "google/gemini-3-pro-image-preview",
     "llm": "openai/gpt-4.1"
@@ -26,7 +26,7 @@
       "full_prompt": null,
       "success": false,
       "error": "402 Client Error: Payment Required for url: https://openrouter.ai/api/v1/chat/completions",
-      "generation_time_seconds": 1.7
+      "generation_time_seconds": 2.04
     }
   ],
   "icon_sheet": null,
@@ -34,9 +34,9 @@
     "total_generations": 1,
     "successful": 0,
     "failed": 1,
-    "total_time_seconds": 1.73
+    "total_time_seconds": 2.08
   },
   "cdn_urls": {
-    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-09-28/manifest.json"
+    "manifest.json": "https://cdn.elizaos.news/media/daily/2026-10-06/manifest.json"
   }
 }
