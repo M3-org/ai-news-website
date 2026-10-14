@@ -58,6 +58,25 @@ export function getDailySilk(date: string): string | null {
   return readText(`daily-silk/${date}.md`);
 }
 
+/** Dates with printable facts (not LLM error placeholders), newest first. */
+export function getPrintableDates(): string[] {
+  return getAvailableDates('facts').filter(date => {
+    const f = getFacts(date);
+    return f && (f as any)._metadata?.status !== 'error' && !/^Error:/i.test(f.overall_summary || '');
+  });
+}
+
+let broadsheetDatesMemo: Set<string> | null = null;
+
+/** The dates scripts/broadsheet/render-pdf.cjs will produce PDFs for at deploy
+ * time: the 7 newest printable dates. Memoized — called from every daily page. */
+export function getBroadsheetDates(): Set<string> {
+  if (!broadsheetDatesMemo) {
+    broadsheetDatesMemo = new Set(getPrintableDates().slice(0, 7));
+  }
+  return broadsheetDatesMemo;
+}
+
 export function getAvailableDates(type: 'facts' | 'council_briefing'): string[] {
   const dir = type === 'facts' ? 'the-council/facts' : 'the-council/council_briefing';
   try {

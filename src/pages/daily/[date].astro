@@ -11,7 +11,7 @@ import DevelopmentGrid from '../../components/daily/DevelopmentGrid.astro';
 import FullStories from '../../components/daily/FullStories.astro';
 import OpenQuestions from '../../components/daily/OpenQuestions.astro';
 import GitHubStatsBar from '../../components/daily/GitHubStatsBar.astro';
-import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+import { getFacts, getCouncilBriefing, getHighlights, getAiNews, getGitHubSummary, getGitHubStats, getDailySilk, getAvailableDates, getLatestDate, getBroadsheetDates } from '../../lib/data-loader';
 
 export function getStaticPaths() {
   const dates = getAvailableDates('facts');
@@ -143,6 +143,11 @@ const keyFacts = facts.key_facts || [];
     </div>
     <div class="archive-nav-links">
       {prevDate && <a href={`/daily/${prevDate}`} class="archive-older">&larr; Older</a>}
+      {/* Broadsheet PDFs are rendered at deploy time for the 7 newest
+          printable editions — same selection render-pdf.cjs makes. */}
+      {getBroadsheetDates().has(date!) && (
+        <a href={`/media/daily/${date}/broadsheet.pdf`} class="archive-older">Print Edition (PDF)</a>
+      )}
       {nextDate && <a href={`/daily/${nextDate}`} class="archive-older">Newer &rarr;</a>}
     </div>
   </nav>
