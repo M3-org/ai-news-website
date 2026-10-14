@@ -58,6 +58,16 @@ export function getDailySilk(date: string): string | null {
   return readText(`daily-silk/${date}.md`);
 }
 
+const SITE_ORIGIN = 'https://elizaos.news';
+
+/** Absolute URL of a generated OG share card, or null if scripts/og-cards.cjs
+ * hasn't produced one for this date (cards are generated pre-build in CI). */
+export function getOgImagePath(date: string, kind: 'daily' | 'council'): string | null {
+  const file = kind === 'council' ? `council-${date}.png` : `${date}.png`;
+  const full = path.resolve(process.cwd(), 'media', 'og', file);
+  return fs.existsSync(full) ? `${SITE_ORIGIN}/media/og/${file}` : null;
+}
+
 export function getAvailableDates(type: 'facts' | 'council_briefing'): string[] {
   const dir = type === 'facts' ? 'the-council/facts' : 'the-council/council_briefing';
   try {

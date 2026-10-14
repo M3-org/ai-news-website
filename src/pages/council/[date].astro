@@ -4,7 +4,7 @@ import DatePicker from '../../components/nav/DatePicker';
 import MeetingContext from '../../components/council/MeetingContext';
 import DailyFocus from '../../components/council/DailyFocus';
 import DeliberationCard from '../../components/council/DeliberationCard.astro';
-import { getCouncilBriefing, getAvailableDates, getLatestDate } from '../../lib/data-loader';
+import { getCouncilBriefing, getAvailableDates, getLatestDate, getOgImagePath } from '../../lib/data-loader';
 
 export function getStaticPaths() {
   const dates = getAvailableDates('council_briefing');
@@ -33,8 +33,9 @@ function contextToHtml(md: string): string {
 const contextHtml = contextToHtml(briefing.meeting_context || '');
 const description = briefing.daily_focus?.substring(0, 160) || 'Council Strategic Deliberation';
 const keyPoints = briefing.key_points || [];
+const ogImage = getOgImagePath(date!, 'council') ?? undefined;
 ---
-<DarkLayout title={`Council Briefing - ${date}`} description={description} active="council">
+<DarkLayout title={`Council Briefing - ${date}`} description={description} ogImage={ogImage} active="council">
   <style is:global>
     @import '../../styles/dark.css';
 

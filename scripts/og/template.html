@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>OG Card Template</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@500;700&display=swap" rel="stylesheet">
+<style>body { margin: 0; background: #222; }</style>
+</head>
+<body>
+<canvas id="card" width="1200" height="630"></canvas>
+<script>
+// The og-cards.cjs driver injects the pretext bundle as window.pretext
+// (IIFE global) before calling renderCard.
+
+const W = 1200;
+const H = 630;
+const MARGIN = 72;
+const HEADLINE_FAMILY = '"Playfair Display"';
+const UI_FAMILY = '"DM Sans"';
+
+const headlineFont = (px) => `900 ${px}px ${HEADLINE_FAMILY}`;
+const LINE_HEIGHT_RATIO = 1.12;
+
+async function ensureFonts() {
+  // Load the exact shorthands used for measurement AND drawing — pretext
+  // requires them to agree, and fillText silently falls back otherwise.
+  await Promise.all([
+    document.fonts.load(headlineFont(64), 'AGI'),
+    document.fonts.load(`700 42px ${UI_FAMILY}`, 'elizaOS'),
+    document.fonts.load(`500 28px ${UI_FAMILY}`, '2026'),
+  ]);
+  await document.fonts.ready;
+  if (!document.fonts.check(headlineFont(64))) {
+    throw new Error('Playfair Display failed to load — refusing to render with fallback font');
+  }
+}
+
+function fitHeadlineSize(text, maxWidth, maxLines, min = 40, max = 72) {
+  // Largest size in [min, max] whose layout fits maxLines.
+  let lo = min, hi = max, best = min;
+  while (lo <= hi) {
+    const mid = Math.floor((lo + hi) / 2);
+    const prepared = window.pretext.prepare(text, headlineFont(mid));
+    const { lineCount } = window.pretext.layout(prepared, maxWidth, Math.round(mid * LINE_HEIGHT_RATIO));
+    if (lineCount <= maxLines && lineCount > 0) { best = mid; lo = mid + 1; }
+    else hi = mid - 1;
+  }
+  return best;
+}
+
+function loadImage(dataUrl) {
+  return new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = () => reject(new Error('poster image failed to decode'));
+    img.src = dataUrl;
+  });
+}
+
+function drawCover(ctx, img) {
+  // object-fit: cover for the 1200x630 canvas
+  const scale = Math.max(W / img.width, H / img.height);
+  const dw = img.width * scale, dh = img.height * scale;
+  ctx.drawImage(img, (W - dw) / 2, (H - dh) / 2, dw, dh);
+}
+
+// payload: { headline, kicker, dateLabel, posterDataUrl }
+window.renderCard = async function renderCard(payload) {
+  await ensureFonts();
+  const canvas = document.getElementById('card');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, W, H);
+
+  const hasPoster = Boolean(payload.posterDataUrl);
+  if (hasPoster) {
+    drawCover(ctx, await loadImage(payload.posterDataUrl));
+    const scrim = ctx.createLinearGradient(0, H * 0.25, 0, H);
+    scrim.addColorStop(0, 'rgba(12, 12, 14, 0)');
+    scrim.addColorStop(0.45, 'rgba(12, 12, 14, 0.62)');
+    scrim.addColorStop(1, 'rgba(12, 12, 14, 0.92)');
+    ctx.fillStyle = scrim;
+    ctx.fillRect(0, 0, W, H);
+  } else {
+    // Branded fallback: newsprint cream with double rule, matching the site masthead.
+    ctx.fillStyle = '#f4efe4';
+    ctx.fillRect(0, 0, W, H);
+    ctx.fillStyle = '#1a1a1a';
+    ctx.fillRect(MARGIN, 52, W - 2 * MARGIN, 4);
+    ctx.fillRect(MARGIN, 62, W - 2 * MARGIN, 1);
+    ctx.fillRect(MARGIN, H - 40, W - 2 * MARGIN, 1);
+    ctx.fillRect(MARGIN, H - 33, W - 2 * MARGIN, 4);
+  }
+
+  const ink = hasPoster ? '#ffffff' : '#1a1a1a';
+  const accent = hasPoster ? 'rgba(255,255,255,0.82)' : '#5a5346';
+  const maxWidth = W - 2 * MARGIN;
+
+  // Headline: binary-search the largest size fitting <=3 lines, then draw
+  // the measured lines bottom-anchored.
+  const headline = payload.headline || 'Daily Intelligence Briefing';
+  const size = fitHeadlineSize(headline, maxWidth, 3);
+  const lineHeight = Math.round(size * LINE_HEIGHT_RATIO);
+  const font = headlineFont(size);
+  const prepared = window.pretext.prepareWithSegments(headline, font);
+  const { lines } = window.pretext.layoutWithLines(prepared, maxWidth, lineHeight);
+
+  ctx.font = font;
+  ctx.fillStyle = ink;
+  ctx.textBaseline = 'alphabetic';
+  if (hasPoster) {
+    ctx.shadowColor = 'rgba(0,0,0,0.55)';
+    ctx.shadowBlur = 14;
+    ctx.shadowOffsetY = 2;
+  }
+  const footerY = H - 64;                       // date line sits here
+  const headlineBottom = footerY - 44;          // gap above footer
+  const firstBaseline = headlineBottom - (lines.length - 1) * lineHeight;
+  for (let i = 0; i < lines.length; i++) {
+    ctx.fillText(lines[i].text, MARGIN, firstBaseline + i * lineHeight);
+  }
+  ctx.shadowColor = 'transparent';
+  ctx.shadowBlur = 0;
+  ctx.shadowOffsetY = 0;
+
+  // Kicker above the headline
+  ctx.font = `700 26px ${UI_FAMILY}`;
+  ctx.fillStyle = accent;
+  const kickerY = firstBaseline - lineHeight * 0.85 - 18;
+  ctx.fillText((payload.kicker || 'DAILY BRIEFING').toUpperCase(), MARGIN, kickerY);
+
+  // Masthead top-left, date bottom-left
+  ctx.font = `700 42px ${UI_FAMILY}`;
+  ctx.fillStyle = ink;
+  ctx.fillText('elizaOS News', MARGIN, hasPoster ? 104 : 128);
+  ctx.font = `500 28px ${UI_FAMILY}`;
+  ctx.fillStyle = accent;
+  ctx.fillText(payload.dateLabel || '', MARGIN, footerY + 10);
+
+  return canvas.toDataURL('image/png');
+};
+</script>
+</body>
+</html>
