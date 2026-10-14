@@ -14,6 +14,7 @@ import {
   interpolate,
   staticFile,
   useCurrentFrame,
+  useVideoConfig,
 } from "remotion";
 import {
   Item,
@@ -33,6 +34,8 @@ import { GraphCanvas, buildGraphTimeline, resolveGraphCamera, OPENING_FRAMES, ge
 import { GLBFader } from "./GLBFader";
 import { buildFaderSceneBounds } from "./fader";
 import { CANVAS_SIZE } from "./graph/layout";
+import { fitFontSize } from "./fitText";
+import { headlineFont, INTER_FAMILY, useFontsReady } from "./fonts";
 
 export type { Item, DailyCardProps };
 
@@ -43,6 +46,24 @@ const ORANGE = "#FF8A00";
 export const DailyCard: React.FC<DailyCardProps> = (props) => {
   const { date, site_url } = props;
   const frame = useCurrentFrame();
+
+  // Fit-to-width headline: largest size whose measured layout stays within
+  // 3 lines of the 72px-margin content box.
+  const { width: compWidth } = useVideoConfig();
+  const fontsReady = useFontsReady();
+  const headlineSize = useMemo(
+    () =>
+      fitFontSize(
+        props.headline,
+        headlineFont,
+        compWidth - 144,
+        3,
+        1.3,
+        { min: 24, max: 48, letterSpacing: -0.5 },
+      ),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    [props.headline, compWidth, fontsReady],
+  );
 
   const totalFrames = computeTotalFrames(props);
   const timeline = useMemo(() => buildGraphTimeline(props), [props]);
@@ -161,11 +182,11 @@ export const DailyCard: React.FC<DailyCardProps> = (props) => {
         >
           <p
             style={{
-              fontSize: props.headline.length < 55 ? 42 : props.headline.length < 90 ? 36 : 30,
+              fontSize: headlineSize,
               color: "#fff",
               margin: 0,
               lineHeight: 1.3,
-              fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif',
+              fontFamily: INTER_FAMILY, // must match the font measured by fitFontSize
               fontWeight: 600,
               letterSpacing: "-0.5px",
               textShadow: `0 2px 20px rgba(0,0,0,0.7), 0 0 40px ${ORANGE}30`,

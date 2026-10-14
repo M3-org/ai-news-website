@@ -12,6 +12,8 @@ import {
   Img,
 } from "remotion";
 import { resolveAsset } from "./resolveAsset";
+import { layoutCaptionWords } from "./captionLayout";
+import { captionFont, INTER_FAMILY, useFontsReady } from "./fonts";
 
 interface WordData {
   word: string;
@@ -89,7 +91,7 @@ export const Clip: React.FC<ClipProps> = ({
   thumbnailDir,
 }) => {
   const frame = useCurrentFrame();
-  const { fps, durationInFrames } = useVideoConfig();
+  const { fps, durationInFrames, width } = useVideoConfig();
 
   const clamp01 = (value: number) => Math.max(0, Math.min(1, value));
 
@@ -296,36 +298,34 @@ export const Clip: React.FC<ClipProps> = ({
     }
   }
 
-  // TikTok-style text chunking: group words into small phrases (max 4 words or until punctuation)
-  const wordsWithChunks = React.useMemo(() => {
-    if (!words) return [];
-    let currentChunkIdx = 0;
-    let wordsInCurrentChunk = 0;
-    return words.map((w, idx) => {
-      const hasPunctuation = /[.,?!]/.test(w.word);
-      const result = { ...w, chunkIndex: currentChunkIdx, originalIndex: idx };
-      wordsInCurrentChunk++;
-      if (wordsInCurrentChunk >= 4 || hasPunctuation) {
-        currentChunkIdx++;
-        wordsInCurrentChunk = 0;
-      }
-      return result;
-    });
-  }, [words]);
+  // Measured caption lines (pretext): words are broken into lines that fit
+  // the caption safe area, with per-word x-offsets for the karaoke highlight.
+  // Everything frame-independent lives in the memo so every one of the
+  // clip's frame re-renders sees identical line breaks.
+  const CAPTION_SIZE = 84;
+  const fontsReady = useFontsReady();
+  const captionSafeWidth =
+    width - (showThumbnail ? 360 : 80) - (showThumbnail ? 80 : 50);
+  const captionLayout = React.useMemo(() => {
+    if (!words || words.length === 0 || !fontsReady) return null;
+    return layoutCaptionWords(words, captionFont(CAPTION_SIZE), captionSafeWidth);
+  }, [words, captionSafeWidth, fontsReady]);
 
-  let activeChunk = 0;
-  if (wordsWithChunks.length > 0) {
+  // Active line = line containing the most recent word whose start time has
+  // passed (same timing scan the chunked captions used).
+  let activeWordIdx = 0;
+  if (words && words.length > 0) {
     const clipStartSec = startSec || 0;
-    let currentWord = wordsWithChunks[0];
-    for (const w of wordsWithChunks) {
-      if (frame >= (w.start - clipStartSec) * fps) {
-        currentWord = w;
+    for (let i = 0; i < words.length; i++) {
+      if (frame >= (words[i].start - clipStartSec) * fps) {
+        activeWordIdx = i;
       } else {
         break;
       }
     }
-    activeChunk = currentWord.chunkIndex;
   }
+  const activeLineIdx = captionLayout?.wordToLine[activeWordIdx] ?? 0;
+  const activeLine = captionLayout?.lines[activeLineIdx] ?? null;
 
   return (
     <AbsoluteFill
@@ -606,7 +606,7 @@ export const Clip: React.FC<ClipProps> = ({
         </div>
       )}
 
-      {/* Main quote text — TikTok style word chunks synced to speech */}
+      {/* Main quote text — pretext-measured line synced to speech */}
       <div
         style={{
           position: "absolute",
@@ -616,7 +616,6 @@ export const Clip: React.FC<ClipProps> = ({
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          flexWrap: "wrap",
           transform: `translateY(${textSlide}px) scale(${textParallax})`,
           transformOrigin: "center center",
           opacity: textOpacity,
@@ -624,21 +623,65 @@ export const Clip: React.FC<ClipProps> = ({
       >
         <p
           style={{
-            fontSize: 84, // Slightly bigger text for CapCut style
+            fontSize: CAPTION_SIZE,
             fontWeight: 800,
+            fontFamily: INTER_FAMILY, // must match captionFont() for measured offsets
             color: "#fff",
             lineHeight: 1.15,
             margin: 0,
             textShadow: "0 4px 20px rgba(0,0,0,0.9), 0 2px 4px rgba(0,0,0,0.8)",
             textAlign: "center",
-            width: "100%",
+            whiteSpace: "pre",
+            position: "relative",
+            width: activeLine ? activeLine.width : "100%",
           }}
         >
-          {wordsWithChunks && wordsWithChunks.length > 0
-            ? wordsWithChunks.map((w) => {
-                if (w.chunkIndex !== activeChunk) return null;
-                const idx = w.originalIndex;
-                
+          {/* Karaoke highlight — rounded rect gliding between measured word
+              positions of the active line */}
+          {activeLine && words && (() => {
+            const clipStartSec = startSec || 0;
+            const speaking = activeLine.words.filter(
+              (lw) => frame >= (words[lw.wordIdx].start - clipStartSec) * fps,
+            );
+            const current = speaking[speaking.length - 1];
+            if (!current) return null;
+            if (frame >= (words[current.wordIdx].end - clipStartSec) * fps + 10) {
+              return null; // line finished speaking a while ago
+            }
+            const prev = speaking[speaking.length - 2];
+            const startFrame = (words[current.wordIdx].start - clipStartSec) * fps;
+            const glide = prev
+              ? Easing.bezier(0.2, 1, 0.2, 1)(
+                  Math.max(0, Math.min(1, (frame - startFrame) / 4)),
+                )
+              : 1;
+            const x = prev ? prev.x + (current.x - prev.x) * glide : current.x;
+            const w = prev
+              ? prev.width + (current.width - prev.width) * glide
+              : current.width;
+            const PAD = 14;
+            return (
+              <span
+                style={{
+                  position: "absolute",
+                  left: x - PAD,
+                  width: w + PAD * 2,
+                  top: "50%",
+                  height: "1.25em",
+                  transform: "translateY(-50%)",
+                  borderRadius: 18,
+                  backgroundColor: `${actorColor}38`,
+                  boxShadow: `0 0 24px ${actorColor}30`,
+                  zIndex: -1, // behind the word spans (their transforms lift them)
+                }}
+              />
+            );
+          })()}
+          {activeLine && words
+            ? activeLine.words.map((lw) => {
+                const idx = lw.wordIdx;
+                const w = words[idx];
+
                 // Convert absolute word time to clip-local frame
                 const clipStartSec = startSec || 0;
                 const wordStartFrame = (w.start - clipStartSec) * fps;
@@ -717,7 +760,7 @@ export const Clip: React.FC<ClipProps> = ({
                       }}
                     >
                       {w.word}
-                      {idx < wordsWithChunks.length - 1 ? "\u00A0" : ""}
+                      {lw === activeLine.words[activeLine.words.length - 1] ? "" : " "}
                     </span>
                   );
                 }
@@ -733,8 +776,9 @@ export const Clip: React.FC<ClipProps> = ({
                   wordOpacity = 0;
                   wordColor = "rgba(255,255,255,0.3)";
                 } else if (isSpeaking) {
+                  // White against the actor-colored karaoke pill behind it.
                   wordOpacity = 1;
-                  wordColor = actorColor;
+                  wordColor = "#fff";
                 } else {
                   const fadeT = Math.min(
                     1,
@@ -758,7 +802,7 @@ export const Clip: React.FC<ClipProps> = ({
                     }}
                   >
                     {w.word}
-                    {idx < wordsWithChunks.length - 1 ? "\u00A0" : ""}
+                    {lw === activeLine.words[activeLine.words.length - 1] ? "" : " "}
                   </span>
                 );
               })

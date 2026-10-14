@@ -9,10 +9,12 @@
     "upgrade": "npx remotion upgrade"
   },
   "dependencies": {
+    "@chenglou/pretext": "^0.0.8",
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.5.0",
     "@react-three/postprocessing": "^3.0.4",
     "@remotion/cli": "4.0.417",
+    "@remotion/google-fonts": "^4.0.417",
     "@remotion/media-utils": "4.0.417",
     "@remotion/player": "4.0.417",
     "@remotion/three": "4.0.417",
@@ -24,8 +26,8 @@
     "zod": "3.22.3"
   },
   "devDependencies": {
-    "@types/react": "19.2.7",
     "@types/node": "^22.0.0",
+    "@types/react": "19.2.7",
     "typescript": "^5.8.0"
   }
 }
